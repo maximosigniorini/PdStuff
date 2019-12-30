@@ -1,5 +1,5 @@
 # PdStuff
-Collection of Pure Data patches collected from all over the world (mostly not mine) 
+Collection of Pure Data patches collected from all over the internet (not mine) 
 
-TO DO
+To Do
 * Credit authors respectively
