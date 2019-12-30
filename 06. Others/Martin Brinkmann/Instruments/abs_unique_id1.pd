@@ -1,0 +1,11 @@
+#N canvas 182 409 450 300 10;
+#X obj 62 199 outlet;
+#X obj 53 52 inlet;
+#X obj 63 140 \$0;
+#X obj 59 100 t b;
+#X obj 92 99 loadbang;
+#X text 70 21 output a unique id on bang or loadbang;
+#X connect 1 0 3 0;
+#X connect 2 0 0 0;
+#X connect 3 0 2 0;
+#X connect 4 0 2 0;

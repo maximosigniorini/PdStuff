@@ -1,0 +1,10 @@
+#N canvas 277 127 450 300 10;
+#X obj 22 114 vd~ \$0bdl;
+#X obj -170 65 inlet~;
+#X obj 22 149 outlet~;
+#X obj 22 76 inlet~;
+#X obj -170 101 delwrite~ \$0bdl 1000;
+#X text -101 35 short delayline with vd;
+#X connect 0 0 2 0;
+#X connect 1 0 4 0;
+#X connect 3 0 0 0;

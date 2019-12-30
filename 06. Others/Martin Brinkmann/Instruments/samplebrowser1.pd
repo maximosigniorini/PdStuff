@@ -1,0 +1,50 @@
+#N canvas 327 77 970 933 10;
+#X obj 45 816 dac~;
+#X obj 53 781 *~ 0.5;
+#X obj 21 26 loadbang;
+#X obj 51 186 playlist all 800 410 {Helvetica 10 bold} white yellow
+black red;
+#X msg 344 625 set \$1;
+#X msg 26 56 location /home/mnb/samplelib;
+#X msg 62 100 location /home/mnb/wave_wrk;
+#X msg 81 146 location ..;
+#X msg 48 79 location /home/mnb/archiv/sounds;
+#X obj 41 730 readsf~;
+#X msg 65 700 open \$1;
+#X obj 42 674 t b a;
+#X msg 28 698 1;
+#X msg 123 729 set \$1;
+#X msg 74 121 location /home/mnb/sound_recordings;
+#X msg 130 770 /home/mnb/samplelib/evolution/120bpm/Drum/DRUM-B06.WAV
+;
+#X msg 246 677 DRUM-B06.WAV;
+#X obj 140 649 s file;
+#X obj 25 641 spigot;
+#X obj 103 637 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 117 614 spigot;
+#X obj 165 612 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X connect 1 0 0 0;
+#X connect 1 0 0 1;
+#X connect 2 0 5 0;
+#X connect 3 0 13 0;
+#X connect 3 0 18 0;
+#X connect 3 0 20 0;
+#X connect 3 1 4 0;
+#X connect 4 0 16 0;
+#X connect 5 0 3 0;
+#X connect 6 0 3 0;
+#X connect 7 0 3 0;
+#X connect 8 0 3 0;
+#X connect 9 0 1 0;
+#X connect 10 0 9 0;
+#X connect 11 0 12 0;
+#X connect 11 1 10 0;
+#X connect 12 0 9 0;
+#X connect 13 0 15 0;
+#X connect 14 0 3 0;
+#X connect 18 0 11 0;
+#X connect 19 0 18 1;
+#X connect 20 0 17 0;
+#X connect 21 0 20 1;

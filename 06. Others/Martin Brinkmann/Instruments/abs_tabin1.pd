@@ -1,0 +1,14 @@
+#N canvas 1 77 884 559 10;
+#X obj 34 105 inlet;
+#X text 348 171 \$1-argument is tablesite(= blocksize);
+#X obj 201 169 table \$0inputtable \$1;
+#X obj 38 161 tabread \$0inputtable;
+#X text 33 83 index;
+#X obj 202 125 tabsend~ \$0inputtable;
+#X obj 201 93 inlet~;
+#X obj 33 232 outlet;
+#X text 98 30 get continous signals into a table fro use in 'on bang'
+;
+#X connect 0 0 3 0;
+#X connect 3 0 7 0;
+#X connect 6 0 5 0;

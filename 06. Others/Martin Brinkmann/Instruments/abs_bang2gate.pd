@@ -1,0 +1,22 @@
+#N canvas 256 325 462 443 10;
+#X obj 96 348 outlet~;
+#X obj 85 308 vline~;
+#X text 100 369 gate out;
+#X obj 34 94 inlet;
+#X msg 71 274 \$1 \, 0 0 0.5;
+#X text 153 280 0.5 ms standard trigger-impulselength;
+#X obj 47 194 f 0.5;
+#X obj 48 216 clip 0.0001 1;
+#X text 38 72 convert a number (or a bang) to a trigger-impulse;
+#X obj 36 119 route float bang;
+#X msg 83 148 1;
+#X text 115 154 default maximum level \, should be compatible with
+other virtual (virtual) modules;
+#X connect 1 0 0 0;
+#X connect 3 0 9 0;
+#X connect 4 0 1 0;
+#X connect 6 0 7 0;
+#X connect 7 0 4 0;
+#X connect 9 0 6 0;
+#X connect 9 1 10 0;
+#X connect 10 0 6 0;

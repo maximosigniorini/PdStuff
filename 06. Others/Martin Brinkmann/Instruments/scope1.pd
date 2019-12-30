@@ -1,0 +1,24 @@
+#N canvas 1 77 450 300 10;
+#N canvas 1 77 450 300 scope 0;
+#X obj 101 116 abs_scope1;
+#X obj 92 18 inlet~;
+#X obj 288 100 tgl 15 0 empty empty on 2 7 0 10 -262144 -1 -128992
+0 1;
+#X obj 105 250 hsl 128 8 0 1 0 1 empty empty scale 1 4 0 10 -262144
+-1 -1 2200 1;
+#X obj 94 59 *~;
+#X obj 28 69 t f f;
+#X obj 30 101 *;
+#X obj 32 130 * 10;
+#X obj 323 64 metro 193;
+#X connect 1 0 4 0;
+#X connect 2 0 8 0;
+#X connect 3 0 5 0;
+#X connect 4 0 0 0;
+#X connect 5 0 6 0;
+#X connect 5 1 6 1;
+#X connect 6 0 7 0;
+#X connect 7 0 4 1;
+#X connect 8 0 0 1;
+#X coords 0 -1 1 1 205 160 1 100 100;
+#X restore 80 92 pd scope;

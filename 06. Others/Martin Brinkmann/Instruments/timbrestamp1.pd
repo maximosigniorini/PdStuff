@@ -1,0 +1,37 @@
+#N canvas 127 168 650 633 10;
+#X obj 173 465 dac~;
+#X obj 173 421 *~ 0.5;
+#X obj 105 269 phasor~;
+#X obj 86 200 notein;
+#X obj 95 238 mtof;
+#X obj 111 297 -~ 0.5;
+#X obj 111 327 *~ 2;
+#N canvas 219 484 975 521 tmbrstmp 0;
+#X text 157 -57 timbrestamp from millers pd doc;
+#X obj 33 271 outlet~;
+#X obj -13 35 inlet~;
+#X obj 73 36 inlet~;
+#X obj 126 129 nbx 5 14 0 1e+37 0 1 empty empty sql -22 8 0 10 -262144
+-1 -1 4 256;
+#X text -23 9 signal in;
+#X obj 33 192 abs_timbrestamp1;
+#X text 85 10 control in;
+#X obj 141 116 hradio 10 1 1 4 empty empty ws -13 5 0 10 -262144 -1
+-1 0;
+#X connect 2 0 6 0;
+#X connect 3 0 6 1;
+#X connect 4 0 6 2;
+#X connect 6 0 1 0;
+#X connect 8 0 6 3;
+#X coords 0 -1 1 1 85 45 1 100 100;
+#X restore 174 365 pd tmbrstmp;
+#X obj 256 318 adc~;
+#X connect 1 0 0 0;
+#X connect 2 0 5 0;
+#X connect 3 0 4 0;
+#X connect 4 0 2 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 7 0 1 0;
+#X connect 8 0 7 1;
+#X connect 8 1 7 1;

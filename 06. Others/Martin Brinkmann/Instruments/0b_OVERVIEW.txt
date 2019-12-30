@@ -1,0 +1,385 @@
+list of my instruments with short description
+
+1mixtools.pd
+midifaders/buttons, pan, xfade and basic volume control
+
+ahihat1r.pd
+hihatsynth based on filtered noise
+
+ahihat2v.pd
+hihatsynth based on sum of square-waves
+
+akick2.pd
+kickdrum
+
+akick3.pd
+simple 808-ish kickdrum
+
+asnare1v.pd
+909 like snare
+
+autochord2a.pd
+synth-chord, vocoder and effects
+
+autopan1.pd
+panning lfo
+
+beatdelay1filter.pd
+beatsynced delay with filter
+
+beatdelay1pitch.pd
+beatsynced delay with filter and pitchshifter
+
+beatdelay1.pd
+beatsynced delay
+
+beatloop6.pd
+beat-slice sampleplayer with waveform display and with or without presets
+
+bigplayer1.pd
+(piano)sampleplayer, needs neatonk_pino from freesounds
+
+binary_rndfmsynth_drone.pd
+modified version of binary synth patch by ardot (pure data forum)
+
+bufferfx1.pd
+buffer repeat effect
+
+cells2.pd
+simple building blocks for automata, nodal sequencers and neural-net like things
+
+chaosmonster1s.pd
+noisegenerator based on mutual modulation, a little like 'heishere'
+
+clixsq2r.pd
+stepsequencer and click-synth
+
+clustersynth128.pd
+sine cluster
+
+cyclerecorders1.pd
+triggercycles with midi rec, metro or songpos based.
+
+cymbalsynth1.pd
+cymbal sounds base on sum of squares and filters
+
+distortion1s.pd
+distorion effects mono/stereo
+
+distortion1tanh.pd
+distortion using tanh funct
+
+doubleosc1v.pd
+2osc subtractive monosynth
+
+drumplayer1.pd
+preset drumkit sampleplayer
+
+drumsynth1.pd
+kick/snare/hihat synth
+
+dualdelays2.pd
+2 beatsynced delays for hi/lo frequencys
+
+electroperc1.pd
+kick/snare synth
+
+fbfm1a.pd
+random fm noiseloop
+
+filterdist1.pd
+filter, env follower, distortion
+
+filters1.pd
+various filters
+
+flangephaser1.pd
+flanger and phaser
+
+flanger1.pd
+simple flanger
+
+fmdrone1.pd
+fm based dronesynth
+
+fmdrum1.pd
+drum with fm/rm mod inputs
+
+fourtapdelay2.pd
+beatsynced delay with 4 taps
+
+gingergen.pd
+hopalong fractal
+
+graindrum1a.pd
+triggered granulator
+
+grain_delay3.pd
+granular delay with freeze
+
+granulator1.pd
+granulator with state saving
+
+granulator2_grainstates.pd
+better granulator, scene sequencer and effects
+
+granulator2_loop.pd
+granulator2 with graphical waveform and event-loop-recorder
+
+granulator2_t_loop.pd
+granulator2 with graphical waveform and event-loop-recorder, absolute time based
+
+granulator3.pd
+more usual granulator (grain length in ms etc.)
+
+granulator3t_loop.pd
+granulator3 with graphical waveform and xyz-event-loop-recorder, absolute time based
+
+jx_style1.pd
+jx like poly stepsequencer
+
+lfo1.pd
+audio- and signal based lfos
+
+loopmove1.pd
+simple sampleloop moving within a sample
+
+madbox8p.pd
+random fm synth with 8 presets
+
+madboxp.pd
+random fm synth
+
+madloop1m.pd
+random fm synth loop
+
+mbanddelay1.pd
+delays for 12 different frequencies
+
+metroblips1.pd
+blip cluters
+
+midilooprec1.pd
+midi/event recorder
+
+moddelay1.pd
+delays mono/stereo with lfo
+
+monomodes1b.pd
+modal percussion synth
+
+morf2.pd
+spectral crossfading effect
+
+multilfo1.pd
+8tuple lfo
+
+musinum_generator1.pd
+implementation of the 'musinum fractal'
+
+noisefilter1.pd
+filtered noise
+
+normalizer1.pd
+simple limiter/clipper
+
+oneosc2v.pd
+one (double) osc monosynth with adsr and filter-keytracking
+
+oneosc3v.pd
+one osc (sine saw pulse) monosynth with adsr and filter-keytracking
+
+oneshot2p.pd
+monophonic sampleplayer
+
+pcf1.pd
+pattern controlled filter
+
+phaser1m.pd
+phaser from pd doc
+
+pitchshifters1.pd
+pitchshifter from pd doc, mono/stereo
+
+platereverb1.pd
+a plate reverb
+
+plink2d1a.pd
+granular sine cluster synth
+
+polyblip1.pd
+poly sine blip synth
+
+polyoneosc2v.pd
+polyphonic one (double) osc synth
+
+polysimsam1.pd
+simple polyphonic sampleplayer
+
+pvocloop2.pd
+phasevocoderloop with loop-recorder for position-value
+
+quantizer2.pd
+quantizer (bit reduce) effect
+
+random_hang_perc1.pd
+triggerprobability-sequencer and hang-like modal synth
+
+randomsub2a.pd
+subtractive random synth
+
+randomloopfm1.pd
+sequenced fm-synth with random patterns
+
+randrezloop1m.pd
+resonator based noiseloop
+
+resample1.pd
+resample effect
+
+resonator.pd
+simple resonator
+
+resonatorchord4.pd
+4resonatorchord with chord presets
+
+reverb1.pd
+wraps pds rev2/3 abstractions
+
+reverb2-3.pd
+reverb from pd doc
+
+reverb3s.pd
+reverb3 with 'size' parameter
+
+rksubnoiseloop.pd
+'rekursive' noise-synth
+
+rmcricket1r.pd
+electronic cricket/click sound
+
+rotating_speaker1.pd
+simple rotating speaker sim
+
+samplebrowser1.pd
+playlist for prelistening samples
+
+samplecue1.pd
+start sample from various positions
+
+samplecuts1.pd
+sampleloopcutter with lfos
+
+samplecuts2.pd
+trigger (16 different) positions in a sample
+
+samplefileplayer1.pd
+diskstreaming sample(loop)-player
+
+samplelooper2s.pd
+sampleloop with loop/start modulation
+
+sampler1.pd
+simple samplerecorder/player
+
+samplerloop3.pd
+sampleloop with loop/start modulation and recorder
+
+samplesequencer1.pd
+3 stepsequencers controlling a sampleloop
+
+scene-sequencer1.pd
+sequence numbers
+
+scope1.pd
+simple audio scope
+
+singlecycles1.pd
+'get singlecycles from input'-drone effect
+
+sinsynth1.pd
+simple sine-osc synth
+
+small_paul1.pd
+paulstretch-like extreme timestretching
+
+song_impro_set19c.pd
+a set of granular loopers, samplers, synths, noisemakers, fx etc. for my 'improvisation with samples' and as a 'song template'
+
+steadystateblur1m.pd
+fft based steadystate-drone-effect, mono
+
+steadystateblur1s.pd
+fft based steadystate-drone-effect, stereo
+
+stereochorus2.pd
+simple chorus-effect mono2stereo
+
+tapestop.pd
+tapestop effect
+
+taptempo_sp1.pd
+tap tempo, songpos 1/16,1/96
+
+threeosc1.pd
+more or less classic 3osc monosynth
+
+timbrestamp1.pd
+timbrestamp effect from pd doc
+
+timer1.pd
+display seconds,minutes
+
+triggercycles1.pd
+trigger cyclic bangs in time
+
+triggernrs1.pd
+trigger cyclic numbers in time
+
+triggerloops1.pd
+trigger loops/sample every n bars
+
+tri-ops4p.pd
+3op (4 voice) fm synth
+
+two_oneosc2.pd
+2 osc monosynth, with adsr and filter-keytracking
+
+twoosc3v.pd
+2 osc monosynth with classic waveforms
+
+two_ops1.pd
+2 operator fm monosynth
+
+twooscringnoise1.pd
+2osc noisessynth with statesaving/'mutating'
+
+twopolefbloop1b.pd
+random noiseloop based on filters
+
+valueseq2b.pd
+draw your own lfo
+
+vbsqs1.pd
+very basic (step) sequencers melody,drums control
+
+vbsqs2.pd
+more stepsequencers
+
+vowelfilter1.pd
+morphing vowelfilter
+
+wii_plink_rec1.pd
+wiimote recorder-looper and plink granular synth
+
+xfadeloops.pd
+simple sampleloop with smooth crossfade (overlap percent)
+
+xyfx2.pd
+(multi-)effect for xy-pad control and eventrecorder
+
+xyz_t_loop.pd
+value/event recorder for triples, absolute time based
+
+zynpadchord1.pd
+padsynth-chord-drone (non realtime, with loopplayer)

@@ -1,0 +1,26 @@
+#N canvas 125 447 793 512 10;
+#X obj 38 98 inlet~;
+#X obj 163 328 outlet~;
+#X obj 209 111 inlet~;
+#X obj 25 51 block~ 1;
+#X text 331 97 feedback;
+#X obj 272 258 *~;
+#X text 126 49 longer (10 sec) delayline with vd and feedback \, audiorate-modulation
+;
+#X obj 327 118 inlet~;
+#X obj 443 102 inlet;
+#X obj 38 134 delwrite~ \$0fbdel 10000;
+#X obj 163 293 vd~ \$0fbdel;
+#X obj 461 172 \$0;
+#X msg 455 139 bang;
+#X obj 477 212 outlet;
+#X text 216 94 time;
+#X connect 0 0 9 0;
+#X connect 2 0 10 0;
+#X connect 5 0 9 0;
+#X connect 7 0 5 1;
+#X connect 8 0 12 0;
+#X connect 10 0 1 0;
+#X connect 10 0 5 0;
+#X connect 11 0 13 0;
+#X connect 12 0 11 0;

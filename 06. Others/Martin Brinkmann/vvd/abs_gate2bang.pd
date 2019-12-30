@@ -1,0 +1,27 @@
+#N canvas 460 176 656 441 10;
+#X obj 38 287 threshold~;
+#X obj 11 94 inlet~;
+#X obj 42 365 outlet;
+#X text 220 169 rest-time below the blocksize seems reasonable;
+#X obj 100 109 loadbang;
+#X msg 86 168 set 0.1 0.5 0.1 0.5;
+#X text 94 192 triggers if 0.1 is exceeded \, should work with "dirty"
+real word triggers.;
+#X obj 141 364 outlet;
+#X obj 118 318 snapshot~;
+#X text 61 391 bang \, value;
+#X obj 113 281 samphold~;
+#X text 13 30 convert a pulse/short gate (aka trigger in the real world)
+to a trigger/bang and a value with the triggerpulses amplitude;
+#X obj 163 258 *~ -1;
+#X text 191 279 get the pulse onsets value;
+#X connect 0 0 2 0;
+#X connect 0 0 8 0;
+#X connect 1 0 0 0;
+#X connect 1 0 10 0;
+#X connect 1 0 12 0;
+#X connect 4 0 5 0;
+#X connect 5 0 0 0;
+#X connect 8 0 7 0;
+#X connect 10 0 8 0;
+#X connect 12 0 10 1;

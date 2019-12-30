@@ -1,0 +1,824 @@
+#N canvas 166 310 450 300 10;
+#X obj 103 34 notein;
+#X obj 87 208 dac~;
+#X obj 91 167 *~ 0.5;
+#N canvas 168 83 1713 896 drumsamplplay1 0;
+#N canvas 1 77 1319 979 playtable 0;
+#X obj 25 -31 inlet;
+#X obj -45 206 tabplay~;
+#X obj -23 677 outlet~;
+#X obj -64 3 inlet;
+#X obj -28 145 pack f f;
+#X msg -34 173 set \$2sp\$1;
+#X obj -68 116 t b f;
+#X obj 273 -35 inlet;
+#X text -72 -15 dollar0;
+#X obj 317 -35 inlet;
+#X obj 25 12 unpack f f;
+#X msg 230 267 0;
+#X obj 289 326 line~;
+#X obj 206 416 *~;
+#X obj 163 337 line~;
+#X obj 191 114 t b b f;
+#X obj 288 201 * -1;
+#X obj 251 368 +~;
+#X text 110 327 attack;
+#X text 303 296 release;
+#X text 147 54 gate;
+#X obj 115 249 float;
+#X obj 262 223 float;
+#X obj 249 194 t b;
+#X obj 146 290 pack f f;
+#X obj 290 251 pack f f;
+#X obj 108 54 / 128;
+#X obj 21 59 spigot;
+#X obj 63 36 > 0;
+#X obj -22 621 *~;
+#X obj 122 82 moses 0.0001;
+#X text 277 -59 attack/release ms;
+#X text 26 -51 samplenr (0..63) \, velocity (0..127);
+#X connect 0 0 10 0;
+#X connect 1 0 29 0;
+#X connect 3 0 4 1;
+#X connect 4 0 5 0;
+#X connect 5 0 1 0;
+#X connect 6 0 1 0;
+#X connect 6 1 4 0;
+#X connect 7 0 24 1;
+#X connect 9 0 25 1;
+#X connect 10 0 27 0;
+#X connect 10 1 28 0;
+#X connect 10 1 26 0;
+#X connect 11 0 14 0;
+#X connect 11 0 12 0;
+#X connect 12 0 17 1;
+#X connect 13 0 29 1;
+#X connect 14 0 17 0;
+#X connect 15 0 21 0;
+#X connect 15 1 11 0;
+#X connect 15 2 16 0;
+#X connect 15 2 21 1;
+#X connect 16 0 22 1;
+#X connect 17 0 13 0;
+#X connect 17 0 13 1;
+#X connect 21 0 24 0;
+#X connect 22 0 25 0;
+#X connect 23 0 22 0;
+#X connect 24 0 14 0;
+#X connect 25 0 12 0;
+#X connect 26 0 30 0;
+#X connect 27 0 6 0;
+#X connect 28 0 27 1;
+#X connect 29 0 2 0;
+#X connect 30 0 23 0;
+#X connect 30 1 15 0;
+#X restore -167 399 pd playtable;
+#X obj -116 -26 inlet;
+#X obj -57 -26 inlet;
+#X obj -117 147 pack 0 0 0;
+#X obj -116 7 pack f f;
+#X obj 105 114 hsl 100 8 1 1000 1 1 empty empty attack 2 4 0 10 -262144
+-258113 -1 0 1;
+#X obj 105 124 hsl 100 8 30 3000 1 1 empty empty release 2 4 0 10 -262144
+-258113 -1 4400 1;
+#X obj -119 179 route 1 2 3 4;
+#X obj -117 32 poly 4 1;
+#X text -117 -48 pitch/nr \, velocity;
+#X obj -113 589 outlet~;
+#N canvas 1 77 1319 979 playtable 0;
+#X obj 25 -31 inlet;
+#X obj -45 206 tabplay~;
+#X obj -23 677 outlet~;
+#X obj -64 3 inlet;
+#X obj -28 145 pack f f;
+#X msg -34 173 set \$2sp\$1;
+#X obj -68 116 t b f;
+#X obj 273 -35 inlet;
+#X text -72 -15 dollar0;
+#X obj 317 -35 inlet;
+#X obj 25 12 unpack f f;
+#X msg 230 267 0;
+#X obj 289 326 line~;
+#X obj 206 416 *~;
+#X obj 163 337 line~;
+#X obj 191 114 t b b f;
+#X obj 288 201 * -1;
+#X obj 251 368 +~;
+#X text 110 327 attack;
+#X text 303 296 release;
+#X text 147 54 gate;
+#X obj 115 249 float;
+#X obj 262 223 float;
+#X obj 249 194 t b;
+#X obj 146 290 pack f f;
+#X obj 290 251 pack f f;
+#X obj 108 54 / 128;
+#X obj 21 59 spigot;
+#X obj 63 36 > 0;
+#X obj -22 621 *~;
+#X obj 122 82 moses 0.0001;
+#X text 277 -59 attack/release ms;
+#X text 26 -51 samplenr (0..63) \, velocity (0..127);
+#X connect 0 0 10 0;
+#X connect 1 0 29 0;
+#X connect 3 0 4 1;
+#X connect 4 0 5 0;
+#X connect 5 0 1 0;
+#X connect 6 0 1 0;
+#X connect 6 1 4 0;
+#X connect 7 0 24 1;
+#X connect 9 0 25 1;
+#X connect 10 0 27 0;
+#X connect 10 1 28 0;
+#X connect 10 1 26 0;
+#X connect 11 0 14 0;
+#X connect 11 0 12 0;
+#X connect 12 0 17 1;
+#X connect 13 0 29 1;
+#X connect 14 0 17 0;
+#X connect 15 0 21 0;
+#X connect 15 1 11 0;
+#X connect 15 2 16 0;
+#X connect 15 2 21 1;
+#X connect 16 0 22 1;
+#X connect 17 0 13 0;
+#X connect 17 0 13 1;
+#X connect 21 0 24 0;
+#X connect 22 0 25 0;
+#X connect 23 0 22 0;
+#X connect 24 0 14 0;
+#X connect 25 0 12 0;
+#X connect 26 0 30 0;
+#X connect 27 0 6 0;
+#X connect 28 0 27 1;
+#X connect 29 0 2 0;
+#X connect 30 0 23 0;
+#X connect 30 1 15 0;
+#X restore -81 397 pd playtable;
+#X obj -40 782 soundfiler;
+#X obj 327 543 int;
+#X msg 387 509 0;
+#X obj 355 547 + 1;
+#X obj -40 806 t b;
+#X obj 9 689 pack s s f f;
+#X msg -40 745 read -resize \$2\$1 \$3sp\$4;
+#N canvas 1 77 1319 979 playtable 0;
+#X obj 25 -31 inlet;
+#X obj -45 206 tabplay~;
+#X obj -23 677 outlet~;
+#X obj -64 3 inlet;
+#X obj -28 145 pack f f;
+#X msg -34 173 set \$2sp\$1;
+#X obj -68 116 t b f;
+#X obj 273 -35 inlet;
+#X text -72 -15 dollar0;
+#X obj 317 -35 inlet;
+#X obj 25 12 unpack f f;
+#X msg 230 267 0;
+#X obj 289 326 line~;
+#X obj 206 416 *~;
+#X obj 163 337 line~;
+#X obj 191 114 t b b f;
+#X obj 288 201 * -1;
+#X obj 251 368 +~;
+#X text 110 327 attack;
+#X text 303 296 release;
+#X text 147 54 gate;
+#X obj 115 249 float;
+#X obj 262 223 float;
+#X obj 249 194 t b;
+#X obj 146 290 pack f f;
+#X obj 290 251 pack f f;
+#X obj 108 54 / 128;
+#X obj 21 59 spigot;
+#X obj 63 36 > 0;
+#X obj -22 621 *~;
+#X obj 122 82 moses 0.0001;
+#X text 277 -59 attack/release ms;
+#X text 26 -51 samplenr (0..63) \, velocity (0..127);
+#X connect 0 0 10 0;
+#X connect 1 0 29 0;
+#X connect 3 0 4 1;
+#X connect 4 0 5 0;
+#X connect 5 0 1 0;
+#X connect 6 0 1 0;
+#X connect 6 1 4 0;
+#X connect 7 0 24 1;
+#X connect 9 0 25 1;
+#X connect 10 0 27 0;
+#X connect 10 1 28 0;
+#X connect 10 1 26 0;
+#X connect 11 0 14 0;
+#X connect 11 0 12 0;
+#X connect 12 0 17 1;
+#X connect 13 0 29 1;
+#X connect 14 0 17 0;
+#X connect 15 0 21 0;
+#X connect 15 1 11 0;
+#X connect 15 2 16 0;
+#X connect 15 2 21 1;
+#X connect 16 0 22 1;
+#X connect 17 0 13 0;
+#X connect 17 0 13 1;
+#X connect 21 0 24 0;
+#X connect 22 0 25 0;
+#X connect 23 0 22 0;
+#X connect 24 0 14 0;
+#X connect 25 0 12 0;
+#X connect 26 0 30 0;
+#X connect 27 0 6 0;
+#X connect 28 0 27 1;
+#X connect 29 0 2 0;
+#X connect 30 0 23 0;
+#X connect 30 1 15 0;
+#X restore 2 396 pd playtable;
+#N canvas 1 77 1319 979 playtable 0;
+#X obj 25 -31 inlet;
+#X obj -45 206 tabplay~;
+#X obj -23 677 outlet~;
+#X obj -64 3 inlet;
+#X obj -28 145 pack f f;
+#X msg -34 173 set \$2sp\$1;
+#X obj -68 116 t b f;
+#X obj 273 -35 inlet;
+#X text -72 -15 dollar0;
+#X obj 317 -35 inlet;
+#X obj 25 12 unpack f f;
+#X msg 230 267 0;
+#X obj 289 326 line~;
+#X obj 206 416 *~;
+#X obj 163 337 line~;
+#X obj 191 114 t b b f;
+#X obj 288 201 * -1;
+#X obj 251 368 +~;
+#X text 110 327 attack;
+#X text 303 296 release;
+#X text 147 54 gate;
+#X obj 115 249 float;
+#X obj 262 223 float;
+#X obj 249 194 t b;
+#X obj 146 290 pack f f;
+#X obj 290 251 pack f f;
+#X obj 108 54 / 128;
+#X obj 21 59 spigot;
+#X obj 63 36 > 0;
+#X obj -22 621 *~;
+#X obj 122 82 moses 0.0001;
+#X text 277 -59 attack/release ms;
+#X text 26 -51 samplenr (0..63) \, velocity (0..127);
+#X connect 0 0 10 0;
+#X connect 1 0 29 0;
+#X connect 3 0 4 1;
+#X connect 4 0 5 0;
+#X connect 5 0 1 0;
+#X connect 6 0 1 0;
+#X connect 6 1 4 0;
+#X connect 7 0 24 1;
+#X connect 9 0 25 1;
+#X connect 10 0 27 0;
+#X connect 10 1 28 0;
+#X connect 10 1 26 0;
+#X connect 11 0 14 0;
+#X connect 11 0 12 0;
+#X connect 12 0 17 1;
+#X connect 13 0 29 1;
+#X connect 14 0 17 0;
+#X connect 15 0 21 0;
+#X connect 15 1 11 0;
+#X connect 15 2 16 0;
+#X connect 15 2 21 1;
+#X connect 16 0 22 1;
+#X connect 17 0 13 0;
+#X connect 17 0 13 1;
+#X connect 21 0 24 0;
+#X connect 22 0 25 0;
+#X connect 23 0 22 0;
+#X connect 24 0 14 0;
+#X connect 25 0 12 0;
+#X connect 26 0 30 0;
+#X connect 27 0 6 0;
+#X connect 28 0 27 1;
+#X connect 29 0 2 0;
+#X connect 30 0 23 0;
+#X connect 30 1 15 0;
+#X restore 88 394 pd playtable;
+#X obj 413 103 t b b b;
+#X obj 102 135 bng 12 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 787 215 arp_1.wav \, arp_2.wav \, arp_3.wav \, arp_4.wav \,
+crash_1.wav \, crash_2.wav \, hihat_1.wav \, hihat_2.wav \, hihat_3.wav
+\, hihat_4.wav \, hihat_5.wav \, hihat_6.wav \, hihat_7.wav \, kick_10.wav
+\, kick_11.wav \, kick_12.wav \, kick_1.wav \, kick_2.wav \, kick_3.wav
+\, kick_4.wav \, kick_5.wav \, kick_6.wav \, kick_7.wav \, kick_8.wav
+\, kick_9.wav \, openhat_1.wav \, openhat_2.wav \, openhat_3.wav \,
+openhat_4.wav \, openhat_5.wav \, openhat_6.wav \, openhat_7.wav \,
+perc_10.wav \, perc_11.wav \, perc_12.wav \, perc_1.wav \, perc_2.wav
+\, perc_3.wav \, perc_4.wav \, perc_5.wav \, perc_6.wav \, perc_7.wav
+\, perc_8.wav \, perc_9.wav \, pulse_09.wav \, pulse_10.wav \, pulse_1.wav
+\, pulse_2.wav \, pulse_3.wav \, pulse_4.wav \, pulse_5.wav \, pulse_6.wav
+\, pulse_7.wav \, pulse_8.wav \, sfx_1.wav \, sfx_2.wav \, sfx_3.wav
+\, sfx_4.wav \, snare_1.wav \, snare_2.wav \, snare_3.wav \, snare_4.wav
+\, snare_5.wav \, snare_6.wav;
+#X msg 794 184 symbol /home/mnb/samplelib/gameboydrumkit/;
+#X obj 766 123 t b b b;
+#X obj 117 135 bng 12 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 425 150 symbol /home/mnb/samplelib/Buchla_Drums/;
+#X msg 427 177 Alien_Zip_bip.wav \, Buzz_1_bip.wav \, Clave_Hard_bip.wav
+\, Click_Buzz_bip.wav \, Clumk_Mid_bip.wav \, Conga_Big_bip.wav \,
+Cosmic_Clay_2_bip.wav \, Cosmic_Clay_3_bip.wav \, Cosmic_Clay_4_bip.wav
+\, Cosmic_Clay_bip.wav \, Electronic_Tabla_a_bip.wav \, Floor_Tom_bip.wav
+\, Glong_bip.wav \, High_Tom_bip.wav \, Kick_1_bip.wav \, Kick_2_bip.wav
+\, Mall_Drum_bip.wav \, Mid_Tom__bip.wav \, Tabla_10_bip.wav \, Tabla_11_bip.wav
+\, Tabla_1_bip.wav \, Tabla_2_bip.wav \, Tabla_3_bip.wav \, Tabla_4_bip.wav
+\, Tabla_5_bip.wav \, Tabla_6_bip.wav \, Tabla_7_bip.wav \, Tabla_8_bip.wav
+\, Tabla_9_bip.wav \, Woodblock_2_bip.wav \, Wood_Block_bip.wav;
+#X text 31 -102 preset drumkit player for my samplelib;
+#X msg 1173 192 symbol /home/mnb/samplelib/old_camera_samplepack/;
+#X obj 1096 98 t b b b;
+#X obj 132 135 bng 12 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 1175 220 action_samplerdoorshutagain.wav \, action_samplerdoorshut.wav
+\, action_samplerfilmadvance.wav \, action_samplerfiring.wav \, cosmic_symbol125.wav
+\, cosmic_symbol15.wav \, cosmic_symbol250.wav \, cosmic_symbol30.wav
+\, cosmic_symbol60.wav \, cosmic_symboladvanceleverrelease.wav \, cosmic_symboldoorshut.wav
+\, cosmic_symbolfilmadvance.wav \, Diana_Fplusdoorclose.wav \, Diana_Fplusfilmadvance.wav
+\, Diana_Fplusflash.wav \, Diana_Fplusshutter.wav \, FED_3-ApetureRing.wav
+\, FED_3-Doorclosing.wav \, FED_3-FilmAdvance.wav \, FED_3-Shutter125.wav
+\, FED_3-Shutter15.wav \, FED_3-Shutter1.wav \, FED_3-Shutter250.wav
+\, FED_3-Shutter2.wav \, FED_3-Shutter30.wav \, FED_3-Shutter4.wav
+\, FED_3-Shutter500.wav \, FED_3-Shutter60.wav \, FED_3-Shutter8.wav
+\, Holga_120TLR-DoorClips.wav \, Holga_120TLR-Shutter.wav \, Holga_120TLR-Viewfinder.wav
+\, La_Sardina-Doorclosing.wav \, La_Sardina-FilmAdvance.wav \, La_Sardina-Shutter.wav
+\, Lomokino_-DoorClosing.wav \, Lomokino_-Shutter.wav \, Lomokino_-Viewfinder.wav
+\, lubitel_cockingshutter.wav \, lubitel_doorshutting.wav \, lubitel_firingat125.wav
+\, lubitel_firingat15.wav \, lubitel_firingat250.wav \, lubitel_firingat30.wav
+\, lubitel_firingat60.wav \, Zorki_S-ExtendingLens.wav \, Zorki_S-Shutter100.wav
+\, Zorki_S-Shutter250.wav \, Zorki_S-Shutter25.wav \, Zorki_S-Shutter500.wav
+\, Zorki_S-Shutter50.wav;
+#X obj 1493 107 t b b b;
+#X obj 147 135 bng 12 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 314 579 5 0 0 0 - - -, f 5;
+#X obj -97 111 clip 0 80;
+#X obj -29 84 clip 1 80;
+#X obj 425 386 t b b b;
+#X obj 162 135 bng 12 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 490 465 421__tictacshutup__prac-hat-2.wav \, 422__tictacshutup__prac-hat-3.wav
+\, 423__tictacshutup__prac-hat-open-2.wav \, 424__tictacshutup__prac-hat-open-3.wav
+\, 425__tictacshutup__prac-hat-open.wav \, 426__tictacshutup__prac-hat.wav
+\, 427__tictacshutup__prac-kick-light.wav \, 428__tictacshutup__prac-kick.wav
+\, 429__tictacshutup__prac-perc-1.wav \, 430__tictacshutup__prac-perc-2.wav
+\, 431__tictacshutup__prac-perc-3.wav \, 432__tictacshutup__prac-perc-4.wav
+\, 433__tictacshutup__prac-perc-5.wav \, 434__tictacshutup__prac-ride-bell-loud.wav
+\, 435__tictacshutup__prac-ride-bell.wav \, 436__tictacshutup__prac-ride.wav
+\, 437__tictacshutup__prac-sidestick-2.wav \, 438__tictacshutup__prac-sidestick.wav
+\, 439__tictacshutup__prac-snare-2.wav \, 440__tictacshutup__prac-snare-off.wav
+\, 441__tictacshutup__prac-snare-rim.wav \, 442__tictacshutup__prac-snare-rimshot-2.wav
+\, 443__tictacshutup__prac-snare-rimshot.wav \, 444__tictacshutup__prac-snare-roll-short-2.wav
+\, 445__tictacshutup__prac-snare-roll-short.wav \, 446__tictacshutup__prac-snare-roll.wav
+\, 447__tictacshutup__prac-snare.wav \, 448__tictacshutup__prac-tom-light.wav
+\, 449__tictacshutup__prac-tom.wav;
+#X msg 491 427 symbol /home/mnb/samplelib/freesounds/free_instruments/studiodrums/
+;
+#X obj 801 553 t b b b;
+#X obj 177 135 bng 12 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 869 584 symbol /home/mnb/samplelib/olpc_samples/tamtamDrumKits44/
+;
+#X msg 866 630 agogo_aigu_fermC.wav \, agogo_aigu.wav \, agogo_grave_fermC.wav
+\, agogo_grave.wav \, Bongo_aigu_fermC.wav \, Bongo_aigu_ouvert.wav
+\, Bongo_aigu_slap.wav \, Bongo_grave_fermC.wav \, Bongo_grave_ouvert.wav
+\, Bongo_grave_slap.wav \, Conga_aigu_fermC.wav \, Conga_aigu_ouvert.wav
+\, Conga_aigu_slap.wav \, Conga_grave_fermC.wav \, Conga_grave_ouvert.wav
+\, Conga_grave_slap.wav \, cowbell__tip.wav \, cowbell.wav \, cup.wav
+\, darbuka__doom.wav \, darbuka__finger.wav \, darbuka_pied__soft.wav
+\, darbuka__pied.wav \, darbuka_roll_slap.wav \, darbuka__roll.wav
+\, darbuka__slap.wav \, darbuka_slap.wav \, darbuka__tak.wav \, djembe__low.wav
+\, djembe_mid.wav \, djembe__mute.wav \, djembe_sidestick4.wav \, djembe_sidestick.wav
+\, djembe__slap.wav \, djembe_stick__mid.wav \, djembe_stick_mid.wav
+\, djemb_mid.wav \, drum4afrofeet.wav \, drum4fingersn.wav \, drum4mutecuic.wav
+\, drum4stompbass.wav \, drum4tambouri.wav \, drum4tr707clap.wav \,
+drum4tr707open.wav \, drum4tr808closed.wav \, drum4tr808sn.wav \, drum4tr909bass.wav
+\, drum4tr909kick.wav \, drum4tr909sn.wav \, guiro_accent.wav \, guiro_allC.wav
+\, guiro_retour.wav \, guiro_voix.wav \, hat_remix__flanger.wav \,
+hat_remix_pied2.wav \, hat_remix__pied.wav \, hat_remix_pied.wav \,
+metal__stand.wav \, pedal__perc.wav \, Quica__aigu.wav \, Quica__glisse_2.wav
+\, Quica__glisse.wav \, Quica__grave.wav \, Quica__medium.wav \, rainstick1.wav
+\, rainstick2.wav \, tambourine__high.wav \, tambourine__low.wav \,
+tambourine_low.wav \, tambourine_pied__soft.wav \, tambourine_pied_soft.wav
+\, tambourine__pied.wav \, timables_aigu_ouvert.wav \, timables_aigu_rim.wav
+\, timables_aigu_slap.wav \, timables_ouvert.wav \, timables_rim.wav
+\, timables_roll.wav \, timables_slap.wav \, vibraslap.wav \,;
+#X obj 1241 593 t b b b;
+#X obj 192 135 bng 12 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 1309 624 symbol /home/mnb/samplelib/keyboards/;
+#X msg 1287 694 alesis_hr_16/BD0.wav \, alesis_hr_16/BD20.wav \, alesis_hr_16/BD30.wav
+\, alesis_hr_16/BD40.wav \, alesis_hr_16/Clap0.wav \, alesis_hr_16/CloseHH0.wav
+\, alesis_hr_16/Cowbell0.wav \, alesis_hr_16/Crash0.wav \, alesis_hr_16/OpenHH0.wav
+\, alesis_hr_16/Ride0.wav \, alesis_hr_16/Rim0.wav \, alesis_hr_16/SD0.wav
+\, alesis_hr_16/SD20.wav \, alesis_hr_16/SD30.wav \, alesis_hr_16/Shak0.wav
+\, alesis_hr_16/Timbales0.wav \, alesis_hr_16/Tom0.wav \, alesis_hr_16/Wood0.wav
+\, alesis_hr_16/Zapp0.wav \, WersiWM24/BD0.wav \, WersiWM24/BongoHi0.wav
+\, WersiWM24/BongoLo0.wav \, WersiWM24/Cow0.wav \, WersiWM24/Cymbal0.wav
+\, WersiWM24/Cymbshort0.wav \, WersiWM24/Guiro0.wav \, WersiWM24/HHcl0.wav
+\, WersiWM24/HHop0.wav \, WersiWM24/Maraca0.wav \, WersiWM24/SD0.wav
+\, WersiWM24/Tamb0.wav \, WersiWM24/TomHi0.wav \, WersiWM24/TomLo0.wav
+\, WersiWM24/Wood0.wav;
+#X msg 1570 201 symbol /home/mnb/samplelib/;
+#X msg 1572 229 drums/bell2.wav \, drums/bell.wav \, drums/blk1.wav
+\, drums/blk2.wav \, drums/blk3.wav \, drums/blk4.wav \, drums/blk5.wav
+\, drums/bongoLo.wav \, drums/c1.wav \, drums/c2.wav \, drums/c3.wav
+\, drums/c4.wav \, drums/claves.wav \, drums/clp1.wav \, drums/crBlk.wav
+\, drums/gewoeClap.wav \, drums/p1.wav \, drums/rd1.wav \, drums/T1.wav
+\, drums/T2.wav \, drums/T3.wav \, drums/T4.wav \, drums/T5.wav \,
+drums/bassdrum/click1.wav \, drums/bassdrum/deepDuww.wav \, drums/bassdrum/DeepWumm.wav
+\, drums/bassdrum/drydiz808.wav \, drums/bassdrum/dryNat1.wav \, drums/bassdrum/dryNat2.wav
+\, drums/bassdrum/heavyzong.wav \, drums/bassdrum/hollow.wav \, drums/bassdrum/klickDuww.wav
+\, drums/bassdrum/linkick.wav \, drums/bassdrum/med909.wav \, drums/bassdrum/normalDiz.wav
+\, drums/bassdrum/roomDulDiz909.wav \, drums/bassdrum/std9091.wav \,
+drums/bassdrum/wupp.wav \, drums/bassdrum/zapp.wav \, drums/snare/09classic.wav
+\, drums/snare/09heavy.wav \, drums/snare/7071.wav \, drums/snare/8bitnatural.wav
+\, drums/snare/blockNat.wav \, drums/snare/c64-1.wav \, drums/snare/deepDiz.wav
+\, drums/snare/lowNatTom.wav \, drums/snare/natural1.wav \, drums/snare/qy808.wav
+\, drums/snare/qynat.wav \, drums/snare/qyshoot.wav \, drums/snare/qyStd.wav
+\, drums/snare/Soft09.wav \, drums/snare/synthclap.wav \, drums/hihats/09ride.wav
+\, drums/hihats/ch808-2.wav \, drums/hihats/Ch808.wav \, drums/hihats/Ch8bitheavy.wav
+\, drums/hihats/chBoss.wav \, drums/hihats/ChdizNorm.wav \, drums/hihats/chNat2.wav
+\, drums/hihats/ChNat.wav \, drums/hihats/chR8.wav \, drums/hihats/ohEmu.wav
+\, drums/hihats/ohheavy8bit.wav \, drums/hihats/ohNat1.wav \, drums/hihats/oh_qy.wav
+\, drums/hihats/shkr1.wav \, drums/hihats/tamb.wav \, clix/bassclick.wav
+\, clix/clack.wav \, clix/click1.wav \, clix/click2.wav \, clix/click3.wav
+\, clix/crackl.wav \, clix/crack.wav \, clix/noise.wav \, clix/pop.wav
+\, clix/vinylclick.wav;
+#X obj -97 67 - 24;
+#X obj -15 112 - 1;
+#X obj 312 888 t b b b;
+#X obj 102 150 bng 12 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 378 929 symbol /home/mnb/samplelib/joeys/Drums/;
+#X obj 794 1058 t b b b;
+#X obj 117 150 bng 12 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 869 1087 symbol /home/mnb/samplelib/joeys/Drums/;
+#X msg 849 1113 T03_BD1.WAV \, T03_BD2.WAV \, T03_KICK.WAV \, T03_SN1.WAV
+\, T03_SN2.WAV \, T06_01BD.WAV \, T06_01L1.WAV \, T06_01L2.WAV \, T06_01SN.WAV
+\, T08_1BD.WAV \, T08_1HCL.WAV \, T08_1HOP.WAV \, T08_1SN1.WAV \, T08_1SN2.WAV
+\, T12_01V1.WAV \, T12_01V2.WAV \, T12_01V3.WAV \, T12_01V4.WAV \,
+T12_01V5.WAV \, T12_01V6.WAV \, T12_01V7.WAV \, T12_01V8.WAV \, T13_1V1.WAV
+\, T13_1V2.WAV \, T13_1V3.WAV \, T13_1V4.WAV \, T13_1V5.WAV \, T13_1V6.WAV
+\, T15_01BD.WAV \, T15_01BG.WAV \, T15_01CL.WAV \, T15_01CP.WAV \,
+T15_01CR.WAV \, T15_01OP.WAV \, T15_01RD.WAV \, T2201BD1.WAV \, T2201BD2.WAV
+\, T2201BD3.WAV \, T2201BD4.WAV \, T2201CL1.WAV \, T2201CL2.WAV \,
+T2201CR1.WAV \, T2201CR2.WAV \, T2201SN1.WAV \, T2201SN2.WAV \, T3101BD1.WAV
+\, T3101CL1.WAV \, T3101CL2.WAV \, T3101CRS.WAV \, T3101HHC.WAV \,
+T3101HHO.WAV \, T3101SN.WAV \, T34_01BD.WAV \, T34_01CP.WAV \, T34_01OP.WAV
+\, T34_01SN.WAV \, T40_01BD.WAV \, T40_01CL.WAV \, T40_01CP.WAV \,
+T40_01OP.WAV \, T40_01SN.WAV \, T42_01BD.WAV \, T42_01CL.WAV \, T42_01OP.WAV
+\, T42_01SN.WAV \, T44_01BD.WAV \, T44_01CL.WAV \, T44_01CP.WAV \,
+T44_01OP.WAV \, T5601BD.WAV \, T5801BD.WAV \, T6001BD.WAV \, T63_01BD.WAV
+\, T6601BD.WAV \, TAMB_01.WAV \, TOM_01.WAV \, TOM_02.WAV \, TOM_03.WAV
+;
+#X obj 747 -81 loadbang;
+#X obj 749 -56 delay 1;
+#X msg 751 -25 13;
+#X msg 373 -87 set 0;
+#X msg 410 -66 set 1;
+#X msg 437 -44 set 2;
+#X obj 1176 1077 t b b b;
+#X obj 132 150 bng 12 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 471 -18 set 3;
+#X msg 508 3 set 4;
+#X msg 535 25 set 5;
+#X msg 550 48 set 6;
+#X msg 1250 1133 6PS00500.wav \, 6PS00501.wav \, 6PS00502.wav \, 6PS00503.wav
+\, 6PS00505.wav \, 6PS00506.wav \, 6PS00509.wav \, 6PS00511.wav \,
+6PS00512.wav \, 6PS00513.wav \, 6PS00514.wav \, 6PS00515.wav \, 6PS00516.wav
+\, 6PS00517.wav \, 6PS00518.wav \, 6PS00519.wav \, 6PS00520.wav \,
+6PS00521.wav \, 6PS00522.wav \, 6PS00523.wav \, 6PS00524.wav \, 6PS00525.wav
+\, 6PS00526.wav \, 6PS00527.wav \, 6PS00528.wav \, 6PS00529.wav \,
+6PS00530.wav \, 6PS00531.wav \, 6PS00532.wav \, 6PS00533.wav \, 6PS00534.wav
+\, 6PS00535.wav \, 6PS00536.wav \, 6PS00537.wav \, 6PS00538.wav \,
+6PS00539.wav \, 6PS00540.wav \, 6PS00541.wav \, 6PS00542.wav \, 6PS00543.wav
+\, 6PS00544.wav \, 6PS00545.wav \, 6PS00546.wav \, 6PS00547.wav \,
+6PS00548.wav \, 6PS00549.wav \, 6PS00550.wav \, 6PS00551.wav \, 6PS00552.wav
+\, 6PS00553.wav \, 6PS00554.wav \, 6PS00555.wav \, 6PS00556.wav \,
+6PS00557.wav \, 6PS00558.wav \, 6PS00559.wav \, 6PS00560.wav \, 6PS00561.wav
+\, 6PS00562.wav \, 6PS00563.wav \, 6PS00564.wav \, 6PS00565.wav \,
+6PS00566.wav \, 6PS00567.wav \, 6PS00568.wav \, 6PS00569.wav \, 6PS00570.wav
+\, 6PS00571.wav \, 6PS00572.wav \, 6PS00573.wav \, 6PS00574.wav \,
+6PS00575.wav \, 6PS00576.wav \, 6PS00577.wav \, 6PS00578.wav \, 6PS00579.wav
+\, 6PS00580.wav \, 6PS00581.wav \, 6PS00582.wav \, 6PS00583.wav \,
+6PS00584.wav \, 6PS00585.wav \, 6PS00586.wav \, 6PS00587.wav \, 6PS00588.wav
+\, 6PS00589.wav;
+#X msg 1251 1078 symbol /home/mnb/samplelib/monsterpack/classicnewage/newage/oneshots/percus/
+;
+#X msg 528 -92 set 7;
+#X msg 565 -71 set 8;
+#X msg 592 -49 set 9;
+#X obj 1674 1218 t b b b;
+#X obj 147 150 bng 12 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 1718 1292 MTAGOGOHIGH.WAV \, MTAGOGOLOW.WAV \, MTBONGOHIGH.WAV
+\, MTBONGOLOW.WAV \, MTCABASA.WAV \, MTCLAVES.WAV \, MTCONGAHIGH.WAV
+\, MTCONGALOW.WAV \, MTCONGAMUTHI.WAV \, MTCOWBELL.WAV \, MTCRASHCYMBL.WAV
+\, MTHANDCLAP.WAV \, MTHATCLOSED.WAV \, MTHATOPEN1.WAV \, MTHATOPEN2.WAV
+\, MTKICKDRUM.WAV \, MTMARACAS.WAV \, MTQUIJADA.WAV \, MTRIDECYMBAL.WAV
+\, MTRIMSHOT.WAV \, MTSMBAWHISL.WAV \, MTSMBAWHISS.WAV \, MTSNAREACOU.WAV
+\, MTSNAREELECT.WAV \, MTTAMBOURINE.WAV \, MTTIMBALEHI.WAV \, MTTIMBALELOW.WAV
+\, MTTOMHIGH.WAV \, MTTOMLOW.WAV \, MTTOMMID.WAV;
+#X msg 1717 1254 symbol /home/mnb/samplelib/MT_32/;
+#X msg 368 962 BD_01.WAV \, BD_02.WAV \, BECK_01.WAV \, BECK_02.WAV
+\, BELL_01.WAV \, CLAP_01.WAV \, CLAP_02.WAV \, CRASH_1.WAV \, CRASH_2.WAV
+\, HH_01.WAV \, HH_02.WAV \, KICK_01.WAV \, KICK_02.WAV \, KICK_03.WAV
+\, KICK_04.WAV \, KICK_05.WAV \, KICK_06.WAV \, KICK_07.WAV \, nat1.wav
+\, NAT_HH1.WAV \, NAT_HH2.WAV \, NAT_HH3.WAV \, NAT_HH4.WAV \, NAT_HH5.WAV
+\, NAT_HH6.WAV \, NATKICK1.WAV \, NATKICK2.WAV \, NATKICK3.WAV \, NATKICK4.WAV
+\, NATKICK5.WAV \, NATKICK6.WAV \, natlong1.wav \, NATRIDE1.WAV \,
+NATRIDE2.WAV \, NATRIDE3.WAV \, NATRIDE4.WAV \, NATRIM1.WAV \, NATRIM2.WAV
+\, NATRIM3.WAV \, NATSNAR1.WAV \, NATSNAR2.WAV \, NATSNAR3.WAV \, NATSNAR4.WAV
+\, NATSNAR5.WAV \, NATSNAR6.WAV \, NATSNAR7.WAV \, NATSNAR8.WAV \,
+NATSNAR9.WAV \, Phatlong.wav \, Rainbrk.wav \, rainmore.wav \, SD_01.WAV
+\, SD_02.WAV \, Snare_new.wav \, SYNKICK0.WAV \, SYNKICK1.WAV \, SYNKICK2.WAV
+\, SYNKICK3.WAV \, SYNKICK4.WAV \, SYNKICK5.WAV \, SYNKICK6.WAV \,
+SYNKICK7.WAV \, SYNKICK8.WAV \, SYNKICK9.WAV;
+#X obj 325 51 abs_player128tables;
+#X obj 381 1224 t b b b;
+#X obj 162 150 bng 12 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 420 1322 6OP00050.wav \, 6OP00051.wav \, 6OP00052.wav \, 6OP00053.wav
+\, 6OP00054.wav \, 6OP00055.wav \, 6OP00056.wav \, 6OP00057.wav \,
+6OP00058.wav \, 6OP00059.wav \, 6OP00060.wav \, 6OP00061.wav \, 6OP00062.wav
+\, 6OP00063.wav \, 6OP00064.wav \, 6OP00065.wav \, 6OP00066.wav \,
+6OP00067.wav \, 6OP00068.wav \, 6OP00069.wav \, 6OP00070.wav \, 6OP00071.wav
+\, 6OP00072.wav \, 6OP00073.wav \, 6OP00074.wav \, 6OP00075.wav \,
+6OP00076.wav \, 6OP00077.wav \, 6OP00078.wav \, 6OP00079.wav \, 6OP00080.wav
+\, 6OP00081.wav \, 6OP00082.wav \, 6OP00083.wav \, 6OP00084.wav \,
+6OP00085.wav \, 6OP00086.wav \, 6OP00087.wav \, 6OP00088.wav \, 6OP00089.wav
+\, 6OP00090.wav \, 6OP00091.wav \, 6OP00092.wav \, 6OP00093.wav \,
+6OP00094.wav \, 6OP00095.wav \, 6OP00096.wav \, 6OP00097.wav \, 6OP00098.wav
+\, 6OP00099.wav \, 6OP00100.wav \, 6OP00101.wav \, 6OP00102.wav \,
+6OP00103.wav \, 6OP00104.wav \, 6OP00105.wav \, 6OP00106.wav \, 6OP00107.wav
+\, 6OP00108.wav \, 6OP00109.wav \, 6OP00110.wav \, 6OP00111.wav \,
+6OP00112.wav \, 6OP00113.wav \, 6OP00114.wav \, 6OP00115.wav \, 6OP00116.wav
+\, 6OP00117.wav \, 6OP00118.wav \, 6OP00119.wav \, 6OP00120.wav \,
+6OP00121.wav \, 6OP00122.wav \, 6OP00123.wav \, 6OP00124.wav \, 6OP00125.wav
+\, 6OP00126.wav \, 6OP00127.wav \, 6OP00128.wav \, 6OP00129.wav \,
+6OP00130.wav \, 6OP00131.wav \, 6OP00132.wav \, 6OP00133.wav \, 6OP00134.wav
+\, 6OP00135.wav \, 6OP00136.wav \, 6OP00137.wav \, 6OP00138.wav \,
+6OP00139.wav \, 6OP00140.wav \, 6OP00141.wav \, 6OP00142.wav \, 6OP00143.wav
+\, 6OP00144.wav \, 6OP00145.wav \, 6OP00146.wav \, 6OP00147.wav \,
+6OP00148.wav \, 6OP00149.wav \, 6OP00150.wav \, 6OP00151.wav \, 6OP00152.wav
+\, 6OP00153.wav \, 6OP00154.wav \, 6OP00155.wav \, 6OP00156.wav \,
+6OP00157.wav \, 6OP00158.wav \, 6OP00159.wav \, 6OP00160.wav \, 6OP00161.wav
+\, 6OP00162.wav \, 6OP00163.wav;
+#X msg 416 1255 symbol /home/mnb/samplelib/monsterpack/classicnewage/classic/orch_perc/perc_samp/
+;
+#X obj 825 1409 t b b b;
+#X obj 177 150 bng 12 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 884 1511 5ps00001.wav \, 5ps00002.wav \, 5ps00003.wav \, 5ps00004.wav
+\, 5ps00005.wav \, 5ps00006.wav \, 5ps00007.wav \, 5ps00008.wav \,
+5ps00009.wav \, 5ps00010.wav \, 5ps00011.wav \, 5ps00012.wav \, 5ps00013.wav
+\, 5ps00014.wav \, 5ps00015.wav \, 5ps00016.wav \, 5ps00017.wav \,
+5ps00018.wav \, 5ps00019.wav \, 5ps00020.wav \, 5ps00021.wav \, 5ps00022.wav
+\, 5ps00023.wav \, 5ps00024.wav \, 5ps00025.wav \, 5ps00026.wav \,
+5ps00027.wav \, 5ps00028.wav \, 5ps00029.wav \, 5ps00030.wav \, 5ps00031.wav
+\, 5ps00032.wav \, 5ps00033.wav \, 5ps00034.wav \, 5ps00035.wav \,
+5ps00036.wav \, 5ps00037.wav \, 5ps00038.wav \, 5ps00039.wav \, 5ps00040.wav
+\, 5ps00041.wav \, 5ps00042.wav \, 5ps00043.wav \, 5ps00044.wav \,
+5ps00045.wav \, 5ps00046.wav \, 5ps00047.wav \, 5ps00048.wav \, 5ps00049.wav
+\, 5ps00050.wav \, 5ps00051.wav \, 5ps00052.wav \, 5ps00053.wav \,
+5ps00054.wav \, 5ps00055.wav \, 5ps00056.wav \, 5ps00057.wav \, 5ps00058.wav
+\, 5ps00059.wav \, 5ps00060.wav \, 5ps00061.wav \, 5ps00062.wav \,
+5ps00063.wav \, 5ps00064.wav \, 5ps00065.wav \, 5ps00066.wav \, 5ps00067.wav
+\, 5ps00068.wav \, 5ps00069.wav \, 5ps00070.wav \, 5ps00071.wav \,
+5ps00072.wav \, 5ps00073.wav \, 5ps00074.wav \, 5ps00075.wav \, 5ps00076.wav
+\, 5ps00077.wav \, 5ps00078.wav \, 5ps00079.wav \, 5ps00080.wav \,
+5ps00081.wav \, 5ps00082.wav \, 5ps00083.wav \, 5ps00084.wav \, 5ps00085.wav
+;
+#X msg 868 1446 symbol /home/mnb/samplelib/monsterpack/rockpop/oneshots/drum_sam/percus/
+;
+#X obj 1333 1479 t b b b;
+#X obj 192 150 bng 12 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 789 44 select 0 1 2 3 4 5 6 7 8 9 10 11 12 13;
+#X msg 1369 1514 symbol /home/mnb/samplelib/;
+#X msg 1342 1547 earth/DRUMTOOL/CRASH_2.WAV \, earth/DRUMTOOL/KICK_05.WAV
+\, earth/DRUMTOOL/KICK_06.WAV \, earth/DRUMTOOL/KICK_07.WAV \, earth/DRUMTOOL/NAT_HH4.WAV
+\, earth/DRUMTOOL/NAT_HH5.WAV \, earth/DRUMTOOL/NAT_HH6.WAV \, earth/DRUMTOOL/NATKICK4.WAV
+\, earth/DRUMTOOL/NATKICK5.WAV \, earth/DRUMTOOL/NATKICK6.WAV \, earth/DRUMTOOL/NATRIDE3.WAV
+\, earth/DRUMTOOL/NATRIDE4.WAV \, earth/DRUMTOOL/NATRIM2.WAV \, earth/DRUMTOOL/NATRIM3.WAV
+\, earth/DRUMTOOL/NATSNAR6.WAV \, earth/DRUMTOOL/NATSNAR7.WAV \, earth/DRUMTOOL/NATSNAR8.WAV
+\, earth/DRUMTOOL/NATSNAR9.WAV \, earth/DRUMTOOL/SYNKICK5.WAV \, earth/DRUMTOOL/SYNKICK6.WAV
+\, earth/DRUMTOOL/SYNKICK7.WAV \, earth/DRUMTOOL/SYNKICK8.WAV \, earth/DRUMTOOL/SYNKICK9.WAV
+\, Intergalactic/WELTKLNG/DRUMTOOL/BD404.WAV \, Intergalactic/WELTKLNG/DRUMTOOL/DOEPF_D.WAV
+\, Intergalactic/WELTKLNG/DRUMTOOL/KRAFTKIK.WAV \, Intergalactic/WELTKLNG/DRUMTOOL/KRAFTSD.WAV
+\, Intergalactic/WELTKLNG/DRUMTOOL/LOW_VCF.WAV \, Intergalactic/WELTKLNG/DRUMTOOL/METAL_A.WAV
+\, Intergalactic/WELTKLNG/DRUMTOOL/METAL_B.WAV \, Intergalactic/WELTKLNG/DRUMTOOL/METAL_C.WAV
+\, Intergalactic/WELTKLNG/DRUMTOOL/METALSD.WAV \, Intergalactic/WELTKLNG/DRUMTOOL/PRESSAIR.WAV
+\, Intergalactic/WELTKLNG/DRUMTOOL/SCHNARBD.WAV \, Intergalactic/WELTKLNG/DRUMTOOL/SCHNARR1.WAV
+\, Intergalactic/WELTKLNG/DRUMTOOL/SCHNARR2.WAV \, Intergalactic/WELTKLNG/DRUMTOOL/SD51.WAV
+\, Intergalactic/WELTKLNG/DRUMTOOL/TAM_A.WAV \, Intergalactic/WELTKLNG/DRUMTOOL/TAM_B.WAV
+\, Intergalactic/WELTKLNG/DRUMTOOL/TAM_C.WAV \, Intergalactic/WELTKLNG/DRUMTOOL/TAM_E.WAV
+\, Intergalactic/WELTKLNG/DRUMTOOL/TAM_F.WAV \, Intergalactic/WELTKLNG/DRUMTOOL/TAM_M.WAV
+\, Intergalactic/WELTKLNG/DRUMTOOL/TSCH.WAV \, Intergalactic/WELTKLNG/DRUMTOOL/VCFBD.WAV
+\, Intergalactic/WELTKLNG/DRUMTOOL/ZIPP_1.WAV \, Intergalactic/WELTKLNG/DRUMTOOL/ZIPP_2.WAV
+\, Intergalactic/WELTKLNG/DRUMTOOL/ZIPP_3.WAV \, Intergalactic/DRUMTOOL/CRASH_1.WAV
+\, Intergalactic/DRUMTOOL/KICK_01.WAV \, Intergalactic/DRUMTOOL/KICK_02.WAV
+\, Intergalactic/DRUMTOOL/KICK_03.WAV \, Intergalactic/DRUMTOOL/KICK_04.WAV
+\, Intergalactic/DRUMTOOL/NAT_HH1.WAV \, Intergalactic/DRUMTOOL/NAT_HH2.WAV
+\, Intergalactic/DRUMTOOL/NAT_HH3.WAV \, Intergalactic/DRUMTOOL/NATKICK1.WAV
+\, Intergalactic/DRUMTOOL/NATKICK2.WAV \, Intergalactic/DRUMTOOL/NATKICK3.WAV
+\, Intergalactic/DRUMTOOL/NATRIDE1.WAV \, Intergalactic/DRUMTOOL/NATRIDE2.WAV
+\, Intergalactic/DRUMTOOL/NATRIM1.WAV \, Intergalactic/DRUMTOOL/NATSNAR1.WAV
+\, Intergalactic/DRUMTOOL/NATSNAR2.WAV \, Intergalactic/DRUMTOOL/NATSNAR3.WAV
+\, Intergalactic/DRUMTOOL/NATSNAR4.WAV \, Intergalactic/DRUMTOOL/NATSNAR5.WAV
+\, Intergalactic/DRUMTOOL/SYNKICK0.WAV \, Intergalactic/DRUMTOOL/SYNKICK1.WAV
+\, Intergalactic/DRUMTOOL/SYNKICK2.WAV \, Intergalactic/DRUMTOOL/SYNKICK3.WAV
+\, Intergalactic/DRUMTOOL/SYNKICK4.WAV;
+#X msg 610 -21 set 10;
+#X msg 637 1 set 11;
+#X msg 646 23 set 12;
+#X msg 669 45 set 13;
+#X connect 0 0 10 0;
+#X connect 1 0 4 0;
+#X connect 2 0 4 1;
+#X connect 3 0 7 0;
+#X connect 4 0 8 0;
+#X connect 5 0 0 2;
+#X connect 5 0 11 2;
+#X connect 5 0 19 2;
+#X connect 5 0 20 2;
+#X connect 6 0 0 3;
+#X connect 6 0 11 3;
+#X connect 6 0 19 3;
+#X connect 6 0 20 3;
+#X connect 7 0 0 1;
+#X connect 7 1 11 1;
+#X connect 7 2 19 1;
+#X connect 7 3 20 1;
+#X connect 8 0 3 0;
+#X connect 8 1 53 0;
+#X connect 8 2 3 2;
+#X connect 11 0 10 0;
+#X connect 12 0 16 0;
+#X connect 13 0 15 0;
+#X connect 13 0 17 3;
+#X connect 13 0 36 0;
+#X connect 13 0 38 0;
+#X connect 14 0 13 1;
+#X connect 15 0 13 1;
+#X connect 16 0 13 0;
+#X connect 17 0 18 0;
+#X connect 18 0 12 0;
+#X connect 19 0 10 0;
+#X connect 20 0 10 0;
+#X connect 21 0 28 0;
+#X connect 21 1 14 0;
+#X connect 21 2 27 0;
+#X connect 22 0 21 0;
+#X connect 22 0 65 0;
+#X connect 23 0 17 0;
+#X connect 24 0 17 1;
+#X connect 25 0 23 0;
+#X connect 25 1 14 0;
+#X connect 25 2 24 0;
+#X connect 26 0 25 0;
+#X connect 26 0 66 0;
+#X connect 27 0 17 1;
+#X connect 28 0 17 0;
+#X connect 30 0 17 1;
+#X connect 31 0 33 0;
+#X connect 31 1 14 0;
+#X connect 31 2 30 0;
+#X connect 32 0 31 0;
+#X connect 32 0 67 0;
+#X connect 33 0 17 0;
+#X connect 34 0 52 0;
+#X connect 34 1 14 0;
+#X connect 34 2 51 0;
+#X connect 35 0 34 0;
+#X connect 35 0 70 0;
+#X connect 37 0 3 1;
+#X connect 38 0 54 0;
+#X connect 39 0 41 0;
+#X connect 39 1 14 0;
+#X connect 39 2 42 0;
+#X connect 40 0 39 0;
+#X connect 40 0 71 0;
+#X connect 41 0 17 0;
+#X connect 42 0 17 1;
+#X connect 43 0 46 0;
+#X connect 43 1 14 0;
+#X connect 43 2 45 0;
+#X connect 44 0 43 0;
+#X connect 44 0 72 0;
+#X connect 45 0 17 1;
+#X connect 46 0 17 0;
+#X connect 47 0 50 0;
+#X connect 47 1 14 0;
+#X connect 47 2 49 0;
+#X connect 48 0 47 0;
+#X connect 48 0 73 0;
+#X connect 49 0 17 1;
+#X connect 50 0 17 0;
+#X connect 51 0 17 1;
+#X connect 52 0 17 0;
+#X connect 53 0 37 0;
+#X connect 54 0 37 2;
+#X connect 55 0 83 0;
+#X connect 55 1 14 0;
+#X connect 55 2 57 0;
+#X connect 56 0 55 0;
+#X connect 56 0 76 0;
+#X connect 57 0 17 1;
+#X connect 58 0 61 0;
+#X connect 58 1 14 0;
+#X connect 58 2 60 0;
+#X connect 59 0 58 0;
+#X connect 59 0 77 0;
+#X connect 60 0 17 1;
+#X connect 61 0 17 0;
+#X connect 62 0 63 0;
+#X connect 63 0 64 0;
+#X connect 64 0 95 0;
+#X connect 65 0 64 0;
+#X connect 66 0 64 0;
+#X connect 67 0 64 0;
+#X connect 68 0 74 0;
+#X connect 68 1 14 0;
+#X connect 68 2 75 0;
+#X connect 69 0 68 0;
+#X connect 69 0 78 0;
+#X connect 70 0 64 0;
+#X connect 71 0 64 0;
+#X connect 72 0 64 0;
+#X connect 73 0 64 0;
+#X connect 74 0 17 0;
+#X connect 75 0 17 1;
+#X connect 76 0 64 0;
+#X connect 77 0 64 0;
+#X connect 78 0 64 0;
+#X connect 79 0 81 0;
+#X connect 79 1 14 0;
+#X connect 79 2 82 0;
+#X connect 80 0 79 0;
+#X connect 80 0 98 0;
+#X connect 81 0 17 0;
+#X connect 82 0 17 1;
+#X connect 83 0 17 0;
+#X connect 84 0 0 0;
+#X connect 84 0 11 0;
+#X connect 84 0 17 2;
+#X connect 84 0 19 0;
+#X connect 84 0 20 0;
+#X connect 85 0 87 0;
+#X connect 85 1 14 0;
+#X connect 85 2 88 0;
+#X connect 86 0 85 0;
+#X connect 86 0 99 0;
+#X connect 87 0 17 0;
+#X connect 88 0 17 1;
+#X connect 89 0 91 0;
+#X connect 89 1 14 0;
+#X connect 89 2 92 0;
+#X connect 90 0 89 0;
+#X connect 90 0 100 0;
+#X connect 91 0 17 0;
+#X connect 92 0 17 1;
+#X connect 93 0 97 0;
+#X connect 93 1 14 0;
+#X connect 93 2 96 0;
+#X connect 94 0 93 0;
+#X connect 94 0 101 0;
+#X connect 95 0 21 0;
+#X connect 95 1 25 0;
+#X connect 95 2 31 0;
+#X connect 95 3 34 0;
+#X connect 95 4 39 0;
+#X connect 95 5 43 0;
+#X connect 95 6 47 0;
+#X connect 95 7 55 0;
+#X connect 95 8 58 0;
+#X connect 95 9 68 0;
+#X connect 95 10 79 0;
+#X connect 95 11 85 0;
+#X connect 95 12 89 0;
+#X connect 95 13 93 0;
+#X connect 96 0 17 1;
+#X connect 97 0 17 0;
+#X connect 98 0 64 0;
+#X connect 99 0 64 0;
+#X connect 100 0 64 0;
+#X connect 101 0 64 0;
+#X coords 0 -1 1 1 110 65 1 100 100;
+#X restore 99 68 pd drumsamplplay1;
+#X connect 0 0 3 0;
+#X connect 0 1 3 1;
+#X connect 2 0 1 0;
+#X connect 2 0 1 1;
+#X connect 3 0 2 0;

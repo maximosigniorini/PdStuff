@@ -1,0 +1,16 @@
+#N canvas 1 77 742 524 10;
+#N canvas 0 50 450 300 (subpatch) 0;
+#X array \$0scope 882 float 4;
+#X coords 0 1.02 881 -1.02 200 120 1 0 0;
+#X restore 101 112 graph;
+#X obj 54 298 inlet~;
+#X obj 107 296 inlet;
+#X text 52 278 audio;
+#X text 109 278 metro;
+#X obj 147 369 tabwrite~ \$0scope;
+#X obj 101 101 cnv 13 200 13 empty empty empty 20 12 0 14 -262144 -66577
+0;
+#X text 224 18 simple scope abs;
+#X connect 1 0 5 0;
+#X connect 2 0 5 0;
+#X coords 0 -1 1 1 202 132 1 100 100;

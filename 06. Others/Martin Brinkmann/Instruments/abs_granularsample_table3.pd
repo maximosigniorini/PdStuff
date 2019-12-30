@@ -1,0 +1,12 @@
+#N canvas 1 77 845 525 10;
+#X obj 165 297 outlet, f 8;
+#X obj 159 192 \$0;
+#X obj 160 129 loadbang;
+#X obj 269 277 table \$0grainsource;
+#X text 228 56 table for granulator3 etc;
+#X msg 214 160 bang;
+#X msg 161 246 symbol \$1grainsource;
+#X connect 1 0 6 0;
+#X connect 2 0 1 0;
+#X connect 5 0 1 0;
+#X connect 6 0 0 0;
