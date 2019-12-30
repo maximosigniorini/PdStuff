@@ -1,0 +1,114 @@
+#N canvas 59 92 558 425 10;
+#X obj 77 100 hsl 128 15 0 1 0 1 empty empty depth 60 8 0 10 -262144
+-260097 -1 6200 0;
+#N canvas 115 286 233 298 testsignals 0;
+#X obj 44 18 inlet;
+#X obj 173 23 inlet;
+#X obj 29 265 outlet~;
+#X obj 44 138 line~;
+#X obj 29 227 *~;
+#X obj 44 89 t b b;
+#X msg 74 166 0.25;
+#X obj 44 61 metro 500;
+#X obj 152 119 *~ 0;
+#X obj 29 191 osc~ 100;
+#X obj 173 92 * 0.01;
+#X msg 44 113 1.1 \, 0 200;
+#X obj 152 62 noise~;
+#X connect 0 0 7 0;
+#X connect 1 0 10 0;
+#X connect 3 0 4 1;
+#X connect 4 0 2 0;
+#X connect 5 0 11 0;
+#X connect 5 1 6 0;
+#X connect 6 0 9 1;
+#X connect 7 0 5 0;
+#X connect 8 0 2 0;
+#X connect 9 0 4 0;
+#X connect 10 0 8 1;
+#X connect 11 0 3 0;
+#X connect 12 0 8 0;
+#X restore 21 68 pd testsignals;
+#X obj 21 15 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
+;
+#X obj 102 42 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 85 222 hsl 128 15 0 1 0 0 empty empty audio-level 20 8 0 10
+-262144 -260097 -1 0 0;
+#X obj 61 244 *~ 0;
+#X floatatom 96 244 5 0 0 0 - - -;
+#X obj 61 271 dac~;
+#X obj 156 14 cnv 15 380 80 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X msg 464 331 \; pd dsp 1;
+#X msg 465 374 \; pd dsp 0;
+#X obj 91 137 hsl 128 15 0 1 0 1 empty empty response 40 8 0 10 -262144
+-260097 -1 3100 0;
+#X obj 40 108 adc~;
+#X text 65 39 noise;
+#X obj 21 190 *~;
+#X obj 61 190 adc~;
+#X obj 61 162 duck~;
+#X text 171 72 Katja Vetter Feb. 2013;
+#X text 172 22 [duck~] gives an output magnitude inversely porportional
+to the input \, with unity as maximum. The output can be used to attenuate
+another signal.;
+#X text 210 99 depth of magnitude reduction \, initial value is 0;
+#X text 230 134 response speed vs. smoothness \, initial value is 0.3
+;
+#X obj 464 302 loadbang;
+#N canvas 388 223 450 300 scope 0;
+#X obj 55 193 inlet~;
+#X obj 55 244 tabwrite~ \$0-scope;
+#X obj 245 242 block~ 8192;
+#X obj 70 220 bang~;
+#X obj 100 50 cnv 15 200 100 empty empty empty 20 12 0 14 -203904 -66577
+0;
+#N canvas 515 81 484 385 (subpatch) 0;
+#X array \$0-scope 8192 float 0;
+#X coords 0 1 8191 -1 200 100 1;
+#X restore 100 50 graph;
+#X connect 0 0 1 0;
+#X connect 3 0 1 0;
+#X coords 0 -1 1 1 200 100 2 100 50;
+#X restore 21 308 pd scope;
+#N canvas 208 230 450 300 scope 0;
+#X obj 55 193 inlet~;
+#X obj 245 242 block~ 8192;
+#X obj 70 220 bang~;
+#X obj 55 244 tabwrite~ \$0-scope2;
+#X obj 100 50 cnv 15 200 100 empty empty empty 20 12 0 14 -203904 -66577
+0;
+#N canvas 515 81 484 385 (subpatch) 0;
+#X array \$0-scope2 8192 float 0;
+#X coords 0 1 8191 -1 200 100 1 0 0;
+#X restore 100 50 graph;
+#X connect 0 0 3 0;
+#X connect 2 0 3 0;
+#X coords 0 -1 1 1 200 100 2 100 50;
+#X restore 240 179 pd scope;
+#X text 38 13 sine resonator;
+#X obj 82 119 nbx 4 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 0.488189 256;
+#X obj 101 159 nbx 4 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 0.244094 256;
+#X connect 0 0 16 1;
+#X connect 0 0 25 0;
+#X connect 1 0 14 0;
+#X connect 2 0 1 0;
+#X connect 3 0 1 1;
+#X connect 4 0 5 1;
+#X connect 4 0 6 0;
+#X connect 5 0 7 0;
+#X connect 5 0 7 1;
+#X connect 11 0 16 2;
+#X connect 11 0 26 0;
+#X connect 12 0 16 0;
+#X connect 12 1 16 0;
+#X connect 14 0 5 0;
+#X connect 14 0 22 0;
+#X connect 15 0 5 0;
+#X connect 15 1 5 0;
+#X connect 16 0 14 1;
+#X connect 16 0 23 0;
+#X connect 21 0 9 0;

@@ -1,0 +1,611 @@
+#N canvas 16 85 613 533 10;
+#X declare -path ../bin/verbkit;
+#X declare -lib verbkit;
+#X obj 453 210 hsl 128 15 0 1 0 1 \$0-decay empty decaytime 20 8 0
+10 -262144 -260097 -1 11600 0;
+#X obj 19 20 bng 50 250 50 0 empty empty empty 17 7 0 10 -262144 -260097
+-1;
+#X msg 452 486 \; pd dsp 1;
+#X msg 524 486 \; pd dsp 0;
+#X obj 452 460 loadbang;
+#X obj 453 185 hsl 128 15 0 1 0 1 \$0-dry-wet empty dry-wet 20 8 0
+10 -262144 -260097 -1 6500 0;
+#X obj 226 184 cnv 15 200 160 empty empty empty 20 12 0 14 -233017
+-66577 0;
+#X obj 363 229 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 282 287 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-260097 -1 0 0;
+#X floatatom 289 312 5 0 0 0 - - -;
+#N canvas 0 22 450 300 dac~ 0;
+#X obj 24 42 inlet~;
+#X obj 116 40 inlet~;
+#X obj 41 123 *~ 0;
+#X obj 117 118 *~ 0;
+#X obj 191 47 inlet;
+#X obj 60 172 dac~;
+#X connect 0 0 2 0;
+#X connect 1 0 3 0;
+#X connect 2 0 5 0;
+#X connect 3 0 5 1;
+#X connect 4 0 2 1;
+#X connect 4 0 3 1;
+#X restore 240 311 pd dac~;
+#X obj 16 355 cnv 15 200 160 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 16 184 cnv 15 200 160 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 153 401 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 72 459 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-260097 -1 0 0;
+#X floatatom 79 484 5 0 0 0 - - -;
+#N canvas 0 22 450 300 dac~ 0;
+#X obj 24 42 inlet~;
+#X obj 116 40 inlet~;
+#X obj 41 123 *~ 0;
+#X obj 117 118 *~ 0;
+#X obj 191 47 inlet;
+#X obj 60 172 dac~;
+#X connect 0 0 2 0;
+#X connect 1 0 3 0;
+#X connect 2 0 5 0;
+#X connect 3 0 5 1;
+#X connect 4 0 2 1;
+#X connect 4 0 3 1;
+#X restore 30 483 pd dac~;
+#X obj 227 355 cnv 15 200 160 empty empty empty 20 12 0 14 -233017
+-66577 0;
+#X obj 281 466 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-260097 -1 0 0;
+#X floatatom 288 491 5 0 0 0 - - -;
+#N canvas 0 22 283 247 dac~ 0;
+#X obj 24 42 inlet~;
+#X obj 116 40 inlet~;
+#X obj 41 123 *~ 0;
+#X obj 117 118 *~ 0;
+#X obj 191 47 inlet;
+#X obj 60 172 dac~;
+#X connect 0 0 2 0;
+#X connect 1 0 3 0;
+#X connect 2 0 5 0;
+#X connect 3 0 5 1;
+#X connect 4 0 2 1;
+#X connect 4 0 3 1;
+#X restore 239 490 pd dac~;
+#X obj 332 413 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#N canvas 691 316 426 390 stereo-reverb 0;
+#X obj 134 27 inlet~;
+#X obj 28 343 outlet~;
+#X obj 372 65 switch~;
+#X obj 298 29 inlet;
+#X obj 212 27 inlet~;
+#X obj 212 343 outlet~;
+#X obj 28 289 *~ 0;
+#N canvas 738 373 240 222 Xover 0;
+#X obj 20 15 inlet;
+#X obj 20 169 outlet;
+#X obj 92 114 sin;
+#X text 97 186 wet;
+#X text 27 187 dry;
+#X obj 92 169 outlet;
+#X obj 20 114 cos;
+#X obj 20 140 pow 1.2;
+#X obj 92 141 pow 2;
+#X obj 20 59 * 1.5708;
+#X connect 0 0 9 0;
+#X connect 2 0 8 0;
+#X connect 6 0 7 0;
+#X connect 7 0 1 0;
+#X connect 8 0 5 0;
+#X connect 9 0 6 0;
+#X connect 9 0 2 0;
+#X restore 49 251 pd Xover;
+#X obj 66 289 *~ 0;
+#X obj 134 293 *~ 0;
+#X obj 212 293 *~ 0;
+#X obj 49 221 r \$0-dry-wet;
+#X obj 372 30 inlet;
+#N canvas 0 22 246 246 mix 0;
+#X obj 38 37 inlet;
+#X obj 38 182 outlet;
+#X obj 123 182 outlet;
+#X obj 38 112 -;
+#X obj 38 69 t b f;
+#X msg 38 91 2;
+#X connect 0 0 4 0;
+#X connect 0 0 2 0;
+#X connect 3 0 1 0;
+#X connect 4 0 5 0;
+#X connect 4 1 3 1;
+#X connect 5 0 3 0;
+#X restore 298 55 pd mix;
+#X floatatom 298 90 5 0 0 0 - - -;
+#X floatatom 340 91 5 0 0 0 - - -;
+#X obj 212 138 *~ 1;
+#X obj 134 139 *~ 1;
+#X obj 256 138 *~ 1;
+#X obj 310 137 *~ 1;
+#X obj 257 172 r \$0-damp;
+#X obj 156 173 r \$0-decay;
+#X obj 134 259 diffusorL~;
+#X obj 212 259 diffusorR~;
+#X obj 134 221 dcombsL~;
+#X obj 212 221 dcombsR~;
+#N canvas 799 294 240 161 predamp 0;
+#X obj 22 20 inlet~;
+#X obj 22 98 outlet~;
+#X obj 49 45 r \$0-predamp;
+#X obj 22 71 damp~;
+#X connect 0 0 3 0;
+#X connect 2 0 3 1;
+#X connect 3 0 1 0;
+#X restore 134 79 pd predamp;
+#N canvas 799 294 201 154 predamp 0;
+#X obj 22 20 inlet~;
+#X obj 22 106 outlet~;
+#X obj 49 51 r \$0-predamp;
+#X obj 22 79 damp~;
+#X connect 0 0 3 0;
+#X connect 2 0 3 1;
+#X connect 3 0 1 0;
+#X restore 212 77 pd predamp;
+#X connect 0 0 6 0;
+#X connect 0 0 26 0;
+#X connect 3 0 13 0;
+#X connect 4 0 8 0;
+#X connect 4 0 27 0;
+#X connect 6 0 1 0;
+#X connect 7 0 6 1;
+#X connect 7 0 8 1;
+#X connect 7 1 9 1;
+#X connect 7 1 10 1;
+#X connect 8 0 5 0;
+#X connect 9 0 1 0;
+#X connect 10 0 5 0;
+#X connect 11 0 7 0;
+#X connect 12 0 2 0;
+#X connect 13 0 14 0;
+#X connect 13 0 17 1;
+#X connect 13 0 16 1;
+#X connect 13 1 15 0;
+#X connect 13 1 18 1;
+#X connect 13 1 19 1;
+#X connect 16 0 25 0;
+#X connect 17 0 24 0;
+#X connect 18 0 24 0;
+#X connect 19 0 25 0;
+#X connect 20 0 25 2;
+#X connect 20 0 24 2;
+#X connect 21 0 24 1;
+#X connect 21 0 25 1;
+#X connect 22 0 9 0;
+#X connect 23 0 10 0;
+#X connect 24 0 22 0;
+#X connect 25 0 23 0;
+#X connect 26 0 17 0;
+#X connect 26 0 19 0;
+#X connect 27 0 16 0;
+#X connect 27 0 18 0;
+#X restore 239 437 pd stereo-reverb;
+#N canvas 729 263 338 363 mono-reverb 0;
+#X obj 24 21 inlet~;
+#X obj 24 326 outlet~;
+#X obj 267 53 switch~;
+#X obj 131 267 *~ 0;
+#X obj 24 267 *~ 0;
+#N canvas 738 373 240 222 Xover 0;
+#X obj 20 15 inlet;
+#X obj 20 169 outlet;
+#X obj 92 114 sin;
+#X text 97 186 wet;
+#X text 27 187 dry;
+#X obj 92 169 outlet;
+#X obj 20 114 cos;
+#X obj 20 140 pow 1.2;
+#X obj 92 141 pow 2;
+#X obj 20 66 * 1.5708;
+#X connect 0 0 9 0;
+#X connect 2 0 8 0;
+#X connect 6 0 7 0;
+#X connect 7 0 1 0;
+#X connect 8 0 5 0;
+#X connect 9 0 6 0;
+#X connect 9 0 2 0;
+#X restore 45 227 pd Xover;
+#X obj 45 197 r \$0-dry-wet;
+#X obj 92 21 inlet~;
+#X obj 267 24 inlet;
+#X obj 92 267 *~ 0;
+#X obj 92 326 outlet~;
+#X obj 153 168 r \$0-decay;
+#X obj 131 139 diffusorL~;
+#X obj 131 105 damp~;
+#X obj 158 78 r \$0-predamp;
+#X obj 176 202 r \$0-damp;
+#X obj 131 232 dcombsR~;
+#X connect 0 0 4 0;
+#X connect 0 0 13 0;
+#X connect 3 0 1 0;
+#X connect 3 0 10 0;
+#X connect 4 0 1 0;
+#X connect 5 0 4 1;
+#X connect 5 0 9 1;
+#X connect 5 1 3 1;
+#X connect 6 0 5 0;
+#X connect 7 0 9 0;
+#X connect 7 0 13 0;
+#X connect 8 0 2 0;
+#X connect 9 0 10 0;
+#X connect 11 0 16 1;
+#X connect 12 0 16 0;
+#X connect 13 0 12 0;
+#X connect 14 0 13 1;
+#X connect 15 0 16 2;
+#X connect 16 0 3 0;
+#X restore 31 261 pd mono-reverb;
+#X obj 112 234 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X text 225 42 1 - mono reverb \, cheapest option;
+#X text 225 86 3 - one diffusor and two combfilter sections;
+#N canvas 726 62 366 231 signals 0;
+#X obj 27 48 inlet;
+#X obj 218 52 inlet;
+#X obj 197 99 adc~;
+#X obj 197 130 *~ 0;
+#X obj 236 132 *~ 0;
+#X obj 236 169 s~ \$0-signalsR;
+#X obj 27 166 s~ \$0-signalsL;
+#N canvas 0 22 422 229 cloinck1~ 0;
+#X obj 48 48 inlet;
+#X obj 48 165 outlet~;
+#X msg 48 94 0;
+#X obj 48 134 tabplay~ \$0-pulse;
+#X obj 189 46 hsl 200 100 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-262144 -1 0 1;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array \$0-pulse 100 float 1;
+#A 0 0 -0.0142857 0 0.0142857 0.0428571 0.0999998 0.142857 0.2 0.214285
+0.257142 0.271428 0.299999 0.342856 0.371428 0.399999 0.428571 0.457142
+0.514285 0.585713 0.642856 0.742856 -0.52857 -0.442856 -0.214285 -0.0999998
+0.0714284 0.257142 0.399999 0.499999 0.614284 0.685713 0.685713 0.699998
+-0.314285 -0.428571 -0.557142 -0.671427 -0.799998 -0.899998 -0.928569
+-0.942855 -0.942855 -0.942855 -0.942855 -0.914284 -0.885712 -0.857141
+-0.82857 -0.799998 -0.771427 -0.699998 -0.442856 0.314285 0.814284
+0.871427 0.785713 0.742856 0.657141 0.542856 -0.0714284 -0.257142 -0.114285
+0.185714 0.342856 0.471428 0.571427 0.642856 0.699998 0.785713 0.82857
+0.0714284 0.128571 0.485713 0.614284 0.699998 0.757141 0.814284 0.899998
+0.914284 0.614284 0.514285 0.414285 0.285714 -0.0285714 -0.0857141
+-0.0142857 0.0571427 0.0999998 0.185714 0.114285 0.0285714 -0.0428571
+-0.0285714 -0.0142857 0.0142857 -0.0285714 -0.0142857 0 0 0;
+#X coords 0 1 99 -1 200 100 1;
+#X restore 186 46 graph;
+#X connect 0 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X restore 27 97 pd cloinck1~;
+#N canvas 0 22 432 221 cloinck2~ 0;
+#X obj 48 48 inlet;
+#X obj 48 165 outlet~;
+#X msg 48 94 0;
+#X obj 189 46 hsl 200 100 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-262144 -1 0 1;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array \$0-pulse2 100 float 1;
+#A 0 -0.0142857 0.0457146 0.0657147 0.125715 0.205715 0.265716 0.305716
+0.345716 0.385716 0.385716 0.345716 0.265716 0.225716 0.165715 0.0857148
+-0.0142857 -0.0542859 0.00571442 0.0457146 0.145715 0.285716 0.345716
+0.405716 0.485717 0.525717 0.585717 0.685718 0.805718 0.185715 -0.334287
+-0.594289 -0.674289 -0.694289 -0.614289 -0.414288 -0.114286 0.0857148
+0.325716 0.465717 0.565717 0.625718 0.685718 0.725718 0.765718 0.805718
+0.825719 0.845719 0.885719 0.905719 0.945719 0.965719 0.965719 0.965719
+0.945719 0.545717 0.485717 0.425717 0.345716 0.205715 0.0657147 -0.114286
+-0.274287 -0.394288 -0.494288 -0.534288 -0.514288 -0.434288 -0.414288
+-0.254287 -0.154286 -0.0342858 0.0857148 0.205715 0.325716 0.265716
+-0.314287 -0.394288 -0.434288 -0.494288 -0.534288 -0.374287 -0.174286
+0.00571442 0.0857148 0.0857148 0.105715 0.105715 0.105715 0.105715
+-0.134286 -0.274287 -0.354287 -0.394288 -0.434288 -0.434288 -0.334287
+-0.114286 0.0257145 0.165715 0.165715;
+#X coords 0 1 99 -1 200 100 1;
+#X restore 186 46 graph;
+#X obj 48 134 tabplay~ \$0-pulse2;
+#X connect 0 0 2 0;
+#X connect 2 0 5 0;
+#X connect 5 0 1 0;
+#X restore 111 98 pd cloinck2~;
+#X obj 257 52 inlet;
+#X connect 0 0 7 0;
+#X connect 0 0 8 0;
+#X connect 1 0 3 1;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 3 0 6 0;
+#X connect 4 0 5 0;
+#X connect 7 0 6 0;
+#X connect 8 0 5 0;
+#X connect 9 0 4 1;
+#X restore 19 120 pd signals;
+#N canvas 684 338 296 158 receive~ 0;
+#X obj 22 30 r~ \$0-signalsL;
+#X obj 123 29 r~ \$0-signalsR;
+#X obj 22 75 outlet~;
+#X obj 123 76 outlet~;
+#X connect 0 0 2 0;
+#X connect 1 0 3 0;
+#X restore 31 200 pd receive~;
+#X obj 50 75 hsl 128 15 0 1 0 1 empty empty adc~left 20 8 0 10 -262144
+-260097 -1 12700 0;
+#N canvas 684 338 296 158 receive~ 0;
+#X obj 22 30 r~ \$0-signalsL;
+#X obj 123 29 r~ \$0-signalsR;
+#X obj 22 75 outlet~;
+#X obj 123 76 outlet~;
+#X connect 0 0 2 0;
+#X connect 1 0 3 0;
+#X restore 240 204 pd receive~;
+#N canvas 684 338 296 158 receive~ 0;
+#X obj 22 30 r~ \$0-signalsL;
+#X obj 123 29 r~ \$0-signalsR;
+#X obj 22 75 outlet~;
+#X obj 123 76 outlet~;
+#X connect 0 0 2 0;
+#X connect 1 0 3 0;
+#X restore 30 371 pd receive~;
+#N canvas 684 338 296 158 receive~ 0;
+#X obj 22 30 r~ \$0-signalsL;
+#X obj 123 29 r~ \$0-signalsR;
+#X obj 22 75 outlet~;
+#X obj 123 76 outlet~;
+#X connect 0 0 2 0;
+#X connect 1 0 3 0;
+#X restore 239 362 pd receive~;
+#X obj 73 292 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-260097 -1 0 0;
+#X floatatom 80 317 5 0 0 0 - - -;
+#N canvas 0 22 450 300 dac~ 0;
+#X obj 24 42 inlet~;
+#X obj 116 40 inlet~;
+#X obj 41 123 *~ 0;
+#X obj 117 118 *~ 0;
+#X obj 191 47 inlet;
+#X obj 60 172 dac~;
+#X connect 0 0 2 0;
+#X connect 1 0 3 0;
+#X connect 2 0 5 0;
+#X connect 3 0 5 1;
+#X connect 4 0 2 1;
+#X connect 4 0 3 1;
+#X restore 31 316 pd dac~;
+#X obj 304 391 hsl 110 15 0 1 0 1 empty empty channel-mix 2 8 0 10
+-262144 -260097 -1 4700 0;
+#X obj 79 98 hsl 128 15 0 1 0 1 empty empty adc~right 20 8 0 10 -262144
+-260097 -1 12700 0;
+#X obj 454 258 hsl 128 15 0 1 0 1 \$0-predamp empty pre-filter 20 8
+0 10 -262144 -260097 -1 6800 0;
+#X obj 454 286 hsl 128 15 0 1 0 1 \$0-damp empty built-in-filter 20
+8 0 10 -262144 -260097 -1 12700 0;
+#X text 198 187 1;
+#X text 408 188 2;
+#X text 199 358 3;
+#X text 412 357 4;
+#X obj 451 357 cnv 15 100 40 empty empty empty 20 12 0 14 -260097 -66577
+0;
+#N canvas 63 85 598 426 more-info 0;
+#X obj 519 386 switch~;
+#X obj 14 46 cnv 15 200 70 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 36 88 damp~;
+#X obj 66 65 hsl 100 15 0 1 0 1 empty empty tone 20 8 0 10 -262144
+-260097 -1 9900 0;
+#X floatatom 78 89 5 0 0 0 - - -;
+#X obj 14 126 cnv 15 200 70 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 34 140 diffusorL~;
+#X obj 34 168 diffusorR~;
+#X obj 14 205 cnv 15 200 85 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 35 239 combsL~;
+#X obj 35 265 combsR~;
+#X obj 77 216 hsl 100 15 0 1 0 1 empty empty decay 20 8 0 10 -262144
+-260097 -1 9900 0;
+#X floatatom 89 241 5 0 0 0 - - -;
+#X obj 14 299 cnv 15 200 110 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 33 383 dcombsR~;
+#X obj 33 360 dcombsL~;
+#X obj 58 311 hsl 100 15 0 1 0 1 empty empty decay 20 8 0 10 -262144
+-260097 -1 9900 0;
+#X obj 81 336 hsl 100 15 0 1 0 1 empty empty tone 20 8 0 10 -262144
+-260097 -1 9900 0;
+#X text 14 14 Tone and decay parameters go between 0 and 1;
+#X text 228 46 Second order lo pass prefilter \, following State Variable
+Filter layout. Lowest cut-off is 200 Hz. Highest cut-off is samplerate/4
+(eg. 11025 Hz. when samplerate is 44100).;
+#X text 229 127 Left and right diffusors with four all pass filters
+each. For mono reverb you can use either one. Delay line lengths are
+taken from Jezar's freeverb.;
+#X text 229 214 Left and right undamped combfilter sections with eight
+combfilters each. Useful and efficient in combination with predamping.
+For mono reverb you can use either one. Delay line lengths are taken
+from Jezar's freeverb.;
+#X text 228 302 Left and right combfilter sections with built-in first
+order damping filters. Slightly more expensive than undamped combs
+\, but may be used without predamping. For mono reverb you can use
+either one. Delay line lengths are taken from Jezar's freeverb.;
+#X connect 3 0 2 1;
+#X connect 3 0 4 0;
+#X connect 11 0 12 0;
+#X connect 11 0 9 1;
+#X connect 16 0 15 1;
+#X connect 17 0 15 2;
+#X restore 463 369 pd more-info;
+#X text 225 64 2 - one combfilter section and two diffusors;
+#X text 225 109 4 - stereo reverb with independent channels;
+#N canvas 711 36 354 327 mono-stereo-reverb 0;
+#X obj 29 30 inlet~;
+#X obj 29 276 outlet~;
+#X obj 287 116 switch~;
+#X obj 213 276 outlet~;
+#X obj 29 227 *~ 0;
+#N canvas 738 373 240 222 Xover 0;
+#X obj 20 15 inlet;
+#X obj 20 169 outlet;
+#X obj 92 114 sin;
+#X text 97 186 wet;
+#X text 27 187 dry;
+#X obj 92 169 outlet;
+#X obj 20 114 cos;
+#X obj 20 140 pow 1.2;
+#X obj 92 141 pow 2;
+#X obj 20 59 * 1.5708;
+#X connect 0 0 9 0;
+#X connect 2 0 8 0;
+#X connect 6 0 7 0;
+#X connect 7 0 1 0;
+#X connect 8 0 5 0;
+#X connect 9 0 6 0;
+#X connect 9 0 2 0;
+#X restore 50 184 pd Xover;
+#X obj 135 226 *~ 0;
+#X obj 213 227 *~ 0;
+#X obj 50 154 r \$0-dry-wet;
+#X obj 135 30 inlet~;
+#X obj 66 227 *~ 0;
+#X obj 287 29 inlet;
+#X obj 157 108 r \$0-decay;
+#X obj 135 195 diffusorL~;
+#X obj 213 195 diffusorR~;
+#X obj 135 85 damp~;
+#X obj 162 58 r \$0-predamp;
+#X obj 135 165 dcombsL~;
+#X obj 180 136 r \$0-damp;
+#X connect 0 0 4 0;
+#X connect 0 0 15 0;
+#X connect 4 0 1 0;
+#X connect 5 0 4 1;
+#X connect 5 0 10 1;
+#X connect 5 1 6 1;
+#X connect 5 1 7 1;
+#X connect 6 0 1 0;
+#X connect 7 0 3 0;
+#X connect 8 0 5 0;
+#X connect 9 0 10 0;
+#X connect 9 0 15 0;
+#X connect 10 0 3 0;
+#X connect 11 0 2 0;
+#X connect 12 0 17 1;
+#X connect 13 0 6 0;
+#X connect 14 0 7 0;
+#X connect 15 0 17 0;
+#X connect 16 0 15 1;
+#X connect 17 0 13 0;
+#X connect 17 0 14 0;
+#X connect 18 0 17 2;
+#X restore 240 256 pd mono-stereo-reverb;
+#N canvas 656 298 340 312 mono-stereo-reverb 0;
+#X obj 31 10 inlet~;
+#X obj 31 269 outlet~;
+#X obj 271 51 switch~;
+#X obj 196 268 outlet~;
+#X obj 31 219 *~ 0;
+#N canvas 738 373 240 222 Xover 0;
+#X obj 20 15 inlet;
+#X obj 20 169 outlet;
+#X obj 92 114 sin;
+#X text 97 186 wet;
+#X text 27 187 dry;
+#X obj 92 169 outlet;
+#X obj 20 114 cos;
+#X obj 20 140 pow 1.2;
+#X obj 92 141 pow 2;
+#X obj 20 66 * 1.5708;
+#X connect 0 0 9 0;
+#X connect 2 0 8 0;
+#X connect 6 0 7 0;
+#X connect 7 0 1 0;
+#X connect 8 0 5 0;
+#X connect 9 0 6 0;
+#X connect 9 0 2 0;
+#X restore 52 177 pd Xover;
+#X obj 135 219 *~ 0;
+#X obj 196 219 *~ 0;
+#X obj 52 147 r \$0-dry-wet;
+#X obj 78 10 inlet~;
+#X obj 78 219 *~ 0;
+#X obj 271 16 inlet;
+#X obj 157 131 r \$0-decay;
+#X obj 135 91 diffusorL~;
+#X obj 135 62 damp~;
+#X obj 162 35 r \$0-predamp;
+#X obj 135 190 dcombsL~;
+#X obj 196 190 dcombsR~;
+#X obj 241 131 r \$0-damp;
+#X floatatom 176 62 5 0 0 0 - - -;
+#X connect 0 0 4 0;
+#X connect 0 0 14 0;
+#X connect 4 0 1 0;
+#X connect 5 0 4 1;
+#X connect 5 0 10 1;
+#X connect 5 1 6 1;
+#X connect 5 1 7 1;
+#X connect 6 0 1 0;
+#X connect 7 0 3 0;
+#X connect 8 0 5 0;
+#X connect 9 0 10 0;
+#X connect 9 0 14 0;
+#X connect 10 0 3 0;
+#X connect 11 0 2 0;
+#X connect 12 0 16 1;
+#X connect 12 0 17 1;
+#X connect 13 0 16 0;
+#X connect 13 0 17 0;
+#X connect 14 0 13 0;
+#X connect 15 0 14 1;
+#X connect 15 0 19 0;
+#X connect 16 0 6 0;
+#X connect 17 0 7 0;
+#X connect 18 0 16 2;
+#X connect 18 0 17 2;
+#X restore 30 429 pd mono-stereo-reverb;
+#X text 150 382 switch~;
+#X text 350 413 switch~;
+#X text 130 234 switch~;
+#X text 360 209 switch~;
+#X text 226 18 reverb configurations in ascending order of CPU cost:
+;
+#X obj 19 152 declare -path ../bin/verbkit;
+#X obj 449 325 declare -lib verbkit;
+#X connect 1 0 27 0;
+#X connect 4 0 2 0;
+#X connect 7 0 48 2;
+#X connect 8 0 9 0;
+#X connect 8 0 10 2;
+#X connect 13 0 49 2;
+#X connect 14 0 15 0;
+#X connect 14 0 16 2;
+#X connect 18 0 19 0;
+#X connect 18 0 20 2;
+#X connect 21 0 22 3;
+#X connect 22 0 20 0;
+#X connect 22 1 20 1;
+#X connect 23 0 35 0;
+#X connect 23 1 35 1;
+#X connect 24 0 23 2;
+#X connect 28 0 23 0;
+#X connect 28 1 23 1;
+#X connect 29 0 27 1;
+#X connect 30 0 48 0;
+#X connect 30 1 48 1;
+#X connect 31 0 49 0;
+#X connect 31 1 49 1;
+#X connect 32 0 22 0;
+#X connect 32 1 22 1;
+#X connect 33 0 34 0;
+#X connect 33 0 35 2;
+#X connect 36 0 22 2;
+#X connect 37 0 27 2;
+#X connect 48 0 10 0;
+#X connect 48 1 10 1;
+#X connect 49 0 16 0;
+#X connect 49 1 16 1;

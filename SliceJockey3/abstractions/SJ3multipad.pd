@@ -1,0 +1,103 @@
+#N canvas 237 94 785 556 10;
+#X obj 553 1 cnv 15 15 15 \$0-canvassend \$0-canvasreceive empty 24
+36 0 50 -16662 -260097 0;
+#X obj 549 161 xyob beat1;
+#N canvas 731 66 462 333 init 0;
+#X obj 67 15 loadbang;
+#X text 46 188 slicycle 1;
+#X text 244 188 slicycle 2;
+#X obj 24 15 inlet;
+#X obj 24 47 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 239 284 global;
+#X text 43 279 in - out;
+#X msg 24 222 \; inlevelguisend init 250 300 \; reverbguisend init
+440 475 \;;
+#X msg 241 223 \; crossfaderguisend init 250 10 \; globalpitchguisend
+init 250 175 \; BPM/grooveguisend init 20 200 \;;
+#X msg 243 77 \; beat2guisend init 100 375 \; quaver2guisend init 190
+200 \; squaver2guisend init 120 50 \; filter2guisend init 385 405 \;
+krunch2guisend init 0 475 \; delay2guisend init 300 475 \; reverb2guisend
+init 230 420 \;;
+#X msg 24 76 \; beat1guisend init 30 375 \; quaver1guisend init 115
+210 \; squaver1guisend init 160 80 \; filter1guisend init 310 415 \;
+krunch1guisend init 40 455 \; delay1guisend init 360 475 \; reverb1guisend
+init 190 345 \;;
+#X connect 0 0 4 0;
+#X connect 3 0 4 0;
+#X connect 4 0 10 0;
+#X connect 4 0 9 0;
+#X connect 4 0 8 0;
+#X connect 4 0 7 0;
+#X restore 553 62 pd init;
+#X obj 553 37 bng 17 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 548 141 slicycle ----------------------;
+#X text 547 353 global ------------------------;
+#X obj 4 531 cnv 15 525 2 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 533 1 cnv 15 2 525 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 30 375 vradio 50 1 0 1 beat1guisend beat1guireceive o 6 23 1
+70 -262144 -262144 -1 0;
+#X obj 100 375 vradio 50 1 0 1 beat2guisend beat2guireceive o 6 23
+1 70 -162280 -162280 -1 0;
+#X obj 115 210 vradio 50 1 0 1 quaver1guisend quaver1guireceive oo
+2 25 1 44 -262144 -262144 -1 0;
+#X obj 190 200 vradio 50 1 0 1 quaver2guisend quaver2guireceive oo
+2 25 1 44 -162280 -162280 -1 0;
+#X obj 160 80 vradio 50 1 0 1 squaver1guisend squaver1guireceive oooo
+2 25 1 21 -262144 -262144 -1 0;
+#X obj 120 50 vradio 50 1 0 1 squaver2guisend squaver2guireceive oooo
+2 25 1 21 -162280 -162280 -1 0;
+#X obj 190 345 vradio 50 1 0 1 reverb1guisend reverb1guireceive )))
+4 23 1 45 -262144 -262144 -1 0;
+#X obj 230 420 vradio 50 1 0 1 reverb2guisend reverb2guireceive )))
+4 23 1 45 -162280 -162280 -1 0;
+#X obj 310 415 vradio 50 1 0 1 filter1guisend filter1guireceive ---
+2 25 1 44 -262144 -262144 -1 0;
+#X obj 385 405 vradio 50 1 0 1 filter2guisend filter2guireceive ---
+2 25 1 44 -162280 -162280 -1 0;
+#X obj 40 455 vradio 50 1 0 1 krunch1guisend krunch1guireceive ++ 2
+25 1 40 -262144 -262144 -1 0;
+#X obj 0 475 vradio 50 1 0 1 krunch2guisend krunch2guireceive ++ 2
+25 1 40 -162280 -162280 -1 0;
+#X obj 360 475 vradio 50 1 0 1 delay1guisend delay1guireceive ]]]]
+3 23 1 40 -262144 -262144 -1 0;
+#X obj 300 475 vradio 50 1 0 1 delay2guisend delay2guireceive ]]]]
+3 23 1 40 -162280 -162280 -1 0;
+#X obj 250 10 vradio 50 1 0 1 crossfaderguisend crossfaderguireceive
+X 6 29 1 56 -33289 -33289 -262144 0;
+#X obj 250 300 vradio 50 1 0 1 inlevelguisend inlevelguireceive > 8
+25 1 60 -33289 -33289 -262144 0;
+#X obj 440 475 vradio 50 1 0 1 reverbguisend reverbguireceive ))) 4
+23 1 45 -33289 -33289 -262144 0;
+#X obj 250 175 vradio 50 1 0 1 globalpitchguisend globalpitchguireceive
+^^ 1 25 1 50 -33289 -33289 -262144 0;
+#X obj 1 1 cnv 4 4 4 empty helpcanvas empty 20 40 1 40 -16662 -16662
+0;
+#X obj 548 317 xyob reverb1;
+#X obj 660 318 xyob reverb2;
+#X obj 661 161 xyob beat2;
+#X obj 549 186 xyob quaver1;
+#X obj 661 187 xyob quaver2;
+#X obj 549 211 xyob squaver1;
+#X obj 661 212 xyob squaver2;
+#X obj 549 238 xyob filter1;
+#X obj 661 238 xyob filter2;
+#X obj 549 265 xyob krunch1;
+#X obj 661 265 xyob krunch2;
+#X obj 549 292 xyob delay1;
+#X obj 661 293 xyob delay2;
+#X obj 549 381 xyob crossfader;
+#X obj 550 409 xyob inlevel;
+#X obj 609 62 s crossfaderguireceive;
+#X msg 609 38 color 14 14 22;
+#X obj 661 409 xyob reverb;
+#X obj 661 381 xyob BPM/groove;
+#X obj 20 200 vradio 50 1 0 1 BPM/grooveguisend BPM/grooveguireceive
+124 2 27 1 25 -33289 -33289 -262144 0;
+#X obj 661 436 xyob globalpitch;
+#X connect 3 0 2 0;
+#X connect 43 0 42 0;
+#X coords 0 -1 1 1 525 525 2 0 0;

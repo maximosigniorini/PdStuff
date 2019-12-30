@@ -1,0 +1,2643 @@
+#N canvas 10 132 982 544 10;
+#X declare -path abstractions;
+#X declare -path pdlibs/kat -lib verbkit;
+#X declare -path nilwind;
+#X declare -path hcs;
+#X declare -lib zexy;
+#N canvas 385 368 407 374 input 0;
+#X obj 258 204 loadbang;
+#X msg 258 231 \; pd dsp 1;
+#X obj 20 60 bng 50 100 50 0 \$0-sinputfilter \$0-rinputfilter ---
+3 25 1 45 -66577 -66577 -262144;
+#X obj 170 60 bng 50 250 50 0 \$0-stimesignature \$0-rtimesignature
+4/4 7 28 1 25 -66577 -66577 -262144;
+#N canvas 592 474 290 273 time-signature 0;
+#X obj 30 9 r \$0-stimesignature;
+#X obj 159 155 s \$0-timesignature;
+#X obj 92 48 loadbang;
+#X msg 92 71 0;
+#X obj 30 242 s \$0-rtimesignature;
+#X msg 30 213 label 4/4;
+#X msg 64 158 label 6/8;
+#X obj 30 88 f;
+#X obj 45 40 + 1;
+#X obj 45 63 % 3;
+#X obj 30 132 sel 0 1 2;
+#X msg 47 187 label S/4;
+#X obj 159 105 == 2;
+#X floatatom 169 131 5 0 0 0 - - -;
+#X obj 159 215 s \$0-groovetype;
+#X obj 159 190 == 1;
+#X msg 181 49 time.signature;
+#X obj 181 77 s buttonhelp;
+#X msg 173 240 color 2 2 0;
+#X connect 0 0 7 0;
+#X connect 2 0 3 0;
+#X connect 3 0 7 0;
+#X connect 5 0 4 0;
+#X connect 6 0 4 0;
+#X connect 7 0 8 0;
+#X connect 7 0 10 0;
+#X connect 7 0 12 0;
+#X connect 7 0 15 0;
+#X connect 7 0 16 0;
+#X connect 8 0 9 0;
+#X connect 9 0 7 1;
+#X connect 10 0 5 0;
+#X connect 10 1 11 0;
+#X connect 10 2 6 0;
+#X connect 11 0 4 0;
+#X connect 12 0 13 0;
+#X connect 12 0 1 0;
+#X connect 15 0 14 0;
+#X connect 16 0 17 0;
+#X connect 18 0 4 0;
+#X restore 143 32 pd time-signature;
+#X obj 70 60 bng 50 100 50 0 \$0-scompander \$0-rcompander || 13 30
+1 50 -66577 -66577 -262144;
+#N canvas 1000 438 212 294 filterstatus 0;
+#X obj 38 34 loadbang;
+#X msg 38 58 0;
+#X obj 69 121 s buttonhelp;
+#X obj 27 11 r \$0-sinputfilter;
+#X obj 27 79 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 27 260 s \$0-rinputfilter;
+#X msg 69 94 inputfilter;
+#X obj 27 173 sel 0 1;
+#X obj 44 145 s \$0-inputfilterstatus;
+#X msg 46 202 color 15 15 22;
+#X msg 27 228 color 2 2 0;
+#X connect 0 0 1 0;
+#X connect 1 0 4 0;
+#X connect 3 0 4 0;
+#X connect 4 0 6 0;
+#X connect 4 0 7 0;
+#X connect 4 0 8 0;
+#X connect 6 0 2 0;
+#X connect 7 0 10 0;
+#X connect 7 1 9 0;
+#X connect 9 0 5 0;
+#X connect 10 0 5 0;
+#X restore 21 6 pd filterstatus;
+#N canvas 593 377 212 294 companderstatus 0;
+#X obj 38 34 loadbang;
+#X msg 38 58 0;
+#X obj 69 121 s buttonhelp;
+#X obj 27 79 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 27 173 sel 0 1;
+#X msg 69 94 compander;
+#X obj 27 11 r \$0-scompander;
+#X obj 27 260 s \$0-rcompander;
+#X obj 44 145 s \$0-companderstatus;
+#X msg 46 202 color 15 15 22;
+#X msg 27 229 color 2 2 0;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 3 0 5 0;
+#X connect 3 0 4 0;
+#X connect 3 0 8 0;
+#X connect 4 0 10 0;
+#X connect 4 1 9 0;
+#X connect 5 0 2 0;
+#X connect 6 0 3 0;
+#X connect 9 0 7 0;
+#X connect 10 0 7 0;
+#X restore 21 32 pd companderstatus;
+#X obj 37 309 s~ processedinput;
+#X obj 120 60 bng 50 100 50 0 \$0-sdirectout \$0-rdirectout < 13 25
+1 40 -66577 -66577 -262144;
+#N canvas 474 404 212 294 directout 0;
+#X obj 38 34 loadbang;
+#X msg 38 58 0;
+#X obj 69 121 s buttonhelp;
+#X obj 27 79 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 27 173 sel 0 1;
+#X obj 27 8 r \$0-sdirectout;
+#X obj 27 260 s \$0-rdirectout;
+#X obj 46 145 s \$0-directoutstatus;
+#X msg 69 94 direct.out;
+#X msg 46 202 color 15 15 22;
+#X msg 27 229 color 2 2 0;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 3 0 8 0;
+#X connect 3 0 4 0;
+#X connect 3 0 7 0;
+#X connect 4 0 10 0;
+#X connect 4 1 9 0;
+#X connect 5 0 3 0;
+#X connect 8 0 2 0;
+#X connect 9 0 6 0;
+#X connect 10 0 6 0;
+#X restore 143 8 pd directout;
+#X msg 257 284 color 18 18 0;
+#X obj 24 111 hradio 48 1 0 4 empty empty empty 0 -8 0 10 -262144 -1
+-1 0;
+#N canvas 454 401 397 339 scope 0;
+#X obj 115 175 loadbang;
+#X obj 100 250 nilwind/Scope~ 200 50 128 3 128 -1 1 0 0 0 0 0 255 0
+0 0 0 0;
+#X floatatom 113 119 5 0 0 0 - - -;
+#X obj 100 80 r~ \$0-inputscope;
+#X msg 115 211 frgb 0 255 0 \, brgb 0 0 0 \, range -1 1 \, 128;
+#X connect 0 0 4 0;
+#X connect 2 0 1 0;
+#X connect 3 0 1 0;
+#X connect 4 0 1 0;
+#X coords 0 -1 1 1 200 50 2 100 250;
+#X restore 20 110 pd scope;
+#N canvas 509 265 247 332 input-settings 0;
+#X obj 27 77 hsl 195 50 0 1 0 1 \$0-compander-amount empty compander-amount
+82 25 0 10 -228856 -260097 -1 19400 0;
+#X floatatom 37 95 5 0 0 0 - #0-compander-amount -;
+#X obj 27 187 hsl 195 50 0 1 0 1 \$0-ducker-factor empty ducker-factor
+102 25 0 10 -228856 -260097 -1 10300 0;
+#X floatatom 34 204 5 0 0 0 - #0-ducker-factor -;
+#X obj 27 22 hsl 195 50 5 500 0 1 \$0-inputfilter-freq empty inputfilter-freq
+82 25 0 10 -228856 -260097 -1 5300 0;
+#X floatatom 34 38 5 0 0 1 Hz #0-inputfilter-freq -;
+#N canvas 801 565 223 150 close 0;
+#X obj 20 20 bng 50 80 20 0 \$0-dummysend \$0-dummyreceive X 12 29
+1 40 -233017 -233017 -66577;
+#X msg 20 92 \; pd-input-settings vis 0;
+#X connect 0 0 1 0;
+#X coords 0 -1 1 1 50 50 2 20 20;
+#X restore 174 242 pd close;
+#N canvas 320 552 223 150 close 0;
+#X obj 20 20 bng 50 80 20 0 \$0-dummysend \$0-dummyreceive ? 13 29
+1 40 -233017 -233017 -66577;
+#X msg 20 92 \; pd-input-settings-help vis 1;
+#X connect 0 0 1 0;
+#X coords 0 -1 1 1 50 50 2 20 20;
+#X restore 124 242 pd close;
+#N canvas 740 82 188 150 audiosettings 0;
+#X msg 20 98 \; pd audio-properties;
+#X obj 20 20 bng 50 80 20 0 \$0-dummysend \$0-dummyreceive ))) 10 25
+1 35 -233017 -233017 -66577;
+#X connect 1 0 0 0;
+#X coords 0 -1 1 1 50 50 2 20 20;
+#X restore 24 242 pd audiosettings;
+#X text 23 295 audio settings;
+#X text 183 294 close;
+#X text 135 295 help;
+#X obj 74 242 bng 50 250 50 0 \$0-dummysend \$0-dummyreceive empty
+17 7 0 10 -228856 -228856 -1;
+#X obj 27 132 hsl 195 50 -24 -6 0 1 \$0-dBpoint empty compander-dBpoint
+85 25 0 10 -228856 -260097 -1 16000 0;
+#X floatatom 35 152 5 0 0 1 dB #0-dBpoint -;
+#X restore 134 205 pd input-settings;
+#N canvas 220 264 559 253 input-settings-help 0;
+#X obj 16 167 hsl 150 30 0 1 0 1 empty empty compander-factor 42 15
+0 10 -228856 -260097 -1 7400 0;
+#X obj 16 200 hsl 150 30 1 10 0 0 \$0-ducker-factor empty ducker-factor
+62 15 0 10 -228856 -260097 -1 0 0;
+#X obj 16 134 hsl 150 30 5 500 0 1 empty empty inputfilter-freq 42
+15 0 10 -228856 -260097 -1 5700 0;
+#X text 178 138 hi pass filter frequency cut off point \, expressed
+in Herz;
+#X text 178 169 amount of compression + noise reduction;
+#X text 178 200 amount of ducking effect from input signal on slice-recycle
+output;
+#X text 10 14 Settings for input signal from soundcard:;
+#X obj 12 47 hradio 39 1 0 4 empty empty __________________________
+0 15 1 10 -1 -1 -4034 0;
+#X text 178 59 Double-click the oscilloscope region;
+#X text 12 106 A pop up window will open with the following settings:
+;
+#X restore 134 175 pd input-settings-help;
+#N canvas 0 22 225 343 open-settings 0;
+#X obj 67 55 nilwind/MouseState;
+#X obj 27 127 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 27 84 1;
+#X obj 67 84 sel 0;
+#X obj 27 226 f;
+#X obj 42 186 + 1;
+#X obj 82 185 delay 410;
+#X msg 82 209 0;
+#X obj 27 153 metro 300;
+#X msg 67 110 0;
+#X obj 27 28 inlet;
+#X obj 27 256 sel 1;
+#X msg 27 286 \; pd-input-settings vis 1;
+#X connect 0 0 3 0;
+#X connect 1 0 8 0;
+#X connect 2 0 1 0;
+#X connect 3 0 9 0;
+#X connect 4 0 5 0;
+#X connect 4 0 11 0;
+#X connect 5 0 4 1;
+#X connect 6 0 7 0;
+#X connect 7 0 4 1;
+#X connect 8 0 4 0;
+#X connect 8 0 6 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 0;
+#X connect 11 0 12 0;
+#X restore 24 174 pd open-settings;
+#N canvas 527 373 314 308 outputsignal 0;
+#X obj 118 238 s~ \$0-recorderright;
+#X obj 67 265 s~ \$0-recorderleft;
+#X obj 76 238 dac~;
+#N canvas 702 451 410 197 slicycles 0;
+#X obj 18 159 outlet~;
+#X obj 75 159 outlet~;
+#X obj 18 17 r~ slicycle1-outleft;
+#X obj 75 45 r~ slicycle1-outright;
+#X obj 213 21 r~ slicycle2-outleft;
+#X obj 267 46 r~ slicycle2-outright;
+#N canvas 935 168 263 319 crossfader 0;
+#X obj 27 17 r crossfader;
+#X obj 27 42 unpack;
+#X obj 27 98 cos;
+#X obj 80 98 sin;
+#X obj 114 127 t b f;
+#X obj 114 99 pow 0.8;
+#X obj 27 70 * 1.5708;
+#X obj 27 287 outlet~;
+#X obj 80 287 outlet~;
+#X floatatom 37 190 5 0 0 0 - - -;
+#X floatatom 90 191 5 0 0 0 - - -;
+#X obj 27 253 line~;
+#X obj 80 253 line~;
+#X obj 27 164 *;
+#X obj 80 164 *;
+#X msg 27 216 \$1 20;
+#X msg 80 216 \$1 20;
+#X text 129 191 left and right level;
+#X connect 0 0 1 0;
+#X connect 1 0 6 0;
+#X connect 1 1 5 0;
+#X connect 2 0 13 0;
+#X connect 3 0 14 0;
+#X connect 4 0 13 0;
+#X connect 4 0 14 0;
+#X connect 4 1 13 1;
+#X connect 4 1 14 1;
+#X connect 5 0 4 0;
+#X connect 6 0 2 0;
+#X connect 6 0 3 0;
+#X connect 11 0 7 0;
+#X connect 12 0 8 0;
+#X connect 13 0 9 0;
+#X connect 13 0 15 0;
+#X connect 14 0 10 0;
+#X connect 14 0 16 0;
+#X connect 15 0 11 0;
+#X connect 16 0 12 0;
+#X restore 90 77 pd crossfader;
+#X obj 18 120 *~;
+#X obj 75 120 *~;
+#X obj 213 122 *~;
+#X obj 267 123 *~;
+#X obj 213 160 outlet~;
+#X obj 267 160 outlet~;
+#X connect 2 0 7 0;
+#X connect 3 0 8 0;
+#X connect 4 0 9 0;
+#X connect 5 0 10 0;
+#X connect 6 0 7 1;
+#X connect 6 0 8 1;
+#X connect 6 1 9 1;
+#X connect 6 1 10 1;
+#X connect 7 0 0 0;
+#X connect 8 0 1 0;
+#X connect 9 0 11 0;
+#X connect 10 0 12 0;
+#X restore 36 14 pd slicycles;
+#X obj 119 14 inlet~;
+#N canvas 294 194 585 363 reverb 0;
+#X obj 29 11 inlet~;
+#X obj 77 11 inlet~;
+#X obj 29 321 outlet~;
+#X obj 255 322 outlet~;
+#X obj 29 110 *~ 1;
+#X obj 255 111 *~ 1;
+#X obj 111 110 *~ 0;
+#X obj 267 256 hsl 128 15 0.7 1 0 1 empty empty decay 20 8 0 10 -262144
+-1 -1 6400 0;
+#N canvas 988 162 143 206 reverbdata-in 0;
+#X obj 22 161 outlet;
+#X obj 67 161 outlet;
+#X obj 22 71 unpack;
+#X obj 22 19 r reverb;
+#X connect 2 0 0 0;
+#X connect 2 1 1 0;
+#X connect 3 0 2 0;
+#X restore 357 110 pd reverbdata-in;
+#N canvas 988 162 173 167 rvrbdata-r 0;
+#X obj 103 119 outlet;
+#X obj 55 119 outlet;
+#X obj 22 71 unpack;
+#X obj 22 19 r reverb2;
+#X connect 2 0 0 0;
+#X connect 2 1 1 0;
+#X connect 3 0 2 0;
+#X restore 228 42 pd rvrbdata-r;
+#N canvas 988 162 194 205 rvrbdata-l 0;
+#X obj 116 160 outlet;
+#X obj 55 160 outlet;
+#X obj 22 71 unpack;
+#X obj 22 19 r reverb1;
+#X connect 2 0 0 0;
+#X connect 2 1 1 0;
+#X connect 3 0 2 0;
+#X restore 50 44 pd rvrbdata-l;
+#X obj 255 11 inlet~;
+#X obj 312 10 inlet~;
+#X obj 77 110 *~ 1;
+#X obj 312 110 *~ 1;
+#X obj 207 109 *~ 0;
+#N canvas 738 373 187 301 Xover-slicycle1 0;
+#X obj 20 15 inlet;
+#X obj 20 208 outlet;
+#X obj 92 103 sin;
+#X text 97 225 wet;
+#X text 27 226 dry;
+#X obj 92 208 outlet;
+#X obj 20 103 cos;
+#X obj 20 129 pow 1.2;
+#X obj 92 130 pow 2;
+#X obj 20 73 * 1.0697;
+#X obj 92 167 * 2;
+#X connect 0 0 9 0;
+#X connect 2 0 8 0;
+#X connect 6 0 7 0;
+#X connect 7 0 1 0;
+#X connect 8 0 10 0;
+#X connect 9 0 2 0;
+#X connect 9 0 6 0;
+#X connect 10 0 5 0;
+#X restore 50 73 pd Xover-slicycle1;
+#N canvas 481 309 160 241 Xover-slicycle2 0;
+#X obj 20 15 inlet;
+#X obj 20 180 outlet;
+#X obj 92 103 sin;
+#X text 22 201 wet;
+#X text 90 202 dry;
+#X obj 92 180 outlet;
+#X obj 20 103 cos;
+#X obj 20 129 pow 1.2;
+#X obj 92 130 pow 2;
+#X obj 20 73 * 1.0697;
+#X obj 20 158 * 2;
+#X connect 0 0 9 0;
+#X connect 2 0 8 0;
+#X connect 6 0 7 0;
+#X connect 7 0 5 0;
+#X connect 8 0 10 0;
+#X connect 9 0 2 0;
+#X connect 9 0 6 0;
+#X connect 10 0 1 0;
+#X restore 228 71 pd Xover-slicycle2;
+#X floatatom 282 286 5 0 0 0 - - -;
+#X text 439 314 ugly \, you say?;
+#X obj 510 166 *~ 1;
+#X obj 429 165 *~ 0;
+#N canvas 481 309 177 243 Xover-input 0;
+#X obj 20 15 inlet;
+#X obj 83 184 outlet;
+#X obj 20 107 sin;
+#X text 85 205 wet;
+#X text 18 206 dry;
+#X obj 20 184 outlet;
+#X obj 83 107 cos;
+#X obj 83 133 pow 1.2;
+#X obj 20 134 pow 2;
+#X obj 20 73 * 1.0697;
+#X obj 20 158 * 2;
+#X connect 0 0 9 0;
+#X connect 2 0 8 0;
+#X connect 6 0 7 0;
+#X connect 7 0 1 0;
+#X connect 8 0 10 0;
+#X connect 9 0 2 0;
+#X connect 9 0 6 0;
+#X connect 10 0 5 0;
+#X restore 450 139 pd Xover-input;
+#X obj 450 44 r \$0-directoutstatus;
+#X obj 429 74 *~ 0;
+#X obj 465 75 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 429 13 inlet~;
+#X text 474 13 filtered input;
+#N canvas 273 256 322 264 reverb----------------- 0;
+#X obj 22 9 inlet~;
+#X obj 22 178 outlet~;
+#X obj 124 177 outlet~;
+#X obj 109 9 inlet;
+#X obj 22 89 diffusorL~;
+#X obj 22 126 combsL~;
+#X obj 124 125 combsR~;
+#X obj 124 89 diffusorR~;
+#X connect 0 0 4 0;
+#X connect 0 0 7 0;
+#X connect 3 0 5 1;
+#X connect 3 0 6 1;
+#X connect 4 0 5 0;
+#X connect 5 0 1 0;
+#X connect 6 0 2 0;
+#X connect 7 0 6 0;
+#X restore 111 285 pd reverb-----------------;
+#X text 140 10 << slicycles >>;
+#X obj 111 137 damp~;
+#X obj 207 137 damp~;
+#X obj 330 200 damp~;
+#X floatatom 149 138 5 0 0 0 - - -;
+#X connect 0 0 4 0;
+#X connect 0 0 6 0;
+#X connect 1 0 13 0;
+#X connect 1 0 6 0;
+#X connect 4 0 2 0;
+#X connect 5 0 3 0;
+#X connect 6 0 30 0;
+#X connect 7 0 28 1;
+#X connect 7 0 18 0;
+#X connect 8 0 32 1;
+#X connect 8 1 22 0;
+#X connect 9 0 17 0;
+#X connect 9 1 31 1;
+#X connect 10 0 16 0;
+#X connect 10 1 30 1;
+#X connect 10 1 33 0;
+#X connect 11 0 5 0;
+#X connect 11 0 15 0;
+#X connect 12 0 15 0;
+#X connect 12 0 14 0;
+#X connect 13 0 3 0;
+#X connect 14 0 2 0;
+#X connect 15 0 31 0;
+#X connect 16 0 4 1;
+#X connect 16 0 13 1;
+#X connect 16 1 6 1;
+#X connect 17 0 15 1;
+#X connect 17 1 5 1;
+#X connect 17 1 14 1;
+#X connect 20 0 2 0;
+#X connect 20 0 3 0;
+#X connect 21 0 32 0;
+#X connect 22 0 21 1;
+#X connect 22 1 20 1;
+#X connect 23 0 24 1;
+#X connect 23 0 25 0;
+#X connect 24 0 20 0;
+#X connect 24 0 21 0;
+#X connect 26 0 24 0;
+#X connect 28 0 2 0;
+#X connect 28 1 3 0;
+#X connect 30 0 28 0;
+#X connect 31 0 28 0;
+#X connect 32 0 28 0;
+#X restore 67 175 pd reverb;
+#N canvas 744 183 277 206 limitr 0;
+#X obj 26 14 inlet~;
+#X obj 111 14 inlet~;
+#X obj 26 136 *~;
+#X obj 111 136 *~;
+#X obj 26 45 *~ 1;
+#X obj 111 46 *~ 1;
+#X obj 26 165 outlet~;
+#X obj 111 166 outlet~;
+#X msg 167 46 limit 100;
+#X obj 167 14 loadbang;
+#X obj 26 107 z~ 64;
+#X obj 111 107 z~ 64;
+#X obj 126 76 limiter~ 1 1;
+#X connect 0 0 4 0;
+#X connect 1 0 5 0;
+#X connect 2 0 6 0;
+#X connect 3 0 7 0;
+#X connect 4 0 10 0;
+#X connect 4 0 12 0;
+#X connect 5 0 11 0;
+#X connect 5 0 12 1;
+#X connect 8 0 12 0;
+#X connect 9 0 8 0;
+#X connect 10 0 2 0;
+#X connect 11 0 3 0;
+#X connect 12 0 2 1;
+#X connect 12 0 3 1;
+#X restore 67 205 pd limitr;
+#X obj 129 81 duck~;
+#X obj 18 115 *~;
+#X obj 48 115 *~;
+#X obj 76 115 *~;
+#X obj 105 115 *~;
+#X obj 142 45 r \$0-ducker-factor;
+#X text 170 14 processed input;
+#X connect 3 0 8 0;
+#X connect 3 1 9 0;
+#X connect 3 2 10 0;
+#X connect 3 3 11 0;
+#X connect 4 0 7 0;
+#X connect 4 0 5 4;
+#X connect 5 0 6 0;
+#X connect 5 1 6 1;
+#X connect 6 0 1 0;
+#X connect 6 0 2 0;
+#X connect 6 1 2 1;
+#X connect 6 1 0 0;
+#X connect 7 0 11 1;
+#X connect 7 0 10 1;
+#X connect 7 0 9 1;
+#X connect 7 0 8 1;
+#X connect 8 0 5 0;
+#X connect 9 0 5 1;
+#X connect 10 0 5 2;
+#X connect 11 0 5 3;
+#X connect 12 0 7 1;
+#X restore 23 342 pd outputsignal;
+#X obj 44 280 s~ \$0-inputscope;
+#N canvas 2 94 450 300 inputselect 0;
+#X obj 91 22 inlet;
+#X obj 160 22 inlet;
+#X obj 91 183 outlet~;
+#X text 23 234 Input selector. Slicycles have mono input so left and
+right are mixed to mono here.;
+#N canvas 550 178 335 358 from-adc~ 0;
+#X obj 140 284 outlet~;
+#X obj 40 36 inlet;
+#X obj 103 36 inlet;
+#X obj 118 147 adc~;
+#N canvas 62 360 313 305 compand 0;
+#X obj 19 8 inlet~;
+#X obj 19 263 outlet~;
+#X obj 19 197 qompand~;
+#X obj 51 65 r \$0-companderstatus;
+#X obj 34 145 *;
+#X obj 34 118 f;
+#X obj 51 92 t b f;
+#X obj 78 120 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 182 53 5 0 0 0 - - -;
+#X obj 49 166 r \$0-dBpoint;
+#N canvas 240 272 270 326 postgain 0;
+#X obj 20 17 inlet~;
+#X obj 20 261 outlet~;
+#X floatatom 142 178 5 0 0 0 - - -;
+#X obj 90 134 * 1;
+#X obj 134 47 + 18;
+#X obj 134 73 / 12;
+#X obj 134 99 t b f;
+#X obj 90 47 * 0.5;
+#X obj 20 230 *~ 1;
+#X obj 90 213 line 1 2;
+#X text 20 286 Psycho-acoustic amplitude compensation;
+#X msg 90 187 \$1 50;
+#X obj 90 18 inlet;
+#X obj 134 18 inlet;
+#X obj 152 262 outlet;
+#X obj 90 161 + 1;
+#X connect 0 0 8 0;
+#X connect 3 0 15 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 6 0 3 0;
+#X connect 6 1 3 1;
+#X connect 8 0 1 0;
+#X connect 9 0 8 1;
+#X connect 11 0 9 0;
+#X connect 12 0 7 0;
+#X connect 12 0 3 0;
+#X connect 13 0 4 0;
+#X connect 15 0 2 0;
+#X connect 15 0 11 0;
+#X connect 15 0 14 0;
+#X restore 19 230 pd postgain;
+#X obj 34 36 r \$0-compander-amount;
+#X floatatom 82 264 5 0 0 0 - - -;
+#X connect 0 0 2 0;
+#X connect 2 0 10 0;
+#X connect 3 0 6 0;
+#X connect 4 0 2 1;
+#X connect 4 0 10 1;
+#X connect 5 0 4 0;
+#X connect 6 0 5 0;
+#X connect 6 1 4 1;
+#X connect 6 1 7 0;
+#X connect 9 0 2 2;
+#X connect 9 0 10 2;
+#X connect 10 0 1 0;
+#X connect 10 1 12 0;
+#X connect 11 0 5 0;
+#X connect 11 0 8 0;
+#X restore 140 251 pd compand;
+#N canvas 208 145 322 269 hip~ 0;
+#X obj 21 25 inlet~;
+#X obj 21 221 outlet~;
+#X obj 21 189 hip~ 5;
+#X obj 40 50 r \$0-inputfilter-freq;
+#X obj 72 74 r \$0-inputfilterstatus;
+#X obj 72 124 *;
+#X obj 72 99 t b f;
+#X obj 40 74 - 5;
+#X obj 72 149 + 5;
+#X floatatom 72 189 5 0 0 0 - - -;
+#X connect 0 0 2 0;
+#X connect 2 0 1 0;
+#X connect 3 0 7 0;
+#X connect 4 0 6 0;
+#X connect 5 0 8 0;
+#X connect 6 0 5 0;
+#X connect 6 1 5 1;
+#X connect 7 0 5 0;
+#X connect 8 0 9 0;
+#X connect 8 0 2 1;
+#X restore 140 222 pd hip~;
+#X obj 19 194 *~ 1;
+#X obj 140 195 *~ 1;
+#X obj 103 107 t b f;
+#X obj 40 147 * 1;
+#X obj 161 147 * 1;
+#X text 11 11 left gain;
+#X text 159 12 right gain;
+#X text 38 321 Filtered and companded signal from adc~.;
+#X obj 161 37 inlet;
+#X text 103 12 mute;
+#X connect 1 0 9 0;
+#X connect 2 0 8 0;
+#X connect 3 0 6 0;
+#X connect 3 1 7 0;
+#X connect 4 0 0 0;
+#X connect 5 0 4 0;
+#X connect 6 0 5 0;
+#X connect 7 0 5 0;
+#X connect 8 0 9 0;
+#X connect 8 0 10 0;
+#X connect 8 1 9 1;
+#X connect 8 1 10 1;
+#X connect 9 0 6 1;
+#X connect 10 0 7 1;
+#X connect 14 0 10 0;
+#X restore 91 135 pd from-adc~;
+#X text 22 20 left gain;
+#X text 203 21 right gain;
+#X connect 0 0 4 0;
+#X connect 1 0 4 2;
+#X connect 4 0 2 0;
+#X restore 209 314 pd inputselect;
+#N canvas 499 273 309 294 inputlevels 0;
+#X obj 46 19 r inlevel;
+#X obj 46 46 unpack;
+#X floatatom 144 174 5 0 0 0 - - -;
+#X floatatom 59 174 5 0 0 0 - - -;
+#X obj 46 145 *;
+#X obj 128 143 *;
+#X obj 128 108 t b f;
+#X obj 46 107 cos;
+#X obj 76 107 sin;
+#X obj 46 74 * 1.5708;
+#X obj 128 75 * 4;
+#X obj 128 205 outlet;
+#X obj 46 204 outlet;
+#X text 41 245 left & right input levels;
+#X connect 0 0 1 0;
+#X connect 1 0 9 0;
+#X connect 1 1 10 0;
+#X connect 4 0 3 0;
+#X connect 4 0 12 0;
+#X connect 5 0 2 0;
+#X connect 5 0 11 0;
+#X connect 6 0 5 0;
+#X connect 6 0 4 0;
+#X connect 6 1 5 1;
+#X connect 6 1 4 1;
+#X connect 7 0 4 0;
+#X connect 8 0 5 0;
+#X connect 9 0 7 0;
+#X connect 9 0 8 0;
+#X connect 10 0 6 0;
+#X restore 23 207 pd inputlevels;
+#N canvas 550 178 335 358 inputsignal 0;
+#X obj 140 284 outlet~;
+#X obj 40 36 inlet;
+#X obj 118 147 adc~;
+#N canvas 62 360 313 305 compand 0;
+#X obj 19 8 inlet~;
+#X obj 19 263 outlet~;
+#X obj 19 197 qompand~;
+#X obj 51 65 r \$0-companderstatus;
+#X obj 34 145 *;
+#X obj 34 118 f;
+#X obj 51 92 t b f;
+#X obj 78 120 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 182 53 5 0 0 0 - - -;
+#X obj 49 166 r \$0-dBpoint;
+#N canvas 240 272 270 326 postgain 0;
+#X obj 20 17 inlet~;
+#X obj 20 261 outlet~;
+#X floatatom 142 178 5 0 0 0 - - -;
+#X obj 90 134 * 1;
+#X obj 134 47 + 18;
+#X obj 134 73 / 12;
+#X obj 134 99 t b f;
+#X obj 90 47 * 0.5;
+#X obj 20 230 *~ 1;
+#X obj 90 213 line 1 2;
+#X text 20 286 Psycho-acoustic amplitude compensation;
+#X msg 90 187 \$1 50;
+#X obj 90 18 inlet;
+#X obj 134 18 inlet;
+#X obj 152 262 outlet;
+#X obj 90 161 + 1;
+#X connect 0 0 8 0;
+#X connect 3 0 15 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 6 0 3 0;
+#X connect 6 1 3 1;
+#X connect 8 0 1 0;
+#X connect 9 0 8 1;
+#X connect 11 0 9 0;
+#X connect 12 0 7 0;
+#X connect 12 0 3 0;
+#X connect 13 0 4 0;
+#X connect 15 0 2 0;
+#X connect 15 0 11 0;
+#X connect 15 0 14 0;
+#X restore 19 230 pd postgain;
+#X obj 34 36 r \$0-compander-amount;
+#X floatatom 82 264 5 0 0 0 - - -;
+#X connect 0 0 2 0;
+#X connect 2 0 10 0;
+#X connect 3 0 6 0;
+#X connect 4 0 2 1;
+#X connect 4 0 10 1;
+#X connect 5 0 4 0;
+#X connect 6 0 5 0;
+#X connect 6 1 4 1;
+#X connect 6 1 7 0;
+#X connect 9 0 2 2;
+#X connect 9 0 10 2;
+#X connect 10 0 1 0;
+#X connect 10 1 12 0;
+#X connect 11 0 5 0;
+#X connect 11 0 8 0;
+#X restore 140 251 pd compand;
+#N canvas 208 145 322 269 hip~ 0;
+#X obj 21 25 inlet~;
+#X obj 21 221 outlet~;
+#X obj 21 189 hip~ 5;
+#X obj 40 50 r \$0-inputfilter-freq;
+#X obj 72 74 r \$0-inputfilterstatus;
+#X obj 72 124 *;
+#X obj 72 99 t b f;
+#X obj 40 74 - 5;
+#X obj 72 149 + 5;
+#X floatatom 72 189 5 0 0 0 - - -;
+#X connect 0 0 2 0;
+#X connect 2 0 1 0;
+#X connect 3 0 7 0;
+#X connect 4 0 6 0;
+#X connect 5 0 8 0;
+#X connect 6 0 5 0;
+#X connect 6 1 5 1;
+#X connect 7 0 5 0;
+#X connect 8 0 9 0;
+#X connect 8 0 2 1;
+#X restore 140 222 pd hip~;
+#X obj 19 194 *~ 1;
+#X obj 140 195 *~ 1;
+#X obj 65 101 t b f;
+#X obj 40 147 * 1;
+#X obj 161 147 * 1;
+#X text 11 11 left gain;
+#X text 159 12 right gain;
+#X text 38 321 Filtered and companded signal from adc~.;
+#X obj 161 37 inlet;
+#X obj 65 76 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X text 87 74 mute/unmute;
+#X connect 1 0 8 0;
+#X connect 2 0 5 0;
+#X connect 2 1 6 0;
+#X connect 3 0 0 0;
+#X connect 4 0 3 0;
+#X connect 5 0 4 0;
+#X connect 6 0 4 0;
+#X connect 7 0 8 0;
+#X connect 7 0 9 0;
+#X connect 7 1 8 1;
+#X connect 7 1 9 1;
+#X connect 8 0 5 1;
+#X connect 9 0 6 1;
+#X connect 13 0 9 0;
+#X connect 14 0 7 0;
+#X restore 23 237 pd inputsignal;
+#X connect 0 0 1 0;
+#X connect 12 0 16 0;
+#X connect 20 0 21 0;
+#X connect 20 1 21 1;
+#X connect 21 0 17 0;
+#X connect 21 0 8 0;
+#X connect 21 0 18 0;
+#X coords 0 -1 1 1 200 100 2 20 60;
+#X restore 11 397 pd input;
+#N canvas 301 174 386 308 global 0;
+#N canvas 343 346 472 214 windowsettings 0;
+#X msg 21 146 \$2 configure -background \$1;
+#X obj 21 116 pack symbol symbol;
+#X obj 21 11 loadbang;
+#X obj 21 36 t b b;
+#X obj 256 131 pack float symbol;
+#X obj 275 54 loadbang;
+#X obj 256 14 tgl 30 1 empty empty empty 17 7 0 10 -204786 -1 -1 0
+1;
+#X msg 256 156 wm resizable \$2 \$1 \$1;
+#X obj 355 44 bng 35 250 50 0 empty empty empty 17 7 0 10 -204786 -1
+-1;
+#X msg 275 104 0;
+#X text 73 61 blue;
+#X msg 21 61 #7a75ff;
+#X text 298 13 fix / unfix window size;
+#N canvas 2 122 232 206 alt.colors 0;
+#X msg 40 44 #bbbaff;
+#X msg 23 21 #a2c5f5;
+#X msg 54 69 #5e84d5;
+#X msg 69 97 #a1b6f1;
+#X obj 23 145 outlet;
+#X connect 0 0 4 0;
+#X connect 1 0 4 0;
+#X connect 2 0 4 0;
+#X connect 3 0 4 0;
+#X restore 32 89 pd alt.colors;
+#X text 97 21 window color;
+#X obj 355 104 hcs/window_name 2;
+#X obj 256 182 hcs/sys_gui;
+#X obj 21 171 hcs/sys_gui;
+#X obj 126 89 hcs/canvas_name 2;
+#X obj 275 79 t b b;
+#X connect 0 0 17 0;
+#X connect 1 0 0 0;
+#X connect 2 0 3 0;
+#X connect 3 0 11 0;
+#X connect 3 1 18 0;
+#X connect 4 0 7 0;
+#X connect 5 0 19 0;
+#X connect 6 0 4 0;
+#X connect 7 0 16 0;
+#X connect 8 0 15 0;
+#X connect 9 0 4 0;
+#X connect 11 0 1 0;
+#X connect 13 0 1 0;
+#X connect 15 0 4 1;
+#X connect 18 0 1 1;
+#X connect 19 0 9 0;
+#X connect 19 1 15 0;
+#X restore 20 244 pd windowsettings;
+#X obj 120 50 bng 50 100 50 0 \$0-srecbutton \$0-rrecbutton rec 9 26
+1 20 -66577 -66577 -262144;
+#X obj 170 50 bng 50 100 50 0 \$0-splaybackbutton \$0-rplaybackbutton
+play 7 26 1 20 -66577 -66577 -262144;
+#N canvas 406 94 415 586 recorder 0;
+#X obj 102 513 writesf~ 2;
+#X msg 46 460 start;
+#X msg 27 487 stop;
+#X obj 46 186 t b b;
+#X obj 27 160 sel 0 1;
+#X obj 178 244 sel 0 1;
+#X msg 178 270 stop;
+#X obj 178 218 change;
+#X obj 27 108 change;
+#X msg 201 177 0;
+#X msg 37 59 0;
+#X obj 178 328 readsf~ 2;
+#X obj 73 305 + 0;
+#X msg 73 214 1;
+#X text 82 240 do not touch!;
+#X text 82 259 (counter);
+#N canvas 0 22 344 232 filename 0;
+#X obj 147 35 inlet;
+#X obj 27 193 s \$0-wavfilename;
+#X msg 228 91 label \$1;
+#X msg 27 88 label temp\$1.wav;
+#X obj 27 34 inlet;
+#X obj 47 112 loadbang;
+#X text 144 14 openpanel;
+#X text 25 12 counter;
+#X obj 47 163 r digitcolor;
+#X msg 47 136 label recorder;
+#X obj 147 65 hcs/split_path;
+#X connect 0 0 10 0;
+#X connect 2 0 1 0;
+#X connect 3 0 1 0;
+#X connect 4 0 3 0;
+#X connect 5 0 9 0;
+#X connect 8 0 1 0;
+#X connect 9 0 1 0;
+#X connect 10 1 2 0;
+#X restore 84 338 pd filename;
+#X obj 102 465 r~ \$0-recorderleft;
+#X obj 159 488 r~ \$0-recorderright;
+#X obj 88 283 nbx 3 14 0 999 0 1 empty empty empty 0 -8 0 10 -262144
+-1 -1 41 256;
+#X text 158 548 to save counter state;
+#X msg 27 540 \; pd-recorder menusave;
+#X obj 27 10 r \$0-srecbutton;
+#X obj 178 5 r \$0-splaybackbutton;
+#N canvas 809 183 172 272 doubleclick 0;
+#X obj 32 153 realtime;
+#X obj 32 73 +;
+#X msg 32 45 1;
+#X obj 32 99 & 3;
+#X obj 32 123 sel 1 2;
+#X msg 81 70 0;
+#X obj 81 46 delay 1000;
+#X obj 32 211 sel 1;
+#X obj 32 179 < 1000;
+#X obj 32 19 inlet;
+#X obj 32 242 outlet;
+#X connect 0 0 8 0;
+#X connect 1 0 3 0;
+#X connect 2 0 1 0;
+#X connect 3 0 1 1;
+#X connect 3 0 4 0;
+#X connect 4 0 0 0;
+#X connect 4 1 0 1;
+#X connect 5 0 3 0;
+#X connect 6 0 5 0;
+#X connect 7 0 10 0;
+#X connect 8 0 7 0;
+#X connect 9 0 2 0;
+#X connect 9 0 6 0;
+#X restore 27 35 pd doubleclick;
+#N canvas 809 183 172 272 doubleclick 0;
+#X obj 32 153 realtime;
+#X obj 32 73 +;
+#X msg 32 45 1;
+#X obj 32 99 & 3;
+#X obj 32 123 sel 1 2;
+#X msg 81 70 0;
+#X obj 81 46 delay 1000;
+#X obj 32 211 sel 1;
+#X obj 32 179 < 1000;
+#X obj 32 19 inlet;
+#X obj 32 242 outlet;
+#X connect 0 0 8 0;
+#X connect 1 0 3 0;
+#X connect 2 0 1 0;
+#X connect 3 0 1 1;
+#X connect 3 0 4 0;
+#X connect 4 0 0 0;
+#X connect 4 1 0 1;
+#X connect 5 0 3 0;
+#X connect 6 0 5 0;
+#X connect 7 0 10 0;
+#X connect 8 0 7 0;
+#X connect 9 0 2 0;
+#X connect 9 0 6 0;
+#X restore 178 35 pd doubleclick;
+#X obj 27 84 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 178 194 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#N canvas 126 304 200 186 buttoncolor 0;
+#X obj 23 23 inlet;
+#X obj 23 146 s \$0-rrecbutton;
+#X obj 23 53 sel 0 1;
+#X obj 94 24 loadbang;
+#X msg 23 117 color 2 2 0;
+#X msg 42 91 color 13 13 22;
+#X connect 0 0 2 0;
+#X connect 2 0 4 0;
+#X connect 2 1 5 0;
+#X connect 3 0 4 0;
+#X connect 4 0 1 0;
+#X connect 5 0 1 0;
+#X restore 39 133 pd buttoncolor;
+#N canvas 979 138 228 195 buttoncolor 0;
+#X obj 23 23 inlet;
+#X obj 23 139 s \$0-rplaybackbutton;
+#X obj 127 91 loadbang;
+#X msg 23 108 color 2 2 0;
+#X msg 71 58 color 16 16 22;
+#X obj 71 23 inlet;
+#X connect 0 0 3 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X connect 4 0 1 0;
+#X connect 5 0 4 0;
+#X restore 192 299 pd buttoncolor;
+#X obj 178 376 *~ 0;
+#X obj 212 376 *~ 0;
+#X msg 135 81 record.session.2click;
+#X msg 144 108 play.soundfile.2click;
+#X obj 135 133 s buttonhelp;
+#N canvas 1023 98 195 209 crossfader-data 0;
+#X obj 22 175 outlet;
+#X obj 109 174 outlet;
+#X obj 22 41 unpack;
+#X obj 22 146 *;
+#X obj 109 144 *;
+#X obj 109 107 t b f;
+#X obj 22 110 cos;
+#X obj 53 110 sin;
+#X obj 22 10 r crossfader;
+#X obj 22 82 * 1.5709;
+#X obj 109 81 * 1.414;
+#X connect 2 0 9 0;
+#X connect 2 1 10 0;
+#X connect 3 0 0 0;
+#X connect 4 0 1 0;
+#X connect 5 0 4 0;
+#X connect 5 0 3 0;
+#X connect 5 1 4 1;
+#X connect 5 1 3 1;
+#X connect 6 0 3 0;
+#X connect 7 0 4 0;
+#X connect 8 0 2 0;
+#X connect 9 0 6 0;
+#X connect 9 0 7 0;
+#X connect 10 0 5 0;
+#X restore 199 351 pd crossfader-data;
+#X obj 178 401 dac~;
+#N canvas 745 309 179 198 open-file 0;
+#X obj 17 14 inlet;
+#X obj 17 161 outlet;
+#X msg 17 135 start;
+#X obj 17 49 openpanel;
+#X msg 17 81 open \$1;
+#X obj 17 106 t b a;
+#X connect 0 0 3 0;
+#X connect 2 0 1 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 2 0;
+#X connect 5 1 1 0;
+#X restore 273 261 pd open-file;
+#X msg 73 432 open ../SliceJockey3/SJsessions/SJsession\$1.wav;
+#X connect 1 0 0 0;
+#X connect 2 0 0 0;
+#X connect 2 0 21 0;
+#X connect 3 0 1 0;
+#X connect 3 1 13 0;
+#X connect 4 0 2 0;
+#X connect 4 1 3 0;
+#X connect 4 1 9 0;
+#X connect 5 0 6 0;
+#X connect 5 1 10 0;
+#X connect 5 1 37 0;
+#X connect 6 0 11 0;
+#X connect 6 0 29 0;
+#X connect 7 0 5 0;
+#X connect 8 0 4 0;
+#X connect 8 0 28 0;
+#X connect 9 0 27 0;
+#X connect 10 0 26 0;
+#X connect 11 0 30 0;
+#X connect 11 1 31 0;
+#X connect 11 2 9 0;
+#X connect 12 0 16 0;
+#X connect 12 0 38 0;
+#X connect 12 0 19 0;
+#X connect 13 0 12 0;
+#X connect 17 0 0 0;
+#X connect 18 0 0 1;
+#X connect 19 0 12 1;
+#X connect 22 0 24 0;
+#X connect 22 0 32 0;
+#X connect 23 0 25 0;
+#X connect 23 0 33 0;
+#X connect 24 0 26 0;
+#X connect 25 0 27 0;
+#X connect 26 0 8 0;
+#X connect 27 0 7 0;
+#X connect 30 0 36 0;
+#X connect 31 0 36 1;
+#X connect 32 0 34 0;
+#X connect 33 0 34 0;
+#X connect 35 0 30 1;
+#X connect 35 1 31 1;
+#X connect 37 0 11 0;
+#X connect 37 0 29 1;
+#X connect 38 0 0 0;
+#X restore 219 2 pd recorder;
+#N canvas 0 22 887 340 shortcut-keys 0;
+#X obj 253 15 key;
+#X obj 253 85 sel 97 115 100 102 103 104 106 107;
+#X text 260 63 a-s-d-f-g-h-j-k;
+#X obj -36 306 s clear-slicycle1;
+#X obj 41 226 s recycle-slicycle1;
+#X obj -11 280 s nslices-slicycle1;
+#X obj 15 254 s set-inputstatus-slicycle1;
+#X obj 278 274 s pattern-slicycle1;
+#X obj 303 249 s filtertype-slicycle1;
+#X obj 328 223 s filtermod-slicycle1;
+#X obj 428 117 s filtermod-slicycle2;
+#X obj 403 144 s filtertype-slicycle2;
+#X obj 378 169 s pattern-slicycle2;
+#X obj 145 116 s recycle-slicycle2;
+#X obj 119 144 s set-inputstatus-slicycle2;
+#X obj 93 172 s nslices-slicycle2;
+#X obj 67 200 s clear-slicycle2;
+#X obj 556 83 sel 122 120 99 118 98 110 109 44;
+#X text 655 58 z-x-c-v-b-n-m- \,;
+#X obj 491 32 sel 32;
+#X text 490 11 space;
+#X floatatom 261 43 5 0 0 0 - - -;
+#X text -37 68 q-w-e-r-t-y-u-i;
+#X obj 353 196 s interrupt-slicycle2;
+#X obj 253 300 s interrupt-slicycle1;
+#X obj -36 88 sel 113 119 101 114 116 121 117 105;
+#X obj 556 292 s \$0-sinputfilter;
+#X obj 579 267 s \$0-scompander;
+#X obj 603 240 s \$0-sdirectout;
+#X obj 492 58 s \$0-bpmtapkey;
+#X obj 650 189 s \$0-shelp;
+#X obj 674 164 s \$0-opensettings;
+#X obj 721 115 s \$0-playbackbutton;
+#X obj 697 138 s \$0-recbutton;
+#X obj 626 216 s \$0-stimesignature;
+#X connect 0 0 1 0;
+#X connect 0 0 17 0;
+#X connect 0 0 21 0;
+#X connect 0 0 25 0;
+#X connect 0 0 19 0;
+#X connect 1 0 24 0;
+#X connect 1 1 7 0;
+#X connect 1 2 8 0;
+#X connect 1 3 9 0;
+#X connect 1 4 23 0;
+#X connect 1 5 12 0;
+#X connect 1 6 11 0;
+#X connect 1 7 10 0;
+#X connect 17 0 26 0;
+#X connect 17 1 27 0;
+#X connect 17 2 28 0;
+#X connect 17 3 34 0;
+#X connect 19 0 29 0;
+#X connect 25 0 3 0;
+#X connect 25 1 5 0;
+#X connect 25 2 6 0;
+#X connect 25 3 4 0;
+#X connect 25 4 16 0;
+#X connect 25 5 15 0;
+#X connect 25 6 14 0;
+#X connect 25 7 13 0;
+#X restore 238 127 pd shortcut-keys;
+#N canvas 679 47 242 282 helpbutton 0;
+#X obj 20 20 bng 50 250 50 0 \$0-shelp \$0-rhelp ? 14 30 1 40 -66577
+-66577 -262144;
+#N canvas 168 552 211 207 buttonhelp-relay 0;
+#X obj 25 163 s \$0-buttonhelpcanvas;
+#X msg 25 124 label \$1;
+#X obj 25 45 symbol;
+#X msg 109 127 label;
+#X obj 109 100 delay 1500;
+#X obj 109 48 t b b;
+#X msg 136 74 stop;
+#X obj 25 15 r buttonhelp;
+#X connect 1 0 0 0;
+#X connect 2 0 1 0;
+#X connect 3 0 0 0;
+#X connect 4 0 3 0;
+#X connect 5 0 4 0;
+#X connect 5 1 6 0;
+#X connect 6 0 4 0;
+#X connect 7 0 2 0;
+#X connect 7 0 5 0;
+#X restore 88 84 pd buttonhelp-relay;
+#N canvas 295 113 468 409 \$0-overview 0;
+#X obj 51 37 bng 25 250 50 0 open-nr-of-slices-help \$0-dummyreceive
+8 8 13 1 15 -262144 -262144 -33289;
+#X obj 76 37 bng 25 100 50 0 open-slicycle-input-help \$0-dummyreceive
+> 7 13 1 20 -262144 -262144 -66577;
+#X obj 101 37 bng 25 100 50 0 open-slice-recycle-help \$0-dummyreceive
+< 7 13 1 20 -260097 -260097 -1;
+#X obj 26 37 bng 25 250 50 0 open-slice-clear-help \$0-dummyreceive
+//// 4 13 1 15 -262144 -262144 -66577;
+#X obj 26 101 bng 25 100 50 0 open-slice-interrupt-help \$0-dummyreceive
+|||| 5 13 1 15 -262144 -262144 -66577;
+#X obj 51 101 bng 25 100 50 0 open-pattern-play-help \$0-dummyreceive
+pen 3 13 1 12 -260097 -260097 -1;
+#X obj 76 101 bng 25 100 50 0 open-filter-type-help \$0-dummyreceive
+all 5 13 1 12 -262144 -262144 -66577;
+#X obj 101 101 bng 25 100 50 0 open-filter-modulation-help \$0-dummyreceive
+-- 5 13 1 25 -262144 -262144 -66577;
+#X obj 27 185 bng 25 100 50 0 open-input-filter-help \$0-dummyreceive
+--- 3 13 1 20 -66577 -66577 -262144;
+#X obj 102 185 bng 25 250 50 0 open-time-signature-help \$0-dummyreceive
+4/4 2 13 1 15 -66577 -66577 -262144;
+#X obj 52 185 bng 25 100 50 0 open-compander-help \$0-dummyreceive
+|| 8 15 1 20 -66577 -66577 -262144;
+#X obj 77 185 bng 25 100 50 0 open-audio-thru-help \$0-dummyreceive
+< 5 13 1 20 -66577 -66577 -262144;
+#X obj 344 211 hradio 25 1 0 4 \$0-open-beatmonitor-help empty 1__2__3__4
+8 15 1 14 -1 -4034 -1 0;
+#X obj 369 186 bng 25 250 50 0 open-settings-window-help \$0-dummyreceive
+! 9 15 1 20 -66577 -66577 -262144;
+#X obj 344 186 bng 25 250 50 0 open-help-window-help \$0-dummyreceive
+? 7 15 1 20 -66577 -66577 -262144;
+#X obj 394 186 bng 25 100 50 0 open-recorder-help \$0-dummyreceive
+rec 4 13 1 12 -66577 -66577 -262144;
+#X obj 419 186 bng 25 100 50 0 open-recorder-help \$0-dummyreceive
+play 2 13 1 12 -66577 -66577 -262144;
+#X obj 369 38 bng 25 250 50 0 open-nr-of-slices-help \$0-dummyreceive
+8 8 13 1 15 -233017 -260818 -33289;
+#X obj 394 38 bng 25 100 50 0 open-slicycle-input-help \$0-dummyreceive
+> 7 13 1 20 -228856 -260818 -66577;
+#X obj 419 38 bng 25 100 50 0 open-slice-recycle-help \$0-dummyreceive
+< 7 13 1 20 -260097 -260097 -1;
+#X obj 344 38 bng 25 250 50 0 open-slice-clear-help \$0-dummyreceive
+//// 4 13 1 15 -233017 -260818 -66577;
+#X obj 344 102 bng 25 100 50 0 open-slice-interrupt-help \$0-dummyreceive
+|||| 5 13 1 15 -228856 -260818 -66577;
+#X obj 369 102 bng 25 100 50 0 open-pattern-play-help \$0-dummyreceive
+pen 3 13 1 12 -260097 -260097 -1;
+#X obj 394 102 bng 25 100 50 0 open-filter-type-help \$0-dummyreceive
+all 5 13 1 12 -228856 -260818 -66577;
+#X obj 419 102 bng 25 100 50 0 open-filter-modulation-help \$0-dummyreceive
+-- 5 13 1 25 -228856 -260818 -66577;
+#X text 195 11 x-y field;
+#X text 345 165 global section;
+#X text 25 11 slice unit left;
+#X text 343 13 slice unit right;
+#X text 25 165 I/O section;
+#X obj 135 37 cnv 15 200 200 empty empty empty 20 12 0 14 -203904 -66577
+0;
+#X obj 217 163 hradio 25 1 0 1 open-notes-help \$0-dummyreceive oooo
+1 13 1 11 -228856 -228856 -1 0;
+#X obj 186 164 hradio 25 1 0 1 open-notes-help \$0-dummyreceive oo
+2 13 1 20 -228856 -228856 -1 0;
+#X obj 156 165 hradio 25 1 0 1 open-notes-help \$0-dummyreceive o 4
+13 1 30 -228856 -228856 -1 0;
+#X obj 228 209 hradio 25 1 0 1 open-distortion-help \$0-dummyreceive
+++ 1 13 1 20 -228856 -228856 -1 0;
+#X obj 198 209 hradio 25 1 0 1 open-filterfreq-help \$0-dummyreceive
+---- 0 13 1 18 -228856 -228856 -1 0;
+#X obj 277 200 hradio 25 1 0 1 open-delay-help \$0-dummyreceive ]]]]
+2 13 1 20 -228856 -228856 -33289 0;
+#X obj 306 200 hradio 25 1 0 1 open-reverb-help \$0-dummyreceive )))
+3 13 1 20 -228856 -228856 -33289 0;
+#X obj 176 84 vsl 25 20 0 0 0 0 open-input-level-help \$0-dummyreceive
+> 5 12 1 30 -1 -1 -262144 0 1;
+#X obj 145 83 vsl 25 20 13 13 0 0 open-BPM-groove-help \$0-dummyreceive
+161 2 12 1 15 -1 -1 -262144 0 1;
+#X obj 221 46 vsl 25 20 39 39 0 0 open-crossfader-help \$0-dummyreceive
+X 4 13 1 25 -1 -1 -262144 0 1;
+#X obj 211 78 vsl 25 20 4 4 0 0 open-pitcher-help \$0-dummyreceive
+^^ 0 13 1 25 -1 -1 -262144 0 1;
+#X obj 244 96 hradio 25 1 0 1 open-reverb-help \$0-dummyreceive )))
+3 13 1 20 -1 -1 -262144 0;
+#N canvas 801 565 197 170 close 0;
+#X obj 20 20 bng 50 80 20 0 \$0-dummysend \$0-dummyreceive empty 12
+29 1 40 -233017 -233017 -66577;
+#X obj 20 80 f \$0;
+#X msg 20 107 \; pd-\$1-overview vis 0;
+#X text 27 28 close;
+#X text 26 43 window;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X coords 0 -1 1 1 50 50 2 20 20;
+#X restore 392 334 pd close;
+#X obj 29 62 hsl 95 38 0 127 0 0 open-slice-settings-help empty ________________
+0 20 1 10 -1 -1 -4034 0 1;
+#X obj 347 64 hsl 95 38 0 127 0 0 open-slice-settings-help empty ________________
+0 20 1 10 -1 -1 -4034 0 1;
+#X obj 27 211 hradio 25 1 0 4 open-input-settings-help empty _________________
+0 10 1 10 -1 -1 -4034 0;
+#X text 26 355 Global concept of Slice//Jockey is described at:;
+#X text 24 253 Click buttons in the above overview to get detailed
+info about the functions. Notice that black regions (oscilloscopes
+and beat counter) are also 'buttons'.;
+#X obj 186 311 cnv 15 90 24 empty empty empty 20 12 0 14 -260097 -66577
+0;
+#N canvas 285 88 384 393 quickstart 0;
+#N canvas 740 82 188 150 audiosettings 0;
+#X msg 20 98 \; pd audio-properties;
+#X obj 20 20 bng 50 80 20 0 \$0-dummysend \$0-dummyreceive ))) 10 25
+1 35 -233017 -233017 -66577;
+#X connect 1 0 0 0;
+#X coords 0 -1 1 1 50 50 2 20 20;
+#X restore 24 16 pd audiosettings;
+#N canvas 0 22 195 223 inlevel 0;
+#X obj 26 164 outlet;
+#X obj 26 49 adc~;
+#X obj 26 75 env~ 8192;
+#X obj 26 105 - 100;
+#X obj 26 134 int;
+#X connect 1 0 2 0;
+#X connect 1 1 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 0 0;
+#X restore 301 26 pd inlevel;
+#X obj 53 216 bng 25 250 50 0 open-nr-of-slices-help \$0-dummyreceive
+8 8 13 1 15 -262144 -262144 -33289;
+#X obj 78 216 bng 25 100 50 0 open-slicycle-input-help \$0-dummyreceive
+> 7 13 1 20 -262144 -262144 -66577;
+#X obj 103 216 bng 25 100 50 0 open-slice-recycle-help \$0-dummyreceive
+< 7 13 1 20 -260097 -260097 -1;
+#X obj 28 216 bng 25 250 50 0 open-slice-clear-help \$0-dummyreceive
+//// 4 13 1 15 -262144 -262144 -66577;
+#X obj 28 280 bng 25 100 50 0 open-slice-interrupt-help \$0-dummyreceive
+|||| 5 13 1 15 -262144 -262144 -66577;
+#X obj 53 280 bng 25 100 50 0 open-pattern-play-help \$0-dummyreceive
+pen 3 13 1 12 -260097 -260097 -1;
+#X obj 78 280 bng 25 100 50 0 open-filter-type-help \$0-dummyreceive
+all 5 13 1 12 -262144 -262144 -66577;
+#X obj 103 280 bng 25 100 50 0 open-filter-modulation-help \$0-dummyreceive
+-- 5 13 1 25 -262144 -262144 -66577;
+#X obj 31 241 hsl 95 38 0 127 0 0 open-slice-settings-help empty ________________
+0 20 1 10 -1 -1 -4034 0 1;
+#X text 85 187 input button;
+#X text 86 199 |;
+#X text 133 219 - playback button;
+#X obj 302 54 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
+#X text 27 116 2 - check if you have input (mic or line) >>;
+#X text 26 326 4 - make percussive sounds;
+#X text 27 161 3 - turn an input button on;
+#X text 80 32 1 - open soundcard settings;
+#X text 26 354 Slice//Jockey will start recording slices.;
+#X connect 1 0 14 0;
+#X restore 189 314 pd quickstart;
+#X text 282 313 < click me;
+#X text 115 313 click me >;
+#X text 26 374 http://www.katjaas.nl/slicejockey/slicejockey.html;
+#X restore 88 22 pd \$0-overview;
+#X msg 20 126 \; pd-\$1-overview vis 1;
+#X obj 20 90 f \$0;
+#N canvas 810 157 254 215 detailed-help 0;
+#X text 24 13 collection of contextual help files;
+#N canvas 694 141 444 478 slicycle-button-help-files 0;
+#N canvas 547 29 423 248 slice-clear-help 0;
+#X obj 75 116 bng 50 250 50 0 \$0-dummysend \$0-dummyreceive //// 8
+28 1 30 -233017 -260818 -66577;
+#X obj 75 175 bng 50 250 50 0 \$0-dummysend \$0-dummyreceive //// 8
+28 1 30 -233017 -260818 -195568;
+#X text 132 132 black label: unit contains one or more slices;
+#X text 133 190 grey label: slices are cleared;
+#X text 17 6 clear slice(s);
+#X obj 17 116 bng 50 250 50 0 \$0-dummysend \$0-dummyreceive //// 8
+28 1 30 -262144 -262144 -66577;
+#X obj 17 175 bng 50 250 50 0 \$0-dummysend \$0-dummyreceive //// 8
+28 1 30 -262144 -262144 -195568;
+#X text 17 34 Each slice unit has a button to clear it's recorded slices.
+A single-click clears the most recent slice only. Repeated single-clicks
+will clear more slices backwards. A double-click will clear all slices
+in the particular unit at once.;
+#X restore 9 92 pd slice-clear-help;
+#X obj 10 20 r open-slice-clear-help;
+#N canvas 215 233 398 455 nr-of-slices-help 0;
+#X obj 85 285 bng 50 250 50 0 \$0-dummysend \$0-dummyreceive 4 18 27
+1 25 -233017 -260818 -33289;
+#X obj 85 343 bng 50 250 50 0 \$0-dummysend \$0-dummyreceive 8 18 27
+1 25 -233017 -260818 -33289;
+#X text 24 13 number of slices;
+#X text 24 36 Each of both slice-units has a maximum of 8 active slices
+at any time. Incoming audio is analysed and cut into coherent slices
+automatically. As you play \, the set of slices is refreshed according
+to the first-in-first-out principle.;
+#X text 24 113 For certain purposes you may want to reduce the maximum
+number of slices. For example \, in 6/8 time signature a reduced set
+often works better.;
+#X obj 85 169 bng 50 250 50 0 \$0-dummysend \$0-dummyreceive 1 18 27
+1 25 -233017 -260818 -33289;
+#X obj 85 227 bng 50 250 50 0 \$0-dummysend \$0-dummyreceive 2 18 27
+1 25 -233017 -260818 -33289;
+#X text 25 408 Buttons can be clicked or scrolled to change the number
+of slices.;
+#X obj 27 285 bng 50 250 50 0 \$0-dummysend \$0-dummyreceive 4 18 27
+1 25 -262144 -262144 -33289;
+#X obj 27 343 bng 50 250 50 0 \$0-dummysend \$0-dummyreceive 8 18 27
+1 25 -262144 -262144 -33289;
+#X obj 27 169 bng 50 250 50 0 \$0-dummysend \$0-dummyreceive 1 18 27
+1 25 -262144 -262144 -33289;
+#X obj 27 227 bng 50 250 50 0 \$0-dummysend \$0-dummyreceive 2 18 27
+1 25 -262144 -262144 -33289;
+#X restore 10 200 pd nr-of-slices-help;
+#X obj 10 136 r open-nr-of-slices-help;
+#N canvas 329 313 394 372 slicycle-input-help 0;
+#X obj 78 167 bng 50 100 50 0 \$0-dummysend \$0-dummyreceive > 15 25
+1 40 -260818 -260818 -66577;
+#X obj 78 108 bng 50 100 50 0 \$0-dummysend \$0-dummyreceive > 15 25
+1 40 -228856 -260818 -66577;
+#X text 15 38 Each of both slice units has it's own input enable/disable
+button \, so you can select where your input sounds will be recorded.
+For convenience \, enabling one input will automatically disable the
+other one.;
+#X text 18 280 Double-clicking or long-clicking the input button will
+set the unit into record ready mode \, to enable recording of a sound
+which can't be detected automatically (that is \, a sound without sharp
+attack). Actual recording starts after one second.;
+#X text 15 12 slice-unit input;
+#X text 17 254 Extra function of this button:;
+#X text 136 126 input disabled for slice unit;
+#X text 137 185 input enabled for slice unit;
+#X obj 19 108 bng 50 100 50 0 \$0-dummysend \$0-dummyreceive > 15 25
+1 40 -262144 -262144 -66577;
+#X restore 9 314 pd slicycle-input-help;
+#X obj 9 254 r open-slicycle-input-help;
+#N canvas 208 305 410 336 slice-recycle-help 0;
+#X text 22 18 slice recycle;
+#X obj 82 107 bng 50 100 50 0 \$0-dummysend \$0-dummyreceive < 13 25
+1 40 -228856 -260818 -66577;
+#X obj 82 165 bng 50 100 50 0 \$0-dummysend \$0-dummyreceive < 13 25
+1 40 -260818 -260818 -66577;
+#X text 22 48 Each of both slice-units has it's own button to enable
+or disable slice playback. When disabled \, triggering of slice playback
+will stop.;
+#X text 24 247 Notice:;
+#X text 23 270 The audio output of a slice-unit is never closed \,
+so slices will still have their natural decay. Moreover \, applied
+delay and reverb effects will have their natural decay as well.;
+#X text 141 124 playback of slice unit disabled;
+#X text 142 178 playback of slice unit enabled;
+#X obj 24 107 bng 50 100 50 0 \$0-dummysend \$0-dummyreceive < 13 25
+1 40 -262144 -262144 -66577;
+#X restore 9 430 pd slice-recycle-help;
+#X obj 9 368 r open-slice-recycle-help;
+#N canvas 201 39 401 649 slice-interrupt-help 0;
+#X obj 81 283 bng 50 100 50 0 \$0-dummysend \$0-dummyreceive |||| 10
+29 1 30 -260818 -260818 -66577;
+#X obj 81 223 bng 50 100 50 0 \$0-dummysend \$0-dummyreceive |||| 10
+29 1 30 -228856 -260818 -66577;
+#X text 21 143 With interrupt disabled \, slices will play from start
+till end by default. As a result \, the audio will often sound more
+relaxed. An exception is made for reversed slices. They tend to confuse
+perception of rhythm otherwise \, because their peak level is at the
+end.;
+#X text 137 299 interrupt enabled;
+#X text 137 241 interrupt disabled;
+#X text 22 88 With interrupt enabled \, playback of a slice can be
+interrupted by a new trigger. The old slice will fade out fast but
+smoothly while the new slice starts.;
+#X obj 81 580 bng 50 100 50 0 \$0-dummysend \$0-dummyreceive |..| 10
+29 1 30 -260818 -260818 -66577;
+#X obj 81 520 bng 50 100 50 0 \$0-dummysend \$0-dummyreceive |..| 10
+29 1 30 -228856 -260818 -66577;
+#X text 21 428 Extra function of this button:;
+#X text 22 43 Each of both slice unit has it's own button to enable
+or disable slice playback interrupt.;
+#X text 21 459 By click-dragging this button \, the slice unit can
+be set in random playback timing. Slices are no longer triggered according
+to the BPM sync.;
+#X text 138 536 random timing without slice interrupt;
+#X text 138 595 random timing with slice interrupt;
+#X text 23 11 slice playback interrupt;
+#X text 22 350 Slice playback is synched \, and executed with 16-tick
+patterns for slice selection and playback speed. Therefore \, the 16th
+notes follow a one-bar cycle \, the 8th notes a two-bar cycle \, and
+the quarter notes a four-bar cycle.;
+#X obj 22 223 bng 50 100 50 0 \$0-dummysend \$0-dummyreceive |||| 10
+29 1 30 -262144 -262144 -66577;
+#X obj 23 520 bng 50 100 50 0 \$0-dummysend \$0-dummyreceive |..| 10
+29 1 30 -262144 -262144 -66577;
+#X restore 231 83 pd slice-interrupt-help;
+#X obj 231 20 r open-slice-interrupt-help;
+#N canvas 271 30 456 632 pattern-play-help 0;
+#X text 25 15 pattern play;
+#X obj 83 292 bng 50 300 50 0 \$0-dummysend \$0-dummyreceive har 6
+27 1 24 -228856 -262144 -128992;
+#X obj 83 347 bng 50 300 50 0 \$0-dummysend \$0-dummyreceive hiz 6
+27 1 24 -228856 -262144 -128992;
+#X obj 83 402 bng 50 300 50 0 \$0-dummysend \$0-dummyreceive dod 6
+27 1 24 -228856 -262144 -128992;
+#X obj 83 457 bng 50 300 50 0 \$0-dummysend \$0-dummyreceive maj 6
+27 1 24 -228856 -262144 -128992;
+#X obj 83 512 bng 50 300 50 0 \$0-dummysend \$0-dummyreceive min 6
+27 1 24 -228856 -262144 -128992;
+#X obj 83 567 bng 50 300 50 0 \$0-dummysend \$0-dummyreceive pen 6
+27 1 24 -228856 -262144 -128992;
+#X text 201 310 harmonic series;
+#X text 204 363 hijaz;
+#X text 205 475 major;
+#X text 205 528 minor;
+#X text 205 425 dodecaphony (12 tone equal temperament);
+#X text 203 584 pentatonic (5 tone equal temperament);
+#X obj 83 81 bng 50 300 50 0 \$0-dummysend \$0-dummyreceive pen 6 27
+1 24 -228856 -262144 -128992;
+#X obj 83 137 bng 50 300 50 0 \$0-dummysend \$0-dummyreceive pen 6
+27 1 24 -260097 -260097 -1;
+#X text 138 98 select playback pitches randomly;
+#X text 25 42 Toggle sets whether a slice unit plays pitches according
+to a pattern or not.;
+#X text 23 211 Extra function of this button:;
+#X text 23 235 Click-drag (horizontally or vertically) to select a
+pitch shift scaling for playback. Notice that the actual pitches also
+depend on the original slice recordings.;
+#X obj 139 292 bng 50 300 50 0 \$0-dummysend \$0-dummyreceive har 6
+27 1 24 -260097 -260097 -33289;
+#X obj 139 347 bng 50 300 50 0 \$0-dummysend \$0-dummyreceive hiz 6
+27 1 24 -260097 -260097 -1;
+#X obj 139 402 bng 50 300 50 0 \$0-dummysend \$0-dummyreceive dod 6
+27 1 24 -260097 -260097 -1;
+#X obj 139 457 bng 50 300 50 0 \$0-dummysend \$0-dummyreceive maj 6
+27 1 24 -260097 -260097 -1;
+#X obj 139 512 bng 50 300 50 0 \$0-dummysend \$0-dummyreceive min 6
+27 1 24 -260097 -260097 -1;
+#X obj 139 567 bng 50 300 50 0 \$0-dummysend \$0-dummyreceive pen 6
+27 1 24 -260097 -260097 -1;
+#X text 136 155 select playback pitches according to pattern;
+#X obj 27 81 bng 50 300 50 0 \$0-dummysend \$0-dummyreceive pen 6 27
+1 24 -262144 -262144 -128992;
+#X obj 27 292 bng 50 300 50 0 \$0-dummysend \$0-dummyreceive har 6
+27 1 24 -262144 -262144 -128992;
+#X obj 27 347 bng 50 300 50 0 \$0-dummysend \$0-dummyreceive hiz 6
+27 1 24 -262144 -262144 -128992;
+#X obj 27 402 bng 50 300 50 0 \$0-dummysend \$0-dummyreceive dod 6
+27 1 24 -262144 -262144 -128992;
+#X obj 27 457 bng 50 300 50 0 \$0-dummysend \$0-dummyreceive maj 6
+27 1 24 -262144 -262144 -128992;
+#X obj 27 512 bng 50 300 50 0 \$0-dummysend \$0-dummyreceive min 6
+27 1 24 -262144 -262144 -128992;
+#X obj 27 567 bng 50 300 50 0 \$0-dummysend \$0-dummyreceive pen 6
+27 1 24 -262144 -262144 -128992;
+#X restore 232 200 pd pattern-play-help;
+#X obj 232 134 r open-pattern-play-help;
+#N canvas 138 24 401 469 filter-type-help 0;
+#X obj 24 343 bng 50 100 50 0 \$0-dummysend \$0-dummyreceive hi 8 26
+1 24 -260818 -260818 -66577;
+#X obj 24 285 bng 50 100 50 0 \$0-dummysend \$0-dummyreceive bnd 6
+26 1 24 -260818 -260818 -66577;
+#X obj 24 227 bng 50 100 50 0 \$0-dummysend \$0-dummyreceive lo 8 26
+1 24 -260818 -260818 -66577;
+#X obj 24 169 bng 50 100 50 0 \$0-dummysend \$0-dummyreceive all 8
+26 1 24 -228856 -260818 -66577;
+#X text 83 185 all pass filter with resonance;
+#X text 83 241 lo pass filter with resonance;
+#X text 84 302 band pass filter with resonance;
+#X text 84 358 hi pass filter with resonance;
+#X text 21 43 Each of both slice-recycle sections has it's own button
+to select a filter response type. The filter is a State Variable Filter
+with resonance. Resonance work for all four response types \, included
+all pass. Lo pass \, band pass and hi pass setting have a roll-off
+of 6 dB per octave. The lo pass setting is actually lo pass + band
+pass \, and the hi pass setting is actually hi pass + band pass \,
+to achieve the uniform roll-off.;
+#X text 21 11 filter response type;
+#X text 25 416 Click or click-drag (horizontally or vertically) to
+change filtertype.;
+#X restore 231 315 pd filter-type-help;
+#X obj 232 253 r open-filter-type-help;
+#N canvas 657 197 448 327 filter-modulation-help 0;
+#X obj 16 214 bng 50 100 50 0 \$0-dummysend \$0-dummyreceive ~~ 0 27
+1 40 -260818 -260818 -66577;
+#X obj 15 156 bng 50 100 50 0 \$0-dummysend \$0-dummyreceive ---- 0
+27 1 40 -260818 -260818 -66577;
+#X obj 15 96 bng 50 100 50 0 \$0-dummysend \$0-dummyreceive ---- 0
+27 1 40 -228856 -260818 -66577;
+#X text 72 113 filter modulation disabled;
+#X text 73 170 random step modulation \, with timing synched to BPM
+\, quarter note interval.;
+#X text 74 224 sine wave modulation;
+#X text 14 52 Each of both slice-recycle sections has it's own button
+to select a modulation type for the filter frequency.;
+#X text 13 21 filter frequency modulation;
+#X text 17 282 Click or click-drag to change modulation type.;
+#X restore 231 430 pd filter-modulation-help;
+#X obj 231 369 r open-filter-modulation-help;
+#X msg 10 50 \; pd-slice-clear-help vis 1;
+#X msg 10 163 \; pd-nr-of-slices-help vis 1;
+#X msg 9 279 \; pd-slicycle-input-help vis 1;
+#X msg 9 395 \; pd-slice-recycle-help vis 1;
+#X msg 231 47 pd \; pd-slice-interrupt-help vis 1;
+#X msg 232 162 \; pd-pattern-play-help vis 1;
+#X msg 232 278 pd \; pd-filter-type-help vis 1;
+#X msg 231 395 pd \; pd-filter-modulation-help vis 1;
+#X connect 1 0 16 0;
+#X connect 3 0 17 0;
+#X connect 5 0 18 0;
+#X connect 7 0 19 0;
+#X connect 9 0 20 0;
+#X connect 11 0 21 0;
+#X connect 13 0 22 0;
+#X connect 15 0 23 0;
+#X restore 24 55 pd slicycle-button-help-files;
+#N canvas 769 59 442 428 other-button-help-files 0;
+#X obj 24 21 r open-input-filter-help;
+#N canvas 175 280 392 329 input-filter-help 0;
+#X text 21 18 input filter;
+#X obj 25 133 bng 50 100 50 0 \$0-dummysend \$0-dummyreceive ---- 0
+27 1 40 -66577 -66577 -262144;
+#X obj 25 191 bng 50 100 50 0 \$0-dummysend \$0-dummyreceive ---- 0
+27 1 40 -257985 -257985 -1;
+#X text 84 149 input filter disabled;
+#X text 83 208 input filter enabled;
+#X text 23 49 The input filter is really only there to compensate for
+possible proximity effect of a microphone. It is a simple hi pass filter
+with 6 dB per octave roll off. With the button you can disable or enable
+the filter. Cut off frequency is set in the settings window.;
+#X text 24 264 Cut off frequency is set in the settings window \, which
+can be accessed by double-clicking the input section's oscilloscope.
+;
+#X restore 24 88 pd input-filter-help;
+#X msg 24 49 \; pd-input-filter-help vis 1;
+#N canvas 115 169 400 296 compander-help 0;
+#X text 24 13 input compander;
+#X obj 26 99 bng 50 100 50 0 \$0-dummysend \$0-dummyreceive || 13 30
+1 50 -66577 -66577 -262144;
+#X obj 26 158 bng 50 100 50 0 \$0-dummysend \$0-dummyreceive || 13
+30 1 50 -257985 -257985 -1;
+#X text 86 115 compander disabled;
+#X text 86 173 compander enabled;
+#X text 24 43 The compander button enables or disables a compressor
+/ expander for the input signal. Compander settings are done in the
+settings [!] window.;
+#X text 25 230 Compander settings are done in the settings window \,
+which can be accessed by double-clicking the input section's oscilloscope.
+;
+#X restore 24 186 pd compander-help;
+#X msg 24 149 \; pd-compander-help vis 1;
+#X obj 24 126 r open-compander-help;
+#N canvas 239 119 444 234 audio-thru-help 0;
+#X text 24 15 audio throughput;
+#X obj 25 111 bng 50 100 50 0 \$0-dummysend \$0-dummyreceive < 13 25
+1 40 -66577 -66577 -262144;
+#X obj 25 170 bng 50 100 50 0 \$0-dummysend \$0-dummyreceive < 13 25
+1 40 -257985 -257985 -1;
+#X text 85 119 audio throughput disabled \, input signal is only available
+for slice-recycle sections;
+#X text 85 178 audio throughput enabled \, input signal is available
+for slice-recycle sections \, and for output as well;
+#X text 22 45 This button enables or disables input audio being sent
+to output. This is not equivalent 'dry signal' \, because filter \,
+compander and reverb settings are applied to audio thru.;
+#X restore 23 279 pd audio-thru-help;
+#X msg 24 242 \; pd-audio-thru-help vis 1;
+#X obj 24 217 r open-audio-thru-help;
+#N canvas 171 374 450 300 time-signature-help 0;
+#X text 15 17 time signature;
+#X obj 14 101 bng 50 250 50 0 \$0-dummysend \$0-dummyreceive 4/4 7
+28 1 25 -66577 -66577 -262144;
+#X obj 15 161 bng 50 250 50 0 \$0-dummysend \$0-dummyreceive S/4 7
+28 1 25 -66577 -66577 -262144;
+#X obj 16 228 bng 50 250 50 0 \$0-dummysend \$0-dummyreceive 6/8 7
+28 1 25 -66577 -66577 -262144;
+#X text 13 48 This is a global selection which will apply to both slice-recycle
+sections.;
+#X text 77 159 Four beats to the bar \, with possible samba groove.
+This is a push-pull type of groove. Requires a lot of attention to
+sound material \, BPM and playback speed to obtain satisfactory results!
+Otherwise very confusing output.;
+#X text 79 243 6/8 meter when used with 4 slices and 12/16 with 8 slices.
+;
+#X text 76 100 Four beats to the bar \, with possible 16th note triplet
+groove. Groove setting is done with BPM/groove object on x-y field
+(horizontal dimension).;
+#X restore 23 379 pd time-signature-help;
+#X msg 23 339 \; pd-time-signature-help vis 1;
+#X obj 23 316 r open-time-signature-help;
+#N canvas 198 331 451 129 help-window-help 0;
+#X text 27 18 help windows;
+#X obj 28 51 bng 50 250 50 0 \$0-shelp \$0-rhelp ? 14 30 1 40 -66577
+-66577 -262144;
+#X text 89 47 Open window with overview. From overview window \, detail
+windows can be opened by clicking buttons.;
+#X restore 224 86 pd help-window-help;
+#X msg 224 46 \; pd-help-window-help vis 1;
+#X obj 224 20 r open-help-window-help;
+#N canvas 275 167 445 227 settings-window-help 0;
+#X text 14 11 settings window;
+#X obj 17 45 bng 50 250 50 0 \$0-opensettings \$0-dummyreceive ! 18
+30 1 40 -66577 -66577 -262144;
+#X text 83 57 - soundcard settings;
+#X text 83 71 - input settings;
+#X text 83 87 - slice recorder settings;
+#X text 84 106 You can also access these popups by double-clicking
+or long-clicking the oscilloscope region on the units.;
+#X text 82 41 This button opens a settings window with popups for:
+;
+#X text 85 150 Other settings are:;
+#X text 83 185 - midi cc number used for manual slice rec start;
+#X text 83 169 - slice playback interpolation type (linear or cubic)
+;
+#X restore 223 185 pd settings-window-help;
+#X msg 223 148 \; pd-settings-window-help vis 1;
+#X obj 223 121 r open-settings-window-help;
+#N canvas 177 58 393 551 recorder-help 0;
+#X text 29 20 session recorder;
+#X obj 30 93 bng 50 100 50 0 \$0-dummysend \$0-dummyreceive rec 4 26
+1 20 -66577 -66577 -262144;
+#X obj 30 379 bng 50 100 50 0 \$0-dummysend \$0-dummyreceive play 4
+26 1 20 -66577 -66577 -262144;
+#X obj 30 150 bng 50 100 50 0 \$0-dummysend \$0-dummyreceive rec 4
+26 1 20 -258699 -258699 -1;
+#X text 93 109 recorder inactive;
+#X obj 30 436 bng 50 100 50 0 \$0-dummysend \$0-dummyreceive play 4
+26 1 20 -4034 -4034 -1;
+#X text 94 165 recording session to .wav file;
+#X text 28 335 Double-clicking the play button will open a dialog for
+playing a .wav or .aiff file from your computer.;
+#X text 28 250 SJsession0.wav;
+#X text 28 263 SJsession1.wav;
+#X text 28 217 The wav file will be stored in directory SliceJockey/SJsessions
+with titles like:;
+#X text 28 284 where numbers are automatically incremented for each
+session. You can safely rename files after stopping the session recorder.
+;
+#X text 29 50 Double-clicking the rec button will start or stop a session
+recorder.;
+#X text 91 394 player inactive;
+#X text 93 451 player active;
+#X text 30 508 Always double-click to turn these buttons off.;
+#X restore 224 282 pd recorder-help;
+#X msg 225 248 \; pd-recorder-help vis 1;
+#X obj 225 221 r open-recorder-help;
+#X connect 0 0 2 0;
+#X connect 5 0 4 0;
+#X connect 8 0 7 0;
+#X connect 11 0 10 0;
+#X connect 14 0 13 0;
+#X connect 17 0 16 0;
+#X connect 20 0 19 0;
+#X restore 24 87 pd other-button-help-files;
+#N canvas 715 98 514 514 fader-help-files 0;
+#N canvas 764 22 425 539 notes-help 0;
+#X text 29 -35 triggered notes: 4th \, 8th and 16th notes (beats \,
+quavers \, semiquavers);
+#X obj 89 392 hradio 50 1 0 1 \$0-dummysend \$0-dummyreceive oooo 3
+25 1 20 -228856 -228856 -1 0;
+#X obj 89 335 hradio 50 1 0 1 \$0-dummysend \$0-dummyreceive oo 4 25
+1 40 -228856 -228856 -1 0;
+#X obj 89 278 hradio 50 1 0 1 \$0-dummysend \$0-dummyreceive o 9 25
+1 60 -228856 -228856 -1 0;
+#X text 29 36 - one player for quarter notes (beats);
+#X text 29 56 - one player for eighth notes (quavers);
+#X text 29 76 - one player for sixteenth notes (semiquavers);
+#X text 29 218 When a control is set to the left extreme of the x-y
+field \, the associated player will not be triggered. This is the only
+way to mute an individual slice player.;
+#X text 28 101 Each of these players has a two-dimensional fader associated
+to control aspects of slice playback. Horizontal dimension controls
+basic playback speed within a range of 0.125 till 2 times the original
+recording speed. Vertical dimension controls the range of variation
+in playback speed \, as an addition to the basic speed. Playback speed
+is not variable in the midst of playback \, only from one note to another.
+;
+#X text 29 9 Each of both slice units has three slice players:;
+#X obj 31 392 hradio 50 1 0 1 \$0-dummysend \$0-dummyreceive oooo 3
+25 1 20 -262144 -262144 -1 0;
+#X obj 31 335 hradio 50 1 0 1 \$0-dummysend \$0-dummyreceive oo 4 25
+1 40 -262144 -262144 -1 0;
+#X obj 31 278 hradio 50 1 0 1 \$0-dummysend \$0-dummyreceive o 9 25
+1 60 -262144 -262144 -1 0;
+#X text 145 297 quarter notes (beats);
+#X text 146 352 8th notes (quavers);
+#X text 145 407 16th notes (semiquavers);
+#X text 30 453 x: playback speed (pitch);
+#X text 30 472 y: playback speed (pitch) range;
+#X restore 19 85 pd notes-help;
+#X obj 19 19 r open-notes-help;
+#N canvas 135 163 384 201 distortion-help 0;
+#X obj 74 135 hradio 50 1 0 1 \$0-dummysend \$0-dummyreceive ++ 2 25
+1 40 -228856 -228856 -1 0;
+#X text 17 11 non-linear distortion;
+#X text 133 163 y: bitflip + decimation level;
+#X text 133 139 x: crunch level;
+#X text 16 47 Each of both slice units has a distortion controller
+on the x-y field. The horizontal dimension controls a non-linear wave
+mapper \, while the vertical dimension controls the level of quite
+extreme bitwise distortion (bit inverter + decimation ) in the mix.
+;
+#X obj 18 135 hradio 50 1 0 1 \$0-dummysend \$0-dummyreceive ++ 2 25
+1 40 -262144 -262144 -1 0;
+#X restore 16 182 pd distortion-help;
+#X msg 17 145 \; pd-distortion-help vis 1;
+#X obj 17 119 r open-distortion-help;
+#N canvas 273 217 398 193 filterfreq-help 0;
+#X text 16 10 filter frequency and resonance;
+#X text 146 134 x: frequency;
+#X text 146 149 y: resonance;
+#X obj 78 114 hradio 50 1 0 1 \$0-dummysend \$0-dummyreceive ---- 0
+27 1 40 -228856 -228856 -1 0;
+#X text 16 41 Each of both slice units has a control on the x-y field
+for filter settings. The horizontal dimension controls frequency in
+a range of 0 to 1100 Hz \, and the vertical dimension controls Q or
+resonance of the filter.;
+#X obj 19 114 hradio 50 1 0 1 \$0-dummysend \$0-dummyreceive ---- 0
+27 1 40 -262144 -262144 -1 0;
+#X restore 15 291 pd filterfreq-help;
+#X obj 15 222 r open-filterfreq-help;
+#X msg 15 251 \; pd-filterfreq-help vis 1;
+#N canvas 537 22 391 255 delay-help 0;
+#X text 141 194 x: delay time;
+#X text 141 217 y: feedback amount;
+#X obj 81 188 hradio 50 1 0 1 open-delay-help \$0-dummyreceive ]]]]
+4 25 1 40 -228856 -228856 -33289 0;
+#X text 20 12 delay time and feedback amount;
+#X text 20 150 The vertical dimension controls feedback amount.;
+#X obj 22 188 hradio 50 1 0 1 open-delay-help \$0-dummyreceive ]]]]
+4 25 1 40 -262144 -262144 -33289 0;
+#X text 19 44 Each of both slice units has a delay controller on the
+x-y field. The horizontal dimension controls delay time. At the left
+extreme is a setting with BPM sync in 3/16 notes. The remaining range
+is from 5 ms at the left to 1 second at the right. The synched delay
+setting has a lo pass filter at 500 Hz in the feedback loop. At the
+other settings \, the feedback loop is modestly hipass filtered.;
+#X restore 16 390 pd delay-help;
+#X msg 16 353 \; pd-delay-help vis 1;
+#X obj 16 326 r open-delay-help;
+#N canvas 631 213 391 214 reverb-help 0;
+#X text 24 17 reverb time and amount;
+#X text 232 172 y: reverb amount;
+#X obj 85 149 hradio 50 1 0 1 \$0-dummysend \$0-dummyreceive ))) 7
+25 1 40 -228856 -228856 -33289 0;
+#X obj 170 149 hradio 50 1 0 1 \$0-dummysend \$0-dummyreceive ))) 7
+25 1 40 -1 -1 -262144 0;
+#X obj 26 149 hradio 50 1 0 1 \$0-dummysend \$0-dummyreceive ))) 7
+25 1 40 -262144 -262144 -33289 0;
+#X text 168 128 input;
+#X text 27 125 slice units 1 + 2;
+#X text 25 54 Each of both slice units \, and the input section \,
+have their own reverb control on the x-y field. The horizontal dimension
+controls reverb tone \, while the vertical dimension controls dry-wet
+balance.;
+#X text 232 154 x: reverb tone;
+#X restore 14 480 pd reverb-help;
+#X obj 15 416 r open-reverb-help;
+#X msg 15 442 \; pd-reverb-help vis 1;
+#N canvas 668 206 394 254 input-level-help 0;
+#X text 20 10 input level;
+#X text 22 123 Use the menu item Pd-extended > Preferences > Audio
+Settings to select your audio device(s). For most devices \, there
+is a system setting for level as well.;
+#X obj 25 185 vsl 50 46 0 0 0 0 \$0-dummysend \$0-dummyreceive > 12
+23 1 50 -1 -1 -262144 0 1;
+#X text 85 213 y: level;
+#X text 85 191 x: left input / right input mix;
+#X text 22 40 The input section has this level control on the x-y field.
+The horizontal dimension controls left input / right input mix \, while
+the vertical dimension controls level in 0 till 2 range. Left and right
+input from soundcard are mixed down to mono.;
+#X restore 337 82 pd input-level-help;
+#X msg 337 41 \; pd-input-level-help vis 1;
+#X obj 337 17 r open-input-level-help;
+#N canvas 866 22 406 236 BPM-groove-help 0;
+#X text 26 18 BPM and 16th note groove;
+#X text 26 43 Beats-Per-Minute and 16th note groove are set globally
+with a controller on the x-y field. Groove is set in the horizontal
+dimension \, with no groove at the left side and maximum groove (1/24
+note shift or triplet groove) at the right side. BPM is set in the
+vertical dimension \, with a minimum of 30 and a maximum of 235 beats
+per minute. At the bottom \, there is a setting of 0 BPM which means
+the global triggering is stopped.;
+#X obj 29 171 vsl 50 46 13 13 0 0 \$0-dummysend \$0-dummyreceive 161
+4 26 1 25 -1 -1 -262144 0 1;
+#X text 86 198 y: groove;
+#X text 86 174 x: BPM \, represented by number;
+#X restore 336 183 pd BPM-groove-help;
+#X msg 337 144 \; pd-BPM-groove-help vis 1;
+#X obj 337 116 r open-BPM-groove-help;
+#N canvas 195 181 375 175 crossfader-help 0;
+#X text 15 48 In the horizontal dimension \, the output mix between
+left and right slice-recycle sections is set. The vertical dimension
+controls level.;
+#X obj 17 108 vsl 50 46 39 39 0 0 \$0-dummysend \$0-dummyreceive X
+8 28 1 50 -1 -1 -262144 0 1;
+#X text 78 135 y: level;
+#X text 77 111 x: section1 / section2 mix;
+#X text 16 13 crossfader for slice units;
+#X restore 336 285 pd crossfader-help;
+#X msg 336 245 \; pd-crossfader-help vis 1;
+#X obj 336 218 r open-crossfader-help;
+#N canvas 0 22 390 249 pitcher-help 0;
+#X text 21 17 global pitcher;
+#X text 22 138 BPM tempo is not affected by these settings.;
+#X obj 23 176 vsl 50 46 4 4 0 0 \$0-dummysend \$0-dummyreceive ^^ 0
+23 1 50 -1 -1 -262144 0 1;
+#X text 80 182 x: fine tuning;
+#X text 80 205 y: half notes;
+#X text 21 49 This contoller on the x-y field changes pitch globally
+\, that is \, for the two slice units (not the input signal). This
+is implemented as a change in slice playback speed. In vertical direction
+\, the pitch is changed in half-note steps \, while the horizontal
+dimension does fine-tuning.;
+#X restore 336 382 pd pitcher-help;
+#X msg 336 344 \; pd-pitcher-help vis 1;
+#X obj 336 321 r open-pitcher-help;
+#X msg 19 46 \; pd-notes-help vis 1;
+#N canvas 37 392 387 260 tick-delay-help 0;
+#X obj 26 187 hradio 50 1 0 1 \$0-dummysend \$0-dummyreceive [[]] 4
+25 1 40 -1 -1 -262144 0;
+#X text 85 185 tick-delay;
+#X text 86 219 y: -;
+#X text 86 202 x: tick-delay left - right;
+#X text 27 15 tick delay;
+#X text 25 110 In the center position \, there is no tick delay. At
+left position \, the left slice-recycle section triggers are delayed
+by 1/32 tick. At right position \, the right slice-recycle section
+triggers are delayed by 1/32 tick.;
+#X text 26 45 Tick delay is a simple method to make the left and right
+slice-recycle sections sound less unified. With subtle setting \, an
+impression of spatialization can arise. With extreme setting \, things
+become rather chaotic.;
+#X restore 336 484 pd tick-delay-help;
+#X msg 337 446 \; pd-tick-delay-help vis 1;
+#X obj 337 421 r open-tick-delay-help;
+#X connect 1 0 26 0;
+#X connect 4 0 3 0;
+#X connect 6 0 7 0;
+#X connect 10 0 9 0;
+#X connect 12 0 13 0;
+#X connect 16 0 15 0;
+#X connect 19 0 18 0;
+#X connect 22 0 21 0;
+#X connect 25 0 24 0;
+#X connect 29 0 28 0;
+#X restore 23 118 pd fader-help-files;
+#N canvas 311 401 424 160 settings-help-files 0;
+#X obj 20 30 r open-slice-settings-help;
+#N canvas 284 136 429 349 slice-settings-help 0;
+#X obj 24 48 hsl 195 50 0 127 0 0 empty empty ________________________________
+0 20 1 10 -1 -1 -4034 0 1;
+#X obj 21 22 hradio 25 1 0 8 \$0-dummysend \$0-recmonitor ....... 120
+25 1 30 -1 -128992 -262144 0;
+#X text 228 24 < slice record indicator;
+#X text 228 46 < white dots: preset indicator;
+#X text 228 67 < oscilloscope;
+#X text 21 246 2 - (indicated by a line) preset intended for manual
+record start;
+#X text 20 285 If you want to fine-tune the presets \, you can access
+the settings by double-clicking or long-clicking the oscilloscope.
+;
+#X text 19 123 If you click a slice unit's oscilloscope \, the settings
+preset will switch. Each slice unit has two presets:;
+#X obj 23 170 cnv 15 100 15 empty empty ....... 20 2 1 30 -1 -262144
+0;
+#X text 21 189 1- (indicated by dots) preset intended for automatic
+detection of attacks;
+#X obj 22 226 cnv 15 100 15 empty empty ____ 20 0 1 30 -1 -262144 0
+;
+#X restore 21 111 pd slice-settings-help;
+#X obj 216 32 r open-input-settings-help;
+#X msg 20 58 \; pd-slice-settings-help vis 1;
+#X msg 216 57 \; pd-input-settings-help vis 1;
+#X connect 0 0 3 0;
+#X connect 2 0 4 0;
+#X restore 23 148 pd settings-help-files;
+#N canvas 217 331 308 166 beatmonitor-help-file 0;
+#X obj 22 24 r \$0-open-beatmonitor-help;
+#X msg 22 54 \; pd-beatmonitor-help vis 1;
+#N canvas 0 22 458 203 beatmonitor-help 0;
+#X obj 41 129 hradio 50 1 0 4 \$0-dummysend \$0-dummyreceive 1__2__3__4
+14 29 1 30 -1 -4034 -1 0;
+#X text 38 42 beat monitor button;
+#X text 39 85 Clicking the beat monitor will reset BPM sync to the
+first beat.;
+#X restore 22 101 pd beatmonitor-help;
+#X connect 0 0 1 0;
+#X restore 23 178 pd beatmonitor-help-file;
+#X restore 88 52 pd detailed-help;
+#X connect 0 0 4 0;
+#X connect 4 0 3 0;
+#X coords 0 -1 1 1 50 50 2 20 20;
+#X restore 20 50 pd helpbutton;
+#X obj 120 2 r \$0-recbutton;
+#X obj 170 26 r \$0-playbackbutton;
+#N canvas 958 546 208 128 globalpitcher 0;
+#N canvas 617 524 181 180 interval-to-ratio 0;
+#X obj 10 70 t b f;
+#X msg 10 99 2;
+#X obj 10 124 pow;
+#X obj 10 43 / 12;
+#X obj 10 17 inlet;
+#X obj 10 150 outlet;
+#X text 51 17 halfnote interval;
+#X text 60 151 speed ratio;
+#X connect 0 0 1 0;
+#X connect 0 1 2 1;
+#X connect 1 0 2 0;
+#X connect 2 0 5 0;
+#X connect 3 0 0 0;
+#X connect 4 0 3 0;
+#X restore 16 40 pd interval-to-ratio;
+#N canvas 720 406 204 228 pitcherdata 0;
+#X obj 100 192 outlet;
+#X obj 25 41 unpack;
+#X obj 100 112 int;
+#X obj 100 137 t b f;
+#X obj 100 164 +;
+#X obj 25 12 r globalpitch;
+#X obj 100 84 - 6;
+#X obj 100 58 * 12;
+#X obj 25 112 - 0.5;
+#X connect 1 0 8 0;
+#X connect 1 1 7 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 3 1 4 1;
+#X connect 4 0 0 0;
+#X connect 5 0 1 0;
+#X connect 6 0 2 0;
+#X connect 7 0 6 0;
+#X connect 8 0 4 0;
+#X restore 16 12 pd pitcherdata;
+#X obj 16 70 s globalpitcher;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;
+#X restore 21 168 pd globalpitcher;
+#N canvas 412 343 445 191 beatcounter 0;
+#X obj 50 50 hradio 50 1 0 4 \$0-set-one empty one 10 29 1 20 -262144
+-262144 -1 0;
+#N canvas 455 278 274 429 BPMtap 0;
+#X obj 20 131 realtime;
+#X obj 20 51 +;
+#X msg 20 23 1;
+#X obj 20 77 & 3;
+#X obj 20 104 sel 1 2;
+#X msg 114 60 0;
+#X obj 20 210 /;
+#X obj 20 160 t b f;
+#X obj 20 239 int;
+#X obj 20 -16 r \$0-bpm-tap;
+#X obj 114 15 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 20 186 60000;
+#X text 46 323 BPM;
+#X text 183 37 lower bound;
+#X obj 114 36 delay 1000;
+#X text 87 196 compute BPM from 2 clicks;
+#X obj 114 -16 r bpmtapkey;
+#X obj 79 131 s buttonhelp;
+#X msg 79 104 BPM.tap;
+#X obj 20 266 moses 30;
+#X msg 20 291 0;
+#X obj 20 321 f;
+#X obj 65 291 clip 30 235;
+#X obj 20 348 s \$0-tappedBPM;
+#X connect 0 0 7 0;
+#X connect 1 0 3 0;
+#X connect 2 0 1 0;
+#X connect 3 0 1 1;
+#X connect 3 0 4 0;
+#X connect 4 0 0 0;
+#X connect 4 1 0 1;
+#X connect 5 0 3 0;
+#X connect 6 0 8 0;
+#X connect 7 0 11 0;
+#X connect 7 1 6 1;
+#X connect 8 0 19 0;
+#X connect 9 0 2 0;
+#X connect 9 0 10 0;
+#X connect 9 0 18 0;
+#X connect 10 0 14 0;
+#X connect 11 0 6 0;
+#X connect 14 0 5 0;
+#X connect 16 0 2 0;
+#X connect 16 0 10 0;
+#X connect 16 0 18 0;
+#X connect 18 0 17 0;
+#X connect 19 0 20 0;
+#X connect 19 1 22 0;
+#X connect 20 0 21 0;
+#X connect 21 0 23 0;
+#X connect 22 0 21 0;
+#X restore 334 82 pd BPMtap;
+#X obj 50 50 hradio 50 1 0 4 \$0-dummysend \$0-beatmonitor 1__2__3__4
+14 29 1 30 -1 -4034 -1 1;
+#X text 51 122 A BPM indicator GUI with responsive surface: reset BPM
+sync to the One.;
+#X text 333 59 not used now:;
+#X coords 0 -1 1 1 200 50 2 50 50;
+#X restore 20 100 pd beatcounter;
+#N canvas 768 543 453 163 slicycle-relay 0;
+#X obj 23 41 r slicycle1-input-on;
+#X obj 231 44 r slicycle2-input-on;
+#X msg 23 67 0;
+#X msg 231 70 0;
+#X text 20 11 not more than one slicycle input open at any given time
+;
+#X obj 23 95 s turnoff-inputstatus-slicycle2;
+#X obj 231 94 s turnoff-inputstatus-slicycle1;
+#X connect 0 0 2 0;
+#X connect 1 0 3 0;
+#X connect 2 0 5 0;
+#X connect 3 0 6 0;
+#X restore 238 96 pd slicycle-relay;
+#N canvas 810 325 375 310 globalticks 0;
+#X obj 78 221 s globalticks;
+#N canvas 103 327 345 423 generate-ticks 0;
+#X obj 32 98 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
+;
+#X obj 32 146 metro;
+#N canvas 988 94 208 259 milliseconds 0;
+#X obj 19 18 inlet;
+#X obj 19 199 outlet;
+#X obj 19 46 t b f;
+#X obj 19 170 /;
+#X msg 69 77 15000;
+#X msg 113 77 20000;
+#X obj 19 147 f 15000;
+#X obj 69 103 t b f;
+#X obj 69 43 sel 0 1;
+#X text 19 225 1/16 or 1/12 note;
+#X obj 69 17 r \$0-timesignature;
+#X floatatom 96 135 5 0 0 0 - - -;
+#X connect 0 0 2 0;
+#X connect 2 0 6 0;
+#X connect 2 1 3 1;
+#X connect 3 0 1 0;
+#X connect 4 0 7 0;
+#X connect 5 0 7 0;
+#X connect 6 0 3 0;
+#X connect 7 0 6 0;
+#X connect 7 1 11 0;
+#X connect 7 1 6 1;
+#X connect 8 0 4 0;
+#X connect 8 1 5 0;
+#X connect 10 0 8 0;
+#X restore 59 97 pd milliseconds;
+#X floatatom 76 121 8 0 0 0 - - -;
+#X obj 32 193 +;
+#X obj 73 146 s ticklength;
+#X obj 32 376 outlet;
+#X obj 32 170 f 1;
+#N canvas 304 500 316 238 ticksort 0;
+#X obj 27 60 t f f;
+#X obj 27 27 inlet;
+#X obj 27 117 pack;
+#X text 25 6 ticks;
+#X obj 27 88 & 3;
+#X obj 27 143 route 0 1 2 3;
+#X obj 27 175 outlet;
+#X obj 73 175 outlet;
+#X obj 122 175 outlet;
+#X obj 170 175 outlet;
+#X obj 242 175 outlet;
+#X text 28 199 first;
+#X text 72 199 second;
+#X text 121 199 third;
+#X text 168 199 fourth;
+#X text 240 198 index;
+#X connect 0 0 4 0;
+#X connect 0 1 2 1;
+#X connect 1 0 0 0;
+#X connect 2 0 5 0;
+#X connect 4 0 2 0;
+#X connect 4 0 10 0;
+#X connect 5 0 6 0;
+#X connect 5 1 7 0;
+#X connect 5 2 8 0;
+#X connect 5 3 9 0;
+#X restore 32 319 pd ticksort;
+#N canvas 576 493 515 163 tickdelays 0;
+#X obj 21 15 inlet;
+#X obj 21 88 pipe;
+#X obj 202 125 outlet;
+#X obj 106 14 inlet;
+#X obj 106 87 pipe;
+#X obj 202 15 inlet;
+#X obj 202 88 pipe;
+#X obj 287 15 inlet;
+#X obj 287 88 pipe;
+#N canvas 698 484 303 226 sambagroove 0;
+#X obj 32 7 r ticklength;
+#X obj 181 28 sel 1;
+#X msg 181 56 0;
+#X obj 32 30 t b f;
+#X obj 19 69 *;
+#X obj 19 98 spigot;
+#X obj 141 28 t b f;
+#X obj 19 -17 r \$0-groove;
+#X obj 141 -18 r \$0-groovetype;
+#X obj 19 164 s \$0-tickdelay0;
+#X obj 35 131 s \$0-tickdelay1;
+#X obj 181 125 s \$0-tickdelay2;
+#X obj 195 94 s \$0-tickdelay3;
+#X connect 0 0 3 0;
+#X connect 1 0 2 0;
+#X connect 2 0 11 0;
+#X connect 2 0 12 0;
+#X connect 3 0 4 0;
+#X connect 3 1 4 1;
+#X connect 4 0 5 0;
+#X connect 5 0 9 0;
+#X connect 5 0 10 0;
+#X connect 6 0 4 0;
+#X connect 6 1 5 1;
+#X connect 7 0 4 0;
+#X connect 8 0 1 0;
+#X connect 8 0 6 0;
+#X restore 385 93 pd sambagroove;
+#N canvas 823 242 346 186 tripletgroove 0;
+#X obj 37 15 r ticklength;
+#X msg 213 65 0;
+#X obj 37 38 t b f;
+#X obj 24 77 *;
+#X obj 24 106 spigot;
+#X obj 146 36 t b f;
+#X obj 213 36 sel 0;
+#X obj 173 65 == 0;
+#X obj 24 -10 r \$0-groove;
+#X obj 146 -10 r \$0-groovetype;
+#X obj 24 153 s \$0-tickdelay1;
+#X obj 44 131 s \$0-tickdelay3;
+#X obj 213 134 s \$0-tickdelay0;
+#X obj 225 101 s \$0-tickdelay2;
+#X connect 0 0 2 0;
+#X connect 1 0 12 0;
+#X connect 1 0 13 0;
+#X connect 2 0 3 0;
+#X connect 2 1 3 1;
+#X connect 3 0 4 0;
+#X connect 4 0 10 0;
+#X connect 4 0 11 0;
+#X connect 5 0 3 0;
+#X connect 5 1 7 0;
+#X connect 6 0 1 0;
+#X connect 7 0 4 1;
+#X connect 8 0 3 0;
+#X connect 9 0 5 0;
+#X connect 9 0 6 0;
+#X restore 386 21 pd tripletgroove;
+#X floatatom 56 89 5 0 0 0 - - -;
+#X floatatom 141 89 5 0 0 0 - - -;
+#X floatatom 234 88 5 0 0 0 - - -;
+#X floatatom 320 89 5 0 0 0 - - -;
+#X obj 42 39 r \$0-tickdelay0;
+#X obj 127 61 r \$0-tickdelay1;
+#X obj 223 38 r \$0-tickdelay2;
+#X obj 308 61 r \$0-tickdelay3;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 3 0 4 0;
+#X connect 4 0 2 0;
+#X connect 5 0 6 0;
+#X connect 6 0 2 0;
+#X connect 7 0 8 0;
+#X connect 8 0 2 0;
+#X connect 15 0 1 1;
+#X connect 15 0 11 0;
+#X connect 16 0 4 1;
+#X connect 16 0 12 0;
+#X connect 17 0 6 1;
+#X connect 17 0 13 0;
+#X connect 18 0 8 1;
+#X connect 18 0 14 0;
+#X restore 32 350 pd tickdelays;
+#X obj 64 193 r \$0-set-one;
+#X text 119 349 << groove;
+#X obj 32 290 tabread \$0-commontime;
+#X obj 185 225 symbol \$0-sixquavers;
+#X msg 166 250 set \$1;
+#X obj 166 202 symbol \$0-commontime;
+#X obj 166 146 r \$0-timesignature;
+#X obj 32 248 mod 192;
+#X obj 59 15 inlet;
+#X obj 166 175 sel 0 1;
+#X text 68 41 if zero \, set metro off;
+#X text 99 16 BPM;
+#X obj 32 67 change;
+#X obj 32 42 != 0;
+#X msg 64 218 0;
+#X connect 0 0 1 0;
+#X connect 1 0 7 0;
+#X connect 2 0 1 1;
+#X connect 2 0 3 0;
+#X connect 2 0 5 0;
+#X connect 4 0 17 0;
+#X connect 7 0 4 0;
+#X connect 8 0 9 0;
+#X connect 8 1 9 1;
+#X connect 8 2 9 2;
+#X connect 8 3 9 3;
+#X connect 9 0 6 0;
+#X connect 10 0 24 0;
+#X connect 12 0 8 0;
+#X connect 13 0 14 0;
+#X connect 14 0 12 0;
+#X connect 15 0 14 0;
+#X connect 16 0 19 0;
+#X connect 17 0 4 1;
+#X connect 17 0 12 0;
+#X connect 18 0 2 0;
+#X connect 18 0 23 0;
+#X connect 19 0 15 0;
+#X connect 19 1 13 0;
+#X connect 19 2 15 0;
+#X connect 22 0 0 0;
+#X connect 23 0 22 0;
+#X connect 24 0 17 0;
+#X restore 78 152 pd generate-ticks;
+#N canvas 921 456 189 166 to-beatmonitor 0;
+#X obj 17 7 inlet;
+#X obj 17 124 s \$0-beatmonitor;
+#X obj 17 31 >> 2;
+#X obj 17 59 & 3;
+#X connect 0 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X restore 91 188 pd to-beatmonitor;
+#N canvas 542 150 297 177 tick-tables 0;
+#X obj 31 18 loadbang;
+#N canvas 0 22 246 266 commontime 0;
+#X obj 30 209 table \$0-commontime 256;
+#X obj 31 175 tabwrite \$0-commontime;
+#X obj 31 142 t f f;
+#X obj 31 86 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 31 53 inlet;
+#X obj 31 114 iterate 256;
+#X connect 2 0 1 0;
+#X connect 2 1 1 1;
+#X connect 3 0 5 0;
+#X connect 4 0 3 0;
+#X connect 5 0 2 0;
+#X restore 31 100 pd commontime;
+#N canvas 748 33 413 471 sixquavers 0;
+#X obj 27 38 inlet;
+#X obj 27 66 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 27 272 tabwrite \$0-sixquavers;
+#X obj 27 122 t b f;
+#X obj 156 246 +;
+#X obj 27 191 unpack;
+#X obj 224 243 s \$0-sixquavers;
+#X msg 224 215 arrayviewlistnew;
+#X obj 171 221 * 12;
+#X obj 27 245 +;
+#X obj 42 220 * 16;
+#X obj 224 272 table \$0-sixquavers 192;
+#X msg 27 151 0 0 \, 1 1 \, 2 2 \, 4 3 \, 5 4 \, 6 5 \, 8 6 \, 9 7
+\, 10 8 \, 12 9 \, 13 10 \, 14 11;
+#X obj 27 364 hradio 15 1 0 3 empty empty empty 0 -8 0 10 -262144 -262144
+-1 0;
+#X obj 77 364 hradio 15 1 0 3 empty empty empty 0 -8 0 10 -262144 -262144
+-1 0;
+#X obj 126 364 hradio 15 1 0 3 empty empty empty 0 -8 0 10 -262144
+-262144 -1 0;
+#X obj 176 364 hradio 15 1 0 3 empty empty empty 0 -8 0 10 -262144
+-262144 -1 0;
+#X obj 28 391 hradio 15 1 0 1 empty empty empty 0 -8 0 10 -262144 -262144
+-1 0;
+#X obj 58 391 hradio 15 1 0 1 empty empty empty 0 -8 0 10 -262144 -262144
+-1 0;
+#X obj 77 391 hradio 15 1 0 1 empty empty empty 0 -8 0 10 -262144 -262144
+-1 0;
+#X obj 107 391 hradio 15 1 0 1 empty empty empty 0 -8 0 10 -262144
+-262144 -1 0;
+#X obj 127 391 hradio 15 1 0 1 empty empty empty 0 -8 0 10 -262144
+-262144 -1 0;
+#X obj 157 391 hradio 15 1 0 1 empty empty empty 0 -8 0 10 -262144
+-262144 -1 0;
+#X obj 176 391 hradio 15 1 0 1 empty empty empty 0 -8 0 10 -262144
+-262144 -1 0;
+#X obj 206 391 hradio 15 1 0 1 empty empty empty 0 -8 0 10 -262144
+-262144 -1 0;
+#X obj 28 417 hradio 15 1 0 1 empty empty empty 0 -8 0 10 -262144 -262144
+-1 0;
+#X obj 78 417 hradio 15 1 0 1 empty empty empty 0 -8 0 10 -262144 -262144
+-1 0;
+#X obj 127 416 hradio 15 1 0 1 empty empty empty 0 -8 0 10 -262144
+-262144 -1 0;
+#X obj 177 416 hradio 15 1 0 1 empty empty empty 0 -8 0 10 -262144
+-262144 -1 0;
+#X text 26 334 it is 12/16 really:;
+#X text 245 361 semiquavers;
+#X text 246 388 quavers;
+#X text 247 415 beats;
+#X obj 27 91 iterate 16;
+#X connect 0 0 1 0;
+#X connect 1 0 33 0;
+#X connect 3 0 12 0;
+#X connect 3 1 8 0;
+#X connect 3 1 10 0;
+#X connect 4 0 2 1;
+#X connect 5 0 9 0;
+#X connect 5 1 4 0;
+#X connect 7 0 6 0;
+#X connect 8 0 4 1;
+#X connect 9 0 2 0;
+#X connect 10 0 9 1;
+#X connect 12 0 5 0;
+#X connect 33 0 3 0;
+#X restore 122 100 pd sixquavers;
+#X connect 0 0 1 0;
+#X connect 0 0 2 0;
+#X restore 263 24 pd tick-tables;
+#X obj 45 25 r BPM/groove;
+#X obj 45 57 unpack;
+#N canvas 0 22 302 213 label 0;
+#X obj 37 34 inlet;
+#X obj 37 140 s BPM/grooveguireceive;
+#X obj 37 65 makefilename %d;
+#X msg 37 105 label \$1;
+#X text 35 164 xy-object label;
+#X connect 0 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X restore 89 121 pd label;
+#N canvas 0 22 320 210 BPM 0;
+#X obj 36 27 inlet;
+#X obj 36 56 * 235;
+#X obj 36 152 outlet;
+#X obj 36 88 moses 10;
+#X msg 36 115 0;
+#X text 77 56 max BPM: 235;
+#X text 99 88 if lower than 10 \, set to zero;
+#X obj 81 119 s beatsperminute;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 3 0 4 0;
+#X connect 3 1 2 0;
+#X connect 3 1 7 0;
+#X connect 4 0 2 0;
+#X restore 78 90 pd BPM;
+#X obj 45 271 s \$0-groove;
+#X text 126 25 from xy field;
+#X obj 45 246 * 0.25;
+#X connect 1 0 0 0;
+#X connect 1 0 2 0;
+#X connect 4 0 5 0;
+#X connect 5 0 10 0;
+#X connect 5 1 7 0;
+#X connect 7 0 1 0;
+#X connect 7 0 6 0;
+#X connect 10 0 8 0;
+#X restore 21 191 pd globalticks;
+#N canvas 815 326 259 385 tick-delay 0;
+#X obj 22 43 unpack;
+#X obj 22 11 r tick-delay;
+#X obj 22 71 * 0.002105;
+#X obj 22 99 t b f;
+#X msg 22 126 1;
+#X obj 22 152 -;
+#X floatatom 34 326 5 0 0 0 - - -;
+#X floatatom 108 303 5 0 0 0 - - -;
+#X obj 22 176 - 0.5;
+#X obj 96 176 - 0.5;
+#X obj 22 203 clip 0 0.5;
+#X obj 96 203 clip 0 0.5;
+#X obj 22 229 change;
+#X obj 96 230 change;
+#X obj 22 348 s slicycle1-tickdelay;
+#X obj 96 324 s slicycle2-tickdelay;
+#X obj 96 279 * 1;
+#X obj 22 301 * 1;
+#X obj 114 256 hsl 128 15 0 1 0 1 empty empty empty -2 -8 0 10 -262144
+-260097 -1 0 0;
+#X floatatom 123 279 5 0 0 0 - - -;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;
+#X connect 2 0 3 0;
+#X connect 2 0 9 0;
+#X connect 3 0 4 0;
+#X connect 3 1 5 1;
+#X connect 4 0 5 0;
+#X connect 5 0 8 0;
+#X connect 8 0 10 0;
+#X connect 9 0 11 0;
+#X connect 10 0 12 0;
+#X connect 11 0 13 0;
+#X connect 12 0 17 0;
+#X connect 13 0 16 0;
+#X connect 16 0 15 0;
+#X connect 16 0 7 0;
+#X connect 17 0 14 0;
+#X connect 17 0 6 0;
+#X connect 18 0 16 1;
+#X connect 18 0 17 1;
+#X connect 18 0 19 0;
+#X restore 21 216 pd tick-delay;
+#X msg 21 22 color 2 2 0;
+#N canvas 263 496 291 175 settings-button 0;
+#X obj 20 20 bng 50 250 50 0 \$0-dummysend \$0-dummyreceive ! 18 30
+1 40 -66577 -66577 -262144;
+#N canvas 547 332 379 351 parameter-settings 0;
+#N canvas 801 565 223 150 close 0;
+#X obj 20 20 bng 50 80 20 0 \$0-dummysend \$0-dummyreceive X 12 29
+1 40 -233017 -233017 -66577;
+#X msg 20 92 \; pd-parameter-settings vis 0;
+#X connect 0 0 1 0;
+#X coords 0 -1 1 1 50 50 2 20 20;
+#X restore 20 244 pd close;
+#X text 78 260 close this window;
+#N canvas 740 82 188 150 audiosettings 0;
+#X msg 20 98 \; pd audio-properties;
+#X obj 20 20 bng 50 80 20 0 \$0-dummysend \$0-dummyreceive ))) 10 25
+1 35 -233017 -233017 -66577;
+#X connect 1 0 0 0;
+#X coords 0 -1 1 1 50 50 2 20 20;
+#X restore 20 16 pd audiosettings;
+#N canvas 451 110 294 214 midi-rec-start 0;
+#X obj 103 40 hsl 129 50 -1 127 0 1 empty empty empty 40 25 0 10 -228856
+-260097 -1 6500 0;
+#X floatatom 105 68 5 0 0 0 - - -;
+#X obj 52 47 ctlin;
+#X obj 52 71 != 0;
+#X obj 52 95 change;
+#X obj 52 146 spigot;
+#X obj 85 120 ==;
+#X obj 52 173 s midi-rec-trigger;
+#X text 139 67 set cc number;
+#X floatatom 105 46 5 0 0 0 - - -;
+#X text 140 45 midi cc monitor;
+#X connect 0 0 1 0;
+#X connect 0 0 6 1;
+#X connect 2 0 3 0;
+#X connect 2 1 6 0;
+#X connect 2 1 9 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 7 0;
+#X connect 6 0 5 1;
+#X coords 0 -1 1 1 134 50 2 100 40;
+#X restore 20 187 pd midi-rec-start;
+#N canvas 801 565 223 150 close 0;
+#X obj 20 20 bng 50 80 20 0 \$0-dummysend \$0-dummyreceive > 12 25
+1 50 -66577 -66577 -262144;
+#X msg 20 92 \; pd-input-settings vis 1;
+#X connect 0 0 1 0;
+#X coords 0 -1 1 1 50 50 2 20 20;
+#X restore 20 73 pd close;
+#N canvas 801 565 333 131 close 0;
+#X obj 20 20 bng 50 80 20 0 \$0-dummysend \$0-dummyreceive > 12 25
+1 50 -262144 -262144 -66577;
+#X obj 20 86 s open-slicycle1-settings;
+#X connect 0 0 1 0;
+#X coords 0 -1 1 1 50 50 2 20 20;
+#X restore 134 74 pd close;
+#N canvas 801 565 223 150 close 0;
+#X obj 20 20 bng 50 80 20 0 \$0-dummysend \$0-dummyreceive > 12 25
+1 50 -191407 -262144 -66577;
+#X obj 20 89 s open-slicycle2-settings;
+#X connect 0 0 1 0;
+#X coords 0 -1 1 1 50 50 2 20 20;
+#X restore 191 74 pd close;
+#X text 161 201 for rec start/stop;
+#X text 17 303 Slice unit settings and input settings are also accessible
+by double-clicking their oscilloscope regions!;
+#N canvas 720 402 215 251 close 0;
+#X obj 50 50 bng 50 80 20 0 \$0-dummysend \$0-dummyreceive cub 6 25
+1 25 -66577 -66577 -262144;
+#X obj 16 198 s slice-interp;
+#X msg 16 169 interp \$1;
+#X obj 16 100 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 103 115 sel 0 1;
+#X msg 103 168 label lin;
+#X obj 16 20 loadbang;
+#X msg 16 50 1;
+#X msg 122 142 label cub;
+#X text 14 221 to slicycles;
+#X connect 0 0 3 0;
+#X connect 2 0 1 0;
+#X connect 3 0 2 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 4 1 8 0;
+#X connect 5 0 0 0;
+#X connect 6 0 7 0;
+#X connect 7 0 3 0;
+#X connect 8 0 0 0;
+#X coords 0 -1 1 1 50 50 2 50 50;
+#X restore 20 130 pd close;
+#X text 75 44 settings;
+#X text 76 27 soundcard;
+#X text 247 102 settings;
+#X text 247 90 slice recorder;
+#X text 75 100 settings;
+#X text 75 86 input;
+#X text 77 146 interpolation;
+#X restore 115 35 pd parameter-settings;
+#X msg 20 104 \; pd-parameter-settings vis 1;
+#X connect 0 0 2 0;
+#X coords 0 -1 1 1 50 50 2 20 20;
+#X restore 70 50 pd settings-button;
+#N canvas 466 471 359 239 print-message 0;
+#X obj 25 23 loadbang;
+#X obj 25 178 print;
+#X obj 25 48 t b b;
+#X msg 52 78 [SliceJockey] version 3.0.0 loaded;
+#X msg 25 122 [SliceJockey] uses externals from libs: hcs zexy nilwind
+, f 32;
+#X connect 0 0 2 0;
+#X connect 2 0 4 0;
+#X connect 2 1 3 0;
+#X connect 3 0 1 0;
+#X connect 4 0 1 0;
+#X restore 239 170 pd print-message;
+#N canvas 179 202 419 388 dependencies 0;
+#X obj 23 54 declare -path abstractions;
+#X obj 22 128 declare -path pdlibs/kat -lib verbkit;
+#X obj 25 213 declare -path nilwind;
+#X obj 25 242 declare -path hcs;
+#X obj 25 269 declare -lib zexy;
+#X text 22 187 3rd party libs installable via menu Help > Find externals
+;
+#X text 22 101 binaries distributed with SliceJockey3;
+#X text 22 29 abstractions distributed with SliceJockey3;
+#X restore 238 70 pd dependencies;
+#X connect 6 0 1 0;
+#X connect 7 0 2 0;
+#X coords 0 -1 1 1 200 100 2 20 50;
+#X restore 762 397 pd global;
+#X obj 770 298 cnv 5 5 5 empty \$0-buttonhelpcanvas empty 10 3 1 18
+-203904 -33289 0;
+#X text 765 8 TYUI;
+#X text 13 215 ASDF;
+#X text 767 217 GHJK;
+#X obj 20 304 cnv 5 5 5 empty empty Slice//Jockey 0 0 1 30 -158778
+-33289 0;
+#X text 14 372 ZXCV;
+#X obj 11 31 SJ3slicycle 1 0;
+#X obj 223 0 SJ3multipad;
+#X text 15 5 QWER;
+#X obj 762 31 SJ3slicycle 2 20;
+#X text 20 317 version 3.0.0;
+#X coords 0 0 1 1 512 512 0;

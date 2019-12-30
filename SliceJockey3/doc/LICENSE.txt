@@ -1,0 +1,34 @@
+LICENSE.txt for project SliceJockey3
+
+
+///////// DISCLAIMER //////////////////////////////////////////////////////////////
+
+
+Th software is distributed in the hope that it will be useful, but without any warranty; without even the implied warranty of merchantibility or fitness for a particular purpose.
+
+
+///////// PATCHES //////////////////////////////////////////////////////////////
+
+
+Patches SliceJockey3.pd and abstractions are published under GPL:
+
+Copyright (c) 2011, Katja Vetter. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this package. If not, see www.gnu.org/licenses.
+
+
+///////// INCLUDED CLASSES /////////////////////////////////////////////////////
+
+
+The following Pure Data classes are copyrighted by Katja Vetter 2009 - 2019, and published under Apache version 2 license (www.apache.org/licenses/LICENSE-2.0):
+
+[bitflip~] [krunch~]
+[complexify~] [duck~] [instantamp~] [qompand~]
+[slicerec~] [sliceplay~]
+[combsL~] [combsR~] [damp~] [dcombsL~] [dcombsR~] [diffusorL~] [diffusorR~]
+
+
+///////// PURE DATA ////////////////////////////////////////////////////////////
+
+
+Pure Data is copyrighted by Miller Puckette and others, and published under 3-clause BSD license (opensource.org/licenses/BSD-3-Clause).
+
+The patches are distributed in the hope that they will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.

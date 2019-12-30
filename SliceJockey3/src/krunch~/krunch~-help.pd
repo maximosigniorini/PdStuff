@@ -1,0 +1,113 @@
+#N canvas 28 85 583 440 10;
+#X obj 38 357 dac~;
+#X obj 75 129 hsl 128 15 0 20 0 1 empty empty factor 20 8 0 10 -262144
+-260097 -1 10600 0;
+#X msg 367 8 \; pd dsp 1;
+#X msg 434 8 \; pd dsp 0;
+#X floatatom 85 152 5 0 0 0 - - -;
+#X obj 38 230 hip~ 40;
+#X obj 92 176 hsl 128 15 -96 -20 0 1 empty empty dBpoint 20 8 0 10
+-262144 -260097 -1 1700 0;
+#X floatatom 103 205 5 0 0 0 - - -;
+#N canvas 115 286 356 302 testsignals 0;
+#X obj 44 18 inlet;
+#X obj 173 23 inlet;
+#X obj 29 265 outlet~;
+#X obj 44 138 line~;
+#X obj 29 227 *~;
+#X obj 44 89 t b b;
+#X msg 74 166 0.25;
+#X obj 44 61 metro 500;
+#X obj 152 119 *~ 0;
+#X obj 29 191 osc~ 100;
+#X obj 173 92 * 0.01;
+#X msg 44 113 1.1 \, 0 200;
+#X obj 252 23 inlet;
+#X obj 210 164 adc~;
+#X obj 231 195 *~ 0;
+#X obj 152 62 noise~;
+#X connect 0 0 7 0;
+#X connect 1 0 10 0;
+#X connect 3 0 4 1;
+#X connect 4 0 2 0;
+#X connect 5 0 11 0;
+#X connect 5 1 6 0;
+#X connect 6 0 9 1;
+#X connect 7 0 5 0;
+#X connect 8 0 2 0;
+#X connect 9 0 4 0;
+#X connect 10 0 8 1;
+#X connect 11 0 3 0;
+#X connect 12 0 14 1;
+#X connect 13 0 14 0;
+#X connect 13 1 14 0;
+#X connect 14 0 2 0;
+#X connect 15 0 8 0;
+#X restore 38 45 pd testsignals;
+#X obj 38 -16 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 78 2 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
+;
+#X text 55 -18 sine resonator 100 Hz;
+#X obj 119 22 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 139 21 adc~;
+#X obj 367 -17 loadbang;
+#X obj 38 326 *~ 0;
+#X obj 38 97 *~ 1;
+#X obj 62 71 hsl 128 15 1 5 0 1 empty empty pre-amp 20 8 0 10 -262144
+-260097 -1 0 0;
+#X floatatom 73 98 5 0 0 0 - - -;
+#X obj 113 294 hsl 128 15 0 1 0 0 empty empty output-level 20 8 0 10
+-262144 -260097 -1 0 0;
+#X floatatom 123 327 5 0 0 0 - - -;
+#N canvas 642 104 326 223 scope 0;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array \$0-scope 8192 float 0;
+#X coords 0 1 8191 -1 200 100 1;
+#X restore 100 50 graph;
+#X obj 32 134 inlet~;
+#X obj 32 185 tabwrite~ \$0-scope;
+#X obj 47 161 bang~;
+#X obj 224 186 block~ 8192;
+#X connect 1 0 2 0;
+#X connect 3 0 2 0;
+#X coords 0 -1 1 1 200 100 2 100 50;
+#X restore 287 276 pd scope;
+#X text 219 86 This non-clpping wave-mapper has a curve with an expansion
+region for the lowest amplitudes. This serves to avoid noise being
+amplified too much. The compression/expansion crossover point can be
+set with parameter dBpoint.;
+#X text 220 61 [krunch~] non-clipping companding wave-mapper;
+#X text 98 1 white noise -40 dB;
+#X text 422 168 Katja Vetter Jan. 2013;
+#X obj 38 259 *~ 0.7;
+#X obj 38 204 krunch~ 2;
+#X obj 89 230 hip~ 40;
+#X obj 89 259 *~ 0.7;
+#X obj 89 325 *~ 0;
+#X connect 1 0 4 0;
+#X connect 1 0 27 2;
+#X connect 5 0 26 0;
+#X connect 6 0 7 0;
+#X connect 6 0 27 3;
+#X connect 8 0 16 0;
+#X connect 9 0 8 0;
+#X connect 10 0 8 1;
+#X connect 12 0 8 2;
+#X connect 14 0 2 0;
+#X connect 15 0 0 0;
+#X connect 16 0 27 0;
+#X connect 16 0 27 1;
+#X connect 17 0 16 1;
+#X connect 17 0 18 0;
+#X connect 19 0 15 1;
+#X connect 19 0 30 1;
+#X connect 19 0 20 0;
+#X connect 26 0 21 0;
+#X connect 26 0 15 0;
+#X connect 27 0 5 0;
+#X connect 27 1 28 0;
+#X connect 28 0 29 0;
+#X connect 29 0 30 0;
+#X connect 30 0 0 1;

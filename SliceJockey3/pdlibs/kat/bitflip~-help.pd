@@ -1,0 +1,91 @@
+#N canvas 163 116 415 485 10;
+#X obj 39 130 bitflip~;
+#X msg 326 185 \; pd dsp 1;
+#X msg 326 229 \; pd dsp 0;
+#X obj 39 341 dac~;
+#X obj 39 312 *~ 0;
+#X obj 63 285 hsl 128 15 0 1 0 0 empty empty output-level 20 8 0 10
+-262144 -260097 -1 0 0;
+#X floatatom 73 313 5 0 0 0 - - -;
+#X obj 87 104 hsl 128 15 0 1 0 1 empty empty dry-wet 20 8 0 10 -262144
+-260097 -1 4700 0;
+#X floatatom 99 131 5 0 0 0 - - -;
+#X obj 326 159 loadbang;
+#N canvas 746 426 326 223 scope 0;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array \$0-scope 512 float 0;
+#X coords 0 1 511 -1 200 100 1;
+#X restore 100 50 graph;
+#X obj 32 134 inlet~;
+#X obj 32 185 tabwrite~ \$0-scope;
+#X obj 224 186 block~ 8192;
+#X obj 47 161 bang~;
+#X connect 1 0 2 0;
+#X connect 4 0 2 0;
+#X coords 0 -1 1 1 200 100 2 100 50;
+#X restore 67 172 pd scope;
+#X text 37 407 A crude noise gate is applied by setting the least significant
+bit to zero. A high pass filter at 40 Hz is applied to eliminate DC
+from the bit flipped signal.;
+#X text 37 368 [bitflip~] casts the scaled signal value to 7-bit int
+and flips one bit (at bit index 5).;
+#X text 263 27 Katja Vetter Jan 2013;
+#N canvas 115 286 356 302 testsignals 0;
+#X obj 44 18 inlet;
+#X obj 173 23 inlet;
+#X obj 29 265 outlet~;
+#X obj 44 138 line~;
+#X obj 29 227 *~;
+#X obj 44 89 t b b;
+#X msg 74 166 0.25;
+#X obj 44 61 metro 500;
+#X obj 152 119 *~ 0;
+#X obj 29 191 osc~ 100;
+#X msg 44 113 1.1 \, 0 200;
+#X obj 252 23 inlet;
+#X obj 210 192 adc~;
+#X obj 231 223 *~ 0;
+#X obj 152 61 noise~;
+#X obj 173 90 * 0.1;
+#X obj 152 146 lop~ 500;
+#X connect 0 0 7 0;
+#X connect 1 0 15 0;
+#X connect 3 0 4 1;
+#X connect 4 0 2 0;
+#X connect 5 0 10 0;
+#X connect 5 1 6 0;
+#X connect 6 0 9 1;
+#X connect 7 0 5 0;
+#X connect 8 0 16 0;
+#X connect 9 0 4 0;
+#X connect 10 0 3 0;
+#X connect 11 0 13 1;
+#X connect 12 0 13 0;
+#X connect 12 1 13 0;
+#X connect 13 0 2 0;
+#X connect 14 0 8 0;
+#X connect 15 0 8 1;
+#X connect 16 0 2 0;
+#X restore 39 63 pd testsignals;
+#X obj 39 2 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
+;
+#X obj 79 20 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X text 56 0 sine resonator 100 Hz;
+#X obj 120 40 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 140 39 adc~;
+#X text 99 19 lo pass filtered noise;
+#X connect 0 0 4 0;
+#X connect 0 0 10 0;
+#X connect 4 0 3 0;
+#X connect 4 0 3 1;
+#X connect 5 0 4 1;
+#X connect 5 0 6 0;
+#X connect 7 0 0 1;
+#X connect 7 0 8 0;
+#X connect 9 0 1 0;
+#X connect 14 0 0 0;
+#X connect 15 0 14 0;
+#X connect 16 0 14 1;
+#X connect 18 0 14 2;
