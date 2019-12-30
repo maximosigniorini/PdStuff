@@ -1,0 +1,20 @@
+#N canvas 761 484 384 232 10;
+#X obj 28 90 mod 100;
+#X obj 28 110 moses 1;
+#X obj 28 170 expr $f1*.01+99;
+#X obj 28 150 f;
+#X obj 28 130 bang;
+#X obj 28 60 t f f;
+#X obj 28 30 inlet;
+#X obj 67 200 outlet;
+#X text 22 7 adaptiert die Taktzahlen zum 1-99 \, 100 \, 200 \, ...
+Format;
+#X connect 0 0 1 0;
+#X connect 1 0 4 0;
+#X connect 1 1 7 0;
+#X connect 2 0 7 0;
+#X connect 3 0 2 0;
+#X connect 4 0 3 0;
+#X connect 5 0 0 0;
+#X connect 5 1 3 1;
+#X connect 6 0 5 0;

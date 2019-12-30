@@ -1,0 +1,10 @@
+#N canvas 273 125 450 300 10;
+#X obj 57 79 inlet~;
+#X obj 249 163 outlet~;
+#X obj 249 90 inlet~;
+#X obj 57 115 delwrite~ \$0lgdl 10000;
+#X text 126 49 longer (10 sec) delayline with vd;
+#X obj 249 128 vd~ \$0lgdl;
+#X connect 0 0 3 0;
+#X connect 2 0 5 0;
+#X connect 5 0 1 0;

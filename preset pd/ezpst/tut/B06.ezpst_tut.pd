@@ -1,0 +1,8 @@
+#N canvas 300 24 696 456 12;
+#X text 122 326 Have a lot of fun!;
+#X text 182 351 urban jcage:at:i2pmail:org;
+#X text 190 -21 You can run ezpst without gui in subpatches via the
+propagateValues.pd abstraction.;
+#X obj 224 26 ../ezpst ./tut/pst/B06- \$1;
+#X obj 125 112 eztut2 \$1:foo;
+#X obj 335 112 eztut2 \$1:bar;

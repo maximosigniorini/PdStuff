@@ -1,0 +1,38 @@
+#N canvas 846 239 717 495 10;
+#X obj 106 50 unpack s f;
+#X msg 133 248 \; \$1 \$2;
+#X obj 133 229 pack s f;
+#X obj 106 30 inlet;
+#X text 293 123 usage: inlet to [paramin \$0];
+#X obj 133 167 spigot;
+#X msg 175 186 \; \$1 bang;
+#X obj 163 88 t b;
+#X obj 106 88 t b s;
+#X obj 175 167 spigot;
+#X obj 208 148 == 0;
+#X msg 106 107 0;
+#X msg 163 107 1;
+#X text 295 170 set parameter. format: "param value" (for floats) or
+"param" (for bang). Don't use "param bang". It does work \, but unpack
+throws an error.;
+#X text 296 222 Note that this only works to send floats and bangs
+;
+#X text 292 141 last edit 12-04-2013;
+#X obj 106 69 makefilename \$1-%s_;
+#X connect 0 0 16 0;
+#X connect 0 1 2 1;
+#X connect 0 1 7 0;
+#X connect 2 0 1 0;
+#X connect 3 0 0 0;
+#X connect 5 0 2 0;
+#X connect 7 0 12 0;
+#X connect 8 0 11 0;
+#X connect 8 1 9 0;
+#X connect 8 1 5 0;
+#X connect 9 0 6 0;
+#X connect 10 0 9 1;
+#X connect 11 0 10 0;
+#X connect 11 0 5 1;
+#X connect 12 0 10 0;
+#X connect 12 0 5 1;
+#X connect 16 0 8 0;

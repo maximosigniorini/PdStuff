@@ -1,0 +1,123 @@
+#N struct 1270-color-display float x float y float farbe;
+#N canvas 164 369 541 288 10;
+#N canvas 613 319 359 132 farben 0;
+#X obj 10 101 filledpolygon farbe farbe 0 0 0 0 5 5 5 5 0 0 0;
+#X obj 10 51 get \$0-color farbe;
+#X obj 10 31 route click;
+#X obj 10 71 outlet;
+#X obj 10 11 struct \$0-color float x float y float farbe;
+#X connect 1 0 3 0;
+#X connect 2 0 1 0;
+#X connect 4 0 2 0;
+#X restore 23 134 pd farben;
+#N canvas 401 351 765 182 \$0-farben-datas 0;
+#X coords 0 0 502 52 502 52 2 0 0;
+#X restore 10 10 pd \$0-farben-datas;
+#X obj 13 164 outlet;
+#N canvas 0 50 450 421 license 0;
+#X text 8 47 All rights reserved.;
+#X text 8 227 The names of its contributors may not be used to endorse
+or promote products derived from this software without specific prior
+written permission.;
+#X text 8 87 Redistribution and use in source and binary forms \, with
+or without modification \, are permitted provided that the following
+conditions are met:;
+#X text 8 127 Redistributions of source code must retain the above
+copyright notice \, this list of conditions and the following disclaimer.
+;
+#X text 8 297 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
+CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES \, INCLUDING
+\, BUT NOT LIMITED TO \, THE IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
+THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT \, INDIRECT
+\, INCIDENTAL \, SPECIAL \, EXEMPLARY \, OR CONSEQUENTIAL DAMAGES (INCLUDING
+\, BUT NOT LIMITED TO \, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES
+;
+#X text 8 167 Redistributions in binary form must reproduce the above
+copyright notice \, this list of conditions and the following disclaimer
+in the documentation and/or other materials provided with the distribution.
+;
+#X text 8 7 Copyright 2006 \, Joã Pais;
+#X text 8 27 jmmmpais@gmail.com;
+#X restore 225 175 pd license;
+#X text 389 91 Outlets;
+#X text 11 91 [ds-color-sel] - color selector for data structures;
+#X text 369 112 - selected color number;
+#N canvas 625 262 300 305 generate 0;
+#X obj 20 135 f;
+#X obj 45 135 + 1;
+#X obj 20 85 until;
+#X msg 35 115 0;
+#X msg 20 65 1000;
+#X msg 101 65 clear;
+#X obj 101 85 s pd-\$0-farben-datas;
+#X obj 20 276 s pd-\$0-farben-datas;
+#X obj 89 215 symbol \$0-color;
+#X obj 20 195 expr ($f1 * 5) % 500 + 1;
+#X obj 20 235 pack f f f s;
+#X msg 20 256 scalar \$4 \$1 \$2 \$3;
+#X obj 20 155 t f f f;
+#X obj 39 175 expr ($f1 - ($f1 % 100)) * 0.05 + 1;
+#X obj 20 35 t b b b b;
+#X obj 20 15 lbang;
+#X connect 0 0 1 0;
+#X connect 0 0 12 0;
+#X connect 1 0 0 1;
+#X connect 2 0 0 0;
+#X connect 3 0 0 1;
+#X connect 4 0 2 0;
+#X connect 5 0 6 0;
+#X connect 8 0 10 3;
+#X connect 9 0 10 0;
+#X connect 10 0 11 0;
+#X connect 11 0 7 0;
+#X connect 12 0 9 0;
+#X connect 12 1 13 0;
+#X connect 12 2 10 2;
+#X connect 13 0 10 1;
+#X connect 14 0 4 0;
+#X connect 14 1 3 0;
+#X connect 14 2 8 0;
+#X connect 14 3 5 0;
+#X connect 15 0 14 0;
+#X restore 23 114 pd generate;
+#N canvas 586 180 459 375 farben-display 0;
+#X obj 10 11 struct \$0-color-display float x float y float farbe;
+#X obj 212 171 pack f f f s;
+#X msg 212 192 scalar \$4 \$1 \$2 \$3;
+#X obj 263 141 symbol \$0-color-display;
+#X obj 212 212 s \$0-ds-color-sel;
+#X obj 189 282 pointer \$0-color-display;
+#X obj 189 242 symbol \$0-ds-color-sel;
+#X msg 189 262 traverse \$1 \, bang \, next;
+#X obj 189 71 lbang;
+#X obj 10 302 set \$0-color-display farbe;
+#X obj 10 282 inlet;
+#X obj 189 91 t b b b;
+#X text 11 336 apagar o struct antes de gravar o patch. nao mudar o
+tamanho da janela;
+#X obj 10 41 filledpolygon farbe farbe 0 0 0 0 16 458 16 458 0 0 0
+;
+#X msg 212 111 42.5675 53.25 999;
+#X connect 1 0 2 0;
+#X connect 2 0 4 0;
+#X connect 3 0 1 3;
+#X connect 5 0 9 1;
+#X connect 6 0 7 0;
+#X connect 7 0 5 0;
+#X connect 8 0 11 0;
+#X connect 10 0 9 0;
+#X connect 11 0 6 0;
+#X connect 11 1 14 0;
+#X connect 11 2 3 0;
+#X connect 14 0 1 0;
+#X restore 65 164 pd farben-display;
+#X obj 155 114 namecanvas \$0-ds-color-sel;
+#X obj 13 65 nbx 3 14 -1e+037 1e+037 0 0 \$0-color-label \$0-color-label-i
+empty 0 -8 0 10 -228856 -1 -1 0 256;
+#X text 222 157 (C) 2013 João Pais - jmmmpais@gmail.com;
+#X scalar 1270-color-display 42.5675 53.25 999 \;;
+#X connect 0 0 10 0;
+#X connect 10 0 2 0;
+#X connect 10 0 8 0;
+#X coords 0 0 502 71 502 72 2 10 10;

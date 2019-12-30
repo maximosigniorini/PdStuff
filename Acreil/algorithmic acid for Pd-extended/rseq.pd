@@ -1,0 +1,66 @@
+#N canvas 774 431 805 411 10;
+#X obj 46 91 inlet;
+#X obj 46 148 % 1;
+#X obj 135 93 inlet;
+#X obj 46 186 f 1;
+#X obj 86 277 euclid;
+#X obj 254 93 inlet;
+#X obj 46 205 + 1;
+#X obj 46 224 % 8;
+#X obj 364 93 inlet;
+#X text 114 74 div by n;
+#X obj 308 93 inlet;
+#X obj 46 167 sel 0;
+#X obj 86 296 outlet;
+#X text 181 74 others as usual: hits per bar \, offset \, bar length
+;
+#X obj 61 129 r \$0-c1;
+#X obj 135 112 s \$0-c1_;
+#X obj 189 93 inlet;
+#X obj 189 112 s \$0-c2_;
+#X obj 46 110 + 0;
+#X obj 82 93 r \$0-c2;
+#X text 45 39 send counter that is highly composite \, i.e. 120 permits
+even division by 1 \, 2 \, 3 \, 4 \, 5 \, 6 \, 8 \, 10 \, 12 \, 15
+\, 20 \, 24 \, 30 \, 40 \, 60 \, 120;
+#X obj 256 202 loadbang;
+#X obj 254 112 s \$0-c3_;
+#X obj 308 112 s \$0-c4_;
+#X obj 364 112 s \$0-c5_;
+#X obj 156 260 r \$0-c5;
+#X obj 97 239 r \$0-c3;
+#X obj 108 258 r \$0-c4;
+#X obj 256 221 f \$0;
+#X obj 70 207 r \$0-c5;
+#X obj 171 143 cnv 15 157 32 empty empty rseq 1 6 0 10 -216629 -1 0
+;
+#X floatatom 181 157 3 0 0 0 d #0-c1_ #0-c1;
+#X floatatom 243 157 3 0 0 0 h #0-c3_ #0-c3;
+#X floatatom 306 157 3 0 0 0 l #0-c5_ #0-c5;
+#X floatatom 274 157 3 0 0 0 o #0-c4_ #0-c4;
+#X floatatom 212 157 3 0 0 0 o #0-c2_ #0-c2;
+#X msg 256 240 \; \$1-c1_ 1 \; \$1-c2_ 0 \; \$1-c3_ 4 \; \$1-c4_ 0
+\; \$1-c5_ 8 \;;
+#X connect 0 0 18 0;
+#X connect 1 0 11 0;
+#X connect 2 0 15 0;
+#X connect 3 0 6 0;
+#X connect 3 0 4 0;
+#X connect 4 0 12 0;
+#X connect 5 0 22 0;
+#X connect 6 0 7 0;
+#X connect 7 0 3 1;
+#X connect 8 0 24 0;
+#X connect 10 0 23 0;
+#X connect 11 0 3 0;
+#X connect 14 0 1 1;
+#X connect 16 0 17 0;
+#X connect 18 0 1 0;
+#X connect 19 0 18 1;
+#X connect 21 0 28 0;
+#X connect 25 0 4 3;
+#X connect 26 0 4 1;
+#X connect 27 0 4 2;
+#X connect 28 0 36 0;
+#X connect 29 0 7 1;
+#X coords 0 -1 1 1 159 38 1 170 140;

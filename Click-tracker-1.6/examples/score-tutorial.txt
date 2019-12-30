@@ -1,0 +1,333 @@
+# CLICK TRACKER: SCORE FORMAT AND PROGRAM SETTINGS
+
+# by João Pais
+
+
+# Hello. This is a tutorial on how to prepare a score for the Click Tracker patch. At the same time it should teach you on how to use the program.
+
+# The Click Tracker reads documents in text format (.txt). For that they should be saved as text-only format - in case you use Word or any other office software you should pay attention to this.
+# To reproduce a piece with the Click Tracker you must transcribe the score you want to hear to the format readable by this program - basically you must write down the metrical structure of the score.
+
+
+# ADDING BEATS / BARS / TEMPO / COMMENTS
+
+# You start the score by writing the duration of each beat in one line - for example 1 for a full beat. There are 2 possible parameters: the beat duration and the letter "b" to mark the beginning of a bar - separated by a space.
+# For example here are the first two 4/4 bars of this score:
+
+# Bar 1
+t 60
+
+1 b
+1
+1
+1
+1 b
+1
+1
+1
+
+# These were two regular bars where each beat has the same duration. The bar symbol (b) only has to be used in the beginning of each bar. After that you only have to write the duration of the beats: the program will count both beats and bars automatically.
+# The tempo is MM60 as indicated by the command "t 60" (with space in between). You can use the t command anywhere in the piece and how many times you want - just put it before the note you want it to apply for. For example here is a bar where the tempo changes on each note:
+
+# Bar 3
+t 60
+1 b
+t 120
+1
+t 30
+1
+t 90
+1
+
+# In case you forget to say which tempo you want the program will assume that the piece is at MM60.
+# If your time signature is irregular you can change the duration of each beat - including decimal values. The next bar sounds just like the previous one but in the same tempo throughout:
+
+t 60
+1 b
+.5
+2
+.666
+
+# Notice that all decimal values must be written with a dot instead of a comma.
+
+# There is another way to notate factional values - through the fraction that calculates the value. You can use any values on both sides of the fraction. Here follow some values notated in both ways:
+
+# Bar 5
+0.5 b
+1:2
+0.666
+2:3
+0.928
+6.5:7
+
+# And now something completely different: a completely irregular bar with some irrational values.
+
+1 b
+.2
+1.65465439458675
+5.14
+
+# There are no limits for the decimal values you can use. Any value (as long as written correctly) can be played back.
+
+# As you might have noticed by now this file is at the same time the tutorial for the program and also a score that can be performed. The parts with the numbers are the "music" and comments can be made in any place in the file if you put the symbol # before each comment. If you don't use the # symbol with a space afterwards the file won't be properly read by the program.
+# Very important about the comments: you can't use any commas or semicolons - it would be misinterpreted by the program!
+# Also you don't have to layout all you music lines one after the other. They can have empty lines between them - as well as comments in the same line:
+
+
+# Now we're at bar 7. The tempo is 60
+1 b # Here is the beginning of the bar - the letter b is after the beat duration.
+
+# Here is an empty space. You can have as many as you want.
+
+
+# Bar 7
+1  # And some more beats
+
+1
+
+1
+1  # And here the end of the bar. It turned out to be a 5/4 bar.
+
+
+# The options that you saw until now allow you to notation quite complex durations to create irregular bars. But in case your piece is simpler than that you can notate it in another way: through the format x/y - like a normal bar. For example with only a couple lines we can create a simple bar sequence:
+
+# Bar 8
+4/4  # This goes from 4/4
+3/4  # ...
+2/4  # ...
+1/4  # to 1/4
+
+# But you can use any ratio you want to. Important is only that the top number is a whole number (no decimal numbers allowed). On the other hand the lower number can be decimal if you want to. For example:
+
+# Bar 12
+4/6
+5/8.5
+
+# If you use this method the result will be the y proportion (4 = 1 beat) repeated x times. So if you write 5/8 you will get an 8th-note 5 times instead of the combination 3+2/8. Here is the difference:
+
+# Bar 14
+5/8  # A bar with 5 8th-notes
+
+.5 b  # The same written in another way
+.5
+.5
+.5
+.5
+
+1.5 b  # And a bar with the same full duration but another division.
+1
+
+# Also the y number always understands the 4th-note to be the standard duration. In case you're writing a score where another value is the base value for the tempo (for example 8th-note or minim) then you must do some math to get the proportions right. Always think of the beats as individual durations one after the other.
+
+
+
+# GRADUAL TEMPO CHANGES and VOLUME CHANGES
+
+# To change the tempo suddenly we already saw the t command. But to create gradual tempo changes - accelerandi and ritardandi - use the command "tc x y" where x is the new tempo and y the number of beats necessary to reach it. The beat duration of the tempo change MUST coincide with the sum of the beats it lasts. If it doesn't the rest of the piece will sound a bit strange.
+# The "vol x" command scales the loudness of the click so that it fits with the musical content. Values between 0 and 10 are accepted. The scaling is independent of the main output's volume level. If no value is given the score sets to 10.
+
+# Here is a 4/4 bar followed by an accelerando with 1 bar duration and one bar in the new tempo:
+
+# Bar 17
+4/4
+
+# here is the tempo change command - always write them before the beat. At the same time the volume goes slightly down.
+tc 120 4  
+vol 7
+
+# the accelerando starts here
+4/4 
+
+# and now we're in the new tempo. The volume goes lower.
+vol 4
+4/4 
+
+# And now it slows down to slower as the initial tempo:
+
+# Bar 20
+tc 50 4
+
+4/4 # here starts to get slower
+
+# and now is at MM50. The volume goes up on each beat until it gets back to the maximum.
+vol 5
+1 b
+vol 7
+1
+vol 8
+1
+vol 10
+1
+
+
+# REPETITIONS
+
+# Repetitions of the same bar can be used a lot in modern music. Since the program counts the bars automatically it's different to write the repetitions down and to just repeat a sequence. Also a repetition isn't a new bar (with a different bar number) but the same bar again.
+# In case you want to repeat a fragment just use the command "rep x y" where x is the number of beats you want to repeat and y the number of times. Put this command just before the first beat of the passage to be repeated. Again - x MUST coincide with the actual sum of beats (you can't use 1 as a value for y). The number of the current repetition will be shown in the screen.
+# In case you use the "Go to bar" feature (more about that later) to start in the middle of a repetition sequence it won't work. For a repetition sequence to be correctly performed you must play the first note (since the command is before it).
+
+# Here is a new irregular bar back at MM60
+
+# Bar 22
+t 60
+1 b
+1
+.5
+
+# And now the same bar repeated 3 times:
+
+rep 2.5 3
+1 b
+1
+.5
+
+# You can also do the repetitions across the barlines. We stay in the same time signature but dislocate the repetition point:
+
+1 b
+1
+rep 2.5 4
+.5
+1 b
+1
+.5
+
+# CUES
+
+# Cues can be added using the syntax "cue x" - where x is the cue number.
+cue 1
+1 b
+1
+.5
+
+1 b
+# Place the cue before any beat you want to mark. See further details below.
+cue 2
+1
+.5
+
+# PICKUP BAR
+
+# In a performance you can't start the click track without warning - with the "pickup x" comand it is possible to repeat the 1st bar as many times as you need in order for the musicians to prepare themselves. The parameter x defines how many times the bar will be repeated.
+# You can either include this command in the score file (anywhere in the score but I suggest you to leave it on top) - or change it anytime in the patch itself. To have 1 pickup bar write "pickup 1".
+# As pickup bars aren't exactly repetitions and you must know exactly when the piece is going to start the bar numbers in pickup bars work downwards until they get to 1 - which is point where the score begins. In case you have 1 pickup bar you'll and your chosen output has voice included you'll hear bar "2 [beats] 1". If you have 2 pickup bars then "3 [beats] 2 [beats] 1".
+
+
+# OTHER FIRST BAR NUMBER
+
+# With the comand "first x" you can define the number of the first bar to be played - in case your click track doesn't begin at bar 1. If you want to rehearse with another first number for now you'll have to use the bar numbers as if they would start from 1.
+
+# BEAT COUNTING DIRECTION
+
+# With the command "direction up" or "direction down" you can define if the beats inside a bar are counted upwards or downwards. If no command is used the standard value is "up". This can be set anytime in the patch using the button "beat.dir".
+
+# BAR FILTER
+
+# Use the buttons under "Bar.Flt" to define how many bars sound the spoken: all / every 5 bars / every 10 bars. This can be helpful in very dense tracks.
+# You can also define the setting in your score using the command "bar-filt x" and the number 0 / 1 / 2 for the settings mentioned above:
+# bar-filt 0
+
+# CUES
+# You can prepare your own audio cues to be added to the click track. These must follow the following conventions:
+# store them in a folder named "cues" in the same place as the score file - see the examples folder.
+# format them as mono / wav / 16b / 44.1KHz
+# name them as whole numbers starting from 1: 1.wav / 2.wav / 3.wav / etc.
+# use the same name to add them to the score them: "cue 1" / "cue 2" / "cue 3" / etc.
+# As long as all previous conditions are met you can use any audio content in your cue files. If a cue isn't found you'll see an error message such as "cue1.wav not found".
+
+# DEFINITION OF PLAYBACK PARAMETERS
+
+# You can adjust the playback parameters (click format - language - recording format) anytime while working with the patch. But you can also adjust them in the score file. Then you don't need to always reset your patch when you load a new score (assuming each score has a different setting). To set a parameter you just write the command "par [parameters]" anywhere in the score. But like with the pickup command I advise you to put these general remarks in the beginning. Note: if you write down more than one command for the same parameter then the last command is the one to be valid.
+
+# The available parameters are:
+# click format - click / voice + click  =  cl clst
+# language - english / german / spanish /portuguese  =  english deutsch espanol portugues
+
+# For example to have a click track performed with clicks you write
+
+par cl
+
+# To have a score performed with click and voice in portuguese you write
+
+par clst portugues
+
+# The standard format is voice + click / english. Since there were some other commands before let's set it back to the standard preset.
+
+par clst english
+
+
+# SETTING AUDIO OUTPUT
+
+# The audio output is set by default to channels 1 and 2. To change this setting use the command "audiooutput $1 $2 ...". The parameters are the output channels from 1 to 32 - as many as necessary.
+
+
+# GUI CONTROL
+
+# The explanation of the score format is finished. The next part handles the GUI and how to work with the program.
+
+# File commands (keyboard shortcuts between []): 
+#  Open score [o] / reload score [l]- open a score file or reload one (in case you're working a lot on the same file)
+#  Play / Stop [space] - self-explanatory
+#  Set output file [f] - Before you record a click track say where it's going to be recorded and with which name. In case you forget this the program will record it with the same name and place as the score file. You only have to write the name of the file. The termination (.wav ...) will be added by the program.
+#  Play + record [r] - Play the score and record it at the same time. The file is also the recording of the performance so you must let the score play the whole piece (or stop it).
+
+# Duration - Indicates the duration (minutes + seconds) of the excerpt you just played.
+# Bars (total) - Says how many bars are in the score
+
+# Playback parameters - these were already mentioned
+#  Audio - settings of the audio format
+#  Language - language setting
+#  Format - recording format
+
+# Audio status - either On (preset) or off
+# Instructions - Click on this for a short reference
+# Keyboard Control - It is possible to control the patch using the keyboard shortcuts (these were just indicated). You can turn this on/off with the Escape key. If the box is crossed keyboard control is on.
+
+# Tempo scaler - if a piece is too fast or slow for you to follow you can just change the scaling factor in the interface. Both original and scaled tempi are shown.
+# Volume - Volume as defined in the score
+# Output volume meter + volume level - self explanatory
+
+# Bar / Beat / Duration / Repetition - Bar + Beat count / Duration of current beat / Repetition indication
+
+# Go to bar - Start directly from a bar
+# Pickup bar - How many pickup bars you want to have?
+# 1st beat - Mute other beats besides the 1st one in each bar.
+# Loop - loops from current bar to the bar indicated in "Loop to"
+# Beat.dir - changes beat counting direction up or downwards
+# Display - shows large window with beat + bar numbers
+
+
+# That's all there is to it. For more informations/requests contact me at jmmmpais@gmail.com.
+
+# (c) João Pais  27.12.2018
+
+
+# LIST OF COMMANDS
+
+# t $1 - Tempo in MM - Eg. t 70
+# [beat duration] b - b marks the beginning of a bar
+# $1:$2 - fractional notation for the duration of beats - Eg. 2:3
+# $1/$2 - abreviated input of regular bars - Eg. 3/4
+# tc $1 $2 - tempo change. $1 = new tempo / $2 = number of beats necessary to reach it (beat duration of the tempo change MUST coincide with the sum of the beats it lasts) - Eg. tc 120 5
+# vol $1 - volume between 0 and 10 - Eg. vol 8
+# rep $1 $2 - repetition of a fragment. $1 = number of beats to repeat / $2 = number of times to repeat - Eg. rep 4 3
+# cue $1 – play audio cue $1.wav – Eg. cue 1
+# pickup $1 - pickup bar repeats the 1st bar $1 times (bar numbers decrease from $1+1 to 1) - Eg. pickup 2
+# first $1 - number of the first bar of the score - Eg. first 35
+# par cl/clst/st/stbb  english/deutsch/espanol/portugues - playback parameters
+# direction up/down - changes beat counting direction up or downwards. Default is upwards.
+# audiooutput $1 $2 ... - set output channels from 1 to 32
+# osc port $1 - set receiving port
+# osc sendip $1 - set send IP
+# osc sendpo $1 - set send port
+
+
+# KEYBOARD SHORTCUTS
+
+# o - open score
+# l - reload score
+# space - play/stop
+# p - play from last active bar
+# e - export audio file
+# f - set output file for recording
+# r - play + record
+# Esc - turn keyboard control on/off

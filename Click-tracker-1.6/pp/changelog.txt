@@ -1,0 +1,62 @@
+Version 1.6
+2018-12-27
+- changed from Pure Data Extended to Pure Data Vanilla
+- voice filter for bar numbers
+- user-defined audio cues
+- faster loading time
+- score command for volume control
+- fixed supressed clicks on fast tempi
+- export audio track
+- all samples load to memory
+- playback modes with only voice have been discontinued (old code is still present in patch)
+
+Version 1.55
+2016-05-27
+- "audiooutput" command
+- removed click counting bug [pd sample-spieler-clicks]
+- fixed click volume problem [pp/cl-click~ $0]
+- improved audio save patching
+- removed recording formats mp3 + ogg. Some code remainders still left.
+
+Version 1.5
+2016-05-14
+- finished subpatch and OSC commands
+- added tutorial patch for subpatch and OSC commands
+- changed audio range to 0-100
+- normalized click samples to 0dB
+- multiphonic playback up to 4 voices
+- fixed high click playback at faster speeds
+- simplified sample player
+- removed pp/list-rev.pd
+- display synchronised with audio (both have the same delay)
+
+Version 1.45
+2016-03-02
+- fix selector bug with rounding error. tc commands now work with resolution of 0.xxx
+
+Version 1.4
+2016-02-07
+- beat direction forward/backward
+- big display for beats + bar number
+- replacement of several objects by vanilla versions or abstractions (stored in /pp/)
+- change of color scheme + faster color scheme changes
+- dropwdown menus for 3 lists
+
+Version 1.3
+2014-04-13
+- samples downsampled to 22050Hz
+- [p] key funcion added
+- loop function added
+
+Version 1.2
+2011-04-
+- OSC tags added
+- repetition in beginning of score is possible. bug removed.
+- play+record with key [r], instead of [s]
+- integrate as subpatch
+
+Version 1.15
+2010-08-10
+- "go to bar" feature fixed
+- symbolic writing of fractions in the format x:y (any of the variables can have decimal numbers) for the beat durations
+- play first beat of a bar only (subsequent beats are muted) option

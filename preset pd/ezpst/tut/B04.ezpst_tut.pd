@@ -1,0 +1,39 @@
+#N canvas 138 0 771 542 12;
+#X obj 113 192 cnv 15 500 45 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 113 16 cnv 15 500 160 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 490 40 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 328 210 [psc] [rc] [sc];
+#X text 130 197 The following gui objects are created within [mkui]
+and need to be c&p to the parent patch:;
+#X obj 113 250 cnv 15 500 255 empty empty empty 20 12 0 14 -228856
+-66577 0;
+#X obj 217 315 ../psc /BPF/Q \$1;
+#X obj 345 315 ../psc /BPF/frq \$1;
+#X obj 318 410 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-203904 -1 -1 0 256;
+#X text 133 370 + [sc] sends a scaling value to the corresponding [psc]
+number box :;
+#X text 135 447 + An example use of the scaling capability of the [psc]
+number box is the [ani] abstraction:;
+#X obj 263 424 ../faust/sc /BPF/Q \$1;
+#X obj 134 402 ../faust/sc /BPF/frq \$1;
+#X text 417 398 As always the \$1 path variables;
+#X obj 440 266 ../faust/rc settings \$1;
+#X obj 490 82 ../faust/BPF~;
+#X obj 490 116 ../faust/mkui;
+#X text 129 117 When banged \, externals created with FAUST's puredata.cpp
+architecture output a list of control params which the [mkui] abstraction
+uses to create gui objects.;
+#X text 129 261 + [psc] boxes not only output their values to the outlets
+but also send their values to FAUST via [rc]:;
+#X obj 340 469 ani /BPF/frq \$1;
+#X text 425 411 need not to be set. It is just;
+#X text 425 422 created for later use - if needed.;
+#X obj 218 38 ../ezpst ./tut/pst/B04- \$1;
+#X connect 2 0 15 0;
+#X connect 8 0 11 0;
+#X connect 14 0 15 0;
+#X connect 15 0 16 0;

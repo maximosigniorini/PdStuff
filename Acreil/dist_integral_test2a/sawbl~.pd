@@ -1,0 +1,35 @@
+#N canvas 665 345 804 346 10;
+#X obj 443 -76 inlet~;
+#X obj 428 159 outlet~;
+#X obj 428 139 -~;
+#X obj 531 -7 /~;
+#X obj 546 -27 clip~ 1 999999;
+#X obj 443 -53 phasor~;
+#X obj 455 9 *~;
+#X obj 455 33 clip~ -0.5 0.5;
+#X obj 455 57 *~ 1000;
+#X obj 455 81 +~ 501;
+#X obj 443 -29 -~ 0.5;
+#X obj 531 -58 * 0.4;
+#X obj 455 105 tabread4~ pwtransition;
+#X obj 531 -81 r pwbandwidth;
+#X obj 486 -76 inlet;
+#X text -2 0 Band limited sawtooth \, using J09 as a starting point.
+Must use with (global) pwmblt. Inlets are frequency and sync \, like
+[phasor~].;
+#X connect 0 0 5 0;
+#X connect 0 0 4 0;
+#X connect 2 0 1 0;
+#X connect 3 0 6 1;
+#X connect 4 0 3 1;
+#X connect 5 0 10 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 9 0;
+#X connect 9 0 12 0;
+#X connect 10 0 6 0;
+#X connect 10 0 2 1;
+#X connect 11 0 3 0;
+#X connect 12 0 2 0;
+#X connect 13 0 11 0;
+#X connect 14 0 5 1;

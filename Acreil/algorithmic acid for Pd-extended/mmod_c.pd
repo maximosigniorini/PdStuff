@@ -1,0 +1,56 @@
+#N canvas 355 463 1000 371 10;
+#X obj 57 10 inlet;
+#X obj 57 29 s \$0-freq_high_;
+#X obj 153 10 inlet;
+#X obj 153 29 s \$0-freq_low_;
+#X obj 429 11 inlet;
+#X obj 525 11 inlet;
+#X obj 243 10 inlet;
+#X obj 333 11 inlet;
+#X obj 243 29 s \$0-init_dep_;
+#X obj 333 30 s \$0-final_dep_;
+#X obj 429 30 s \$0-rate_high_;
+#X obj 525 30 s \$0-rate_low_;
+#X obj 615 11 inlet;
+#X obj 687 11 inlet;
+#X obj 615 30 s \$0-delay_;
+#X obj 687 30 s \$0-lambda_;
+#X obj 670 92 loadbang;
+#X obj 670 111 f \$0;
+#X msg 670 130 \; \$1-freq_high_ 6 \; \$1-freq_low_ 3 \; \$1-init_dep_
+0 \; \$1-final_dep_ 15 \; \$1-rate_high_ 60 \; \$1-rate_low_ 6 \; \$1-delay_
+2000 \; \$1-lambda_ 0.1 \;;
+#X obj 101 103 cnv 15 181 85 empty empty mmod_c_\$1 1 6 0 10 -158716
+-1 0;
+#X floatatom 159 116 5 0 0 0 freq_high #0-freq_high_ #1-freq_high;
+#X floatatom 159 134 5 0 0 0 freq_low #0-freq_low_ #1-freq_low;
+#X floatatom 193 116 5 0 0 1 rate_high #0-rate_high_ #1-rate_high;
+#X floatatom 193 134 5 0 0 1 rate_low #0-rate_low_ #1-rate_low;
+#X floatatom 159 152 5 0 0 0 init_dep #0-init_dep_ #1-init_dep;
+#X floatatom 159 170 5 0 0 0 final_dep #0-final_dep_ #1-final_dep;
+#X floatatom 193 152 5 0 0 1 delay #0-delay_ #1-delay;
+#X floatatom 193 170 5 0 0 1 lambda #0-lambda_ #1-lambda;
+#X obj 268 105 tgl 12 0 \$1-enable go en -14 4 0 10 -262144 -1 -1 0
+1;
+#X text 287 114 message rate (sample rate);
+#X text -26 112 modulation frequency;
+#X text -20 159 depths are in cents;
+#X text 285 150 delay triggered with gate 1;
+#X text 285 163 piecwise linear variation of modulation frequency and
+message rate;
+#X text 52 252 controller for mmod (differently named because it's
+not a tilde object) \, ideal for use with dphasor_m;
+#X text 454 271 Contact: limina@live.com.;
+#X text 455 290 Last revised: 09.08.2012;
+#X text 454 253 Scott Nordlund \, 2012;
+#X connect 0 0 1 0;
+#X connect 2 0 3 0;
+#X connect 4 0 10 0;
+#X connect 5 0 11 0;
+#X connect 6 0 8 0;
+#X connect 7 0 9 0;
+#X connect 12 0 14 0;
+#X connect 13 0 15 0;
+#X connect 16 0 17 0;
+#X connect 17 0 18 0;
+#X coords 0 -1 1 1 183 89 1 100 100;

@@ -1,0 +1,17 @@
+#N canvas 280 73 714 367 10;
+#X text 52 36 %;
+#X text 409 17 version 1.1;
+#X text 429 82 Hz;
+#X text 175 15 Chorus with random mod source;
+#X obj 1 14 ../psc ChorusDepth \$1;
+#X obj 1 59 ../psc frequency-Hz \$1;
+#X obj 141 102 ../psc fb \$1;
+#X obj 2 102 ../psc DelayTime-ms \$1;
+#X obj 383 57 ../psc smooth-lop \$1;
+#X obj 264 102 ../psc wetdry \$1;
+#X obj 387 102 ../psc active \$1;
+#X obj 352 162 cnv 15 100 60 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X text 106 177 this abstraction does nothing.;
+#X obj 145 30 ../ezpst ./tut/pst/cho- \$1;
+#X coords 0 -1 1 1 510 145 1 0 0;

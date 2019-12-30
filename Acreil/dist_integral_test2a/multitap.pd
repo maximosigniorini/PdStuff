@@ -1,0 +1,44 @@
+#N canvas 0 0 612 389 10;
+#X obj 295 99 loadbang;
+#X obj 295 118 f \$0;
+#X obj 63 26 inlet;
+#X obj 141 26 inlet;
+#X obj 219 26 inlet;
+#X obj 303 26 inlet;
+#X obj 363 26 inlet;
+#X obj 429 26 inlet;
+#X obj 495 26 inlet;
+#X obj 495 45 s \$0-xfpct_;
+#X obj 429 45 s \$0-tmax_;
+#X obj 363 45 s \$0-tmin_;
+#X obj 303 45 s \$0-env_;
+#X obj 219 45 s \$0-deldist_;
+#X obj 141 45 s \$0-delmax_;
+#X obj 63 45 s \$0-delmin_;
+#X obj 101 103 cnv 15 85 157 empty empty multitap_\$1 1 6 0 10 -253621
+-1 0;
+#X floatatom 152 134 5 0 1e+006 0 del_min #0-delmin_ #1-delmin;
+#X floatatom 152 152 5 0 1e+006 0 del_max #0-delmax_ #1-delmax;
+#X floatatom 152 170 5 0 0 0 del_dist #0-deldist_ #1-deldist;
+#X floatatom 152 188 5 0 0 0 env_RT60 #0-env_ #1-env;
+#X floatatom 152 206 5 0 1e+006 0 time_min #0-tmin_ #1-tmin;
+#X floatatom 152 242 5 0 100 0 xfade% #0-xfpct_ #1-xfpct;
+#X floatatom 152 224 5 0 1e+006 0 time_max #0-tmax_ #1-tmax;
+#X floatatom 152 116 5 0 0 0 quality #0-quality_ #1-quality;
+#X obj -21 26 inlet;
+#X obj -21 45 s \$0-quality_;
+#X msg 295 137 \; \$1-quality_ 3 \; \$1-delmin_ 0 \; \$1-delmax_ 100
+\; \$1-deldist_ 1 \; \$1-env_ 1 \; \$1-tmin_ 500 \; \$1-tmax_ 1000
+\; \$1-xfpct_ 100 \;;
+#X text 94 330 arguments: panel name;
+#X connect 0 0 1 0;
+#X connect 1 0 27 0;
+#X connect 2 0 15 0;
+#X connect 3 0 14 0;
+#X connect 4 0 13 0;
+#X connect 5 0 12 0;
+#X connect 6 0 11 0;
+#X connect 7 0 10 0;
+#X connect 8 0 9 0;
+#X connect 25 0 26 0;
+#X coords 0 -1 1 1 87 161 1 100 100;

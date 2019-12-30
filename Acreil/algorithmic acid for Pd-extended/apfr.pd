@@ -1,0 +1,48 @@
+#N canvas 146 585 766 300 10;
+#X obj 492 77 loadbang;
+#X obj 492 96 f \$0;
+#X obj 101 103 cnv 15 155 83 empty empty apfr_\$1 1 6 0 10 -195637
+-1 0;
+#X floatatom 146 133 5 1.5 1e+006 0 min_del #0-min_del_ #1-min_del
+;
+#X floatatom 146 151 5 10 1e+006 0 max_del #0-max_del_ #1-max_del;
+#X floatatom 180 133 5 0 1e+006 1 mintime #0-min_time_ #1-min_time
+;
+#X floatatom 180 151 5 0 1e+006 1 maxtime #0-max_time_ #1-max_time
+;
+#X floatatom 180 169 5 0 100 1 xfade% #0-xfpct_ #1-xfpct;
+#X floatatom 146 169 5 0 0 0 deldist #0-del_dist_ #1-del_dist;
+#X floatatom 146 115 5 0 1 0 apfcoef #0-coef_ #1-coef;
+#X obj 180 115 tgl 16 0 \$1-en \$0-en_ enable 17 7 0 10 -262144 -1
+-1 0 1;
+#X obj 60 17 inlet;
+#X obj 60 36 s \$0-coef_;
+#X obj 126 17 inlet;
+#X obj 210 17 inlet;
+#X obj 294 17 inlet;
+#X obj 294 36 s \$0-del_dist_;
+#X obj 384 17 inlet;
+#X obj 474 17 inlet;
+#X obj 564 17 inlet;
+#X obj 564 36 s \$0-xfpct_;
+#X text 330 124 1-7-2013;
+#X obj 126 36 s \$0-min_del_;
+#X obj 210 36 s \$0-max_del_;
+#X obj 384 36 s \$0-min_time_;
+#X obj 474 36 s \$0-max_time_;
+#X msg 492 115 \; \$1-coef_ 0.5 \; \$1-min_del_ 1.5 \; \$1-max_del_
+10 \; \$1-del_dist_ 0 \; \$1-min_time_ 200 \; \$1-max_time_ 300 \;
+\$1-xfpct_ 100 \; \$1-en_ 1 \;;
+#X obj 339 166 r go;
+#X obj 339 185 s \$0-en_;
+#X connect 0 0 1 0;
+#X connect 1 0 26 0;
+#X connect 11 0 12 0;
+#X connect 13 0 22 0;
+#X connect 14 0 23 0;
+#X connect 15 0 16 0;
+#X connect 17 0 24 0;
+#X connect 18 0 25 0;
+#X connect 19 0 20 0;
+#X connect 27 0 28 0;
+#X coords 0 -1 1 1 157 87 1 100 100;

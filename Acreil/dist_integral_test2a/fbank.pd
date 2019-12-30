@@ -1,0 +1,44 @@
+#N canvas 405 450 981 464 10;
+#X obj 570 26 loadbang;
+#X obj 570 45 f \$0;
+#X obj 624 26 r \$0-go;
+#X obj 624 45 s \$1-go;
+#X text 571 345 8-3-2013;
+#X obj 101 103 cnv 15 108 262 empty empty fbank_\$1 1 6 0 10 -175406
+-1 0;
+#X floatatom 176 222 5 0 0 0 apf_lambda #0-apf_lambda_ #1-apf_lambda
+;
+#X floatatom 176 168 5 0 0 0 n_stages #0-n_stages_ #1-n_stages;
+#X obj 102 204 tgl 16 0 \$1-apf_enable \$0-apf_enable_ apf_enable 17
+7 0 10 -262144 -1 -1 0 1;
+#X obj 102 258 tgl 16 0 \$1-delay_enable \$0-delay_enable_ delay_enable
+17 7 0 10 -262144 -1 -1 0 1;
+#X floatatom 176 150 5 0 0 0 q #0-q_ #1-q;
+#X floatatom 176 240 5 0 0 0 apf_range #0-apf_range_ #1-apf_range;
+#X floatatom 176 186 5 0 0 0 filter_tc #0-filter_tc_ #1-filter_tc;
+#X floatatom 176 132 5 0 0 0 freq_high #0-freq_high_ #1-freq_high;
+#X floatatom 176 114 5 0 0 0 freq_low #0-freq_low_ #1-freq_low;
+#X floatatom 176 276 5 0 0 0 delay_min #0-delay_min_ #1-delay_min;
+#X floatatom 176 330 5 0 0 0 delay_lambda #0-delay_lambda_ #1-delay_lambda
+;
+#X floatatom 176 348 5 0 0 0 delay_tc #0-delay_tc_ #1-delay_tc;
+#X floatatom 176 294 5 0 0 0 delay_max #0-delay_max_ #1-delay_max;
+#X floatatom 176 312 5 0 0 0 delay_dist #0-delay_dist_ #1-delay_dist
+;
+#X obj 242 14 inlet;
+#X obj 242 33 paramin \$0;
+#X msg 570 64 \; \$1-freq_low_ 20 \; \$1-freq_high_ 20000 \; \$1-q_
+10 \; \$1-n_stages_ 2 \; \$1-filter_tc_ 1 \; \$1-apf_enable_ 1 \; \$1-apf_lambda_
+1 \; \$1-apf_range_ 10 \; \$1-delay_enable_ 1 \; \$1-delay_min_ 0 \;
+\$1-delay_max_ 10 \; \$1-delay_dist_ 0 \; \$1-delay_lambda_ 0.1 \;
+\$1-delay_tc_ 5 \; \$1-go 1 \;;
+#X text 216 202 apf randomly changes the polarity of the band;
+#X text 216 114 filter bank bandpass control;
+#X text 217 257 delays the band by a random amount;
+#X text 100 77 all parameter names are the same as the gui control
+names;
+#X connect 0 0 1 0;
+#X connect 1 0 22 0;
+#X connect 2 0 3 0;
+#X connect 20 0 21 0;
+#X coords 0 -1 1 1 110 266 1 100 100;

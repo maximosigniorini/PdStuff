@@ -1,0 +1,8 @@
+my_grainer~: my_grainer~.c 
+
+	gcc -c my_grainer~.c -o my_grainer~.o -fPIC -W
+	ld -shared -o ../bin/my_grainer~.pd_linux my_grainer~.o -lc -lm
+	
+clean:
+	rm *.o
+	rm -f ../bin/my_grainer~.pd_linux

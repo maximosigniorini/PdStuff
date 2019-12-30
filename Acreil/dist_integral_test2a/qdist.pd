@@ -1,0 +1,40 @@
+#N canvas 871 208 455 325 10;
+#X obj 97 30 inlet;
+#X obj 133 30 inlet;
+#X obj 169 30 inlet;
+#X obj 61 30 inlet;
+#X text 60 12 bang;
+#X text 95 13 low;
+#X text 132 13 high;
+#X text 167 13 shape;
+#X obj 61 210 outlet;
+#X text 169 217 12-29-2012;
+#X obj 61 140 random 1e+009;
+#X obj 61 159 * 1e-009;
+#X obj 97 49 f \$1;
+#X obj 235 32 loadbang;
+#X obj 133 49 f \$2;
+#X obj 169 49 f \$3;
+#X obj 61 49 t b;
+#X obj 169 68 expr pow(4 \, $f1);
+#X obj 61 178 expr pow($f1*(pow($f3 \, 1/$f4)-pow($f2 \, 1/$f4))+pow($f2
+\, 1/$f4) \, $f4);
+#X text 56 240 adjustable shape statistical distribution use shape
+= 1 for pseudo-exponential \, shape = 0 for uniform \, shape = -1 for
+pseudo-inverse exponential values outside this range are permitted
+\, but possibly too extreme to be useful.;
+#X connect 0 0 12 0;
+#X connect 1 0 14 0;
+#X connect 2 0 15 0;
+#X connect 3 0 16 0;
+#X connect 10 0 11 0;
+#X connect 11 0 18 0;
+#X connect 12 0 18 1;
+#X connect 13 0 15 0;
+#X connect 13 0 14 0;
+#X connect 13 0 12 0;
+#X connect 14 0 18 2;
+#X connect 15 0 17 0;
+#X connect 16 0 10 0;
+#X connect 17 0 18 3;
+#X connect 18 0 8 0;

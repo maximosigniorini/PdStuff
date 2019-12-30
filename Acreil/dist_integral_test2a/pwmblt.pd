@@ -1,0 +1,140 @@
+#N canvas 593 203 825 367 10;
+#N canvas 742 192 538 581 transition-table 0;
+#X obj 204 295 cos~;
+#X obj 156 290 cos~;
+#X msg 100 361 bang;
+#X msg 212 169 -0.0005;
+#X obj 204 269 *~ 3;
+#X obj 204 320 *~ 0.33333;
+#X obj 156 318 *~ -1;
+#X msg 100 152 bang;
+#X obj 156 351 *~ 0.75;
+#X text 22 64 Logically the half-cycle is in samples 1 through 1000
+\; samples 0 and 1001 are provided so that the 4-point interpolation
+will work everywhere.;
+#X obj 156 378 tabwrite~ pwtransition;
+#X obj 105 412 table pwtransition 1002;
+#X text 24 27 This network puts a half cycle of a band-limited square
+wave into the table "pwtransition";
+#X obj 155 229 phasor~ 24;
+#X obj 155 189 samplerate~;
+#X obj 155 209 * 0.0005;
+#X obj 100 132 inlet;
+#X obj 363 293 == 0;
+#X obj 363 313 * 0.75;
+#X obj 383 273 * 0.57692;
+#X obj 363 334 +;
+#X obj 254 266 cos~;
+#X obj 254 246 *~ 5;
+#X obj 290 269 * -0.2;
+#X obj 254 286 *~ 0;
+#X obj 344 254 t b f f;
+#X obj 344 234 r \$0-mode;
+#X connect 0 0 5 0;
+#X connect 1 0 6 0;
+#X connect 2 0 10 0;
+#X connect 3 0 13 1;
+#X connect 4 0 0 0;
+#X connect 5 0 8 0;
+#X connect 6 0 8 0;
+#X connect 7 0 3 0;
+#X connect 7 0 2 0;
+#X connect 7 0 14 0;
+#X connect 8 0 10 0;
+#X connect 13 0 1 0;
+#X connect 13 0 4 0;
+#X connect 13 0 22 0;
+#X connect 14 0 15 0;
+#X connect 15 0 13 0;
+#X connect 16 0 7 0;
+#X connect 17 0 18 0;
+#X connect 18 0 20 0;
+#X connect 19 0 20 1;
+#X connect 20 0 8 1;
+#X connect 21 0 24 0;
+#X connect 22 0 21 0;
+#X connect 23 0 24 1;
+#X connect 24 0 8 0;
+#X connect 25 0 7 0;
+#X connect 25 1 17 0;
+#X connect 25 2 19 0;
+#X connect 26 0 25 0;
+#X connect 26 0 23 0;
+#X restore 253 196 pd transition-table;
+#X obj 500 292 s pwbandwidth;
+#X obj 174 198 samplerate~;
+#X obj 174 217 * 0.5;
+#X obj 221 121 s \$0-init;
+#X obj 174 179 r \$0-in;
+#X obj 174 255 s \$0-bandwidth;
+#X obj 452 256 r \$0-bw;
+#X obj 174 236 min 24000;
+#X obj 101 103 cnv 15 91 30 empty empty pwmblt 1 6 0 10 -257849 -1
+0;
+#X floatatom 117 115 5 0 48000 0 bw #0-bandwidth #0-bw;
+#X obj 151 115 bng 16 250 50 1 \$0-in \$0-init init 17 7 0 10 -262144
+-1 -1;
+#X obj 134 217 inlet;
+#X obj 221 102 inlet;
+#X text 258 101 init (bang);
+#X text 115 217 bw;
+#X obj 170 104 hradio 10 1 1 2 \$0-mode \$0-md 3/5 -20 4 0 10 -262144
+-1 -1 0;
+#X obj 600 312 outlet;
+#X text 563 312 max f;
+#X obj 500 172 r \$0-mode;
+#X obj 531 216 * 0.714286;
+#X obj 500 216 == 0;
+#X obj 500 235 +;
+#X obj 500 273 *;
+#X obj 500 254 t b f;
+#X obj 637 233 * 0.28;
+#X obj 600 233 * 0.4;
+#X obj 600 252 +;
+#X obj 600 292 *;
+#X obj 600 272 t b f;
+#X obj 500 191 t f f;
+#X obj 333 104 inlet;
+#X text 370 103 mode;
+#X obj 333 123 s \$0-md;
+#X text 23 6 Band limited sawtooth/PWM table \, derived from PD example
+J09. Global table \, no argument needed. Init when changes have been
+made. DSP must be on.;
+#X text 414 4 This greatly reduces aliasing of sawtooth waveforms.
+Severe aliasing is inevitable for fundamental frequencies above about
+Fmax (this is reported by the outlet depending on bandwidth setting
+and selected mode) \, but aliasing is better attenuated within the
+permitted range when BW is set lower. Mode 5 \, which adds a fifth
+harmonic to the transition table as per example J09 \, improves performance
+but reduces Fmax in relation to BW. Quality is considerably improved
+by using higher sample rates. It isn't necessary for BW to have any
+specific relationship to the sample rate \, and it can exceed the Nyquist
+Frequency without unexpected consequences.;
+#X connect 2 0 3 0;
+#X connect 3 0 8 0;
+#X connect 5 0 2 0;
+#X connect 5 0 0 0;
+#X connect 7 0 23 0;
+#X connect 7 0 28 0;
+#X connect 8 0 6 0;
+#X connect 12 0 6 0;
+#X connect 13 0 4 0;
+#X connect 19 0 30 0;
+#X connect 20 0 22 1;
+#X connect 21 0 22 0;
+#X connect 21 0 26 0;
+#X connect 22 0 24 0;
+#X connect 23 0 1 0;
+#X connect 24 0 23 0;
+#X connect 24 1 23 1;
+#X connect 25 0 27 1;
+#X connect 26 0 27 0;
+#X connect 27 0 29 0;
+#X connect 28 0 17 0;
+#X connect 29 0 28 0;
+#X connect 29 1 28 1;
+#X connect 30 0 21 0;
+#X connect 30 1 20 0;
+#X connect 30 1 25 0;
+#X connect 31 0 33 0;
+#X coords 0 -1 1 1 93 36 1 100 100;

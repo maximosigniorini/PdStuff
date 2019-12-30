@@ -1,0 +1,157 @@
+#N canvas 208 258 618 409 10;
+#N canvas 275 22 823 817 hanning-window 0;
+#X obj 92 206 phasor~;
+#X obj 92 234 cos~;
+#X obj 23 328 tabwrite~ hanning;
+#X obj 30 252 -~;
+#X obj 28 218 sig~ 1;
+#X msg 37 180 0;
+#X text 141 13 CALCULATE HANNING;
+#X text 141 27 WINDOW TABLE;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array hanning 65536 float 0;
+#X coords 0 1 65535 -1 400 300 1;
+#X restore 275 281 graph;
+#X obj 93 171 sig~;
+#X text 175 148 sample rate / window size;
+#X msg 23 144 bang;
+#X obj 66 269 sig~ 0.5;
+#X obj 49 300 *~;
+#X obj 67 96 samplerate~;
+#X obj 24 11 r window-size;
+#X msg 174 95 \; hanning resize \$1;
+#X obj 25 53 t b f f;
+#X obj 93 131 / 1024;
+#X connect 0 0 1 0;
+#X connect 1 0 3 1;
+#X connect 3 0 13 0;
+#X connect 4 0 3 0;
+#X connect 5 0 0 1;
+#X connect 9 0 0 0;
+#X connect 11 0 2 0;
+#X connect 11 0 5 0;
+#X connect 12 0 13 1;
+#X connect 13 0 2 0;
+#X connect 14 0 18 0;
+#X connect 15 0 17 0;
+#X connect 17 0 14 0;
+#X connect 17 0 11 0;
+#X connect 17 1 18 1;
+#X connect 17 2 16 0;
+#X connect 18 0 9 0;
+#X restore 190 89 pd hanning-window;
+#X floatatom 191 124 5 0 0 0 - - -, f 5;
+#X msg 31 1 \; window-size 512;
+#X obj 131 143 noise~;
+#X floatatom 125 242 5 0 0 0 - - -, f 5;
+#X msg 157 3 \; window-size 2048;
+#N canvas 200 22 760 482 spectgate 0;
+#X obj 33 11 *~;
+#X obj 19 -40 inlet~;
+#X obj 76 -41 tabreceive~ hanning;
+#X obj 35 402 outlet~;
+#X obj 359 -25 r window-size;
+#X msg 358 2 set \$1 4;
+#X obj 34 55 rfft~;
+#X obj 38 297 rifft~;
+#X obj 356 26 block~ 1024 4;
+#X obj 93 97 *~;
+#X obj 138 99 *~;
+#X obj 111 128 +~;
+#X obj 202 56 dbtorms;
+#X obj 204 83 sig~;
+#X floatatom 202 27 5 0 0 0 - - -, f 5;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array spect 512 float 3;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0;
+#X coords 0 1 511 -1 400 280 1;
+#X restore 349 130 graph;
+#X obj 129 243 tabsend~ spect;
+#X obj 70 267 *~;
+#X obj 36 268 *~;
+#X obj 202 -10 inlet;
+#X obj 130 208 clip~ 0 1;
+#X obj 37 376 *~;
+#X obj 57 356 tabreceive~ hanning;
+#X obj 35 333 /~;
+#X obj 88 301 r window-size;
+#X obj 126 160 -~;
+#X text 71 143 find the magnitude;
+#X text 160 159 subtract our gate level;
+#X text 192 182 multiply by big value;
+#X text 191 202 if below 0 - 0;
+#X text 193 215 if above 1 - 1;
+#X text 225 240 so we can see gain;
+#X text 98 267 gain on and off band;
+#X obj 125 184 *~ 1e+07;
+#X obj 196 125 *~;
+#X connect 0 0 6 0;
+#X connect 1 0 0 0;
+#X connect 2 0 0 1;
+#X connect 4 0 5 0;
+#X connect 5 0 8 0;
+#X connect 6 0 9 0;
+#X connect 6 0 9 1;
+#X connect 6 0 18 0;
+#X connect 6 1 10 1;
+#X connect 6 1 10 0;
+#X connect 6 1 17 0;
+#X connect 7 0 23 0;
+#X connect 9 0 11 0;
+#X connect 10 0 11 1;
+#X connect 11 0 25 0;
+#X connect 12 0 13 0;
+#X connect 13 0 34 0;
+#X connect 13 0 34 1;
+#X connect 14 0 12 0;
+#X connect 17 0 7 1;
+#X connect 18 0 7 0;
+#X connect 19 0 14 0;
+#X connect 20 0 18 1;
+#X connect 20 0 17 1;
+#X connect 20 0 16 0;
+#X connect 21 0 3 0;
+#X connect 22 0 21 1;
+#X connect 23 0 21 0;
+#X connect 24 0 23 1;
+#X connect 25 0 33 0;
+#X connect 33 0 20 0;
+#X connect 34 0 25 1;
+#X restore 55 275 pd spectgate;
+#X obj 55 315 output~;
+#X obj 191 233 spectdisp;
+#X obj 525 187 metro 200;
+#X obj 526 159 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 131 167 *~;
+#X obj 191 146 dbtorms;
+#X obj 59 219 +~;
+#X obj 48 106 playsound~;
+#X msg 292 4 \; window-size 65536;
+#X connect 1 0 12 0;
+#X connect 3 0 11 0;
+#X connect 4 0 6 1;
+#X connect 6 0 7 0;
+#X connect 6 0 7 1;
+#X connect 6 0 8 0;
+#X connect 9 0 8 1;
+#X connect 10 0 9 0;
+#X connect 11 0 13 1;
+#X connect 12 0 11 1;
+#X connect 13 0 6 0;
+#X connect 14 0 13 0;

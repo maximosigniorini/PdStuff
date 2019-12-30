@@ -1,0 +1,5 @@
+nickname FAUST.integration;
+/BPF/frq/anidepth 0.08;
+/BPF/frq/anispeed 99;
+/BPF/frq 2000;
+/BPF/Q 1.41;

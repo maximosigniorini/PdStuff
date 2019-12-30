@@ -1,0 +1,175 @@
+#N canvas 40 90 757 492 16;
+#X obj 251 351 *~;
+#N canvas 275 71 795 789 hanning-window 0;
+#X obj 92 206 phasor~;
+#X obj 92 234 cos~;
+#X obj 23 328 tabwrite~ hanning;
+#X obj 30 252 -~;
+#X obj 28 218 sig~ 1;
+#X msg 37 180 0;
+#X text 141 13 CALCULATE HANNING;
+#X text 141 27 WINDOW TABLE;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array hanning 256 float 0;
+#X coords 0 1 255 -1 400 300 1;
+#X restore 275 281 graph;
+#X obj 93 131 / 1024;
+#X obj 93 171 sig~;
+#X text 175 148 sample rate / window size;
+#X msg 23 144 bang;
+#X obj 66 269 sig~ 0.5;
+#X obj 49 300 *~;
+#X obj 67 96 samplerate~;
+#X obj 24 11 r window-size;
+#X msg 174 95 \; hanning resize \$1;
+#X obj 25 53 t b f f;
+#X connect 0 0 1 0;
+#X connect 1 0 3 1;
+#X connect 3 0 14 0;
+#X connect 4 0 3 0;
+#X connect 5 0 0 1;
+#X connect 9 0 10 0;
+#X connect 10 0 0 0;
+#X connect 12 0 2 0;
+#X connect 12 0 5 0;
+#X connect 13 0 14 1;
+#X connect 14 0 2 0;
+#X connect 15 0 9 0;
+#X connect 16 0 18 0;
+#X connect 18 0 15 0;
+#X connect 18 0 12 0;
+#X connect 18 1 9 1;
+#X connect 18 2 17 0;
+#X restore 14 340 pd hanning-window;
+#N canvas 53 204 756 480 fft-convolution 0;
+#X obj 128 244 *~;
+#X obj 96 244 *~;
+#X obj 231 154 *~;
+#X obj 239 113 inlet~;
+#X obj 228 180 rfft~;
+#X obj 119 403 *~;
+#X obj 87 154 *~;
+#X obj 102 120 inlet~;
+#X obj 15 62 tabreceive~ hanning;
+#X obj 87 177 rfft~;
+#X obj 149 336 rifft~;
+#X obj 120 437 outlet~;
+#X obj 312 144 block~ 1024 4;
+#X obj 195 243 *~;
+#X obj 224 243 *~;
+#X obj 315 90 r window-size;
+#X obj 120 290 -~;
+#X obj 194 291 +~;
+#X text 37 1 convolution of two signals using an fft and a hanning
+window;
+#X msg 314 116 set \$1 4;
+#X text 41 18 since both sounds are changing \, you need to window
+both;
+#X text 259 246 this is a complex multiply r*r-i*i=r \, r*i+i*r=i;
+#X text 236 279 in polar terms it is the same as multiplying magnitude
+and adding phase;
+#X obj 151 375 /~;
+#X obj 237 335 r window-size;
+#X connect 0 0 16 1;
+#X connect 1 0 16 0;
+#X connect 2 0 4 0;
+#X connect 3 0 2 1;
+#X connect 4 0 1 1;
+#X connect 4 0 14 1;
+#X connect 4 1 0 1;
+#X connect 4 1 13 1;
+#X connect 5 0 11 0;
+#X connect 6 0 9 0;
+#X connect 7 0 6 1;
+#X connect 8 0 6 0;
+#X connect 8 0 2 0;
+#X connect 8 0 5 0;
+#X connect 9 0 1 0;
+#X connect 9 0 13 0;
+#X connect 9 1 0 0;
+#X connect 9 1 14 0;
+#X connect 10 0 23 0;
+#X connect 13 0 17 0;
+#X connect 14 0 17 1;
+#X connect 15 0 19 0;
+#X connect 16 0 10 0;
+#X connect 17 0 10 1;
+#X connect 19 0 12 0;
+#X connect 23 0 5 1;
+#X connect 24 0 23 1;
+#X restore 225 180 pd fft-convolution;
+#X floatatom 357 38 5 0 0 2 note note -, f 5;
+#X obj 336 415 tabwrite~ scope;
+#X obj 339 391 metro 200;
+#X obj 341 357 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 1
+1;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array scope 1000 float 3;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+#X coords 0 1 999 -1 200 140 1;
+#X restore 514 303 graph;
+#X floatatom 365 247 5 0 0 2 out_gain out_gain -, f 5;
+#X obj 353 63 mtof;
+#X msg 13 165 \; window-size 32768 \; pd dsp 1;
+#X obj 13 30 loadbang;
+#X text 144 1 convolution multiplies the spectra of two sounds;
+#X msg 12 54 \; window-size 8192 \; note 29 \; out_gain 3 \; pd dsp
+1;
+#X obj 228 86 playsound~;
+#X obj 525 79 playsound~;
+#X obj 353 89 square~;
+#X obj 365 266 dbtorms;
+#X floatatom 365 288 8 0 0 0 - - -, f 8;
+#X obj 241 417 output~;
+#X obj 452 77 osc~ 1000;
+#X obj 221 50 metro 5000;
+#X obj 227 30 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X msg 12 258 \; window-size 256 \; pd dsp 1;
+#X floatatom 453 43 5 0 0 0 - - -, f 5;
+#X connect 0 0 4 0;
+#X connect 0 0 19 0;
+#X connect 0 0 19 1;
+#X connect 2 0 0 0;
+#X connect 3 0 9 0;
+#X connect 5 0 4 0;
+#X connect 6 0 5 0;
+#X connect 8 0 17 0;
+#X connect 9 0 16 0;
+#X connect 11 0 13 0;
+#X connect 14 0 2 0;
+#X connect 15 0 2 1;
+#X connect 17 0 18 0;
+#X connect 18 0 0 1;
+#X connect 21 0 14 0;
+#X connect 22 0 21 0;
+#X connect 24 0 20 0;

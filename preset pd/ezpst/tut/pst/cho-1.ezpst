@@ -1,0 +1,8 @@
+nickname default;
+active 1;
+smooth-lop 500;
+wetdry 0.5;
+fb 0.24;
+DelayTime-ms 7;
+ChorusDepth 0.3;
+frequency-Hz 8;

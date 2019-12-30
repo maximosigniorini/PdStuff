@@ -1,0 +1,104 @@
+#N canvas 70 90 1064 692 10;
+#X obj 339 82 r rec_duration;
+#X obj 312 120 delay;
+#X obj 339 101 * 1000;
+#X obj 437 51 r \$0-start;
+#X obj 129 559 outlet;
+#X text 173 558 status 1 (playing/recording) or 0 (stopped);
+#X obj 464 509 r \$0-setname;
+#X obj 349 199 loadbang;
+#X obj 349 218 f \$0;
+#X obj 464 547 outlet;
+#X text 461 564 connect message box to this outlet and press setname
+;
+#X obj 501 27 sel 0 1 2;
+#X obj 470 90 f 1;
+#X obj 500 92 f 0;
+#X obj 437 109 spigot;
+#X obj 561 91 f 1;
+#X obj 591 93 f 0;
+#X obj 528 110 spigot;
+#X obj 437 147 s playrec_play;
+#X obj 528 148 s playrec_record;
+#X obj 312 139 s playrec_stop;
+#X obj 154 537 f 1;
+#X obj 129 537 f 0;
+#X obj 154 518 r \$0-start;
+#X obj 129 499 r \$0-stop;
+#X obj 671 509 r \$0-setname;
+#X obj 671 547 outlet;
+#X obj 312 521 outlet;
+#X text 295 537 bang when finished;
+#X obj 244 122 r \$0-stop;
+#X obj 101 103 cnv 15 108 90 empty empty playrec 1 6 0 10 -117611 -1
+0;
+#X obj 145 105 bng 12 250 50 0 init \$0-nothing init 13 4 0 10 -262144
+-1 -1;
+#X obj 183 105 tgl 12 0 go \$0-nothing go 13 4 0 10 -262144 -1 -1 0
+2;
+#X floatatom 103 119 5 0 0 1 length_(s) #0-dur_ rec_duration;
+#X obj 103 137 bng 16 250 50 0 \$0-start playrec_start start 17 7 0
+10 -262144 -1 -1;
+#X obj 103 175 bng 16 250 50 0 \$0-setname \$0-nothing setname 17 7
+0 10 -262144 -1 -1;
+#X obj 189 137 vradio 18 1 0 3 \$0-playrec \$0-playrec_ empty 0 -8
+0 10 -262144 -1 -1 0;
+#X text 162 135 play;
+#X text 150 154 record;
+#X text 162 173 both;
+#X obj 103 156 bng 16 250 50 0 \$0-stop \$0-nothing stop 17 7 0 10
+-262144 -1 -1;
+#X obj 79 12 inlet;
+#X obj 79 31 s \$0-dur_;
+#X text 116 10 set play/record length;
+#X obj 258 14 inlet;
+#X obj 258 33 s \$0-playrec_;
+#X text 298 10 set play/record mode;
+#X msg 349 237 \; \$1-setname \; \$1-dur_ 60 \; \$1-playrec_ 0 \;;
+#X obj 437 128 t b b;
+#X obj 528 129 t b b;
+#X obj 501 8 r \$0-playrec;
+#X text 635 8 use with player~ and recorder~;
+#X text 637 37 uses global messages playrec_start \, playrec_stop for
+external control (send bang);
+#X msg 464 528 set ../audio/playname.wav;
+#X msg 671 528 set ../audio/recname.wav;
+#X connect 0 0 2 0;
+#X connect 1 0 20 0;
+#X connect 1 0 27 0;
+#X connect 1 0 22 0;
+#X connect 2 0 1 1;
+#X connect 3 0 14 0;
+#X connect 3 0 17 0;
+#X connect 3 0 1 0;
+#X connect 6 0 53 0;
+#X connect 7 0 8 0;
+#X connect 8 0 47 0;
+#X connect 11 0 12 0;
+#X connect 11 0 16 0;
+#X connect 11 1 13 0;
+#X connect 11 1 15 0;
+#X connect 11 2 12 0;
+#X connect 11 2 15 0;
+#X connect 12 0 14 1;
+#X connect 13 0 14 1;
+#X connect 14 0 48 0;
+#X connect 15 0 17 1;
+#X connect 16 0 17 1;
+#X connect 17 0 49 0;
+#X connect 21 0 4 0;
+#X connect 22 0 4 0;
+#X connect 23 0 21 0;
+#X connect 24 0 22 0;
+#X connect 25 0 54 0;
+#X connect 29 0 20 0;
+#X connect 41 0 42 0;
+#X connect 44 0 45 0;
+#X connect 48 0 18 0;
+#X connect 48 1 9 0;
+#X connect 49 0 19 0;
+#X connect 49 1 26 0;
+#X connect 50 0 11 0;
+#X connect 53 0 9 0;
+#X connect 54 0 26 0;
+#X coords 0 -1 1 1 110 96 1 100 100;

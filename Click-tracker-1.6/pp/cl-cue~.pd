@@ -1,0 +1,18 @@
+#N canvas 590 89 265 223 10;
+#X obj 24 36 inlet;
+#X obj 24 186 outlet~;
+#X obj 24 166 tabplay~;
+#X obj 24 56 t b f;
+#X obj 51 76 pack f \$1;
+#X msg 51 96 set \$2-cue\$1;
+#X text 24 16 Spielt cues;
+#X obj 54 126 r \$1-reset;
+#X msg 54 146 set;
+#X connect 0 0 3 0;
+#X connect 2 0 1 0;
+#X connect 3 0 2 0;
+#X connect 3 1 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 2 0;
+#X connect 7 0 8 0;
+#X connect 8 0 2 0;

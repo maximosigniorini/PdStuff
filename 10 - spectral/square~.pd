@@ -1,0 +1,16 @@
+#N canvas 898 386 536 231 10;
+#X obj 17 7 phasor~ 100;
+#X obj 16 -24 inlet~;
+#X obj 16 36 *~ 8192;
+#X obj 15 96 outlet~;
+#X obj 16 64 tabread4~ waveform\$0;
+#X obj 165 94 table waveform\$0 8192;
+#X obj 163 -5 loadbang;
+#X obj 161 52 send waveform\$0;
+#X msg 163 23 sinesum 8192 1 0 0.3 0 0.2 0 0.14 0 0.11 0 0.0909;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;
+#X connect 2 0 4 0;
+#X connect 4 0 3 0;
+#X connect 6 0 8 0;
+#X connect 8 0 7 0;

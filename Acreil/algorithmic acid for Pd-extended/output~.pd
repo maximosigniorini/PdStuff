@@ -1,0 +1,66 @@
+#N canvas 107 145 765 550 10;
+#X obj 460 351 t b;
+#X obj 460 298 f;
+#X obj 460 376 f;
+#X msg 574 375 0;
+#X obj 460 328 moses 1;
+#X obj 574 347 t b f;
+#X obj 540 308 moses 1;
+#X obj 73 165 dbtorms;
+#X obj 122 238 inlet~;
+#X obj 73 238 line~;
+#X obj 108 310 *~;
+#X obj 108 340 dac~;
+#X obj 73 195 pack 0 50;
+#X text 165 214 audio in;
+#X text 144 164 <-- convert from dB to linear units;
+#X text 162 194 <-- make a ramp to avoid clicks or zipper noise;
+#X obj 215 242 inlet~;
+#X obj 198 309 *~;
+#X text 480 239 MUTE logic:;
+#X obj 460 402 s \$0-master-lvl;
+#X obj 73 139 r \$0-master-out;
+#X obj 540 279 r \$0-master-out;
+#X text 104 78 Level control abstraction \, used in many of the Pd
+example patches. The "level" and "mute" controls show up on the parent
+\, calling patch.;
+#X obj 122 260 hip~ 3;
+#X obj 214 264 hip~ 3;
+#X obj 107 374 outlet~;
+#X obj 199 374 outlet~;
+#X obj 460 271 r \$0-mute;
+#X text 67 403 outs for recording \, remember these are filtered;
+#X obj 301 303 cnv 15 64 32 empty empty output~ 1 5 0 10 -225086 -1
+0;
+#X floatatom 317 317 3 0 100 0 dB #0-master-lvl #0-master-out;
+#X obj 347 317 bng 16 250 50 0 \$0-mute \$0-nothing m -8 7 0 10 -262144
+-1 -1;
+#X obj 409 376 r initg;
+#X text 210 27 Adapted from Pd abstraction. Global setting "initg"
+can be used to set initial gain.;
+#X connect 0 0 2 0;
+#X connect 1 0 4 0;
+#X connect 2 0 19 0;
+#X connect 3 0 19 0;
+#X connect 4 0 0 0;
+#X connect 4 1 5 0;
+#X connect 5 0 3 0;
+#X connect 6 1 2 1;
+#X connect 7 0 12 0;
+#X connect 8 0 23 0;
+#X connect 9 0 17 0;
+#X connect 9 0 10 0;
+#X connect 10 0 11 0;
+#X connect 10 0 25 0;
+#X connect 12 0 9 0;
+#X connect 16 0 24 0;
+#X connect 17 0 11 1;
+#X connect 17 0 26 0;
+#X connect 20 0 7 0;
+#X connect 21 0 1 1;
+#X connect 21 0 6 0;
+#X connect 23 0 10 1;
+#X connect 24 0 17 1;
+#X connect 27 0 1 0;
+#X connect 32 0 19 0;
+#X coords 0 0 1 1 66 38 1 300 300;

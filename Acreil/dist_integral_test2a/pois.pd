@@ -1,0 +1,78 @@
+#N canvas 134 41 714 543 10;
+#X obj 185 214 random 1e+006;
+#X obj 185 235 + 1;
+#X obj 185 256 / 1e+006;
+#X obj 185 278 log;
+#X obj 185 300 * -1;
+#X obj 185 321 / 1;
+#X text 210 322 exponential distribution;
+#X obj 185 385 delay;
+#X text 240 255 (0 \, 1] uniform;
+#X obj 185 343 * 1000;
+#X obj 101 103 cnv 15 55 49 empty empty pois 1 6 0 10 -241656 -1 0
+;
+#X obj 185 406 outlet;
+#X obj 101 43 inlet;
+#X obj 150 43 inlet;
+#X obj 142 105 tgl 12 0 \$0-e \$0-en en -14 4 0 10 -262144 -1 -1 0
+1;
+#X obj 105 320 spigot;
+#X obj 124 235 max 0.001;
+#X obj 228 406 outlet;
+#X floatatom 103 134 5 0 100000 1 min #0-min #0-m;
+#X obj 205 43 inlet;
+#X obj 185 364 max 0;
+#X obj 185 172 t b f;
+#X obj 185 193 spigot;
+#X floatatom 103 116 5 0 1000 1 lam #0-lam #0-l;
+#X text 270 404 second outlet is for delay time to next event;
+#X text 54 404 first outlet is bang;
+#X text 245 170 min lambda is 0.001 to prevent div by 0;
+#X obj 101 63 s \$0-en;
+#X obj 150 63 s \$0-lam;
+#X obj 205 63 s \$0-min;
+#X obj 138 300 r \$0-e;
+#X obj 185 152 r \$0-e;
+#X obj 124 215 r \$0-l;
+#X obj 229 347 r \$0-m;
+#X obj 59 46 r go;
+#X text 261 -6 Poisson distribution event generator en = enable (on/off)
+lam = lambda (mean number of events per second) \; determines density
+of events min = minimum time between events in ms (this is clipped
+\, not added). The second outlet is useful for creating piecewise linear
+functions or automatically scaling envelope times. Note that unlike
+other abstractions \, this doesn't use a separate "panel" \, and the
+inlets aren't in a sensible order due to a re-arranged layout. Usually
+"pois" parameters in other abstractions refer to the lambda setting
+here. If lam is set to a new value \, it will take effect once the
+next event is triggered. If lam is set to a very low value \, there
+may be a very long delay before the next event. In this case \, it
+can be turned off and on once to restart with a new lambda value.;
+#X text 407 248 Scott Nordlund \, 2011;
+#X text 407 266 Contact: limina@live.com.;
+#X text 408 285 Last revised: 08-03-2011.;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 9 0;
+#X connect 7 0 11 0;
+#X connect 7 0 15 0;
+#X connect 9 0 20 0;
+#X connect 12 0 27 0;
+#X connect 13 0 28 0;
+#X connect 15 0 0 0;
+#X connect 16 0 5 1;
+#X connect 19 0 29 0;
+#X connect 20 0 7 0;
+#X connect 20 0 17 0;
+#X connect 21 0 22 0;
+#X connect 21 1 22 1;
+#X connect 22 0 0 0;
+#X connect 30 0 15 1;
+#X connect 31 0 21 0;
+#X connect 32 0 16 0;
+#X connect 33 0 20 1;
+#X connect 34 0 27 0;
+#X coords 0 -1 1 1 57 55 1 100 100;

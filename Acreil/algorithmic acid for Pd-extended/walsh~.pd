@@ -1,0 +1,47 @@
+#N canvas 845 133 749 300 10;
+#X obj 220 88 inlet~;
+#X obj 321 15 inlet~;
+#X text 219 71 >0 cal;
+#X obj 337 53 wrap~;
+#X obj 322 72 -~;
+#X obj 220 107 expr~ $v1>0;
+#X obj 321 34 clip~ 1 256;
+#X obj 384 15 r walshmax;
+#X obj 123 104 r walshmax;
+#X obj 123 123 * 2;
+#X obj 90 161 *~ 512;
+#X obj 90 180 +~ 1;
+#X obj 90 199 tabread~ walsh;
+#X obj 90 218 outlet~;
+#X obj 220 126 +~;
+#X obj 90 142 +~;
+#X obj 322 110 *~ 2;
+#X obj 322 91 -~ 1;
+#X obj 90 85 inlet~;
+#X text 87 67 phasor;
+#X text 236 167 needs [walsh] abstraction to be present for tables
+;
+#X text 270 141 2-19-2013;
+#X text 234 195 dphasor1 or dphasor2 should be used or it will sound
+awful;
+#X text 319 -3 num \, controls "sequency";
+#X text 377 51 samphold can be added externally on this inlet \, if
+you want the sequence to change at the same point in each period;
+#X connect 0 0 5 0;
+#X connect 1 0 6 0;
+#X connect 3 0 4 1;
+#X connect 4 0 17 0;
+#X connect 5 0 14 0;
+#X connect 6 0 3 0;
+#X connect 6 0 4 0;
+#X connect 7 0 6 2;
+#X connect 8 0 9 0;
+#X connect 9 0 10 1;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 12 0 13 0;
+#X connect 14 0 15 1;
+#X connect 15 0 10 0;
+#X connect 16 0 14 1;
+#X connect 17 0 16 0;
+#X connect 18 0 15 0;

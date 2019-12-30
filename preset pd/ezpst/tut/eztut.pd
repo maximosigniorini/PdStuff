@@ -1,0 +1,7 @@
+#N canvas 61 11 691 420 12;
+#X obj 32 21 cnv 15 100 60 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X text 216 236 opt. third argument to psc is color;
+#X obj 211 195 ../psc eztutparam \$1 14;
+#X obj 211 123 ../ezpst ./tut/pst/abs \$1;
+#X coords 0 -1 1 1 285 160 1 200 100;

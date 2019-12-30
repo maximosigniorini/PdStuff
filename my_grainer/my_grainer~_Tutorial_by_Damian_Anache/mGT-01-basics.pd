@@ -1,0 +1,217 @@
+#N canvas 381 67 815 831 10;
+#X obj -165 5 cnv 15 800 40 empty empty my_grainer~_tutorial:_01_-_basics
+3 12 0 18 -204280 -1 0;
+#X text -163 28 A guide to manage granular synthesis through my_grainer~
+(;
+#X obj 187 28 pddplink http://puredata.info/Members/pdiliscia/grainer/
+;
+#X text 472 28 );
+#X obj -26 166 output~;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array \$0-table2 121 float 2;
+#X coords 0 1 121 0 200 20 1 0 0;
+#X restore -43 525 graph;
+#X text 257 416 INCR;
+#X text 258 274 SIZE;
+#X text 260 345 GAP;
+#X obj 300 348 hsl 128 15 0.02 2 1 0 \$0-gapGUIout \$0-gapGUIin empty
+-2 -8 0 10 -262144 -1 -1 4438 1;
+#X obj 300 276 hsl 128 15 0.02 2 1 0 \$0-sizeGUIout \$0-sizeGUIin empty
+-2 -8 0 10 -262144 -1 -1 2527 1;
+#X obj 300 419 hsl 128 15 0 2 0 0 \$0-incrGUIout \$0-incrGUIin empty
+-2 -8 0 10 -262144 -1 -1 6350 1;
+#X floatatom 434 347 5 0 0 0 - #0-gapGUIout -;
+#X floatatom 434 275 5 0 0 0 - #0-sizeGUIout -;
+#X floatatom 434 418 5 0 0 0 - #0-incrGUIout -;
+#X msg -134 263 start;
+#X msg -144 241 stop;
+#X msg -155 668 print;
+#X obj -165 50 cnv 10 800 50 empty empty empty 8 12 0 13 -228856 -1
+0;
+#X obj -165 638 cnv 3 800 3 empty empty empty 8 12 0 13 -228856 -1
+0;
+#X text -149 523 Grain Envelope;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array \$0-table1 160087 float 2;
+#X coords 0 1 160087 -1 200 20 1 0 0;
+#X restore -43 480 graph;
+#X text -148 478 Grain Waveform;
+#N canvas 377 340 875 397 waveform_and_envelope_tables 0;
+#X obj 528 235 soundfiler;
+#X obj 78 90 loadbang;
+#X obj 501 317 s \$0-mess;
+#X obj 501 140 f \$0;
+#X obj 501 107 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 501 164 t f f;
+#X msg 501 297 atab \$1-table2;
+#X obj 105 236 soundfiler;
+#X obj 78 318 s \$0-mess;
+#X obj 78 141 f \$0;
+#X obj 78 120 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 78 165 t f f;
+#X text 118 140 (see "locality" on PD's documentation for more details)
+;
+#X text 122 188 loading external audio file into a local table;
+#X text 90 276 loading local table into my_grainer~;
+#X text 78 49 Grain Waveform;
+#X text 498 49 Grain Envelope;
+#X msg 78 298 gtab \$1-table1;
+#X msg 105 216 read -resize audioFiles/female-speech.wav \$1-table1
+;
+#X msg 528 215 read -resize envelopes/01-gaussian.wav \$1-table2;
+#X connect 1 0 10 0;
+#X connect 1 0 4 0;
+#X connect 3 0 5 0;
+#X connect 4 0 3 0;
+#X connect 5 0 6 0;
+#X connect 5 1 19 0;
+#X connect 6 0 2 0;
+#X connect 9 0 11 0;
+#X connect 10 0 9 0;
+#X connect 11 0 17 0;
+#X connect 11 1 18 0;
+#X connect 17 0 8 0;
+#X connect 18 0 7 0;
+#X connect 19 0 0 0;
+#X restore -83 590 pd waveform_and_envelope_tables;
+#X obj -25 116 r \$0-mess;
+#X obj -155 691 s \$0-mess;
+#X obj -144 375 s \$0-mess;
+#X obj -25 138 my_grainer~ 1;
+#X text -90 262 starts the audio rendering of the unit.;
+#X text -150 427 Grain waveform and envelope are defined by tables.
+;
+#X text -150 439 Both tables are needed in order to generate an audio
+output.;
+#X text -130 564 Loading tables details inside the following patch:
+;
+#X text -109 240 stops the audio rendering of the unit.;
+#X text -112 667 Prints my_grainer's current state on console.;
+#X obj 558 313 s \$0-mess;
+#X msg 558 291 gs \$1;
+#X text 296 318 (default=0.05);
+#X text 295 393 (default=0.1);
+#X obj 558 385 s \$0-mess;
+#X msg 558 363 ga \$1;
+#X text 296 366 ga (float);
+#X text 296 378 gap between grains beginings in secs.;
+#X text 296 291 gs (float);
+#X text 296 303 grain size in secs.;
+#X obj 560 456 s \$0-mess;
+#X msg 560 434 gf \$1;
+#X text 296 438 gf (float);
+#X text 296 450 grain read increment of the waveform table.;
+#X text 295 465 (affects its frequency) (default=1);
+#X obj 300 493 hsl 128 15 0.02 2 1 0 \$0-agGUIout \$0-agGUIin empty
+-2 -8 0 10 -262144 -1 -1 10788 1;
+#X floatatom 434 492 5 0 0 0 - #0-agGUIout -;
+#X obj 560 530 s \$0-mess;
+#X msg 560 508 ag \$1;
+#N canvas 54 423 582 208 GUI-initialSetup 0;
+#X obj 353 130 s \$0-incrGUIin;
+#X obj 143 130 s \$0-sizeGUIin;
+#X obj 252 130 s \$0-gapGUIin;
+#X obj 66 72 loadbang;
+#X obj 66 92 del 1;
+#X msg 143 109 0.05;
+#X msg 252 109 0.1;
+#X msg 353 109 1;
+#X msg 473 109 1;
+#X obj 473 130 s \$0-agGUIin;
+#X text 126 22 GUI initial setup acording to my_grainer~'s default
+values;
+#X obj 66 51 inlet;
+#X connect 3 0 4 0;
+#X connect 4 0 7 0;
+#X connect 4 0 5 0;
+#X connect 4 0 6 0;
+#X connect 4 0 8 0;
+#X connect 5 0 1 0;
+#X connect 6 0 2 0;
+#X connect 7 0 0 0;
+#X connect 8 0 9 0;
+#X connect 11 0 3 0;
+#X restore 513 667 pd GUI-initialSetup;
+#X text 258 490 AMP;
+#X text 296 512 ag (float);
+#X text 296 524 grain amplitude.;
+#X text 295 539 (default=1);
+#X obj 513 647 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -144 220 loadbang;
+#X text 532 644 reset;
+#X msg -126 306 pause \$1;
+#X text -64 304 pauses/resumes new grains creation;
+#X obj -126 288 tgl 15 0 empty \$0-pauseGUIin empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X obj 183 649 tgl 15 0 empty \$0-post_ctrlGUIin empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X msg 183 668 post_ctrl \$1;
+#X text 267 667 enables/disables console messages;
+#N canvas 828 440 426 290 postCtrl 0;
+#X obj 33 219 s \$0-mess;
+#X obj 33 48 inlet;
+#X text 50 96 "post_ctrl" messages enables/disables (1/0) most of grainer's
+console posts.;
+#X text 51 127 These actions ignores the posting control: initialization
+messages \; start \, stop and print messages \; table's loop mode \;
+and most of input values errors.;
+#X connect 1 0 0 0;
+#X restore 183 691 pd postCtrl;
+#X obj -164 722 cnv 15 800 50 empty empty empty 3 12 0 18 -203904 -1
+0;
+#X obj -164 777 cnv 15 800 40 empty empty empty 3 12 0 18 -203904 -1
+0;
+#X text 34 795 (Consejo Nacional de Investigaciones Científicas y
+Técnicas);
+#X text -12 795 CONICET;
+#X text 399 795 + UNQ (Universidad Nacional de Quilmes);
+#X obj 381 779 pddplink http://puredata.info/author/damiananache/;
+#X text 194 722 that is being developed by Oscar Pablo Di Liscia with
+the;
+#X text 542 722 collaboration;
+#X text -160 722 my_grainer~ is a Pure Data external for granular synthesis
+of Damián Anache and Esteban Calcagno as part of the;
+#X text 153 735 research program "Sistemas Temporales y de Sintesis
+;
+#X text 470 735 Espacial en el Arte Sonoro";
+#X text -160 749 (Universidad Nacional de Quilmes \, 2015-2019).;
+#X text 66 779 mGT (my_grainer~ tutorial) by Damian Anache - 2016 (
+;
+#X text 628 779 );
+#X text 263 573 All parameters changes will affect next generated grains.
+No any changes will modified a grain during its performance.;
+#X text 387 236 MAIN GRAIN PARAMETERS;
+#X obj -155 649 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text -157 50 Please read my_grainer_help.pdf before this.;
+#X text 261 52 See Roads \, C. \, Microsound \, The MIT Press \, England
+(2004) for granular synthesis background and details.;
+#X text -157 65 my_grainer~ must be initialized with a value of 1 for
+mono output (see 08-azimuth_and_reverb for more details).;
+#X text -123 327 ( While "start" and "stop" messages controls audio
+rendering \, "pause 0" message keeps audio active and just disable
+new grains creation.);
+#X connect 12 0 39 0;
+#X connect 13 0 35 0;
+#X connect 14 0 45 0;
+#X connect 15 0 26 0;
+#X connect 16 0 26 0;
+#X connect 17 0 25 0;
+#X connect 24 0 27 0;
+#X connect 27 0 4 0;
+#X connect 27 0 4 1;
+#X connect 35 0 34 0;
+#X connect 39 0 38 0;
+#X connect 45 0 44 0;
+#X connect 50 0 52 0;
+#X connect 52 0 51 0;
+#X connect 58 0 53 0;
+#X connect 59 0 16 0;
+#X connect 61 0 26 0;
+#X connect 63 0 61 0;
+#X connect 64 0 65 0;
+#X connect 65 0 67 0;
+#X connect 84 0 17 0;

@@ -1,0 +1,987 @@
+#N canvas 83 228 453 383 10;
+#X obj 240 40 cnv 15 170 294 empty empty markov\$1 6 12 0 11 -261807
+-66577 0;
+#X obj 247 118 bng 15 50 10 0 \$0makeMatrix \$0setMakeMatrix makeMarkov
+17 7 0 10 -204800 -1 -66577;
+#X obj 247 190 tgl 15 0 \$0play \$0setPlay play 17 7 0 10 -204786 -1
+-66577 0 1;
+#X obj 283 137 nbx 4 14 0 1000 0 0 \$0markovOrder \$0setMarkovOrder
+markovOrder 47 8 0 10 -204800 -1 -66577 3 256;
+#X obj 265 172 bng 15 50 10 0 \$0channelUp \$0no-r empty 17 7 0 10
+-204800 -1 -66577;
+#X obj 247 172 bng 15 50 10 0 \$0channelDown \$0no-r empty 17 7 0 10
+-204800 -1 -66577;
+#X obj 247 279 nbx 4 14 0 128 0 0 \$0no-s \$0velocityShow velocityShow
+47 8 0 10 -261682 -1 -66577 0 256;
+#X obj 247 313 nbx 4 14 0 128 0 0 \$0no-s \$0channelShow channelShow
+47 8 0 10 -261682 -1 -66577 0 256;
+#X obj 247 296 nbx 4 14 0 128 0 0 \$0no-s \$0soundShow soundShow 47
+8 0 10 -261682 -1 -66577 0 256;
+#X obj 247 262 nbx 4 14 0 128 0 0 \$0no-s \$0pitchShow pitchShow 47
+8 0 10 -261682 -1 -66577 0 256;
+#N canvas 331 51 691 720 makeMarkov 0;
+#X obj 134 54 bng 15 250 50 0 empty \$0makeMatrix makeMatrix 17 7 0
+10 -204800 -1 -66577;
+#X obj 101 942 l2s ?;
+#X obj 411 805 list;
+#X obj 436 629 l2s ?;
+#X obj 101 793 t l l;
+#X obj 134 507 spigot;
+#X obj 515 813 nbx 4 14 0 1000 0 0 empty \$0markovOrder markovOrder
+0 -8 0 10 -204800 -1 -66577 3 256;
+#X obj 101 749 textfile;
+#X msg 283 732 rewind;
+#X obj 231 732 until;
+#X msg 345 732 clear;
+#X obj 231 710 t b b;
+#X obj 51 1184 t s s;
+#X obj 51 1228 sel -1;
+#X obj 105 1272 text get \$0markov;
+#X obj 51 1206 text search \$0markov;
+#X obj 105 1250 t f f;
+#X obj 51 1294 list;
+#X obj 51 1250 symbol;
+#X msg 280 113 clear;
+#X obj 280 135 s \$0markov;
+#X obj 215 113 bng 15 250 50 0 \$0restart empty restart 17 7 0 10 -204786
+-1 -66577;
+#X obj 51 1316 text set \$0markov;
+#X obj 51 1272 t s b;
+#X obj 267 405 tgl 15 0 empty \$0allSounds allSounds 17 7 0 10 -262144
+-1 -66577 0 1;
+#X obj 134 442 t l l;
+#X obj 134 398 spigot;
+#X obj 267 363 nbx 4 14 0 64 0 0 empty \$0channel channel 0 -8 0 10
+-204800 -1 -66577 0 256;
+#X obj 173 355 list-idx 3;
+#X obj 267 296 tgl 15 0 empty \$0allChannels allChannels 17 7 0 10
+-262144 -1 -66577 0 1;
+#X obj 134 333 t l l;
+#X obj 173 464 list-idx 2;
+#X obj 267 472 nbx 4 14 0 128 0 0 empty \$0sound sound 0 -8 0 10 -204800
+-1 -66577 0 256;
+#X obj 134 267 list-drip;
+#X obj 134 289 s2l ?;
+#X obj 101 617 list;
+#X obj 134 529 t l l;
+#X obj 411 695 list;
+#X obj 411 761 spigot 1;
+#X obj 134 551 l2s ?;
+#X obj 101 727 list trim;
+#X obj 101 705 list prepend add;
+#X obj 134 595 t l l;
+#X obj 436 673 t l l;
+#X obj 101 815 list-drip;
+#X obj 76 1008 list;
+#X obj 101 986 t l l;
+#X obj 101 771 list;
+#X obj 101 639 t l l b;
+#X obj 411 717 t l l b;
+#X obj 101 837 s2l ?;
+#X obj 76 1030 t l b;
+#X obj 134 573 list prepend;
+#X obj 436 651 list prepend;
+#X obj 101 964 list prepend;
+#X obj 215 131 bng 15 250 50 0 \$0clear empty clear 17 7 0 10 -262144
+-1 -66577;
+#X obj 458 790 bng 15 250 50 0 empty \$0clear clear 17 7 0 10 -262144
+-1 -66577;
+#X obj 345 712 bng 15 250 50 0 empty \$0clear clear 17 7 0 10 -262144
+-1 -66577;
+#X obj 89 1294 1e+08;
+#X obj 51 1162 l2s -;
+#X obj 176 815 l2s =;
+#X obj 411 783 l2s =;
+#X obj 76 1052 l2s =;
+#X obj 374 158 tgl 15 0 \$0allChannels empty allChannels 0 21 0 10
+-262144 -1 -66577 0 1;
+#X obj 445 158 tgl 15 0 \$0allSounds empty allSounds 0 21 0 10 -262144
+-1 -66577 0 1;
+#X obj 531 94 nbx 4 14 0 1000 0 0 empty \$0markovOrder markovOrder
+0 -8 0 10 -204800 -1 -66577 3 256;
+#X obj 513 113 f;
+#X obj 513 135 nbx 4 14 0 1000 0 0 \$0order empty order 0 21 0 10 -262144
+-1 -66577 0 256;
+#X obj 101 859 unpack f f f f;
+#X obj 101 898 list;
+#X obj 101 920 list;
+#X obj 227 888 tgl 15 0 empty \$0allChannels allChannels 17 7 0 10
+-262144 -1 -66577 0 1;
+#X obj 227 866 tgl 15 0 empty \$0allSounds allSounds 17 7 0 10 -262144
+-1 -66577 0 1;
+#X obj 176 881 spigot;
+#X obj 176 903 spigot;
+#X obj 436 546 unpack f f f f;
+#X obj 436 585 list;
+#X obj 436 607 list;
+#X obj 562 575 tgl 15 0 empty \$0allChannels allChannels 17 7 0 10
+-262144 -1 -66577 0 1;
+#X obj 562 553 tgl 15 0 empty \$0allSounds allSounds 17 7 0 10 -262144
+-1 -66577 0 1;
+#X obj 511 568 spigot;
+#X obj 511 590 spigot;
+#X obj 461 567 bng 15 250 50 0 empty \$0clear clear 17 7 0 10 -262144
+-1 -66577;
+#X obj 126 880 bng 15 250 50 0 empty \$0clear clear 17 7 0 10 -262144
+-1 -66577;
+#X obj 445 113 f;
+#X obj 374 113 f;
+#X obj 173 377 ==;
+#X obj 173 486 ==;
+#X obj 411 827 list split;
+#X obj 374 135 == 0;
+#X obj 445 136 == 0;
+#X obj 392 94 nbx 4 14 0 64 0 0 empty \$0channel channel 0 -8 0 10
+-204800 -1 -66577 0 256;
+#X obj 463 94 nbx 4 14 0 128 0 0 empty \$0sound sound 0 -8 0 10 -204800
+-1 -66577 0 256;
+#X obj 134 96 t b b b;
+#X msg 179 223 line 0;
+#X msg 134 223 bang;
+#X obj 134 179 spigot;
+#X obj 134 201 t b b;
+#X obj 173 157 text size \$0memory;
+#X obj 134 245 text sequence \$0memory;
+#X obj 101 683 spigot;
+#X obj 464 739 list length;
+#X obj 140 661 list length;
+#X obj 134 311 demux;
+#X obj 134 420 demux;
+#X obj 51 1118 list;
+#X obj 76 1074 t s b;
+#X obj 157 1126 nbx 4 14 0 1000 0 0 empty \$0markovOrder markovOrder
+0 -8 0 10 -204800 -1 -66577 3 256;
+#X obj 51 1140 list split;
+#X obj 76 1096 list;
+#X obj 134 74 del \$1;
+#X connect 0 0 110 0;
+#X connect 1 0 54 0;
+#X connect 2 0 88 0;
+#X connect 3 0 53 0;
+#X connect 4 0 44 0;
+#X connect 4 1 60 0;
+#X connect 5 0 36 0;
+#X connect 6 0 88 1;
+#X connect 7 0 47 0;
+#X connect 7 1 9 1;
+#X connect 8 0 7 0;
+#X connect 9 0 7 0;
+#X connect 10 0 7 0;
+#X connect 11 0 9 0;
+#X connect 11 1 8 0;
+#X connect 12 0 15 0;
+#X connect 12 1 18 1;
+#X connect 13 0 18 0;
+#X connect 13 1 16 0;
+#X connect 14 0 17 0;
+#X connect 15 0 13 0;
+#X connect 16 0 14 0;
+#X connect 16 1 22 1;
+#X connect 17 0 22 0;
+#X connect 18 0 23 0;
+#X connect 19 0 20 0;
+#X connect 23 0 17 0;
+#X connect 23 1 58 0;
+#X connect 24 0 104 1;
+#X connect 25 0 5 0;
+#X connect 25 1 31 0;
+#X connect 26 0 104 0;
+#X connect 27 0 86 1;
+#X connect 28 0 86 0;
+#X connect 29 0 103 1;
+#X connect 30 0 26 0;
+#X connect 30 1 28 0;
+#X connect 31 0 87 0;
+#X connect 32 0 87 1;
+#X connect 33 0 34 0;
+#X connect 33 1 37 0;
+#X connect 33 1 35 0;
+#X connect 34 0 103 0;
+#X connect 35 0 48 0;
+#X connect 36 0 39 0;
+#X connect 36 1 75 0;
+#X connect 37 0 49 0;
+#X connect 38 0 61 0;
+#X connect 39 0 52 0;
+#X connect 40 0 7 0;
+#X connect 41 0 40 0;
+#X connect 42 0 35 1;
+#X connect 42 1 52 1;
+#X connect 43 0 37 1;
+#X connect 43 1 53 1;
+#X connect 44 0 50 0;
+#X connect 44 1 45 0;
+#X connect 45 0 51 0;
+#X connect 46 0 45 1;
+#X connect 46 1 54 1;
+#X connect 47 0 4 0;
+#X connect 48 0 100 0;
+#X connect 48 1 102 0;
+#X connect 48 2 35 1;
+#X connect 48 2 52 1;
+#X connect 49 0 38 0;
+#X connect 49 1 101 0;
+#X connect 49 2 37 1;
+#X connect 49 2 53 1;
+#X connect 50 0 68 0;
+#X connect 51 0 62 0;
+#X connect 51 1 45 1;
+#X connect 51 1 54 1;
+#X connect 52 0 42 0;
+#X connect 53 0 43 0;
+#X connect 54 0 46 0;
+#X connect 56 0 2 1;
+#X connect 57 0 10 0;
+#X connect 58 0 22 1;
+#X connect 59 0 12 0;
+#X connect 60 0 17 1;
+#X connect 61 0 2 0;
+#X connect 62 0 106 0;
+#X connect 65 0 66 1;
+#X connect 66 0 67 0;
+#X connect 68 0 69 0;
+#X connect 68 2 73 0;
+#X connect 68 3 74 0;
+#X connect 69 0 70 0;
+#X connect 70 0 1 0;
+#X connect 71 0 74 1;
+#X connect 72 0 73 1;
+#X connect 73 0 69 1;
+#X connect 74 0 70 1;
+#X connect 75 0 76 0;
+#X connect 75 2 80 0;
+#X connect 75 3 81 0;
+#X connect 76 0 77 0;
+#X connect 77 0 3 0;
+#X connect 78 0 81 1;
+#X connect 79 0 80 1;
+#X connect 80 0 76 1;
+#X connect 81 0 77 1;
+#X connect 82 0 76 1;
+#X connect 82 0 77 1;
+#X connect 83 0 69 1;
+#X connect 83 0 70 1;
+#X connect 84 0 90 0;
+#X connect 85 0 89 0;
+#X connect 86 0 26 1;
+#X connect 87 0 5 1;
+#X connect 88 0 2 1;
+#X connect 88 0 105 1;
+#X connect 88 2 2 1;
+#X connect 89 0 63 0;
+#X connect 90 0 64 0;
+#X connect 91 0 85 1;
+#X connect 92 0 84 1;
+#X connect 93 0 96 0;
+#X connect 93 1 98 0;
+#X connect 93 2 66 0;
+#X connect 93 2 84 0;
+#X connect 93 2 85 0;
+#X connect 93 2 19 0;
+#X connect 93 2 21 0;
+#X connect 93 2 55 0;
+#X connect 94 0 99 0;
+#X connect 95 0 99 0;
+#X connect 96 0 97 0;
+#X connect 97 0 95 0;
+#X connect 97 1 94 0;
+#X connect 98 0 96 1;
+#X connect 99 0 33 0;
+#X connect 99 1 11 0;
+#X connect 100 0 41 0;
+#X connect 101 0 38 1;
+#X connect 102 0 100 1;
+#X connect 103 0 30 0;
+#X connect 103 1 104 0;
+#X connect 104 0 25 0;
+#X connect 104 1 36 0;
+#X connect 105 0 109 1;
+#X connect 105 0 108 0;
+#X connect 106 0 109 0;
+#X connect 106 1 105 0;
+#X connect 107 0 108 1;
+#X connect 108 0 59 0;
+#X connect 109 0 105 1;
+#X connect 110 0 93 0;
+#X restore 45 62 pd makeMarkov;
+#N canvas 165 98 1084 638 playMarkov 0;
+#X obj 47 105 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 104 83 bng 15 250 50 0 empty \$0restart restart 17 7 0 10 -204786
+-1 -66577;
+#X symbolatom 483 378 80 0 0 0 - - -, f 80;
+#X obj 189 103 random;
+#X obj 189 81 t b f;
+#X obj 189 39 bng 15 250 50 0 empty empty random 17 7 0 10 -204786
+-1 -1;
+#X obj 47 125 0;
+#X obj 483 397 text search \$0markov;
+#X obj 47 147 text get \$0markov;
+#X obj 140 235 t b f;
+#X obj 140 257 random;
+#X obj 87 279 list-idx;
+#X obj 87 301 t s s;
+#X obj 87 191 t l l;
+#X obj 47 323 list;
+#X obj 47 169 list split 1;
+#X obj 189 59 text size \$0markov;
+#X obj 642 203 l2s ?;
+#X obj 642 98 s2l ?;
+#X obj 483 32 unpack s s;
+#X obj 642 76 list-drip;
+#X obj 617 269 list;
+#X obj 642 247 t l l;
+#X obj 617 291 t l b;
+#X obj 642 225 list prepend;
+#X obj 642 54 s2l =;
+#X obj 617 313 l2s =;
+#X obj 483 356 l2s -;
+#X obj 483 290 s2l -;
+#X obj 86 63 tgl 15 0 empty \$0play play 17 7 0 10 -204786 -1 -66577
+0 1;
+#X obj 47 83 spigot;
+#X obj 47 257 spigot;
+#X obj 86 238 nbx 4 14 0 1000 0 0 empty \$0order order 0 -8 0 10 -262144
+-1 -66577 0 256;
+#X obj 642 120 unpack f f f f;
+#X obj 642 159 list;
+#X obj 642 181 list;
+#X obj 768 149 tgl 15 0 empty \$0allChannels allChannels 17 7 0 10
+-262144 -1 -66577 0 1;
+#X obj 768 127 tgl 15 0 empty \$0allSounds allSounds 17 7 0 10 -262144
+-1 -66577 0 1;
+#X obj 717 142 spigot;
+#X obj 717 164 spigot;
+#X obj 667 141 bng 15 250 50 0 empty \$0clear clear 17 7 0 10 -262144
+-1 -66577;
+#X obj 47 41 r \$2playNote;
+#X obj 119 389 unpack f f f f;
+#X obj 256 348 nbx 4 14 0 128 0 0 empty \$0soundOut soundOut 47 8 0
+10 -204786 -1 -66577 0 256;
+#X obj 256 389 != 0;
+#X obj 256 367 t f f;
+#X obj 180 477 nbx 4 14 0 127 0 0 \$0velocityShow empty velocityShow
+0 25 0 10 -261682 -1 -66577 0 256;
+#X obj 119 477 nbx 4 14 0 127 0 0 \$0pitchShow empty pitchShow 0 25
+0 10 -261682 -1 -66577 0 256;
+#X obj 352 477 nbx 4 14 0 64 0 0 \$0channelShow empty channelShow 0
+25 0 10 -261682 -1 -66577 0 256;
+#X obj 257 477 nbx 4 14 0 128 0 0 \$0soundShow empty soundShow 0 25
+0 10 -261682 -1 -66577 0 256;
+#X obj 257 579 pgmout;
+#X obj 119 579 noteout;
+#X obj 119 367 s2l ?;
+#X obj 119 345 list-drip;
+#X obj 119 323 s2l =;
+#X obj 256 455 f;
+#X obj 140 213 list length;
+#X obj 224 411 demux;
+#X obj 256 433 b;
+#X obj 172 516 nbx 4 14 0 128 0 0 empty \$0noteLength noteLength 47
+8 0 10 -204786 -1 -66577 80 256;
+#X obj 119 535 makenote;
+#X msg 104 103 0;
+#X obj 61 515 tgl 15 0 empty \$0play play 17 7 0 10 -204786 -1 -66577
+0 1;
+#X obj 61 535 sel;
+#N canvas 3 128 254 237 midiflush 0;
+#X obj 87 44 inlet;
+#X obj 87 66 pack;
+#X obj 87 88 midiformat;
+#X obj 87 110 midiflush;
+#X obj 87 132 midiparse;
+#X obj 87 154 unpack;
+#X obj 87 176 outlet;
+#X obj 137 44 inlet;
+#X obj 137 176 outlet;
+#X obj 37 44 inlet;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 5 1 8 0;
+#X connect 7 0 1 1;
+#X connect 9 0 3 0;
+#X restore 61 557 pd midiflush;
+#X obj 483 334 list prepend;
+#X obj 550 271 nbx 4 14 0 1000 0 0 empty \$0order order 0 -8 0 10 -262144
+-1 -66577 0 256;
+#X obj 483 312 list split;
+#X obj 550 290 - 1;
+#X obj 351 348 nbx 4 14 0 128 0 0 empty \$0channelOut channelOut 47
+8 0 10 -204786 -1 -66577 0 256;
+#X obj 351 389 != 0;
+#X obj 351 367 t f f;
+#X obj 351 455 f;
+#X obj 319 411 demux;
+#X obj 351 433 b;
+#X connect 0 0 6 0;
+#X connect 1 0 61 0;
+#X connect 2 0 7 0;
+#X connect 3 0 6 1;
+#X connect 4 0 3 0;
+#X connect 4 1 3 1;
+#X connect 5 0 16 0;
+#X connect 6 0 8 0;
+#X connect 7 0 6 1;
+#X connect 8 0 15 0;
+#X connect 9 0 10 0;
+#X connect 9 1 10 1;
+#X connect 10 0 11 1;
+#X connect 11 0 12 0;
+#X connect 12 0 14 1;
+#X connect 12 1 54 0;
+#X connect 13 0 11 0;
+#X connect 13 1 56 0;
+#X connect 14 0 19 0;
+#X connect 15 0 31 0;
+#X connect 15 1 13 0;
+#X connect 16 0 4 0;
+#X connect 17 0 24 0;
+#X connect 18 0 33 0;
+#X connect 19 0 28 0;
+#X connect 19 1 25 0;
+#X connect 20 0 18 0;
+#X connect 20 1 21 0;
+#X connect 21 0 23 0;
+#X connect 22 0 21 1;
+#X connect 22 1 24 1;
+#X connect 23 0 26 0;
+#X connect 23 1 21 1;
+#X connect 23 1 24 1;
+#X connect 24 0 22 0;
+#X connect 25 0 20 0;
+#X connect 26 0 65 1;
+#X connect 27 0 2 0;
+#X connect 28 0 67 0;
+#X connect 29 0 30 1;
+#X connect 30 0 0 0;
+#X connect 31 0 14 0;
+#X connect 32 0 31 1;
+#X connect 33 0 34 0;
+#X connect 33 2 38 0;
+#X connect 33 3 39 0;
+#X connect 34 0 35 0;
+#X connect 35 0 17 0;
+#X connect 36 0 39 1;
+#X connect 37 0 38 1;
+#X connect 38 0 34 1;
+#X connect 39 0 35 1;
+#X connect 40 0 34 1;
+#X connect 40 0 35 1;
+#X connect 41 0 30 0;
+#X connect 42 0 47 0;
+#X connect 42 1 46 0;
+#X connect 42 2 57 0;
+#X connect 42 3 73 0;
+#X connect 43 0 45 0;
+#X connect 44 0 57 1;
+#X connect 45 0 44 0;
+#X connect 45 1 55 1;
+#X connect 46 0 60 1;
+#X connect 47 0 60 0;
+#X connect 48 0 50 1;
+#X connect 48 0 51 2;
+#X connect 49 0 50 0;
+#X connect 52 0 42 0;
+#X connect 53 0 52 0;
+#X connect 54 0 53 0;
+#X connect 55 0 49 0;
+#X connect 56 0 9 0;
+#X connect 57 0 49 0;
+#X connect 57 1 58 0;
+#X connect 58 0 55 0;
+#X connect 59 0 60 2;
+#X connect 60 0 64 1;
+#X connect 60 0 51 0;
+#X connect 60 1 64 2;
+#X connect 61 0 6 1;
+#X connect 62 0 63 0;
+#X connect 63 0 64 0;
+#X connect 64 0 51 0;
+#X connect 64 1 51 1;
+#X connect 65 0 27 0;
+#X connect 66 0 68 0;
+#X connect 67 0 65 0;
+#X connect 68 0 67 1;
+#X connect 69 0 71 0;
+#X connect 70 0 73 1;
+#X connect 71 0 70 0;
+#X connect 71 1 72 1;
+#X connect 72 0 48 0;
+#X connect 73 0 48 0;
+#X connect 73 1 74 0;
+#X connect 74 0 72 0;
+#X restore 45 84 pd playMarkov;
+#X obj 283 173 nbx 4 14 0 16 0 0 \$0channel \$0setChannel channelFilter
+47 8 0 10 -204800 -1 -66577 0 256;
+#X obj 265 136 bng 15 50 10 0 \$0markovOrderUp \$0no-r empty 17 7 0
+10 -204800 -1 -66577;
+#X obj 247 136 bng 15 50 10 0 \$0markovOrderDown \$0no-r empty 17 7
+0 10 -204800 -1 -66577;
+#N canvas 227 183 724 410 loadSave 0;
+#X obj 498 194 list;
+#X obj 315 304 list trim;
+#X obj 51 47 r \$2\$1load;
+#X obj 315 106 r \$2saveChannel;
+#X obj 315 326 s \$2saveChannelReturn;
+#X obj 51 179 tgl 15 0 \$0setRecord empty setRecord 17 7 0 10 -262130
+-1 -66577 0 1;
+#X msg 347 238 line 0;
+#X obj 315 216 t b b;
+#X obj 315 260 text sequence \$0memory;
+#X obj 354 172 text size \$0memory;
+#X obj 315 194 spigot;
+#X obj 315 128 del \$1;
+#X obj 51 91 route s;
+#X obj 97 113 list;
+#X obj 97 135 text set \$0memory 1e+08;
+#X obj 498 216 list prepend add \$1 s;
+#X obj 315 282 list prepend add \$1;
+#X obj 315 150 t b b b;
+#X obj 51 69 list trim;
+#X obj 51 265 nbx 4 14 0 128 0 0 \$0setSoundOut empty setSoundOut 47
+8 0 10 -204786 -1 -66577 0 256;
+#X obj 51 282 nbx 4 14 0 128 0 0 \$0setChannelOut empty setChannelOut
+47 8 0 10 -204786 -1 -66577 0 256;
+#X obj 51 248 nbx 4 14 0 10000 0 0 \$0setNoteLength empty setNoteLength
+47 8 0 10 -204786 -1 -66577 0 256;
+#X obj 51 214 nbx 4 14 0 64 0 0 \$0setSound empty setSound 47 8 0 10
+-204800 -1 -33289 0 256;
+#X obj 51 197 nbx 4 14 0 64 0 0 \$0setMarkovOrder empty setMarkovOrder
+47 8 0 10 -204800 -1 -33289 0 256;
+#X obj 51 231 nbx 4 14 0 64 0 0 \$0setChannel empty setChannel 47 8
+0 10 -204800 -1 -33289 0 256;
+#X obj 523 135 nbx 4 14 0 128 0 0 empty \$0soundOut soundOut 47 8 0
+10 -204786 -1 -66577 0 256;
+#X obj 523 47 tgl 15 0 empty \$0record record 17 7 0 10 -262130 -1
+-66577 0 1;
+#X obj 523 153 nbx 4 14 0 128 0 0 empty \$0channelOut channelOut 47
+8 0 10 -204786 -1 -66577 0 256;
+#X obj 523 118 nbx 4 14 0 10000 0 0 empty \$0noteLength noteLength
+47 8 0 10 -204786 -1 -33289 80 256;
+#X obj 523 65 nbx 4 14 0 1000 0 0 empty \$0markovOrder markovOrder
+47 8 0 10 -204800 -1 -66577 3 256;
+#X obj 523 101 nbx 4 14 0 64 0 0 empty \$0channel channel 47 8 0 10
+-204800 -1 -66577 0 256;
+#X obj 523 83 nbx 4 14 0 128 0 0 empty \$0sound sound 47 8 0 10 -204800
+-1 -66577 0 256;
+#X obj 51 157 unpack f f f f f f f;
+#X obj 523 172 pack f f f f f f f;
+#X connect 0 0 15 0;
+#X connect 1 0 4 0;
+#X connect 2 0 18 0;
+#X connect 3 0 11 0;
+#X connect 6 0 8 0;
+#X connect 7 0 8 0;
+#X connect 7 1 6 0;
+#X connect 8 0 16 0;
+#X connect 9 0 10 1;
+#X connect 10 0 7 0;
+#X connect 11 0 17 0;
+#X connect 12 0 32 0;
+#X connect 12 1 13 0;
+#X connect 13 0 14 0;
+#X connect 15 0 1 0;
+#X connect 16 0 1 0;
+#X connect 17 0 10 0;
+#X connect 17 1 0 0;
+#X connect 17 1 9 0;
+#X connect 17 2 33 0;
+#X connect 18 0 12 0;
+#X connect 25 0 33 5;
+#X connect 26 0 33 0;
+#X connect 27 0 33 6;
+#X connect 28 0 33 4;
+#X connect 29 0 33 1;
+#X connect 30 0 33 3;
+#X connect 31 0 33 2;
+#X connect 32 0 5 0;
+#X connect 32 1 23 0;
+#X connect 32 2 22 0;
+#X connect 32 3 24 0;
+#X connect 32 4 21 0;
+#X connect 32 5 19 0;
+#X connect 32 6 20 0;
+#X connect 33 0 0 1;
+#X restore 45 128 pd loadSave;
+#X obj 265 154 bng 15 50 10 0 \$0soundUp \$0no-r empty 17 7 0 10 -204800
+-1 -66577;
+#X obj 247 154 bng 15 50 10 0 \$0soundDown \$0no-r empty 17 7 0 10
+-204800 -1 -66577;
+#X obj 283 155 nbx 4 14 0 128 0 0 \$0sound \$0setSound soundFilter
+47 8 0 10 -204800 -1 -66577 0 256;
+#X obj 45 238 text define \$0markov;
+#X obj 45 216 r \$0markov;
+#N canvas 104 135 1002 510 interface 0;
+#X obj 201 103 bng 15 250 50 0 \$0setMakeMatrix \$2makeMatrix setMakeMatrix
+17 7 0 10 -204800 -1 -66577;
+#X obj 201 121 nbx 4 14 0 1000 0 0 \$0setMarkovOrder \$2markovOrder
+setMarkovOrder 47 8 0 10 -204800 -1 -66577 3 256;
+#X obj 201 138 nbx 4 14 0 64 0 0 \$0setChannel \$2channel setChannel
+47 8 0 10 -204800 -1 -66577 0 256;
+#X obj 201 172 tgl 15 0 \$0setPlay \$2playAll setPlay 17 7 0 10 -204786
+-1 -66577 0 1;
+#X obj 201 155 nbx 4 14 0 128 0 0 \$0setSound \$2sound setSound 47
+8 0 10 -204800 -1 -66577 0 256;
+#X obj 377 327 bng 15 250 50 0 empty \$0channelUp channelUp 17 7 0
+10 -204800 -1 -66577;
+#X obj 369 285 bng 15 250 50 0 empty \$0channelDown channelDown 17
+7 0 10 -204800 -1 -66577;
+#X msg 369 305 dec 1;
+#X msg 377 376 inc 1;
+#X msg 209 305 dec 1;
+#X msg 217 376 inc 1;
+#X obj 217 327 bng 15 250 50 0 empty \$0soundUp soundUp 17 7 0 10 -204800
+-1 -66577;
+#X obj 209 285 bng 15 250 50 0 empty \$0soundDown soundDown 17 7 0
+10 -204800 -1 -66577;
+#X msg 43 305 dec 1;
+#X msg 51 376 inc 1;
+#X obj 51 327 bng 15 250 50 0 empty \$0markovOrderUp markovOrderUp
+17 7 0 10 -204800 -1 -66577;
+#X obj 43 285 bng 15 250 50 0 empty \$0markovOrderDown markovOrderDown
+17 7 0 10 -204800 -1 -66577;
+#X obj 387 442 nbx 4 14 0 64 0 0 \$0setChannel empty setChannel 0 22
+0 10 -204800 -1 -33289 0 256;
+#X obj 227 442 nbx 4 14 0 128 0 0 \$0setSound empty setSound 0 22 0
+10 -204800 -1 -33289 0 256;
+#X obj 61 442 nbx 4 14 0 1000 0 0 \$0setMarkovOrder empty setMarkovOrder
+0 22 0 10 -204800 -1 -33289 0 256;
+#X obj 114 376 t f f;
+#X obj 429 357 nbx 4 14 0 64 0 0 empty \$0channel channel 0 -8 0 10
+-204800 -1 -33289 0 256;
+#X obj 275 357 nbx 4 14 0 128 0 0 empty \$0sound sound 0 -8 0 10 -204800
+-1 -33289 0 256;
+#X obj 114 357 nbx 4 14 0 1000 0 0 empty \$0markovOrder markovOrder
+0 -8 0 10 -204800 -1 -33289 3 256;
+#X obj 275 376 t f f;
+#X obj 429 376 t f f;
+#X obj 43 420 sel;
+#X obj 209 420 sel;
+#X obj 369 420 sel;
+#X obj 43 102 nbx 4 14 0 64 0 1 \$0setSound empty setSound 47 8 0 10
+-204800 -1 -33289 0 256;
+#X obj 43 85 nbx 4 14 0 64 0 1 \$0setMarkovOrder empty setMarkovOrder
+47 8 0 10 -204800 -1 -33289 3 256;
+#X obj 515 67 tgl 15 0 empty \$0play play 17 7 0 10 -204786 -1 -66577
+0 1;
+#X obj 515 87 sel;
+#X obj 515 170 nbx 4 14 0 128 0 0 \$0velocityShow empty velocityShow
+47 8 0 10 -261682 -1 -66577 0 256;
+#X obj 515 204 nbx 4 14 0 128 0 0 \$0channelShow empty channelShow
+47 8 0 10 -261682 -1 -66577 0 256;
+#X obj 515 187 nbx 4 14 0 128 0 0 \$0soundShow empty soundShow 47 8
+0 10 -261682 -1 -66577 0 256;
+#X obj 515 153 nbx 4 14 0 128 0 0 \$0pitchShow empty pitchShow 47 8
+0 10 -261682 -1 -66577 0 256;
+#X msg 515 131 0;
+#X obj 548 89 bng 15 250 50 0 empty \$0clear clear 17 7 0 10 -262144
+-1 -66577;
+#X obj 43 221 nbx 4 14 0 128 0 1 \$0setSoundOut empty setSoundOut 47
+8 0 10 -204786 -1 -66577 0 256;
+#X obj 359 67 tgl 15 0 empty \$0play play 17 7 0 10 -204786 -1 -66577
+0 1;
+#X obj 359 109 tgl 15 0 \$2playChannel empty playChannel 17 7 0 10
+-204786 -1 -66577 0 1;
+#X obj 359 87 change;
+#X obj 201 85 bng 15 50 10 0 \$0setResetMemory \$2resetMemory setResetMemory
+17 7 0 10 -262130 -1 -66577;
+#X obj 201 67 tgl 15 0 \$0setRecord \$2record setRecord 17 7 0 10 -262130
+-1 -66577 0 1;
+#X obj 43 67 tgl 15 1 \$0setRecord empty setRecord 17 7 0 10 -262130
+-1 -66577 0 1;
+#X obj 201 190 nbx 4 14 0 10000 0 0 \$0setNoteLength \$2noteLength
+setNoteLength 47 8 0 10 -204786 -1 -66577 80 256;
+#X obj 43 238 nbx 4 14 0 128 0 1 \$0setChannelOut empty setChannelOut
+47 8 0 10 -204786 -1 -66577 0 256;
+#X obj 43 187 nbx 4 14 0 64 0 0 \$0setChannel empty setChannel 47 8
+0 10 -204800 -1 -33289 1 256;
+#X msg 515 305 dec 1;
+#X msg 523 376 inc 1;
+#X obj 523 327 bng 15 250 50 0 empty \$0noteLengthUp noteLengthUp 17
+7 0 10 -204786 -1 -66577;
+#X obj 515 285 bng 15 250 50 0 empty \$0noteLengthDown noteLengthDown
+17 7 0 10 -204786 -1 -66577;
+#X obj 533 442 nbx 4 14 0 10000 0 0 \$0setNoteLength empty setNoteLength
+0 22 0 10 -204786 -1 -33289 0 256;
+#X obj 591 357 nbx 4 14 0 10000 0 0 empty \$0noteLength noteLength
+0 -8 0 10 -204786 -1 -33289 80 256;
+#X obj 591 376 t f f;
+#X obj 515 420 sel;
+#X msg 670 305 dec 1;
+#X msg 678 376 inc 1;
+#X obj 678 327 bng 15 250 50 0 empty \$0soundOutUp soundOutUp 17 7
+0 10 -204786 -1 -66577;
+#X obj 670 285 bng 15 250 50 0 empty \$0soundOutDown soundOutDown 17
+7 0 10 -204786 -1 -66577;
+#X obj 688 442 nbx 4 14 0 128 0 0 \$0setSoundOut empty setSoundOut
+0 22 0 10 -204786 -1 -33289 0 256;
+#X obj 736 357 nbx 4 14 0 128 0 0 empty \$0soundOut soundOut 0 -8 0
+10 -204786 -1 -33289 0 256;
+#X obj 736 376 t f f;
+#X obj 670 420 sel;
+#X msg 825 305 dec 1;
+#X msg 833 376 inc 1;
+#X obj 833 327 bng 15 250 50 0 empty \$0channelOutUp channelOutUp 17
+7 0 10 -204786 -1 -66577;
+#X obj 825 285 bng 15 250 50 0 empty \$0channelOutDown channelOutDown
+17 7 0 10 -204786 -1 -66577;
+#X obj 843 442 nbx 4 14 0 128 0 0 \$0setChannelOut empty setChannelOut
+0 22 0 10 -204786 -1 -33289 0 256;
+#X obj 891 357 nbx 4 14 0 128 0 0 empty \$0channelOut channelOut 0
+-8 0 10 -204786 -1 -33289 0 256;
+#X obj 891 376 t f f;
+#X obj 825 420 sel;
+#X obj 515 109 del \$1;
+#X obj 201 207 nbx 4 14 0 128 0 0 \$0setSoundOut \$2soundOut setSoundOut
+47 8 0 10 -204786 -1 -66577 0 256;
+#X obj 201 224 nbx 4 14 0 128 0 0 \$0setChannelOut \$2channelOut setChannelOut
+47 8 0 10 -204786 -1 -66577 0 256;
+#X obj 43 204 nbx 4 14 0 10000 0 1 \$0setNoteLength empty setNoteLength
+47 8 0 10 -204786 -1 -66577 80 256;
+#X text 41 28 Presets/Inits;
+#X text 199 28 Receive from master;
+#X obj 43 398 counter 1000;
+#X obj 515 398 counter 10000;
+#X obj 670 398 counter 128;
+#X obj 209 398 counter 128;
+#X obj 369 398 counter 16;
+#X obj 359 182 bng 15 50 10 0 empty \$0resetMemory resetMemory 17 7
+0 10 -262130 -1 -66577;
+#X obj 359 224 s \$0memory;
+#X msg 359 202 clear;
+#X obj 569 109 bng 15 250 50 0 \$0restart empty restart 17 7 0 10 -204786
+-1 -66577;
+#X obj 825 398 counter 16;
+#X obj 201 241 bng 15 250 50 0 \$0midiclock \$2midiclock midiclock
+17 7 0 10 -262144 -1 -1;
+#X obj 43 121 loadbang;
+#X obj 43 165 \$1;
+#X obj 43 143 del;
+#X connect 5 0 8 0;
+#X connect 6 0 7 0;
+#X connect 7 0 83 0;
+#X connect 8 0 83 0;
+#X connect 9 0 82 0;
+#X connect 10 0 82 0;
+#X connect 11 0 10 0;
+#X connect 12 0 9 0;
+#X connect 13 0 79 0;
+#X connect 14 0 79 0;
+#X connect 15 0 14 0;
+#X connect 16 0 13 0;
+#X connect 20 0 79 3;
+#X connect 20 1 26 1;
+#X connect 21 0 25 0;
+#X connect 22 0 24 0;
+#X connect 23 0 20 0;
+#X connect 24 0 82 3;
+#X connect 24 1 27 1;
+#X connect 25 0 83 3;
+#X connect 25 1 28 1;
+#X connect 26 1 19 0;
+#X connect 27 1 18 0;
+#X connect 28 1 17 0;
+#X connect 31 0 32 0;
+#X connect 32 0 73 0;
+#X connect 32 0 87 0;
+#X connect 37 0 36 0;
+#X connect 37 0 33 0;
+#X connect 37 0 35 0;
+#X connect 37 0 34 0;
+#X connect 38 0 37 0;
+#X connect 40 0 42 0;
+#X connect 42 0 41 0;
+#X connect 49 0 80 0;
+#X connect 50 0 80 0;
+#X connect 51 0 50 0;
+#X connect 52 0 49 0;
+#X connect 54 0 55 0;
+#X connect 55 0 80 3;
+#X connect 55 1 56 1;
+#X connect 56 1 53 0;
+#X connect 57 0 81 0;
+#X connect 58 0 81 0;
+#X connect 59 0 58 0;
+#X connect 60 0 57 0;
+#X connect 62 0 63 0;
+#X connect 63 0 81 3;
+#X connect 63 1 64 1;
+#X connect 64 1 61 0;
+#X connect 65 0 88 0;
+#X connect 66 0 88 0;
+#X connect 67 0 66 0;
+#X connect 68 0 65 0;
+#X connect 70 0 71 0;
+#X connect 71 0 88 3;
+#X connect 71 1 72 1;
+#X connect 72 1 69 0;
+#X connect 73 0 37 0;
+#X connect 79 0 26 0;
+#X connect 80 0 56 0;
+#X connect 81 0 64 0;
+#X connect 82 0 27 0;
+#X connect 83 0 28 0;
+#X connect 84 0 86 0;
+#X connect 86 0 85 0;
+#X connect 88 0 72 0;
+#X connect 90 0 92 0;
+#X connect 91 0 48 0;
+#X connect 92 0 91 0;
+#X restore 45 106 pd interface;
+#X obj 247 100 bng 15 50 10 0 \$0resetMemory \$0setResetMemory resetMemory
+17 7 0 10 -262130 -1 -66577;
+#X obj 247 64 tgl 15 0 \$0record \$0setRecord record 17 7 0 10 -262130
+-1 -66577 0 1;
+#X obj 45 194 text define \$0memory;
+#X obj 45 172 r \$0memory;
+#X obj 283 227 nbx 4 14 0 128 0 0 \$0soundOut \$0setSoundOut soundOut
+47 8 0 10 -204786 -1 -66577 0 256;
+#X obj 265 226 bng 15 50 10 0 \$0soundOutUp \$0no-r empty 17 7 0 10
+-204786 -1 -66577;
+#X obj 247 226 bng 15 50 10 0 \$0soundOutDown \$0no-r empty 17 7 0
+10 -204786 -1 -66577;
+#X obj 283 245 nbx 4 14 0 16 0 0 \$0channelOut \$0setChannelOut channelOut
+47 8 0 10 -204786 -1 -66577 0 256;
+#X obj 265 244 bng 15 50 10 0 \$0channelOutUp \$0no-r empty 17 7 0
+10 -204786 -1 -66577;
+#X obj 247 244 bng 15 50 10 0 \$0channelOutDown \$0no-r empty 17 7
+0 10 -204786 -1 -66577;
+#X obj 283 209 nbx 4 14 0 10000 0 0 \$0noteLength \$0setNoteLength
+noteLength 47 8 0 10 -204786 -1 -66577 80 256;
+#X obj 265 208 bng 15 50 10 0 \$0noteLengthUp \$0no-r empty 17 7 0
+10 -204786 -1 -66577;
+#X obj 247 208 bng 15 50 10 0 \$0noteLengthDown \$0no-r empty 17 7
+0 10 -204786 -1 -66577;
+#N canvas 207 82 576 640 record 0;
+#X obj 109 199 unpack;
+#X obj 264 546 unpack f f f f;
+#X obj 109 67 openpanel;
+#X msg 109 89 read \$1;
+#X obj 276 316 bng 15 250 50 0 empty \$0midiclock midiclock 17 7 0
+10 -262144 -1 -1;
+#X obj 109 47 bng 15 250 50 0 empty \$0midiFile midiFile 17 7 0 10
+-262130 -1 -66577;
+#X obj 201 47 bng 15 250 50 0 \$0resetMemory \$0no-r resetMemory 17
+7 0 10 -262130 -1 -66577;
+#X obj 109 155 seq;
+#X obj 72 463 list;
+#X obj 109 441 t l l;
+#X obj 129 353 timer;
+#X obj 49 397 t b b b;
+#X obj 109 111 t b a b;
+#X obj 169 331 once;
+#X obj 109 309 t l b b b;
+#X obj 299 446 list;
+#X obj 348 424 t l l;
+#X obj 276 358 t b b b;
+#X obj 246 402 pack 0 0 f f;
+#X obj 264 502 list split 1;
+#X obj 109 397 l2s ?;
+#X obj 246 424 l2s ?;
+#X obj 264 524 s2l ?;
+#X obj 109 419 list prepend;
+#X obj 348 380 l2s ?;
+#X obj 348 402 list prepend;
+#X msg 109 133 start 1e+08;
+#X obj 232 380 unpack f f f f;
+#X obj 109 265 spigot 1;
+#X obj 148 221 t f f;
+#X obj 180 243 != 0;
+#X obj 109 287 pack f f f f;
+#X obj 109 177 midiparse;
+#X obj 348 314 notein;
+#X obj 402 314 pgmin;
+#X obj 348 336 pack f f f f;
+#X obj 348 358 t l l;
+#X obj 72 507 text set \$0memory 1e+08;
+#X obj 276 336 del 10;
+#X obj 325 568 nbx 4 14 0 127 0 0 \$0velocityShow empty velocityShow
+0 25 0 10 -261682 -1 -66577 0 256;
+#X obj 264 568 nbx 4 14 0 127 0 0 \$0pitchShow empty pitchShow 0 25
+0 10 -261682 -1 -66577 0 256;
+#X obj 465 568 nbx 4 14 0 64 0 0 \$0channelShow empty channelShow 0
+25 0 10 -261682 -1 -66577 0 256;
+#X obj 402 568 nbx 4 14 0 128 0 0 \$0soundShow empty soundShow 0 25
+0 10 -261682 -1 -66577 0 256;
+#X obj 299 468 spigot;
+#X obj 338 448 tgl 15 0 empty \$0record record 17 7 0 10 -262130 -1
+-66577 0 1;
+#X obj 72 485 t l l;
+#X obj 129 375 sel;
+#X obj 112 463 r \$2midiFileAll;
+#X connect 0 0 28 0;
+#X connect 0 1 29 0;
+#X connect 1 0 40 0;
+#X connect 1 1 39 0;
+#X connect 1 2 42 0;
+#X connect 1 3 41 0;
+#X connect 2 0 3 0;
+#X connect 3 0 12 0;
+#X connect 4 0 38 0;
+#X connect 5 0 2 0;
+#X connect 7 0 32 0;
+#X connect 7 1 11 0;
+#X connect 8 0 45 0;
+#X connect 9 0 8 1;
+#X connect 9 1 23 1;
+#X connect 10 0 46 0;
+#X connect 11 0 8 1;
+#X connect 11 1 8 0;
+#X connect 11 2 23 1;
+#X connect 12 0 26 0;
+#X connect 12 1 7 0;
+#X connect 12 2 13 1;
+#X connect 13 0 10 0;
+#X connect 14 0 20 0;
+#X connect 14 1 10 0;
+#X connect 14 2 10 1;
+#X connect 14 3 13 0;
+#X connect 15 0 43 0;
+#X connect 16 0 15 1;
+#X connect 16 1 25 1;
+#X connect 17 0 18 0;
+#X connect 17 1 15 0;
+#X connect 17 2 25 1;
+#X connect 18 0 21 0;
+#X connect 19 0 22 0;
+#X connect 20 0 23 0;
+#X connect 21 0 15 1;
+#X connect 22 0 1 0;
+#X connect 23 0 9 0;
+#X connect 24 0 25 0;
+#X connect 25 0 16 0;
+#X connect 26 0 7 0;
+#X connect 27 2 18 2;
+#X connect 27 3 18 3;
+#X connect 28 0 31 0;
+#X connect 29 0 31 1;
+#X connect 29 1 30 0;
+#X connect 30 0 28 1;
+#X connect 31 0 14 0;
+#X connect 32 0 0 0;
+#X connect 32 3 31 2;
+#X connect 32 6 31 3;
+#X connect 33 0 35 0;
+#X connect 33 1 35 1;
+#X connect 33 2 35 3;
+#X connect 34 0 35 2;
+#X connect 35 0 36 0;
+#X connect 36 0 24 0;
+#X connect 36 1 27 0;
+#X connect 38 0 17 0;
+#X connect 43 0 45 0;
+#X connect 44 0 43 1;
+#X connect 45 0 37 0;
+#X connect 45 1 19 0;
+#X connect 46 1 11 0;
+#X connect 47 0 45 0;
+#X restore 45 40 pd record;
+#X obj 247 82 bng 15 50 10 0 \$0midiFile \$0setMidiFile midiFile 17
+7 0 10 -262130 -1 -66577;
+#X connect 20 0 19 0;
+#X connect 25 0 24 0;
+#X coords 0 -1 1 1 170 294 1 240 40;

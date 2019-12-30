@@ -1,0 +1,13 @@
+#N canvas 0 21 689 495 12;
+#X obj 336 28 ../psc param1 \$1 16;
+#X text 340 72 This value is stored.;
+#X text 92 9 -root-;
+#X text 99 337 This can be used to exclude params from being saved
+in the root patch \, like so:;
+#X obj 87 371 ../ezpst ./tut/pst/B05-loc nobody:local;
+#X obj 327 357 ../psc param1 nobody:local 3;
+#X obj 89 23 ../ezpst ./tut/pst/B05- \$1;
+#X obj 88 164 eztut \$1:bar:baz;
+#X text 94 102 The instance [baz] with parent [bar] and grandparent
+[\$1] passes its values one level up \, but nobody is listening there
+\, so -root- doesn't get its values.;

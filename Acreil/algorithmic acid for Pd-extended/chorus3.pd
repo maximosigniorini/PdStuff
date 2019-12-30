@@ -1,0 +1,47 @@
+#N canvas 849 225 590 323 10;
+#X text 73 -45 Control panel for 8 voice random chorus.;
+#X obj 410 83 loadbang;
+#X obj 315 84 r go;
+#X obj 315 103 s \$0-en;
+#X obj 410 102 f \$0;
+#X obj 101 103 cnv 15 153 124 empty empty chorus3_\$1 1 6 0 10 -249534
+-1 0;
+#X floatatom 220 137 5 -2400 2400 0 max_detune_(cents) #0-mxdt #1-mxdt
+;
+#X floatatom 220 155 5 0 100 0 min_depth_(percent) #0-msl #1-msl;
+#X floatatom 220 173 5 0 0 0 max_delay_(ms) #0-mxdel #1-mxdel;
+#X floatatom 166 119 5 0 100 0 lam #0-lam #1-lam;
+#X floatatom 220 119 5 0 0 0 min #0-min #1-min;
+#X obj 240 105 tgl 12 0 \$1-enn \$0-en en -14 5 0 10 -262144 -1 -1
+0 1;
+#X floatatom 220 209 5 0 0 0 max_mod_rate_(Hz) #1-mxfq #1-mxfqout;
+#X obj 127 119 bng 16 250 50 0 \$1-rnd \$0-rnd rand -26 7 0 10 -262144
+-1 -1;
+#X floatatom 220 191 5 0 10000 0 lag_(time_const_s) #0-lag #1-lag;
+#X obj 25 -17 inlet;
+#X obj 25 2 s \$0-lam;
+#X obj 79 -17 inlet;
+#X obj 79 2 s \$0-min;
+#X obj 133 -17 inlet;
+#X obj 133 2 s \$0-mxdt;
+#X obj 193 -17 inlet;
+#X obj 193 2 s \$0-msl;
+#X obj 247 -17 inlet;
+#X obj 247 2 s \$0-mxdel;
+#X obj 313 -17 inlet;
+#X obj 313 2 s \$0-lag;
+#X obj 367 -17 inlet;
+#X obj 367 2 s \$1-mxfq;
+#X msg 410 121 \; \$1-rnd \; \$1-lam 3 \; \$1-min 100 \; \$1-mxdt 10
+\; \$1-msl 75 \; \$1-mxdel 20 \; \$1-lag 0.1 \; \$1-en 1 \;;
+#X connect 1 0 4 0;
+#X connect 2 0 3 0;
+#X connect 4 0 29 0;
+#X connect 15 0 16 0;
+#X connect 17 0 18 0;
+#X connect 19 0 20 0;
+#X connect 21 0 22 0;
+#X connect 23 0 24 0;
+#X connect 25 0 26 0;
+#X connect 27 0 28 0;
+#X coords 0 -1 1 1 155 128 1 100 100;

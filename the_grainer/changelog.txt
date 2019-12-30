@@ -1,0 +1,4 @@
+01/02/2018
+-Added rightmost bang outlet and method for bang each n grains generated.
+-Added three types of value selection (random, cycling, shuffling) for gap, duration, pitch deviation,
+audio table access times and audio table selection.

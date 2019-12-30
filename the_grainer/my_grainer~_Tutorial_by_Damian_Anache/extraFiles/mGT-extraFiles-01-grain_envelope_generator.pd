@@ -1,0 +1,725 @@
+#N canvas 226 230 835 518 10;
+#X obj 10 5 cnv 15 800 40 empty empty my_grainer~_tutorial:_extra_files-01_-_grain_envelope_generator
+3 12 0 18 -204280 -1 0;
+#X obj 11 390 cnv 15 800 50 empty empty empty 3 12 0 18 -203904 -1
+0;
+#X obj 520 28 pddplink http://puredata.info/Members/pdiliscia/grainer/
+;
+#X text 802 29 );
+#X obj 10 51 cnv 10 800 70 empty empty empty 8 12 0 13 -228856 -1 0
+;
+#X text 10 28 A guide to manage granular synthesis through my_grainer~
+;
+#X text 351 28 (external by O.P. Di Liscia;
+#X obj 11 445 cnv 15 800 40 empty empty empty 3 12 0 18 -203904 -1
+0;
+#X text 209 463 (Consejo Nacional de Investigaciones CientÃ­ficas y
+TÃ©cnicas);
+#X text 163 463 CONICET;
+#X text 574 463 + UNQ (Universidad Nacional de Quilmes);
+#X obj 556 447 pddplink http://puredata.info/author/damiananache/;
+#X text 802 448 );
+#X text 369 390 that is being developed by Oscar Pablo Di Liscia with
+the;
+#X text 717 390 collaboration;
+#X text 15 390 my_grainer~ is a Pure Data external for granular synthesis
+of DamiÃ¡n Anache and Esteban Calcagno as part of the;
+#X text 328 403 research program "Sistemas Temporales y de Sintesis
+;
+#X text 645 403 Espacial en el Arte Sonoro";
+#X text 15 417 (Universidad Nacional de Quilmes \, 2015-2019).;
+#X text 241 447 mGT (my_grainer~ tutorial) by Damian Anache - 2016
+(;
+#X text 23 51 This patch is a grain envelope generation tool. Its GUI
+allows to create all the commonly used grain envelopes (all except
+the sinc function \, meaning: gaussian \, quasi-gaussian \, three-stage
+line segment \, triangular \, expodisc and rexpoede) just by moving
+sliders.;
+#X text 423 51 Based on Bezier curves \, many other variations can
+be easily generated too. The patch offers an export option for using
+the envelopes on any projects.;
+#N canvas 34 249 1156 573 mainPatch 0;
+#X obj 519 352 unpack f f;
+#X obj 206 350 unpack f f;
+#X obj 353 367 expr $f2-$f1;
+#X obj 179 283 t b f;
+#X obj 323 301 r \$0-grainEnvelope-start;
+#X obj 636 310 r \$0-grainEnvelope-end;
+#N canvas 175 123 1112 775 fader_bezier-ctrl 0;
+#X floatatom 149 0 5 0 0 0 - - -;
+#X floatatom 488 213 5 0 0 0 - - -;
+#X obj 111 93 until;
+#X obj 111 130 f;
+#X obj 148 147 + 1;
+#X obj 111 74 t f b;
+#X msg 146 107 0;
+#X obj 111 150 t f f;
+#X obj -80 250 expr pow((1-$f1) \, 3);
+#X obj -119 208 expr $f2 * 3 * (pow($f1 \, 2)) * (1-$f1);
+#X obj -100 229 expr $f2 * 3 * $f1 * (pow((1-$f1) \, 2));
+#X obj -100 272 +;
+#X obj -119 293 +;
+#X obj -119 187 t f f f;
+#X obj 488 0 min 1;
+#X obj -119 167 / 60;
+#X floatatom 149 -68 5 0 0 0 - - -;
+#X obj 149 -110 inlet;
+#X text 147 -133 tipo de curva;
+#X obj 93 310 pack f f;
+#X obj 93 352 outlet;
+#X text 77 369 paquete X \, Y;
+#X text -141 -227 Damian Anache - Universidad Nacional de Quilmes +
+;
+#X text -280 -239 ************************************************************
+;
+#X text 80 -239 ************************************************************
+;
+#X text 440 -239 **********************************************;
+#X text -280 -209 ************************************************************
+;
+#X text 80 -209 ************************************************************
+;
+#X text 440 -209 **********************************************;
+#X text -280 -179 ************************************************************
+;
+#X text 80 -179 ************************************************************
+;
+#X text 440 -179 **********************************************;
+#X text 160 -227 Instituto Universitario Nacioanl del Arte - Argentina
+- 2012;
+#X text -280 501 ************************************************************
+;
+#X text 80 501 ************************************************************
+;
+#X text 440 501 **********************************************;
+#X text 60 383 para array grafico;
+#X obj 176 352 outlet;
+#X obj 488 352 outlet;
+#X text 172 -196 fade_bezier_ctrl;
+#X obj -125 -109 inlet;
+#X text -151 -132 tamaño de tabla;
+#X floatatom -125 -85 5 0 0 0 - - -;
+#N canvas 852 477 554 315 escalamientoRango 0;
+#X text 127 52 min;
+#X text 212 52 max;
+#X text 294 52 min;
+#X text 382 52 max;
+#X obj 41 80 inlet;
+#X obj 41 264 outlet;
+#X obj 124 80 inlet;
+#X obj 207 80 inlet;
+#X obj 290 80 inlet;
+#X obj 374 80 inlet;
+#X obj 446 86 loadbang;
+#X text 167 29 input;
+#X text 327 29 output;
+#X obj 41 173 expr (1 - (($f3-$f1) / ($f3 - $f2))) * ($f5 - $f4) +
+$f4;
+#X msg 135 103 0;
+#X msg 225 103 1;
+#X msg 305 103 0;
+#X msg 385 103 2.333;
+#X connect 4 0 13 0;
+#X connect 6 0 13 1;
+#X connect 7 0 13 2;
+#X connect 8 0 13 3;
+#X connect 9 0 13 4;
+#X connect 10 0 17 0;
+#X connect 10 0 16 0;
+#X connect 10 0 15 0;
+#X connect 10 0 14 0;
+#X connect 13 0 5 0;
+#X connect 14 0 13 1;
+#X connect 15 0 13 2;
+#X connect 16 0 13 3;
+#X connect 17 0 13 4;
+#X restore 149 -88 pd escalamientoRango;
+#X obj -125 36 f;
+#X obj 149 -48 expr if($f1>0.333 \, if($f1>0.999 \, if($f1>1.333 \,
+$f1-1.333 \, 0.333-($f1-0.999)) \, 0.333) \, $f1) \; if($f1<0.333 \,
+0 \, $f1-0.333);
+#X obj 176 191 f;
+#X obj -125 57 t f f;
+#X obj 149 19 t b f;
+#X text 360 427 las ecuaciones para la curva Bézier fueron extraídas
+de la publicación de "LarsXI" en el foro oficial de pure data http://puredata.hurleur.com/viewtopic.php?pid=31612#p31612
+nombre del patch original: lxi_bezcurvehack.pd 2010-11-08;
+#X connect 0 0 48 0;
+#X connect 1 0 10 1;
+#X connect 1 0 38 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 3 0 7 0;
+#X connect 4 0 3 1;
+#X connect 5 0 2 0;
+#X connect 5 1 6 0;
+#X connect 6 0 3 0;
+#X connect 7 0 15 0;
+#X connect 7 1 19 1;
+#X connect 8 0 11 1;
+#X connect 9 0 12 0;
+#X connect 10 0 11 0;
+#X connect 11 0 12 1;
+#X connect 12 0 19 0;
+#X connect 13 0 9 0;
+#X connect 13 1 10 0;
+#X connect 13 2 8 0;
+#X connect 14 0 1 0;
+#X connect 15 0 13 0;
+#X connect 16 0 45 0;
+#X connect 17 0 43 0;
+#X connect 19 0 20 0;
+#X connect 40 0 42 0;
+#X connect 42 0 44 0;
+#X connect 43 0 16 0;
+#X connect 44 0 47 0;
+#X connect 45 0 0 0;
+#X connect 45 1 14 0;
+#X connect 46 0 9 1;
+#X connect 46 0 37 0;
+#X connect 47 0 5 0;
+#X connect 47 1 15 1;
+#X connect 48 0 44 0;
+#X connect 48 1 46 0;
+#X restore 206 329 pd fader_bezier-ctrl;
+#X obj 206 427 tabwrite \$0-grainEnvelope;
+#X obj 519 429 tabwrite \$0-grainEnvelope;
+#X obj 660 263 switch;
+#X obj 520 246 + 1;
+#X obj 520 226 r \$0-grainEnvelope-link;
+#X obj 831 188 -;
+#X obj 831 146 f;
+#X obj 897 129 t b f;
+#X obj 676 223 f;
+#X obj 684 203 t b f;
+#X obj 195 223 f;
+#X obj 225 196 t b f;
+#X obj 912 183 expr if($f1 < $f2 \, $f1 \, $f2);
+#X obj 831 327 until;
+#X obj 831 364 f;
+#X obj 831 308 t f b;
+#X msg 858 348 0;
+#X obj 831 401 +;
+#X obj 831 485 tabwrite \$0-grainEnvelope;
+#X obj 831 441 t b f;
+#X msg 831 461 1;
+#X obj 831 245 abs;
+#X obj 179 263 switch;
+#X obj 309 246 + 1;
+#X obj 309 226 r \$0-grainEnvelope-link;
+#X obj 926 366 r \$0-grainEnvelope-link;
+#X obj 831 421 spigot;
+#X obj 926 406 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+-1;
+#X obj 926 386 - 1;
+#X obj 868 381 + 1;
+#X obj 897 384 f;
+#X text 277 19 starting curve;
+#X text 573 15 ending curve;
+#X obj 897 251 int;
+#X obj 912 204 + 0.5;
+#X obj 831 286 int;
+#X obj 831 265 + 0.5;
+#X obj 666 409 int;
+#X obj 666 389 + 0.5;
+#X obj 353 407 int;
+#X obj 353 387 + 0.5;
+#X obj 206 307 t f f;
+#X obj 422 324 f;
+#N canvas 185 123 1112 775 fader_bezier-ctrl 0;
+#X floatatom 149 0 5 0 0 0 - - -;
+#X floatatom 488 213 5 0 0 0 - - -;
+#X obj 111 93 until;
+#X obj 111 130 f;
+#X obj 148 147 + 1;
+#X obj 111 74 t f b;
+#X msg 141 104 0;
+#X obj 111 150 t f f;
+#X obj -80 250 expr pow((1-$f1) \, 3);
+#X obj -119 208 expr $f2 * 3 * (pow($f1 \, 2)) * (1-$f1);
+#X obj -100 229 expr $f2 * 3 * $f1 * (pow((1-$f1) \, 2));
+#X obj -100 272 +;
+#X obj -119 293 +;
+#X obj -119 187 t f f f;
+#X obj 488 0 min 1;
+#X obj -119 167 / 60;
+#X floatatom 149 -68 5 0 0 0 - - -;
+#X obj 149 -110 inlet;
+#X text 147 -133 tipo de curva;
+#X obj 93 310 pack f f;
+#X obj 93 352 outlet;
+#X text 77 369 paquete X \, Y;
+#X text -141 -227 Damian Anache - Universidad Nacional de Quilmes +
+;
+#X text -280 -239 ************************************************************
+;
+#X text 80 -239 ************************************************************
+;
+#X text 440 -239 **********************************************;
+#X text -280 -209 ************************************************************
+;
+#X text 80 -209 ************************************************************
+;
+#X text 440 -209 **********************************************;
+#X text -280 -179 ************************************************************
+;
+#X text 80 -179 ************************************************************
+;
+#X text 440 -179 **********************************************;
+#X text 160 -227 Instituto Universitario Nacioanl del Arte - Argentina
+- 2012;
+#X text -280 501 ************************************************************
+;
+#X text 80 501 ************************************************************
+;
+#X text 440 501 **********************************************;
+#X text 60 383 para array grafico;
+#X obj 176 352 outlet;
+#X obj 488 352 outlet;
+#X text 172 -196 fade_bezier_ctrl;
+#X obj -125 -109 inlet;
+#X text -151 -132 tamaño de tabla;
+#X floatatom -125 -85 5 0 0 0 - - -;
+#N canvas 854 472 554 315 escalamientoRango 0;
+#X text 127 52 min;
+#X text 212 52 max;
+#X text 294 52 min;
+#X text 382 52 max;
+#X obj 41 80 inlet;
+#X obj 41 264 outlet;
+#X obj 124 80 inlet;
+#X obj 207 80 inlet;
+#X obj 290 80 inlet;
+#X obj 374 80 inlet;
+#X obj 446 86 loadbang;
+#X text 167 29 input;
+#X text 327 29 output;
+#X obj 41 173 expr (1 - (($f3-$f1) / ($f3 - $f2))) * ($f5 - $f4) +
+$f4;
+#X msg 135 103 0;
+#X msg 225 103 1;
+#X msg 305 103 0;
+#X msg 385 103 2.333;
+#X connect 4 0 13 0;
+#X connect 6 0 13 1;
+#X connect 7 0 13 2;
+#X connect 8 0 13 3;
+#X connect 9 0 13 4;
+#X connect 10 0 17 0;
+#X connect 10 0 16 0;
+#X connect 10 0 15 0;
+#X connect 10 0 14 0;
+#X connect 13 0 5 0;
+#X connect 14 0 13 1;
+#X connect 15 0 13 2;
+#X connect 16 0 13 3;
+#X connect 17 0 13 4;
+#X restore 149 -88 pd escalamientoRango;
+#X obj -125 36 f;
+#X obj 149 -48 expr if($f1>0.333 \, if($f1>0.999 \, if($f1>1.333 \,
+$f1-1.333 \, 0.333-($f1-0.999)) \, 0.333) \, $f1) \; if($f1<0.333 \,
+0 \, $f1-0.333);
+#X obj 176 191 f;
+#X obj -125 57 t f f;
+#X obj 149 19 t b f;
+#X text 360 427 las ecuaciones para la curva Bézier fueron extraídas
+de la publicación de "LarsXI" en el foro oficial de pure data http://puredata.hurleur.com/viewtopic.php?pid=31612#p31612
+nombre del patch original: lxi_bezcurvehack.pd 2010-11-08;
+#X connect 0 0 48 0;
+#X connect 1 0 10 1;
+#X connect 1 0 38 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 3 0 7 0;
+#X connect 4 0 3 1;
+#X connect 5 0 2 0;
+#X connect 5 1 6 0;
+#X connect 6 0 3 0;
+#X connect 7 0 15 0;
+#X connect 7 1 19 1;
+#X connect 8 0 11 1;
+#X connect 9 0 12 0;
+#X connect 10 0 11 0;
+#X connect 11 0 12 1;
+#X connect 12 0 19 0;
+#X connect 13 0 9 0;
+#X connect 13 1 10 0;
+#X connect 13 2 8 0;
+#X connect 14 0 1 0;
+#X connect 15 0 13 0;
+#X connect 16 0 45 0;
+#X connect 17 0 43 0;
+#X connect 19 0 20 0;
+#X connect 40 0 42 0;
+#X connect 42 0 44 0;
+#X connect 43 0 16 0;
+#X connect 44 0 47 0;
+#X connect 45 0 0 0;
+#X connect 45 1 14 0;
+#X connect 46 0 9 1;
+#X connect 46 0 37 0;
+#X connect 47 0 5 0;
+#X connect 47 1 15 1;
+#X connect 48 0 44 0;
+#X connect 48 1 46 0;
+#X restore 519 332 pd fader_bezier-ctrl;
+#X obj 660 284 t f f;
+#X obj 666 369 + 60;
+#X obj 519 301 expr 120 - $f1;
+#X obj 195 243 clip 0 120;
+#X obj 676 243 clip 0 120;
+#X obj 21 39 t f f f;
+#X obj 21 19 r \$0-grainEnvelope-centerL;
+#X obj 195 56 f;
+#X obj 693 181 f;
+#X obj 21 93 t f f f;
+#X obj 21 73 r \$0-grainEnvelope-centerR;
+#X obj 676 110 f;
+#X obj 831 110 f;
+#X obj 693 56 f;
+#X obj 225 110 f;
+#X obj 897 56 f;
+#X text 836 18 filling the gap between curves (value = 1);
+#X obj 870 228 t f b;
+#X obj 831 209 moses 1;
+#X obj 831 166 t f f;
+#X connect 0 0 8 0;
+#X connect 0 1 52 0;
+#X connect 1 0 7 0;
+#X connect 1 1 2 0;
+#X connect 2 0 47 0;
+#X connect 3 1 48 0;
+#X connect 4 0 6 1;
+#X connect 5 0 50 1;
+#X connect 6 0 1 0;
+#X connect 9 0 51 0;
+#X connect 10 0 9 0;
+#X connect 11 0 10 0;
+#X connect 12 0 69 0;
+#X connect 13 0 70 0;
+#X connect 14 0 13 0;
+#X connect 14 1 12 1;
+#X connect 14 1 19 1;
+#X connect 15 0 55 0;
+#X connect 16 0 15 0;
+#X connect 16 1 55 1;
+#X connect 17 0 54 0;
+#X connect 18 0 17 0;
+#X connect 18 1 54 2;
+#X connect 19 0 41 0;
+#X connect 20 0 21 0;
+#X connect 21 0 36 0;
+#X connect 21 0 24 0;
+#X connect 22 0 20 0;
+#X connect 22 1 23 0;
+#X connect 23 0 21 0;
+#X connect 24 0 33 0;
+#X connect 26 0 27 0;
+#X connect 26 1 25 1;
+#X connect 27 0 25 0;
+#X connect 28 0 43 0;
+#X connect 29 0 3 0;
+#X connect 30 0 29 0;
+#X connect 31 0 30 0;
+#X connect 32 0 35 0;
+#X connect 33 0 26 0;
+#X connect 34 0 33 1;
+#X connect 35 0 34 0;
+#X connect 36 0 21 1;
+#X connect 37 0 24 1;
+#X connect 40 0 37 0;
+#X connect 41 0 40 1;
+#X connect 42 0 22 0;
+#X connect 43 0 42 0;
+#X connect 44 0 8 1;
+#X connect 45 0 44 0;
+#X connect 46 0 7 1;
+#X connect 47 0 46 0;
+#X connect 48 0 6 0;
+#X connect 48 1 49 0;
+#X connect 49 0 2 1;
+#X connect 50 0 0 0;
+#X connect 51 0 53 0;
+#X connect 51 1 52 1;
+#X connect 52 0 45 0;
+#X connect 53 0 50 0;
+#X connect 54 0 29 1;
+#X connect 55 0 9 1;
+#X connect 56 0 66 0;
+#X connect 56 1 64 0;
+#X connect 56 2 58 0;
+#X connect 57 0 56 0;
+#X connect 58 0 17 0;
+#X connect 58 0 29 2;
+#X connect 59 0 9 2;
+#X connect 59 0 16 0;
+#X connect 60 0 63 0;
+#X connect 60 1 62 0;
+#X connect 60 2 65 0;
+#X connect 61 0 60 0;
+#X connect 62 0 15 0;
+#X connect 63 0 13 0;
+#X connect 64 0 59 0;
+#X connect 65 0 18 0;
+#X connect 66 0 14 0;
+#X connect 68 0 28 0;
+#X connect 68 1 40 0;
+#X connect 69 1 68 0;
+#X connect 70 0 12 0;
+#X connect 70 1 19 0;
+#X restore 670 362 pd mainPatch;
+#N canvas 237 443 450 300 export 0;
+#X obj 83 58 r \$0-grainEnvelope-exportGUIout;
+#X obj 83 78 savepanel;
+#X obj 83 140 soundfiler;
+#X obj 334 61 loadbang;
+#X obj 334 81 f \$0;
+#X obj 83 98 prepend;
+#X msg 83 118 write -wave \$2 \$1-grainEnvelope;
+#X connect 0 0 1 0;
+#X connect 1 0 5 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 1;
+#X connect 5 0 6 0;
+#X connect 6 0 2 0;
+#X restore 751 362 pd export;
+#X obj 338 166 vsl 8 39 0 1 0 0 \$0-grainEnvelope-end \$0-grainEnvelope-end-GUI
+empty 0 -9 0 10 -228856 -1 -1 2170 1;
+#X obj 348 164 vradio 11 1 0 4 \$0-grainEnvelope-end-prst \$0-grainEnvelope-end-prst-GUI
+empty 0 -8 0 10 -191407 -1 -1 1;
+#X obj 76 166 vsl 8 39 0 1 0 0 \$0-grainEnvelope-start \$0-grainEnvelope-start-GUI
+empty 0 -9 0 10 -228856 -1 -1 2170 1;
+#X obj 62 164 vradio 11 1 0 4 \$0-grainEnvelope-start-prst \$0-grainEnvelope-start-prst-GUI
+empty 0 -8 0 10 -191407 -1 -1 1;
+#X obj 89 210 hsl 245 8 0 120 0 0 \$0-grainEnvelope-centerL \$0-grainEnvelope-centerL-GUI
+empty -2 -8 0 10 -228856 -1 -1 12200 1;
+#X obj 208 230 bng 8 250 50 0 empty \$0-grainEnvelope-centerGUIin empty
+17 7 0 10 -262144 -1 -1;
+#N canvas 1 58 1425 840 (subpatch) 0;
+#X array \$0-grainEnvelope 121 float 1;
+#A 0 0 0.000810624 0.00323207 0.0072088 0.0126853 0.0196061 0.0279156
+0.0375584 0.0484788 0.0606215 0.0739308 0.0883513 0.103827 0.120304
+0.137725 0.156035 0.175178 0.1951 0.215744 0.237055 0.258978 0.281457
+0.304436 0.32786 0.351674 0.375821 0.400247 0.424896 0.449712 0.474641
+0.499625 0.52461 0.549541 0.574361 0.599016 0.62345 0.647606 0.671431
+0.694867 0.717861 0.740355 0.762296 0.783626 0.804291 0.824235 0.843403
+0.861739 0.879187 0.895693 0.9112 0.925652 0.938996 0.951175 0.962132
+0.971814 0.980165 0.987128 0.992649 0.996671 0.99914 1 0.99914 0.996671
+0.992649 0.987128 0.980165 0.971814 0.962132 0.951175 0.938996 0.925652
+0.9112 0.895693 0.879187 0.861739 0.843403 0.824235 0.804291 0.783626
+0.762296 0.740355 0.717861 0.694867 0.671431 0.647606 0.62345 0.599016
+0.574361 0.549541 0.52461 0.499625 0.474641 0.449712 0.424896 0.400247
+0.375821 0.351674 0.32786 0.304436 0.281457 0.258978 0.237055 0.215744
+0.1951 0.175178 0.156035 0.137725 0.120304 0.103827 0.0883513 0.0739308
+0.0606215 0.0484788 0.0375584 0.0279156 0.0196061 0.0126853 0.0072088
+0.00323207 0.000810624 0;
+#X coords 0 1.1 120 0 248 48 2 0 0;
+#X restore 87 160 graph;
+#X text 161 225 center;
+#X obj 341 212 bng 14 250 50 0 \$0-grainEnvelope-exportGUIout empty
+empty 17 7 0 10 -262144 -1 -1;
+#X obj 89 220 hsl 245 8 0 120 0 0 \$0-grainEnvelope-centerR \$0-grainEnvelope-centerR-GUI
+empty -2 -8 0 10 -228856 -1 -1 12200 1;
+#X obj 65 212 tgl 14 0 \$0-grainEnvelope-link \$0-grainEnvelope-link-GUI
+empty 17 7 0 10 -262144 -1 -1 1 1;
+#X text 60 225 link;
+#X obj 208 281 s \$0-grainEnvelope-centerL-GUI;
+#X obj 208 300 s \$0-grainEnvelope-centerR-GUI;
+#X msg 208 261 60;
+#X obj 65 244 sel 1;
+#X text 328 223 exprt;
+#N canvas 114 111 1152 746 GUIpresets 0;
+#X obj 65 280 r \$0-grainEnvelope-start-prst;
+#X obj 98 370 s \$0-grainEnvelope-start-GUI;
+#X obj 61 444 r \$0-grainEnvelope-end-prst;
+#X obj 97 533 s \$0-grainEnvelope-end-GUI;
+#X msg 122 328 0.571;
+#X msg 176 329 1;
+#X msg 31 328 0;
+#X msg 68 328 0.428;
+#X obj 65 301 sel 3 2 1 0;
+#X msg 121 496 0.571;
+#X msg 181 496 1;
+#X msg 21 496 0;
+#X msg 61 497 0.428;
+#X obj 61 465 sel 3 2 1 0;
+#X obj 369 64 loadbang;
+#X obj 361 13 inlet;
+#X msg 405 245 1;
+#X msg 388 287 1;
+#X obj 405 267 s \$0-grainEnvelope-end-prst-GUI;
+#X obj 388 309 s \$0-grainEnvelope-start-prst-GUI;
+#X obj 371 332 s \$0-grainEnvelope-centerGUIin;
+#X msg 369 108 gaussian;
+#X msg 646 333 45;
+#X msg 631 379 75;
+#X obj 422 217 s \$0-grainEnvelope-link-GUI;
+#X obj 371 168 t b b b b;
+#X msg 422 193 1;
+#X msg 678 246 1;
+#X msg 662 290 1;
+#X obj 678 268 s \$0-grainEnvelope-end-prst-GUI;
+#X obj 662 312 s \$0-grainEnvelope-start-prst-GUI;
+#X obj 694 217 s \$0-grainEnvelope-link-GUI;
+#X msg 694 193 0;
+#X obj 631 168 t b b b b b;
+#X obj 631 399 s \$0-grainEnvelope-centerR-GUI;
+#X obj 646 356 s \$0-grainEnvelope-centerL-GUI;
+#X msg 896 333 45;
+#X msg 881 379 75;
+#X obj 928 268 s \$0-grainEnvelope-end-prst-GUI;
+#X obj 912 312 s \$0-grainEnvelope-start-prst-GUI;
+#X obj 944 217 s \$0-grainEnvelope-link-GUI;
+#X msg 944 193 0;
+#X obj 881 168 t b b b b b;
+#X obj 881 399 s \$0-grainEnvelope-centerR-GUI;
+#X obj 896 356 s \$0-grainEnvelope-centerL-GUI;
+#X msg 928 246 2;
+#X msg 912 290 2;
+#X obj 418 556 s \$0-grainEnvelope-end-prst-GUI;
+#X obj 402 600 s \$0-grainEnvelope-start-prst-GUI;
+#X obj 434 505 s \$0-grainEnvelope-link-GUI;
+#X obj 371 456 t b b b b b;
+#X msg 418 534 2;
+#X msg 402 578 2;
+#X msg 434 481 1;
+#X obj 371 644 s \$0-grainEnvelope-centerGUIin;
+#X obj 679 556 s \$0-grainEnvelope-end-prst-GUI;
+#X obj 663 600 s \$0-grainEnvelope-start-prst-GUI;
+#X obj 695 505 s \$0-grainEnvelope-link-GUI;
+#X obj 632 456 t b b b b b;
+#X obj 632 687 s \$0-grainEnvelope-centerR-GUI;
+#X obj 647 644 s \$0-grainEnvelope-centerL-GUI;
+#X msg 695 481 0;
+#X msg 679 534 3;
+#X msg 663 578 1;
+#X msg 647 621 0;
+#X msg 632 667 0;
+#X obj 929 556 s \$0-grainEnvelope-end-prst-GUI;
+#X obj 913 600 s \$0-grainEnvelope-start-prst-GUI;
+#X obj 945 505 s \$0-grainEnvelope-link-GUI;
+#X obj 882 456 t b b b b b;
+#X obj 882 687 s \$0-grainEnvelope-centerR-GUI;
+#X obj 897 644 s \$0-grainEnvelope-centerL-GUI;
+#X msg 945 481 0;
+#X msg 929 534 1;
+#X msg 913 578 3;
+#X msg 897 621 120;
+#X msg 882 667 120;
+#X obj 361 133 route gaussian quasi-gaussian three-stage_line_segment
+;
+#X obj 361 427 route triangular expodec rexpodec;
+#X text 432 106 default;
+#X obj 369 85 del 100;
+#X connect 0 0 8 0;
+#X connect 2 0 13 0;
+#X connect 4 0 1 0;
+#X connect 5 0 1 0;
+#X connect 6 0 1 0;
+#X connect 7 0 1 0;
+#X connect 8 0 6 0;
+#X connect 8 1 7 0;
+#X connect 8 2 4 0;
+#X connect 8 3 5 0;
+#X connect 9 0 3 0;
+#X connect 10 0 3 0;
+#X connect 11 0 3 0;
+#X connect 12 0 3 0;
+#X connect 13 0 11 0;
+#X connect 13 1 12 0;
+#X connect 13 2 9 0;
+#X connect 13 3 10 0;
+#X connect 14 0 80 0;
+#X connect 15 0 77 0;
+#X connect 15 0 78 0;
+#X connect 16 0 18 0;
+#X connect 17 0 19 0;
+#X connect 21 0 77 0;
+#X connect 22 0 35 0;
+#X connect 23 0 34 0;
+#X connect 25 0 20 0;
+#X connect 25 1 17 0;
+#X connect 25 2 16 0;
+#X connect 25 3 26 0;
+#X connect 26 0 24 0;
+#X connect 27 0 29 0;
+#X connect 28 0 30 0;
+#X connect 32 0 31 0;
+#X connect 33 0 23 0;
+#X connect 33 1 22 0;
+#X connect 33 2 28 0;
+#X connect 33 3 27 0;
+#X connect 33 4 32 0;
+#X connect 36 0 44 0;
+#X connect 37 0 43 0;
+#X connect 41 0 40 0;
+#X connect 42 0 37 0;
+#X connect 42 1 36 0;
+#X connect 42 2 46 0;
+#X connect 42 3 45 0;
+#X connect 42 4 41 0;
+#X connect 45 0 38 0;
+#X connect 46 0 39 0;
+#X connect 50 0 54 0;
+#X connect 50 2 52 0;
+#X connect 50 3 51 0;
+#X connect 50 4 53 0;
+#X connect 51 0 47 0;
+#X connect 52 0 48 0;
+#X connect 53 0 49 0;
+#X connect 58 0 65 0;
+#X connect 58 1 64 0;
+#X connect 58 2 63 0;
+#X connect 58 3 62 0;
+#X connect 58 4 61 0;
+#X connect 61 0 57 0;
+#X connect 62 0 55 0;
+#X connect 63 0 56 0;
+#X connect 64 0 60 0;
+#X connect 65 0 59 0;
+#X connect 69 0 76 0;
+#X connect 69 1 75 0;
+#X connect 69 2 74 0;
+#X connect 69 3 73 0;
+#X connect 69 4 72 0;
+#X connect 72 0 68 0;
+#X connect 73 0 66 0;
+#X connect 74 0 67 0;
+#X connect 75 0 71 0;
+#X connect 76 0 70 0;
+#X connect 77 0 25 0;
+#X connect 77 1 33 0;
+#X connect 77 2 42 0;
+#X connect 78 0 50 0;
+#X connect 78 1 58 0;
+#X connect 78 2 69 0;
+#X connect 80 0 21 0;
+#X restore 477 303 pd GUIpresets;
+#X obj 477 148 inlet;
+#X msg 501 193 quasi-gaussian;
+#X msg 521 233 triangular;
+#X msg 531 253 expodec;
+#X msg 541 273 rexpodec;
+#X msg 511 213 three-stage_line_segment;
+#X msg 491 173 gaussian;
+#X text 525 146 presets;
+#X obj 10 351 cnv 1 800 2 empty empty empty 8 12 0 13 -228856 -1 0
+;
+#X obj 734 263 loadbang;
+#X obj 734 303 outlet;
+#X obj 734 283 f \$0;
+#X connect 29 0 38 0;
+#X connect 34 0 39 0;
+#X connect 38 0 36 0;
+#X connect 38 0 37 0;
+#X connect 39 0 38 0;
+#X connect 42 0 41 0;
+#X connect 43 0 41 0;
+#X connect 44 0 41 0;
+#X connect 45 0 41 0;
+#X connect 46 0 41 0;
+#X connect 47 0 41 0;
+#X connect 48 0 41 0;
+#X connect 51 0 53 0;
+#X connect 53 0 52 0;
+#X coords 0 -1 1 1 302 80 2 60 160;

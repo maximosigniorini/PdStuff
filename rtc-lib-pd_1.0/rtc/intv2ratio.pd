@@ -1,0 +1,9 @@
+#N canvas 175 138 363 172 10;
+#X obj 25 45 inlet;
+#X obj 25 75 expr exp($f1* 0.0577622650467);
+#X text 252 71 < ln(2) / 12;
+#X obj 25 109 outlet;
+#X text 100 129 1994 by Karlheinz
+Essl;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;

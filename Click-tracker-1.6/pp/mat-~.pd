@@ -1,0 +1,69 @@
+#N canvas 274 228 396 434 10;
+#X obj 31 109 cnv 15 128 29 empty \$1-colord-i empty 20 12 0 14 -134268
+-1 0;
+#X obj 19 322 *~;
+#X obj 45 292 line~;
+#X msg 45 272 \$1 20;
+#X obj 68 77 inlet Lautstaerke;
+#X obj 19 57 inlet~ Signal;
+#X obj 19 362 outlet~;
+#X obj 45 252 dbtorms;
+#X obj 91 362 - 100;
+#X obj 91 322 env~ 8820;
+#N canvas 0 0 426 446 license 0;
+#X text 8 47 All rights reserved.;
+#X text 8 227 The names of its contributors may not be used to endorse
+or promote products derived from this software without specific prior
+written permission.;
+#X text 8 87 Redistribution and use in source and binary forms \, with
+or without modification \, are permitted provided that the following
+conditions are met:;
+#X text 8 127 Redistributions of source code must retain the above
+copyright notice \, this list of conditions and the following disclaimer.
+;
+#X text 8 297 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
+CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES \, INCLUDING
+\, BUT NOT LIMITED TO \, THE IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
+THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT \, INDIRECT
+\, INCIDENTAL \, SPECIAL \, EXEMPLARY \, OR CONSEQUENTIAL DAMAGES (INCLUDING
+\, BUT NOT LIMITED TO \, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES
+;
+#X text 8 167 Redistributions in binary form must reproduce the above
+copyright notice \, this list of conditions and the following disclaimer
+in the documentation and/or other materials provided with the distribution.
+;
+#X text 8 7 Copyright 2006 \, João Pais;
+#X text 8 27 jmmmpais@gmail.com;
+#X restore 15 405 pd license;
+#X text 11 8 [met~] - Level meter with amplitude control;
+#X obj 36 125 hsl 119 10 0 100 0 0 empty \$1-colorh-i empty -2 -8 0
+10 -220796 -1 -1 11800 0;
+#X obj 36 112 hsl 119 10 -100 12 0 0 empty \$1-colorh-i empty -2 -8
+0 10 -220796 -1 -262144 0 1;
+#X text 11 22 Version for Click Tracker (vanilla compatible \, range
+0-100);
+#X obj 19 232 *~;
+#X obj 35 212 line~;
+#X msg 35 192 \$1 20;
+#X obj 35 152 r \$1-volume-gui;
+#X text 12 387 (C) 2009-2018 João Pais - jmmmpais@gmail.com;
+#X obj 35 172 * 0.1;
+#X obj 91 342 dbtofad;
+#X connect 1 0 6 0;
+#X connect 1 0 9 0;
+#X connect 2 0 1 1;
+#X connect 3 0 2 0;
+#X connect 4 0 12 0;
+#X connect 5 0 15 0;
+#X connect 7 0 3 0;
+#X connect 8 0 13 0;
+#X connect 9 0 21 0;
+#X connect 12 0 7 0;
+#X connect 15 0 1 0;
+#X connect 16 0 15 1;
+#X connect 17 0 16 0;
+#X connect 18 0 20 0;
+#X connect 20 0 17 0;
+#X connect 21 0 8 0;
+#X coords 0 -1 1 1 130 31 1 30 108;

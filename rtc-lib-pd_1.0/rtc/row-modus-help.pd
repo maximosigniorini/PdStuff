@@ -1,0 +1,55 @@
+#N canvas 1 48 790 520 10;
+#X text 19 30 row-modus;
+#X text 30 144 3 ... retro-inversion;
+#X text 30 130 2 ... inversion;
+#X text 30 116 1 ... retrograde;
+#X text 30 101 0 ... prime;
+#X text 19 388 1994 by Karlheinz Essl;
+#X text 140 157 row of Anton Webern \, op.28;
+#X msg 70 208 10 9 0 11 3 4 1 2 6 5 8 7;
+#X msg 70 349;
+#X obj 70 319 show;
+#X obj 70 288 row-modus;
+#X obj 70 179 loadbang;
+#X text 145 318 normalized row;
+#X floatatom 297 246 3 0 0 1 modus - -;
+#X text 19 57 Puts a row (sent to the left inlet) into a chosen modus
+specified in the right inlet and output it as a "normalized" row (i.e.
+starting with pitch class c).;
+#X obj 105 320 bng 15 250 50 1 empty empty clear 0 -6 0 8 -262144 -1
+-1;
+#X msg 328 23 Dodecaphonics;
+#X text 19 402 Thanks to Charles Baker for his "matrix" object;
+#N canvas 568 179 568 488 row-modus 0;
+#X obj 234 337 list split 1;
+#X symbolatom 144 142 16 0 0 0 - - -;
+#X obj 144 127 hradio 15 1 0 4 empty empty row_modus 0 -6 0 8 -262144
+-1 -1 2;
+#X obj 234 364 outlet;
+#X obj 144 60 inlet;
+#X obj 145 169 select 0 1 2 3;
+#X msg 234 227 0 prime;
+#X msg 234 251 1 retrograde;
+#X msg 234 276 2 inversion;
+#X msg 234 301 3 retro-inversion;
+#X connect 0 0 3 0;
+#X connect 0 1 1 0;
+#X connect 2 0 5 0;
+#X connect 4 0 2 0;
+#X connect 5 0 6 0;
+#X connect 5 1 7 0;
+#X connect 5 2 8 0;
+#X connect 5 3 9 0;
+#X connect 6 0 0 0;
+#X connect 7 0 0 0;
+#X connect 8 0 0 0;
+#X connect 9 0 0 0;
+#X coords 0 -1 1 1 125 60 1 140 100;
+#X restore 297 180 pd row-modus;
+#X connect 7 0 10 0;
+#X connect 9 0 8 0;
+#X connect 10 0 9 0;
+#X connect 11 0 7 0;
+#X connect 13 0 10 1;
+#X connect 15 0 9 1;
+#X connect 18 0 13 0;

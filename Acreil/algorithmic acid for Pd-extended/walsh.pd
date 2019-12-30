@@ -1,0 +1,15 @@
+#N canvas 375 0 373 401 10;
+#X obj 115 223 table walsh 262145;
+#X obj 88 172 t b b;
+#X obj 88 242 tabread walsh;
+#X obj 88 261 s walshmax;
+#X obj 88 153 loadbang;
+#X text 86 105 master table;
+#X obj 88 223 f 0;
+#X text 220 102 2-19-2013;
+#X msg 115 191 \; walsh read walsh.txt \;;
+#X connect 1 0 6 0;
+#X connect 1 1 8 0;
+#X connect 2 0 3 0;
+#X connect 4 0 1 0;
+#X connect 6 0 2 0;

@@ -1,0 +1,354 @@
+#N canvas 286 249 815 618 10;
+#X obj 5 5 cnv 15 800 40 empty empty my_grainer~_tutorial:_extra_files-03_-_bandlimited_waveform_generator
+3 12 0 18 -204280 -1 0;
+#X obj 6 500 cnv 15 800 50 empty empty empty 3 12 0 18 -203904 -1 0
+;
+#X obj 515 28 pddplink http://puredata.info/Members/pdiliscia/grainer/
+;
+#X text 797 29 );
+#X obj 5 51 cnv 10 800 70 empty empty empty 8 12 0 13 -228856 -1 0
+;
+#X obj 5 368 cnv 3 800 3 empty empty empty 8 12 0 13 -228856 -1 0;
+#X text 5 28 A guide to manage granular synthesis through my_grainer~
+;
+#X text 346 28 (external by O.P. Di Liscia;
+#X obj 6 555 cnv 15 800 40 empty empty empty 3 12 0 18 -203904 -1 0
+;
+#X text 204 573 (Consejo Nacional de Investigaciones Científicas y
+Técnicas);
+#X text 158 573 CONICET;
+#X text 569 573 + UNQ (Universidad Nacional de Quilmes);
+#X obj 551 557 pddplink http://puredata.info/author/damiananache/;
+#X text 797 558 );
+#X text 364 500 that is being developed by Oscar Pablo Di Liscia with
+the;
+#X text 712 500 collaboration;
+#X text 10 500 my_grainer~ is a Pure Data external for granular synthesis
+of Damián Anache and Esteban Calcagno as part of the;
+#X text 323 513 research program "Sistemas Temporales y de Sintesis
+;
+#X text 640 513 Espacial en el Arte Sonoro";
+#X text 10 527 (Universidad Nacional de Quilmes \, 2015-2019).;
+#X text 236 557 mGT (my_grainer~ tutorial) by Damian Anache - 2016
+(;
+#X obj 106 328 bng 14 250 50 0 \$0-waveformGenerator-exportGUIout empty
+empty 17 7 0 10 -262144 -1 -1;
+#X text 127 325 export table as audio file;
+#X text 147 189 A = fundamental sine amplitud;
+#X text 146 156 N max = total harmonics quantity;
+#X floatatom 106 158 5 0 0 0 - #0-waveformGenerator-NmaxGUIin #0-waveformGenerator-NmaxGUIout
+;
+#X floatatom 106 188 5 0 0 0 - #0-waveformGenerator-AGUIin #0-waveformGenerator-AGUIout
+;
+#X obj 106 228 vradio 15 1 0 3 \$0-waveformGenerator-typeGUIout \$0-waveformGenerator-typeGUIin
+empty 0 -8 0 10 -262144 -1 -1 0;
+#X text 133 223 ramp;
+#X text 134 237 square;
+#X text 134 252 triangle;
+#X obj 216 228 vradio 15 1 0 2 \$0-waveformGenerator-phaseGUIout \$0-waveformGenerator-phaseGUIin
+empty 0 -8 0 10 -262144 -1 -1 0;
+#X text 243 238 invert;
+#X text 243 222 normal;
+#N canvas 382 200 1057 654 mainpatch 0;
+#X obj 12 259 until;
+#X obj 12 285 f;
+#X obj 42 285 + 1;
+#X msg 50 259 1;
+#X obj 12 194 t f b f b;
+#X obj 12 238 - 1;
+#X obj 12 331 last-x;
+#X obj 12 351 list-rev;
+#X obj 12 371 list-drip;
+#X obj 12 411 last-x;
+#X obj 12 431 list-rev;
+#X msg 122 211 0;
+#X obj 122 235 f;
+#X obj 122 314 f;
+#X obj 122 394 f;
+#X obj 252 374 f;
+#X obj 252 211 b;
+#X obj 12 172 f;
+#X obj 225 155 t b f;
+#X obj 225 115 f;
+#X obj 225 135 *;
+#X obj 261 98 t b f;
+#N canvas 35 317 1383 426 equations 0;
+#X obj 84 35 inlet;
+#X obj 184 35 inlet;
+#X obj 1217 55 inlet;
+#X obj 51 180 expr $f2 / $f1;
+#X text 362 369 N = harmonic number;
+#X text 339 334 N amp = amplitud for each harmonics;
+#X text 294 260 N amp = A * 1 / N (only odd N);
+#X obj 184 89 hradio 15 1 0 5 empty empty empty 0 -6 0 8 -262144 -1
+-1 1;
+#X obj 241 180 expr if((($f1*0.5)- int($f1*0.5))==0 \, 0 \, $f2/$f1)
+;
+#X obj 616 180 expr if(((($f1+1)*0.25)-int(($f1+1)*0.25))==0 \, $f2/($f1*$f1)*-1
+\, if((($f1*0.5)-int($f1*0.5))==0 \, 0 \, $f2/($f1*$f1)));
+#X text 39 260 N amp = A * 1 / N;
+#X text 604 260 N amp = A * 1 / N*N (only odd N \, multiplying every
+(4n-1)th harmonic by -1);
+#X obj 1217 163 f;
+#X text 1248 162 A;
+#X text 362 353 A = fundamental sine amplitud;
+#X obj 51 223 outlet;
+#X text 124 32 N;
+#X text 237 35 equation selector (1 -> 3);
+#X obj 184 60 + 1;
+#X obj 51 104 gate 4;
+#X text 1103 259 just a sine;
+#X obj 1070 206 expr if($f1 == 1 \, $f2 \, 0);
+#X connect 0 0 19 1;
+#X connect 1 0 18 0;
+#X connect 2 0 12 0;
+#X connect 3 0 15 0;
+#X connect 7 0 19 0;
+#X connect 8 0 15 0;
+#X connect 9 0 15 0;
+#X connect 12 0 3 1;
+#X connect 12 0 8 1;
+#X connect 12 0 9 1;
+#X connect 12 0 21 1;
+#X connect 18 0 7 0;
+#X connect 19 0 3 0;
+#X connect 19 1 8 0;
+#X connect 19 2 9 0;
+#X connect 19 3 21 0;
+#X connect 21 0 15 0;
+#X restore 12 391 pd equations;
+#X obj 482 374 f;
+#X obj 455 155 t b f;
+#X obj 12 12 r \$0-waveformGenerator-NmaxGUIout;
+#X obj 225 38 r \$0-waveformGenerator-AGUIout;
+#X obj 455 133 r \$0-waveformGenerator-typeGUIout;
+#X obj 261 58 r \$0-waveformGenerator-phaseGUIout;
+#X obj 261 78 expr if($f1 == 0 \, 1 \, -1);
+#X obj 722 22 loadbang;
+#X obj 722 84 f \$0;
+#X msg 722 218 \; \$1-waveformGenerator-typeGUIin 0 \; \$1-waveformGenerator-phaseGUIin
+0 \; \$1-waveformGenerator-AGUIin 0.5 \; \$1-waveformGenerator-NmaxGUIin
+15 \;;
+#X msg 731 168 \; \$1-waveformGenerator-sizeGUIin 44100 \; \$1-waveformGenerator-SRGUIin
+44100 \;;
+#X obj 729 64 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 165 481 normalize 1;
+#X obj 12 551 send \$0-waveFormTemp;
+#N canvas 558 308 737 562 waveForm44100 0;
+#X text 101 21 sinesum only works with 2^n sizes;
+#X text 36 39 so temp table is used in order to interpolate the waveform
+into a specifc size;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array \$0-waveFormTemp 65536 float 4;
+#X coords 0 1 65535 -1 200 140 1 0 0;
+#X restore 120 114 graph;
+#X obj 426 265 until;
+#X obj 426 291 f;
+#X obj 456 291 + 1;
+#X msg 453 242 0;
+#X obj 426 221 t f b;
+#N canvas 806 583 554 315 escalamientoRango 0;
+#X text 127 52 min;
+#X text 212 52 max;
+#X text 294 52 min;
+#X text 382 52 max;
+#X obj 41 80 inlet;
+#X obj 41 264 outlet;
+#X obj 124 80 inlet;
+#X obj 207 80 inlet;
+#X obj 290 80 inlet;
+#X obj 374 80 inlet;
+#X obj 446 86 loadbang;
+#X text 167 29 input;
+#X text 327 29 output;
+#X obj 41 173 expr (1 - (($f3-$f1) / ($f3 - $f2))) * ($f5 - $f4) +
+$f4;
+#X msg 135 103 0;
+#X msg 305 103 0;
+#X msg 225 103 44100;
+#X msg 385 103 65536;
+#X connect 4 0 13 0;
+#X connect 6 0 13 1;
+#X connect 7 0 13 2;
+#X connect 8 0 13 3;
+#X connect 9 0 13 4;
+#X connect 10 0 17 0;
+#X connect 10 0 15 0;
+#X connect 10 0 16 0;
+#X connect 10 0 14 0;
+#X connect 13 0 5 0;
+#X connect 14 0 13 1;
+#X connect 15 0 13 3;
+#X connect 16 0 13 2;
+#X connect 17 0 13 4;
+#X restore 426 326 pd escalamientoRango;
+#X obj 426 388 pack f f;
+#X obj 426 409 unpack;
+#X obj 577 308 f;
+#X obj 577 371 f;
+#X obj 426 438 tabwrite \$0-waveForm;
+#X obj 426 347 tabread4 \$0-waveFormTemp;
+#X msg 504 201 resize \$1;
+#X obj 465 159 r \$0-waveformGenerator-sizeGUIout;
+#X obj 504 221 send \$0-waveForm;
+#X obj 426 111 inlet;
+#X text 477 111 update;
+#X obj 426 197 f;
+#X obj 465 180 t f f f;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 4 0 8 0;
+#X connect 4 0 11 0;
+#X connect 5 0 4 1;
+#X connect 6 0 4 0;
+#X connect 7 0 3 0;
+#X connect 7 1 6 0;
+#X connect 8 0 14 0;
+#X connect 9 0 10 0;
+#X connect 10 0 13 0;
+#X connect 10 1 13 1;
+#X connect 11 0 12 0;
+#X connect 12 0 9 1;
+#X connect 14 0 9 0;
+#X connect 15 0 17 0;
+#X connect 16 0 21 0;
+#X connect 18 0 20 0;
+#X connect 20 0 7 0;
+#X connect 21 0 20 0;
+#X connect 21 1 8 2;
+#X connect 21 2 15 0;
+#X restore 231 549 pd waveForm44100;
+#X obj 231 518 b;
+#X obj 12 501 prepend sinesum 65536;
+#X msg 745 117 \; \$1-waveFormTemp resize 65536 \; \$1-waveForm resize
+44100 \;;
+#X obj 165 501 t b a;
+#X text 259 517 update;
+#X obj 165 459 r \$0-waveformGenerator-normalizeGUIout;
+#X obj 722 44 del 1;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 1 0 6 0;
+#X connect 2 0 1 1;
+#X connect 3 0 1 0;
+#X connect 4 0 5 0;
+#X connect 4 1 3 0;
+#X connect 4 2 12 0;
+#X connect 4 3 11 0;
+#X connect 4 3 16 0;
+#X connect 5 0 0 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 22 0;
+#X connect 9 0 10 0;
+#X connect 10 0 39 0;
+#X connect 11 0 12 0;
+#X connect 12 0 13 0;
+#X connect 13 0 6 1;
+#X connect 13 0 14 0;
+#X connect 14 0 9 1;
+#X connect 15 0 22 2;
+#X connect 16 0 15 0;
+#X connect 17 0 4 0;
+#X connect 18 0 17 0;
+#X connect 18 1 15 0;
+#X connect 19 0 20 0;
+#X connect 20 0 18 0;
+#X connect 21 0 19 0;
+#X connect 21 1 20 1;
+#X connect 22 0 9 0;
+#X connect 23 0 22 1;
+#X connect 24 0 17 0;
+#X connect 24 1 23 0;
+#X connect 25 0 17 0;
+#X connect 26 0 19 0;
+#X connect 27 0 24 0;
+#X connect 28 0 29 0;
+#X connect 29 0 21 0;
+#X connect 30 0 44 0;
+#X connect 31 0 32 0;
+#X connect 31 0 33 0;
+#X connect 31 0 40 0;
+#X connect 34 0 31 0;
+#X connect 35 0 41 0;
+#X connect 38 0 37 0;
+#X connect 39 0 36 0;
+#X connect 39 0 38 0;
+#X connect 41 0 38 0;
+#X connect 41 1 36 0;
+#X connect 43 0 35 0;
+#X connect 44 0 31 0;
+#X coords 0 654 1 653 85 60 0;
+#X restore 558 472 pd mainpatch;
+#N canvas 896 288 450 300 export 0;
+#X obj 99 69 savepanel;
+#X obj 99 236 soundfiler;
+#X obj 235 134 loadbang;
+#X obj 235 154 f \$0;
+#X obj 99 192 prepend;
+#X obj 99 45 r \$0-waveformGenerator-exportGUIout;
+#X obj 190 175 pack f f;
+#X obj 190 114 r \$0-waveformGenerator-sizeGUIout;
+#X msg 99 214 write -rate \$1 -wave \$3 \$2-waveForm;
+#X connect 0 0 4 0;
+#X connect 2 0 3 0;
+#X connect 3 0 6 1;
+#X connect 4 0 8 0;
+#X connect 5 0 0 0;
+#X connect 6 0 4 1;
+#X connect 7 0 6 0;
+#X connect 8 0 1 0;
+#X restore 746 472 pd export;
+#N canvas 161 546 450 300 transpositions 0;
+#X floatatom 25 53 5 0 0 0 - - -;
+#X floatatom 25 207 5 0 0 0 - - -;
+#X text 60 52 SR = sampling rate;
+#X obj 25 75 * 0.5;
+#X floatatom 25 102 5 0 0 0 - - -;
+#X text 63 103 Nyquist frequency;
+#X obj 25 186 /;
+#X obj 25 165 f;
+#X obj 65 148 t b f;
+#X text 62 208 Highest possible frequency by transposition without
+aliasing;
+#X obj 65 128 r \$0-waveformGenerator-NmaxGUIout;
+#X obj 25 31 r \$0-waveformGenerator-SRGUIout;
+#X obj 25 232 s \$0-waveformGenerator-FmaxGUIin;
+#X connect 0 0 3 0;
+#X connect 1 0 12 0;
+#X connect 3 0 4 0;
+#X connect 4 0 7 0;
+#X connect 6 0 1 0;
+#X connect 7 0 6 0;
+#X connect 8 0 7 0;
+#X connect 8 1 6 1;
+#X connect 10 0 8 0;
+#X connect 11 0 0 0;
+#X restore 637 472 pd transpositions;
+#X floatatom 454 387 6 0 0 0 - #0-waveformGenerator-SRGUIin #0-waveformGenerator-SRGUIout
+;
+#X text 510 387 SR = sampling rate;
+#X floatatom 454 412 6 0 0 0 - #0-waveformGenerator-FmaxGUIin #0-waveformGenerator-FmaxGUIout
+;
+#X text 151 297 table size;
+#X floatatom 106 298 6 0 0 0 - #0-waveformGenerator-sizeGUIin #0-waveformGenerator-sizeGUIout
+;
+#X text 509 411 Highest possible frequency;
+#X text 12 377 It is necessary to transpose the generated table in
+order to used as an audible signal. This section calculates the highest
+possible frequency to transpose the present table without aliasing
+(according to the user defined sampling rate).;
+#X obj 5 458 cnv 3 800 3 empty empty empty 8 12 0 13 -228856 -1 0;
+#X text 16 55 This patch generates commonly used audio functions (ramp
+\, square and triangle) according to a user defined harmonics number.
+The generated table can be exported as an audio file for being used
+on external projects.;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array \$0-waveForm 44100 float 4;
+#X coords 0 1 44099 -1 200 140 1 0 0;
+#X restore 446 167 graph;
+#X obj 216 263 bng 14 250 50 0 \$0-waveformGenerator-normalizeGUIout
+empty empty 17 7 0 10 -262144 -1 -1;
+#X text 243 260 normalize;
+#X coords 0 0 1 1 85 60 0;

@@ -1,0 +1,29 @@
+#N canvas 34 0 965 514 12;
+#X text -730 -4 Let's say you have designed a cool dsp and want to
+use it as a plugin in various places in your design.;
+#X text -378 -9 To use our new stereo-chorus we could just write:;
+#X obj -695 104 cnv 15 800 350 empty empty empty 20 12 0 14 -233017
+-66577 0;
+#X msg -102 148 STEREO CHORUS;
+#X obj -158 194 cnv 15 245 80 empty empty empty 20 12 0 14 -262144
+-66577 0;
+#X text -376 -23 We save the patch below as StereoChorus.pd.;
+#X obj -374 13 StereoChorus;
+#X text -376 35 Or \, to be used as plugin \,;
+#X text -730 31 Therefore we use the colon sign as instance separator.
+In our example we designed a chorus (mono) and want to make it a stereo
+effect. The stereo version consists of two mono effects with slightly
+modified settings.;
+#X text -638 350 the settings were derived;
+#X text -655 368 from the same 'default' preset.;
+#X text -669 -28 Now for a more practical example.;
+#X text -376 48 settings go into the main (parent) patch:;
+#X obj -670 130 chorus \$1:chorus-left;
+#X obj -429 282 chorus \$1:chorus-right;
+#X obj -374 72 StereoChorus foo;
+#X obj -89 18 StereoChorus \$1:foo;
+#X text -91 -22 If the parent patch eventually itself should be used
+in various places \, we could even write:;
+#X text -91 51 This way \, abstractions may be embedded recursivly.
+;
+#X obj -155 200 ../ezpst ./tut/pst/B03- \$1;

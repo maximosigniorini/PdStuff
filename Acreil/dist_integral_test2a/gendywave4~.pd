@@ -1,0 +1,115 @@
+#N canvas 548 107 915 523 10;
+#X obj 453 271 /~;
+#X obj 453 292 clip~ 0 1;
+#X obj 565 264 -~;
+#X obj 592 264 -~;
+#X obj 565 287 /~;
+#X obj 565 310 clip~ 0 1;
+#X obj 739 265 -~;
+#X obj 739 288 /~;
+#X obj 739 311 clip~ 0 1;
+#X obj 453 335 *~ -1;
+#X obj 525 351 -~;
+#X obj 614 353 -~;
+#X obj 659 263 -~;
+#X obj 686 263 -~;
+#X obj 659 286 /~;
+#X obj 659 309 clip~ 0 1;
+#X obj 705 353 -~;
+#X obj 578 49 exp~;
+#X obj 621 49 exp~;
+#X obj 702 49 exp~;
+#X obj 746 49 exp~;
+#X obj 649 65 +~;
+#X obj 675 65 +~;
+#X obj 649 84 +~;
+#X obj 579 145 /~;
+#X obj 622 141 /~;
+#X obj 701 141 /~;
+#X obj 607 161 +~;
+#X obj 685 177 +~;
+#X obj 771 252 -~ 1;
+#X obj 771 271 *~ -1;
+#X obj 453 313 -~ 1;
+#X obj 577 30 inlet~;
+#X obj 621 30 inlet~;
+#X obj 702 30 inlet~;
+#X obj 746 30 inlet~;
+#X obj 453 377 outlet~;
+#X obj 525 377 outlet~;
+#X obj 614 376 outlet~;
+#X obj 705 375 outlet~;
+#X obj 452 142 wrap~;
+#X obj 452 122 inlet~;
+#X obj 768 375 outlet~;
+#X text 107 269 other variants: 4c \, 8 \, 8c;
+#X text 43 39 permits construction of piecewise linear arbitrary functions
+with 4 breakpoints \, similar to Xenakis's GENDY software \, but with
+independent control of period. The first inlet is a phasor (or arbitrary
+signal if you want to use it as a waveshaper \, it's wrapped to [0
+\, 1]) \, and the others control the relative length of each stage.
+The abstraction outputs 5 triangular envelopes that may be used to
+crossfade arbitrary points or signals \, either to combine them or
+to route one signal to multiple destinations. For periodic (i.e. circular)
+crossfades you'll want to sum the first and fifth outlets. The crossfades
+are constant magnitude.;
+#X text 42 194 Subtracting alternating oulets can make an interesting
+sort of modulated triangle wave.;
+#X connect 0 0 1 0;
+#X connect 1 0 10 0;
+#X connect 1 0 31 0;
+#X connect 2 0 4 0;
+#X connect 3 0 4 1;
+#X connect 4 0 5 0;
+#X connect 5 0 10 1;
+#X connect 5 0 11 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 16 1;
+#X connect 8 0 42 0;
+#X connect 9 0 36 0;
+#X connect 10 0 37 0;
+#X connect 11 0 38 0;
+#X connect 12 0 14 0;
+#X connect 13 0 14 1;
+#X connect 14 0 15 0;
+#X connect 15 0 11 1;
+#X connect 15 0 16 0;
+#X connect 16 0 39 0;
+#X connect 17 0 21 0;
+#X connect 17 0 24 0;
+#X connect 18 0 21 1;
+#X connect 18 0 25 0;
+#X connect 19 0 22 0;
+#X connect 19 0 26 0;
+#X connect 20 0 22 1;
+#X connect 21 0 23 0;
+#X connect 22 0 23 1;
+#X connect 23 0 24 1;
+#X connect 23 0 25 1;
+#X connect 23 0 26 1;
+#X connect 24 0 27 0;
+#X connect 24 0 0 1;
+#X connect 24 0 2 1;
+#X connect 24 0 3 1;
+#X connect 25 0 27 1;
+#X connect 26 0 28 1;
+#X connect 27 0 28 0;
+#X connect 27 0 3 0;
+#X connect 27 0 12 1;
+#X connect 27 0 13 1;
+#X connect 28 0 13 0;
+#X connect 28 0 6 1;
+#X connect 28 0 29 0;
+#X connect 29 0 30 0;
+#X connect 30 0 7 1;
+#X connect 31 0 9 0;
+#X connect 32 0 17 0;
+#X connect 33 0 18 0;
+#X connect 34 0 19 0;
+#X connect 35 0 20 0;
+#X connect 40 0 0 0;
+#X connect 40 0 2 0;
+#X connect 40 0 6 0;
+#X connect 40 0 12 0;
+#X connect 41 0 40 0;

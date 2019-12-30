@@ -1,0 +1,332 @@
+#N canvas 531 85 819 813 10;
+#X obj 5 5 cnv 15 800 40 empty empty my_grainer~_tutorial:_03_-_grain_envelope
+3 12 0 18 -204280 -1 0;
+#X obj 6 734 cnv 15 800 60 empty empty empty 3 12 0 18 -203904 -1 0
+;
+#X text 679 734 Damian Anache - 2016;
+#X text 453 747 Consejo Nacional de Investigaciones Científicas y
+Técnicas;
+#X text 391 747 CONICET -;
+#X text 579 760 UNQ - Universidad Nacional de Quilmes;
+#X text 7 28 A guide to manage granular synthesis through my_grainer~
+(;
+#X obj 357 28 pddplink http://puredata.info/Members/pdiliscia/grainer/
+;
+#X text 642 28 );
+#X obj 550 777 pddplink http://puredata.info/author/damiananache/;
+#X obj 92 311 output~;
+#X text 83 529 INCR;
+#X text 84 490 SIZE;
+#X text 86 509 GAP;
+#X obj 126 512 hsl 128 15 0.02 2 1 0 \$0-gapGUIout \$0-gapGUIin empty
+-2 -8 0 10 -262144 -1 -1 4438 1;
+#X obj 126 492 hsl 128 15 0.02 2 1 0 \$0-sizeGUIout \$0-sizeGUIin empty
+-2 -8 0 10 -262144 -1 -1 2527 1;
+#X obj 126 532 hsl 128 15 20 5000 0 0 \$0-incrGUIout \$0-incrGUIin
+empty -2 -8 0 10 -262144 -1 -1 1071 1;
+#X floatatom 260 511 5 0 0 0 - #0-gapGUIout -, f 5;
+#X floatatom 260 491 5 0 0 0 - #0-sizeGUIout -, f 5;
+#X floatatom 260 531 5 0 0 0 - #0-incrGUIout -, f 5;
+#X obj 5 50 cnv 10 800 150 empty empty empty 8 12 0 13 -228856 -1 0
+;
+#X obj 5 698 cnv 3 800 3 empty empty empty 8 12 0 13 -228856 -1 0;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array \$0-table1 44100 float 2 black black;
+#X coords 0 1 44100 -1 200 20 1;
+#X restore 103 416 graph;
+#X text 152 375 Grain Waveform;
+#X text 146 472 GRAIN PARAMETERS;
+#X obj 126 551 hsl 128 15 0.02 2 1 0 \$0-ampGUIout \$0-ampGUIin empty
+-2 -8 0 10 -262144 -1 -1 10788 1;
+#X floatatom 260 551 5 0 0 0 - #0-ampGUIout -, f 5;
+#X text 84 549 AMP;
+#X text 551 219 Grain Envelope;
+#X obj 654 313 vradio 45 1 0 7 \$0-envelope-ctrl-GUIout \$0-envelope-ctrl-GUIin
+empty 0 -8 0 10 -262144 -1 -1 0;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array B 121 float 2 black black;
+#X coords 0 1 121 0 200 30 1;
+#X restore 451 365 graph;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array C 121 float 2 black black;
+#X coords 0 1 121 0 200 30 1;
+#X restore 451 410 graph;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array D 121 float 2 black black;
+#X coords 0 1 121 0 200 30 1;
+#X restore 451 455 graph;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array A 121 float 2 black black;
+#X coords 0 1 121 0 200 30 1;
+#X restore 451 320 graph;
+#N canvas 51 421 450 300 shuffleMode 0;
+#X obj 120 189 metro 500;
+#X obj 120 81 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 171 168 5 0 0 0 - - -, f 5;
+#X obj 171 84 loadbang;
+#X obj 171 126 s \$0-shuffleTimeGUIin;
+#X obj 171 148 r \$0-shuffleTimeGUIout;
+#X obj 120 60 r \$0-shuffleOnOffGUIout;
+#X msg 171 105 250;
+#X text 118 28 grain envelope shuffle mode;
+#X obj 120 232 s \$0-envelope-ctrl-GUIin;
+#X obj 120 209 shuffle 0 6;
+#X connect 0 0 10 0;
+#X connect 1 0 0 0;
+#X connect 2 0 0 1;
+#X connect 3 0 7 0;
+#X connect 5 0 2 0;
+#X connect 6 0 1 0;
+#X connect 7 0 4 0;
+#X connect 10 0 9 0;
+#X restore 507 707 pd shuffleMode;
+#X obj 489 667 tgl 15 0 \$0-shuffleOnOffGUIout \$0-shuffleOnOffGUIin
+empty 17 7 0 10 -262144 -1 -1 0 1;
+#X floatatom 556 665 5 0 0 0 - #0-shuffleTimeGUIin #0-shuffleTimeGUIout
+, f 5;
+#X text 507 664 on/off;
+#X text 591 664 time (msecs);
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array F 121 float 2 black black;
+#X coords 0 1 121 0 200 30 1;
+#X restore 451 546 graph;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array G 121 float 2 black black;
+#X coords 0 1 121 0 200 30 1;
+#X restore 451 592 graph;
+#N canvas 629 353 516 397 waveformSetup 0;
+#X obj 78 90 loadbang;
+#X obj 105 236 soundfiler;
+#X obj 78 318 s \$0-mess;
+#X obj 78 141 f \$0;
+#X obj 78 120 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 78 165 t f f;
+#X text 118 140 (see "locality" on PD's documentation for more details)
+;
+#X text 122 188 loading external audio file into a local table;
+#X text 90 276 loading local table into my_grainer~;
+#X text 78 49 Grain Waveform;
+#X msg 78 298 gtab \$1-table1;
+#X msg 105 216 read -resize audioFiles/sine1hz1sec.wav \$1-table1;
+#X connect 0 0 4 0;
+#X connect 3 0 5 0;
+#X connect 4 0 3 0;
+#X connect 5 0 10 0;
+#X connect 5 1 11 0;
+#X connect 10 0 2 0;
+#X connect 11 0 1 0;
+#X restore 704 707 pd waveformSetup;
+#X obj 451 521 cnv 1 200 1 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array E 241 float 2 black black;
+#X coords 0 1 241 -0.5 200 30 1;
+#X restore 451 501 graph;
+#X text 483 235 Selects the active table (by useatn);
+#X text 493 643 Grain envelope shuffle mode;
+#X text 414 50 atable tablename: request the use of table tablename
+for the envelope of the next grain. If the same tablename was previously
+requested \, its contains is overwritten. If the user wants to request
+a previously requested table with its contain unchanged \, then he/she
+should use the useatn message.;
+#X text 414 133 useatn (float): use the table number (float) for the
+envelope of the next grain. The table (float) must have been requested
+previously. Tables are numbered starting from 0 in the order that were
+requested.";
+#X obj 38 630 cnv 15 350 30 empty empty empty 20 12 0 14 -204786 -66577
+0;
+#X text 708 326 Gaussian;
+#X text 708 370 Quasi-Gaussian;
+#X text 708 410 Three-stage;
+#X text 709 423 line segment;
+#X text 708 460 Triangular;
+#X text 708 508 Sinc function;
+#X text 708 548 Expodec;
+#X text 708 596 Rexpodec;
+#N canvas 175 296 1054 445 envelopeSetup 0;
+#X obj 43 393 soundfiler;
+#X obj 53 64 loadbang;
+#X obj 500 407 s \$0-mess;
+#X msg 140 113 read -resize envelopes/01-gaussian.wav A;
+#X msg 125 153 read -resize envelopes/02-quasi-gaussian.wav B;
+#X msg 111 193 read -resize envelopes/03-three-stage_line_segment.wav
+C;
+#X msg 96 233 read -resize envelopes/04-triangular.wav D;
+#X msg 53 353 read -resize envelopes/07-rexpodec.wav G;
+#X msg 67 313 read -resize envelopes/06-expodec.wav F;
+#X msg 82 273 read -resize envelopes/05-sinc.wav E;
+#X obj 53 84 t b b b b b b b;
+#X msg 500 130 A;
+#X msg 520 170 B;
+#X msg 540 210 C;
+#X msg 561 250 D;
+#X msg 580 290 E;
+#X msg 601 330 F;
+#X msg 620 370 G;
+#X obj 500 387 prepend atab;
+#X obj 802 179 s \$0-mess;
+#X obj 802 159 prepend useatn;
+#X text 490 30 loading tables into my_grainer;
+#X text 160 30 loading files into tables;
+#X text 751 30 select active table for grain envelope;
+#X obj 802 138 r \$0-envelope-ctrl-GUIout;
+#X connect 1 0 10 0;
+#X connect 3 0 0 0;
+#X connect 3 0 11 0;
+#X connect 4 0 0 0;
+#X connect 4 0 12 0;
+#X connect 5 0 0 0;
+#X connect 5 0 13 0;
+#X connect 6 0 0 0;
+#X connect 6 0 14 0;
+#X connect 7 0 0 0;
+#X connect 7 0 17 0;
+#X connect 8 0 0 0;
+#X connect 8 0 16 0;
+#X connect 9 0 0 0;
+#X connect 9 0 15 0;
+#X connect 10 0 7 0;
+#X connect 10 1 8 0;
+#X connect 10 2 9 0;
+#X connect 10 3 6 0;
+#X connect 10 4 5 0;
+#X connect 10 5 4 0;
+#X connect 10 6 3 0;
+#X connect 11 0 18 0;
+#X connect 12 0 18 0;
+#X connect 13 0 18 0;
+#X connect 14 0 18 0;
+#X connect 15 0 18 0;
+#X connect 16 0 18 0;
+#X connect 17 0 18 0;
+#X connect 18 0 2 0;
+#X connect 20 0 19 0;
+#X connect 24 0 20 0;
+#X restore 598 707 pd envelopeSetup;
+#X text 476 251 (see "envelopeSetup" for more details);
+#X text 453 276 Use "print" to monitor loaded envelope tables.;
+#N canvas 201 122 882 736 setup 0;
+#X obj 573 170 s \$0-incrGUIin;
+#X obj 363 170 s \$0-sizeGUIin;
+#X obj 472 170 s \$0-gapGUIin;
+#X obj 286 112 loadbang;
+#X obj 286 132 del 1;
+#X msg 363 149 0.05;
+#X msg 472 149 0.1;
+#X msg 683 149 1;
+#X text 376 32 GUI initial setup acording to my_grainer~'s default
+values;
+#X obj 363 242 s \$0-mess;
+#X msg 363 220 gs \$1;
+#X obj 472 242 s \$0-mess;
+#X msg 472 220 ga \$1;
+#X obj 573 244 s \$0-mess;
+#X msg 573 222 gf \$1;
+#X obj 683 244 s \$0-mess;
+#X msg 683 222 ag \$1;
+#X obj 363 200 r \$0-sizeGUIout;
+#X obj 472 200 r \$0-gapGUIout;
+#X obj 573 200 r \$0-incrGUIout;
+#X obj 683 170 s \$0-ampGUIin;
+#X obj 683 200 r \$0-ampGUIout;
+#X msg 286 339 0;
+#X obj 286 360 s \$0-envelope-ctrl-GUIin;
+#X obj 286 318 b;
+#X obj 286 91 r \$0-reset;
+#X msg 82 154 start;
+#X msg 39 153 stop;
+#X obj 39 177 s \$0-mess;
+#X obj 39 112 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 82 132 sel 1;
+#X obj 39 132 sel 0;
+#X text 39 69 Start / Stop;
+#X obj 39 90 r \$0-StartStop-GUIout;
+#X obj 40 405 r \$0-print;
+#X msg 40 426 print;
+#X obj 40 447 s \$0-mess;
+#X text 39 385 Print;
+#X obj 39 220 r \$0-pause-GUIout;
+#X msg 39 242 pause \$1;
+#X obj 39 264 s \$0-mess;
+#X text 38 200 Pause;
+#X obj 39 358 s \$0-mess;
+#X msg 39 336 post_ctrl \$1;
+#X obj 39 314 r \$0-postCtrl-GUIout;
+#X text 38 292 Post Control;
+#X obj 39 515 f \$0;
+#X obj 39 493 loadbang;
+#X msg 39 537 \; \$1-postCtrl-GUIin 1 \; \$1-StartStop-GUIin 0 \;;
+#X text 34 22 General Purpose Messages;
+#X text 34 35 ************************;
+#X obj 198 23 cnv 1 1 700 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 39 697 outlet;
+#X obj 39 674 r \$0-mess;
+#X text 286 67 Reset;
+#X msg 573 149 440;
+#X connect 3 0 4 0;
+#X connect 4 0 55 0;
+#X connect 4 0 5 0;
+#X connect 4 0 6 0;
+#X connect 4 0 7 0;
+#X connect 4 0 24 0;
+#X connect 5 0 1 0;
+#X connect 6 0 2 0;
+#X connect 7 0 20 0;
+#X connect 10 0 9 0;
+#X connect 12 0 11 0;
+#X connect 14 0 13 0;
+#X connect 16 0 15 0;
+#X connect 17 0 10 0;
+#X connect 18 0 12 0;
+#X connect 19 0 14 0;
+#X connect 21 0 16 0;
+#X connect 22 0 23 0;
+#X connect 24 0 22 0;
+#X connect 26 0 28 0;
+#X connect 27 0 28 0;
+#X connect 29 0 30 0;
+#X connect 29 0 31 0;
+#X connect 30 0 26 0;
+#X connect 31 0 27 0;
+#X connect 33 0 29 0;
+#X connect 34 0 35 0;
+#X connect 35 0 36 0;
+#X connect 38 0 39 0;
+#X connect 39 0 40 0;
+#X connect 43 0 42 0;
+#X connect 44 0 43 0;
+#X connect 46 0 48 0;
+#X connect 47 0 46 0;
+#X connect 53 0 52 0;
+#X connect 55 0 0 0;
+#X restore 93 223 pd setup;
+#X obj 193 263 bng 15 250 50 0 \$0-reset empty Reset 17 7 0 10 -262144
+-1 -1;
+#X obj 277 223 tgl 15 0 \$0-pause-GUIout \$0-pause-GUIin Pause 17 7
+0 10 -262144 -1 -1 0 1;
+#X obj 277 243 bng 15 250 50 0 \$0-print empty Print 17 7 0 10 -262144
+-1 -1;
+#X obj 193 223 tgl 15 0 \$0-StartStop-GUIout \$0-StartStop-GUIin Start/Stop
+17 7 0 10 -262144 -1 -1 0 1;
+#X obj 193 243 tgl 15 0 \$0-postCtrl-GUIout \$0-postCtrl-GUIin Post_Ctrl
+17 7 0 10 -262144 -1 -1 1 1;
+#X text 40 628 NOTE: use grain envolope generators @ "extraFiles" folder
+to create new audio envelopes;
+#X text 10 53 "my_grainer~ uses a "pool" of tables (max. 24 tables
+for audio and 24 tables for envelopes). Each table is requested by
+means of a special message (see below). The last table requested (either
+for audio or for the envelope) will be used in the next grain to be
+synthesized. If there are overlapping grains (i.e. \, that are not
+yet finished) \, these will be finished using the previous requested
+tables in order to avoid discontinuities. Note that if the user delete
+a table that is in use \, audio discontinuities will happen \, however.
+;
+#X obj 93 283 the_grainer~ 1;
+#X connect 60 0 68 0;
+#X connect 68 0 10 0;
+#X connect 68 1 10 1;
+#X coords 0 813 1 812 85 60 0;

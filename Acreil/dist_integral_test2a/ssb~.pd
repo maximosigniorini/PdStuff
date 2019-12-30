@@ -1,0 +1,32 @@
+#N canvas 250 229 761 563 10;
+#X obj 355 147 cos~;
+#X obj 282 186 *~;
+#X obj 368 186 *~;
+#X obj 355 118 phasor~;
+#X obj 282 148 hilbert~;
+#X obj 282 246 outlet~;
+#X obj 351 245 outlet~;
+#X obj 281 93 inlet~;
+#X obj 354 93 inlet~;
+#X obj 398 148 sin~;
+#X obj 281 222 -~;
+#X text 279 264 up;
+#X text 350 263 down;
+#X obj 350 221 +~;
+#X text 196 10 frequency shifter derived from H09. sum of both outputs
+= ring modulator left in = audio input \, right in = shift frequency
+;
+#X connect 0 0 1 1;
+#X connect 1 0 10 0;
+#X connect 1 0 13 0;
+#X connect 2 0 10 1;
+#X connect 2 0 13 1;
+#X connect 3 0 0 0;
+#X connect 3 0 9 0;
+#X connect 4 0 1 0;
+#X connect 4 1 2 0;
+#X connect 7 0 4 0;
+#X connect 8 0 3 0;
+#X connect 9 0 2 1;
+#X connect 10 0 5 0;
+#X connect 13 0 6 0;

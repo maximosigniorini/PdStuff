@@ -1,0 +1,15 @@
+nickname Recursion;
+chorus-right:active 1;
+chorus-right:wetdry 0.51;
+chorus-right:smooth-lop 500.23;
+chorus-right:DelayTime-ms 7;
+chorus-right:fb 0.24;
+chorus-right:frequency-Hz 7.95;
+chorus-right:ChorusDepth 0.31;
+chorus-left:active 1;
+chorus-left:wetdry 0.48;
+chorus-left:smooth-lop 499.73;
+chorus-left:DelayTime-ms 6.94;
+chorus-left:fb 0.24;
+chorus-left:frequency-Hz 8.05;
+chorus-left:ChorusDepth 0.29;

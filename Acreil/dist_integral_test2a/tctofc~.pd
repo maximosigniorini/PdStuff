@@ -1,0 +1,9 @@
+#N canvas 514 25 450 300 10;
+#X obj 149 67 inlet~;
+#X obj 149 86 expr~ 1/($v1*6.28318530718);
+#X obj 149 105 outlet~;
+#X text 147 152 06/27/2013;
+#X text 57 26 convert first order time constant (seconds) to filter
+cutoff frequency (Hz);
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;

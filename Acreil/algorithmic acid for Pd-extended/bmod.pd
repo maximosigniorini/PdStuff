@@ -1,0 +1,68 @@
+#N canvas 70 359 450 401 10;
+#X obj 72 56 r init;
+#X obj 72 75 s \$0-r;
+#X obj 27 13 inlet;
+#X obj 27 32 s \$0-l;
+#X obj 70 13 inlet;
+#X obj 70 32 s \$0-m;
+#X obj 113 13 inlet;
+#X obj 113 32 s \$0-d;
+#X obj 156 13 inlet;
+#X obj 156 32 s \$0-b;
+#X obj 199 13 inlet;
+#X obj 199 32 s \$0-c;
+#X obj 242 13 inlet;
+#X obj 242 32 s \$0-s;
+#X obj 285 13 inlet;
+#X obj 285 32 s \$0-p;
+#X text 27 -97 \$1 arg same name as matching bmod~ Inlets: poisson
+lambda \, poisson min time \, output depth (bipolar) \, random walk
+bias \, center \, min slope \, min period (s).;
+#X obj 101 103 cnv 15 165 86 empty empty bmod_\$1 1 6 0 10 -261880
+-1 0;
+#X obj 104 116 tgl 16 0 \$1-enn \$1-en en 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 104 134 5 0 1000 1 lambda #0-l #1-lam;
+#X floatatom 231 116 5 -1 1 0 bias #0-b #1-bias;
+#X floatatom 231 134 5 -1 1 0 center #0-c #1-cen;
+#X floatatom 231 152 5 -1 1 0 minslope #0-s #1-msl;
+#X floatatom 231 170 5 0 10000 0 mperiod #0-p #1-mper;
+#X obj 135 116 bng 16 250 50 0 \$1-rst \$0-r rs 17 7 0 10 -262144 -1
+-1;
+#X floatatom 104 152 5 0 100000 1 min #0-m #1-min;
+#X floatatom 104 170 5 0 0 1 depth #0-d #1-dep;
+#X obj 27 -36 loadbang;
+#X obj 27 -16 f 1;
+#X obj 52 -16 f 0;
+#X obj 77 -16 f 60;
+#X obj 166 116 bng 16 250 50 0 \$1-rnd \$0-nothing rnd 17 7 0 10 -262144
+-1 -1;
+#X text 26 210 This is a slow "bounded random walk" modulator. The
+maximum and minimum slopes can be specified (good for delay modulation)
+\, and it can be used for anything from a very slow variation over
+a wide range to a triangle wave oscillator with random frequency.;
+#X obj 398 72 r go;
+#X obj 398 91 s \$1-en;
+#X text 292 126 Scott Nordlund \, 2011;
+#X text 292 144 Contact: limina@live.com.;
+#X text 293 163 Last revised: 08-03-2011.;
+#X connect 0 0 1 0;
+#X connect 2 0 3 0;
+#X connect 4 0 5 0;
+#X connect 6 0 7 0;
+#X connect 8 0 9 0;
+#X connect 10 0 11 0;
+#X connect 12 0 13 0;
+#X connect 14 0 15 0;
+#X connect 27 0 28 0;
+#X connect 27 0 29 0;
+#X connect 27 0 30 0;
+#X connect 28 0 3 0;
+#X connect 28 0 7 0;
+#X connect 29 0 5 0;
+#X connect 29 0 9 0;
+#X connect 29 0 11 0;
+#X connect 29 0 13 0;
+#X connect 30 0 15 0;
+#X connect 33 0 34 0;
+#X coords 0 -1 1 1 167 90 1 100 100;

@@ -1,0 +1,22 @@
+#N canvas 1148 343 450 300 10;
+#X obj 84 16 inlet;
+#X obj 284 66 loadbang;
+#X obj 284 85 f \$0;
+#X obj 101 103 cnv 15 79 66 empty empty density_\$1 1 6 0 10 -215982
+-1 0;
+#X floatatom 147 116 5 0 16 0 density #0-density_ #1-density;
+#X obj 84 35 s \$0-density_;
+#X floatatom 147 134 5 0 0 0 RT60 #0-RT60_ #1-RT60;
+#X obj 168 15 inlet;
+#X obj 168 34 s \$0-RT60_;
+#X floatatom 147 152 5 0.1 10 0 fractal #0-fractal_ #1-fractal;
+#X msg 284 104 \; \$1-density_ 15 \; \$1-RT60_ 1 \; \$1-fractal_ 1
+\;;
+#X obj 234 15 inlet;
+#X obj 234 34 s \$0-fractal_;
+#X connect 0 0 5 0;
+#X connect 1 0 2 0;
+#X connect 2 0 10 0;
+#X connect 7 0 8 0;
+#X connect 11 0 12 0;
+#X coords 0 -1 1 1 81 70 1 100 100;

@@ -1,0 +1,37 @@
+#N canvas 52 397 692 381 10;
+#X obj 14 187 dac~;
+#X obj 39 34 tgl 15 0 empty empty listen_and_destroy 17 7 0 10 -262144
+-1 -1 1 1;
+#X obj 114 130 bng 15 250 50 0 empty empty destruction_indicator 17
+7 0 10 -262144 -1 -1;
+#X msg 31 263 \; pd dsp 1;
+#X obj 31 238 loadbang;
+#X obj 66 188 writesf~ 2;
+#X obj 40 103 ys.memory_loss_demo;
+#X obj 276 84 sel 1;
+#X msg 274 156 start;
+#X msg 323 156 stop;
+#X text 30 346 yann seznec 2019;
+#X text 29 332 The Book of Knowledge of Impractical Musical Devices
+;
+#X obj 102 260 s pd;
+#X msg 102 239 audio-properties;
+#X msg 386 157 open destroyed_sound.wav;
+#X obj 271 118 t f b;
+#X text 315 82 connect this to listen_destroy if you want a recording
+;
+#X connect 1 0 6 0;
+#X connect 4 0 3 0;
+#X connect 6 0 0 0;
+#X connect 6 0 5 0;
+#X connect 6 1 0 1;
+#X connect 6 1 5 1;
+#X connect 6 2 2 0;
+#X connect 7 0 15 0;
+#X connect 7 1 9 0;
+#X connect 8 0 5 0;
+#X connect 9 0 5 0;
+#X connect 13 0 12 0;
+#X connect 14 0 5 0;
+#X connect 15 0 8 0;
+#X connect 15 1 14 0;

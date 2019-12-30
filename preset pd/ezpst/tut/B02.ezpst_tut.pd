@@ -1,0 +1,20 @@
+#N canvas 0 0 691 383 12;
+#X obj 330 9 eztut \$1:foo;
+#X text 49 18 note the syntax: subpatch:subpatch: ...;
+#X text 49 67 refers to the root level.;
+#X text 49 4 Second argument: instance identifier.;
+#X text 49 39 Subpatches pass values one level up \,;
+#X text 49 53 \$1 in this case. If not specified or numerical \, \$1
+;
+#X text 52 -25 "./ "refers to the location of ezpst.pd.;
+#X text 51 -41 First argument: can be a path (including filename).
+;
+#X obj 51 109 cnv 15 266 100 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 52 195 cnv 15 500 60 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X text 205 212 the root level does not need an identifier \; instead
+\, if numerical \, this preset is autoloaded at startup.;
+#X text 57 106 -root- level;
+#X obj 67 125 ../ezpst ./tut/pst/B02- \$1;
+#X obj 67 203 ../psc param-name2 \$1;

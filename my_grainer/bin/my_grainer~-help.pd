@@ -1,0 +1,650 @@
+#N canvas 488 20 599 793 10;
+#X obj 6 -41 cnv 15 580 40 empty empty my_grainer~ 3 12 0 18 -204280
+-1 0;
+#X obj 84 386 output~;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array \$0-table2 121 float 2 black black;
+#X coords 0 1 121 0 200 20 1;
+#X restore 14 200 graph;
+#X text 229 201 Grain Envelope;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array \$0-table1 160087 float 2 black black;
+#X coords 0 1 160087 -1 200 20 1;
+#X restore 15 162 graph;
+#X text 231 162 Grain Waveform;
+#N canvas 460 353 873 333 waveform_and_envelope_tables 0;
+#X obj 528 218 soundfiler;
+#X obj 78 90 loadbang;
+#X obj 501 260 s \$0-mess;
+#X obj 501 140 f \$0;
+#X obj 501 107 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 501 164 t f f;
+#X msg 501 240 atab \$1-table2;
+#X obj 105 219 soundfiler;
+#X obj 78 261 s \$0-mess;
+#X obj 78 141 f \$0;
+#X obj 78 120 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 78 165 t f f;
+#X text 78 49 Grain Waveform;
+#X text 498 49 Grain Envelope;
+#X msg 528 185 read -resize my_grainer-extraFiles/sampleEnvelope.wav
+\$1-table2;
+#X msg 78 241 gtab \$1-table1;
+#X msg 105 186 read -resize my_grainer-extraFiles/sampleWaveform.wav
+\$1-table1;
+#X connect 1 0 10 0;
+#X connect 1 0 4 0;
+#X connect 3 0 5 0;
+#X connect 4 0 3 0;
+#X connect 5 0 6 0;
+#X connect 5 1 14 0;
+#X connect 6 0 2 0;
+#X connect 9 0 11 0;
+#X connect 10 0 9 0;
+#X connect 11 0 15 0;
+#X connect 11 1 16 0;
+#X connect 14 0 0 0;
+#X connect 15 0 8 0;
+#X connect 16 0 7 0;
+#X restore 17 127 pd waveform_and_envelope_tables;
+#X obj 104 316 r \$0-mess;
+#X obj 5 712 cnv 15 580 21 empty \$0-pddp.cnv.footer empty 20 12 0
+14 -228856 -66577 0;
+#N canvas 400 199 492 213 META 0;
+#X text 12 5 KEYWORDS granular synthesis;
+#X text 12 25 DESCRIPTION real time granular synthesis engine;
+#X text 12 45 INLET_0 control messages;
+#X text 12 65 OUTLET_0 to N main audio outputs;
+#X text 12 85 OUTLET_N+1 reverberation send output;
+#X text 12 105 AUTHOR Oscar Pablo Di Liscia;
+#X text 53 122 (with the collaboration of Damián Anache);
+#X text 12 143 WEBSITE https://puredata.info/author/pdiliscia;
+#X text 12 163 INITIAL_RELEASE 2012;
+#X text 12 183 CURRENT_RELEASE 08/01/2016;
+#X restore 537 714 pd META;
+#X obj 13 713 pddplink http://puredata.info/Members/damiananache/mgt
+-text Usage Guide;
+#X text 7 77 See Roads \, C. \, Microsound \, The MIT Press \, England
+(2004) \, for Granular Synthesis references.;
+#X text 5 1 [my_grainer~] offers realtime granular synthesis with mono
+\, stereo or ambisonics outputs using tables for the grain's envelope
+and waveform. Both tables can be loaded into the internally allocated
+memory so they can be changed dinamically \, grain by grain \, during
+performance.;
+#X obj 11 442 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 8 537 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 99 451 cnv 17 3 80 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 99 546 cnv 17 3 45 empty empty n 5 9 0 16 -228856 -162280 0
+;
+#X obj 10 641 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X text 8 -19 real time granular synthesis engine;
+#X text 119 545 signal;
+#X obj 99 596 cnv 17 3 40 empty empty n+1 5 9 0 16 -228856 -162280
+0;
+#X text 119 615 signal;
+#X text 186 545 - n number of outputs will be according to the argument.
+;
+#X text 119 450 anything;
+#X text 189 450 - the inlet receives general purpose messages.;
+#X obj 6 72 cnv 3 580 3 empty empty empty 8 12 0 13 -228856 -1 0;
+#X msg 94 284 start;
+#X msg 84 264 stop;
+#X obj 84 244 loadbang;
+#X obj 223 126 cnv 3 3 100 empty empty empty 5 9 0 16 -228856 -162280
+0;
+#X text 231 262 start / stop messages control the audio rendering.
+;
+#X text 231 123 Grain waveform and envelope must be defined by tables
+\, without them the engine doesn't works.;
+#X obj 223 254 cnv 3 3 40 empty empty empty 5 9 0 16 -228856 -162280
+0;
+#X obj 223 309 cnv 3 3 40 empty empty empty 5 9 0 16 -228856 -162280
+0;
+#X obj 6 112 cnv 3 580 3 empty empty empty 8 12 0 13 -228856 -1 0;
+#X obj 99 646 cnv 3 3 45 empty empty empty 5 9 0 16 -228856 -162280
+0;
+#X text 104 646 1) float;
+#X text 189 559 n = 1 for mono mode \, n = 2 for stereo (L + R) \,
+n = 4 for FOA (W \, X \, Y \, Z) \, n = 9 for HOA (W \, X \, Y \, Z
+\, R \, S \, T \, U \, V).;
+#X text 189 617 - rigthmost outlet is always the reverberation send
+output.;
+#X text 189 645 - without arguments \, my_grainer~ is initialized for
+stereo output by default \, use 1 value for mono output \, 2 for stereo
+\, 4 for FOA or 9 for HOA.;
+#X text 191 465 Please read my_grainer_help.pdf file or take the tour
+with mGT ("my_Grainer Tutorial" \, available at PD's website) in order
+to know all the available messages.;
+#X obj 84 362 my_grainer~, f 14;
+#X obj 223 359 cnv 3 3 40 empty empty empty 5 9 0 16 -228856 -162280
+0;
+#N canvas 144 51 622 733 all_messages 0;
+#X msg 87 203 gs \$1;
+#X msg 107 285 ga \$1;
+#X text 150 286 gap between grains beginings in secs.;
+#X msg 127 366 gf \$1;
+#X text 169 366 grain read increment of the waveform table.;
+#X msg 147 446 ag \$1;
+#X text 195 447 grain amplitude.;
+#X obj 15 69 cnv 3 600 3 empty empty empty 8 12 0 13 -228856 -1 0;
+#X msg 97 245 gsr \$1;
+#X msg 117 326 gar \$1;
+#X msg 137 406 gfr \$1;
+#X msg 157 486 agr \$1;
+#X text 130 203 grain size in secs.;
+#X text 142 17 Please read my_grainer_help.pdf file or take the tour
+with mGT ("my_Grainer Tutorial" \, available at PD's website) in order
+to know full details for all the available messages.;
+#X floatatom 87 183 5 0 0 0 - - -, f 5;
+#X floatatom 97 225 5 0 0 0 - - -, f 5;
+#X obj 87 598 s \$0-mess;
+#X floatatom 117 307 5 0 0 0 - - -, f 5;
+#X floatatom 107 266 5 0 0 0 - - -, f 5;
+#X floatatom 127 346 5 0 0 0 - - -, f 5;
+#X floatatom 137 386 5 0 0 0 - - -, f 5;
+#X floatatom 147 426 5 0 0 0 - - -, f 5;
+#X floatatom 157 466 5 0 0 0 - - -, f 5;
+#X text 209 486 grain amplitude random deviation.;
+#X text 187 406 grain increment random deviation of the audio table.
+;
+#X text 144 245 grain size random deviation in secs.;
+#X text 165 326 gap random deviation in secs.;
+#X floatatom 167 506 5 0 0 0 - - -, f 5;
+#X floatatom 177 546 5 0 0 0 - - -, f 5;
+#X msg 167 526 gli \$1;
+#X msg 177 566 glir \$1;
+#X text 215 527 grain read increment of the audio table at the end
+of the grain duration (glissando).;
+#X text 231 566 grain increment at the end random deviation.;
+#N canvas 400 180 450 389 GeneralPurposeMessages 0;
+#X msg 96 257 print;
+#X obj 106 278 tgl 15 0 empty \$0-post_ctrlGUIin empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X msg 106 297 post_ctrl \$1;
+#X msg 76 197 pause \$1;
+#X obj 76 179 tgl 15 0 empty \$0-pauseGUIin empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X obj 56 346 s \$0-mess;
+#X msg 56 138 start;
+#X msg 66 158 stop;
+#X msg 86 237 seed \$1;
+#X floatatom 86 217 5 0 0 0 - - -, f 5;
+#X msg 116 317 gap_restart;
+#X text 99 137 starts the audio rendering of the unit.;
+#X text 103 158 stops the audio rendering of the unit.;
+#X text 137 197 pauses/resumes (1/0) new grains creation.;
+#X text 140 236 seeds the random number generator.;
+#X text 140 258 prints the actual parameter values.;
+#X text 188 297 enables/disables (1/0) console messages.;
+#X text 194 319 restarts the gap between grains.;
+#X text 55 106 GENERAL PURPOSE MESSAGES;
+#X text 52 28 Please read my_grainer_help.pdf file or take the tour
+with mGT ("my_Grainer Tutorial" \, available at PD's website) in order
+to know full details for all the available messages.;
+#X connect 0 0 5 0;
+#X connect 1 0 2 0;
+#X connect 2 0 5 0;
+#X connect 3 0 5 0;
+#X connect 4 0 3 0;
+#X connect 6 0 5 0;
+#X connect 7 0 5 0;
+#X connect 8 0 5 0;
+#X connect 9 0 8 0;
+#X connect 10 0 5 0;
+#X restore 68 92 pd GeneralPurposeMessages;
+#X text 86 151 MAIN GRAIN PARAMETERS;
+#N canvas 399 118 520 421 WaveformLoopsMessages 0;
+#X text 79 22 Please read my_grainer_help.pdf file or take the tour
+with mGT ("my_Grainer Tutorial" \, available at PD's website) in order
+to know full details for all the available messages.;
+#X msg 61 189 gst \$1;
+#X msg 71 229 gstr \$1;
+#X obj 46 335 s \$0-mess;
+#X floatatom 61 169 5 0 0 0 - - -, f 5;
+#X floatatom 71 209 5 0 0 0 - - -, f 5;
+#X text 108 189 starting time of the waveform table in seconds.;
+#X text 125 230 starting time random deviation.;
+#X msg 47 129 loop_t \$1;
+#X obj 47 110 hradio 15 1 0 3 empty empty empty 0 -8 0 10 -262144 -1
+-1 0;
+#X text 117 110 sets the loop type of the next grain to be synthesised
+to (float). Default=0 \, means no loop. If the grain size exceeds the
+duration of the table \, it will be read cyclically.(float)=1 means
+forward loop. (float)=2 means forward-backward loop.;
+#X floatatom 81 249 5 0 0 0 - - -, f 5;
+#X floatatom 91 289 5 0 0 0 - - -, f 5;
+#X msg 81 269 gen \$1;
+#X msg 91 309 genr \$1;
+#X text 128 269 ending point of the waveform table in seconds.;
+#X text 145 310 ending point random deviation.;
+#X connect 1 0 3 0;
+#X connect 2 0 3 0;
+#X connect 4 0 1 0;
+#X connect 5 0 2 0;
+#X connect 8 0 3 0;
+#X connect 9 0 8 0;
+#X connect 11 0 13 0;
+#X connect 12 0 14 0;
+#X connect 13 0 3 0;
+#X connect 14 0 3 0;
+#X restore 66 639 pd WaveformLoopsMessages;
+#N canvas 813 132 466 510 HandlingTablesMessages 0;
+#X text 45 95 SYNTHESIS MESSAGES;
+#X obj 46 465 s \$0-mess;
+#X msg 46 175 gtab \$0-table1;
+#X msg 56 255 usegtn \$1;
+#X floatatom 56 236 5 0 0 0 - - -, f 5;
+#X text 52 196 request the use of the indicated table for the waveform
+of next grain.;
+#X msg 66 395 gtab \$0-table2;
+#X floatatom 76 416 5 0 0 0 - - -, f 5;
+#X msg 76 435 useatn \$1;
+#X text 64 347 The two following messages will work indentically that
+the previous ones \, except that will apply tothe envelope tables.
+;
+#X text 62 275 use the table number (float) for the waveform of the
+next grain. The table (float) must havebeen requested previously.
+on this patch only one table is loaded.;
+#X text 44 116 my_grainer~ uses a pool of tables (max. 24 tables for
+audio and 24 tables for envelopes). Please see my_grainer_help.pdf
+for full details.;
+#X text 48 17 Please read my_grainer_help.pdf file or take the tour
+with mGT ("my_Grainer Tutorial" \, available at PD's website) in order
+to know full details for all the available messages.;
+#X connect 2 0 1 0;
+#X connect 3 0 1 0;
+#X connect 4 0 3 0;
+#X connect 6 0 1 0;
+#X connect 7 0 8 0;
+#X connect 8 0 1 0;
+#X restore 68 117 pd HandlingTablesMessages;
+#N canvas 440 220 499 527 SpatialLocationMessages 0;
+#X text 68 14 Please read my_grainer_help.pdf file or take the tour
+with mGT ("my_Grainer Tutorial" \, available at PD's website) in order
+to know full details for all the available messages.;
+#X obj 37 483 s \$0-mess;
+#X floatatom 37 97 5 0 0 0 - - -, f 5;
+#X floatatom 47 267 5 0 0 0 - - -, f 5;
+#X floatatom 57 307 5 0 0 0 - - -, f 5;
+#X floatatom 67 347 5 0 0 0 - - -, f 5;
+#X msg 37 117 az \$1;
+#X text 84 117 grain azimuth angle in degrees.;
+#X text 84 139 When the output is set to Mono \, this message is disregarded.
+When the output is set to Stereo \, the range for the azimuth angle
+is from 45 to 135 degrees (45=right \, 90 centre \, 135=left \, counterclockwise)
+\, default=90 Deg. When the output is set to Ambisonic 1 st or 2 nd
+Order B Format \, the azimuth angle is wrapped around so as to keep
+it in the range of 0 to 360 Deg. Note that 90 Deg. is always centre
+(facing the listener and counterclockwise) also in this case \, which
+is different than the usual angle conventions for Ambisonics.;
+#X msg 47 287 azr \$1;
+#X text 106 287 grain azimuth angle random deviation in degrees.;
+#X msg 57 327 el \$1;
+#X text 126 367 grain elevation angle random deviation in degrees.
+;
+#X text 109 326 grain elevation angle in degrees (0=middle to 360).
+Only available for Ambisonic output.;
+#X msg 67 367 elr \$1;
+#X floatatom 77 387 5 0 0 0 - - -, f 5;
+#X floatatom 87 427 5 0 0 0 - - -, f 5;
+#X msg 77 407 dis \$1;
+#X msg 87 447 disr \$1;
+#X text 146 447 grain distance random deviation.;
+#X text 129 406 grain distance \, in arbitrary units. Min= 0.1;
+#X connect 2 0 6 0;
+#X connect 3 0 9 0;
+#X connect 4 0 11 0;
+#X connect 5 0 14 0;
+#X connect 6 0 1 0;
+#X connect 9 0 1 0;
+#X connect 11 0 1 0;
+#X connect 14 0 1 0;
+#X connect 15 0 17 0;
+#X connect 16 0 18 0;
+#X connect 17 0 1 0;
+#X connect 18 0 1 0;
+#X restore 66 669 pd SpatialLocationMessages;
+#N canvas 355 14 1218 730 ArraysOfDiscreteValuesMessages 0;
+#X text 420 17 Please read my_grainer_help.pdf file or take the tour
+with mGT ("my_Grainer Tutorial" \, available at PD's website) in order
+to know full details for all the available messages.;
+#X obj 65 659 s \$0-mess;
+#X floatatom 64 206 5 0 0 0 - - -, f 5;
+#X text 419 98 In addition to the former messages \, my_grainer~ allows
+the use of arrays of discrete values that are selected randomly for
+each grain. The random selection probability distribution function
+is uniform. The size of the arrays is limited to 24 and the exceeding
+values (if any) will be disregarded.;
+#X text 521 76 ARRAYS OF DISCRETE VALUES;
+#X msg 64 256 gap_table \$1 \$2 \$3;
+#X obj 64 236 pack f f f;
+#X floatatom 102 206 5 0 0 0 - - -, f 5;
+#X floatatom 140 206 5 0 0 0 - - -, f 5;
+#X floatatom 80 375 5 0 0 0 - - -, f 5;
+#X obj 80 405 pack f f f;
+#X floatatom 118 375 5 0 0 0 - - -, f 5;
+#X floatatom 156 375 5 0 0 0 - - -, f 5;
+#X text 189 256 gap_table float1 float2...floatn: switches the gap
+size (ga) to discrete gap values \, alternating them at random. The
+same message without any float value switches to the gap values selection
+mode on the basis of (ga \, gar). N.B.: The resulting gap values in
+this case will be a random choice out of the delivered gap values plus
+the gar deviation. Useful to create rithmic patterns.;
+#X msg 80 425 dur_table \$1 \$2 \$3;
+#X text 201 425 dur_table float1 float2...floatn: the same as the former
+\, but in this case applies to the duration of thegrains.;
+#X floatatom 100 519 5 0 0 0 - - -, f 5;
+#X obj 100 548 pack f f f;
+#X floatatom 138 519 5 0 0 0 - - -, f 5;
+#X floatatom 176 519 5 0 0 0 - - -, f 5;
+#X msg 100 568 pitch_table \$1 \$2 \$3;
+#X text 237 568 pitch_table float1 float2...floatn: the same as the
+former \, but in this case applies to the reading increment of the
+audio table for the grains (i.e. \, affects the frequency of the grains).
+Useful for creating pitched sequences of grains. As an example \, being
+the table fundamental frequency C5 \, the message pitch_table 1 4 2
+7 will produce pitched grains with their frequency being selected at
+random between C#5 \, E5 \, D5 and G5. If gf value is different from
+"1" \, pitch_table pitches will be transposed according to the gf value
+\, considering it as the reference.;
+#X obj 664 531 s \$0-mess;
+#X floatatom 664 207 5 0 0 0 - - -, f 5;
+#X obj 664 237 pack f f f;
+#X floatatom 702 207 5 0 0 0 - - -, f 5;
+#X floatatom 740 207 5 0 0 0 - - -, f 5;
+#X msg 664 257 ptr_table \$1 \$2 \$3;
+#X text 787 257 ptr_table float1 float2...floatn: the same as the former
+\, but in this case applies to the starting read time of the audio
+for the grains in the audio table. Useful to create grains from specific
+regions of the audio table. N.B.: this will set automatically the loop
+type to 0 (no loop).;
+#X floatatom 684 347 5 0 0 0 - - -, f 5;
+#X obj 684 377 pack f f f;
+#X floatatom 722 347 5 0 0 0 - - -, f 5;
+#X floatatom 760 347 5 0 0 0 - - -, f 5;
+#X msg 684 397 gtab_table \$1 \$2 \$3;
+#X text 819 398 gtab_table float1 float2...floatn: causes a random
+selection of the audio table for the grains out of the values given
+in the list of floats delivered. The values must correspond to audio
+tables that are active (note that the tables are numbered starting
+from 0 in the order that were requested by a previous gtable message).
+Example: gtab_table 1 2 5 10 will produce grains using an audio table
+number being selected at random out of 1 \, 2 \, 5 or 10 The usegtn
+or gtable (see above) messages will interrupt the random selection.
+;
+#X msg 72 278 gap_table;
+#X text 142 278 unset;
+#X text 162 450 unset;
+#X msg 92 450 dur_table;
+#X text 182 590 unset;
+#X msg 106 590 pitch_table;
+#X text 749 280 unset;
+#X msg 673 280 ptr_table;
+#X msg 750 479 usegtn 0;
+#X connect 2 0 6 0;
+#X connect 5 0 1 0;
+#X connect 6 0 5 0;
+#X connect 7 0 6 1;
+#X connect 8 0 6 2;
+#X connect 9 0 10 0;
+#X connect 10 0 14 0;
+#X connect 11 0 10 1;
+#X connect 12 0 10 2;
+#X connect 14 0 1 0;
+#X connect 16 0 17 0;
+#X connect 17 0 20 0;
+#X connect 18 0 17 1;
+#X connect 19 0 17 2;
+#X connect 20 0 1 0;
+#X connect 23 0 24 0;
+#X connect 24 0 27 0;
+#X connect 25 0 24 1;
+#X connect 26 0 24 2;
+#X connect 27 0 22 0;
+#X connect 29 0 30 0;
+#X connect 30 0 33 0;
+#X connect 31 0 30 1;
+#X connect 32 0 30 2;
+#X connect 33 0 22 0;
+#X connect 35 0 1 0;
+#X connect 38 0 1 0;
+#X connect 40 0 1 0;
+#X connect 42 0 22 0;
+#X connect 43 0 22 0;
+#X restore 66 699 pd ArraysOfDiscreteValuesMessages;
+#X connect 0 0 16 0;
+#X connect 1 0 16 0;
+#X connect 3 0 16 0;
+#X connect 5 0 16 0;
+#X connect 8 0 16 0;
+#X connect 9 0 16 0;
+#X connect 10 0 16 0;
+#X connect 11 0 16 0;
+#X connect 14 0 0 0;
+#X connect 15 0 8 0;
+#X connect 17 0 9 0;
+#X connect 18 0 1 0;
+#X connect 19 0 3 0;
+#X connect 20 0 10 0;
+#X connect 21 0 5 0;
+#X connect 22 0 11 0;
+#X connect 27 0 29 0;
+#X connect 28 0 30 0;
+#X connect 29 0 16 0;
+#X connect 30 0 16 0;
+#X restore 236 370 pd all_messages;
+#N canvas 275 14 877 813 basics_mesages 0;
+#X text 406 424 INCR;
+#X text 407 172 SIZE;
+#X text 409 293 GAP;
+#X obj 449 296 hsl 128 15 0.02 2 1 0 \$0-gapGUIout \$0-gapGUIin empty
+-2 -8 0 10 -262144 -1 -1 4438 1;
+#X obj 449 174 hsl 128 15 0.02 2 1 0 \$0-sizeGUIout \$0-sizeGUIin empty
+-2 -8 0 10 -262144 -1 -1 2527 1;
+#X obj 449 427 hsl 128 15 0 2 0 0 \$0-incrGUIout \$0-incrGUIin empty
+-2 -8 0 10 -262144 -1 -1 6350 1;
+#X floatatom 583 295 5 0 0 0 - #0-gapGUIout -, f 5;
+#X floatatom 583 173 5 0 0 0 - #0-sizeGUIout -, f 5;
+#X floatatom 583 426 5 0 0 0 - #0-incrGUIout -, f 5;
+#X msg 770 189 gs \$1;
+#X msg 770 311 ga \$1;
+#X text 445 311 ga (float);
+#X text 445 323 gap between grains beginings in secs.;
+#X msg 772 442 gf \$1;
+#X text 445 442 gf (float);
+#X text 445 454 grain read increment of the waveform table.;
+#X obj 449 559 hsl 128 15 0.02 2 1 0 \$0-ampGUIout \$0-ampGUIin empty
+-2 -8 0 10 -262144 -1 -1 10788 1;
+#X floatatom 583 558 5 0 0 0 - #0-ampGUIout -, f 5;
+#X msg 771 574 ag \$1;
+#X text 407 556 AMP;
+#X text 445 572 ag (float);
+#X text 445 584 grain amplitude.;
+#X text 446 116 All parameters changes will affect next generated grains.
+No any changes will modified a grain during its performance.;
+#X text 566 84 MAIN GRAIN PARAMETERS;
+#X msg 13 279 print;
+#X obj 13 302 s \$0-mess;
+#X text 56 278 Prints my_grainer's current state on console.;
+#N canvas 527 250 679 271 GUI-initialSetup 0;
+#X text 126 22 GUI initial setup acording to my_grainer~'s default
+values;
+#X obj 539 54 inlet;
+#X obj 296 135 s \$0-incrGUIin;
+#X obj 86 135 s \$0-sizeGUIin;
+#X obj 195 135 s \$0-gapGUIin;
+#X obj 539 77 loadbang;
+#X obj 539 97 del 1;
+#X msg 76 114 0.05;
+#X msg 185 114 0.1;
+#X msg 286 114 1;
+#X msg 396 114 1;
+#X obj 406 135 s \$0-ampGUIin;
+#X msg 185 164 0;
+#X msg 76 164 0;
+#X msg 286 164 0;
+#X msg 396 164 0;
+#X obj 76 185 s \$0-sizerGUIin;
+#X obj 185 184 s \$0-gaprGUIin;
+#X obj 286 185 s \$0-incrrGUIin;
+#X obj 396 185 s \$0-amprGUIin;
+#X msg 539 181 0;
+#X obj 549 152 s \$0-startGUIin;
+#X obj 539 202 s \$0-startrGUIin;
+#X msg 539 131 2.086;
+#X connect 1 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 9 0;
+#X connect 6 0 7 0;
+#X connect 6 0 8 0;
+#X connect 6 0 10 0;
+#X connect 6 0 23 0;
+#X connect 7 0 3 0;
+#X connect 7 0 13 0;
+#X connect 8 0 4 0;
+#X connect 8 0 12 0;
+#X connect 9 0 2 0;
+#X connect 9 0 14 0;
+#X connect 10 0 11 0;
+#X connect 10 0 15 0;
+#X connect 12 0 17 0;
+#X connect 13 0 16 0;
+#X connect 14 0 18 0;
+#X connect 15 0 19 0;
+#X connect 20 0 22 0;
+#X connect 23 0 20 0;
+#X connect 23 0 21 0;
+#X restore 12 551 pd GUI-initialSetup;
+#X obj 12 531 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 31 528 reset;
+#X obj 13 348 tgl 15 0 empty \$0-post_ctrlGUIin empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X msg 13 367 post_ctrl \$1;
+#X obj 13 260 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 12 146 pause \$1;
+#X obj 12 128 tgl 15 0 empty \$0-pauseGUIin empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X obj 12 215 s \$0-mess;
+#X obj 13 493 s \$0-mess;
+#X text 24 386 "post_ctrl" messages enables/disables (1/0) most of
+grainer's console posts.;
+#X text 25 417 These actions ignores the posting control: initialization
+messages \; start \, stop and print messages \; table's loop mode \;
+and most of input values errors.;
+#X text 20 165 While "start" and "stop" messages controls audio rendering
+\, "pause 0" message keeps audio active and just disable new grains
+creation \, "pause 1" resumes.;
+#X text 222 7 Please read my_grainer_help.pdf file or take the tour
+with mGT ("my_Grainer Tutorial" \, available at PD's website) in order
+to know all the available messages.;
+#X obj 4 65 cnv 3 830 3 empty empty empty 8 12 0 13 -228856 -1 0;
+#X obj 449 224 hsl 128 15 0 2 0 0 \$0-sizerGUIout \$0-sizerGUIin empty
+-2 -8 0 10 -262144 -1 -1 0 1;
+#X floatatom 583 223 5 0 0 0 - #0-sizerGUIout -, f 5;
+#X obj 770 267 s \$0-mess;
+#X msg 780 239 gsr \$1;
+#X text 445 251 grain size random deviation \, in secs;
+#X text 445 266 The size of each grain will be: gs + birand(gsr);
+#X text 385 228 deviation;
+#X text 391 216 random;
+#X obj 379 72 cnv 1 1 700 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X text 445 239 gsr (float);
+#X floatatom 584 345 5 0 0 0 - #0-gaprGUIout -, f 5;
+#X obj 770 395 s \$0-mess;
+#X msg 780 361 gar \$1;
+#X text 446 361 gar (float);
+#X text 385 349 deviation;
+#X obj 449 346 hsl 128 15 0 2 0 0 \$0-gaprGUIout \$0-gaprGUIin empty
+-2 -8 0 10 -262144 -1 -1 0 1;
+#X text 446 389 The temporal gap between each grain will be: ga + birand(gar)
+;
+#X text 446 373 gap random deviation \, in secs;
+#X text 392 335 random;
+#X floatatom 585 477 5 0 0 0 - #0-incrrGUIout -, f 5;
+#X obj 772 519 s \$0-mess;
+#X msg 782 493 gfr \$1;
+#X text 447 493 gfr (float);
+#X text 387 481 deviation;
+#X text 393 469 random;
+#X obj 450 477 hsl 128 15 0 2 0 0 \$0-incrrGUIout \$0-incrrGUIin empty
+-2 -8 0 10 -262144 -1 -1 0 1;
+#X text 447 505 grain increment random deviation of the audio table
+;
+#X floatatom 583 606 5 0 0 0 - #0-amprGUIout -, f 5;
+#X obj 771 646 s \$0-mess;
+#X msg 781 622 agr \$1;
+#X text 445 620 agr (float);
+#X text 385 610 deviation;
+#X text 392 598 random;
+#X obj 449 606 hsl 128 15 -1 1 0 0 \$0-amprGUIout \$0-amprGUIin empty
+-2 -8 0 10 -262144 -1 -1 6350 1;
+#X text 445 632 grain amplitude random deviation;
+#X text 444 647 The amplitude of each grain will be: ag + birand(agr)
+;
+#X text 447 519 The increment of each grain will be: gf + birand(gfr)
+;
+#X text 445 189 gs (float);
+#X text 445 201 grain size in secs.;
+#X obj 445 690 hsl 128 15 0.1 3 1 0 \$0-startGUIout \$0-startGUIin
+empty -2 -8 0 10 -262144 -1 -1 11343 1;
+#X floatatom 579 689 5 0 0 0 - #0-startGUIout -, f 5;
+#X text 441 703 ag (float);
+#X floatatom 579 737 5 0 0 0 - #0-startrGUIout -, f 5;
+#X obj 789 777 s \$0-mess;
+#X text 441 751 agr (float);
+#X text 381 741 deviation;
+#X text 388 729 random;
+#X obj 445 737 hsl 128 15 -1 1 0 0 \$0-startrGUIout \$0-startrGUIin
+empty -2 -8 0 10 -262144 -1 -1 7850 1;
+#X text 403 687 START;
+#X text 441 763 grain start random deviation;
+#X text 441 715 grain starting read point in the active audio table
+;
+#X text 441 777 The start time of each grain will be: gst + birand(gstr)
+;
+#X msg 789 705 gst \$1;
+#X msg 799 753 gstr \$1;
+#X connect 6 0 10 0;
+#X connect 7 0 9 0;
+#X connect 8 0 13 0;
+#X connect 9 0 44 0;
+#X connect 10 0 53 0;
+#X connect 13 0 62 0;
+#X connect 17 0 18 0;
+#X connect 18 0 70 0;
+#X connect 24 0 25 0;
+#X connect 28 0 27 0;
+#X connect 30 0 31 0;
+#X connect 31 0 36 0;
+#X connect 32 0 24 0;
+#X connect 33 0 35 0;
+#X connect 34 0 33 0;
+#X connect 43 0 45 0;
+#X connect 45 0 44 0;
+#X connect 52 0 54 0;
+#X connect 54 0 53 0;
+#X connect 61 0 63 0;
+#X connect 63 0 62 0;
+#X connect 69 0 71 0;
+#X connect 71 0 70 0;
+#X connect 82 0 94 0;
+#X connect 84 0 95 0;
+#X connect 94 0 85 0;
+#X connect 95 0 85 0;
+#X restore 236 320 pd basics_mesages;
+#X connect 7 0 41 0;
+#X connect 26 0 41 0;
+#X connect 27 0 41 0;
+#X connect 28 0 27 0;
+#X connect 41 0 1 0;
+#X connect 41 1 1 1;
+#X coords 0 793 1 792 85 60 0;

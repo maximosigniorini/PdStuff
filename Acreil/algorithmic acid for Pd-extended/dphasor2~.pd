@@ -1,0 +1,81 @@
+#N canvas 273 127 822 706 10;
+#X obj 153 152 inlet~;
+#X text 151 134 input frequency \, Hz;
+#X obj 213 174 inlet~;
+#X text 211 156 noise modulator \, (-1 \, 1);
+#X obj 55 616 outlet~;
+#X text 53 632 phasor out;
+#X obj 341 248 outlet;
+#X text 340 264 control for vv~;
+#X obj 341 229 r \$1-noise_var;
+#X obj 137 265 samplerate~;
+#X obj 137 284 sig~;
+#X obj 137 325 /~;
+#X obj 137 364 -~;
+#X obj 152 345 wrap~;
+#X obj 55 578 /~;
+#X obj 55 597 phasor~;
+#X obj 179 417 +~ 1;
+#X text 169 363 n;
+#X obj 137 425 *~;
+#X obj 137 444 /~ 96000;
+#X obj 137 463 -~ 1;
+#X obj 137 482 *~;
+#X obj 70 559 +~;
+#X obj 83 248 loadbang;
+#X obj 167 229 r init;
+#X obj 137 227 r go;
+#X obj 137 246 t b;
+#X text 162 481 -1 * D;
+#X obj 213 524 *~ 0.5;
+#X obj 213 505 -~ 1;
+#X obj 138 543 expr~ $v1<$v2;
+#X text 148 561 modulator;
+#X obj 111 208 r \$1-e_tol;
+#X obj 217 282 s \$1-sample_rate;
+#X text 343 590 Contact: limina@live.com.;
+#X text 343 572 Scott Nordlund \, 2012;
+#X text 339 418 Simple implementation of dithered frequency phasor
+with audio rate modulation. Sound quality is possibly better than dphasor1~
+for a given sample rate (if you prefer broadband noise to discrete
+pitch modulation) \, but it's somewhat more expensive since it's all
+made with signal objects. In this case the dphasor2 controller is just
+used to set the noise variance (using an external noise~ object and
+vv~ abstraction) \, and to conveniently reset the sample rate. So dphasor2~
+can be used without the controller.;
+#X obj 580 263 inlet;
+#X text 615 261 phase reset;
+#X text 344 609 Last revised: 04.26.2013;
+#X connect 0 0 11 1;
+#X connect 0 0 18 1;
+#X connect 2 0 29 0;
+#X connect 8 0 6 0;
+#X connect 8 0 26 0;
+#X connect 9 0 10 0;
+#X connect 9 0 19 1;
+#X connect 9 0 33 0;
+#X connect 10 0 11 0;
+#X connect 10 0 14 0;
+#X connect 11 0 12 0;
+#X connect 11 0 13 0;
+#X connect 12 0 16 0;
+#X connect 12 0 18 0;
+#X connect 12 0 22 0;
+#X connect 13 0 12 1;
+#X connect 14 0 15 0;
+#X connect 15 0 4 0;
+#X connect 16 0 21 1;
+#X connect 18 0 19 0;
+#X connect 19 0 20 0;
+#X connect 20 0 21 0;
+#X connect 21 0 30 0;
+#X connect 22 0 14 1;
+#X connect 23 0 9 0;
+#X connect 24 0 26 0;
+#X connect 25 0 26 0;
+#X connect 26 0 9 0;
+#X connect 28 0 30 1;
+#X connect 29 0 28 0;
+#X connect 30 0 22 1;
+#X connect 32 0 26 0;
+#X connect 37 0 15 1;

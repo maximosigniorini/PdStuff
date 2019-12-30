@@ -1,0 +1,58 @@
+# Igor Stravinsky - The Rite of Spring - Sacrificial Dance - Beginning
+# this score induces a bug in the Click Tracker: any score opened after this one doesn't play the first beat correctly. The bar database isn't correctly formed - there is a problem with the first bar.
+
+# [142]
+t 126
+1.5 b
+1 b
+1.5 b
+1.5 b
+1 b
+1
+# [143]
+1 b
+1.5 b
+1.5 b
+1 b
+1
+1.5 b
+# [144]
+1.5 b
+1.5 b
+1
+1 b
+1
+1.5 b
+1 b
+1
+# [145]
+1.5 b
+1
+1 b
+1.5 
+1 b
+1
+1.5 b
+1 b
+1
+1.5 b
+# [146]
+1 b
+1.5  b
+1 b
+1
+1 b
+1
+1
+# [147]
+1.5 b
+1 b
+1.5 b
+1 b
+1
+1 b
+# [148]
+1.5 b
+1.5 b
+1 b
+1

@@ -1,0 +1,40 @@
+markovGenerator
+
+Generates music from learned material using Markov chains. It is polyphonic, plays endlessly and supports Markov chains with variable length. 
+
+
+Usage:
+1. Record midi notes or load midi files
+2. Make Markov system
+3. Play
+
+
+1. Record midi notes or load midi files
+Until you reset the memory, each new recording will be added to the memory. The recorded material is seen as a loop, so that the last note is followed by the the first note, for endless play. markovGenerator handles recording midi and loading midi files differently: When you record midi, it will record notes according to the midi clock every sixth midi tick. This is defined in the counter in [pd midiclock]. So that way, breaks are being recorded and the rhythm is preserved. When loading midi files, no breaks are being recorded, the notes are just recorded in order, so the rhythm will be lost. In any case, simultaneous notes will be recorded as chords, so polyphony is preserved.
+
+2. Make Markov system
+Set markovOrder to specify the length of the Markov chain. The higher the order, the more musical information will be kept, the lower the order, the more random it gets. You can use soundFilter and channelFilter to only use notes of the specified sound or channel. This is especially useful when working with midi files. Note that if there are no notes of the specified sound or channel, the Markov system will be empty and nothing will be played. Set the filters to zero to disable them. If you change the settings for the Markov system, click makeMarkov again for them to take effect. You can make new Markov systems with different settings out of the same recorded material over and over again, even when playing. If you record additional notes, click makeMarkov again to incorporate them into the Markov system.
+
+3. Play
+While playing, you can change the note length, sound and midi out channel. Set soundOut and channelOut to zero to use the sound and channel information of the original material. Playing starts with the Markov chain of the last recorded notes, so the first note might be played first.
+
+Use the markovAll section on the right to control all Markov channels at once. Here you can also set tempo, swing and midiSync, and you can save the project or load previous projects.
+
+Have fun!
+
+
+If it does not play, make sure that 
+- you recorded some notes,
+- you hit the makeMarkov button,
+- soundFilter and channelFilter are not set to values where there are no notes. Try setting the filters to zero and hit makeMarkov again.
+
+
+About the Markov system:
+You can see the Markov system of each Markov channel in [text define $0markov]. Notes are stored as symbols, where the values are joined by "?". A note might look like 42?69?35?10 (pitch?velocity?sound?channel). Chords are joined by "=". A chord of two notes might look like 40?113?35?10=42?49?35?10. Notes and chords are joined to Markov chains by "-". The velocity values are not included in the chains. Sound and midi channel values are only included, if soundFilter or channelFilter are off, respectively. Markov chains of order three may look like 42?35?10-36?35?10=42?35?10-60?35?2 with filters off and simply like 42-37-40 with both filters active, only using the pitch value.
+
+
+Compatibility: 
+Requires Pd 0.47.1 with the libraries cyclone, zexy and list-abs.
+
+Copyright 2017 by Jonathan Frank <JonathanFrank@gmx.net> and Ingo Stock <pd@ingostock.de>
+This program is free software, licensed under the GNU General Public License 2 or later.

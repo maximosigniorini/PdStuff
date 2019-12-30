@@ -1,0 +1,562 @@
+#N canvas 329 85 880 484 10;
+#X declare -path abs;
+#X declare -path abs/lib;
+#X declare -lib zexy;
+#X obj 2 74 cnv 15 876 298 empty empty empty 30 50 0 14 -9034 -66577
+0;
+#N canvas 707 242 453 383 markovAll 0;
+#X obj 240 40 cnv 15 180 294 empty empty markovAll 6 12 0 11 -220928
+-66577 0;
+#X obj 247 190 tgl 15 0 \$0play \$0setPlay play 17 7 0 10 -204786 -1
+-66577 0 1;
+#X obj 247 118 bng 15 50 10 0 \$0makeMatrix \$0setMakeMatrix makeMarkow
+17 7 0 10 -204800 -1 -66577;
+#X obj 247 263 nbx 4 14 10 500 0 0 \$0tempo \$0setTempo tempo 47 8
+0 10 -204786 -1 -66577 120 256;
+#X obj 283 137 nbx 4 14 0 1000 0 0 \$0markovOrder \$0setMarkovOrder
+markovOrder 47 8 0 10 -204800 -1 -66577 3 256;
+#X obj 265 172 bng 15 50 10 0 \$0channelUp \$0no-r empty 17 7 0 10
+-204800 -1 -66577;
+#X obj 247 172 bng 15 50 10 0 \$0channelDown \$0no-r empty 17 7 0 10
+-204800 -1 -66577;
+#X obj 283 173 nbx 4 14 0 16 0 0 \$0channel \$0setChannel channelFilter
+47 8 0 10 -204800 -1 -66577 0 256;
+#X obj 265 136 bng 15 50 10 0 \$0markovOrderUp \$0no-r empty 17 7 0
+10 -204800 -1 -66577;
+#X obj 247 136 bng 15 50 10 0 \$0markovOrderDown \$0no-r empty 17 7
+0 10 -204800 -1 -66577;
+#X obj 45 172 declare -path abs;
+#X obj 265 154 bng 15 50 10 0 \$0soundUp \$0no-r empty 17 7 0 10 -204800
+-1 -66577;
+#X obj 247 154 bng 15 50 10 0 \$0soundDown \$0no-r empty 17 7 0 10
+-204800 -1 -66577;
+#X obj 283 155 nbx 4 14 0 128 0 0 \$0sound \$0setSound soundFilter
+47 8 0 10 -204800 -1 -66577 0 256;
+#N canvas 390 132 275 630 play 0;
+#X obj 90 292 nbx 4 14 10 500 0 0 empty \$0tempo tempo 0 -10 0 10 -204786
+-1 -66577 120 256;
+#X obj 161 531 tgl 15 0 empty \$0midiSync midiSync 17 7 0 10 -204786
+-1 -66577 0 1;
+#X obj 78 531 bng 15 250 50 0 empty \$0midiclock midiclock 17 7 0 10
+-262144 -1 -1;
+#X obj 58 531 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 58 333 metro;
+#X obj 58 573 s \$0playNote;
+#X obj 58 39 tgl 15 0 empty \$0playChannel playChannel 17 7 0 10 -204786
+-1 -66577 0 1;
+#X obj 58 59 sel;
+#X msg 58 81 -1;
+#X obj 58 103 +;
+#X floatatom 58 125 5 0 0 0 - - -;
+#X obj 58 144 != 0;
+#X obj 58 166 change;
+#X obj 58 188 t f b f b;
+#X obj 118 232 tgl 15 0 \$0setPlay empty setPlay 17 7 0 10 -204786
+-1 -66577 0 1;
+#X msg 138 210 0;
+#X msg 98 210 1;
+#X obj 58 355 f;
+#X obj 58 377 + 1;
+#X obj 58 399 & 255;
+#X obj 58 443 & 1;
+#X obj 58 421 t f f;
+#X obj 58 465 pack;
+#X obj 58 487 route 0 1;
+#X obj 130 487 *;
+#X obj 140 465 t b f;
+#X obj 88 509 pipe;
+#X obj 130 446 nbx 8 14 0 0.33 0 0 empty \$0swing swing 0 -10 0 10
+-204786 -1 -66577 0 256;
+#X obj 58 551 mux;
+#X obj 98 252 s \$0playLock;
+#X obj 90 311 expr 60000/$f1;
+#X floatatom 170 506 5 0 0 0 - - -;
+#X obj 58 210 pipe;
+#X connect 0 0 30 0;
+#X connect 1 0 28 2;
+#X connect 2 0 28 1;
+#X connect 3 0 28 0;
+#X connect 4 0 17 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 7 1 9 0;
+#X connect 8 0 9 0;
+#X connect 9 0 10 0;
+#X connect 10 0 9 1;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 12 0 13 0;
+#X connect 13 0 32 0;
+#X connect 13 1 16 0;
+#X connect 13 2 14 0;
+#X connect 13 3 15 0;
+#X connect 15 0 29 0;
+#X connect 16 0 29 0;
+#X connect 17 0 18 0;
+#X connect 18 0 19 0;
+#X connect 19 0 17 1;
+#X connect 19 0 21 0;
+#X connect 20 0 22 0;
+#X connect 21 0 20 0;
+#X connect 21 1 22 1;
+#X connect 22 0 23 0;
+#X connect 23 0 3 0;
+#X connect 23 1 26 0;
+#X connect 24 0 26 1;
+#X connect 24 0 31 0;
+#X connect 25 0 24 0;
+#X connect 25 1 24 1;
+#X connect 26 0 3 0;
+#X connect 27 0 24 0;
+#X connect 28 0 5 0;
+#X connect 30 0 4 1;
+#X connect 30 0 25 0;
+#X connect 32 0 4 0;
+#X restore 45 62 pd play;
+#N canvas 200 137 1006 498 interface 0;
+#X obj 374 314 bng 15 250 50 0 empty \$0channelUp channelUp 17 7 0
+10 -204800 -1 -66577;
+#X obj 366 272 bng 15 250 50 0 empty \$0channelDown channelDown 17
+7 0 10 -204800 -1 -66577;
+#X msg 366 292 dec 1;
+#X msg 374 363 inc 1;
+#X msg 207 292 dec 1;
+#X msg 215 363 inc 1;
+#X obj 215 314 bng 15 250 50 0 empty \$0soundUp soundUp 17 7 0 10 -204800
+-1 -66577;
+#X obj 207 272 bng 15 250 50 0 empty \$0soundDown soundDown 17 7 0
+10 -204800 -1 -66577;
+#X msg 44 292 dec 1;
+#X msg 52 363 inc 1;
+#X obj 52 314 bng 15 250 50 0 empty \$0markovOrderUp markovOrderUp
+17 7 0 10 -204800 -1 -66577;
+#X obj 44 272 bng 15 250 50 0 empty \$0markovOrderDown markovOrderDown
+17 7 0 10 -204800 -1 -66577;
+#X obj 384 429 nbx 4 14 0 64 0 0 \$0setChannel empty setChannel 0 22
+0 10 -204800 -1 -33289 0 256;
+#X obj 225 429 nbx 4 14 0 128 0 0 \$0setSound empty setSound 0 22 0
+10 -204800 -1 -33289 0 256;
+#X obj 62 429 nbx 4 14 0 1000 0 0 \$0setMarkovOrder empty setMarkovOrder
+0 22 0 10 -204800 -1 -33289 0 256;
+#X obj 115 363 t f f;
+#X obj 426 344 nbx 4 14 0 64 0 0 empty \$0channel channel 0 -8 0 10
+-204800 -1 -33289 0 256;
+#X obj 273 344 nbx 4 14 0 128 0 0 empty \$0sound sound 0 -8 0 10 -204800
+-1 -33289 0 256;
+#X obj 115 344 nbx 4 14 0 1000 0 0 empty \$0markovOrder markovOrder
+0 -8 0 10 -204800 -1 -33289 3 256;
+#X obj 273 363 t f f;
+#X obj 426 363 t f f;
+#X obj 44 407 sel;
+#X obj 207 407 sel;
+#X obj 366 407 sel;
+#X obj 44 181 nbx 4 14 1 500 0 1 \$0setTempo empty setTempo 47 8 0
+10 -204786 -1 -66577 120 256;
+#X obj 44 198 tgl 15 1 \$0setMidiSync empty setMidiSync 17 7 0 10 -204786
+-1 -66577 0 1;
+#X obj 204 63 tgl 15 0 empty \$0play play 17 7 0 10 -204786 -1 -66577
+0 1;
+#X obj 204 105 tgl 15 0 \$0playAll empty playAll 17 7 0 10 -204786
+-1 -66577 0 1;
+#X obj 204 83 spigot 1;
+#X obj 44 96 nbx 4 14 0 64 0 1 \$0setSound empty setSound 47 8 0 10
+-204800 -1 -33289 0 256;
+#X obj 44 79 nbx 4 14 0 64 0 1 \$0setMarkovOrder empty setMarkovOrder
+47 8 0 10 -204800 -1 -33289 3 256;
+#X obj 44 147 nbx 4 14 0 128 0 1 \$0setSoundOut empty setSoundOut 47
+8 0 10 -204786 -1 -66577 0 256;
+#X obj 44 61 tgl 15 1 \$0setRecord empty setRecord 17 7 0 10 -262130
+-1 -66577 0 1;
+#X obj 44 164 nbx 4 14 0 128 0 1 \$0setChannelOut empty setChannelOut
+47 8 0 10 -204786 -1 -66577 0 256;
+#X obj 44 113 nbx 4 14 0 64 0 1 \$0setChannel empty setChannel 47 8
+0 10 -204800 -1 -33289 0 256;
+#X obj 44 216 nbx 4 14 0 0.33 0 1 \$0setSwing empty setSwing 47 8 0
+10 -204786 -1 -66577 0 256;
+#X obj 44 130 nbx 4 14 0 128 0 1 \$0setNoteLength empty setNoteLength
+47 8 0 10 -204786 -1 -66577 80 256;
+#X obj 257 61 r \$0playLock;
+#X msg 519 292 dec 1;
+#X msg 527 363 inc 1;
+#X obj 527 314 bng 15 250 50 0 empty \$0noteLengthUp noteLengthUp 17
+7 0 10 -204786 -1 -66577;
+#X obj 519 272 bng 15 250 50 0 empty \$0noteLengthDown noteLengthDown
+17 7 0 10 -204786 -1 -66577;
+#X obj 537 429 nbx 4 14 0 10000 0 0 \$0setNoteLength empty setNoteLength
+0 22 0 10 -204786 -1 -33289 0 256;
+#X obj 595 344 nbx 4 14 0 10000 0 0 empty \$0noteLength noteLength
+0 -8 0 10 -204786 -1 -33289 80 256;
+#X obj 595 363 t f f;
+#X obj 519 407 sel;
+#X msg 674 292 dec 1;
+#X msg 682 363 inc 1;
+#X obj 682 314 bng 15 250 50 0 empty \$0soundOutUp soundOutUp 17 7
+0 10 -204786 -1 -66577;
+#X obj 674 272 bng 15 250 50 0 empty \$0soundOutDown soundOutDown 17
+7 0 10 -204786 -1 -66577;
+#X obj 692 429 nbx 4 14 0 128 0 0 \$0setSoundOut empty setSoundOut
+0 22 0 10 -204786 -1 -33289 0 256;
+#X obj 740 344 nbx 4 14 0 128 0 0 empty \$0soundOut soundOut 0 -8 0
+10 -204786 -1 -33289 0 256;
+#X obj 740 363 t f f;
+#X obj 674 407 sel;
+#X msg 829 292 dec 1;
+#X msg 837 363 inc 1;
+#X obj 837 314 bng 15 250 50 0 empty \$0channelOutUp channelOutUp 17
+7 0 10 -204786 -1 -66577;
+#X obj 829 272 bng 15 250 50 0 empty \$0channelOutDown channelOutDown
+17 7 0 10 -204786 -1 -66577;
+#X obj 847 429 nbx 4 14 0 16 0 0 \$0setChannelOut empty setChannelOut
+0 22 0 10 -204786 -1 -33289 0 256;
+#X obj 895 344 nbx 4 14 0 16 0 0 empty \$0channelOut channelOut 0 -8
+0 10 -204786 -1 -33289 0 256;
+#X obj 895 363 t f f;
+#X obj 829 407 sel;
+#X text 41 28 Presets/Inits;
+#X text 201 28 Sends to channels;
+#X obj 44 385 counter 1000;
+#X obj 207 385 counter 128;
+#X obj 519 385 counter 10000;
+#X obj 674 385 counter 128;
+#X obj 366 385 counter 16;
+#X obj 829 385 counter 16;
+#X connect 0 0 3 0;
+#X connect 1 0 2 0;
+#X connect 2 0 68 0;
+#X connect 3 0 68 0;
+#X connect 4 0 65 0;
+#X connect 5 0 65 0;
+#X connect 6 0 5 0;
+#X connect 7 0 4 0;
+#X connect 8 0 64 0;
+#X connect 9 0 64 0;
+#X connect 10 0 9 0;
+#X connect 11 0 8 0;
+#X connect 15 0 64 3;
+#X connect 15 1 21 1;
+#X connect 16 0 20 0;
+#X connect 17 0 19 0;
+#X connect 18 0 15 0;
+#X connect 19 0 65 3;
+#X connect 19 1 22 1;
+#X connect 20 0 68 3;
+#X connect 20 1 23 1;
+#X connect 21 1 14 0;
+#X connect 22 1 13 0;
+#X connect 23 1 12 0;
+#X connect 26 0 28 0;
+#X connect 28 0 27 0;
+#X connect 37 0 28 1;
+#X connect 38 0 66 0;
+#X connect 39 0 66 0;
+#X connect 40 0 39 0;
+#X connect 41 0 38 0;
+#X connect 43 0 44 0;
+#X connect 44 0 66 3;
+#X connect 44 1 45 1;
+#X connect 45 1 42 0;
+#X connect 46 0 67 0;
+#X connect 47 0 67 0;
+#X connect 48 0 47 0;
+#X connect 49 0 46 0;
+#X connect 51 0 52 0;
+#X connect 52 0 67 3;
+#X connect 52 1 53 1;
+#X connect 53 1 50 0;
+#X connect 54 0 69 0;
+#X connect 55 0 69 0;
+#X connect 56 0 55 0;
+#X connect 57 0 54 0;
+#X connect 59 0 60 0;
+#X connect 60 0 69 3;
+#X connect 60 1 61 1;
+#X connect 61 1 58 0;
+#X connect 64 0 21 0;
+#X connect 65 0 22 0;
+#X connect 66 0 45 0;
+#X connect 67 0 53 0;
+#X connect 68 0 23 0;
+#X connect 69 0 61 0;
+#X restore 45 106 pd interface;
+#X obj 331 262 tgl 15 0 \$0midiSync \$0setMidiSync midiSync 17 7 0
+10 -204786 -1 -66577 0 1;
+#X obj 247 100 bng 15 50 10 0 \$0resetMemory \$0setResetMemory resetMemory
+17 7 0 10 -262130 -1 -66577;
+#X obj 247 64 tgl 15 0 \$0record \$0setRecord record 17 7 0 10 -262130
+-1 -66577 0 1;
+#X obj 250 280 hsl 130 16 0 0.33 0 1 \$0swing \$0setSwing swing 3 8
+0 10 -204786 -260097 -66577 0 0;
+#N canvas 633 304 217 267 midiclock 0;
+#X obj 52 73 sel 248 250 252;
+#X obj 52 51 midirealtimein;
+#X obj 52 139 spigot;
+#X msg 91 95 1;
+#X msg 125 95 0;
+#X obj 52 205 bng 15 250 50 0 \$0midiclock empty midiclock 17 7 0 10
+-262144 -1 -1;
+#X obj 91 117 t f b;
+#X obj 52 183 sel;
+#X obj 52 161 counter 5;
+#X connect 0 0 2 0;
+#X connect 0 1 3 0;
+#X connect 0 2 4 0;
+#X connect 1 0 0 0;
+#X connect 2 0 8 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 6 0 2 1;
+#X connect 6 1 8 2;
+#X connect 7 0 5 0;
+#X connect 8 0 7 0;
+#X restore 45 84 pd midiclock;
+#X obj 283 227 nbx 4 14 0 128 0 0 \$0soundOut \$0setSoundOut soundOut
+47 8 0 10 -204786 -1 -66577 0 256;
+#X obj 265 226 bng 15 50 10 0 \$0soundOutUp \$0no-r empty 17 7 0 10
+-204786 -1 -66577;
+#X obj 247 226 bng 15 50 10 0 \$0soundOutDown \$0no-r empty 17 7 0
+10 -204786 -1 -66577;
+#X obj 283 245 nbx 4 14 0 16 0 0 \$0channelOut \$0setChannelOut channelOut
+47 8 0 10 -204786 -1 -66577 0 256;
+#X obj 265 244 bng 15 50 10 0 \$0channelOutUp \$0no-r empty 17 7 0
+10 -204786 -1 -66577;
+#X obj 247 244 bng 15 50 10 0 \$0channelOutDown \$0no-r empty 17 7
+0 10 -204786 -1 -66577;
+#X obj 283 209 nbx 4 14 0 10000 0 0 \$0noteLength \$0setNoteLength
+noteLength 47 8 0 10 -204786 -1 -66577 80 256;
+#X obj 265 208 bng 15 50 10 0 \$0noteLengthUp \$0no-r empty 17 7 0
+10 -204786 -1 -66577;
+#X obj 247 208 bng 15 50 10 0 \$0noteLengthDown \$0no-r empty 17 7
+0 10 -204786 -1 -66577;
+#N canvas 342 143 736 596 loadSave 0;
+#X obj 48 61 openpanel;
+#X obj 48 41 bng 15 250 50 0 empty \$0load load 17 7 0 10 -203904 -1
+-66577;
+#X obj 48 543 bng 15 250 50 0 \$0setMakeMatrix empty setMakeMatrix
+17 7 0 10 -204800 -1 -66577;
+#X obj 114 281 list;
+#X obj 68 215 route 0;
+#X obj 114 325 s;
+#X obj 114 237 list split 1;
+#X obj 114 259 t b f;
+#X obj 68 127 textfile;
+#X msg 168 105 read \$1;
+#X msg 115 105 rewind;
+#X obj 68 105 until;
+#X obj 348 322 textfile;
+#X obj 348 146 savepanel;
+#X obj 348 126 bng 15 250 50 0 empty \$0save save 17 7 0 10 -203904
+-1 -66577;
+#X msg 348 300 write \$1;
+#X obj 462 300 list trim;
+#X obj 348 234 t b s;
+#X obj 348 278 symbol;
+#X obj 368 212 s \$0saveChannel;
+#X msg 154 303 symbol \$2\$1load;
+#X obj 154 281 list \$0;
+#X obj 48 83 t b b b s;
+#X obj 348 256 del 9;
+#X obj 538 300 r \$0saveChannelReturn;
+#X obj 462 256 list;
+#X obj 462 278 list prepend add 0;
+#X obj 232 105 bng 15 50 10 0 \$0setResetMemory empty setResetMemory
+17 7 0 10 -262130 -1 -66577;
+#X msg 502 256 add markovGenerator;
+#X obj 348 168 t s b b b b;
+#X msg 422 190 clear;
+#X obj 68 149 route markovGenerator;
+#X obj 68 193 spigot;
+#X msg 68 171 1;
+#X msg 107 171 0;
+#X obj 68 347 unpack f f f f f f f f f f;
+#X obj 487 234 pack f f f f f f f f f f;
+#X obj 68 489 nbx 4 14 1 500 0 0 \$0setTempo empty setTempo 47 8 0
+10 -204786 -1 -66577 1 256;
+#X obj 68 506 tgl 15 0 \$0setMidiSync empty setMidiSync 17 7 0 10 -204786
+-1 -66577 0 1;
+#X obj 68 404 nbx 4 14 0 64 0 0 \$0setSound empty setSound 47 8 0 10
+-204800 -1 -33289 0 256;
+#X obj 68 387 nbx 4 14 0 64 0 0 \$0setMarkovOrder empty setMarkovOrder
+47 8 0 10 -204800 -1 -33289 0 256;
+#X obj 68 455 nbx 4 14 0 128 0 0 \$0setSoundOut empty setSoundOut 47
+8 0 10 -204786 -1 -66577 0 256;
+#X obj 68 369 tgl 15 0 \$0setRecord empty setRecord 17 7 0 10 -262130
+-1 -66577 0 1;
+#X obj 68 472 nbx 4 14 0 128 0 0 \$0setChannelOut empty setChannelOut
+47 8 0 10 -204786 -1 -66577 0 256;
+#X obj 68 421 nbx 4 14 0 64 0 0 \$0setChannel empty setChannel 47 8
+0 10 -204800 -1 -33289 0 256;
+#X obj 68 524 nbx 4 14 0 0.33 0 0 \$0setSwing empty setSwing 47 8 0
+10 -204786 -1 -66577 0 256;
+#X obj 68 438 nbx 4 14 0 128 0 0 \$0setNoteLength empty setNoteLength
+47 8 0 10 -204786 -1 -66577 0 256;
+#X obj 487 180 nbx 4 14 10 500 0 0 empty \$0tempo tempo 47 8 0 10 -204786
+-1 -66577 120 256;
+#X obj 487 146 nbx 4 14 0 128 0 0 empty \$0soundOut soundOut 47 8 0
+10 -204786 -1 -66577 0 256;
+#X obj 487 76 nbx 4 14 0 1000 0 0 empty \$0markovOrder markovOrder
+47 8 0 10 -204800 -1 -66577 3 256;
+#X obj 487 112 nbx 4 14 0 64 0 0 empty \$0channel channel 47 8 0 10
+-204800 -1 -66577 0 256;
+#X obj 487 94 nbx 4 14 0 128 0 0 empty \$0sound sound 47 8 0 10 -204800
+-1 -66577 0 256;
+#X obj 487 197 tgl 15 0 empty \$0midiSync midiSync 17 7 0 10 -204786
+-1 -66577 0 1;
+#X obj 487 163 nbx 4 14 0 128 0 0 empty \$0channelOut channelOut 47
+8 0 10 -204786 -1 -66577 0 256;
+#X obj 487 215 nbx 4 14 0 0.33 0 0 empty \$0swing swing 47 8 0 10 -204786
+-1 -66577 0 256;
+#X obj 487 129 nbx 4 14 0 128 0 0 empty \$0noteLength noteLength 47
+8 0 10 -204786 -1 -66577 80 256;
+#X obj 487 58 tgl 15 0 empty \$0record record 17 7 0 10 -262130 -1
+-66577 0 1;
+#X connect 0 0 22 0;
+#X connect 1 0 0 0;
+#X connect 3 0 5 0;
+#X connect 4 0 35 0;
+#X connect 4 1 6 0;
+#X connect 6 0 7 0;
+#X connect 6 1 3 1;
+#X connect 7 0 3 0;
+#X connect 7 1 21 0;
+#X connect 8 0 31 0;
+#X connect 8 1 11 1;
+#X connect 9 0 8 0;
+#X connect 10 0 8 0;
+#X connect 11 0 8 0;
+#X connect 13 0 29 0;
+#X connect 14 0 13 0;
+#X connect 15 0 12 0;
+#X connect 16 0 12 0;
+#X connect 17 0 23 0;
+#X connect 17 1 18 1;
+#X connect 18 0 15 0;
+#X connect 20 0 5 1;
+#X connect 21 0 20 0;
+#X connect 22 0 2 0;
+#X connect 22 1 11 0;
+#X connect 22 2 10 0;
+#X connect 22 2 27 0;
+#X connect 22 2 34 0;
+#X connect 22 3 9 0;
+#X connect 23 0 18 0;
+#X connect 24 0 12 0;
+#X connect 25 0 26 0;
+#X connect 26 0 16 0;
+#X connect 28 0 12 0;
+#X connect 29 0 17 0;
+#X connect 29 1 19 0;
+#X connect 29 2 25 0;
+#X connect 29 3 28 0;
+#X connect 29 3 36 0;
+#X connect 29 4 30 0;
+#X connect 30 0 12 0;
+#X connect 31 0 33 0;
+#X connect 31 1 32 0;
+#X connect 32 0 4 0;
+#X connect 33 0 32 1;
+#X connect 34 0 32 1;
+#X connect 35 0 42 0;
+#X connect 35 1 40 0;
+#X connect 35 2 39 0;
+#X connect 35 3 44 0;
+#X connect 35 4 46 0;
+#X connect 35 5 41 0;
+#X connect 35 6 43 0;
+#X connect 35 7 37 0;
+#X connect 35 8 38 0;
+#X connect 35 9 45 0;
+#X connect 36 0 25 1;
+#X connect 47 0 36 7;
+#X connect 48 0 36 5;
+#X connect 49 0 36 1;
+#X connect 50 0 36 3;
+#X connect 51 0 36 2;
+#X connect 52 0 36 8;
+#X connect 53 0 36 6;
+#X connect 54 0 36 9;
+#X connect 55 0 36 4;
+#X connect 56 0 36 0;
+#X restore 45 128 pd loadSave;
+#X obj 294 307 bng 15 50 10 0 \$0save \$0no-r save 17 7 0 10 -203904
+-1 -66577;
+#X obj 247 307 bng 15 50 10 0 \$0load \$0no-r load 17 7 0 10 -203904
+-1 -66577;
+#X obj 247 82 bng 15 50 10 0 \$0midiFile \$0setMidiFile midiFile 17
+7 0 10 -262130 -1 -66577;
+#N canvas 442 146 312 546 midiFile 0;
+#X obj 109 199 unpack;
+#X obj 109 67 openpanel;
+#X msg 109 89 read \$1;
+#X obj 109 47 bng 15 250 50 0 empty \$0midiFile midiFile 17 7 0 10
+-262130 -1 -66577;
+#X obj 191 47 bng 15 250 50 0 \$0resetMemory \$0no-r resetMemory 17
+7 0 10 -262130 -1 -66577;
+#X obj 109 155 seq;
+#X obj 72 463 list;
+#X obj 109 441 t l l;
+#X obj 129 353 timer;
+#X obj 49 397 t b b b;
+#X obj 109 111 t b a b;
+#X obj 169 331 once;
+#X obj 109 309 t l b b b;
+#X obj 109 397 l2s ?;
+#X obj 109 419 list prepend;
+#X msg 109 133 start 1e+008;
+#X obj 109 265 spigot 1;
+#X obj 148 221 t f f;
+#X obj 180 243 != 0;
+#X obj 109 287 pack f f f f;
+#X obj 109 177 midiparse;
+#X obj 129 375 sel;
+#X obj 72 485 s \$0midiFileAll;
+#X connect 0 0 16 0;
+#X connect 0 1 17 0;
+#X connect 1 0 2 0;
+#X connect 2 0 10 0;
+#X connect 3 0 1 0;
+#X connect 5 0 20 0;
+#X connect 5 1 9 0;
+#X connect 6 0 22 0;
+#X connect 7 0 6 1;
+#X connect 7 1 14 1;
+#X connect 8 0 21 0;
+#X connect 9 0 6 1;
+#X connect 9 1 6 0;
+#X connect 9 2 14 1;
+#X connect 10 0 15 0;
+#X connect 10 1 5 0;
+#X connect 10 2 11 1;
+#X connect 11 0 8 0;
+#X connect 12 0 13 0;
+#X connect 12 1 8 0;
+#X connect 12 2 8 1;
+#X connect 12 3 11 0;
+#X connect 13 0 14 0;
+#X connect 14 0 7 0;
+#X connect 15 0 5 0;
+#X connect 16 0 19 0;
+#X connect 17 0 19 1;
+#X connect 17 1 18 0;
+#X connect 18 0 16 1;
+#X connect 19 0 12 0;
+#X connect 20 0 0 0;
+#X connect 20 3 19 2;
+#X connect 20 6 19 3;
+#X connect 21 1 9 0;
+#X restore 45 40 pd midiFile;
+#X obj 45 194 declare -path abs/lib;
+#N canvas 191 224 485 124 license 0;
+#X text 24 66 This program is free software \, licensed under the GNU
+General Public License 2 or later.;
+#X text 24 26 Copyright 2017 by Jonathan Frank <JonathanFrank@gmx.net>
+and Ingo Stock <pd@ingostock.de>;
+#X restore 45 216 pd license;
+#X coords 0 -1 1 1 180 294 1 240 40;
+#X restore 696 76 pd markovAll;
+#X obj 4 76 markovChannel 1 \$0;
+#X obj 523 76 markovChannel 4 \$0;
+#X obj 177 76 markovChannel 2 \$0;
+#X obj 350 76 markovChannel 3 \$0;
+#X obj 529 47 declare -lib zexy;
+#X coords 0 484 1 483 85 60 0;

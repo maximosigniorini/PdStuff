@@ -1,0 +1,116 @@
+#N canvas 119 170 912 699 10;
+#X obj 37 12 inlet;
+#X obj 133 12 inlet;
+#X obj 223 12 inlet;
+#X obj 319 12 inlet;
+#X obj 415 12 inlet;
+#X obj 505 12 inlet;
+#X obj 676 21 loadbang;
+#X obj 676 40 f \$0;
+#X obj 37 31 s \$0-max_error_;
+#X obj 133 31 s \$0-j_detune_;
+#X obj 223 31 s \$0-noise_mod_;
+#X obj 505 31 s \$0-lambda_;
+#X obj 290 553 r \$1-sample_rate;
+#X obj 676 172 r \$0-max_error;
+#X obj 676 191 / 1200;
+#X obj 676 210 expr pow(2 \, $f1);
+#X obj 676 229 s \$1-e_tol;
+#X text 742 228 C;
+#X obj 101 591 outlet;
+#X text 144 590 for given sample rate \, max frequency within tolerable
+error;
+#X obj 168 348 r \$0-max_error;
+#X obj 207 405 expr exp($f1*log(2)/600);
+#X obj 115 426 until;
+#X obj 168 386 t b b f;
+#X msg 187 424 1;
+#X obj 172 462 + 1;
+#X obj 172 443 f;
+#X obj 225 479 + 1;
+#X obj 225 460 t f f;
+#X obj 237 498 /;
+#X obj 237 517 <;
+#X obj 237 536 sel 1;
+#X obj 101 553 f;
+#X obj 101 572 expr ($f2/$f1)*sqrt($f1/($f1+1));
+#X obj 101 103 cnv 15 91 121 empty empty dphasor1_\$1 1 6 0 10 -182706
+-1 0;
+#X floatatom 103 116 5 0.001 1000 1 max_error #0-max_error_ #0-max_error
+;
+#X floatatom 103 134 5 0 100 1 j_detune #0-j_detune_ #1-j_detune;
+#X obj 103 152 tgl 16 0 \$1-noise_mod \$0-noise_mod_ noise_mod 17 7
+0 10 -262144 -1 -1 1 1;
+#X floatatom 103 188 5 0.0001 500 1 rate_low #0-rate_low_ #1-rate_low
+;
+#X floatatom 103 170 5 0.0001 500 1 rate_high #0-rate_high_ #1-rate_high
+;
+#X floatatom 103 206 5 0.001 1000 1 lambda #0-lambda_ #1-lambda;
+#X obj 178 105 tgl 12 0 \$1-enable \$0-enable_ en -14 4 0 10 -262144
+-1 -1 0 1;
+#X obj 168 367 max 0.01;
+#X msg 676 59 \; \$1-max_error_ 1 \; \$1-j_detune_ 0.1 \; \$1-noise_mod_
+1 \; \$1-rate_low_ 20 \; \$1-rate_high_ 50 \; \$1-lambda_ 0.1 \; \$1-enable_
+0 \;;
+#X text 195 115 modulation is disabled below max_error (cents);
+#X text 195 133 detuning (with jitter/aliasing) to avoid phase lock
+;
+#X text 195 150 modulation is periodic if this is off;
+#X text 195 168 modulation rate low and high bounds;
+#X text 195 203 poisson distribution controls modulation frequency
+;
+#X obj 319 31 s \$0-rate_high_;
+#X obj 415 31 s \$0-rate_low_;
+#X text 489 354 Frequency dithered phasor \, controller for use with
+dphasor1~. This avoids objectionable aliasing by substituting tuning
+error and sub-audio rate vibrato for timing error and rapid audio rate
+jitter. Modulation can be periodic or random (which avoids creating
+sidebands). Since all inharmonic aliasing is prevented \, this permits
+naive processing (clipping \, nearest neighbor interpolation) to be
+used everywhere without objectionable aliasing.;
+#X text 98 248 High sample rates are still desirable for good pitch
+accuracy at high frequencies. 48 kHz is acceptable up to about 500
+Hz. 384 or 768 kHz approaches ideal for most purposes. If some pitch
+inaccuracy is acceptable \, the modulator can be disabled \, and closest
+integer period pitches will be played with no modulation. This gives
+the cleanest possible sound.;
+#X obj 565 86 r go;
+#X obj 565 105 s \$0-enable_;
+#X text 598 573 Contact: limina@live.com.;
+#X text 598 555 Scott Nordlund \, 2012;
+#X text 599 592 Last revised: 09.07.2012;
+#X connect 0 0 8 0;
+#X connect 1 0 9 0;
+#X connect 2 0 10 0;
+#X connect 3 0 49 0;
+#X connect 4 0 50 0;
+#X connect 5 0 11 0;
+#X connect 6 0 7 0;
+#X connect 7 0 43 0;
+#X connect 12 0 33 1;
+#X connect 13 0 14 0;
+#X connect 14 0 15 0;
+#X connect 15 0 16 0;
+#X connect 20 0 42 0;
+#X connect 21 0 30 1;
+#X connect 22 0 26 0;
+#X connect 23 0 22 0;
+#X connect 23 1 24 0;
+#X connect 23 2 21 0;
+#X connect 24 0 26 1;
+#X connect 25 0 26 1;
+#X connect 26 0 25 0;
+#X connect 26 0 28 0;
+#X connect 26 0 32 1;
+#X connect 27 0 29 0;
+#X connect 28 0 27 0;
+#X connect 28 1 29 1;
+#X connect 29 0 30 0;
+#X connect 30 0 31 0;
+#X connect 31 0 22 1;
+#X connect 31 0 32 0;
+#X connect 32 0 33 0;
+#X connect 33 0 18 0;
+#X connect 42 0 23 0;
+#X connect 53 0 54 0;
+#X coords 0 -1 1 1 93 127 1 100 100;

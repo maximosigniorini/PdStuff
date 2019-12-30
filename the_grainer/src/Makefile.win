@@ -1,0 +1,31 @@
+NAME = the_grainer~
+CSYM = the_grainer~
+
+#Change this according your settings.
+current: pd_win
+LDFLAGS = -shared
+COMPILER = "c:/Program Files (x86)/mingw-w64/i686-7.1.0-posix-dwarf-rt_v5-rev2/mingw32/bin/gcc.exe"
+#destination path, change according your settings
+DEST = C:/Users/pablo/Documents/my_program_files/the_grainer/bin
+#pd.dll path, change according your settings
+DLLDIR = C:/Users/pablo/Documents/my_program_files/the_grainer/lib
+#src path, change according your settings
+SRC = C:/Users/pablo/Documents/my_program_files/the_grainer/src/
+# ----------------------- WIN i386 -----------------------
+pd_win: $(NAME).dll
+
+.SUFFIXES: .dll
+
+WINCFLAGS = -DPD -DNT -Werror -Wno-unused -mms-bitfields\
+	-Wno-parentheses -Wno-switch -O6 -funroll-loops -fomit-frame-pointer 
+
+WININCLUDE =  -I.
+
+.c.dll:
+	$(COMPILER) $(WINCFLAGS) $(WININCLUDE) -c -o $*.o $*.c 
+	$(COMPILER) $(LDFLAGS) -o $(DEST)/$(NAME).dll $*.o $(DLLDIR)/pd.dll 
+	strip --strip-unneeded $(DEST)/$*.dll
+
+clean:
+	rm -f $*.o $(DEST)/$(NAME).dll
+	

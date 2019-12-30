@@ -1,0 +1,259 @@
+#N canvas 234 81 826 817 10;
+#X obj 5 -9 cnv 15 800 40 empty empty my_grainer~_tutorial:_02_-_random_deviations
+3 12 0 18 -204280 -1 0;
+#X obj 6 720 cnv 15 800 60 empty empty empty 3 12 0 18 -203904 -1 0
+;
+#X text 679 720 Damian Anache - 2016;
+#X text 453 733 Consejo Nacional de Investigaciones Científicas y
+Técnicas;
+#X text 391 733 CONICET -;
+#X text 579 746 UNQ - Universidad Nacional de Quilmes;
+#X text 7 14 A guide to manage granular synthesis through my_grainer~
+(;
+#X obj 357 14 pddplink http://puredata.info/Members/pdiliscia/grainer/
+;
+#X text 642 14 );
+#X obj 550 763 pddplink http://puredata.info/author/damiananache/;
+#X obj 64 228 output~;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array \$0-table2 121 float 2 black black;
+#X coords 0 1 121 0 200 20 1;
+#X restore 57 453 graph;
+#X obj 400 179 hsl 128 15 0 2 0 0 \$0-sizerGUIout \$0-sizerGUIin empty
+-2 -8 0 10 -262144 -1 -1 0 1;
+#X floatatom 534 308 5 0 0 0 - #0-gaprGUIout -, f 5;
+#X floatatom 534 178 5 0 0 0 - #0-sizerGUIout -, f 5;
+#X floatatom 534 438 5 0 0 0 - #0-incrrGUIout -, f 5;
+#X obj 5 36 cnv 10 800 60 empty empty empty 8 12 0 13 -228856 -1 0
+;
+#X obj 5 676 cnv 3 800 3 empty empty empty 8 12 0 13 -228856 -1 0;
+#X text 111 417 Grain Envelope;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array \$0-table1 160087 float 2 black black;
+#X coords 0 1 160087 -1 200 20 1;
+#X restore 57 378 graph;
+#X text 113 340 Grain Waveform;
+#N canvas 488 330 826 397 waveform_and_envelope_tables 0;
+#X obj 528 235 soundfiler;
+#X obj 78 90 loadbang;
+#X obj 501 317 s \$0-mess;
+#X obj 501 140 f \$0;
+#X obj 501 107 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 501 164 t f f;
+#X msg 501 297 atab \$1-table2;
+#X obj 105 236 soundfiler;
+#X obj 78 318 s \$0-mess;
+#X obj 78 141 f \$0;
+#X obj 78 120 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 78 165 t f f;
+#X text 118 140 (see "locality" on PD's documentation for more details)
+;
+#X text 122 188 loading external audio file into a local table;
+#X text 90 276 loading local table into my_grainer~;
+#X text 78 49 Grain Waveform;
+#X text 498 49 Grain Envelope;
+#X msg 78 298 gtab \$1-table1;
+#X msg 105 216 read -resize audioFiles/female-speech.wav \$1-table1
+;
+#X msg 528 215 read -resize envelopes/01-gaussian.wav \$1-table2;
+#X connect 1 0 10 0;
+#X connect 1 0 4 0;
+#X connect 3 0 5 0;
+#X connect 4 0 3 0;
+#X connect 5 0 6 0;
+#X connect 5 1 19 0;
+#X connect 6 0 2 0;
+#X connect 9 0 11 0;
+#X connect 10 0 9 0;
+#X connect 11 0 17 0;
+#X connect 11 1 18 0;
+#X connect 17 0 8 0;
+#X connect 18 0 7 0;
+#X connect 19 0 0 0;
+#X restore 492 690 pd waveform_and_envelope_tables;
+#X text 538 119 GRAIN PARAMETERS;
+#X obj 728 216 s \$0-mess;
+#X obj 728 346 s \$0-mess;
+#X obj 730 476 s \$0-mess;
+#X floatatom 534 568 5 0 0 0 - #0-amprGUIout -, f 5;
+#X obj 730 606 s \$0-mess;
+#X text 14 37 In order to allow a stochastic control of grains \, most
+of my_grainer's parameters can be randomly deviated for the creation
+of each grain. Special messages are used on each case.;
+#X text 342 415 INCR;
+#X text 347 154 SIZE;
+#X text 348 285 GAP;
+#X obj 399 288 hsl 128 15 0.02 2 1 0 \$0-gapGUIout \$0-gapGUIin empty
+-2 -8 0 10 -262144 -1 -1 4438 1;
+#X obj 399 158 hsl 128 15 0.02 2 1 0 \$0-sizeGUIout \$0-sizeGUIin empty
+-2 -8 0 10 -262144 -1 -1 2527 1;
+#X obj 399 418 hsl 128 15 0 2 0 0 \$0-incrGUIout \$0-incrGUIin empty
+-2 -8 0 10 -262144 -1 -1 6350 1;
+#X floatatom 533 287 5 0 0 0 - #0-gapGUIout -, f 5;
+#X floatatom 533 157 5 0 0 0 - #0-sizeGUIout -, f 5;
+#X floatatom 533 417 5 0 0 0 - #0-incrGUIout -, f 5;
+#X obj 400 548 hsl 128 15 0 2 0 0 \$0-ampGUIout \$0-ampGUIin empty
+-2 -8 0 10 -262144 -1 -1 6350 1;
+#X floatatom 534 547 5 0 0 0 - #0-ampGUIout -, f 5;
+#X text 346 545 AMP;
+#X msg 738 194 gsr \$1;
+#X msg 738 324 gar \$1;
+#X msg 740 454 gfr \$1;
+#X msg 740 584 agr \$1;
+#X text 396 588 agr (float);
+#X text 396 458 gfr (float);
+#X text 396 327 gar (float);
+#X text 396 194 gsr (float);
+#X text 396 206 grain size random deviation \, in secs;
+#X text 396 221 (default=0.);
+#X text 396 235 The size of each grain will be: gs + birand(gsr);
+#X msg 728 173 gs \$1;
+#X text 333 183 deviation;
+#X text 335 171 random;
+#X text 332 312 deviation;
+#X text 337 300 random;
+#X text 331 442 deviation;
+#X text 337 430 random;
+#X text 331 572 deviation;
+#X text 338 560 random;
+#X msg 728 303 ga \$1;
+#X msg 730 433 gf \$1;
+#X msg 730 563 ag \$1;
+#X obj 400 568 hsl 128 15 -1 1 0 0 \$0-amprGUIout \$0-amprGUIin empty
+-2 -8 0 10 -262144 -1 -1 6350 1;
+#X obj 399 309 hsl 128 15 0 2 0 0 \$0-gaprGUIout \$0-gaprGUIin empty
+-2 -8 0 10 -262144 -1 -1 0 1;
+#X obj 399 438 hsl 128 15 0 2 0 0 \$0-incrrGUIout \$0-incrrGUIin empty
+-2 -8 0 10 -262144 -1 -1 0 1;
+#X text 395 354 (default=0.);
+#X text 396 367 The temporal gap between each grain will be: ga + birand(gar)
+;
+#X text 396 339 gap random deviation \, in secs;
+#X text 396 470 grain increment random deviation of the audio table
+;
+#X text 395 485 (default=0);
+#X text 396 497 The increment of each grain will be: gf + birand(gfr)
+;
+#X text 396 600 grain amplitude random deviation;
+#X text 395 615 (default=0);
+#X text 396 627 The amplitude of each grain will be: ag + birand(agr)
+;
+#X obj 152 178 bng 15 250 50 0 \$0-reset empty Reset 17 7 0 10 -262144
+-1 -1;
+#X obj 236 138 tgl 15 0 \$0-pause-GUIout \$0-pause-GUIin Pause 17 7
+0 10 -262144 -1 -1 0 1;
+#X obj 236 158 bng 15 250 50 0 \$0-print empty Print 17 7 0 10 -262144
+-1 -1;
+#X obj 152 138 tgl 15 0 \$0-StartStop-GUIout \$0-StartStop-GUIin Start/Stop
+17 7 0 10 -262144 -1 -1 0 1;
+#X obj 152 158 tgl 15 0 \$0-postCtrl-GUIout \$0-postCtrl-GUIin Post_Ctrl
+17 7 0 10 -262144 -1 -1 1 1;
+#N canvas 85 125 912 742 setup 0;
+#X text 326 32 GUI initial setup acording to my_grainer~'s default
+values;
+#X obj 519 151 s \$0-incrGUIin;
+#X obj 309 151 s \$0-sizeGUIin;
+#X obj 418 151 s \$0-gapGUIin;
+#X obj 762 93 loadbang;
+#X obj 762 113 del 1;
+#X msg 299 130 0.05;
+#X msg 408 130 0.1;
+#X msg 509 130 1;
+#X msg 619 130 1;
+#X obj 629 151 s \$0-ampGUIin;
+#X obj 762 72 r \$0-reset;
+#X msg 408 180 0;
+#X msg 299 180 0;
+#X msg 509 180 0;
+#X msg 619 180 0;
+#X obj 299 201 s \$0-sizerGUIin;
+#X obj 408 200 s \$0-gaprGUIin;
+#X obj 509 201 s \$0-incrrGUIin;
+#X obj 619 201 s \$0-amprGUIin;
+#X msg 82 154 start;
+#X msg 39 153 stop;
+#X obj 39 177 s \$0-mess;
+#X obj 39 112 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 82 132 sel 1;
+#X obj 39 132 sel 0;
+#X text 39 69 Start / Stop;
+#X obj 39 90 r \$0-StartStop-GUIout;
+#X obj 40 405 r \$0-print;
+#X msg 40 426 print;
+#X obj 40 447 s \$0-mess;
+#X text 39 385 Print;
+#X obj 39 220 r \$0-pause-GUIout;
+#X msg 39 242 pause \$1;
+#X obj 39 264 s \$0-mess;
+#X text 38 200 Pause;
+#X obj 39 358 s \$0-mess;
+#X msg 39 336 post_ctrl \$1;
+#X obj 39 314 r \$0-postCtrl-GUIout;
+#X text 38 292 Post Control;
+#X obj 39 515 f \$0;
+#X obj 39 493 loadbang;
+#X msg 39 537 \; \$1-postCtrl-GUIin 1 \; \$1-StartStop-GUIin 0 \;;
+#X text 34 22 General Purpose Messages;
+#X text 34 35 ************************;
+#X obj 198 23 cnv 1 1 700 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 39 697 outlet;
+#X obj 39 674 r \$0-mess;
+#X connect 4 0 5 0;
+#X connect 5 0 8 0;
+#X connect 5 0 6 0;
+#X connect 5 0 7 0;
+#X connect 5 0 9 0;
+#X connect 6 0 2 0;
+#X connect 6 0 13 0;
+#X connect 7 0 3 0;
+#X connect 7 0 12 0;
+#X connect 8 0 1 0;
+#X connect 8 0 14 0;
+#X connect 9 0 10 0;
+#X connect 9 0 15 0;
+#X connect 12 0 17 0;
+#X connect 13 0 16 0;
+#X connect 14 0 18 0;
+#X connect 15 0 19 0;
+#X connect 20 0 22 0;
+#X connect 21 0 22 0;
+#X connect 23 0 24 0;
+#X connect 23 0 25 0;
+#X connect 24 0 20 0;
+#X connect 25 0 21 0;
+#X connect 27 0 23 0;
+#X connect 28 0 29 0;
+#X connect 29 0 30 0;
+#X connect 32 0 33 0;
+#X connect 33 0 34 0;
+#X connect 37 0 36 0;
+#X connect 38 0 37 0;
+#X connect 40 0 42 0;
+#X connect 41 0 40 0;
+#X connect 47 0 46 0;
+#X restore 65 135 pd setup;
+#X obj 65 200 the_grainer~ 1;
+#X connect 13 0 42 0;
+#X connect 14 0 41 0;
+#X connect 15 0 43 0;
+#X connect 26 0 44 0;
+#X connect 35 0 61 0;
+#X connect 36 0 52 0;
+#X connect 37 0 62 0;
+#X connect 39 0 63 0;
+#X connect 41 0 23 0;
+#X connect 42 0 24 0;
+#X connect 43 0 25 0;
+#X connect 44 0 27 0;
+#X connect 52 0 23 0;
+#X connect 61 0 24 0;
+#X connect 62 0 25 0;
+#X connect 63 0 27 0;
+#X connect 81 0 82 0;
+#X connect 82 0 10 0;
+#X connect 82 1 10 1;
+#X coords 0 817 1 816 85 60 0;

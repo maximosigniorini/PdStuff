@@ -1,0 +1,71 @@
+#N canvas 1 48 782 562 10;
+#X text 28 22 pitch-from-row;
+#X text 28 54 Generates pitch classes from a material row according
+to the row form (prime \, retrograd \, inversion or retro-inversion)
+and the start note of the row.;
+#X text 241 390 normalized row modus;
+#X text 416 362 flashes when end of row is reached;
+#X msg 234 405 0 7 4 2 5 3 10 1 6 11 8 9;
+#X floatatom 340 226 4 0 0 2 modus - -;
+#X text 74 251 rhythm bangs;
+#X obj 50 293 pitch-from-row;
+#X msg 195 248;
+#X obj 50 259 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 50 224 metro 250;
+#X obj 50 186 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0 1
+;
+#X text 479 239 start note;
+#X text 28 105 see also:;
+#X msg 91 105 pitch-from-row-mod;
+#X msg 444 44 Dodecaphonics;
+#X msg 474 23 Harmony;
+#X obj 275 364 bng 15 250 50 1 empty empty clear 0 -6 0 8 -262144 -1
+-1;
+#X obj 394 364 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 234 362 show;
+#X msg 50 405;
+#N canvas 74 114 324 201 play-it 0;
+#X obj 151 106 play2 127 500 1 1;
+#X obj 43 141 outlet;
+#X obj 43 106 show-pitchclass;
+#X obj 43 39 inlet;
+#X obj 43 68 + 60;
+#X connect 2 0 1 0;
+#X connect 3 0 4 0;
+#X connect 4 0 2 0;
+#X connect 4 0 0 0;
+#X restore 50 372 pd play-it;
+#X text 79 406 pitch class name;
+#X text 83 193 start/stop;
+#X obj 173 190 random-row;
+#X obj 195 218 show;
+#X text 196 165 Generates new row by random;
+#X obj 173 164 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 173 139 loadbang;
+#X text 430 459 1994-97 by Karlheinz Essl;
+#X obj 441 225 hsl 128 15 0 127 0 0 empty empty empty -2 -6 0 8 -262144
+-1 -1 0 1;
+#X obj 438 244 int;
+#X obj 234 219 bng 15 250 50 0 empty empty clear 0 -6 0 8 -262144 -1
+-1;
+#X connect 5 0 7 2;
+#X connect 7 0 21 0;
+#X connect 7 1 19 0;
+#X connect 7 2 18 0;
+#X connect 9 0 7 0;
+#X connect 10 0 9 0;
+#X connect 11 0 10 0;
+#X connect 17 0 19 1;
+#X connect 19 0 4 0;
+#X connect 21 0 20 0;
+#X connect 24 0 25 0;
+#X connect 24 0 7 1;
+#X connect 25 0 8 0;
+#X connect 27 0 24 0;
+#X connect 28 0 27 0;
+#X connect 30 0 31 0;
+#X connect 31 0 7 3;
+#X connect 32 0 25 1;

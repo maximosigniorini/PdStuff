@@ -1,0 +1,14 @@
+#N canvas 385 313 450 207 10;
+#X obj 138 108 once;
+#X obj 264 93 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 98 71 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 138 130 print;
+#X msg 136 69 symbol test;
+#X text 29 42 only the first message passes through;
+#X text 253 69 open once again;
+#X connect 0 0 3 0;
+#X connect 1 0 0 1;
+#X connect 2 0 0 0;
+#X connect 4 0 0 0;

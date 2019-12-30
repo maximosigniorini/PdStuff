@@ -1,0 +1,14 @@
+#N canvas 301 150 450 300 10;
+#X obj 176 37 inlet;
+#X obj 176 56 s \$0-diffusion_;
+#X obj 274 56 loadbang;
+#X obj 274 75 f \$0;
+#X msg 274 94 \; \$1-diffusion_ 3 \;;
+#X obj 101 103 cnv 15 91 28 empty empty diffmtx_\$1 1 6 0 10 -262137
+-1 0;
+#X floatatom 159 114 5 0 5 0 diffusion #0-diffusion_ #1-diffusion;
+#X text 106 164 1-10-2013;
+#X connect 0 0 1 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X coords 0 -1 1 1 93 32 1 100 100;

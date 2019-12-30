@@ -1,0 +1,41 @@
+#N canvas 734 166 448 358 10;
+#X obj 44 103 inlet;
+#X obj 44 275 outlet;
+#X obj 213 145 loadbang;
+#X obj 44 239 expr $f4 + ( $f5 - $f4 )*(pow( $f6 \, ($f1- $f2 )/( $f3
+- $f2 ))-1)/( $f6 -1);
+#X obj 213 167 t b b b b b;
+#X obj 113 211 f \$1;
+#X obj 183 212 f \$2;
+#X obj 253 210 f \$3;
+#X obj 323 212 f \$4;
+#X obj 393 212 f \$5;
+#X text 173 51 Exponential Scaler;
+#X obj 253 101 inlet;
+#X obj 113 102 inlet;
+#X obj 323 100 inlet;
+#X obj 183 101 inlet;
+#X obj 393 99 inlet;
+#X text 75 308 David McCallum \, 2002 - http://mentalfloss.ca/sintheta
+;
+#X text 85 320 Based on the equation from the jMax [scale] object;
+#X obj 186 15 cnv 15 15 15 empty empty d-scale 0 8 1 14 -262144 -66577
+0;
+#X connect 0 0 3 0;
+#X connect 2 0 4 0;
+#X connect 3 0 1 0;
+#X connect 4 0 5 0;
+#X connect 4 1 6 0;
+#X connect 4 2 7 0;
+#X connect 4 3 8 0;
+#X connect 4 4 9 0;
+#X connect 5 0 3 1;
+#X connect 6 0 3 2;
+#X connect 7 0 3 3;
+#X connect 8 0 3 4;
+#X connect 9 0 3 5;
+#X connect 11 0 7 0;
+#X connect 12 0 5 0;
+#X connect 13 0 8 0;
+#X connect 14 0 6 0;
+#X connect 15 0 9 0;

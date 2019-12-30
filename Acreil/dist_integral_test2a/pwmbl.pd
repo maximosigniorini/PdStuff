@@ -1,0 +1,45 @@
+#N canvas 856 332 450 300 10;
+#X obj 340 8 loadbang;
+#X obj 340 27 f \$0;
+#X obj 101 103 cnv 15 110 85 empty empty pwmbl_\$1 1 6 0 10 -262072
+-1 0;
+#X floatatom 129 116 4 0 1000 0 pois #0-pois #1-pwpois;
+#X floatatom 158 116 4 0 10000 1 min #0-min #1-pwmin;
+#X floatatom 129 134 4 0 1000 0 vmax #0-vrmax #1-vmax;
+#X floatatom 129 152 4 0 1000 0 vmin #0-vrmin #1-vmin;
+#X floatatom 158 134 4 0 1000 1 pmax #0-prmax #1-pmax;
+#X floatatom 158 152 4 0 1000 1 pmin #0-prmin #1-pmin;
+#X floatatom 129 170 4 0 12000 0 vdep #0-vrdep #1-vdep;
+#X obj 158 170 tgl 16 0 \$1-en go en 17 7 0 10 -262144 -1 -1 0 1;
+#X obj 28 8 inlet;
+#X obj 65 8 inlet;
+#X obj 102 8 inlet;
+#X obj 139 8 inlet;
+#X obj 176 8 inlet;
+#X obj 213 8 inlet;
+#X obj 250 8 inlet;
+#X obj 28 46 s \$0-pois;
+#X obj 65 27 s \$0-vrmax;
+#X obj 102 46 s \$0-vrmin;
+#X obj 139 27 s \$0-vrdep;
+#X obj 176 46 s \$0-min;
+#X obj 213 27 s \$0-prmax;
+#X obj 250 46 s \$0-prmin;
+#X msg 340 46 \; \$1-pois 0.1 \; \$1-min 1000 \; \$1-vrmax 6 \; \$1-vrmin
+0.6 \; \$1-vrdep 15 \; \$1-prmax 0.5 \; \$1-prmin 0.01 \;;
+#X text 34 -35 Control for PWM with argument \, for randomized PWM
+rate and vibrato control \, must also use pwmblt;
+#X text 14 199 Note that this is only equivalent to centered pulsewidth
+modulation (i.e. a comparator operating on a triangle wave rather than
+a sawtooth wave) with full modulation depth (duty cycle varying from
+0% to 100%).;
+#X connect 0 0 1 0;
+#X connect 1 0 25 0;
+#X connect 11 0 18 0;
+#X connect 12 0 19 0;
+#X connect 13 0 20 0;
+#X connect 14 0 21 0;
+#X connect 15 0 22 0;
+#X connect 16 0 23 0;
+#X connect 17 0 24 0;
+#X coords 0 -1 1 1 112 89 1 100 100;
