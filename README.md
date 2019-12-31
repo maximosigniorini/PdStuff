@@ -1,7 +1,7 @@
 # PdStuff
 Collection of Pure Data patches collected from all over the internet
 
-*Credits*
+**Credits**
 
 Patches from: 
 * Acreil
