@@ -28,3 +28,4 @@ Patches from:
 **To Do**
 * Add Hernan Kerlleñevich's Pd collection patches
 * Add glossary to each category
+* Make separate folder for pd-extended only
