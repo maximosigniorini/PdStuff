@@ -1,0 +1,17 @@
+#N canvas 139 84 616 520 10;
+#X obj 114 255 loadbang;
+#X floatatom 114 408 5 0 0 0 after - -;
+#X floatatom 114 338 5 0 0 0 before - -;
+#X obj 114 282 metro 200;
+#X obj 114 368 between 10 15;
+#X obj 114 309 random 20;
+#X text 115 42 between \; ------- \; Let pass numbers between the 2
+values \; \; Arguments \; \$1: input min value \; \$2: input max value
+\; \; Inlets \; 1: float 2: input min value \; 3: input max value \;
+;
+#X text 210 368 < only numbers between 10 and 15 pass;
+#X connect 0 0 3 0;
+#X connect 2 0 4 0;
+#X connect 3 0 5 0;
+#X connect 4 0 1 0;
+#X connect 5 0 2 0;

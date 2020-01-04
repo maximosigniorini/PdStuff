@@ -1,0 +1,121 @@
+#N canvas 200 449 831 668 10;
+#X obj 34 172 symbol \$1;
+#X obj 136 230 ftos;
+#X obj 105 164 float \$1;
+#X floatatom 105 193 5 0 0 0 - - -;
+#X symbolatom 35 205 0 0 0 0 - - -;
+#X symbolatom 95 243 10 0 0 0 - - -;
+#X obj 44 126 loadbang;
+#X obj 97 280 s \$1gempix_ef_halftone_id;
+#X obj 251 57 inlet;
+#X text 479 57 on/off;
+#X obj 280 279 outlet;
+#X obj 332 113 gate 2;
+#X obj 390 82 + 1;
+#X obj 363 216 pix_halftone;
+#X floatatom 392 147 5 1 32 2 size - -;
+#X floatatom 440 177 5 0 0 2 angle - -;
+#X floatatom 485 194 5 0 1 2 smooth - -;
+#X obj 502 232 hradio 15 1 0 5 empty empty style 40 -6 0 8 -262144
+-1 -1 0;
+#X msg 505 250 style \$1;
+#X obj 543 124 r \$1gempix_ef_halftone_size;
+#X obj 555 153 r \$1gempix_ef_halftone_angle;
+#X obj 574 184 r \$1gempix_ef_halftone_smooth;
+#X obj 590 227 r \$1gempix_ef_halftone_style;
+#X text 309 57 gemin;
+#X text 328 276 gemout;
+#X obj 417 13 r \$1gempix_ef_halftone_on;
+#X obj 389 37 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 0 1 cnv 15 150 75 empty empty empty 2 12 0 14 -191407 -66577
+0;
+#X obj 9 6 tgl 15 0 \$1gempix_ef_halftone_on \$1gempix_ef_halftone_on_init
+Halftone 17 7 0 10 -260097 -1 -1 0 1;
+#X floatatom 77 38 5 1 32 1 size #1gempix_ef_halftone_size_init #1gempix_ef_halftone_size
+;
+#X floatatom 77 55 5 0 0 1 angle #1gempix_ef_halftone_angle_init #1gempix_ef_halftone_angle
+;
+#X floatatom 77 23 5 0 1 1 smooth #1gempix_ef_halftone_smooth_init
+#1gempix_ef_halftone_smooth;
+#X obj 3 39 hradio 15 1 0 5 \$1gempix_ef_halftone_style \$1gempix_ef_halftone_style_init
+style 40 -6 0 8 -262144 -1 -1 0;
+#X obj 117 7 cnv 15 20 10 empty \$1gempix_ef_halftone_id \$1 5 5 0
+10 -260097 -33289 0;
+#N canvas 973 315 577 551 midi_control 1;
+#X msg 204 135 ef1epdp_aging_on_midi;
+#X msg 365 133 ef1epdp_aging_dust_midi;
+#X floatatom 93 324 5 0 0 0 - - -;
+#X obj 91 369 select 0;
+#X obj 331 261 s midi_var_to_add;
+#X text 442 258 -->global value of mb-midi_control_pad;
+#X msg 160 420 0;
+#X msg 110 426 1;
+#X obj 90 399 alternate;
+#X obj 65 41 r \$1gempix_ef_halftone_midi_on;
+#X obj 285 27 r \$1gempix_ef_halftone_id;
+#X msg 146 104 set \$1gempix_ef_halftone_on_midi;
+#X msg 365 102 set \$1gempix_ef_halftone_r_midi;
+#X msg 558 104 set \$1gempix_ef_halftone_g_midi;
+#X msg 563 144 ef1epdp_aging_on_midi;
+#X obj 93 290 r \$1gempix_ef_halftone_on_midi;
+#X obj 71 452 s $gempix_ef_halftone_on_init;
+#X obj 302 291 r \$1gempix_ef_halftone_r_midi;
+#X obj 280 453 s $gempix_ef_halftone_r_init;
+#X floatatom 295 317 5 0 0 0 - - -;
+#X floatatom 327 415 8 0 0 0 - - -;
+#X obj 312 351 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 309 381 autoscale 0 255;
+#X obj 494 293 r \$1gempix_ef_halftone_r_midi;
+#X obj 475 445 s $gempix_ef_halftone_r_init;
+#X floatatom 522 407 8 0 0 0 - - -;
+#X connect 0 0 4 0;
+#X connect 1 0 13 0;
+#X connect 2 0 3 0;
+#X connect 3 1 8 0;
+#X connect 6 0 16 0;
+#X connect 7 0 16 0;
+#X connect 8 0 7 0;
+#X connect 8 1 6 0;
+#X connect 9 0 11 0;
+#X connect 10 0 11 0;
+#X connect 11 0 0 0;
+#X connect 12 0 1 0;
+#X connect 13 0 14 0;
+#X connect 15 0 2 0;
+#X connect 17 0 19 0;
+#X connect 19 0 21 0;
+#X connect 20 0 18 0;
+#X connect 21 0 22 0;
+#X connect 22 0 20 0;
+#X connect 23 0 25 0;
+#X connect 25 0 24 0;
+#X restore 182 7 pd midi_control;
+#X obj 11 56 bng 15 250 50 0 \$1gempix_ef_halftone_midi_on empty midi
+17 7 0 8 -4160 -1 -1;
+#X connect 0 0 4 0;
+#X connect 1 0 5 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X connect 4 0 5 0;
+#X connect 5 0 7 0;
+#X connect 6 0 2 0;
+#X connect 6 0 0 0;
+#X connect 8 0 11 1;
+#X connect 11 0 10 0;
+#X connect 11 1 13 0;
+#X connect 12 0 11 0;
+#X connect 13 0 10 0;
+#X connect 14 0 13 1;
+#X connect 15 0 13 2;
+#X connect 16 0 13 3;
+#X connect 17 0 18 0;
+#X connect 18 0 13 0;
+#X connect 19 0 14 0;
+#X connect 20 0 15 0;
+#X connect 21 0 16 0;
+#X connect 22 0 17 0;
+#X connect 25 0 26 0;
+#X connect 26 0 12 0;
+#X coords 0 -1 1 1 150 75 2 0 0;

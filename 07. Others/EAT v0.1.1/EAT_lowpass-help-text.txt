@@ -1,0 +1,21 @@
+ElectroAcousticTools
+
+EAT_Lowpass~
+
+This module is a multi-monophonic modules, which creates 1-13 channels of DSP. It can contain filters of 1-10 poles depending on the first creation argument.
+
+Creation Arguments
+
+EAT_Lowpass~ n-pole ID_tag n-channels
+
+e.g. EAT_Lowpass~ 10 Harrison 13
+
+Parameter
+
+Mix: Mix between dry (0) and wet (1) signal.
+Cutoff Freq: Cutoff frequency of low pass filter(s).
+Interpolation Time: Time to tween between changing cutoff values.
+Bypass: Bypass DSP.
+ADV: Access to parameter and MIDI control over individual channels.
+MIDI: Access MIDI learn and MIDI control on/off for parameter control.
+HELP: Access help files.

@@ -1,0 +1,20 @@
+#N canvas 378 240 560 344 10;
+#X obj 290 24 cnv 15 200 120 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 307 102 ehu/out~;
+#X obj 307 -2 osc~ 330;
+#X obj 446 67 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 392 41 vsl 15 50 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X text 15 -17 ehu/out~ abstraction help;
+#X text 13 21 sends signal to sound card (wraps dac~);
+#X text 18 78 Inlets : audio \, audio \, 1 amplitude \, 2 on/off;
+#X text 14 110 outlets : left and right (for monitoring);
+#X obj 323 175 ehu/plot;
+#X connect 1 0 9 0;
+#X connect 1 1 9 0;
+#X connect 2 0 1 0;
+#X connect 2 0 1 1;
+#X connect 3 0 1 3;
+#X connect 4 0 1 2;

@@ -1,0 +1,91 @@
+#N canvas 151 22 800 687 10;
+#X declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/numbers -path ../../abstractions/video -path
+../../abstractions/audio -path ../../abstractions/master;
+#X obj 7 279 cnv 1 470 1 empty empty FX 2 -6 1 12 -228856 -191407 0
+;
+#X obj 7 467 cnv 1 470 1 empty empty OUT 2 -6 1 12 -228856 -191407
+0;
+#X obj 7 123 cnv 1 470 1 empty empty IN 2 -6 1 12 -228856 -191407 0
+;
+#X obj 488 28 cnv 20 300 90 empty empty DESCRIPTION 10 15 0 16 -233017
+-128992 0;
+#X obj 488 124 cnv 20 300 150 empty empty empty 10 15 0 16 -233017
+-128992 0;
+#X obj 488 279 cnv 20 300 185 empty empty empty 10 15 0 16 -233017
+-128992 0;
+#X obj 488 469 cnv 20 300 180 empty empty empty 10 15 0 16 -233017
+-128992 0;
+#X obj 40 477 synth-drums;
+#X obj 172 564 audio-out;
+#X obj 50 95 tgl 15 0 empty empty on/off 0 -7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 117 95 5 0 0 2 time - -;
+#X msg 50 114 onoff \$1;
+#X msg 117 114 time \$1;
+#X obj 36 131 seq-sliders;
+#X msg 36 51 seq 0.8 0 0.7 0 0 0.3 0 0.4;
+#X msg 185 75 seq 0 0 0 0.3 0.8 0 0 0.3;
+#X msg 262 98 seq 0.8 0.5 0.8 0.5 0.8 0.5 0.8 0.5;
+#X obj 36 14 loadbang;
+#X obj 185 131 seq-sliders;
+#X obj 333 131 seq-sliders;
+#X obj 262 392 audio-pitchshift;
+#X obj 323 297 random 50;
+#X obj 261 565 audio-out;
+#X obj 385 297 random 1000;
+#X obj 385 323 fade 100;
+#X obj 323 324 fade 500;
+#X obj 261 346 audio-reverb;
+#X text 495 351 < reverberation;
+#X text 496 406 < pitchshift;
+#X obj 40 290 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 84 291 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 129 291 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 496 52 Percussive sounds are triggered following;
+#X text 496 67 some probability percentage. Audio-fx;
+#X text 496 82 add some funny texture to the sound.;
+#X text 496 134 < Three sequencers;
+#X text 496 172 < strong probability;
+#X text 508 188 medium;
+#X text 508 205 weak;
+#X text 495 291 < random value to control the;
+#X text 508 304 pitchshift effect of the sound;
+#X text 495 491 < percussive sound audio synthesis;
+#X text 495 581 < audio output;
+#X obj 738 12 ../../abstractions/include;
+#X connect 7 4 8 0;
+#X connect 7 4 8 1;
+#X connect 7 4 26 0;
+#X connect 9 0 11 0;
+#X connect 10 0 12 0;
+#X connect 11 0 13 0;
+#X connect 11 0 18 0;
+#X connect 11 0 19 0;
+#X connect 12 0 13 0;
+#X connect 12 0 18 0;
+#X connect 12 0 19 0;
+#X connect 13 1 29 0;
+#X connect 14 0 13 0;
+#X connect 15 0 18 0;
+#X connect 16 0 19 0;
+#X connect 17 0 14 0;
+#X connect 17 0 15 0;
+#X connect 17 0 16 0;
+#X connect 18 1 30 0;
+#X connect 18 1 21 0;
+#X connect 19 1 31 0;
+#X connect 19 1 23 0;
+#X connect 20 0 22 0;
+#X connect 20 0 22 1;
+#X connect 21 0 25 0;
+#X connect 23 0 24 0;
+#X connect 24 0 20 2;
+#X connect 25 0 20 1;
+#X connect 26 0 20 0;
+#X connect 29 0 7 0;
+#X connect 30 0 7 1;
+#X connect 31 0 7 2;

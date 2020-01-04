@@ -1,0 +1,1119 @@
+#N canvas 651 120 927 621 10;
+#N canvas 48 296 1074 765 var_file_global 0;
+#X obj 475 578 textfile;
+#X obj 500 625 print done;
+#X obj 584 269 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 230 368 set;
+#X msg 158 136 set write \$1;
+#X obj 235 90 r midi_var_file;
+#X obj 88 274 openpanel;
+#X obj 82 241 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 103 342 s midi_var_file;
+#X obj 672 133 l2s;
+#X obj 444 647 print var_midi;
+#X obj 131 75 inlet;
+#X obj 456 72 inlet;
+#X obj 568 81 r midi_var_to_add;
+#X obj 592 189 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 585 604 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 219 454 clear;
+#X msg 248 137 set read \$1;
+#X msg 657 229 add ef1epdp_warhol_on_midi;
+#X msg 657 168 set add \$1;
+#X obj 440 110 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 215 497 bang;
+#X msg 577 535 print;
+#X msg 214 543 rewind;
+#X msg 155 189 write data/mbmidivars.txt;
+#X msg 336 164 read data/mbmidivars.txt;
+#X connect 0 0 10 0;
+#X connect 0 1 1 0;
+#X connect 0 1 15 0;
+#X connect 2 0 24 0;
+#X connect 3 0 0 0;
+#X connect 4 0 24 0;
+#X connect 5 0 4 0;
+#X connect 5 0 17 0;
+#X connect 6 0 8 0;
+#X connect 7 0 6 0;
+#X connect 9 0 19 0;
+#X connect 11 0 4 0;
+#X connect 11 0 17 0;
+#X connect 12 0 9 0;
+#X connect 12 0 20 0;
+#X connect 13 0 20 0;
+#X connect 13 0 9 0;
+#X connect 14 0 18 0;
+#X connect 16 0 0 0;
+#X connect 17 0 25 0;
+#X connect 18 0 0 0;
+#X connect 18 0 2 0;
+#X connect 19 0 18 0;
+#X connect 20 0 25 0;
+#X connect 21 0 0 0;
+#X connect 22 0 0 0;
+#X connect 23 0 0 0;
+#X connect 24 0 0 0;
+#X connect 25 0 0 0;
+#X connect 25 0 14 0;
+#X restore 139 303 pd var_file_global;
+#X obj 135 231 r \$1midi_control_filevar;
+#X obj 137 259 s midi_var_file;
+#X obj 256 258 r midi_var_to_add;
+#X symbolatom 251 282 10 0 0 0 - - -;
+#X text 15 274 GLOBAL VALUES!!!->>;
+#N canvas 873 285 319 524 \$1-midi_control_configure 0;
+#X obj 0 0 cnv 15 310 520 empty empty MIDI_control_pad 70 12 0 12 -66577
+-262144 0;
+#X obj 249 4 cnv 15 40 20 empty \$1midi_control_id \$1 10 10 0 10 -260097
+-33289 0;
+#X obj 5 96 cnv 15 300 80 empty empty SELECT_VAR_TO_CONTROL 2 12 0
+10 -191407 -1 0;
+#X floatatom 256 126 4 0 0 2 Index #1midi_control_value_index -;
+#X obj 115 152 bng 15 250 50 0 \$1midi_control_reset empty Reset 17
+7 0 10 -257985 -1 -1;
+#X obj 8 148 bng 15 250 50 0 \$1midi_control_clear_list empty Clear_List
+17 7 0 10 -258113 -1 -1;
+#X obj 8 124 bng 15 250 50 0 \$1midi_control_load_list empty Load_List
+17 7 0 10 -4034 -1 -1;
+#X floatatom 253 152 5 0 0 0 num_of_vars #1midi_control_num_var_init
+-;
+#X obj 4 181 cnv 15 300 50 empty empty SET_MIDI 2 12 0 10 -191407 -1
+0;
+#X obj 242 212 nbx 5 15 0 127 0 0 \$1midi_control_midiconf_num_mouse
+\$1midi_control_midiconf_num_init Number 0 -7 0 8 -257985 -1 -1 0 256
+;
+#X obj 195 211 tgl 15 0 \$1midi_control_type \$1midi_control_type_init
+CTRL/NOTE -15 -7 0 8 -257985 -1 -1 0 1;
+#X obj 3 237 cnv 15 300 80 empty empty ADD_VAR_MIDI_MAP 2 12 0 10 -162280
+-1 0;
+#X obj 220 300 bng 15 250 50 0 \$1midi_control_map_confirm empty CONFIRM?
+17 7 0 10 -4034 -1 -1;
+#X obj 194 243 bng 15 250 50 0 \$1midi_control_map_add empty New_map
+17 7 0 10 -257985 -1 -1;
+#X symbolatom 5 296 35 0 0 0 - #1midi_control_premap #1midi_control_premap2
+;
+#X obj 5 31 cnv 15 300 60 empty empty CONFIG_FILES 2 12 0 10 -191407
+-1 0;
+#X symbolatom 59 51 30 0 0 0 Var_list #1midi_control_filevar_init #1midi_control_filevar
+;
+#X symbolatom 58 72 30 0 0 0 map #1midi_control_filemap_init #1midi_control_filemap
+;
+#X obj 245 52 bng 15 250 50 0 \$1midi_control_filevar_change \$1midi_control_filevar_change_init
+Change 17 7 0 8 -257985 -1 -1;
+#X obj 245 73 bng 15 250 50 0 \$1midi_control_filemap_change \$1midi_control_filemap_change_init
+Change 17 7 0 8 -257985 -1 -1;
+#X obj 115 121 tof/menubutton 132 22 empty empty 0 #000000 #ffffff
+orange #3a12ff -1;
+#X obj 2 323 cnv 15 300 85 empty empty MIDI_VAR_MAP_ASSIGMENT 2 12
+0 10 -162280 -1 0;
+#X obj 103 376 tof/menubutton 180 22 empty empty 0 #000000 #ffffff
+orange #3a12ff -1;
+#X obj 15 352 bng 15 250 50 0 \$1midi_control_load_map empty Load_map
+17 7 0 10 -4034 -1 -1;
+#X obj 105 355 bng 15 250 50 0 \$1midi_control_clear_map empty Clear_map
+17 7 0 10 -258113 -1 -1;
+#X floatatom 232 350 5 0 0 2 num_of_maps #1midi_control_num_map_init
+-;
+#X obj 53 376 nbx 3 15 0 127 0 0 empty \$1midi_control_map_index_init
+INDEX -42 9 0 10 -262144 -1 -1 0 256;
+#X obj 37 416 cnv 15 230 90 empty empty MIDI_MAP_MONITOR 2 12 0 12
+-260097 -1 0;
+#X obj 44 484 hradio 18 1 0 11 empty \$0varoutlabel ef1epdp_transform_on_midi
+2 8 0 8 -1 -1 -262144 0;
+#X obj 167 449 hradio 18 1 0 2 empty \$0vallabel -0- 2 8 0 8 -1 -1
+-262144 0;
+#X obj 127 449 hradio 18 1 0 2 empty \$0numlabel -80- 2 8 0 8 -1 -1
+-262144 0;
+#X obj 87 449 hradio 18 1 0 2 empty \$0typelabel CTRL 2 8 0 8 -1 -1
+-262144 0;
+#X obj 245 483 bng 15 250 50 0 empty \$1midi_control_mon_out empty
+17 7 0 10 -128992 -4160 -1;
+#X text 168 433 VALUE;
+#X text 132 433 NUM;
+#X text 90 433 TYPE;
+#X obj 8 210 tgl 15 0 \$1midi_control_var_capture \$1midi_control_var_capture_init
+capture_midi_in 17 7 0 8 -260097 -1 -1 0 1;
+#X obj 109 378 s \$1midi_control_menu_var_in;
+#X obj 107 377 r \$1midi_control_menu_var_out;
+#X obj 109 380 s \$1midi_control_menu_map_in;
+#X obj 104 378 r \$1midi_control_menu_map_out;
+#X obj 6 7 tgl 15 0 \$1midi_control_configure_on empty Close 17 7 0
+8 -260097 -1 -228856 0 1;
+#X obj 127 212 nbx 5 15 0 127 0 0 \$1midi_control_midiconf_chan_mouse
+\$1midi_control_midiconf_chan_init channel 0 -7 0 8 -257985 -1 -1 0
+256;
+#X obj 130 273 hradio 18 1 0 9 empty \$0valconflabel ef1epdp_warp_control_midi
+2 8 0 7 -1 -1 -262144 0;
+#X obj 89 273 hradio 18 1 0 2 empty \$0numconflabel -80- 2 8 0 8 -1
+-1 -262144 0;
+#X obj 49 272 hradio 18 1 0 2 empty \$0typeconflabel CTRL 2 8 0 8 -1
+-1 -262144 0;
+#X text 131 256 VALUE;
+#X text 91 257 NUM;
+#X text 47 256 TYPE;
+#X obj 7 272 hradio 18 1 0 2 empty \$0chanconflabel -17- 2 8 0 8 -1
+-1 -262144 0;
+#X text 3 257 Channel;
+#X text 42 467 VAR MAPPED;
+#X obj 46 449 hradio 18 1 0 2 empty \$0chanlabel -17- 2 8 0 8 -1 -1
+-262144 0;
+#X text 42 432 Channel;
+#X obj 117 468 tgl 15 0 \$1midi_mapping_on \$1midi_mapping_on_init
+on/off_mapping 17 7 0 8 -4034 -1 -1 0 1;
+#X connect 20 0 37 0;
+#X connect 22 0 39 0;
+#X connect 38 0 20 0;
+#X connect 40 0 22 0;
+#X restore 134 372 pd \$1-midi_control_configure;
+#N canvas 0 376 1324 939 midi_control_add_map 0;
+#X obj 405 969 textfile;
+#X obj 1022 118 r \$1midi_control_midiconf_num;
+#X obj 841 121 r \$1midi_control_type_final;
+#X obj 1210 122 r \$1midi_control_ass;
+#X floatatom 1020 154 5 0 0 0 - - -;
+#X msg 841 180 CTRL;
+#X msg 1210 149 set \$1;
+#X msg 1206 231 ef1epdp_warp_control_midi;
+#X msg 931 424 17 CTRL 54 ef1epdp_warp_control_midi;
+#X msg 569 215 set;
+#X msg 1194 282 set add2 \$1;
+#X msg 1180 321 add2 ef1epdp_warp_control_midi;
+#X obj 1099 300 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 572 83 r \$1midi_control_map_add;
+#X obj 966 482 s \$1midi_control_premap;
+#X obj 948 449 l2s;
+#X obj 1128 369 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 430 1016 print done;
+#X obj 374 1038 print list;
+#X msg 230 609 write data/mbmidimap.txt;
+#X msg 1000 194 set add2 \$1;
+#X msg 996 282 add2 80;
+#X msg 833 228 set add2 \$1;
+#X msg 868 277 add2 CTRL;
+#X obj 894 201 l2s;
+#X obj 585 153 delay 10;
+#X obj 879 251 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 934 290 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 485 950 print;
+#X obj 493 486 r \$1midi_control_map_confirm;
+#X msg 224 797 set;
+#X obj 312 482 r \$1midi_control_filemap;
+#X obj 118 481 r \$1midi_control_filemap_save;
+#X obj 160 -106 openpanel;
+#X obj 160 -76 s \$1midi_control_filevar_init;
+#X obj 369 -77 s \$1midi_control_filemap_init;
+#X obj 157 -177 r \$1midi_control_filevar_change;
+#X obj 363 -143 openpanel;
+#X obj 363 -178 r \$1midi_control_filemap_change;
+#X msg 287 565 set write \$1;
+#X msg 386 606 read data/mbmidimap.txt;
+#X obj 783 -147 ctlin;
+#X obj 709 -150 notein;
+#X floatatom 714 -84 5 0 0 0 - - -;
+#X obj 715 -22 s \$1midi_control_midiconf_num_init;
+#X obj 799 -38 s \$1midi_control_type_init;
+#X obj 832 -113 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 790 -110 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 835 -91 0;
+#X msg 793 -92 1;
+#X obj 647 -190 r \$1midi_control_var_capture;
+#X obj 713 -52 spigot;
+#X obj 670 -93 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 799 -62 spigot;
+#X msg 386 566 set read \$1;
+#X msg 694 696 add 17 CTRL 54 ef1epdp_warp_control_midi;
+#X msg 769 619 set add \$1;
+#X obj 517 639 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 91 795 clear;
+#X msg 87 838 bang;
+#X msg 86 884 rewind;
+#X obj 516 687 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 339 188 mousefilter;
+#X obj 329 231 s \$1midi_control_midiconf_num;
+#X obj 340 125 r \$1midi_control_midiconf_num_mouse;
+#X floatatom 889 -146 5 0 0 0 - - -;
+#X obj 920 -94 spigot;
+#X obj 95 188 mousefilter;
+#X obj 96 125 r \$1midi_control_midiconf_chan_mouse;
+#X obj 85 231 s \$1midi_control_midiconf_chan;
+#X obj 912 -65 s \$1midi_control_midiconf_chan_init;
+#X obj 647 118 r \$1midi_control_midiconf_chan;
+#X floatatom 692 143 5 0 0 0 - - -;
+#X msg 666 180 set add2 \$1;
+#X msg 764 281 add2 17;
+#X obj 815 301 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X connect 0 0 18 0;
+#X connect 0 1 17 0;
+#X connect 1 0 4 0;
+#X connect 1 0 20 0;
+#X connect 2 0 5 0;
+#X connect 3 0 6 0;
+#X connect 3 0 10 0;
+#X connect 5 0 24 0;
+#X connect 6 0 7 0;
+#X connect 8 0 15 0;
+#X connect 9 0 8 0;
+#X connect 10 0 11 0;
+#X connect 11 0 8 0;
+#X connect 11 0 16 0;
+#X connect 12 0 11 0;
+#X connect 13 0 9 0;
+#X connect 13 0 25 0;
+#X connect 15 0 14 0;
+#X connect 15 0 56 0;
+#X connect 16 0 8 0;
+#X connect 19 0 0 0;
+#X connect 20 0 21 0;
+#X connect 21 0 8 0;
+#X connect 21 0 12 0;
+#X connect 22 0 23 0;
+#X connect 22 0 26 0;
+#X connect 23 0 8 0;
+#X connect 23 0 27 0;
+#X connect 24 0 22 0;
+#X connect 25 0 74 0;
+#X connect 26 0 23 0;
+#X connect 27 0 21 0;
+#X connect 28 0 0 0;
+#X connect 29 0 40 0;
+#X connect 30 0 0 0;
+#X connect 31 0 39 0;
+#X connect 31 0 54 0;
+#X connect 33 0 34 0;
+#X connect 36 0 33 0;
+#X connect 37 0 35 0;
+#X connect 38 0 37 0;
+#X connect 39 0 19 0;
+#X connect 40 0 0 0;
+#X connect 40 0 57 0;
+#X connect 41 0 46 0;
+#X connect 41 1 43 0;
+#X connect 41 2 65 0;
+#X connect 42 0 43 0;
+#X connect 42 0 47 0;
+#X connect 42 2 65 0;
+#X connect 43 0 51 0;
+#X connect 46 0 48 0;
+#X connect 47 0 49 0;
+#X connect 48 0 53 0;
+#X connect 49 0 53 0;
+#X connect 50 0 52 0;
+#X connect 51 0 44 0;
+#X connect 52 0 51 1;
+#X connect 52 0 53 1;
+#X connect 52 0 66 1;
+#X connect 53 0 45 0;
+#X connect 54 0 40 0;
+#X connect 55 0 0 0;
+#X connect 55 0 61 0;
+#X connect 56 0 55 0;
+#X connect 57 0 55 0;
+#X connect 58 0 0 0;
+#X connect 59 0 0 0;
+#X connect 60 0 0 0;
+#X connect 61 0 19 0;
+#X connect 62 0 63 0;
+#X connect 64 0 62 0;
+#X connect 65 0 66 0;
+#X connect 66 0 70 0;
+#X connect 67 0 69 0;
+#X connect 68 0 67 0;
+#X connect 71 0 72 0;
+#X connect 71 0 73 0;
+#X connect 73 0 74 0;
+#X connect 74 0 8 0;
+#X connect 74 0 75 0;
+#X connect 75 0 5 0;
+#X restore 523 166 pd midi_control_add_map;
+#N canvas 676 395 1138 454 midi_control_default_settings 0;
+#X obj 72 161 symbol \$1;
+#X symbolatom 72 190 0 0 0 0 - - -;
+#X obj 72 125 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X symbolatom 169 190 0 0 0 0 - - -;
+#X obj 169 161 symbol \$2;
+#X obj 47 44 loadbang;
+#X obj 232 38 r \$1midi_control_reset;
+#X obj 69 240 s \$1midi_control_id;
+#X msg 294 167 0;
+#X obj 294 233 s \$1midi_control_value_init;
+#X obj 384 115 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 484 233 s \$1midi_control_clear_list;
+#X obj 256 272 s \$1midi_control_value_index;
+#X obj 227 307 s \$1midi_control_num_var_init;
+#X obj 220 348 s \$1midi_control_var_index_init;
+#X obj 683 131 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 677 234 s \$1midi_control_filevar_init;
+#X obj 886 233 s \$1midi_control_filemap_init;
+#X msg 683 194 set data/mbmidivars.txt \, bang;
+#X msg 882 190 set data/mbmidimap.txt \, bang;
+#X obj 219 389 s \$1midi_control_map_index_init;
+#X obj 214 418 s \$1midi_control_num_map_init;
+#X obj 308 207 s \$1midi_control_var_capture_init;
+#X obj 326 185 s \$1midi_control_type_init;
+#X connect 0 0 1 0;
+#X connect 1 0 7 0;
+#X connect 2 0 0 0;
+#X connect 2 0 4 0;
+#X connect 4 0 3 0;
+#X connect 5 0 2 0;
+#X connect 5 0 10 0;
+#X connect 5 0 15 0;
+#X connect 6 0 10 0;
+#X connect 8 0 9 0;
+#X connect 8 0 12 0;
+#X connect 8 0 13 0;
+#X connect 8 0 14 0;
+#X connect 8 0 20 0;
+#X connect 8 0 21 0;
+#X connect 8 0 22 0;
+#X connect 8 0 23 0;
+#X connect 10 0 8 0;
+#X connect 15 0 18 0;
+#X connect 15 0 19 0;
+#X connect 18 0 16 0;
+#X connect 19 0 17 0;
+#X restore 273 8 pd midi_control_default_settings;
+#X obj 0 1 cnv 15 240 200 empty empty MIDI_control_pad 12 12 0 12 -99865
+-262144 0;
+#X obj 186 4 cnv 15 40 20 empty \$1midi_control_id \$1 10 10 0 10 -260097
+-33289 0;
+#X obj 5 104 cnv 15 230 90 empty empty MIDI_MAP_MONITOR 6 12 0 12 -260097
+-262144 0;
+#X obj 11 172 hradio 18 1 0 11 empty \$0varoutlabel ef1epdp_transform_on_midi
+2 8 0 8 -1 -1 -262144 0;
+#X obj 136 138 hradio 18 1 0 2 empty \$0vallabel -0- 2 8 0 8 -1 -1
+-262144 0;
+#X obj 95 138 hradio 18 1 0 2 empty \$0numlabel -80- 2 8 0 8 -1 -1
+-262144 0;
+#X obj 55 137 hradio 18 1 0 2 empty \$0typelabel CTRL 2 8 0 8 -1 -1
+-262144 0;
+#X obj 214 173 bng 15 250 50 0 empty \$1midi_control_mon_out empty
+17 7 0 10 -128992 -4160 -1;
+#X text 137 121 VALUE;
+#X text 97 122 NUM;
+#X text 53 121 TYPE;
+#N canvas 4 67 1912 1074 midi_control_load_var_list 0;
+#X obj 827 522 nbx 5 14 0 127 0 0 empty empty empty 0 -8 0 10 -262144
+-1 -1 0 256;
+#X obj 452 458 r \$1midi_control_clear_list;
+#X msg 573 343 label var_list;
+#X msg 216 172 rewind;
+#X obj 252 356 textfile;
+#X msg 271 286 bang;
+#X msg 313 330 print;
+#X obj 180 413 l2s;
+#X obj 224 422 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X symbolatom 103 442 10 0 0 0 - - -;
+#X obj 338 377 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 177 62 r \$1midi_control_load_list;
+#X obj 209 131 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 332 246 counter;
+#X msg 424 167 128;
+#X text 456 165 max;
+#X msg 459 247 0;
+#X msg 357 164 0;
+#X floatatom 354 277 5 0 0 0 - - -;
+#X obj 272 207 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 489 247 reset;
+#X text 383 163 min;
+#X obj 210 454 counter;
+#X floatatom 213 481 5 0 0 0 - - -;
+#X obj 213 512 s \$1midi_control_num_var_init;
+#X msg 305 481 0;
+#X text 331 480 reset;
+#X obj 763 450 r \$1midi_control_var_index;
+#X msg 177 95 read data/mbmidivars.txt cr;
+#X obj 568 58 r \$1midi_control_type;
+#X obj 568 92 select 0 1;
+#X obj 566 187 s \$1midi_control_type_final;
+#X msg 696 140 set NOTE;
+#X obj 24 32 r \$1midi_control_filevar;
+#X msg 30 78 set read \$1 cr;
+#X obj 1117 801 tof/menubutton 132 22 empty empty 0 #000000 #ffffff
+orange #3a12ff -1;
+#X msg 630 546 clear;
+#X msg 1205 567 saveitems \$1;
+#X obj 1205 549 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X floatatom 1580 1014 5 0 0 0 - - -;
+#X text 625 520 Clear menu items;
+#X obj 1431 986 r \$0s;
+#X obj 1580 1043 send \$0r;
+#X text 1292 554 Set the saving of the menu items in the patch. Off
+by default.;
+#X floatatom 826 569 5 0 0 0 - - -;
+#X floatatom 1431 1049 5 0 0 0 - - -;
+#X symbolatom 1488 1047 10 0 0 0 - - -;
+#X obj 1431 1018 unpack f s;
+#X text 746 546 Select and output a menu item;
+#X msg 1352 711 set b;
+#X text 1401 713 Select an item without outputing it;
+#X msg 1371 735 set 2;
+#X text 1522 617 values can be tk colors(red \, blue \, etc) or html
+colors (#ffffff);
+#X text 1262 590 colors: background foreground highlight contour;
+#X msg 1265 613 colors green red orange purple;
+#X msg 1285 638 colors #000000 #ffffff #ff0000 #3a12ff;
+#X text 1245 498 Set its size;
+#X msg 1166 499 size 102 32;
+#X text 1265 520 Set its size;
+#X msg 1186 521 size 132 22;
+#X msg 228 704 add ef1epdp_simura_on_midi;
+#X msg 218 645 set add \$1 \, bang;
+#X obj 958 875 outlet;
+#X obj 1033 246 inlet;
+#X obj 1037 285 unpack f s;
+#X floatatom 1037 308 5 0 0 0 - - -;
+#X symbolatom 1096 306 10 0 0 0 - - -;
+#X text 1056 380 index outlet;
+#X obj 1021 409 s \$1midi_control_value_index;
+#X msg 1279 672 colors #000000 #ffffff orange #3a12ff;
+#X text 1074 242 des del menu extern;
+#X text 1002 876 cap al menu extern;
+#X obj 1156 340 s \$1midi_control_ass;
+#X obj 273 417 print varlist;
+#X msg 552 140 set CTRL;
+#X connect 0 0 44 0;
+#X connect 0 0 62 0;
+#X connect 1 0 25 0;
+#X connect 1 0 36 0;
+#X connect 3 0 4 0;
+#X connect 3 0 19 0;
+#X connect 4 0 8 0;
+#X connect 4 0 7 0;
+#X connect 4 0 73 0;
+#X connect 4 1 10 0;
+#X connect 5 0 4 0;
+#X connect 6 0 4 0;
+#X connect 7 0 9 0;
+#X connect 7 0 61 0;
+#X connect 8 0 19 0;
+#X connect 8 0 22 0;
+#X connect 11 0 28 0;
+#X connect 11 0 16 0;
+#X connect 12 0 3 0;
+#X connect 12 0 14 0;
+#X connect 12 0 17 0;
+#X connect 12 0 2 0;
+#X connect 13 0 18 0;
+#X connect 13 0 5 0;
+#X connect 14 0 13 4;
+#X connect 16 0 13 3;
+#X connect 17 0 13 2;
+#X connect 19 0 13 0;
+#X connect 22 0 23 0;
+#X connect 23 0 24 0;
+#X connect 25 0 22 3;
+#X connect 27 0 0 0;
+#X connect 28 0 4 0;
+#X connect 28 0 12 0;
+#X connect 29 0 30 0;
+#X connect 30 0 74 0;
+#X connect 30 1 32 0;
+#X connect 32 0 31 0;
+#X connect 33 0 34 0;
+#X connect 34 0 28 0;
+#X connect 36 0 35 0;
+#X connect 36 0 62 0;
+#X connect 37 0 35 0;
+#X connect 38 0 37 0;
+#X connect 39 0 42 0;
+#X connect 41 0 47 0;
+#X connect 44 0 35 0;
+#X connect 47 0 45 0;
+#X connect 47 1 46 0;
+#X connect 49 0 35 0;
+#X connect 51 0 35 0;
+#X connect 54 0 35 0;
+#X connect 55 0 35 0;
+#X connect 57 0 35 0;
+#X connect 59 0 35 0;
+#X connect 60 0 35 0;
+#X connect 60 0 62 0;
+#X connect 61 0 60 0;
+#X connect 63 0 64 0;
+#X connect 64 0 65 0;
+#X connect 64 1 66 0;
+#X connect 65 0 68 0;
+#X connect 66 0 72 0;
+#X connect 69 0 35 0;
+#X connect 69 0 62 0;
+#X connect 74 0 31 0;
+#X restore 501 88 pd midi_control_load_var_list;
+#X obj 593 56 r \$1midi_control_menu_var_in;
+#X obj 586 122 s \$1midi_control_menu_var_out;
+#N canvas 4 54 1899 1074 midi_mapping 0;
+#X obj 88 54 r \$1midi_control_filemap;
+#X obj 266 54 r \$1midi_control_load_map;
+#X msg 88 92 set read \$1 cr;
+#X msg 78 136 read data/mbmidimap.txt cr;
+#X obj 352 429 print done;
+#X obj 246 349 textfile;
+#X msg 198 199 rewind;
+#X msg 346 233 bang;
+#X msg 299 309 print;
+#X msg 706 228 clear;
+#X obj 353 369 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 126 160 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X symbolatom 312 594 6 0 0 0 - - -;
+#X floatatom 356 595 5 0 0 0 - - -;
+#X obj 356 460 print midimap;
+#X symbolatom 410 504 30 0 0 0 - - -;
+#X obj 494 52 r \$1midi_control_clear_map;
+#X obj 284 439 l2s;
+#X msg 734 495 add 17 CTRL 54 ef1epdp_warp_control_midi;
+#X msg 722 445 set add \$1 \, bang;
+#X obj 761 398 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1150 761 tof/menubutton 180 22 empty empty 0 #000000 #ffffff
+orange #3a12ff -1;
+#X msg 1123 530 saveitems \$1;
+#X obj 1123 512 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X text 1210 517 Set the saving of the menu items in the patch. Off
+by default.;
+#X msg 1270 674 set b;
+#X text 1319 676 Select an item without outputing it;
+#X text 1440 580 values can be tk colors(red \, blue \, etc) or html
+colors (#ffffff);
+#X text 1180 553 colors: background foreground highlight contour;
+#X msg 1183 576 colors green red orange purple;
+#X msg 1203 601 colors #000000 #ffffff #ff0000 #3a12ff;
+#X text 1163 461 Set its size;
+#X msg 1084 462 size 102 32;
+#X text 1183 483 Set its size;
+#X msg 1104 484 size 132 22;
+#X msg 1197 635 colors #000000 #ffffff orange #3a12ff;
+#X obj 1008 763 outlet;
+#X obj 1241 41 inlet;
+#X floatatom 1245 103 5 0 0 0 - - -;
+#X symbolatom 1304 101 10 0 0 0 - - -;
+#X text 1264 175 index outlet;
+#X text 1282 37 des del menu extern;
+#X obj 1364 135 s \$1midi_control_mapass;
+#X obj 1244 80 unpack f s;
+#X obj 842 187 nbx 5 14 0 127 0 0 empty empty empty 0 -8 0 10 -262144
+-1 -1 0 256;
+#X floatatom 841 234 5 0 0 0 - - -;
+#X text 761 211 Select and output a menu item;
+#X obj 722 48 r \$1midi_control_map_index;
+#X msg 1289 698 set 20;
+#X floatatom 1084 854 5 0 0 0 - - -;
+#X symbolatom 1241 841 10 0 0 0 - - -;
+#X msg 1250 861 set \$1;
+#X msg 1258 893 1 NOTE 48 ef1epdp_aging_on_midi;
+#X obj 361 177 counter;
+#X floatatom 383 208 5 0 0 0 - - -;
+#X obj 341 146 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 433 123 128;
+#X text 465 121 max;
+#X msg 366 120 0;
+#X text 392 119 min;
+#X msg 470 185 0;
+#X text 496 184 reset;
+#X obj 226 395 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 535 232 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 499 309 counter;
+#X floatatom 455 334 5 0 0 0 - - -;
+#X msg 579 259 0;
+#X obj 500 355 s \$1midi_control_num_map_init;
+#X obj 458 391 - 1;
+#X obj 1083 831 unpack f s;
+#X obj -183 1264 s \$1midi_control_map_note_in;
+#X obj -181 1290 s \$1midi_control_map_notevel_in;
+#X floatatom 1059 407 5 0 0 0 - - -;
+#X obj 1326 385 tof/menubutton 180 22 empty empty 0 #000000 #ffffff
+orange #3a12ff -1;
+#X text 1405 331 Set its size;
+#X msg 1288 308 size 180 22;
+#X obj 1229 204 s \$1midi_control_map_index_init;
+#X floatatom 263 590 5 0 0 0 - - -;
+#X obj 819 745 symbol;
+#X floatatom 261 1010 0 0 128 0 - - -;
+#X obj 262 987 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 255 900 dump;
+#X obj 348 933 index;
+#X msg 256 957 auto \$1;
+#X obj 256 936 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X msg 248 870 reset;
+#X floatatom 349 1027 0 0 0 0 - - -;
+#X symbolatom 378 1026 0 0 0 0 - - -;
+#X obj 329 993 route float symbol;
+#X msg 828 708 1.CTRL.19;
+#X text 337 881 MIDI PARAMS LIST;
+#X floatatom 531 1016 0 0 128 0 - - -;
+#X obj 534 996 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 527 909 dump;
+#X obj 618 939 index;
+#X msg 528 966 auto \$1;
+#X obj 528 945 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X msg 520 873 reset;
+#X floatatom 596 1026 0 0 0 0 - - -;
+#X symbolatom 679 1068 0 0 0 0 - - -;
+#X obj 599 999 route float symbol;
+#X text 607 887 VAR MAPPED LIST;
+#X msg 325 740 17 CTRL 54;
+#X msg 391 629 set add2 \$1;
+#X msg 396 669 add2 54;
+#X obj -112 819 r \$1midi_control_clear_map;
+#X floatatom -16 946 0 0 128 0 - - -;
+#X msg 305 627 set add2 \$1;
+#X msg 301 669 add2 CTRL;
+#X msg 228 668 set 17;
+#X obj 277 526 fromsymbol;
+#X obj 276 561 unpack f s f s;
+#X symbolatom 488 595 6 0 0 0 - - -;
+#X obj 278 669 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 238 643 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 371 671 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 633 1066 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 411 701 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 498 772 add ef1epdp_warp_control_midi;
+#X obj 505 812 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 495 631 set add \$1 \, bang;
+#X obj -13 863 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 210 617 set set \$1;
+#X obj 336 772 l2s .;
+#X msg 333 817 add \$1;
+#X obj -67 976 ctlin;
+#X floatatom -100 1070 5 0 0 0 - - -;
+#X floatatom -62 1029 5 0 0 0 - - -;
+#X floatatom -13 1071 5 0 0 0 - - -;
+#X obj -175 1195 s \$1midi_control_map_ctrl_in;
+#X obj -175 1238 s \$1midi_control_map_ctrlval_in;
+#X obj 765 1115 s \$1midi_control_map_var_out;
+#X obj 56 981 notein;
+#X floatatom 37 1076 5 0 0 0 - - -;
+#X floatatom 75 1079 5 0 0 0 - - -;
+#X floatatom 110 1078 5 0 0 0 - - -;
+#X obj -182 1322 s \$1midi_control_channel_in;
+#X msg 151 1163 17 NOTE 48;
+#X msg 237 1114 add2 \$1;
+#X msg 140 1117 set \$1 NOTE;
+#X obj 195 1200 l2s .;
+#X symbolatom 270 1230 0 0 0 0 - - -;
+#X obj 257 1150 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 416 1131 0 0 0 0 - - -;
+#X obj 384 1094 != 0;
+#X obj 389 1177 spigot;
+#X obj 392 1142 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X msg 160 1295 set \$1 CTRL;
+#X msg 206 1370 17 CTRL 80;
+#X msg 257 1292 set add2 \$1;
+#X obj 219 1319 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 228 1397 l2s .;
+#X obj 278 1346 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 478 1172 spigot;
+#X obj 500 1149 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X obj 510 1128 r \$1midi_mapping_on;
+#X msg 770 1613 \; ef1epdp_transform_on_midi 0;
+#X msg 778 1548 set \, addsemi \, add2 \$1;
+#X obj 792 1585 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 706 1623 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 265 1320 add2 \$1;
+#X symbolatom 293 1419 0 0 0 0 - - -;
+#X text -45 1044 Channel number;
+#X text -113 1008 controller number;
+#X text -176 1048 Controller value;
+#X obj 747 1569 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X symbolatom 728 1026 0 0 0 0 - - -;
+#X msg 581 1538 add2 \$1 \, bang;
+#X msg 687 1586 add2 \$1;
+#X obj 392 1248 spigot;
+#X obj 481 1243 spigot;
+#X floatatom 486 1297 0 0 0 0 - - -;
+#X msg 636 1097 res;
+#X obj 562 1072 select 0;
+#X obj 660 1122 l2s .;
+#X obj 868 1046 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 870 1072 s \$1midi_control_mon_out;
+#X connect 0 0 2 0;
+#X connect 1 0 3 0;
+#X connect 1 0 60 0;
+#X connect 2 0 3 0;
+#X connect 3 0 5 0;
+#X connect 3 0 11 0;
+#X connect 5 0 14 0;
+#X connect 5 0 17 0;
+#X connect 5 0 62 0;
+#X connect 5 1 10 0;
+#X connect 6 0 5 0;
+#X connect 6 0 55 0;
+#X connect 7 0 5 0;
+#X connect 8 0 5 0;
+#X connect 9 0 21 0;
+#X connect 9 0 36 0;
+#X connect 10 0 60 0;
+#X connect 11 0 6 0;
+#X connect 12 0 107 0;
+#X connect 13 0 103 0;
+#X connect 16 0 9 0;
+#X connect 16 0 66 0;
+#X connect 17 0 19 0;
+#X connect 17 0 15 0;
+#X connect 17 0 110 0;
+#X connect 18 0 36 0;
+#X connect 18 0 21 0;
+#X connect 19 0 18 0;
+#X connect 20 0 19 0;
+#X connect 21 0 69 0;
+#X connect 22 0 21 0;
+#X connect 23 0 22 0;
+#X connect 25 0 21 0;
+#X connect 29 0 21 0;
+#X connect 30 0 21 0;
+#X connect 32 0 21 0;
+#X connect 34 0 21 0;
+#X connect 35 0 21 0;
+#X connect 37 0 43 0;
+#X connect 38 0 76 0;
+#X connect 39 0 42 0;
+#X connect 43 0 38 0;
+#X connect 43 1 39 0;
+#X connect 44 0 45 0;
+#X connect 45 0 21 0;
+#X connect 45 0 36 0;
+#X connect 47 0 44 0;
+#X connect 48 0 21 0;
+#X connect 50 0 51 0;
+#X connect 51 0 52 0;
+#X connect 53 0 54 0;
+#X connect 53 0 7 0;
+#X connect 55 0 53 0;
+#X connect 56 0 53 4;
+#X connect 58 0 53 2;
+#X connect 60 0 53 3;
+#X connect 62 0 63 0;
+#X connect 63 0 64 0;
+#X connect 63 0 55 0;
+#X connect 64 0 65 0;
+#X connect 65 0 67 0;
+#X connect 65 0 68 0;
+#X connect 66 0 64 3;
+#X connect 69 0 49 0;
+#X connect 69 1 51 0;
+#X connect 75 0 73 0;
+#X connect 75 0 21 0;
+#X connect 75 0 36 0;
+#X connect 77 0 122 0;
+#X connect 79 0 82 0;
+#X connect 80 0 82 0;
+#X connect 81 0 82 0;
+#X connect 82 0 88 0;
+#X connect 83 0 82 0;
+#X connect 84 0 83 0;
+#X connect 85 0 82 0;
+#X connect 86 0 144 0;
+#X connect 86 0 145 0;
+#X connect 86 0 173 0;
+#X connect 88 0 86 0;
+#X connect 88 1 87 0;
+#X connect 89 0 78 0;
+#X connect 91 0 94 0;
+#X connect 92 0 94 0;
+#X connect 93 0 94 0;
+#X connect 94 0 100 0;
+#X connect 95 0 94 0;
+#X connect 96 0 95 0;
+#X connect 97 0 94 0;
+#X connect 99 0 131 0;
+#X connect 99 0 157 0;
+#X connect 99 0 175 0;
+#X connect 100 0 98 0;
+#X connect 100 1 99 0;
+#X connect 100 2 166 0;
+#X connect 102 0 123 0;
+#X connect 103 0 104 0;
+#X connect 104 0 102 0;
+#X connect 104 0 117 0;
+#X connect 105 0 121 0;
+#X connect 106 0 82 0;
+#X connect 106 0 94 0;
+#X connect 107 0 108 0;
+#X connect 108 0 102 0;
+#X connect 108 0 115 0;
+#X connect 109 0 102 0;
+#X connect 109 0 113 0;
+#X connect 110 0 111 0;
+#X connect 111 0 77 0;
+#X connect 111 1 12 0;
+#X connect 111 2 13 0;
+#X connect 111 3 112 0;
+#X connect 112 0 120 0;
+#X connect 113 0 108 0;
+#X connect 114 0 109 0;
+#X connect 115 0 104 0;
+#X connect 116 0 172 0;
+#X connect 117 0 102 0;
+#X connect 118 0 119 0;
+#X connect 118 0 94 0;
+#X connect 120 0 118 0;
+#X connect 121 0 85 0;
+#X connect 121 0 97 0;
+#X connect 122 0 109 0;
+#X connect 122 0 114 0;
+#X connect 123 0 124 0;
+#X connect 124 0 82 0;
+#X connect 125 0 126 0;
+#X connect 125 1 127 0;
+#X connect 125 2 128 0;
+#X connect 126 0 130 0;
+#X connect 126 0 167 0;
+#X connect 126 0 169 0;
+#X connect 127 0 129 0;
+#X connect 127 0 160 0;
+#X connect 128 0 136 0;
+#X connect 128 0 147 0;
+#X connect 132 0 133 0;
+#X connect 132 1 134 0;
+#X connect 132 2 135 0;
+#X connect 133 0 70 0;
+#X connect 133 0 138 0;
+#X connect 134 0 71 0;
+#X connect 134 0 167 0;
+#X connect 134 0 169 0;
+#X connect 135 0 136 0;
+#X connect 135 0 139 0;
+#X connect 137 0 140 0;
+#X connect 138 0 137 0;
+#X connect 138 0 142 0;
+#X connect 139 0 137 0;
+#X connect 140 0 141 0;
+#X connect 141 0 82 0;
+#X connect 142 0 137 0;
+#X connect 144 0 143 0;
+#X connect 144 0 146 0;
+#X connect 145 0 153 0;
+#X connect 146 0 145 1;
+#X connect 146 0 169 1;
+#X connect 147 0 148 0;
+#X connect 147 0 150 0;
+#X connect 148 0 151 0;
+#X connect 149 0 160 0;
+#X connect 151 0 161 0;
+#X connect 152 0 148 0;
+#X connect 153 0 91 0;
+#X connect 154 0 153 1;
+#X connect 154 0 170 1;
+#X connect 155 0 154 0;
+#X connect 157 0 156 0;
+#X connect 157 0 158 0;
+#X connect 157 0 165 0;
+#X connect 159 0 156 0;
+#X connect 160 0 148 0;
+#X connect 160 0 152 0;
+#X connect 161 0 82 0;
+#X connect 168 0 156 0;
+#X connect 168 0 159 0;
+#X connect 169 0 170 0;
+#X connect 170 0 171 0;
+#X connect 170 0 168 0;
+#X connect 172 0 174 0;
+#X connect 173 0 172 0;
+#X connect 174 0 131 0;
+#X connect 175 0 176 0;
+#X restore 492 232 pd midi_mapping;
+#X obj 524 203 r \$1midi_control_menu_map_in;
+#X obj 541 264 s \$1midi_control_menu_map_out;
+#X obj 9 69 tof/menubutton 180 22 empty empty 0 #000000 #ffffff orange
+#3a12ff -1;
+#X text 9 156 VAR MAPPED;
+#X obj 5 28 cnv 15 230 70 $ empty empty 2 12 0 12 -128992 -228856 0
+;
+#X text 8 51 List of vars mapped;
+#X floatatom 197 40 5 0 0 2 vars #1midi_control_num_var_init -;
+#X floatatom 196 74 5 0 0 2 maps #1midi_control_num_map_init -;
+#X obj 14 33 tgl 15 0 \$1midi_control_configure_on empty Configure
+17 7 0 10 -260097 -1 -228856 0 1;
+#X obj 131 398 r \$1midi_control_configure_on;
+#X obj 247 101 s \$1midi_control_menu_map_in;
+#X obj 257 41 r \$1midi_control_menu_map_out;
+#X text 697 88 Carrega variables per mapejar;
+#X text 672 167 Afegeix nous mapejos de variables->midi;
+#X text 150 345 Pantalla configuracio;
+#X text 605 231 mapeig de variables amb midi.;
+#X obj 132 467 f \$0;
+#X symbolatom 139 508 0 0 0 0 - - -;
+#X msg 132 558 \; \$1 vis \$2;
+#X obj 132 529 pack symbol float;
+#X obj 132 443 t b f;
+#X obj 132 486 makesymbol pd-\$1-midi_control_configure;
+#X obj 13 137 hradio 18 1 0 2 empty \$0chanlabel -17- 2 8 0 8 -1 -1
+-262144 0;
+#X text 9 122 Channel;
+#N canvas 83 332 708 583 labels 0;
+#X obj -293 132 r \$1midi_control_map_var_out;
+#X obj -50 81 r \$1midi_control_map_ctrlval_in;
+#X msg -48 127 label -\$1-;
+#X obj -323 94 r \$1midi_control_map_ctrl_in;
+#X obj -427 69 r \$1midi_control_map_note_in;
+#X obj -34 105 r \$1midi_control_map_notevel_in;
+#X msg -453 137 label NOTE;
+#X msg -462 164 label CTRL;
+#X obj -440 109 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -381 100 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -478 189 s \$0typelabel;
+#X msg -381 127 label -\$1-;
+#X obj -387 190 s \$0numlabel;
+#X obj -297 184 s \$0varoutlabel;
+#X obj -57 151 s \$0vallabel;
+#X msg -449 252 label -\$1-;
+#X obj -435 230 r \$1midi_control_channel_in;
+#X obj -458 276 s \$0chanlabel;
+#X msg -419 344 label -\$1-;
+#X obj -405 322 r \$1midi_control_midiconf_num;
+#X obj -428 368 s \$0numconflabel;
+#X obj -199 323 r \$1midi_control_ass;
+#X obj -222 369 s \$0valconflabel;
+#X msg -213 345 label \$1;
+#X obj -37 322 r \$1midi_control_type;
+#X obj -37 356 select 0 1;
+#X obj 3 475 s \$0typeconflabel;
+#X msg 12 403 label NOTE;
+#X msg -67 405 label CTRL;
+#X msg -394 429 label -\$1-;
+#X obj -380 407 r \$1midi_control_midiconf_chan;
+#X obj -403 453 s \$0chanconflabel;
+#X msg -294 163 label \$1;
+#X connect 0 0 32 0;
+#X connect 1 0 2 0;
+#X connect 2 0 14 0;
+#X connect 3 0 11 0;
+#X connect 3 0 9 0;
+#X connect 4 0 11 0;
+#X connect 4 0 8 0;
+#X connect 5 0 2 0;
+#X connect 6 0 10 0;
+#X connect 7 0 10 0;
+#X connect 8 0 6 0;
+#X connect 9 0 7 0;
+#X connect 11 0 12 0;
+#X connect 15 0 17 0;
+#X connect 16 0 15 0;
+#X connect 18 0 20 0;
+#X connect 19 0 18 0;
+#X connect 21 0 23 0;
+#X connect 23 0 22 0;
+#X connect 24 0 25 0;
+#X connect 25 0 28 0;
+#X connect 25 1 27 0;
+#X connect 27 0 26 0;
+#X connect 28 0 26 0;
+#X connect 29 0 31 0;
+#X connect 30 0 29 0;
+#X connect 32 0 13 0;
+#X restore 14 221 pd labels;
+#X obj 180 153 tgl 15 0 \$1midi_mapping_on \$1midi_mapping_on_init
+on/off 17 7 0 8 -4034 -1 -1 0 1;
+#N canvas 533 264 642 877 howto 0;
+#X text 237 23 Pantalla de configuració;
+#X obj 273 668 s midi_var_to_add;
+#X text 154 198 channelnumer miditype midivalue variable;
+#X text 187 224 chanel number is the channel number of puredata 1 \,
+2 \, ...17 \, 18 \, ...33 \, ...;
+#X text 188 259 miditype: NOTE or CTRL;
+#X text 98 31 HOWTO map:;
+#X text 136 162 1-generate a file with the vars and midi values that
+you want to map with the following line format:;
+#X text 186 284 midivalue: the midi id.;
+#X text 187 314 variable: the var that you want to control. The midi
+value;
+#X text 149 352 2-click "configure" toggle \, and change de map file
+for your file.;
+#X text 147 392 3-Finaly \, press Clear_map and then Load_map.;
+#X text 201 551 2-Click "configure" toggle \, and change the var_list
+file for your file.;
+#X text 157 705 3-Click "Clear_list" and "Load List" \, you have the
+variables now loaded in the patch (you can see them clicking in the
+black rectancle).;
+#X text 157 764 4-Select the variable to be mapped from the black list
+in SELECT_VAR_TO_CONTROL section.;
+#X text 160 807 5-In SET_MIDI you can enter manually the MIDI settings
+for this variable o you can capture the MIDI valude enabling the "capture_midi_in"
+toggle.;
+#X msg 257 645 var_you_want_to_control;
+#X text 200 514 1-Generate a file with the namees of variables you
+want to control (one variable/line).;
+#X text 156 464 Load Vars to be controlled:;
+#X text 159 489 option 1: Gnerate FILE;
+#X text 158 580 option 2: Send the variables from source patch \, subpatch
+\, ..;
+#X text 201 604 1-send the variables you want to control to the global
+variable "var_to_add": This generates a file with a list of vars.;
+#X text 160 859 6-Once you have the MIDI settings filled \, click in
+new map \, and if all is correct \, click in CONFIRM.;
+#X text 155 430 OPTION B: SEMI-SEMI AUTOMATIC load of VARS.;
+#X text 168 908 7-Finally \, press Clear_map and then Load_map.;
+#X text 134 141 OPTION A: GENERATE YOUR MAP FILE MANUALLY;
+#X text 138 57 If you use this patch maybe is easier and faster the
+option A. If you use this patch with other mb abstractions \, the easier
+option is B because most of them has the midi_var_to_add option.;
+#X connect 15 0 1 0;
+#X restore 651 20 pd howto;
+#X text 508 20 H O W T O M A P --->;
+#X connect 1 0 2 0;
+#X connect 3 0 4 0;
+#X connect 20 0 22 0;
+#X connect 21 0 20 0;
+#X connect 23 0 25 0;
+#X connect 24 0 23 0;
+#X connect 26 0 34 0;
+#X connect 33 0 44 0;
+#X connect 35 0 26 0;
+#X connect 40 0 45 0;
+#X connect 43 0 42 0;
+#X connect 44 0 40 0;
+#X connect 44 1 43 1;
+#X connect 45 0 41 0;
+#X connect 45 0 43 0;
+#X coords 0 -1 1 1 240 200 1 0 0;

@@ -1,0 +1,15 @@
+#N canvas 234 353 621 350 10;
+#X obj 67 301 dac~;
+#X msg 441 90 \; pd dsp 1;
+#X text 501 95 Audio on;
+#X floatatom 232 176 5 0 0 0 pitch_(semitone-midi) - -;
+#X floatatom 347 176 5 0 0 0 window(ms) - -;
+#X obj 67 128 osc~ 440;
+#X obj 67 217 audio-pitchshift 12;
+#X text 65 17 audio-pitchshift \; ---------------- \; Pitch the sound
+\; argument 1 : pitch (semitone) \; \; note : funny effect when window
+size is changing...;
+#X connect 3 0 6 1;
+#X connect 4 0 6 2;
+#X connect 5 0 6 0;
+#X connect 6 0 0 0;

@@ -1,0 +1,22 @@
+#N canvas 502 188 388 350 10;
+#X declare -lib ggee;
+#X declare -lib ggee;
+#X obj 202 37 cnv 15 160 100 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X floatatom 229 118 5 0 0 2 go_to_frame - -;
+#X msg 229 42 20;
+#X msg 229 83 50;
+#X obj 31 9 bng 30 250 50 0 empty empty start_all 17 7 0 10 -258113
+-1 -1;
+#X text 207 8 * goes to the frame assigned;
+#X msg 229 62 30;
+#X obj 31 50 ehu/gem/win 640 480;
+#X obj 31 247 ehu/gem/texture 320 240 640 480;
+#X obj 31 154 ehu/gem/video videos/whistle.mp4;
+#X text 262 51 CLICK HERE!;
+#X connect 1 0 9 5;
+#X connect 2 0 1 0;
+#X connect 3 0 1 0;
+#X connect 4 0 7 0;
+#X connect 6 0 1 0;
+#X connect 9 0 8 0;

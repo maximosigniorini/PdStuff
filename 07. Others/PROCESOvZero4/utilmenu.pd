@@ -1,0 +1,43 @@
+#N canvas 0 54 1024 546 10;
+#X obj 102 102 cnv 10 81 366 empty empty empty 20 12 0 14 -1 -66577
+0;
+#X obj 104 128 cnv 8 8 8 empty empty instrumentos: 0 5 1 9 -1 -162280
+0;
+#X obj 104 138 cnv 8 8 8 empty empty coral 0 5 1 9 -1 -3707 0;
+#X obj 104 148 cnv 8 8 8 empty empty droner 0 5 1 9 -1 -3707 0;
+#X obj 104 158 cnv 8 8 8 empty empty etonoise 0 5 1 9 -1 -3707 0;
+#X obj 104 178 cnv 8 8 8 empty empty microfile 0 5 1 9 -1 -3707 0;
+#X obj 104 188 cnv 8 8 8 empty empty pulseq88 0 5 1 9 -1 -3707 0;
+#X obj 104 198 cnv 8 8 8 empty empty ritmicon 0 5 1 9 -1 -3707 0;
+#X obj 104 218 cnv 8 8 8 empty empty procesadores: 0 5 1 9 -1 -162280
+0;
+#X obj 104 228 cnv 8 8 8 empty empty modam 0 5 1 9 -1 -3707 0;
+#X obj 104 258 cnv 8 8 8 empty empty modcross 0 5 1 9 -1 -3707 0;
+#X obj 104 268 cnv 8 8 8 empty empty modcrush 0 5 1 9 -1 -3707 0;
+#X obj 104 298 cnv 8 8 8 empty empty modfm 0 5 1 9 -1 -3707 0;
+#X obj 104 288 cnv 8 8 8 empty empty modfilter 0 5 1 9 -1 -3707 0;
+#X obj 104 308 cnv 8 8 8 empty empty modgate 0 5 1 9 -1 -3707 0;
+#X obj 104 318 cnv 8 8 8 empty empty modfracta 0 5 1 9 -1 -3707 0;
+#X obj 104 328 cnv 8 8 8 empty empty modring 0 5 1 9 -1 -3707 0;
+#X obj 104 338 cnv 8 8 8 empty empty modtrash 0 5 1 9 -1 -3707 0;
+#X obj 104 348 cnv 8 8 8 empty empty modquad 0 5 1 9 -1 -3707 0;
+#X obj 104 358 cnv 8 8 8 empty empty modpan 0 5 1 9 -1 -3707 0;
+#X obj 104 398 cnv 8 8 8 empty empty utilidades: 0 5 1 9 -1 -162280
+0;
+#X obj 104 408 cnv 8 8 8 empty empty pulso 0 5 1 9 -1 -3707 0;
+#X obj 104 418 cnv 8 8 8 empty empty mixout 0 5 1 9 -1 -3707 0;
+#X obj 104 428 cnv 8 8 8 empty empty recordable 0 5 1 9 -1 -3707 0
+;
+#X obj 104 438 cnv 8 8 8 empty empty seq16 0 5 1 9 -1 -3707 0;
+#X obj 104 448 cnv 8 8 8 empty empty multiin 0 5 1 9 -1 -3707 0;
+#X obj 104 458 cnv 8 8 8 empty empty multiout 0 5 1 9 -1 -3707 0;
+#X obj 104 368 cnv 8 8 8 empty empty moddrips 0 5 1 9 -1 -3707 0;
+#X obj 104 378 cnv 8 8 8 empty empty modtremolo 0 5 1 9 -1 -3707 0
+;
+#X obj 103 110 cnv 8 8 8 empty empty Proceso 0 5 1 11 -1 -3707 0;
+#X obj 104 238 cnv 8 8 8 empty empty modcassette 0 5 1 9 -1 -3707 0
+;
+#X obj 104 278 cnv 8 8 8 empty empty modexpan 0 5 1 9 -1 -3707 0;
+#X obj 104 248 cnv 8 8 8 empty empty modchain 0 5 1 9 -1 -3707 0;
+#X obj 104 168 cnv 8 8 8 empty empty loopme 0 5 1 9 -1 -3707 0;
+#X coords 0 -1 1 1 85 370 1 100 100;

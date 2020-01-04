@@ -1,0 +1,158 @@
+#N canvas 215 0 814 660 10;
+#X declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/tools -path ../../abstractions/filters -path
+../../abstractions/fx-video -path ../../abstractions/fx-audio -path
+../../abstractions/master;
+#X declare -path abstractions/in -path abstractions/out -path abstractions/tools
+-path abstractions/filters -path abstractions/fx-video -path abstractions/fx-audio
+-path abstractions/master;
+#X obj 15 187 cnv 1 396 1 empty empty FILTERS 2 -6 1 12 -228856 -191407
+0;
+#X obj 15 354 cnv 1 800 1 empty empty OUT 2 -6 1 12 -228856 -191407
+0;
+#X obj 15 63 cnv 1 800 1 empty empty IN 2 -6 1 12 -228856 -191407 0
+;
+#X obj 15 187 cnv 1 800 1 empty empty TOOLS 400 -6 1 12 -228856 -191407
+0;
+#X obj 558 352 synth-drums;
+#X obj 738 437 audio-out;
+#X obj 103 107 tgl 15 0 empty empty on/off 17 7 0 10 -262144 -1 -1
+1 1;
+#X floatatom 248 71 5 0 0 2 time - -;
+#X msg 103 126 onoff \$1;
+#X msg 248 90 time \$1;
+#X obj 248 143 seq-sliders;
+#X obj 413 143 seq-sliders;
+#X obj 581 143 seq-sliders;
+#X msg 321 80 seq 0.8 0 0.7 0 0 0.3 0 0.4;
+#X msg 446 103 seq 0 0 0 0.3 0.8 0 0 0.3;
+#X msg 581 75 seq 0.8 0.5 0.8 0.5 0.8 0.5 0.8 0.5;
+#X obj 447 40 loadbang;
+#X text 157 233 probabilités >;
+#X text 193 211 forte;
+#X text 194 255 faible;
+#N canvas 362 156 563 434 INIT 0;
+#X obj 101 101 cnv 8 48 8 empty empty INCLUDE 2 4 0 10 -233017 -66577
+0;
+#X obj 102 261 declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/tools -path ../../abstractions/filters -path
+../../abstractions/fx-video -path ../../abstractions/fx-audio -path
+../../abstractions/master;
+#X text 100 240 Use for standalone :;
+#X text 100 140 Use with the main.pd :;
+#X text 97 25 Import paths to find abstractions \; Always use it in
+the examples patchs.;
+#X obj 102 162 declare -path abstractions/in -path abstractions/out
+-path abstractions/tools -path abstractions/filters -path abstractions/fx-video
+-path abstractions/fx-audio -path abstractions/master;
+#X coords 0 -1 1 1 50 10 2 100 100;
+#X restore 767 41 pd INIT;
+#X obj 207 518 audio-out;
+#N canvas 517 515 726 349 simu 0;
+#X obj 111 76 noise~;
+#X obj 86 170 +~;
+#X obj 110 113 *~ 0.1;
+#X obj 110 144 lop~ 125;
+#X obj 86 208 *~;
+#X obj 308 322 dac~;
+#X obj 185 164 line~;
+#X obj 186 35 inlet time;
+#X msg 186 128 1 \, 0 \$1;
+#X obj 284 253 *~ 0.3;
+#X obj 344 74 noise~;
+#X obj 319 168 +~;
+#X obj 319 206 *~;
+#X obj 418 162 line~;
+#X obj 419 33 inlet time;
+#X msg 419 126 1 \, 0 \$1;
+#X obj 343 111 *~ 0.3;
+#X obj 263 106 *~ 0.5;
+#X obj 586 75 noise~;
+#X obj 561 169 +~;
+#X obj 561 207 *~;
+#X obj 660 163 line~;
+#X obj 661 34 inlet time;
+#X msg 661 127 1 \, 0 \$1;
+#X obj 506 77 osc~ 100;
+#X obj 585 112 *~ 0.8;
+#X obj 585 143 lop~ 500;
+#X obj 505 107 *~ 0.2;
+#X obj 10 104 osc~ 100;
+#X obj 49 53 *~ 0.8;
+#X obj 50 23 osc~ 50;
+#X obj 9 134 *~ 0.1;
+#X obj 264 76 osc~ 50;
+#X obj 343 142 lop~ 225;
+#X connect 0 0 2 0;
+#X connect 1 0 4 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 1;
+#X connect 4 0 9 0;
+#X connect 6 0 4 1;
+#X connect 7 0 8 0;
+#X connect 8 0 6 0;
+#X connect 9 0 5 0;
+#X connect 9 0 5 1;
+#X connect 10 0 16 0;
+#X connect 11 0 12 0;
+#X connect 12 0 9 0;
+#X connect 13 0 12 1;
+#X connect 14 0 15 0;
+#X connect 15 0 13 0;
+#X connect 16 0 33 0;
+#X connect 17 0 11 0;
+#X connect 18 0 25 0;
+#X connect 19 0 20 0;
+#X connect 20 0 9 0;
+#X connect 21 0 20 1;
+#X connect 22 0 23 0;
+#X connect 23 0 21 0;
+#X connect 24 0 27 0;
+#X connect 25 0 26 0;
+#X connect 26 0 19 1;
+#X connect 27 0 19 0;
+#X connect 28 0 31 0;
+#X connect 29 0 1 0;
+#X connect 29 0 1 1;
+#X connect 30 0 29 0;
+#X connect 31 0 1 0;
+#X connect 32 0 17 0;
+#X connect 33 0 11 1;
+#X restore 367 410 pd simu;
+#X floatatom 313 351 5 0 0 0 - - -;
+#X floatatom 391 353 5 0 0 0 - - -;
+#X floatatom 449 356 5 0 0 0 - - -;
+#X obj 148 373;
+#X obj 175 417 s ki;
+#X obj 216 417 s sn;
+#X obj 304 418 s hat;
+#X obj 259 418 s hit;
+#X connect 4 4 5 0;
+#X connect 4 4 5 1;
+#X connect 6 0 8 0;
+#X connect 7 0 9 0;
+#X connect 8 0 10 0;
+#X connect 8 0 11 0;
+#X connect 8 0 12 0;
+#X connect 9 0 11 0;
+#X connect 9 0 12 0;
+#X connect 9 0 10 0;
+#X connect 10 1 4 0;
+#X connect 10 1 23 0;
+#X connect 10 1 27 0;
+#X connect 11 1 4 1;
+#X connect 11 1 24 0;
+#X connect 11 1 28 0;
+#X connect 12 1 4 2;
+#X connect 12 1 25 0;
+#X connect 12 1 30 0;
+#X connect 12 1 29 0;
+#X connect 13 0 10 0;
+#X connect 14 0 11 0;
+#X connect 15 0 12 0;
+#X connect 16 0 13 0;
+#X connect 16 0 14 0;
+#X connect 16 0 15 0;
+#X connect 23 0 22 0;
+#X connect 24 0 22 1;
+#X connect 25 0 22 2;

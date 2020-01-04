@@ -1,0 +1,36 @@
+#N canvas 215 0 814 660 10;
+#X declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/tools -path ../../abstractions/filters -path
+../../abstractions/fx-video -path ../../abstractions/fx-audio -path
+../../abstractions/master;
+#X declare -path abstractions/in -path abstractions/out -path abstractions/tools
+-path abstractions/filters -path abstractions/fx-video -path abstractions/fx-audio
+-path abstractions/master;
+#X obj 9 205 cnv 1 396 1 empty empty FILTERS 2 -6 1 12 -228856 -191407
+0;
+#X obj 9 412 cnv 1 800 1 empty empty OUT 2 -6 1 12 -228856 -191407
+0;
+#X obj 9 33 cnv 1 800 1 empty empty IN 2 -6 1 12 -228856 -191407 0
+;
+#X obj 9 205 cnv 1 800 1 empty empty TOOLS 400 -6 1 12 -228856 -191407
+0;
+#N canvas 362 156 563 434 INIT 0;
+#X obj 101 101 cnv 8 48 8 empty empty INCLUDE 2 4 0 10 -233017 -66577
+0;
+#X obj 102 261 declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/tools -path ../../abstractions/filters -path
+../../abstractions/fx-video -path ../../abstractions/fx-audio -path
+../../abstractions/master;
+#X text 100 240 Use for standalone :;
+#X text 100 140 Use with the main.pd :;
+#X text 97 25 Import paths to find abstractions \; Always use it in
+the examples patchs.;
+#X obj 102 162 declare -path abstractions/in -path abstractions/out
+-path abstractions/tools -path abstractions/filters -path abstractions/fx-video
+-path abstractions/fx-audio -path abstractions/master;
+#X coords 0 -1 1 1 50 10 2 100 100;
+#X restore 758 14 pd INIT;
+#X text 222 90 capteur > video-scratch;
+#X text 223 75 capteur > fréquence > synthetiseurs (synth-fm) \;;
+#X obj 78 534 audio-out;
+#X obj 248 534 video-screen;

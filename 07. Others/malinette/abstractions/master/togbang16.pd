@@ -1,0 +1,38 @@
+#N canvas 441 193 564 535 10;
+#X obj 100 100 bng 16 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 217 375 s \$0colcan;
+#X msg 217 334 color \$1;
+#X obj 470 126 outlet;
+#X text 63 403 background square;
+#X text 211 404 foreground square;
+#X obj 76 313 f \$1;
+#X obj 217 294 f \$2;
+#X obj 365 378 s \$0colcan;
+#X floatatom 377 292 5 0 0 0 - - -;
+#X obj 76 374 s \$0colcanback;
+#X obj 100 100 cnv 14 16 16 empty \$0colcanback empty 20 12 0 14 -159808
+-262144 0;
+#X obj 10000 103 cnv 10 10 10 empty \$0colcan empty 20 12 0 14 -4034
+-262144 0;
+#X msg 365 249 103;
+#X msg 365 337 pos \$1 103;
+#X obj 94 192 initbang;
+#X obj 424 192 pipe 100;
+#X text 365 406 foreground square position;
+#X msg 424 249 1000;
+#X connect 0 0 3 0;
+#X connect 0 0 13 0;
+#X connect 0 0 16 0;
+#X connect 2 0 1 0;
+#X connect 6 0 10 0;
+#X connect 7 0 2 0;
+#X connect 9 0 14 0;
+#X connect 13 0 14 0;
+#X connect 14 0 8 0;
+#X connect 15 0 6 0;
+#X connect 15 0 7 0;
+#X connect 15 0 18 0;
+#X connect 16 0 18 0;
+#X connect 18 0 14 0;
+#X coords 0 -1 1 1 16 16 2 100 100;

@@ -1,0 +1,20 @@
+#N canvas 134 219 517 425 10;
+#X obj 36 104 scale.gui.curve.circle;
+#X text 200 157 ARGUMENT;
+#X text 202 227 INLET;
+#X text 201 293 OUTLETS;
+#X text 202 244 Stream of values;
+#X text 204 77 Scale a stream of values using customizable curves.
+;
+#X text 204 91 Define the curve by scrolling the number box.;
+#X text 204 106 Accepts floats too (shift+scroll).;
+#X text 201 173 None;
+#X text 202 309 Scaled stream of values;
+#X obj 39 71 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 39 136 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X text 204 61 GUI curve scaler for values between 0 and 1;
+#X connect 0 0 11 0;
+#X connect 10 0 0 0;
+#X coords 0 0 1 1 80 19 0;

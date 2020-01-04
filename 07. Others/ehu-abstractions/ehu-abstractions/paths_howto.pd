@@ -1,0 +1,45 @@
+#N canvas 204 78 611 652 10;
+#X declare -lib ggee;
+#X declare -lib ggee;
+#X declare -lib ggee;
+#X declare -lib ggee;
+#X declare -lib ggee;
+#X declare -lib ggee;
+#X declare -lib ggee;
+#X declare -lib ggee;
+#X declare -lib ggee;
+#X obj 81 91 print;
+#X text 206 31 pass the name of a file that lives next to this patch
+;
+#X text 172 88 and abs_path will return the absolute path to that file
+;
+#X text 37 140 ALL EHU object that load files (picture \, video \,
+splayer~ splayer2~) can receive the file to load as argument.;
+#X text 39 171 Otherwise you should use abs_path to pass the path to
+the objects;
+#X text 35 202 This allows to move your files across directories or
+computers with no path problems;
+#X obj 223 283 ehu/abs_path;
+#X obj 435 280 ehu/abs_path;
+#X obj 358 403 ehu/abs_path;
+#X obj 89 411 ehu/abs_path;
+#X obj 81 59 ehu/abs_path;
+#X msg 81 29 videos/whistle.mp4;
+#X msg 223 255 picts/imagen1.jpg;
+#X msg 435 253 sounds/whistle2.wav;
+#X msg 89 388 videos/whistle.mp4;
+#X obj 343 431 ehu/splayer2~ sounds/whistle2.wav;
+#X msg 358 379 sounds/whistle.wav;
+#X obj 28 308 ehu/gem/picture picts/imagen1.jpg;
+#X obj 30 443 ehu/gem/video videos/whistle.mp4;
+#X obj 372 314 ehu/splayer~ sounds/whistle2.wav;
+#X connect 6 0 17 1;
+#X connect 7 0 19 1;
+#X connect 8 0 15 1;
+#X connect 9 0 18 2;
+#X connect 10 0 0 0;
+#X connect 11 0 10 0;
+#X connect 12 0 6 0;
+#X connect 13 0 7 0;
+#X connect 14 0 9 0;
+#X connect 16 0 8 0;

@@ -1,0 +1,12 @@
+#N canvas 1330 293 450 300 10;
+#X obj 53 68 inlet~;
+#X obj 53 110 *~;
+#X msg 110 200 set \$1;
+#X obj 201 81 inlet;
+#X obj 75 89 r~ \$1_fade~;
+#X obj 53 254 throw~ 25_OUT;
+#X connect 0 0 1 0;
+#X connect 1 0 5 0;
+#X connect 2 0 5 0;
+#X connect 3 0 2 0;
+#X connect 4 0 1 1;

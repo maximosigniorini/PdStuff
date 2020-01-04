@@ -1,0 +1,36 @@
+#N canvas 277 152 749 323 10;
+#X obj 324 107 throw~ ARGOBus3;
+#X text 12 53 ATTENTION: ARGOGeneral doit etre ouvert;
+#X obj 324 247 r~ ARGOBus6;
+#X obj 324 276 dac~;
+#X obj 368 300 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -6 0 10
+-262144 -1 -1 0 256;
+#X obj 368 275 env~;
+#X obj 324 135 nbx 5 14 -240 240 0 1 empty empty empty 0 -6 0 10 -262144
+-1 -1 -0 256;
+#X obj 324 195 throw~ ARGOBus4;
+#X obj 324 174 sig~;
+#X obj 324 154 / 240;
+#X obj 324 83 osc~ 440;
+#X text 442 30 ARGOBus: How to do?;
+#X text 12 28 ARGOBus: Comment faire?;
+#X text 442 106 <- Send an Audio signal to ARGOBus 3;
+#X text 50 154 controle de fréquence (1 = 1/2 ton) ->;
+#X text 50 142 par exemple pour un;
+#X text 197 196 vers ARGOBus 4 ->;
+#X text 442 142 for example;
+#X text 442 154 <- a frequency control (1 = 1/2 ton);
+#X text 442 196 <- to ARGOBus 4;
+#X text 28 107 Envoyer un signal Audio vers ARGOBus 3 ->;
+#X text 7 247 Recevoir un signal Audio depuis ARGOBus 6 ->;
+#X text 443 247 <- Receive an Audio signal from ARGOBus 6;
+#X text 13 6 Faites-le;
+#X text 442 53 WARNING: ARGOGeneral module must be open;
+#X text 441 6 Do-it-yourself;
+#X connect 2 0 3 0;
+#X connect 2 0 5 0;
+#X connect 5 0 4 0;
+#X connect 6 0 9 0;
+#X connect 8 0 7 0;
+#X connect 9 0 8 0;
+#X connect 10 0 0 0;

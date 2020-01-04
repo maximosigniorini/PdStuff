@@ -1,0 +1,10 @@
+#N canvas 73 86 409 402 10;
+#X floatatom 15 221 5 0 0 0 - - -;
+#X obj 15 145 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 15 165 seq-counter2 100 2 30;
+#X text 23 22 seq-counter2 \; ----------- \; A sequencer counting count
+\; Arguments \; \$1 : metro time between each step \; \$2 : step \;
+\$3 : max \;;
+#X connect 1 0 2 0;
+#X connect 2 0 0 0;

@@ -1,0 +1,17 @@
+#N canvas 707 272 378 330 10;
+#X obj 29 45 gen.glitch.sine~;
+#X floatatom 29 -8 5 0 127 0 - - -;
+#X obj 30 218 dac~;
+#X obj 29 181 *~;
+#X obj 69 181 *~;
+#X obj 43 117 utils.zipper~;
+#X floatatom 43 92 5 0 0 1 Vol - -;
+#X text 159 -8 Glitch sound generator (stereo);
+#X connect 0 0 3 0;
+#X connect 0 1 4 1;
+#X connect 1 0 0 0;
+#X connect 3 0 2 0;
+#X connect 4 0 2 1;
+#X connect 5 0 3 1;
+#X connect 5 0 4 0;
+#X connect 6 0 5 0;

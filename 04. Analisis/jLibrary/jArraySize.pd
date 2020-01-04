@@ -1,0 +1,23 @@
+#N canvas 385 558 739 301 10;
+#X obj 617 140 loadbang;
+#X obj 617 162 symbol \$1;
+#X obj 389 183 expr size("$s1");
+#X obj 389 247 outlet;
+#X obj 389 24 inlet;
+#X obj 389 46 route bang float;
+#X obj 572 184 pack f s;
+#X msg 572 206 \; \$2 resize \$1;
+#X text 8 8 Pd vanilla compatible array set/get size using [expr] \;
+\; \$1 array name \; \; in1 float to set size or bang to output current
+\; out1 current size (float) \; \; John Flynn;
+#X obj 389 161 symbol \$1;
+#X text 409 106 get;
+#X text 599 106 set;
+#X connect 0 0 1 0;
+#X connect 1 0 6 1;
+#X connect 2 0 3 0;
+#X connect 4 0 5 0;
+#X connect 5 0 9 0;
+#X connect 5 1 6 0;
+#X connect 6 0 7 0;
+#X connect 9 0 2 0;

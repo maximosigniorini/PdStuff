@@ -1,0 +1,241 @@
+#N canvas 288 124 934 363 10;
+#N canvas 1346 113 450 300 select 0;
+#X obj 121 117 popup 115 20 #ffffff ambisonic ambisonic direct;
+#X obj 100 100 cnv 15 169 39 empty empty Spatialization 5 10 0 14 -233017
+-66577 0;
+#N canvas 0 0 450 300 spat-popup 0;
+#X obj 120 191 r \$1GUI_input_spat_togui;
+#X obj 120 265 outlet;
+#X obj 119 36 inlet;
+#X obj 119 72 s \$1GUI_input_spat_fromgui;
+#X obj 120 214 route float list symbol;
+#X msg 120 241 set \$1;
+#X msg 321 209 disable 1;
+#X obj 321 193 loadbang;
+#X connect 0 0 4 0;
+#X connect 2 0 3 0;
+#X connect 4 0 5 0;
+#X connect 4 1 5 0;
+#X connect 4 2 5 0;
+#X connect 4 3 1 0;
+#X connect 5 0 1 0;
+#X connect 6 0 1 0;
+#X connect 7 0 6 0;
+#X restore 256 119 pd spat-popup;
+#X connect 0 0 2 0;
+#X connect 2 0 0 0;
+#X coords 0 -1 1 1 169 39 1 100 100;
+#X restore 100 100 pd select;
+#N canvas 346 480 764 300 \$0-display 0;
+#X obj 280 100 cnv 15 169 130 empty empty empty 20 12 0 14 -233017
+-195568 0;
+#X obj 297 118 nbx 3 14 -100 50 0 0 \$1GUI_bus1_gain_fromgui \$1GUI_bus1_gain_togui
+BUS1 0 -6 0 8 -228992 -1 -1 -100 256;
+#X obj 331 118 nbx 3 14 -100 50 0 0 \$1GUI_bus2_gain_fromgui \$1GUI_bus2_gain_togui
+BUS2 0 -6 0 8 -228992 -1 -1 -100 256;
+#X obj 365 118 nbx 3 14 -100 50 0 0 \$1GUI_bus3_gain_fromgui \$1GUI_bus3_gain_togui
+BUS3 0 -6 0 8 -228992 -1 -1 -100 256;
+#X obj 399 118 nbx 3 14 -100 50 0 0 \$1GUI_bus4_gain_fromgui \$1GUI_bus4_gain_togui
+BUS4 0 -6 0 8 -228992 -1 -1 -100 256;
+#X obj 297 147 nbx 3 14 -100 50 0 0 \$1GUI_bus5_gain_fromgui \$1GUI_bus5_gain_togui
+BUS5 0 -6 0 8 -228992 -1 -1 -100 256;
+#X obj 331 147 nbx 3 14 -100 50 0 0 \$1GUI_bus6_gain_fromgui \$1GUI_bus6_gain_togui
+BUS6 0 -6 0 8 -228992 -1 -1 -100 256;
+#X obj 365 147 nbx 3 14 -100 50 0 0 \$1GUI_bus7_gain_fromgui \$1GUI_bus7_gain_togui
+BUS7 0 -6 0 8 -228992 -1 -1 -100 256;
+#X obj 399 147 nbx 3 14 -100 50 0 0 \$1GUI_bus8_gain_fromgui \$1GUI_bus8_gain_togui
+BUS8 0 -6 0 8 -228992 -1 -1 -100 256;
+#X obj 297 178 nbx 3 14 -100 50 0 0 \$1GUI_bus9_gain_fromgui \$1GUI_bus9_gain_togui
+BUS9 0 -6 0 8 -228992 -1 -1 -100 256;
+#X obj 331 178 nbx 3 14 -100 50 0 0 \$1GUI_bus10_gain_fromgui \$1GUI_bus10_gain_togui
+BUS10 0 -6 0 8 -228992 -1 -1 -100 256;
+#X obj 365 178 nbx 3 14 -100 50 0 0 \$1GUI_bus11_gain_fromgui \$1GUI_bus11_gain_togui
+BUS11 0 -6 0 8 -228992 -1 -1 -100 256;
+#X obj 399 178 nbx 3 14 -100 50 0 0 \$1GUI_bus12_gain_fromgui \$1GUI_bus12_gain_togui
+BUS12 0 -6 0 8 -228992 -1 -1 -100 256;
+#X obj 297 207 nbx 3 14 -100 50 0 0 \$1GUI_bus13_gain_fromgui \$1GUI_bus13_gain_togui
+BUS13 0 -6 0 8 -228992 -1 -1 -100 256;
+#X obj 331 207 nbx 3 14 -100 50 0 0 \$1GUI_bus14_gain_fromgui \$1GUI_bus14_gain_togui
+BUS14 0 -6 0 8 -228992 -1 -1 -100 256;
+#X obj 365 207 nbx 3 14 -100 50 0 0 \$1GUI_bus15_gain_fromgui \$1GUI_bus15_gain_togui
+BUS15 0 -6 0 8 -228992 -1 -1 -100 256;
+#X obj 399 207 nbx 3 14 -100 50 0 0 \$1GUI_bus16_gain_fromgui \$1GUI_bus16_gain_togui
+BUS16 0 -6 0 8 -228992 -1 -1 -100 256;
+#X obj 100 100 cnv 15 169 130 empty empty empty 20 12 0 14 -233017
+-1 0;
+#X obj 149 103 nbx 5 14 0 100 0 0 \$1GUI_input_ambi_r_fromgui \$1GUI_input_ambi_r_togui
+[m] 50 7 0 8 -262144 -1 -1 6 256;
+#X msg 346 76 label m;
+#X obj 131 120 cube_sphere 0 54 18 62783 233016 262143 25 47;
+#X obj 131 258 s \$1inchannel_ambisphere_fromgui;
+#X obj 131 79 r \$1inchannel_ambisphere_togui;
+#X connect 19 0 18 0;
+#X connect 20 0 21 0;
+#X connect 22 0 20 0;
+#X coords 0 -1 1 1 169 130 2 100 100;
+#X restore 100 139 pd \$0-display;
+#X obj 300 205 s pd-\$0-display;
+#X obj 300 161 + 100;
+#X msg 362 127 0;
+#X obj 362 110 loadbang;
+#X obj 300 78 r \$1GUI_input_spat_fromgui;
+#X obj 300 114 t f f;
+#X obj 482 107 s \$1GUI_input_spat_togui;
+#X msg 482 82 set \$1;
+#X obj 482 61 t f f;
+#X obj 482 10 r \$1GUI_input_spat_gui;
+#X obj 482 38 route set;
+#X obj 273 92 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 300 185 donecanvasdialog 1 1 2 0 -1 1 1 169 130 \$1 100;
+#X obj 300 143 * 180;
+#N canvas 1371 270 1062 541 ambi 0;
+#X obj 59 198 r \$1GUI_input_ambi_r_fromgui;
+#X obj 59 263 s \$1GUI_input_ambi_r_togui;
+#X obj 263 150 t s s s;
+#X obj 263 64 inlet #id;
+#X obj 439 509 s \$1inchannel_ambisphere_togui;
+#X obj 590 150 r \$1inchannel_ambisphere_fromgui;
+#X obj 590 173 unpack 0 0 0;
+#X msg 439 487 src_dp 1 \$1 \$2;
+#X obj 439 466 pack 0 0;
+#X obj 719 332 t b f;
+#X obj 439 410 del 0;
+#X obj 439 433 f;
+#X obj 439 388 t b f;
+#X obj 737 283 r \$1GUI_input_ambi_phi_togui;
+#X obj 449 263 r \$1GUI_input_ambi_theta_togui;
+#X obj 737 304 route set float;
+#X obj 449 284 route set float;
+#X msg 465 217 \$1/ELV;
+#X msg 824 216 \$1/AZM;
+#X msg 85 217 \$1/RAD;
+#X obj 59 239 sendreceive /IN/0/SPAT/AMBI/POS/RAD;
+#X obj 439 239 sendreceive /IN/0/SPAT/AMBI/POS/ELV;
+#X msg 263 130 symbol /IN/\$1/SPAT/AMBI/POS;
+#X obj 719 239 sendreceive /IN/0/SPAT/AMBI/POS/AZM;
+#X connect 0 0 20 0;
+#X connect 2 0 19 0;
+#X connect 2 1 17 0;
+#X connect 2 2 18 0;
+#X connect 3 0 22 0;
+#X connect 5 0 6 0;
+#X connect 6 1 21 0;
+#X connect 6 2 23 0;
+#X connect 7 0 4 0;
+#X connect 8 0 7 0;
+#X connect 9 0 10 0;
+#X connect 9 1 8 1;
+#X connect 10 0 11 0;
+#X connect 11 0 8 0;
+#X connect 12 0 10 0;
+#X connect 12 1 11 1;
+#X connect 13 0 15 0;
+#X connect 14 0 16 0;
+#X connect 15 0 9 0;
+#X connect 15 1 9 0;
+#X connect 16 0 12 0;
+#X connect 16 1 12 0;
+#X connect 17 0 21 1;
+#X connect 18 0 23 1;
+#X connect 19 0 20 1;
+#X connect 20 0 1 0;
+#X connect 21 0 12 0;
+#X connect 22 0 2 0;
+#X connect 23 0 9 0;
+#X restore 740 136 pd ambi;
+#N canvas 91 65 874 666 direct 0;
+#X obj 312 44 inlet #id;
+#X obj 174 147 t f f f f f f f f;
+#X obj 480 157 t f f f f f f f f;
+#X obj 312 119 t f f;
+#X obj 100 180 gui_sr_offset \$1GUI_bus1_gain /IN/%d/BUS/1/GAIN 100
+;
+#X obj 480 180 gui_sr_offset \$1GUI_bus2_gain /IN/%d/BUS/2/GAIN 100
+;
+#X obj 100 200 gui_sr_offset \$1GUI_bus3_gain /IN/%d/BUS/3/GAIN 100
+;
+#X obj 480 200 gui_sr_offset \$1GUI_bus4_gain /IN/%d/BUS/4/GAIN 100
+;
+#X obj 100 220 gui_sr_offset \$1GUI_bus5_gain /IN/%d/BUS/5/GAIN 100
+;
+#X obj 480 220 gui_sr_offset \$1GUI_bus6_gain /IN/%d/BUS/6/GAIN 100
+;
+#X obj 100 240 gui_sr_offset \$1GUI_bus7_gain /IN/%d/BUS/7/GAIN 100
+;
+#X obj 480 240 gui_sr_offset \$1GUI_bus8_gain /IN/%d/BUS/8/GAIN 100
+;
+#X obj 100 260 gui_sr_offset \$1GUI_bus9_gain /IN/%d/BUS/9/GAIN 100
+;
+#X obj 480 260 gui_sr_offset \$1GUI_bus10_gain /IN/%d/BUS/10/GAIN 100
+;
+#X obj 100 280 gui_sr_offset \$1GUI_bus11_gain /IN/%d/BUS/11/GAIN 100
+;
+#X obj 480 280 gui_sr_offset \$1GUI_bus12_gain /IN/%d/BUS/12/GAIN 100
+;
+#X obj 100 300 gui_sr_offset \$1GUI_bus13_gain /IN/%d/BUS/13/GAIN 100
+;
+#X obj 480 300 gui_sr_offset \$1GUI_bus14_gain /IN/%d/BUS/14/GAIN 100
+;
+#X obj 100 320 gui_sr_offset \$1GUI_bus15_gain /IN/%d/BUS/15/GAIN 100
+;
+#X obj 480 320 gui_sr_offset \$1GUI_bus16_gain /IN/%d/BUS/16/GAIN 100
+;
+#X obj 68 352 Rgui_Stogui_offset \$1GUI_bus1_gain 100;
+#X obj 68 372 Rgui_Stogui_offset \$1GUI_bus2_gain 100;
+#X obj 68 392 Rgui_Stogui_offset \$1GUI_bus3_gain 100;
+#X obj 68 412 Rgui_Stogui_offset \$1GUI_bus4_gain 100;
+#X obj 68 432 Rgui_Stogui_offset \$1GUI_bus5_gain 100;
+#X obj 68 452 Rgui_Stogui_offset \$1GUI_bus6_gain 100;
+#X obj 68 472 Rgui_Stogui_offset \$1GUI_bus7_gain 100;
+#X obj 68 492 Rgui_Stogui_offset \$1GUI_bus8_gain 100;
+#X obj 398 352 Rgui_Stogui_offset \$1GUI_bus9_gain 100;
+#X obj 398 372 Rgui_Stogui_offset \$1GUI_bus10_gain 100;
+#X obj 398 392 Rgui_Stogui_offset \$1GUI_bus11_gain 100;
+#X obj 398 412 Rgui_Stogui_offset \$1GUI_bus12_gain 100;
+#X obj 398 432 Rgui_Stogui_offset \$1GUI_bus13_gain 100;
+#X obj 398 452 Rgui_Stogui_offset \$1GUI_bus14_gain 100;
+#X obj 398 472 Rgui_Stogui_offset \$1GUI_bus15_gain 100;
+#X obj 398 492 Rgui_Stogui_offset \$1GUI_bus16_gain 100;
+#X connect 0 0 3 0;
+#X connect 1 0 4 0;
+#X connect 1 1 6 0;
+#X connect 1 2 8 0;
+#X connect 1 3 10 0;
+#X connect 1 4 12 0;
+#X connect 1 5 14 0;
+#X connect 1 6 16 0;
+#X connect 1 7 18 0;
+#X connect 2 0 5 0;
+#X connect 2 1 7 0;
+#X connect 2 2 9 0;
+#X connect 2 3 11 0;
+#X connect 2 4 13 0;
+#X connect 2 5 15 0;
+#X connect 2 6 17 0;
+#X connect 2 7 19 0;
+#X connect 3 0 1 0;
+#X connect 3 1 2 0;
+#X restore 830 136 pd direct;
+#X obj 722 71 t f f f;
+#X obj 666 110 gui_sr \$1GUI_input_spat /IN/%d/SPAT;
+#X obj 722 53 r \$1GUI_inchannel_selected;
+#X connect 3 0 14 0;
+#X connect 4 0 15 0;
+#X connect 5 0 4 0;
+#X connect 6 0 7 0;
+#X connect 7 0 15 0;
+#X connect 9 0 8 0;
+#X connect 10 0 9 0;
+#X connect 10 1 7 0;
+#X connect 11 0 12 0;
+#X connect 12 0 10 0;
+#X connect 12 1 10 0;
+#X connect 13 0 7 0;
+#X connect 14 0 2 0;
+#X connect 15 0 3 0;
+#X connect 18 0 19 0;
+#X connect 18 1 16 0;
+#X connect 18 2 17 0;
+#X connect 20 0 18 0;
+#X coords 0 -1 1 1 169 169 2 100 100;

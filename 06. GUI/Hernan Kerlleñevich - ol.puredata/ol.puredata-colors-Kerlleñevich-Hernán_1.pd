@@ -1,0 +1,48 @@
+#N canvas 163 115 370 364 10;
+#X obj 34 323 hcs/sys_gui;
+#N canvas 0 22 492 479 default 0;
+#X obj 84 23 inlet;
+#X obj 74 366 outlet;
+#X obj 83 80 bang;
+#X msg 74 119 set canvas_fill "white" \, set text_color "#000" \, set
+select_color "#00f" \, set dash_outline "#f00" \, set dash_fill "#f7f7f7"
+\, set box_outline "#ccc" \, set graph_outline "#777" \, set atom_box_fill
+"#eee" \, set msg_box_fill "#f8f8f6" \, set obj_box_fill "#f6f8f8"
+\, set signal_cord_highlight "#58a" \, set signal_cord "#558" \, set
+signal_nlet $signal_cord \, set msg_cord_highlight "#474" \, set msg_cord
+"#565" \, set msg_nlet "white" \, set mixed_nlet "#88aaff";
+#X connect 0 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X restore 58 288 pd default color scheme;
+#X msg 58 266 bang;
+#X msg 34 108 set signal_cord_highlight magenta;
+#X msg 34 192 set msg_cord yellow;
+#X msg 34 213 set obj_box_fill grey95;
+#X msg 34 150 set box_outline grey50;
+#X msg 34 129 set canvas_fill grey60;
+#X obj 33 34 loadbang;
+#X msg 34 234 set select_color magenta;
+#X msg 34 86 set signal_cord cyan;
+#X msg 34 65 set text_color black;
+#X msg 34 171 set msg_box_fill yellow;
+#X connect 1 0 0 0;
+#X connect 2 0 1 0;
+#X connect 3 0 0 0;
+#X connect 4 0 0 0;
+#X connect 5 0 0 0;
+#X connect 6 0 0 0;
+#X connect 7 0 0 0;
+#X connect 8 0 10 0;
+#X connect 8 0 3 0;
+#X connect 8 0 7 0;
+#X connect 8 0 6 0;
+#X connect 8 0 12 0;
+#X connect 8 0 4 0;
+#X connect 8 0 5 0;
+#X connect 8 0 11 0;
+#X connect 8 0 9 0;
+#X connect 9 0 0 0;
+#X connect 10 0 0 0;
+#X connect 11 0 0 0;
+#X connect 12 0 0 0;

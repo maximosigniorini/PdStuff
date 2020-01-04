@@ -1,0 +1,56 @@
+#N canvas 314 151 908 513 10;
+#X obj 2 -176 cnv 15 700 50 empty empty hitTestObject 3 12 0 18 -260080
+-1 0;
+#X text 591 -159 @author Pertuit;
+#X text 22 -92 DESCRIPTION;
+#X text 21 -5 ARGUMENTS;
+#X text 22 113 INLETS \; aucun;
+#X obj 503 -84 gemmanager;
+#X obj 669 -47 loadbang;
+#X msg 669 -19 \; zone2.mouseMode 2;
+#X obj 493 121 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 631 169 tgl 15 0 empty empty droite 17 7 0 10 -262144 -1 -1
+0 1;
+#X obj 660 150 tgl 15 0 empty empty haut 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 688 132 tgl 15 0 empty empty gauche 17 7 0 10 -262144 -1 -1
+0 1;
+#X obj 717 115 tgl 15 0 empty empty bas 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 491 151 select 1;
+#X msg 487 181 1 0 0;
+#X msg 535 181 0 0 1;
+#X text 663 13 drag&drop de la zone2;
+#X obj 500 214 s zone2.color;
+#X obj 470 -20 zone zone1 300 200 40 200;
+#X obj 470 6 zone zone2 400 200 200 20;
+#X text 171 -170 Patch pour tester les collisions entre deux objets
+graphiques.;
+#X text 23 83 Par ex: [hittestobject zone1 personnage 20];
+#X text 22 157 OUTLETS \; 1- booléen : collision (1) ou non (0) \;
+2- booléen : collision à droite (1) ou non (0) \; 3- booléen : collision
+en haut (1) ou non (0) \; 4- booléen : collision à gauche (1) ou
+non (0) \; 5- booléen : collision en bas (1) ou non (0);
+#X text 24 262 Voir aussi [HitTestCircle];
+#X text 21 -71 Patch pour tester les collisions entre deux objets graphiques.
+On teste l'intersection des surfaces rectangulaires des images et on
+évalue le côté selon lequel la collision se fait.;
+#X text 22 16 1- symbole : nom du premier élément \; 2- symbole :
+nom du second élément \; 3- nombre : écart toléré sans déclenchement
+(en pixels \, par défaut 0);
+#X text 591 -147 @version 1;
+#X text 591 -172 @library 2DMovie;
+#X obj 552 79 hitTestObject zone1 zone2;
+#X connect 6 0 7 0;
+#X connect 8 0 13 0;
+#X connect 13 0 14 0;
+#X connect 13 1 15 0;
+#X connect 14 0 17 0;
+#X connect 15 0 17 0;
+#X connect 28 0 8 0;
+#X connect 28 1 9 0;
+#X connect 28 2 10 0;
+#X connect 28 3 11 0;
+#X connect 28 4 12 0;
+#X coords 0 513 1 512 65 15 0;

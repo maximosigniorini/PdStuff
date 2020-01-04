@@ -1,0 +1,22 @@
+#N canvas 1 88 784 260 10;
+#X declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/numbers -path ../../abstractions/video -path
+../../abstractions/audio -path ../../abstractions/master;
+#X obj 101 101 cnv 8 48 10 empty empty INCLUDE 3 5 0 10 -233017 -66577
+0;
+#X text 102 52 Import paths to find abstractions \; Always use it in
+the examples patchs.;
+#X obj 513 100 route savetofile;
+#X obj 513 120 unpack s s;
+#X obj 513 79 iemguts/receivecanvas 1;
+#X obj 513 163 s CURRENT-FILE;
+#X obj 570 143 s CURRENT-FOLDER;
+#X text 509 57 Get and send the new saved file;
+#X obj 102 121 declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/numbers -path ../../abstractions/video -path
+../../abstractions/audio -path ../../abstractions/master;
+#X connect 2 0 3 0;
+#X connect 3 0 5 0;
+#X connect 3 1 6 0;
+#X connect 4 0 2 0;
+#X coords 0 -1 1 1 50 12 2 100 100;

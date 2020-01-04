@@ -1,0 +1,17 @@
+#N canvas 70 460 450 300 10;
+#X declare -lib ggee;
+#X symbolatom 54 224 60 0 0 0 - - -;
+#X obj 54 153 ehu/abs_path;
+#X msg 54 97 numeros.wav;
+#X text 164 142 Outlets :;
+#X text 161 91 Inlets;
+#X text 173 113 1 filename (including extension!);
+#X text 176 167 1 absolute path of the file;
+#X text 42 11 given a filename located in the same directory where
+the;
+#X text 41 29 current working patch is \, this returns the absolute
+path;
+#X text 41 44 for that file;
+#X text 166 121;
+#X connect 1 0 0 0;
+#X connect 2 0 1 0;

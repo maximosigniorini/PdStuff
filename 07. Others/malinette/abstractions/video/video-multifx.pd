@@ -1,0 +1,66 @@
+#N canvas 450 116 841 452 10;
+#X obj -50 194 pix_motionblur;
+#X obj -49 223 pix_texture;
+#X obj -49 246 outlet;
+#X obj -49 26 inlet;
+#X obj 103 153 hsl 100 10 0 1 0 0 empty empty blur 10 6 0 10 -262144
+-1 -1 0 1;
+#X obj -49 128 pix_threshold;
+#X obj 103 133 hsl 100 10 0 1 0 0 empty empty threshold 10 6 0 10 -262144
+-1 -1 0 1;
+#X obj -49 165 pix_gain;
+#X obj 103 143 hsl 100 10 0 3 0 0 empty empty gain 10 6 0 10 -262144
+-1 -1 3300 1;
+#X obj 101 123 tgl 10 1 empty empty invert 12 6 0 8 -262144 -1 -1 0
+1;
+#X obj -49 90 pix_invert;
+#X obj 244 68 initbang;
+#X msg 244 95 0;
+#X msg 253 133 1;
+#X obj 46 -57 inlet;
+#X msg 261 284 threshold \$1;
+#X msg 357 284 gain \$1;
+#X msg 426 284 R \$1;
+#X text 476 284 etc...;
+#X text 259 179 VIDEO multifx \; //////////////// \; 1st inlet : video
+\; 2nd inlet : fx control \; \; to control each fx you can use the
+second inlet \, putting a message like that :;
+#X obj -49 60 pix_contrast;
+#X obj 103 163 hsl 100 10 0 20 0 0 empty empty contrast 10 6 0 10 -262144
+-1 -1 495 1;
+#X obj 103 173 hsl 100 10 0 100 0 0 empty empty saturation 10 6 0 10
+-262144 -1 -1 99 1;
+#X obj 163 123 bng 10 250 50 0 empty empty reset 12 6 0 8 -262144 -1
+-1;
+#X obj 46 -31 route invert threshold gain blur contrast saturation
+;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 3 0 20 0;
+#X connect 4 0 0 1;
+#X connect 5 0 7 0;
+#X connect 6 0 5 1;
+#X connect 7 0 0 0;
+#X connect 8 0 7 1;
+#X connect 9 0 10 0;
+#X connect 10 0 5 0;
+#X connect 11 0 12 0;
+#X connect 11 0 13 0;
+#X connect 12 0 9 0;
+#X connect 12 0 6 0;
+#X connect 13 0 8 0;
+#X connect 13 0 21 0;
+#X connect 13 0 22 0;
+#X connect 14 0 24 0;
+#X connect 20 0 10 0;
+#X connect 21 0 20 1;
+#X connect 22 0 20 2;
+#X connect 23 0 12 0;
+#X connect 23 0 13 0;
+#X connect 24 0 9 0;
+#X connect 24 1 6 0;
+#X connect 24 2 8 0;
+#X connect 24 3 4 0;
+#X connect 24 4 21 0;
+#X connect 24 5 22 0;
+#X coords 0 -1 1 1 105 88 1 100 100;

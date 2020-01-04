@@ -1,0 +1,33 @@
+#N canvas 160 124 524 552 10;
+#X msg 244 201 /v1 \$1;
+#X floatatom 244 177 5 0 0 0 - - -;
+#X floatatom 294 177 5 0 0 0 - - -;
+#X msg 294 201 /v2 \$1;
+#X floatatom 344 177 5 0 0 0 - - -;
+#X msg 344 201 /v3 \$1;
+#X obj 66 218 osc-out;
+#X msg 90 350 disconnect;
+#X obj 67 440 osc-out;
+#X msg 67 328 connect 127.0.0.1 13000;
+#X msg 92 375 host 127.0.0.1;
+#X msg 99 402 port 14000;
+#X obj 66 175 tgl 15 0 empty empty connect/disconnect 17 7 0 10 -262144
+-1 -1 0 1;
+#X text 241 157 Data;
+#X text 64 300 Other options;
+#X obj 272 442 osc-out 1;
+#X text 60 40 osc-out \; ------- \; UDP/OSC connection \; Argument
+\; int (0-1) disconnect/connect \; Inlets \; 1st:commands \; 2nd:data
+;
+#X text 269 420 Directly connected;
+#X connect 0 0 6 1;
+#X connect 1 0 0 0;
+#X connect 2 0 3 0;
+#X connect 3 0 6 1;
+#X connect 4 0 5 0;
+#X connect 5 0 6 1;
+#X connect 7 0 8 0;
+#X connect 9 0 8 0;
+#X connect 10 0 8 0;
+#X connect 11 0 8 0;
+#X connect 12 0 6 0;

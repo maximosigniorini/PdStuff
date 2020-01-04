@@ -1,0 +1,19 @@
+#N canvas 407 350 464 309 10;
+#X obj 38 43 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X floatatom 38 111 5 0 0 0 - - -;
+#X floatatom 87 111 5 0 0 0 - - -;
+#X floatatom 137 112 5 0 0 0 - - -;
+#X text 215 57 ARGUMENT;
+#X text 217 127 INLET;
+#X text 214 17 Count triplets in a 8 bars period;
+#X text 216 73 Time to reach target value;
+#X text 216 88 (default 500ms);
+#X text 217 144 Toggle on \, off (start/stop counting);
+#X text 216 193 OUTLETS;
+#X text 217 209 Integers triplets;
+#X obj 38 75 count.triplet 700;
+#X connect 0 0 12 0;
+#X connect 12 0 1 0;
+#X connect 12 1 2 0;
+#X connect 12 2 3 0;

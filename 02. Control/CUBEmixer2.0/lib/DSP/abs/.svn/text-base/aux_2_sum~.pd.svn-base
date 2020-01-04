@@ -1,0 +1,15 @@
+#N canvas 0 0 716 534 10;
+#X obj 23 13 inlet~;
+#X obj 33 232 outlet~;
+#X obj 271 106 DSP_label AUX \$1_AUX;
+#X obj 41 144 mull~ 0 50;
+#X obj 154 136 r DSP_MIX_INTERPOL_TIME;
+#X obj 73 95 dbtorms;
+#X obj 73 69 sr_parameter /AUX/\$1/SUM/GAIN;
+#X obj 40 44 catch~ \$1_AUX_SUM;
+#X obj 41 183 s~ \$1_AUX_SUM;
+#X connect 3 0 8 0;
+#X connect 4 0 3 2;
+#X connect 5 0 3 1;
+#X connect 6 0 5 0;
+#X connect 7 0 3 0;

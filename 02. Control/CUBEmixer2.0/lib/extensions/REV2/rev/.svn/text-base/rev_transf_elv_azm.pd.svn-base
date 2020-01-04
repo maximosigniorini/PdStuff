@@ -1,0 +1,12 @@
+#N canvas 1556 37 450 300 10;
+#X obj 44 132 pack 1 0 0;
+#X obj 44 104 t b f;
+#X obj 79 86 t b f;
+#X obj 44 44 receive_parameter EXT_REV_ENCODER_1_ELEVATION;
+#X obj 79 65 receive_parameter EXT_REV_ENCODER_1_AZIMUTH;
+#X connect 1 0 0 0;
+#X connect 1 1 0 1;
+#X connect 2 0 0 0;
+#X connect 2 1 0 2;
+#X connect 3 0 1 0;
+#X connect 4 0 2 0;

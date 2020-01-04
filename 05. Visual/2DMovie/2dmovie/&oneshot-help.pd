@@ -1,0 +1,22 @@
+#N canvas 299 119 727 305 10;
+#X obj 2 -115 cnv 15 700 50 empty empty &oneshot 3 12 0 18 -204800
+-1 0;
+#X floatatom 434 66 8 0 0 0 - - -;
+#X floatatom 434 -22 5 0 0 0 - - -;
+#X obj 434 21 &oneshot;
+#X obj 496 -18 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 5 -87 Laisse passer une donnée une seule fois;
+#X text 21 -49 Description \; Laisse passer une donnée de tout type
+une seule fois. Par défaut \, la donnée passe. C'est une extension
+de [oneshot] utilisable avec GEM.;
+#X text 21 14 Arguments \; aucun;
+#X text 21 55 INLETS \; 1- anything : toute donnée \; 2- bang : réinitialisation
+;
+#X text 21 104 OUTLETS \; 1- anything : toute donnée;
+#X text 21 144 Voir aussi :;
+#X obj 113 145 once;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X connect 4 0 3 1;
+#X coords 0 305 1 304 65 15 0;

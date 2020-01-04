@@ -1,0 +1,1623 @@
+#N canvas 4 67 1899 1042 10;
+#X obj 1 0 cnv 15 400 215 empty empty PDP_Effects_Control 100 12 0
+16 -99865 -262144 0;
+#X obj 1 2 cnv 15 65 20 empty empty VIDEO_IN 0 10 0 12 -4034 -1 0;
+#X obj 27 44 bng 15 250 50 0 \$1epdp_disable_all_init empty Disable_all_effects
+17 7 0 10 -258113 -191407 -191407;
+#X obj 69 1 bng 15 250 50 0 empty \$1epdp_monitor_in empty 17 7 0 10
+-128992 -4034 -4034;
+#X obj 173 25 tgl 15 0 \$1epdp_bypas_init empty Bypass 22 8 0 12 -257985
+-1 -228856 0 1;
+#X obj 172 44 tgl 15 0 \$1epdp_monitor_on_init empty Monitor_leds 17
+7 0 10 -228856 -1 -228856 0 1;
+#X obj 273 46 bng 15 250 50 0 \$1epdp_apply_settings_init empty Apply_settings
+17 7 0 10 -260097 -1 -228856;
+#X obj 272 26 bng 15 250 50 0 \$1epdp_load_defaults_init empty Load_Defaults
+17 7 0 10 -228856 -1 -228856;
+#X obj 8 69 cnv 15 385 120 empty empty empty 2 12 0 14 -191407 -66577
+0;
+#X obj 18 73 tgl 15 0 \$1epdp_aging_on_init empty Aging 17 7 0 12 -260097
+-1 -1 0 1;
+#X obj 18 92 tgl 15 0 \$1epdp_baltan_on_init empty Baltan 17 7 0 12
+-260097 -1 -1 0 1;
+#X obj 18 112 tgl 15 0 \$1epdp_cycle_on_init empty Cycle 17 7 0 12
+-260097 -1 -1 0 1;
+#X obj 18 132 tgl 15 0 \$1epdp_dice_on_init empty Dice 17 7 0 12 -260097
+-1 -1 0 1;
+#X obj 18 151 tgl 15 0 \$1epdp_edge_on_init empty Edge 17 7 0 12 -260097
+-1 -1 0 1;
+#X obj 2 194 cnv 15 65 20 empty empty VIDEO_OUT 0 10 0 12 -221249 -262144
+0;
+#X obj 68 197 bng 15 250 50 0 empty \$1epdp_monitor_out empty 17 7
+0 10 -128992 -258113 -258113;
+#X obj 18 169 tgl 15 0 \$1epdp_intrusion_on_init empty Intrusion 17
+7 0 12 -260097 -1 -1 0 1;
+#X obj 104 73 tgl 15 0 \$1epdp_lens_on_init empty Lens 17 7 0 12 -260097
+-1 -1 0 1;
+#X obj 104 92 tgl 15 0 \$1epdp_mosaic_on_init empty Mosaic 17 7 0 12
+-260097 -1 -1 0 1;
+#X obj 104 132 tgl 15 0 \$1epdp_puzzle_on_init empty Puzzle 17 7 0
+12 -260097 -1 -1 0 1;
+#X obj 104 150 tgl 15 0 \$1epdp_quark_on_init empty Quark 17 7 0 12
+-260097 -1 -1 0 1;
+#X obj 104 167 tgl 15 0 \$1epdp_radioactiv_on_init empty Radioactiv
+17 7 0 12 -260097 -1 -1 0 1;
+#X obj 197 72 tgl 15 0 \$1epdp_rev_on_init empty Rev 17 7 0 12 -260097
+-1 -1 0 1;
+#X obj 198 91 tgl 15 0 \$1epdp_ripple_on_init empty Ripple 17 7 0 12
+-260097 -1 -1 0 1;
+#X obj 104 112 tgl 15 0 \$1epdp_nervous_on_init empty Nervous 17 7
+0 12 -260097 -1 -1 0 1;
+#X obj 198 111 tgl 15 0 \$1epdp_shagadelic_on_init empty Shagadelic
+17 7 0 12 -260097 -1 -1 0 1;
+#X obj 199 131 tgl 15 0 \$1epdp_simura_on_init empty Simura 17 7 0
+12 -260097 -1 -1 0 1;
+#X obj 199 150 tgl 15 1 \$1epdp_spiral_on_init empty Spiral 17 7 0
+12 -260097 -1 -1 0 1;
+#X obj 297 74 tgl 15 0 \$1epdp_transform_on_init empty Transform 17
+7 0 12 -260097 -1 -1 0 1;
+#X obj 297 93 tgl 15 0 \$1epdp_underwatch_on_init empty Underwatch
+17 7 0 12 -260097 -1 -1 0 1;
+#X obj 298 113 tgl 15 0 \$1epdp_vertigo_on_init empty Vertigo 17 7
+0 12 -260097 -1 -1 0 1;
+#X obj 298 132 tgl 15 1 \$1epdp_warhol_on_init empty Warhol 17 7 0
+12 -260097 -1 -1 0 1;
+#X obj 298 150 tgl 15 0 \$1epdp_warp_on_init empty Warp 17 7 0 12 -260097
+-1 -1 0 1;
+#X obj 141 387 inlet;
+#X obj 195 388 cnv 15 65 20 empty empty VIDEO_IN 0 10 0 12 -4034 -1
+0;
+#X obj 169 682 cnv 15 65 20 empty empty VIDEO_OUT 0 10 0 12 -221249
+-262144 0;
+#X obj 116 686 outlet;
+#X text 632 76 radioactiv->no funciona?;
+#X text 637 118 shagadelic->repassar mask;
+#X text 636 96 spiral no funciona..;
+#X text 640 144 underwatch->no va;
+#X text 579 53 separar el core en petits moduls per cada efecte?;
+#X obj 170 613 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 166 585 spigot;
+#X obj 212 636 s \$1epdp_monitor_out;
+#X obj 214 553 r \$1epdp_monitor_on;
+#X obj 41 481 pdp_spigot;
+#X obj 138 448 r \$1epdp_bypass;
+#X obj 27 25 tgl 15 0 \$1epdp_configure_on empty ConfigureEffects 17
+7 0 10 -260097 -1 -228856 0 1;
+#X text 779 970 pop-up;
+#X obj 692 461 r \$1epdp_configure_on;
+#X obj 200 168 tgl 15 1 \$1epdp_ascii_on_init empty ASCII 17 7 0 12
+-260097 -1 -1 0 1;
+#X obj 1370 492 pdp_canvas 640 480 3;
+#X text 1500 492 ->per fer pantalles de monitoreig?;
+#N canvas 362 91 1331 1041 epdp_effects_core 0;
+#X obj 943 58 block~ 512;
+#X obj 201 46 inlet;
+#X obj 125 42 cnv 15 65 20 empty empty VIDEO_IN 0 10 0 12 -4034 -1
+0;
+#X obj 321 233 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 314 277 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 317 313 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 313 352 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 318 383 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 326 430 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 343 226 r \$1epdp_aging_on;
+#X obj 337 267 r \$1epdp_baltan_on;
+#X obj 341 312 r \$1epdp_cycle_on;
+#X obj 340 347 r \$1epdp_dice_on;
+#X obj 340 393 r \$1epdp_edge_on;
+#X obj 343 444 r \$1epdp_intrusion_on;
+#X obj 369 579 r \$1epdp_nervous_on;
+#X obj 308 83 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 304 55 spigot;
+#X obj 352 122 s \$1epdp_monitor_in;
+#X obj 398 32 r \$1epdp_monitor_on;
+#X obj 727 901 outlet;
+#X obj 646 899 cnv 15 65 20 empty empty VIDEO_OUT 0 10 0 12 -221249
+-262144 0;
+#N canvas 973 228 450 300 ef_aging 0;
+#X obj 44 31 inlet;
+#X text 102 31 video;
+#X obj 214 31 inlet;
+#X text 272 31 on/off;
+#X obj 73 253 outlet;
+#X floatatom 212 134 5 0 0 0 - - -;
+#X floatatom 255 175 5 0 0 0 - - -;
+#X text 293 174 Number of scratches;
+#X text 250 130 Dust density;
+#X obj 143 174 pdp_aging;
+#X obj 65 130 pdp_spigot;
+#X obj 228 101 r \$1epdp_aging_dust;
+#X obj 314 155 r \$1epdp_aging_scratches;
+#X text 121 250 video;
+#X connect 0 0 10 0;
+#X connect 2 0 10 1;
+#X connect 5 0 9 1;
+#X connect 6 0 9 2;
+#X connect 9 0 4 0;
+#X connect 10 0 4 0;
+#X connect 10 1 9 0;
+#X connect 11 0 5 0;
+#X connect 12 0 6 0;
+#X restore 233 250 pd ef_aging;
+#N canvas 985 300 450 300 ef_baltan 0;
+#X obj 44 31 inlet;
+#X text 102 31 video;
+#X obj 214 31 inlet;
+#X text 272 31 on/off;
+#X obj 73 253 outlet;
+#X obj 77 83 pdp_spigot;
+#X text 121 250 video;
+#X obj 132 156 pdp_baltan;
+#X floatatom 197 116 10 0 0 0 - - -;
+#X obj 256 78 r \$1epdp_baltan_value;
+#X connect 0 0 5 0;
+#X connect 2 0 5 1;
+#X connect 5 0 4 0;
+#X connect 5 1 7 0;
+#X connect 7 0 4 0;
+#X connect 8 0 7 1;
+#X connect 9 0 8 0;
+#X restore 232 289 pd ef_baltan;
+#N canvas 977 252 450 300 ef_plantilla 0;
+#X obj 44 31 inlet;
+#X text 102 31 video;
+#X obj 214 31 inlet;
+#X text 272 31 on/off;
+#X obj 73 253 outlet;
+#X obj 77 83 pdp_spigot;
+#X text 121 250 video;
+#X connect 0 0 5 0;
+#X connect 2 0 5 1;
+#X connect 5 0 4 0;
+#X restore 721 96 pd ef_plantilla;
+#N canvas 981 276 450 300 ef_cycle 0;
+#X obj 44 31 inlet;
+#X text 102 31 video;
+#X obj 214 31 inlet;
+#X text 272 31 on/off;
+#X obj 73 253 outlet;
+#X obj 77 83 pdp_spigot;
+#X text 121 250 video;
+#X obj 260 101 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X obj 272 123 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X obj 283 142 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X text 286 100 Cycle Y;
+#X text 299 121 Cycle U;
+#X text 305 143 Cycle V;
+#X obj 173 171 pdp_cycle;
+#X obj 345 102 r \$1epdp_cycle_u;
+#X obj 297 78 r \$1epdp_cycle_y;
+#X obj 357 131 r \$1epdp_cycle_v;
+#X connect 0 0 5 0;
+#X connect 2 0 5 1;
+#X connect 5 0 4 0;
+#X connect 5 1 13 0;
+#X connect 7 0 13 1;
+#X connect 8 0 13 2;
+#X connect 9 0 13 3;
+#X connect 13 0 4 0;
+#X connect 14 0 8 0;
+#X connect 15 0 7 0;
+#X connect 16 0 9 0;
+#X restore 231 324 pd ef_cycle;
+#N canvas 977 252 450 300 ef_dice 0;
+#X obj 44 31 inlet;
+#X text 102 31 video;
+#X obj 214 31 inlet;
+#X text 272 31 on/off;
+#X obj 73 253 outlet;
+#X obj 77 83 pdp_spigot;
+#X text 121 250 video;
+#X obj 134 172 pdp_dice;
+#X floatatom 189 143 5 0 0 0 - - -;
+#X text 155 115 Dice size;
+#X obj 259 117 r \$1epdp_dice_size;
+#X connect 0 0 5 0;
+#X connect 2 0 5 1;
+#X connect 5 0 4 0;
+#X connect 5 1 7 0;
+#X connect 7 0 4 0;
+#X connect 8 0 7 1;
+#X connect 10 0 8 0;
+#X restore 232 364 pd ef_dice;
+#N canvas 977 252 450 300 ef_edge_on 0;
+#X obj 44 31 inlet;
+#X text 102 31 video;
+#X obj 214 31 inlet;
+#X text 272 31 on/off;
+#X obj 73 253 outlet;
+#X obj 77 83 pdp_spigot;
+#X text 121 250 video;
+#X obj 155 165 pdp_edge;
+#X connect 0 0 5 0;
+#X connect 2 0 5 1;
+#X connect 5 0 4 0;
+#X connect 5 1 7 0;
+#X connect 7 0 4 0;
+#X restore 232 400 pd ef_edge_on;
+#N canvas 977 252 450 300 ef_intrusion 0;
+#X obj 44 31 inlet;
+#X text 102 31 video;
+#X obj 214 31 inlet;
+#X text 272 31 on/off;
+#X obj 73 253 outlet;
+#X obj 77 83 pdp_spigot;
+#X text 121 250 video;
+#X msg 315 177 bang;
+#X obj 359 155 metro 100;
+#X msg 342 122 bang;
+#X msg 388 124 stop;
+#X floatatom 323 214 5 0 0 0 - - -;
+#X text 373 213 Threshold [0 \, 255 ] default 10;
+#X obj 150 210 pdp_intrusion;
+#X text 356 177 Set background to start comparing;
+#X obj 339 78 r \$1epdp_intrusion_start_comparing;
+#X obj 392 102 r \$1epdp_intrusion_stop_comparing;
+#X obj 375 196 r \$1epdp_intrusion_threshold;
+#X obj 339 38 select 0 1;
+#X connect 0 0 5 0;
+#X connect 2 0 5 1;
+#X connect 5 0 4 0;
+#X connect 5 1 13 0;
+#X connect 7 0 13 1;
+#X connect 8 0 7 0;
+#X connect 9 0 8 0;
+#X connect 10 0 8 0;
+#X connect 11 0 13 2;
+#X connect 13 0 4 0;
+#X connect 15 0 9 0;
+#X connect 17 0 11 0;
+#X connect 18 0 10 0;
+#X connect 18 1 9 0;
+#X restore 231 444 pd ef_intrusion;
+#X obj 833 94 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 324 493 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#N canvas 977 252 450 300 ef_lens 0;
+#X obj 44 31 inlet;
+#X text 102 31 video;
+#X obj 214 31 inlet;
+#X text 272 31 on/off;
+#X obj 73 253 outlet;
+#X obj 77 83 pdp_spigot;
+#X text 121 250 video;
+#X obj 143 176 pdp_lens;
+#X floatatom 324 45 5 0 0 0 - - -;
+#X floatatom 325 75 5 0 0 0 - - -;
+#X text 457 43 X coordinate of lens upper left corner;
+#X text 463 73 Y coordinate of lens upper left corner;
+#X floatatom 326 109 5 0 0 0 - - -;
+#X text 478 109 Lens size;
+#X floatatom 333 146 5 0 0 0 - - -;
+#X text 510 144 Zoom factor;
+#X obj 351 173 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X text 481 172 Mode ( 0=static 1=inspecting );
+#X obj 365 43 r \$1epdp_lens_x;
+#X obj 372 75 r \$1epdp_lens_y;
+#X obj 370 112 r \$1epdp_lens_size;
+#X obj 370 145 r \$1epdp_lens_zoomfactor;
+#X obj 377 171 r \$1epdp_lens_mode;
+#X connect 0 0 5 0;
+#X connect 2 0 5 1;
+#X connect 5 0 4 0;
+#X connect 5 1 7 0;
+#X connect 7 0 4 0;
+#X connect 8 0 7 1;
+#X connect 9 0 7 2;
+#X connect 12 0 7 3;
+#X connect 14 0 7 4;
+#X connect 16 0 7 5;
+#X connect 18 0 8 0;
+#X connect 19 0 9 0;
+#X connect 20 0 12 0;
+#X connect 21 0 14 0;
+#X connect 22 0 16 0;
+#X restore 228 490 pd ef_lens;
+#X obj 352 491 r \$1epdp_lens_on;
+#X obj 341 537 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#N canvas 977 252 450 300 ef_mosaic 0;
+#X obj 44 31 inlet;
+#X text 102 31 video;
+#X obj 214 31 inlet;
+#X text 272 31 on/off;
+#X obj 73 253 outlet;
+#X obj 77 83 pdp_spigot;
+#X text 121 250 video;
+#X msg 228 132 bang;
+#X obj 150 174 pdp_mosaic;
+#X floatatom 247 159 5 0 0 0 - - -;
+#X text 301 168 Censorship level;
+#X obj 281 114 r \$1epdp_mosaic_setbackground;
+#X obj 284 140 r \$1epdp_mosaic_censorshiplevel;
+#X connect 0 0 5 0;
+#X connect 2 0 5 1;
+#X connect 5 0 4 0;
+#X connect 5 1 8 0;
+#X connect 7 0 8 1;
+#X connect 8 0 4 0;
+#X connect 9 0 8 2;
+#X connect 11 0 7 0;
+#X connect 12 0 9 0;
+#X restore 229 539 pd ef_mosaic;
+#X obj 373 535 r \$1epdp_mosaic_on;
+#X obj 343 579 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#N canvas 977 252 450 300 ef_nervous 0;
+#X obj 44 31 inlet;
+#X text 102 31 video;
+#X obj 214 31 inlet;
+#X text 272 31 on/off;
+#X obj 73 253 outlet;
+#X obj 77 83 pdp_spigot;
+#X text 121 250 video;
+#X obj 149 167 pdp_nervous;
+#X text 308 152 Mode;
+#X obj 287 153 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X floatatom 259 128 5 0 0 0 - - -;
+#X text 307 126 Number of frames;
+#X obj 306 111 r \$1epdp_nervous_nframes;
+#X obj 345 154 r \$1epdp_nervous_mode;
+#X connect 0 0 5 0;
+#X connect 2 0 5 1;
+#X connect 5 0 4 0;
+#X connect 5 1 7 0;
+#X connect 7 0 4 0;
+#X connect 9 0 7 2;
+#X connect 10 0 7 1;
+#X connect 12 0 10 0;
+#X connect 13 0 9 0;
+#X restore 231 581 pd ef_nervous;
+#X obj 343 627 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#N canvas 977 252 450 300 ef_puzzle 0;
+#X obj 44 31 inlet;
+#X text 102 31 video;
+#X obj 214 31 inlet;
+#X text 272 31 on/off;
+#X obj 73 253 outlet;
+#X obj 77 83 pdp_spigot;
+#X text 121 250 video;
+#X obj 186 171 pdp_puzzle;
+#X msg 256 82 up;
+#X msg 282 99 down;
+#X msg 324 115 left;
+#X msg 376 130 right;
+#X floatatom 355 153 5 0 0 0 - - -;
+#X text 311 63 Movement;
+#X text 392 151 Number of blocks;
+#X obj 437 122 r \$1epdp_puzzle_nblocks;
+#X obj 447 53 r \$1epdp_puzzle_up;
+#X obj 445 78 r \$1epdp_puzzle_down;
+#X obj 566 54 r \$1epdp_puzzle_right;
+#X obj 568 80 r \$1epdp_puzzle_left;
+#X connect 0 0 5 0;
+#X connect 2 0 5 1;
+#X connect 5 0 4 0;
+#X connect 5 1 7 0;
+#X connect 7 0 4 0;
+#X connect 8 0 7 0;
+#X connect 9 0 7 0;
+#X connect 10 0 7 0;
+#X connect 11 0 7 0;
+#X connect 12 0 7 1;
+#X connect 15 0 12 0;
+#X connect 16 0 8 0;
+#X connect 17 0 9 0;
+#X connect 18 0 11 0;
+#X connect 19 0 10 0;
+#X restore 231 629 pd ef_puzzle;
+#X obj 375 627 r \$1epdp_puzzle_on;
+#X obj 343 664 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 374 665 r \$1epdp_quark_on;
+#N canvas 977 252 450 300 ef_quark 0;
+#X obj 44 31 inlet;
+#X text 102 31 video;
+#X obj 214 31 inlet;
+#X text 272 31 on/off;
+#X obj 73 253 outlet;
+#X obj 77 83 pdp_spigot;
+#X text 121 250 video;
+#X obj 148 162 pdp_quark;
+#X floatatom 226 130 5 0 0 0 - - -;
+#X text 272 129 Number of frames;
+#X floatatom 238 150 5 0 0 0 - - -;
+#X text 284 150 Tolerance;
+#X obj 300 80 r \$1epdp_quark_nframes;
+#X obj 340 183 r \$1epdp_quark_tolerance;
+#X connect 0 0 5 0;
+#X connect 2 0 5 1;
+#X connect 5 0 4 0;
+#X connect 5 1 7 0;
+#X connect 7 0 4 0;
+#X connect 8 0 7 1;
+#X connect 10 0 7 2;
+#X connect 12 0 8 0;
+#X connect 13 0 10 0;
+#X restore 231 666 pd ef_quark;
+#X obj 343 702 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 373 703 r \$1epdp_radioactiv_on;
+#N canvas 977 252 450 300 ef_radioactiv 0;
+#X obj 44 31 inlet;
+#X text 102 31 video;
+#X obj 214 31 inlet;
+#X text 272 31 on/off;
+#X obj 73 253 outlet;
+#X obj 77 83 pdp_spigot;
+#X text 121 250 video;
+#X floatatom 257 123 5 0 0 0 - - -;
+#X obj 151 171 pdp_radioactiv;
+#X obj 224 95 hdl 15 1 0 4 empty empty empty 0 -6 0 8 -262144 -1 -1
+0;
+#X text 295 96 Mode;
+#X floatatom 292 145 5 0 0 0 - - -;
+#X obj 344 98 r \$1epdp_radioactiv_mode;
+#X obj 351 127 r \$1epdp_radioactiv_snaptime;
+#X obj 353 155 r \$1epdp_radioactiv_snapinterval;
+#X connect 0 0 5 0;
+#X connect 2 0 5 1;
+#X connect 5 0 4 0;
+#X connect 5 1 8 0;
+#X connect 7 0 8 2;
+#X connect 8 0 4 0;
+#X connect 9 0 8 1;
+#X connect 11 0 8 3;
+#X connect 12 0 9 0;
+#X connect 13 0 7 0;
+#X connect 14 0 11 0;
+#X restore 231 704 pd ef_radioactiv;
+#X obj 341 739 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#N canvas 977 252 450 300 ef_rev 0;
+#X obj 44 31 inlet;
+#X text 102 31 video;
+#X obj 214 31 inlet;
+#X text 272 31 on/off;
+#X obj 73 253 outlet;
+#X obj 77 83 pdp_spigot;
+#X text 121 250 video;
+#X floatatom 227 114 5 0 0 0 - - -;
+#X floatatom 249 139 5 0 0 0 - - -;
+#X floatatom 263 161 5 0 0 0 - - -;
+#X floatatom 280 184 5 0 0 0 - - -;
+#X obj 140 163 pdp_rev;
+#X text 302 137 Line Space default=6;
+#X text 278 114 Grab Time [ 1 \, ... ] default=1;
+#X text 314 158 Scale [ 1 \, ... ] default=50;
+#X text 330 183 Line color default=0xffff;
+#X obj 582 43 r \$1epdp_rev_grabtime;
+#X obj 582 72 r \$1epdp_rev_linespace;
+#X obj 582 104 r \$1epdp_rev_scale;
+#X obj 587 132 r \$1epdp_rev_linecolor;
+#X connect 0 0 5 0;
+#X connect 2 0 5 1;
+#X connect 5 0 4 0;
+#X connect 5 1 11 0;
+#X connect 7 0 11 1;
+#X connect 8 0 11 2;
+#X connect 9 0 11 3;
+#X connect 10 0 11 4;
+#X connect 11 0 4 0;
+#X connect 16 0 7 0;
+#X connect 17 0 8 0;
+#X connect 18 0 9 0;
+#X connect 19 0 10 0;
+#X restore 229 741 pd ef_rev;
+#X obj 370 743 r \$1epdp_rev_on;
+#X obj 742 219 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 773 221 r \$1epdp_ripple_on;
+#N canvas 977 252 450 300 ef_ripple 0;
+#X obj 44 31 inlet;
+#X text 102 31 video;
+#X obj 214 31 inlet;
+#X text 272 31 on/off;
+#X obj 73 253 outlet;
+#X obj 77 83 pdp_spigot;
+#X text 121 250 video;
+#X msg 448 98 bang;
+#X obj 431 73 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0 1
+;
+#X obj 153 159 pdp_ripple;
+#X text 676 59 Mode ( 0=raindrops \, 1=motion detection );
+#X floatatom 467 125 5 0 0 0 - - -;
+#X text 738 123 Motion detection threshold;
+#X text 489 100 Reset;
+#X floatatom 486 148 5 0 0 0 - - -;
+#X text 745 147 Rain density evolution speed;
+#X obj 543 63 r \$1epdp_ripple_mode;
+#X obj 546 93 r \$1epdp_ripple_reset;
+#X obj 553 120 r \$1epdp_ripple_motionthreshold;
+#X obj 558 154 r \$1epdp_ripple_rain;
+#X connect 0 0 5 0;
+#X connect 2 0 5 1;
+#X connect 5 0 4 0;
+#X connect 5 1 9 0;
+#X connect 7 0 9 2;
+#X connect 8 0 9 1;
+#X connect 9 0 4 0;
+#X connect 11 0 9 3;
+#X connect 14 0 9 4;
+#X connect 16 0 8 0;
+#X connect 17 0 7 0;
+#X connect 18 0 11 0;
+#X connect 19 0 14 0;
+#X restore 630 221 pd ef_ripple;
+#X obj 742 268 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 775 272 r \$1epdp_shagadelic_on;
+#N canvas 977 252 450 300 ef_shagadelic 0;
+#X obj 44 31 inlet;
+#X text 102 31 video;
+#X obj 214 31 inlet;
+#X text 272 31 on/off;
+#X obj 73 253 outlet;
+#X obj 77 83 pdp_spigot;
+#X text 121 250 video;
+#X obj 173 158 pdp_shagadelic;
+#X floatatom 306 101 5 0 0 0 - - -;
+#X text 305 81 Mask;
+#X obj 282 125 * 100;
+#X obj 399 138 r \$1epdp_shagadelic_mask;
+#X connect 0 0 5 0;
+#X connect 2 0 5 1;
+#X connect 5 0 4 0;
+#X connect 5 1 7 0;
+#X connect 7 0 4 0;
+#X connect 8 0 10 0;
+#X connect 10 0 7 1;
+#X connect 11 0 8 0;
+#X restore 630 270 pd ef_shagadelic;
+#X obj 743 323 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#N canvas 977 252 450 300 ef_simura 0;
+#X obj 44 31 inlet;
+#X text 102 31 video;
+#X obj 214 31 inlet;
+#X text 272 31 on/off;
+#X obj 73 253 outlet;
+#X obj 77 83 pdp_spigot;
+#X text 121 250 video;
+#X obj 154 156 pdp_simura;
+#X floatatom 281 132 5 0 0 0 - - -;
+#X text 382 114 Color 0<c<65535;
+#X obj 323 173 hdl 15 1 0 9 empty empty empty 0 -6 0 8 -262144 -1 -1
+0;
+#X text 325 155 Mode;
+#X msg 379 139 56987;
+#X msg 362 78 16733;
+#X obj 508 68 r \$1epdp_simura_color;
+#X obj 516 141 r \$1epdp_simura_mode;
+#X connect 0 0 5 0;
+#X connect 2 0 5 1;
+#X connect 5 0 4 0;
+#X connect 5 1 7 0;
+#X connect 7 0 4 0;
+#X connect 8 0 7 1;
+#X connect 10 0 7 2;
+#X connect 12 0 8 0;
+#X connect 13 0 8 0;
+#X connect 14 0 7 1;
+#X connect 15 0 10 0;
+#X restore 631 325 pd ef_simura;
+#X obj 777 322 r \$1epdp_simura_on;
+#X obj 748 371 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#N canvas 977 252 450 300 ef_spiral 0;
+#X obj 44 31 inlet;
+#X text 102 31 video;
+#X obj 214 31 inlet;
+#X text 272 31 on/off;
+#X obj 73 253 outlet;
+#X obj 77 83 pdp_spigot;
+#X text 121 250 video;
+#X floatatom 399 18 5 0 0 0 - - -;
+#X obj 202 194 pdp_spiral ---------------------;
+#X obj 366 -7 hdl 15 1 0 8 empty empty empty 0 -6 0 8 -262144 -1 -1
+0;
+#X text 496 -7 Mode;
+#X text 446 18 Focus X;
+#X floatatom 433 40 5 0 0 0 - - -;
+#X text 480 40 Focus Y;
+#X floatatom 450 67 5 0 0 0 - - -;
+#X text 497 67 Depth Shift;
+#X floatatom 461 95 5 0 0 0 - - -;
+#X text 507 96 Focus interval;
+#X text 519 125 Focus increment;
+#X floatatom 471 124 5 0 0 0 - - -;
+#X text 519 125 Focus increment;
+#X obj 489 148 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X obj 503 171 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X text 516 150 Toggle XOR;
+#X text 527 172 Animate Focus;
+#X obj 633 -11 r \$1epdp_spriral_mode;
+#X obj 631 14 r \$1epdp_spiral_focusx;
+#X obj 632 37 r \$1epdp_spiral_focusy;
+#X obj 633 64 r \$1epdp_spiral_depth;
+#X obj 633 94 r \$1epdp_spiral_focusint;
+#X obj 635 122 r \$1epdp_spiral_focusincr;
+#X obj 635 152 r \$1epdp_spiral_xor;
+#X obj 637 181 r \$1epdp_spiral_animate;
+#X connect 0 0 5 0;
+#X connect 2 0 5 1;
+#X connect 5 0 4 0;
+#X connect 5 1 8 0;
+#X connect 7 0 8 2;
+#X connect 8 0 4 0;
+#X connect 9 0 8 1;
+#X connect 12 0 8 3;
+#X connect 14 0 8 4;
+#X connect 16 0 8 5;
+#X connect 19 0 8 6;
+#X connect 21 0 8 7;
+#X connect 22 0 8 8;
+#X connect 25 0 9 0;
+#X connect 26 0 7 0;
+#X connect 27 0 12 0;
+#X connect 28 0 14 0;
+#X connect 29 0 16 0;
+#X connect 30 0 19 0;
+#X connect 31 0 21 0;
+#X connect 32 0 22 0;
+#X restore 636 373 pd ef_spiral;
+#X obj 788 372 r \$1epdp_spiral_on;
+#X obj 754 416 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 791 418 r \$1epdp_transform_on;
+#N canvas 977 252 450 300 ef_transform 0;
+#X obj 44 31 inlet;
+#X text 102 31 video;
+#X obj 214 31 inlet;
+#X text 272 31 on/off;
+#X obj 73 253 outlet;
+#X obj 77 83 pdp_spigot;
+#X text 121 250 video;
+#X obj 153 168 pdp_transform;
+#X obj 232 138 hdl 15 1 0 6 empty empty empty 0 -6 0 8 -262144 -1 -1
+0;
+#X text 235 115 Choose transformation;
+#X obj 372 78 r \$1epdp_transform_mode;
+#X connect 0 0 5 0;
+#X connect 2 0 5 1;
+#X connect 5 0 4 0;
+#X connect 5 1 7 0;
+#X connect 7 0 4 0;
+#X connect 8 0 7 1;
+#X connect 10 0 8 0;
+#X restore 642 418 pd ef_transform;
+#X obj 749 463 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 784 462 r \$1epdp_underwatch_on;
+#N canvas 981 276 450 300 ef_underwatch 0;
+#X obj 44 31 inlet;
+#X text 102 31 video;
+#X obj 214 31 inlet;
+#X text 272 31 on/off;
+#X obj 73 253 outlet;
+#X obj 77 83 pdp_spigot;
+#X text 121 250 video;
+#X floatatom 276 130 5 0 0 0 - - -;
+#X text 317 131 Strip size 0 \, <height> default=10;
+#X obj 165 163 pdp_underwatch;
+#X obj 319 98 r \$1epdp_underwatch_stripsize;
+#X connect 0 0 5 0;
+#X connect 2 0 5 1;
+#X connect 5 0 4 0;
+#X connect 5 1 9 0;
+#X connect 7 0 9 1;
+#X connect 9 0 4 0;
+#X connect 10 0 7 0;
+#X restore 637 465 pd ef_underwatch;
+#X obj 750 511 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#N canvas 977 252 450 300 ef_vertigo 0;
+#X obj 44 31 inlet;
+#X text 102 31 video;
+#X obj 214 31 inlet;
+#X text 272 31 on/off;
+#X obj 73 253 outlet;
+#X obj 77 83 pdp_spigot;
+#X text 121 250 video;
+#X obj 139 193 pdp_vertigo;
+#X floatatom 239 140 5 0 0 0 - - -;
+#X floatatom 237 166 5 0 0 0 - - -;
+#X text 444 119 Phase increment;
+#X text 446 142 Zoom rate;
+#X obj 310 114 r \$1epdp_vertigo_phase;
+#X obj 313 149 r \$1epdp_vertigo_zoom;
+#X connect 0 0 5 0;
+#X connect 2 0 5 1;
+#X connect 5 0 4 0;
+#X connect 5 1 7 0;
+#X connect 7 0 4 0;
+#X connect 8 0 7 1;
+#X connect 9 0 7 2;
+#X connect 12 0 8 0;
+#X connect 13 0 9 0;
+#X restore 638 513 pd ef_vertigo;
+#X obj 781 513 r \$1epdp_vertigo_on;
+#X obj 751 561 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#N canvas 981 276 450 300 ef_warhol 0;
+#X obj 44 31 inlet;
+#X text 102 31 video;
+#X obj 214 31 inlet;
+#X text 272 31 on/off;
+#X obj 73 253 outlet;
+#X obj 77 83 pdp_spigot;
+#X text 121 250 video;
+#X floatatom 270 77 5 0 0 0 - - -;
+#X obj 159 167 pdp_warhol;
+#X floatatom 304 99 5 0 0 0 - - -;
+#X text 317 77 X Divider;
+#X text 354 98 Y Divider;
+#X obj 320 120 hdl 15 1 0 9 empty empty empty 0 -6 0 8 -262144 -1 -1
+0;
+#X text 510 122 Color to modify;
+#X floatatom 343 142 5 0 0 0 - - -;
+#X floatatom 369 163 5 0 0 0 - - -;
+#X floatatom 395 188 5 0 0 0 - - -;
+#X text 390 142 Y component;
+#X text 418 162 U component;
+#X text 441 187 V component;
+#X floatatom 459 121 5 0 0 0 - - -;
+#X obj 604 51 r \$1epdp_warhol_xdiv;
+#X obj 613 81 r \$1epdp_warhol_ydiv;
+#X obj 615 113 r \$1epdp_warhol_color;
+#X obj 618 149 r \$1epdp_warhol_ycomp;
+#X obj 615 177 r \$1epdp_warhol_ucomp;
+#X obj 613 207 r \$1epdp_warhol_vcomp;
+#X connect 0 0 5 0;
+#X connect 2 0 5 1;
+#X connect 5 0 4 0;
+#X connect 5 1 8 0;
+#X connect 7 0 8 1;
+#X connect 8 0 4 0;
+#X connect 9 0 8 2;
+#X connect 12 0 8 3;
+#X connect 12 0 20 0;
+#X connect 14 0 8 4;
+#X connect 15 0 8 5;
+#X connect 16 0 8 6;
+#X connect 21 0 7 0;
+#X connect 22 0 9 0;
+#X connect 23 0 12 0;
+#X connect 24 0 14 0;
+#X connect 25 0 15 0;
+#X connect 26 0 16 0;
+#X restore 639 563 pd ef_warhol;
+#X obj 783 560 r \$1epdp_warhol_on;
+#X obj 749 608 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 784 610 r \$1epdp_warp_on;
+#N canvas 977 252 450 300 ef_warp 0;
+#X obj 44 31 inlet;
+#X text 102 31 video;
+#X obj 214 31 inlet;
+#X text 272 31 on/off;
+#X obj 73 253 outlet;
+#X obj 77 83 pdp_spigot;
+#X text 121 250 video;
+#X obj 276 107 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X text 298 105 Mode ( 0=manual \, 1=auto );
+#X floatatom 276 137 5 0 0 0 - - -;
+#X text 323 137 Manual control;
+#X obj 186 168 pdp_warp;
+#X obj 448 77 r \$1epdp_warp_mode;
+#X obj 446 123 r \$1epdp_warp_control;
+#X connect 0 0 5 0;
+#X connect 2 0 5 1;
+#X connect 5 0 4 0;
+#X connect 5 1 11 0;
+#X connect 7 0 11 1;
+#X connect 9 0 11 2;
+#X connect 11 0 4 0;
+#X connect 12 0 7 0;
+#X connect 13 0 9 0;
+#X restore 637 610 pd ef_warp;
+#X obj 750 658 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#N canvas 977 252 450 300 ef_ascii 0;
+#X obj 44 31 inlet;
+#X text 102 31 video;
+#X obj 214 31 inlet;
+#X text 272 31 on/off;
+#X obj 73 253 outlet;
+#X obj 77 83 pdp_spigot;
+#X text 121 250 video;
+#X msg 299 118 color \$1;
+#X obj 370 119 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X msg 299 143 brightness \$1;
+#X floatatom 401 144 5 0 0 0 - - -;
+#X floatatom 299 169 5 0 0 0 - - -;
+#X obj 363 71 openpanel;
+#X obj 435 72 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X msg 301 71 load \$1;
+#X text 301 92 ( file with the same format than charmaps.dat );
+#X obj 188 184 pdp_ascii;
+#X text 349 168 Character to pixel ratio;
+#X text 449 145 Increase brightness ( default 25 );
+#X text 390 118 Activate/suppress colors;
+#X text 459 71 Load a characters map;
+#X obj 658 54 r \$1epdp_ascii_loadmap;
+#X obj 665 105 r \$1epdp_ascii_color;
+#X obj 678 141 r \$1epdp_ascii_brightness;
+#X obj 686 174 r \$1epdp_ascii_charpixratio;
+#X connect 0 0 5 0;
+#X connect 2 0 5 1;
+#X connect 5 0 4 0;
+#X connect 5 1 16 0;
+#X connect 7 0 16 0;
+#X connect 8 0 7 0;
+#X connect 9 0 16 0;
+#X connect 10 0 9 0;
+#X connect 11 0 16 1;
+#X connect 12 0 14 0;
+#X connect 13 0 12 0;
+#X connect 14 0 16 0;
+#X connect 16 0 4 0;
+#X connect 21 0 13 0;
+#X connect 22 0 8 0;
+#X connect 23 0 10 0;
+#X connect 24 0 11 0;
+#X restore 638 660 pd ef_ascii;
+#X obj 783 661 r \$1epdp_ascii_on;
+#X text 1513 69 efectes pidipi que falten:;
+#N canvas 1001 396 450 300 ef_noise 1;
+#X obj 44 31 inlet;
+#X text 102 31 video;
+#X obj 214 31 inlet;
+#X text 272 31 on/off;
+#X obj 73 253 outlet;
+#X text 121 250 video;
+#X obj 174 195 pdp_noise;
+#X obj 214 88 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X msg 352 135 dim 320 240;
+#X text 433 124 set packet dimensions;
+#X msg 322 206 type grey;
+#X msg 343 233 type yv12;
+#X text 418 208 generate greyscale;
+#X text 418 227 generate colour (default);
+#X msg 333 93 0;
+#X text 401 66 set seed value;
+#X obj 335 160 r \$1epdp_noise_type;
+#X obj 324 184 select 0 1;
+#X obj 218 63 r \$1epdp_noise_start;
+#X obj 360 40 r \$1epdp_noise_seed;
+#X msg 364 70 set \$1;
+#X obj 517 85 pack 0 0;
+#X obj 576 85 t b f;
+#X floatatom 517 66 5 0 0 0 - - -;
+#X floatatom 576 65 5 0 0 0 - - -;
+#X msg 517 106 dim \$1 \$2;
+#X obj 493 14 r \$1epdp_noise_x;
+#X obj 530 37 r \$1epdp_noise_y;
+#X obj 99 82 pdp_spigot;
+#X connect 0 0 28 0;
+#X connect 2 0 28 1;
+#X connect 6 0 4 0;
+#X connect 7 0 6 0;
+#X connect 8 0 6 0;
+#X connect 10 0 6 0;
+#X connect 11 0 6 0;
+#X connect 14 0 6 0;
+#X connect 16 0 17 0;
+#X connect 17 0 10 0;
+#X connect 17 1 11 0;
+#X connect 18 0 7 0;
+#X connect 19 0 20 0;
+#X connect 20 0 14 0;
+#X connect 21 0 25 0;
+#X connect 22 0 21 0;
+#X connect 22 1 21 1;
+#X connect 23 0 21 0;
+#X connect 24 0 22 0;
+#X connect 25 0 6 0;
+#X connect 26 0 23 0;
+#X connect 27 0 24 0;
+#X connect 28 0 4 0;
+#X connect 28 1 6 0;
+#X restore 637 727 pd ef_noise;
+#X obj 787 715 r \$1epdp_noise_on;
+#X obj 748 722 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X connect 1 0 17 0;
+#X connect 1 0 22 0;
+#X connect 3 0 22 1;
+#X connect 4 0 23 1;
+#X connect 5 0 25 1;
+#X connect 6 0 26 1;
+#X connect 7 0 27 1;
+#X connect 8 0 28 1;
+#X connect 9 0 3 0;
+#X connect 10 0 4 0;
+#X connect 11 0 5 0;
+#X connect 12 0 6 0;
+#X connect 13 0 7 0;
+#X connect 14 0 8 0;
+#X connect 15 0 36 0;
+#X connect 16 0 18 0;
+#X connect 17 0 16 0;
+#X connect 19 0 17 1;
+#X connect 22 0 23 0;
+#X connect 23 0 25 0;
+#X connect 25 0 26 0;
+#X connect 26 0 27 0;
+#X connect 27 0 28 0;
+#X connect 28 0 31 0;
+#X connect 29 0 24 1;
+#X connect 30 0 31 1;
+#X connect 31 0 34 0;
+#X connect 32 0 30 0;
+#X connect 33 0 34 1;
+#X connect 34 0 37 0;
+#X connect 35 0 33 0;
+#X connect 36 0 37 1;
+#X connect 37 0 39 0;
+#X connect 38 0 39 1;
+#X connect 39 0 43 0;
+#X connect 40 0 38 0;
+#X connect 41 0 43 1;
+#X connect 42 0 41 0;
+#X connect 43 0 46 0;
+#X connect 44 0 46 1;
+#X connect 45 0 44 0;
+#X connect 46 0 48 0;
+#X connect 47 0 48 1;
+#X connect 48 0 52 0;
+#X connect 49 0 47 0;
+#X connect 50 0 52 1;
+#X connect 51 0 50 0;
+#X connect 52 0 55 0;
+#X connect 53 0 55 1;
+#X connect 54 0 53 0;
+#X connect 55 0 57 0;
+#X connect 56 0 57 1;
+#X connect 57 0 60 0;
+#X connect 58 0 56 0;
+#X connect 59 0 60 1;
+#X connect 60 0 64 0;
+#X connect 61 0 59 0;
+#X connect 62 0 64 1;
+#X connect 63 0 62 0;
+#X connect 64 0 67 0;
+#X connect 65 0 67 1;
+#X connect 66 0 65 0;
+#X connect 67 0 69 0;
+#X connect 68 0 69 1;
+#X connect 69 0 72 0;
+#X connect 70 0 68 0;
+#X connect 71 0 72 1;
+#X connect 72 0 76 0;
+#X connect 73 0 71 0;
+#X connect 74 0 76 1;
+#X connect 75 0 74 0;
+#X connect 76 0 78 0;
+#X connect 77 0 78 1;
+#X connect 78 0 81 0;
+#X connect 79 0 77 0;
+#X connect 81 0 20 0;
+#X connect 82 0 83 0;
+#X connect 83 0 81 1;
+#X restore 142 497 pd epdp_effects_core;
+#N canvas 4 67 1891 1071 epdp_default_settings 0;
+#X obj 32 32 loadbang;
+#X obj 142 63 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 63 138 0;
+#X obj 116 34 r \$1epdp_load_defaults;
+#X msg 33 137 0;
+#X obj 32 168 s \$1epdp_aging_dust_init;
+#X obj 32 189 s \$1epdp_aging_scratches_init;
+#X obj 203 165 s \$1epdp_baltan_value_init;
+#X msg 203 138 1.65798e+07;
+#X msg 357 137 0;
+#X msg 494 143 0;
+#X obj 492 167 s \$1epdp_dice_size_init;
+#X obj 359 166 s \$1epdp_cycle_y_init;
+#X obj 360 194 s \$1epdp_cycle_u_init;
+#X obj 361 222 s \$1epdp_cycle_v_init;
+#X msg 634 145 10;
+#X obj 634 166 s \$1epdp_intrusion_threshold_init;
+#X obj 145 266 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 32 363 0;
+#X obj 28 416 s \$1epdp_lens_x_init;
+#X obj 27 440 s \$1epdp_lens_y_init;
+#X obj 27 467 s \$1epdp_lens_size_init;
+#X obj 28 491 s \$1epdp_lens_zoomfactor_init;
+#X obj 27 515 s \$1epdp_lens_mode_init;
+#X msg 216 369 0;
+#X obj 216 415 s \$1epdp_mosaic_censorshiplevel_init;
+#X obj 439 414 s \$1epdp_nervous_nframes_init;
+#X obj 439 443 s \$1epdp_nervous_mode_init;
+#X msg 436 376 0;
+#X obj 625 415 s \$1epdp_puzzle_nblocks_init;
+#X msg 624 380 4;
+#X msg 33 617 0;
+#X obj 30 651 s \$1epdp_quark_nframes_init;
+#X obj 31 680 s \$1epdp_quark_tolerance_init;
+#X obj 168 544 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 210 625 0;
+#X obj 210 652 s \$1epdp_radioactiv_mode_init;
+#X obj 211 679 s \$1epdp_radioactiv_snaptime_init;
+#X obj 210 708 s \$1epdp_radioactiv_snapinterval_init;
+#X msg 457 608 1;
+#X obj 459 643 s \$1epdp_rev_grabtime_init;
+#X obj 459 672 s \$1epdp_rev_linespace_init;
+#X msg 492 610 6;
+#X msg 527 610 50;
+#X obj 459 704 s \$1epdp_rev_scale_init;
+#X obj 464 732 s \$1epdp_rev_linecolor_init;
+#X msg 560 610 0;
+#X obj 652 643 s \$1epdp_ripple_mode_init;
+#X obj 654 674 s \$1epdp_ripple_motionthreshold_init;
+#X obj 657 703 s \$1epdp_ripple_rain_init;
+#X msg 650 611 0;
+#X msg 33 792 0;
+#X obj 34 827 s \$1epdp_shagadelic_mask_init;
+#X obj 168 762 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 274 801 0;
+#X obj 229 856 s \$1epdp_simura_mode_init;
+#X obj 228 826 s \$1epdp_simura_color_init;
+#X msg 229 800 16733;
+#X obj 416 827 s \$1epdp_spriral_mode_init;
+#X obj 414 852 s \$1epdp_spiral_focusx_init;
+#X obj 415 875 s \$1epdp_spiral_focusy_init;
+#X obj 416 902 s \$1epdp_spiral_depth_init;
+#X obj 416 932 s \$1epdp_spiral_focusint_init;
+#X obj 418 960 s \$1epdp_spiral_focusincr_init;
+#X obj 418 990 s \$1epdp_spiral_xor_init;
+#X obj 420 1019 s \$1epdp_spiral_animate_init;
+#X msg 414 797 0;
+#X msg 634 800 0;
+#X obj 643 829 s \$1epdp_transform_mode_init;
+#X obj 171 974 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 22 1066 10;
+#X obj 13 1100 s \$1epdp_underwatch_stripsize_init;
+#X obj 223 1099 s \$1epdp_vertigo_zoom_init;
+#X obj 219 1128 s \$1epdp_vertigo_phase_init;
+#X msg 224 1067 0;
+#X msg 414 1071 0;
+#X obj 418 1100 s \$1epdp_warhol_xdiv_init;
+#X obj 427 1130 s \$1epdp_warhol_ydiv_init;
+#X obj 429 1162 s \$1epdp_warhol_color_init;
+#X obj 424 1194 s \$1epdp_warhol_ycomp_init;
+#X obj 421 1222 s \$1epdp_warhol_ucomp_init;
+#X obj 419 1252 s \$1epdp_warhol_vcomp_init;
+#X obj 637 1103 s \$1epdp_warp_mode_init;
+#X obj 642 1133 s \$1epdp_warp_control_init;
+#X msg 636 1073 0;
+#X obj 828 415 s \$1epdp_ascii_brightness_init;
+#X obj 836 448 s \$1epdp_ascii_charpixratio_init;
+#X msg 855 385 0;
+#X msg 820 384 25;
+#X obj 1036 115 symbol \$1;
+#X obj 1036 79 bng 15 250 50 0 empty empty click_here_to_see 0 -6 0
+8 -262144 -1 -1;
+#X symbolatom 1523 86 0 0 0 0 - - -;
+#X obj 1523 57 symbol \$2;
+#X obj 1174 301 s \$1epdp_id;
+#X obj 1193 182 ftos;
+#X obj 1162 116 float \$1;
+#X floatatom 1179 149 5 0 0 0 - - -;
+#X symbolatom 1067 155 0 0 0 0 - - -;
+#X symbolatom 1172 255 10 0 0 0 - - -;
+#X connect 0 0 1 0;
+#X connect 0 0 90 0;
+#X connect 1 0 4 0;
+#X connect 1 0 2 0;
+#X connect 1 0 8 0;
+#X connect 1 0 9 0;
+#X connect 1 0 10 0;
+#X connect 1 0 15 0;
+#X connect 1 0 17 0;
+#X connect 2 0 6 0;
+#X connect 3 0 1 0;
+#X connect 4 0 5 0;
+#X connect 8 0 7 0;
+#X connect 9 0 12 0;
+#X connect 9 0 13 0;
+#X connect 9 0 14 0;
+#X connect 10 0 11 0;
+#X connect 15 0 16 0;
+#X connect 17 0 18 0;
+#X connect 17 0 24 0;
+#X connect 17 0 28 0;
+#X connect 17 0 30 0;
+#X connect 17 0 34 0;
+#X connect 17 0 88 0;
+#X connect 18 0 19 0;
+#X connect 18 0 20 0;
+#X connect 18 0 21 0;
+#X connect 18 0 22 0;
+#X connect 18 0 23 0;
+#X connect 24 0 25 0;
+#X connect 28 0 26 0;
+#X connect 28 0 27 0;
+#X connect 30 0 29 0;
+#X connect 31 0 32 0;
+#X connect 31 0 33 0;
+#X connect 34 0 31 0;
+#X connect 34 0 35 0;
+#X connect 34 0 39 0;
+#X connect 34 0 42 0;
+#X connect 34 0 43 0;
+#X connect 34 0 46 0;
+#X connect 34 0 50 0;
+#X connect 34 0 53 0;
+#X connect 35 0 36 0;
+#X connect 35 0 37 0;
+#X connect 35 0 38 0;
+#X connect 39 0 40 0;
+#X connect 42 0 41 0;
+#X connect 43 0 44 0;
+#X connect 46 0 45 0;
+#X connect 50 0 47 0;
+#X connect 50 0 48 0;
+#X connect 50 0 49 0;
+#X connect 51 0 52 0;
+#X connect 53 0 51 0;
+#X connect 53 0 57 0;
+#X connect 53 0 54 0;
+#X connect 53 0 66 0;
+#X connect 53 0 67 0;
+#X connect 53 0 69 0;
+#X connect 54 0 55 0;
+#X connect 57 0 56 0;
+#X connect 66 0 58 0;
+#X connect 66 0 59 0;
+#X connect 66 0 60 0;
+#X connect 66 0 61 0;
+#X connect 66 0 62 0;
+#X connect 66 0 63 0;
+#X connect 66 0 64 0;
+#X connect 66 0 65 0;
+#X connect 67 0 68 0;
+#X connect 69 0 70 0;
+#X connect 69 0 74 0;
+#X connect 69 0 75 0;
+#X connect 69 0 84 0;
+#X connect 70 0 71 0;
+#X connect 74 0 72 0;
+#X connect 74 0 73 0;
+#X connect 75 0 76 0;
+#X connect 75 0 77 0;
+#X connect 75 0 78 0;
+#X connect 75 0 79 0;
+#X connect 75 0 80 0;
+#X connect 75 0 81 0;
+#X connect 84 0 82 0;
+#X connect 84 0 83 0;
+#X connect 87 0 86 0;
+#X connect 88 0 85 0;
+#X connect 89 0 97 0;
+#X connect 90 0 89 0;
+#X connect 90 0 92 0;
+#X connect 90 0 95 0;
+#X connect 92 0 91 0;
+#X connect 94 0 98 0;
+#X connect 95 0 96 0;
+#X connect 96 0 94 0;
+#X connect 97 0 98 0;
+#X connect 98 0 93 0;
+#X restore 309 434 pd epdp_default_settings;
+#N canvas 4 67 1912 1071 epdp_disable_all 0;
+#X msg 95 84 0;
+#X obj 152 136 s \$1epdp_aging_on_init;
+#X obj 93 33 r \$1epdp_disable_all;
+#X obj 148 168 s \$1epdp_baltan_on_init;
+#X obj 149 203 s \$1epdp_cycle_on_init;
+#X obj 148 242 s \$1epdp_dice_on_init;
+#X obj 143 278 s \$1epdp_mosaic_on_init;
+#X obj 141 313 s \$1epdp_nervous_on_init;
+#X obj 141 351 s \$1epdp_puzzle_on_init;
+#X obj 130 395 s \$1epdp_simura_on_init;
+#X obj 315 141 s \$1epdp_edge_on_init;
+#X obj 311 177 s \$1epdp_intrusion_on_init;
+#X obj 320 215 s \$1epdp_lens_on_init;
+#X obj 319 254 s \$1epdp_quark_on_init;
+#X obj 319 293 s \$1epdp_radioactiv_on_init;
+#X obj 319 332 s \$1epdp_rev_on_init;
+#X obj 312 367 s \$1epdp_ripple_on_init;
+#X obj 312 408 s \$1epdp_shagadelic_on_init;
+#X obj 325 445 s \$1epdp_spiral_on_init;
+#X obj 491 144 s \$1epdp_transform_on_init;
+#X obj 484 187 s \$1epdp_underwatch_on_init;
+#X obj 491 221 s \$1epdp_vertigo_on_init;
+#X obj 489 256 s \$1epdp_warhol_on_init;
+#X obj 492 298 s \$1epdp_warp_on_init;
+#X connect 0 0 1 0;
+#X connect 0 0 3 0;
+#X connect 0 0 4 0;
+#X connect 0 0 5 0;
+#X connect 0 0 6 0;
+#X connect 0 0 7 0;
+#X connect 0 0 8 0;
+#X connect 0 0 9 0;
+#X connect 0 0 10 0;
+#X connect 0 0 11 0;
+#X connect 0 0 12 0;
+#X connect 0 0 13 0;
+#X connect 0 0 14 0;
+#X connect 0 0 15 0;
+#X connect 0 0 16 0;
+#X connect 0 0 17 0;
+#X connect 0 0 18 0;
+#X connect 0 0 19 0;
+#X connect 0 0 20 0;
+#X connect 0 0 21 0;
+#X connect 0 0 22 0;
+#X connect 0 0 23 0;
+#X connect 2 0 0 0;
+#X restore 311 398 pd epdp_disable_all;
+#X obj 304 2 cnv 15 40 20 empty \$1epdp_id \$1 10 10 0 16 -260097 -33289
+0;
+#N canvas 356 413 657 687 \$1-epdp_effects_configure 0;
+#X obj -8 -5 cnv 15 650 680 empty empty PDP_Effects_Control_Configuration
+170 12 0 16 -99865 -262144 0;
+#X obj 18 54 tgl 15 0 \$1epdp_bypass \$1epdp_bypass_init Bypass 22
+8 0 12 -257985 -1 -228856 1 1;
+#X obj 320 51 bng 15 250 50 0 \$1epdp_apply_settings \$1epdp_apply_settings_init
+Apply_settings 17 7 0 10 -260097 -1 -228856;
+#X obj 320 32 bng 15 250 50 0 \$1epdp_load_defaults \$1epdp_load_defaults_init
+Load_Defaults 17 7 0 10 -228856 -1 -228856;
+#X obj -8 -3 cnv 15 65 20 empty empty VIDEO_IN 0 10 0 12 -4034 -1 0
+;
+#X obj 6 85 cnv 15 150 75 empty empty empty 2 12 0 14 -191407 -66577
+0;
+#X obj 13 90 tgl 15 0 \$1epdp_aging_on \$1epdp_aging_on_init Aging
+17 7 0 12 -260097 -1 -1 0 1;
+#X obj 94 113 nbx 5 14 0 1e+37 0 0 \$1epdp_aging_dust \$1epdp_aging_dust_init
+Dust_Density -75 5 0 10 -262144 -1 -1 0 256;
+#X obj 94 132 nbx 5 14 0 1e+37 0 0 \$1epdp_aging_scratches \$1epdp_aging_scratches_init
+Num_Scratches -80 5 0 10 -262144 -1 -1 0 256;
+#X obj 6 165 cnv 15 150 75 empty empty empty 2 12 0 14 -191407 -66577
+0;
+#X obj 13 170 tgl 15 0 \$1epdp_baltan_on \$1epdp_baltan_on_init Baltan
+17 7 0 12 -260097 -1 -1 0 1;
+#X obj 55 201 nbx 8 14 -1e+37 1e+37 0 0 \$1epdp_baltan_value \$1epdp_baltan_value_init
+Value -35 5 0 10 -262144 -1 -1 1.65798e+07 256;
+#X obj 6 246 cnv 15 150 75 empty empty empty 2 12 0 14 -191407 -66577
+0;
+#X obj 13 251 tgl 15 0 \$1epdp_cycle_on \$1epdp_cycle_on_init Cycle
+17 7 0 12 -260097 -1 -1 0 1;
+#X obj 49 269 tgl 15 0 \$1epdp_cycle_y \$1epdp_cycle_y_init cycle_y
+17 7 0 10 -262144 -1 -1 0 1;
+#X obj 49 286 tgl 15 0 \$1epdp_cycle_u \$1epdp_cycle_u_init cycle_u
+17 7 0 10 -262144 -1 -1 0 1;
+#X obj 49 303 tgl 15 0 \$1epdp_cycle_v \$1epdp_cycle_v_init cycle_v
+17 7 0 10 -262144 -1 -1 0 1;
+#X obj 6 327 cnv 15 150 75 empty empty empty 2 12 0 14 -191407 -66577
+0;
+#X obj 13 332 tgl 15 0 \$1epdp_dice_on \$1epdp_dice_on_init Dice 17
+7 0 12 -260097 -1 -1 0 1;
+#X obj 68 361 nbx 3 14 0 10 0 0 \$1epdp_dice_size \$1epdp_dice_size_init
+Size -35 5 0 10 -262144 -1 -1 0 256;
+#X obj 6 408 cnv 15 150 75 empty empty empty 2 12 0 14 -191407 -66577
+0;
+#X obj 13 413 tgl 15 0 \$1epdp_edge_on \$1epdp_edge_on_init Edge 17
+7 0 12 -260097 -1 -1 0 1;
+#X obj 6 490 cnv 15 150 75 empty empty empty 2 12 0 14 -191407 -66577
+0;
+#X obj 13 495 tgl 15 0 \$1epdp_intrusion_on \$1epdp_intrusion_on_init
+Intrusion 17 7 0 12 -260097 -1 -1 0 1;
+#X obj 21 516 bng 15 250 50 0 \$1epdp_intrusion_start_comparing empty
+Start 17 7 0 10 -4034 -1 -1;
+#X obj 72 517 bng 15 250 50 0 \$1epdp_intrusion_stop_comparing empty
+Stop 17 7 0 10 -258113 -1 -1;
+#X obj 83 541 nbx 5 14 0 250 0 0 \$1epdp_intrusion_threshold \$1epdp_intrusion_threshold_init
+Threshold -60 6 0 10 -262144 -1 -1 10 256;
+#X obj 163 84 cnv 15 150 75 empty empty empty 2 12 0 14 -191407 -66577
+0;
+#X obj 170 89 tgl 15 0 \$1epdp_lens_on \$1epdp_lens_on_init Lens 17
+7 0 12 -260097 -1 -1 0 1;
+#X obj 265 109 nbx 3 14 -1e+37 1e+37 0 0 \$1epdp_lens_x \$1epdp_lens_x_init
+X -10 5 0 10 -262144 -1 -1 0 256;
+#X obj 266 126 nbx 3 14 -1e+37 1e+37 0 0 \$1epdp_lens_y \$1epdp_lens_y_init
+Y -10 5 0 10 -262144 -1 -1 0 256;
+#X obj 207 109 nbx 3 14 -1e+37 1e+37 0 0 \$1epdp_lens_size \$1epdp_lens_size_init
+Size -30 5 0 10 -262144 -1 -1 0 256;
+#X obj 207 126 nbx 3 14 -1e+37 1e+37 0 0 \$1epdp_lens_zoomfactor \$1epdp_lens_zoomfactor_init
+Zoom -30 5 0 10 -262144 -1 -1 0 256;
+#X obj 181 141 tgl 15 0 \$1epdp_lens_mode \$1epdp_lens_mode_init Static/Inspecting
+17 7 0 10 -262144 -1 -1 0 1;
+#X obj 163 165 cnv 15 150 75 empty empty empty 2 12 0 14 -191407 -66577
+0;
+#X obj 170 170 tgl 15 0 \$1epdp_mosaic_on \$1epdp_mosaic_on_init Mosaic
+17 7 0 12 -260097 -1 -1 0 1;
+#X obj 193 192 bng 15 250 50 0 \$1epdp_mosaic_setbackground \$1epdp_mosaic_setbackground_init
+SetBackground 17 7 0 10 -262144 -1 -1;
+#X obj 163 246 cnv 15 150 75 empty empty empty 2 12 0 14 -191407 -66577
+0;
+#X obj 170 251 tgl 15 0 \$1epdp_nervous_on \$1epdp_nervous_on_init
+Nervous 17 7 0 12 -260097 -1 -1 0 1;
+#X obj 240 216 nbx 5 14 -1e+37 1e+37 0 0 \$1epdp_mosaic_censorshiplevel
+\$1epdp_mosaic_censorshiplevel_init Censorship -60 5 0 10 -262144 -1
+-1 0 256;
+#X obj 203 273 tgl 15 0 \$1epdp_nervous_mode \$1epdp_nervous_mode_init
+Mode 17 7 0 10 -262144 -1 -1 0 1;
+#X obj 243 295 nbx 5 14 0 1e+37 0 0 \$1epdp_nervous_nframes \$1epdp_nervous_nframes_init
+Numb.frames -70 5 0 10 -262144 -1 -1 0 256;
+#X obj 163 327 cnv 15 150 75 empty empty empty 2 12 0 14 -191407 -66577
+0;
+#X obj 170 332 tgl 15 0 \$1epdp_puzzle_on \$1epdp_puzzle_on_init Puzzle
+17 7 0 12 -260097 -1 -1 0 1;
+#X obj 257 344 nbx 5 14 4 32 0 0 \$1epdp_puzzle_nblocks \$1epdp_puzzle_nblocks_init
+Num.Blocks -70 5 0 10 -262144 -1 -1 4 256;
+#X obj 192 358 bng 15 250 50 0 \$1epdp_puzzle_up empty empty 17 7 0
+10 -262144 -1 -1;
+#X obj 192 377 bng 15 250 50 0 \$1epdp_puzzle_down empty empty 17 7
+0 10 -262144 -1 -1;
+#X obj 211 367 bng 15 250 50 0 \$1epdp_puzzle_right empty empty 17
+7 0 10 -262144 -1 -1;
+#X obj 172 366 bng 15 250 50 0 \$1epdp_puzzle_left empty empty 17 7
+0 10 -262144 -1 -1;
+#X obj 162 409 cnv 15 150 75 empty empty empty 2 12 0 14 -191407 -66577
+0;
+#X obj 169 414 tgl 15 0 \$1epdp_quark_on \$1epdp_quark_on_init Quark
+17 7 0 12 -260097 -1 -1 0 1;
+#X obj 242 437 nbx 5 14 0 1e+37 0 0 \$1epdp_quark_nframes \$1epdp_quark_nframes_init
+N.Frames -55 5 0 10 -262144 -1 -1 0 256;
+#X obj 242 456 nbx 5 14 0 1e+37 0 0 \$1epdp_quark_tolerance \$1epdp_quark_tolerance_init
+Tolerance -60 5 0 10 -262144 -1 -1 0 256;
+#X obj 162 490 cnv 15 150 75 empty empty empty 2 12 0 14 -191407 -66577
+0;
+#X obj 169 495 tgl 15 0 \$1epdp_radioactiv_on \$1epdp_radioactiv_on_init
+Radioactiv 17 7 0 12 -260097 -1 -1 0 1;
+#X obj 249 530 nbx 5 14 0 1e+37 0 0 \$1epdp_radioactiv_snaptime \$1epdp_radioactiv_snaptime_init
+Snap_Time -55 5 0 10 -262144 -1 -1 0 256;
+#X obj 250 546 nbx 5 14 0 1e+37 0 0 \$1epdp_radioactiv_snapinterval
+\$1epdp_radioactiv_snapinterval_init Snap_Interval -78 5 0 10 -262144
+-1 -1 0 256;
+#X obj 247 510 hradio 15 1 0 4 \$1epdp_radioactiv_mode \$1epdp_radioactiv_mode_init
+Mode -30 8 0 10 -262144 -1 -1 0;
+#X obj 320 83 cnv 15 150 75 empty empty empty 2 12 0 14 -191407 -66577
+0;
+#X obj 327 88 tgl 15 0 \$1epdp_rev_on \$1epdp_rev_on_init Rev 17 7
+0 12 -260097 -1 -1 0 1;
+#X obj 412 97 nbx 5 14 1 1e+37 0 0 \$1epdp_rev_grabtime \$1epdp_rev_grabtime_init
+GrabTime -55 5 0 10 -262144 -1 -1 1 256;
+#X obj 412 112 nbx 5 14 0 1e+37 0 0 \$1epdp_rev_linespace \$1epdp_rev_linespace_init
+LineSpace -60 5 0 10 -262144 -1 -1 6 256;
+#X obj 412 127 nbx 5 14 1 1e+37 0 0 \$1epdp_rev_scale \$1epdp_rev_scale_init
+Scale -55 5 0 10 -262144 -1 -1 50 256;
+#X obj 412 141 nbx 5 14 0 1e+37 0 0 \$1epdp_rev_linecolor \$1epdp_rev_linecolor_init
+LineColor -60 5 0 10 -262144 -1 -1 0 256;
+#X obj 320 164 cnv 15 150 75 empty empty empty 2 12 0 14 -191407 -66577
+0;
+#X obj 327 169 tgl 15 0 \$1epdp_ripple_on \$1epdp_ripple_on_init Ripple
+17 7 0 12 -260097 -1 -1 0 1;
+#X obj 427 204 nbx 3 14 0 1e+37 0 0 \$1epdp_ripple_motionthreshold
+\$1epdp_ripple_motionthreshold_init Motion_Threshold -100 5 0 10 -262144
+-1 -1 0 256;
+#X obj 427 221 nbx 3 14 0 1e+37 0 0 \$1epdp_ripple_rain \$1epdp_ripple_rain_init
+RainDensity -78 5 0 10 -262144 -1 -1 0 256;
+#X obj 327 187 tgl 15 0 \$1epdp_ripple_mode \$1epdp_ripple_mode_init
+Raindrop/motion 17 7 0 10 -262144 -1 -1 0 1;
+#X obj 406 171 bng 15 250 50 0 \$1epdp_ripple_reset empty reset 17
+7 0 10 -257985 -1 -1;
+#X obj 321 246 cnv 15 150 75 empty empty empty 2 12 0 14 -191407 -66577
+0;
+#X obj 328 251 tgl 15 0 \$1epdp_shagadelic_on \$1epdp_shagadelic_on_init
+Shagadelic 17 7 0 12 -260097 -1 -1 0 1;
+#X obj 382 282 nbx 3 14 0 1000 0 0 \$1epdp_shagadelic \$1epdp_shagadelic_init
+Mask -35 5 0 10 -262144 -1 -1 0 256;
+#X obj 321 327 cnv 15 150 75 empty empty empty 2 12 0 14 -191407 -66577
+0;
+#X obj 328 332 tgl 15 0 \$1epdp_simura_on \$1epdp_simura_on_init Simura
+17 7 0 12 -260097 -1 -1 0 1;
+#X obj 400 384 nbx 5 14 0 66000 0 0 \$1epdp_simura_color \$1epdp_simura_color_init
+Color -35 5 0 10 -262144 -1 -1 16733 256;
+#X obj 328 362 hradio 15 1 0 9 \$1epdp_simura_mode \$1epdp_simura_mode_init
+Mode 0 -8 0 10 -262144 -1 -1 0;
+#X obj 320 409 cnv 15 150 156 empty empty empty 2 12 0 14 -191407 -66577
+0;
+#X obj 327 414 tgl 15 1 \$1epdp_spiral_on \$1epdp_spiral_on_init Spiral
+17 7 0 12 -260097 -1 -1 0 1;
+#X obj 337 441 hradio 15 1 0 8 \$1epdp_spiral_mode \$1epdp_spiral_mode_init
+Mode 0 -8 0 10 -262144 -1 -1 0;
+#X obj 342 490 nbx 4 14 -1e+37 1e+37 0 0 \$1epdp_spiral_focusx \$1epdp_spiral_focusx_init
+FocusX 0 -8 0 10 -262144 -1 -1 0 256;
+#X obj 399 489 nbx 4 14 -1e+37 1e+37 0 0 \$1epdp_spiral_focusy \$1epdp_spiral_focusy_init
+FocusY 0 -8 0 10 -262144 -1 -1 0 256;
+#X obj 427 508 nbx 3 14 0 1e+37 0 0 \$1epdp_spiral_depth \$1epdp_spiral_depth_init
+Depth_Shift -70 5 0 10 -262144 -1 -1 0 256;
+#X obj 427 525 nbx 3 14 0 1e+37 0 0 \$1epdp_spiral_focusint \$1epdp_spiral_focusint_init
+Focus_Inerv. -70 5 0 10 -262144 -1 -1 0 256;
+#X obj 427 542 nbx 3 14 0 1e+37 0 0 \$1epdp_spiral_focusincr \$1epdp_spiral_focusincr_init
+Focus_Incr. -70 5 0 10 -262144 -1 -1 0 256;
+#X obj 337 460 tgl 15 0 \$1epdp_spiral_xor \$1epdp_spiral_xor_init
+XOR 17 7 0 10 -262144 -1 -1 0 1;
+#X obj 384 460 tgl 15 0 \$1epdp_spiral_animate \$1epdp_spiral_animate_init
+Anim_Focus 17 7 0 10 -262144 -1 -1 0 1;
+#X obj 476 83 cnv 15 150 75 empty empty empty 2 12 0 14 -191407 -66577
+0;
+#X obj 483 88 tgl 15 0 \$1epdp_transform_on \$1epdp_transform_on_init
+Transform 17 7 0 12 -260097 -1 -1 0 1;
+#X obj 498 125 hradio 15 1 0 6 \$1epdp_transform_mode \$1epdp_transform_mode_init
+Mode 0 -8 0 10 -262144 -1 -1 0;
+#X obj 476 164 cnv 15 150 75 empty empty empty 2 12 0 14 -191407 -66577
+0;
+#X obj 483 169 tgl 15 0 \$1epdp_underwatch_on \$1epdp_underwatch_on_init
+Underwatch 17 7 0 12 -260097 -1 -1 0 1;
+#X obj 559 200 nbx 3 14 0 1000 0 0 \$1epdp_underwatch_stripsize \$1epdp_underwatch_stripsize_init
+Strip_size -65 5 0 10 -262144 -1 -1 10 256;
+#X obj 476 246 cnv 15 150 75 empty empty empty 2 12 0 14 -191407 -66577
+0;
+#X obj 483 251 tgl 15 0 \$1epdp_vertigo_on \$1epdp_vertigo_on_init
+Vertigo 17 7 0 12 -260097 -1 -1 0 1;
+#X obj 559 272 nbx 3 14 0 1000 0 0 \$1epdp_vertigo_phase \$1epdp_vertigo_phase_init
+Phase_Incr. -65 5 0 10 -262144 -1 -1 0 256;
+#X obj 559 293 nbx 3 14 0 1000 0 0 \$1epdp_vertigo_zoom \$1epdp_vertigo_zoom_init
+Zoom_Rate -65 5 0 10 -262144 -1 -1 0 256;
+#X obj 476 328 cnv 15 150 156 empty empty empty 2 12 0 14 -191407 -66577
+0;
+#X obj 483 333 tgl 15 1 \$1epdp_warhol_on \$1epdp_warhol_on_init Warhol
+17 7 0 12 -260097 -1 -1 0 1;
+#X obj 488 396 hradio 15 1 0 9 \$1epdp_warhol_color \$1epdp_warhol_color_init
+Color_to_modify 0 -8 0 10 -262144 -1 -1 0;
+#X obj 497 363 nbx 4 14 0 100 0 0 \$1epdp_warhol_xdiv \$1epdp_warhol_xdiv_init
+X_divider 0 -8 0 10 -262144 -1 -1 0 256;
+#X obj 559 364 nbx 4 14 0 100 0 0 \$1epdp_warhol_ydiv \$1epdp_warhol_ydiv_init
+Y_divider 0 -8 0 10 -262144 -1 -1 0 256;
+#X obj 575 422 nbx 3 14 0 1e+37 0 0 \$1epdp_warhol_ycomp \$1epdp_warhol_ycomp_init
+Y_Component -70 5 0 10 -262144 -1 -1 0 256;
+#X obj 576 440 nbx 3 14 0 1e+37 0 0 \$1epdp_warhol_ucomp \$1epdp_warhol_ucomp_init
+U_Component -70 5 0 10 -262144 -1 -1 0 256;
+#X obj 577 460 nbx 3 14 0 1e+37 0 0 \$1epdp_warhol_vcomp \$1epdp_warhol_vcomp_init
+V_Component -70 5 0 10 -262144 -1 -1 0 256;
+#X obj 475 490 cnv 15 150 75 empty empty empty 2 12 0 14 -191407 -66577
+0;
+#X obj 482 495 tgl 15 0 \$1epdp_warp_on \$1epdp_warp_on_init Warp 17
+7 0 12 -260097 -1 -1 0 1;
+#X obj 555 538 nbx 3 14 -1000 1000 0 0 \$1epdp_warp_control \$1epdp_warp_control
+Control -65 5 0 10 -262144 -1 -1 0 256;
+#X obj 496 516 tgl 15 0 \$1epdp_warp_mode \$1epdp_warp_mode_init Manual/Auto
+17 7 0 10 -262144 -1 -1 0 1;
+#X obj -8 655 cnv 15 65 20 empty empty VIDEO_OUT 0 10 0 12 -221249
+-262144 0;
+#X obj 18 32 bng 15 250 50 0 \$1epdp_disable_all \$1epdp_disable_all_init
+Disable_all_effects 17 7 0 10 -258113 -191407 -191407;
+#X obj 60 -4 bng 15 250 50 0 empty \$1epdp_monitor_in empty 17 7 0
+10 -128992 -4034 -4034;
+#X obj 161 31 tgl 15 0 \$1epdp_monitor_on \$1epdp_monitor_on_init Monitor_leds
+17 7 0 10 -228856 -1 -228856 0 1;
+#X obj 60 660 bng 15 250 50 0 empty \$1epdp_monitor_out empty 17 7
+0 10 -128992 -258113 -258113;
+#X obj 5 570 cnv 15 150 75 empty empty empty 2 12 0 14 -191407 -66577
+0;
+#X obj 12 575 tgl 15 0 \$1epdp_ascii_on \$1epdp_ascii_on_init ASCII
+17 7 0 12 -260097 -1 -1 0 1;
+#X obj 13 596 bng 15 250 50 0 \$1epdp_ascii_loadmap \$1epdp_ascii_loadmap_init
+Load_map 17 7 0 10 -262144 -1 -1;
+#X obj 13 614 tgl 15 0 \$1epdp_ascii_color \$1epdp_ascii_color_init
+Color 17 7 0 10 -262144 -1 -1 0 1;
+#X obj 89 588 nbx 5 14 -1e+37 1e+37 0 0 \$1epdp_ascii_brightness \$1epdp_ascii_brightness_init
+Brightness 0 -8 0 10 -262144 -1 -1 25 256;
+#X obj 89 621 nbx 5 14 -1e+37 1e+37 0 0 \$1epdp_ascii_charpixratio
+\$1epdp_ascii_charpixratio_init ChrPixRatio 0 -8 0 10 -262144 -1 -1
+0 256;
+#X obj 570 -2 cnv 15 40 20 empty \$1gempix_effects_id \$1 10 10 0 16
+-260097 -33289 0;
+#X obj 476 569 cnv 15 150 75 empty empty empty 2 12 0 14 -191407 -66577
+0;
+#X obj 483 574 tgl 15 0 \$1epdp_noise_on \$1epdp_noise_on_init Noise
+17 7 0 12 -260097 -1 -1 0 1;
+#X obj 567 592 vradio 15 1 0 2 \$1epdp_noise_type \$1epdp_noise_type_init
+empty 0 -8 0 10 -262144 -1 -1 0;
+#X text 584 590 Grey;
+#X text 585 606 Color;
+#X obj 486 604 nbx 5 14 -1e+37 1e+37 0 0 \$1epdp_noise_seed \$1epdp_noise_seed_init
+seed 0 -8 0 10 -262144 -1 -1 0 256;
+#X obj 487 622 nbx 3 14 0 1080 0 0 \$1epdp_noise_x \$1epdp_noise_x_init
+X -10 5 0 10 -262144 -1 -1 0 256;
+#X obj 536 625 nbx 3 14 0 1080 0 0 \$1epdp_noise_y \$1epdp_noise_y_init
+y -10 5 0 10 -262144 -1 -1 0 256;
+#X obj 552 572 bng 15 250 50 0 \$1epdp_noise_start \$1epdp_noise_start_init
+apply 17 7 0 10 -257985 -1 -1;
+#X coords 0 0 1 1 650 600 0;
+#X restore 662 268 pd \$1-epdp_effects_configure;
+#X symbolatom 774 737 0 0 0 0 - - -;
+#X msg 700 578 addsemi;
+#X msg 769 990 \; pd-e-epdp_effects_configure vis 0;
+#X obj 699 557 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 733 606 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 877 897 add2 0;
+#X msg 898 860 set add2 \$1;
+#X obj 801 855 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 583 495 set;
+#X msg 756 825 add2 pd-\$1-epdp_effects_configure vis;
+#X obj 668 531 delay 10;
+#X obj 638 503 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 929 930 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 607 431 CREATES/DESTROYS CONFIGURATION WINDOW;
+#X obj 763 710 symbol \$1;
+#X obj 839 624 float \$1;
+#X floatatom 892 645 5 0 0 0 - - -;
+#X obj 895 673 ftos;
+#X obj 843 598 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1417 372 pdp_binary ----;
+#X obj 1427 406 pdp_dilate ----;
+#X obj 1450 457 pdp_erode ----;
+#X obj 1474 524 pdp_pen;
+#X text 1306 367 efectes complexes;
+#X obj 1467 574 pdp_mapper;
+#X obj 1433 652 pdp_scale 192 160;
+#X obj 1421 878 pdp_background;
+#X obj 1530 716 pdp_cmap ----;
+#X obj 1408 710 pdp_compose ----;
+#X obj 1412 801 pdp_form -----------------;
+#X obj 1455 836 pdp_fqt;
+#X obj 1428 760 pdp_mgrid;
+#X obj 1641 791 pdp_qtext -----------------;
+#X obj 1652 832 pdp_imgloader;
+#X obj 347 169 bng 15 250 50 0 \$1epdp_noise_start empty Noise 17 7
+0 10 -260097 -1 -1;
+#X obj 290 170 tgl 15 1 \$1epdp_noise_on_init empty Noise 17 7 0 12
+-260097 -1 -1 0 1;
+#X connect 33 0 46 0;
+#X connect 42 0 44 0;
+#X connect 43 0 42 0;
+#X connect 45 0 43 1;
+#X connect 46 0 54 0;
+#X connect 46 1 36 0;
+#X connect 47 0 46 1;
+#X connect 50 0 67 0;
+#X connect 50 0 65 0;
+#X connect 54 0 36 0;
+#X connect 54 0 43 0;
+#X connect 59 0 68 0;
+#X connect 60 0 61 0;
+#X connect 60 0 63 0;
+#X connect 60 0 77 0;
+#X connect 62 0 60 0;
+#X connect 63 0 73 0;
+#X connect 64 0 61 0;
+#X connect 64 0 71 0;
+#X connect 65 0 64 0;
+#X connect 66 0 64 0;
+#X connect 67 0 61 0;
+#X connect 67 0 70 0;
+#X connect 68 0 61 0;
+#X connect 68 0 66 0;
+#X connect 69 0 62 0;
+#X connect 70 0 69 0;
+#X connect 71 0 61 0;
+#X connect 73 0 59 0;
+#X connect 74 0 75 0;
+#X connect 75 0 76 0;
+#X connect 76 0 73 0;
+#X connect 77 0 74 0;
+#X coords 0 -1 1 1 400 215 1 0 0;

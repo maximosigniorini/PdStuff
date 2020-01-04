@@ -1,0 +1,40 @@
+#N canvas 0 0 743 451 10;
+#X obj 134 401 outlet;
+#X obj 83 121 inlet;
+#X text 327 167 we have blocks of 8 MIDIcontrollers reservered for
+a given parameter \; if we go beyond this block \, we proceed to the
+next MIDIchannel;
+#X text 43 29 args: <basectl>;
+#X text 45 70 calculates the channel-number from the MIDIcontroller
++ MIDIchannel and the basecontroller-number (==controller channel1)
+;
+#X text 179 119 ctl# ch#;
+#X text 182 398 channel;
+#X obj 83 151 unpack;
+#X obj 171 252 - 1;
+#X obj 134 252 - \$1;
+#X obj 171 292 * 8;
+#X obj 134 318 +;
+#X obj 171 272 max 0;
+#X obj 83 172 moses \$1;
+#X obj 232 183 loadbang;
+#X obj 134 225 moses;
+#X obj 232 203 f \$1;
+#X obj 232 224 + 8;
+#X msg 266 207 bang;
+#X obj 134 365 + 1;
+#X connect 1 0 7 0;
+#X connect 7 0 13 0;
+#X connect 7 1 8 0;
+#X connect 8 0 12 0;
+#X connect 9 0 11 0;
+#X connect 10 0 11 1;
+#X connect 11 0 19 0;
+#X connect 12 0 10 0;
+#X connect 13 1 15 0;
+#X connect 14 0 16 0;
+#X connect 15 0 9 0;
+#X connect 16 0 17 0;
+#X connect 17 0 15 1;
+#X connect 18 0 16 0;
+#X connect 19 0 0 0;

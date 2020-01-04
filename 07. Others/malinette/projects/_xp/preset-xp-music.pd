@@ -1,0 +1,105 @@
+#N canvas 242 63 811 644 10;
+#X declare -path ../in -path ../out -path ../tools -path ../filters
+-path ../lib;
+#X obj -25 187 cnv 1 396 1 empty empty FILTERS 2 -6 1 12 -228856 -191407
+0;
+#N canvas 400 311 645 287 INIT 0;
+#X obj 240 100 bng 10 250 50 0 empty empty SAVE-AS -45 6 0 9 -260097
+-1 -1;
+#X obj 103 200 namecanvas \$0-patch-name;
+#X obj 100 160 s \$0-patch-name;
+#X msg 100 131 menusaveas;
+#X obj 220 130 savepanel;
+#X obj 220 157 s UPDATE_PATCH;
+#X obj 50 33 declare -path ../in -path ../out -path ../tools -path
+../filters -path ../lib;
+#X text 50 4 Always use this subpatch in the presets;
+#X obj 101 101 cnv 8 80 8 empty empty INIT 5 5 0 10 -233017 -66577
+0;
+#X connect 0 0 3 0;
+#X connect 0 0 4 0;
+#X connect 3 0 2 0;
+#X connect 4 0 5 0;
+#X coords 0 -1 1 1 150 10 2 100 100;
+#X restore 625 -2 pd INIT;
+#X obj -25 354 cnv 1 800 1 empty empty OUT 2 -6 1 12 -228856 -191407
+0;
+#X obj -25 63 cnv 1 800 1 empty empty IN 2 -6 1 12 -228856 -191407
+0;
+#X obj -25 187 cnv 1 800 1 empty empty TOOLS 400 -6 1 12 -228856 -191407
+0;
+#X obj 37 440 synth;
+#X obj 68 312 gamme;
+#X obj 369 508 audio-out;
+#X obj 418 407 physics;
+#X obj 347 429 audio-sampler-transpose;
+#X obj 126 502 audio-delay;
+#X obj 37 414 + 34;
+#X obj 517 489 audio-disto;
+#X obj 578 553 audio-out;
+#X obj 43 119 synth-drums;
+#X obj 132 0 seq-taptempo;
+#X obj 111 197 audio-out;
+#X obj 6 56 count 8;
+#X obj 6 77 sel 1;
+#X obj 72 59 count 8;
+#X obj 69 5 bang;
+#X obj 72 80 sel 5;
+#X obj 160 59 count 16;
+#X obj 160 80 sel 1;
+#X obj 211 254 seq-counter2;
+#X floatatom 378 312 5 0 0 0 - - -;
+#X msg 211 231 time 350 \, step 0.5 \, min -12 \, max 15 \, onoff 1
+\, mode 3;
+#X obj 633 274 synth;
+#X obj 544 185 gamme;
+#X obj 539 -10 seq-sliders;
+#X obj 536 159 map 0 1 -12 15;
+#X obj 710 375 audio-out;
+#X obj 544 272 + 60;
+#X obj 538 311 synth;
+#X obj 542 290 + 0.05;
+#X floatatom 603 284 5 0 0 0 - - -;
+#X obj 517 393 audio-sampler-transpose;
+#X connect 5 0 7 0;
+#X connect 6 0 8 0;
+#X connect 6 0 11 0;
+#X connect 6 0 20 0;
+#X connect 6 0 36 1;
+#X connect 7 0 12 0;
+#X connect 7 1 12 0;
+#X connect 8 0 9 1;
+#X connect 9 0 7 0;
+#X connect 10 0 7 0;
+#X connect 10 1 7 1;
+#X connect 11 0 5 0;
+#X connect 12 0 13 0;
+#X connect 12 0 13 1;
+#X connect 14 4 16 0;
+#X connect 14 4 16 1;
+#X connect 17 0 18 0;
+#X connect 18 0 14 0;
+#X connect 19 0 21 0;
+#X connect 20 0 17 0;
+#X connect 20 0 19 0;
+#X connect 20 0 22 0;
+#X connect 20 0 14 2;
+#X connect 21 0 14 1;
+#X connect 22 0 23 0;
+#X connect 23 0 14 3;
+#X connect 24 0 25 0;
+#X connect 24 0 6 0;
+#X connect 26 0 24 0;
+#X connect 27 0 31 0;
+#X connect 27 0 31 1;
+#X connect 28 0 32 0;
+#X connect 29 0 30 0;
+#X connect 30 0 28 0;
+#X connect 32 0 27 0;
+#X connect 32 0 34 0;
+#X connect 33 0 31 0;
+#X connect 33 0 31 1;
+#X connect 34 0 33 0;
+#X connect 35 0 34 1;
+#X connect 36 0 7 0;
+#X connect 36 0 12 0;

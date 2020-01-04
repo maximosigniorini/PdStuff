@@ -1,0 +1,619 @@
+#N canvas 506 203 1128 650 10;
+#N canvas 102 656 1596 344 seq_select:::::::::::::::::::::::::::: 0
+;
+#X obj 18 -76 sel 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15;
+#X obj 284 -61 spigot;
+#X obj 359 -62 spigot;
+#X obj 429 -62 spigot;
+#X obj 504 -61 spigot;
+#X obj 590 -62 spigot;
+#X obj 662 -60 spigot;
+#X obj 736 -61 spigot;
+#X obj 810 -62 spigot;
+#X obj 899 -60 spigot;
+#X obj 974 -60 spigot;
+#X obj 1047 -61 spigot;
+#X obj 1121 -59 spigot;
+#X obj 1205 -60 spigot;
+#X obj 1279 -63 spigot;
+#X obj 1351 -66 spigot;
+#X obj 1425 -66 spigot;
+#X obj 27 -159 inlet;
+#X obj 283 -15 outlet;
+#X obj 359 -16 outlet;
+#X obj 429 -16 outlet;
+#X obj 505 -17 outlet;
+#X obj 589 -16 outlet;
+#X obj 663 -17 outlet;
+#X obj 735 -17 outlet;
+#X obj 809 -16 outlet;
+#X obj 898 -15 outlet;
+#X obj 974 -16 outlet;
+#X obj 1044 -16 outlet;
+#X obj 1120 -17 outlet;
+#X obj 1204 -16 outlet;
+#X obj 1278 -17 outlet;
+#X obj 1350 -17 outlet;
+#X obj 1424 -16 outlet;
+#X text 67 -164 num_of_seq_in;
+#X text 176 0 main bang;
+#X text 283 6 bang 0;
+#X text 356 7 bang 1;
+#X text 427 9 bang 2;
+#X text 505 9 bang 3;
+#X text 588 10 bang 4;
+#X text 661 11 bang 5;
+#X text 732 13 bang 6;
+#X text 810 13 bang 7;
+#X text 897 13 bang 8;
+#X text 970 14 bang 9;
+#X text 1041 16 bang 10;
+#X text 1119 16 bang 11;
+#X text 1202 17 bang 12;
+#X text 1275 18 bang 13;
+#X text 1346 20 bang 14;
+#X text 1424 20 bang 15;
+#X obj 317 -123 r \$1seq_sel0;
+#X obj 392 -105 r \$1seq_sel1;
+#X obj 462 -126 r \$1seq_sel2;
+#X obj 537 -105 r \$1seq_sel3;
+#X obj 623 -130 r \$1seq_sel4;
+#X obj 695 -105 r \$1seq_sel5;
+#X obj 769 -127 r \$1seq_sel6;
+#X obj 843 -106 r \$1seq_sel7;
+#X obj 932 -124 r \$1seq_sel8;
+#X obj 1007 -103 r \$1seq_sel9;
+#X obj 1080 -127 r \$1seq_sel10;
+#X obj 1154 -106 r \$1seq_sel11;
+#X obj 1238 -130 r \$1seq_sel12;
+#X obj 1312 -106 r \$1seq_sel13;
+#X obj 1384 -127 r \$1seq_sel14;
+#X obj 1458 -105 r \$1seq_sel15;
+#X obj 239 70 spigot;
+#X obj 314 69 spigot;
+#X obj 384 69 spigot;
+#X obj 459 70 spigot;
+#X obj 545 69 spigot;
+#X obj 617 71 spigot;
+#X obj 691 70 spigot;
+#X obj 765 69 spigot;
+#X obj 854 71 spigot;
+#X obj 929 71 spigot;
+#X obj 1002 70 spigot;
+#X obj 1076 72 spigot;
+#X obj 1160 71 spigot;
+#X obj 1234 68 spigot;
+#X obj 1306 65 spigot;
+#X obj 1380 65 spigot;
+#X obj 26 52 r \$1seq_monitor;
+#X obj 212 107 s \$1seq_out0;
+#X obj 287 136 s \$1seq_out1;
+#X obj 366 112 s \$1seq_out2;
+#X obj 434 136 s \$1seq_out3;
+#X obj 530 111 s \$1seq_out4;
+#X obj 602 135 s \$1seq_out5;
+#X obj 676 103 s \$1seq_out6;
+#X obj 748 134 s \$1seq_out7;
+#X obj 839 102 s \$1seq_out8;
+#X obj 910 132 s \$1seq_out9;
+#X obj 992 106 s \$1seq_out10;
+#X obj 1060 132 s \$1seq_out11;
+#X obj 1153 107 s \$1seq_out12;
+#X obj 1220 133 s \$1seq_out13;
+#X obj 1297 105 s \$1seq_out14;
+#X obj 1367 137 s \$1seq_out15;
+#X obj 183 -13 outlet;
+#X connect 0 0 1 0;
+#X connect 0 1 2 0;
+#X connect 0 2 3 0;
+#X connect 0 3 4 0;
+#X connect 0 4 5 0;
+#X connect 0 5 6 0;
+#X connect 0 6 7 0;
+#X connect 0 7 8 0;
+#X connect 0 8 9 0;
+#X connect 0 9 10 0;
+#X connect 0 10 11 0;
+#X connect 0 11 12 0;
+#X connect 0 12 13 0;
+#X connect 0 13 14 0;
+#X connect 0 14 15 0;
+#X connect 0 15 16 0;
+#X connect 1 0 18 0;
+#X connect 1 0 68 0;
+#X connect 1 0 101 0;
+#X connect 2 0 19 0;
+#X connect 2 0 69 0;
+#X connect 2 0 101 0;
+#X connect 3 0 20 0;
+#X connect 3 0 70 0;
+#X connect 3 0 101 0;
+#X connect 4 0 21 0;
+#X connect 4 0 71 0;
+#X connect 4 0 101 0;
+#X connect 5 0 22 0;
+#X connect 5 0 72 0;
+#X connect 5 0 101 0;
+#X connect 6 0 23 0;
+#X connect 6 0 73 0;
+#X connect 6 0 101 0;
+#X connect 7 0 24 0;
+#X connect 7 0 74 0;
+#X connect 7 0 101 0;
+#X connect 8 0 25 0;
+#X connect 8 0 75 0;
+#X connect 8 0 101 0;
+#X connect 9 0 26 0;
+#X connect 9 0 76 0;
+#X connect 9 0 101 0;
+#X connect 10 0 27 0;
+#X connect 10 0 77 0;
+#X connect 10 0 101 0;
+#X connect 11 0 28 0;
+#X connect 11 0 78 0;
+#X connect 11 0 101 0;
+#X connect 12 0 29 0;
+#X connect 12 0 79 0;
+#X connect 12 0 101 0;
+#X connect 13 0 30 0;
+#X connect 13 0 80 0;
+#X connect 13 0 101 0;
+#X connect 14 0 31 0;
+#X connect 14 0 81 0;
+#X connect 14 0 101 0;
+#X connect 15 0 32 0;
+#X connect 15 0 82 0;
+#X connect 15 0 101 0;
+#X connect 16 0 33 0;
+#X connect 16 0 83 0;
+#X connect 16 0 101 0;
+#X connect 17 0 0 0;
+#X connect 52 0 1 1;
+#X connect 53 0 2 1;
+#X connect 54 0 3 1;
+#X connect 55 0 4 1;
+#X connect 56 0 5 1;
+#X connect 57 0 6 1;
+#X connect 58 0 7 1;
+#X connect 59 0 8 1;
+#X connect 60 0 9 1;
+#X connect 61 0 10 1;
+#X connect 62 0 11 1;
+#X connect 63 0 12 1;
+#X connect 64 0 13 1;
+#X connect 65 0 14 1;
+#X connect 66 0 15 1;
+#X connect 67 0 16 1;
+#X connect 68 0 85 0;
+#X connect 69 0 86 0;
+#X connect 70 0 87 0;
+#X connect 71 0 88 0;
+#X connect 72 0 89 0;
+#X connect 73 0 90 0;
+#X connect 74 0 91 0;
+#X connect 75 0 92 0;
+#X connect 76 0 93 0;
+#X connect 77 0 94 0;
+#X connect 78 0 95 0;
+#X connect 79 0 96 0;
+#X connect 80 0 97 0;
+#X connect 81 0 98 0;
+#X connect 82 0 99 0;
+#X connect 83 0 100 0;
+#X connect 84 0 68 1;
+#X connect 84 0 69 1;
+#X connect 84 0 70 1;
+#X connect 84 0 71 1;
+#X connect 84 0 72 1;
+#X connect 84 0 73 1;
+#X connect 84 0 74 1;
+#X connect 84 0 75 1;
+#X connect 84 0 76 1;
+#X connect 84 0 77 1;
+#X connect 84 0 78 1;
+#X connect 84 0 79 1;
+#X connect 84 0 80 1;
+#X connect 84 0 81 1;
+#X connect 84 0 82 1;
+#X connect 84 0 83 1;
+#X restore 577 388 pd seq_select::::::::::::::::::::::::::::;
+#X obj 367 -44 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#N canvas 722 479 888 300 seq_default_settings 0;
+#X obj 22 22 loadbang;
+#X obj 21 81 symbol \$1;
+#X symbolatom 20 111 0 0 0 0 - - -;
+#X obj 22 54 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 21 136 s \$1seq_id;
+#X obj 116 53 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 116 23 r \$1seq_reset;
+#X msg 120 82 0;
+#X obj 117 131 s \$1seq_start_init;
+#X obj 103 191 s \$1seq_time_init;
+#X obj 245 132 s \$1seq_rang_init;
+#X msg 242 88 2;
+#X msg 351 88 0;
+#X obj 361 131 s \$1seq_monitor_init;
+#X msg 105 167 100;
+#X msg 367 176 0;
+#X obj 377 219 s \$1seq_type_init;
+#X msg 231 175 0;
+#X obj 241 218 s \$1seq_mask_on_init;
+#X msg 500 85 0;
+#X obj 510 128 s \$1seq_mask1_init;
+#X msg 630 86 0;
+#X obj 640 129 s \$1seq_mask2_init;
+#X msg 509 169 0;
+#X obj 519 212 s \$1seq_init_val;
+#X obj 547 46 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 548 20 r \$1seq_reset_cont;
+#X msg 678 159 0;
+#X obj 688 202 s \$1seq_num;
+#X connect 0 0 3 0;
+#X connect 0 0 5 0;
+#X connect 1 0 2 0;
+#X connect 2 0 4 0;
+#X connect 3 0 1 0;
+#X connect 5 0 7 0;
+#X connect 5 0 11 0;
+#X connect 5 0 12 0;
+#X connect 5 0 14 0;
+#X connect 5 0 15 0;
+#X connect 5 0 17 0;
+#X connect 5 0 19 0;
+#X connect 5 0 21 0;
+#X connect 5 0 23 0;
+#X connect 5 0 27 0;
+#X connect 6 0 5 0;
+#X connect 7 0 8 0;
+#X connect 11 0 10 0;
+#X connect 12 0 13 0;
+#X connect 14 0 9 0;
+#X connect 15 0 16 0;
+#X connect 17 0 18 0;
+#X connect 19 0 20 0;
+#X connect 21 0 22 0;
+#X connect 23 0 24 0;
+#X connect 25 0 23 0;
+#X connect 25 0 27 0;
+#X connect 26 0 25 0;
+#X connect 27 0 28 0;
+#X restore 39 231 pd seq_default_settings;
+#X obj 0 1 cnv 15 320 140 empty empty PDP_Sequencer 25 8 0 10 -99865
+-262144 0;
+#X obj 64 66 hradio 15 1 0 16 empty \$1seq_num empty 0 -8 0 10 -1 -260097
+-1 15;
+#X obj 391 -73 r \$1seq_start;
+#X obj 159 2 tgl 15 0 \$1seq_start \$1seq_start_init Start 17 7 0 8
+-4034 -1 -228856 0 1;
+#X obj 644 -29 nbx 5 14 0 1e+37 0 0 empty empty empty 0 -8 0 10 -262144
+-1 -1 100 256;
+#X obj 644 -69 r \$1seq_time;
+#N canvas 1120 583 333 300 linial 0;
+#X obj 47 96 metro 250;
+#X obj 63 141 i;
+#X obj 106 123 + 1;
+#X obj 109 151 mod 16;
+#X obj 49 174 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 15 256;
+#X obj 39 20 inlet;
+#X obj 126 20 inlet;
+#X obj 200 21 inlet;
+#X obj 49 211 outlet;
+#X obj 255 23 inlet;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 1 0 4 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 1;
+#X connect 4 0 8 0;
+#X connect 5 0 0 0;
+#X connect 6 0 0 1;
+#X connect 7 0 3 1;
+#X connect 9 0 2 0;
+#X connect 9 0 1 1;
+#X restore 572 139 pd linial;
+#X obj 816 -70 r \$1seq_rang2;
+#X obj 816 -30 nbx 5 14 0 1e+37 0 0 empty empty empty 0 -8 0 10 -262144
+-1 -1 16 256;
+#X obj 64 84 tgl 15 0 \$1seq_sel0 \$1seq_sel0_init 0 3 8 0 8 -66577
+-262144 -228856 0 1;
+#X obj 79 84 tgl 15 0 \$1seq_sel1 \$1seq_sel1_init 1 3 8 0 8 -66577
+-262144 -228856 0 1;
+#X obj 94 84 tgl 15 0 \$1seq_sel2 \$1seq_sel2_init 2 3 8 0 8 -66577
+-262144 -228856 0 1;
+#X obj 109 84 tgl 15 0 \$1seq_sel3 \$1seq_sel3_init 3 3 8 0 8 -66577
+-262144 -228856 0 1;
+#X obj 124 84 tgl 15 0 \$1seq_sel4 \$1seq_sel4_init 4 3 8 0 8 -66577
+-262144 -228856 0 1;
+#X obj 139 84 tgl 15 0 \$1seq_sel5 \$1seq_sel5_init 5 3 8 0 8 -66577
+-262144 -228856 0 1;
+#X obj 154 84 tgl 15 0 \$1seq_sel6 \$1seq_sel6_init 6 3 8 0 8 -66577
+-262144 -228856 0 1;
+#X obj 169 84 tgl 15 0 \$1seq_sel7 \$1seq_sel7_init 7 3 8 0 8 -66577
+-262144 -228856 0 1;
+#X obj 184 84 tgl 15 0 \$1seq_sel8 \$1seq_sel8_init 8 3 8 0 8 -66577
+-262144 -228856 0 1;
+#X obj 199 84 tgl 15 0 \$1seq_sel9 \$1seq_sel9_init 9 3 8 0 8 -66577
+-262144 -228856 0 1;
+#X obj 214 84 tgl 15 0 \$1seq_sel10 \$1seq_sel10_init 10 1 8 0 8 -66577
+-262144 -228856 0 1;
+#X obj 229 84 tgl 15 0 \$1seq_sel11 \$1seq_sel11_init 11 2 8 0 8 -66577
+-262144 -228856 0 1;
+#X obj 244 84 tgl 15 0 \$1seq_sel12 \$1seq_sel12_init 12 1 8 0 8 -66577
+-262144 -228856 0 1;
+#X obj 259 84 tgl 15 0 \$1seq_sel13 \$1seq_sel13_init 13 1 8 0 8 -66577
+-262144 -191407 0 1;
+#X obj 274 84 tgl 15 0 \$1seq_sel14 \$1seq_sel14_init 14 1 8 0 8 -66577
+-262144 -228856 0 1;
+#X obj 288 84 tgl 15 0 \$1seq_sel15 \$1seq_sel15_init 15 1 8 0 8 -66577
+-262144 -228856 0 1;
+#X obj 64 102 bng 15 250 50 0 empty \$1seq_out0 empty 17 7 0 10 -1
+-260097 -1;
+#X obj 79 102 bng 15 250 50 0 empty \$1seq_out1 empty 17 7 0 10 -1
+-260097 -1;
+#X obj 94 102 bng 15 250 50 0 empty \$1seq_out2 empty 17 7 0 10 -1
+-260097 -1;
+#X obj 109 102 bng 15 250 50 0 empty \$1seq_out3 empty 17 7 0 10 -1
+-260097 -1;
+#X obj 124 102 bng 15 250 50 0 empty \$1seq_out4 empty 17 7 0 10 -1
+-260097 -1;
+#X obj 139 102 bng 15 250 50 0 empty \$1seq_out5 empty 17 7 0 10 -1
+-260097 -1;
+#X obj 154 102 bng 15 250 50 0 empty \$1seq_out6 empty 17 7 0 10 -1
+-260097 -1;
+#X obj 169 102 bng 15 250 50 0 empty \$1seq_out7 empty 17 7 0 10 -1
+-260097 -1;
+#X obj 184 102 bng 15 250 50 0 empty \$1seq_out8 empty 17 7 0 10 -1
+-260097 -1;
+#X obj 199 102 bng 15 250 50 0 empty \$1seq_out9 empty 17 7 0 10 -1
+-260097 -1;
+#X obj 214 102 bng 15 250 50 0 empty \$1seq_out10 empty 17 7 0 10 -1
+-260097 -1;
+#X obj 229 102 bng 15 250 50 0 empty \$1seq_out11 empty 17 7 0 10 -1
+-260097 -1;
+#X obj 244 102 bng 15 250 50 0 empty \$1seq_out12 empty 17 7 0 10 -1
+-260097 -1;
+#X obj 259 102 bng 15 250 50 0 empty \$1seq_out13 empty 17 7 0 10 -1
+-260097 -1;
+#X obj 274 102 bng 15 250 50 0 empty \$1seq_out14 empty 17 7 0 10 -1
+-260097 -1;
+#X obj 289 102 bng 15 250 50 0 empty \$1seq_out15 empty 17 7 0 10 -1
+-260097 -1;
+#X obj 24 90 bng 25 250 50 0 empty \$1seq_outmain empty 17 7 0 10 -1
+-260097 -99865;
+#X obj 427 366 spigot;
+#X obj 426 384 s \$1seq_outmain;
+#X obj 456 346 r \$1seq_monitor;
+#X obj 377 470 outlet;
+#X obj 422 470 outlet;
+#X obj 466 470 outlet;
+#X obj 511 470 outlet;
+#X obj 557 469 outlet;
+#X obj 600 469 outlet;
+#X obj 644 467 outlet;
+#X obj 688 467 outlet;
+#X obj 732 466 outlet;
+#X obj 778 466 outlet;
+#X obj 822 466 outlet;
+#X obj 868 464 outlet;
+#X obj 912 463 outlet;
+#X obj 956 462 outlet;
+#X obj 1000 461 outlet;
+#X obj 1043 460 outlet;
+#X text 300 486 main bang;
+#X text 372 488 bang 0;
+#X text 425 488 bang 1;
+#X text 469 488 bang 2;
+#X text 514 489 bang 3;
+#X text 559 488 bang 4;
+#X text 601 487 bang 5;
+#X text 648 485 bang 6;
+#X text 692 485 bang 7;
+#X text 735 486 bang 8;
+#X text 781 486 bang 9;
+#X text 824 488 bang 10;
+#X text 873 485 bang 11;
+#X text 919 485 bang 12;
+#X text 961 482 bang 13;
+#X text 1005 483 bang 14;
+#X text 1050 480 bang 15;
+#X obj 331 471 outlet;
+#X obj 17 66 nbx 2 20 0 100 0 0 \$1seq_num_out \$1seq_num empty 8 -6
+0 14 -260097 -33289 -260097 15 256;
+#X obj 0 125 cnv 15 14 15 empty empty M 3 8 0 8 -258113 -262144 0;
+#X obj 132 1 cnv 15 20 15 empty \$1seq_id \$1 5 8 0 10 -260097 -262144
+0;
+#X obj 18 125 cnv 15 14 15 empty empty 0 3 8 0 8 -257985 -1 0;
+#X obj 37 125 cnv 15 14 15 empty empty 1 3 8 0 8 -257985 -1 0;
+#X obj 56 125 cnv 15 14 15 empty empty 2 3 8 0 8 -257985 -1 0;
+#X obj 75 125 cnv 15 14 15 empty empty 3 3 8 0 8 -257985 -1 0;
+#X obj 95 125 cnv 15 14 15 empty empty 4 3 8 0 8 -257985 -1 0;
+#X obj 114 125 cnv 15 14 15 empty empty 5 3 8 0 8 -257985 -1 0;
+#X obj 133 125 cnv 15 14 15 empty empty 6 3 8 0 8 -257985 -1 0;
+#X obj 152 125 cnv 15 14 15 empty empty 7 3 8 0 8 -257985 -1 0;
+#X obj 170 125 cnv 15 14 15 empty empty 8 3 8 0 8 -257985 -1 0;
+#X obj 189 125 cnv 15 14 15 empty empty 9 3 8 0 8 -257985 -1 0;
+#X obj 208 125 cnv 15 14 15 empty empty 10 1 8 0 8 -257985 -1 0;
+#X obj 227 125 cnv 15 14 15 empty empty 11 1 8 0 8 -257985 -1 0;
+#X obj 247 125 cnv 15 14 15 empty empty 12 1 8 0 8 -257985 -1 0;
+#X obj 266 125 cnv 15 14 15 empty empty 13 1 8 0 8 -257985 -1 0;
+#X obj 285 125 cnv 15 14 15 empty empty 14 1 8 0 8 -257985 -1 0;
+#X obj 304 125 cnv 15 14 15 empty empty 15 1 8 0 8 -257985 -1 0;
+#X obj 10 20 cnv 15 300 40 empty empty empty 2 12 0 10 -128992 -228856
+0;
+#X obj 2 1 cnv 15 20 15 empty empty ext 2 8 0 8 -4034 -33289 0;
+#X obj 211 1 tgl 15 0 \$1seq_monitor \$1seq_monitor_init monitor 17
+7 0 8 -260097 -1 -228856 0 1;
+#X obj 110 23 nbx 3 15 0 1000 0 1 \$1seq_time \$1seq_time_init empty
+0 -8 0 10 -66577 -260097 -228856 100 256;
+#X obj 18 23 hsl 90 15 0 1000 0 0 \$1seq_time_init \$1seq_time_init2
+time 3 8 0 8 -66577 -260097 -260097 6200 1;
+#X obj 179 23 hradio 15 1 0 3 \$1seq_rang \$1seq_rang_init rang -30
+6 0 8 -260097 -66577 -228856 2;
+#X obj 223 24 nbx 2 15 0 100 0 0 empty \$1seq_rang2 empty 8 -6 0 10
+-66577 -260097 -260097 16 256;
+#X obj 56 464 hradio 15 1 0 6 \$1seq_type \$1seq_type_init type -30
+6 0 8 -260097 -66577 -228856 0;
+#X obj 603 260 s \$1seq_num;
+#X obj 718 -6 r \$1seq_type;
+#X obj 644 13 demux lin ext;
+#X obj 890 -1 r \$1seq_type;
+#X obj 816 18 demux lin ext;
+#X obj 398 -40 select 0 1;
+#X obj 398 14 s \$1seq_stop;
+#X msg 398 -10 0;
+#X obj 560 -4 r \$1seq_type;
+#X obj 486 15 demux lin ext;
+#X msg 486 -7 1;
+#X obj 561 89 r \$1seq_stop;
+#X obj 52 395 nbx 3 14 0 255 0 0 empty empty empty 0 -8 0 10 -262144
+-1 -1 0 256;
+#X obj 91 394 nbx 3 14 0 255 0 0 empty empty empty 0 -8 0 10 -262144
+-1 -1 0 256;
+#X obj 91 354 r \$1seq_mask2;
+#X obj 53 334 r \$1seq_mask1;
+#X obj 56 478 hradio 15 1 0 6 empty \$0seq_type2 linial 1 7 0 8 -1
+-1 -260097 0;
+#N canvas 44 184 450 300 seq_others 0;
+#X obj 21 33 r \$1seq_rang;
+#X obj 77 68 hradio 15 1 0 3 empty empty 4_8_16 0 -8 0 8 -262144 -1
+-1 2;
+#X obj 151 35 r \$1seq_type;
+#X obj 154 96 select 0 1 2;
+#X obj 156 199 s \$0seq_type2;
+#X msg 156 164 label linial;
+#X msg 248 169 label ddd;
+#X msg 27 118 4;
+#X msg 57 118 8;
+#X msg 88 118 16;
+#X obj 27 147 s \$1seq_rang2;
+#X obj 27 90 select 0 1 2;
+#X connect 0 0 1 0;
+#X connect 0 0 11 0;
+#X connect 2 0 3 0;
+#X connect 3 0 5 0;
+#X connect 3 1 6 0;
+#X connect 5 0 4 0;
+#X connect 6 0 4 0;
+#X connect 7 0 10 0;
+#X connect 8 0 10 0;
+#X connect 9 0 10 0;
+#X connect 11 0 7 0;
+#X connect 11 1 8 0;
+#X connect 11 2 9 0;
+#X restore 48 278 pd seq_others;
+#X obj 17 42 tgl 15 0 \$1seq_mask_on \$1seq_mask_on_init mask 17 7
+0 8 -260097 -1 -228856 0 1;
+#X obj 62 43 nbx 3 15 0 255 0 1 \$1seq_mask1 \$1seq_mask1_init empty
+0 -8 0 10 -66577 -260097 -228856 0 256;
+#X obj 100 43 nbx 3 15 0 255 0 1 \$1seq_mask2 \$1seq_mask2_init empty
+0 -8 0 10 -66577 -260097 -228856 0 256;
+#N canvas 12 98 1568 393 seqmask 0;
+#X obj 59 19 inlet;
+#X obj 150 19 inlet;
+#X obj 241 19 inlet;
+#X obj 56 115 debytemask;
+#X obj 60 54 spigot;
+#X obj 147 56 spigot;
+#X obj 182 114 debytemask;
+#X obj 53 151 s \$1seq_sel0_init;
+#X obj 52 171 s \$1seq_sel1_init;
+#X obj 52 191 s \$1seq_sel2_init;
+#X obj 51 212 s \$1seq_sel3_init;
+#X obj 51 232 s \$1seq_sel4_init;
+#X obj 51 253 s \$1seq_sel5_init;
+#X obj 51 275 s \$1seq_sel6_init;
+#X obj 51 296 s \$1seq_sel8_init;
+#X obj 179 150 s \$1seq_sel8_init;
+#X obj 178 170 s \$1seq_sel9_init;
+#X obj 178 190 s \$1seq_sel10_init;
+#X obj 177 211 s \$1seq_sel11_init;
+#X obj 177 231 s \$1seq_sel12_init;
+#X obj 177 252 s \$1seq_sel13_init;
+#X obj 177 274 s \$1seq_sel14_init;
+#X obj 177 295 s \$1seq_sel15_init;
+#X connect 0 0 4 0;
+#X connect 1 0 5 0;
+#X connect 2 0 5 1;
+#X connect 2 0 4 1;
+#X connect 3 0 7 0;
+#X connect 3 1 8 0;
+#X connect 3 2 9 0;
+#X connect 3 3 10 0;
+#X connect 3 4 11 0;
+#X connect 3 5 12 0;
+#X connect 3 6 13 0;
+#X connect 3 7 14 0;
+#X connect 4 0 3 0;
+#X connect 5 0 6 0;
+#X connect 6 0 15 0;
+#X connect 6 1 16 0;
+#X connect 6 2 17 0;
+#X connect 6 3 18 0;
+#X connect 6 4 19 0;
+#X connect 6 5 20 0;
+#X connect 6 6 21 0;
+#X connect 6 7 22 0;
+#X restore 72 418 pd seqmask;
+#X obj 133 378 r \$1seq_mask_on;
+#X obj 132 396 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 272 1 bng 15 250 50 0 \$1seq_reset \$1seq_reset_init clear 17
+7 0 8 -258113 -1 -228856;
+#X obj 656 88 r \$1seq_init_val;
+#X obj 258 25 bng 15 250 50 0 \$1seq_reset_cont \$1seq_reset_cont_init
+reset 17 7 0 8 -257985 -1 -228856;
+#X text 259 192 TODO:;
+#X text 266 216 -mes tipus de seqs.;
+#X text 266 230 -Patterns amb fitxers.;
+#X connect 0 0 45 0;
+#X connect 0 0 81 0;
+#X connect 0 1 48 0;
+#X connect 0 2 49 0;
+#X connect 0 3 50 0;
+#X connect 0 4 51 0;
+#X connect 0 5 52 0;
+#X connect 0 6 53 0;
+#X connect 0 7 54 0;
+#X connect 0 8 55 0;
+#X connect 0 9 56 0;
+#X connect 0 10 57 0;
+#X connect 0 11 58 0;
+#X connect 0 12 59 0;
+#X connect 0 13 60 0;
+#X connect 0 14 61 0;
+#X connect 0 15 62 0;
+#X connect 0 16 63 0;
+#X connect 5 0 1 0;
+#X connect 5 0 114 0;
+#X connect 7 0 111 0;
+#X connect 8 0 7 0;
+#X connect 9 0 109 0;
+#X connect 9 0 0 0;
+#X connect 10 0 11 0;
+#X connect 11 0 113 0;
+#X connect 45 0 46 0;
+#X connect 47 0 45 1;
+#X connect 110 0 111 1;
+#X connect 111 0 9 1;
+#X connect 112 0 113 1;
+#X connect 113 0 9 2;
+#X connect 114 0 116 0;
+#X connect 114 1 119 0;
+#X connect 116 0 115 0;
+#X connect 117 0 118 1;
+#X connect 118 0 9 0;
+#X connect 119 0 118 0;
+#X connect 120 0 9 0;
+#X connect 121 0 130 0;
+#X connect 122 0 130 1;
+#X connect 123 0 122 0;
+#X connect 124 0 121 0;
+#X connect 131 0 132 0;
+#X connect 132 0 130 2;
+#X connect 134 0 9 3;
+#X coords 0 -1 1 1 320 140 1 0 0;

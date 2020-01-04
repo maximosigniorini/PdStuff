@@ -1,0 +1,14 @@
+#N canvas 90 225 723 257 10;
+#X obj -15 108 button-folder in;
+#X text -14 18 Create a folder in the 'pd' folder of the 'malinette'
+folder \, then you can open it with this object and send the objects
+on the workspace. \; \; ex : this one is opening 'in' folder which
+is in 'pd' folder in the 'malinette' folder;
+#X text 199 110 < choose mode \; 0: drop an objet into the current
+workspace \; 1: open as a project/workspace \;;
+#X text 201 175 < you can put by default the mode with the second argument
+\; ex: this one open 'examples' folder files as project/workspace;
+#X obj -15 172 button-folder examples 1;
+#X obj 492 95 r BUTTON-FOLDER-OBJECT;
+#X symbolatom 492 120 30 0 0 0 - - -;
+#X connect 5 0 6 0;

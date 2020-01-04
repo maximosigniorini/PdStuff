@@ -1,0 +1,86 @@
+#N canvas 151 22 800 687 10;
+#X declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/numbers -path ../../abstractions/video -path
+../../abstractions/audio -path ../../abstractions/master;
+#X obj 7 279 cnv 1 470 1 empty empty FX 2 -6 1 12 -228856 -191407 0
+;
+#X obj 7 531 cnv 1 470 1 empty empty OUT 2 -6 1 12 -228856 -191407
+0;
+#X obj 7 91 cnv 1 470 1 empty empty IN 2 -6 1 12 -228856 -191407 0
+;
+#X obj 488 28 cnv 20 300 60 empty empty DESCRIPTION 10 15 0 16 -233017
+-128992 0;
+#X obj 488 92 cnv 20 300 100 empty empty PROCÉDURE 10 15 0 16 -262130
+-128992 0;
+#X obj 488 196 cnv 20 300 80 empty empty empty 10 15 0 16 -233017 -128992
+0;
+#X obj 488 534 cnv 20 300 130 empty empty empty 10 15 0 16 -233017
+-128992 0;
+#X obj 143 626 osc-out;
+#X msg 22 609 connect;
+#X text 496 65 Exemple avec Processing (processing.org).;
+#X obj 488 280 cnv 20 300 250 empty empty empty 10 15 0 16 -233017
+-128992 0;
+#X text 491 116 1/ Ouvrir le programme "./other/to_processing_2" \;
+2/ Cliquez sur "Run" pour le lancer \; 3/ Revenez sur la Malinette
+\, cliquez sur connect \; 4/ Jouer avec la souris et le séquenceur
+pour;
+#X text 509 168 visualiser une "partition animée";
+#X obj 65 120 seq-sliders;
+#X obj 161 407 inverse;
+#X obj 161 313 map 0 1 20 40;
+#X obj 65 430 fade;
+#X obj 161 428 fade;
+#X text 170 538 pitch;
+#X text 70 539 seq step;
+#X obj 161 335 notescale;
+#X msg 65 560 /v1 \$1;
+#X msg 161 559 /v2 \$1;
+#X obj 161 451 map -127 0 0 1;
+#X obj 65 407 creb/count 8;
+#X obj 65 454 / 8;
+#X obj 323 585 audio-out;
+#X obj 324 542 synth;
+#X obj 388 243 mouse;
+#X text 438 534 volume;
+#X msg 241 558 /v3 \$1;
+#X text 496 325 < conversion en gamme musicale;
+#X text 434 258 y;
+#X obj 65 68 loadbang;
+#X msg 65 96 rand 1;
+#X text 509 214 et la hauteur de notes (pitch);
+#X text 496 201 < le séquenceur envoie deux valeurs : les pas;
+#X text 496 239 < la position en Y de la souris envoie la;
+#X text 509 252 la valeur du volume;
+#X text 496 415 < normalisation entre 0 et 1;
+#X text 496 620 < envois de trois valeurs en OSC avec un;
+#X text 507 633 préfixe connu : /v1 \, /v2 \, /v3;
+#X text 496 50 Envoie de données à un autre programme en OSC.;
+#X text 18 590 Se connecter;
+#X obj 427 442 inverse;
+#X obj 488 5 cnv 20 300 20 empty empty ! 5 10 0 16 -261234 -258113
+0;
+#X text 506 6 Installer la lib "OSC-P5" pour Processing;
+#X obj 735 32 ../../abstractions/include;
+#X connect 8 0 7 0;
+#X connect 13 0 15 0;
+#X connect 13 0 24 0;
+#X connect 14 0 17 0;
+#X connect 15 0 20 0;
+#X connect 16 0 25 0;
+#X connect 17 0 23 0;
+#X connect 20 0 14 0;
+#X connect 20 0 27 0;
+#X connect 21 0 7 1;
+#X connect 22 0 7 1;
+#X connect 23 0 22 0;
+#X connect 24 0 16 0;
+#X connect 25 0 21 0;
+#X connect 27 0 26 0;
+#X connect 27 0 26 1;
+#X connect 28 1 44 0;
+#X connect 30 0 7 1;
+#X connect 33 0 34 0;
+#X connect 34 0 13 0;
+#X connect 44 0 30 0;
+#X connect 44 0 27 2;

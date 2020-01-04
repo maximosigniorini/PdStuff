@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/SFPO
+END
+send_to_in.pd
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/SFPO/send_to_in.pd
+END
+send_to_out.pd
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/SFPO/send_to_out.pd
+END
+GUI.pd
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/SFPO/GUI.pd
+END
+DSP.pd
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/SFPO/DSP.pd
+END
+send_to_single.pd
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/SFPO/send_to_single.pd
+END

@@ -1,0 +1,8 @@
+#N canvas 483 13 204 204 10;
+#N canvas 20 20 432 312 META 1;
+#X text 10 10 META this is a prototype of a libdir meta file;
+#X text 10 50 AUTHOR enrike hurtado mendieta;
+#X text 10 30 NAME ehu (Euskal Herriko Universitatea);
+#X text 9 71 DESCRIPTION patches to control video from GEM and some
+basic utilities . info@ixi-audio.net;
+#X restore 10 10 pd META;

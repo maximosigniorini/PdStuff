@@ -1,0 +1,10 @@
+#N canvas 260 766 421 235 10;
+#X obj 230 25 r chdh_pre;
+#X obj 230 48 s chdh_post;
+#X obj 21 17 interface2patch_egregore 1;
+#X obj 21 36 interface2patch_egregore 2;
+#X obj 21 56 interface2patch_egregore 3;
+#X obj 22 76 interface2patch_egregore 4;
+#X obj 21 96 interface2patch_egregore 5;
+#X obj 21 116 interface2patch_egregore 6;
+#X connect 0 0 1 0;

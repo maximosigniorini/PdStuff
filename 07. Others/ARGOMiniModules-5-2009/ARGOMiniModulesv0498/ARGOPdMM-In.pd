@@ -1,0 +1,35 @@
+#N canvas 366 158 356 124 10;
+#N canvas 394 211 228 202 ARGO 0;
+#X obj 127 105 cnv 10 20 10 empty empty ARGOBus 1 5 1 14 -262144 -1
+1.04858e+06;
+#X obj 101 113 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 100 100 nbx 2 12 0 16 0 1 \$0-A \$0-B empty 0 0 1 9 -262144
+-1 -1 0 256;
+#X obj 101 156 outlet~;
+#N canvas 512 263 269 212 InputARGOBusv3 0;
+#X obj 48 74 sprintf ARGOBus%d;
+#X obj 46 30 inlet;
+#X obj 49 158 outlet~;
+#X msg 49 116 set \$1;
+#X obj 49 95 tosymbol;
+#X obj 47 52 change;
+#X text 88 30 <- No ARGObus 1..16;
+#X obj 49 137 r~ ARGOBus0;
+#X connect 0 0 4 0;
+#X connect 1 0 5 0;
+#X connect 3 0 7 0;
+#X connect 4 0 3 0;
+#X connect 5 0 0 0;
+#X connect 7 0 2 0;
+#X restore 101 128 pd InputARGOBusv3;
+#X connect 2 0 4 0;
+#X connect 4 0 3 0;
+#X coords 0 -1 1 1 95 18 2 100 100;
+#X restore 8 85 pd ARGO;
+#X obj 8 33 adc~ 1 2;
+#X obj 8 59 adc~ 1 2 3 4 5 6 7 8;
+#X obj 7 9 adc~ 1;
+#X text 172 79 ARGOGeneral must be opened;
+#X text 172 92 if this MiniModules is used;
+#X text 105 84 <- Warning;

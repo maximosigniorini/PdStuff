@@ -1,0 +1,247 @@
+#N canvas 151 22 800 687 10;
+#X declare -lib mrpeach;
+#X declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/numbers -path ../../abstractions/video -path
+../../abstractions/audio -path ../../abstractions/master;
+#X obj 7 296 cnv 1 470 1 empty empty FX 2 -6 1 12 -228856 -191407 0
+;
+#X obj 7 503 cnv 1 470 1 empty empty OUT 2 -6 1 12 -228856 -191407
+0;
+#X obj 7 28 cnv 1 470 1 empty empty IN 2 -6 1 12 -228856 -191407 0
+;
+#X obj 488 28 cnv 20 300 120 empty empty DESCRIPTION 10 15 0 16 -233017
+-128992 0;
+#X obj 488 150 cnv 20 300 140 empty empty PROCÉDURE 10 15 0 16 -262130
+-128992 0;
+#X obj 489 298 cnv 20 300 200 empty empty empty 10 15 0 16 -233017
+-128992 0;
+#X obj 489 503 cnv 20 300 140 empty empty empty 10 15 0 16 -233017
+-128992 0;
+#X obj 488 6 import mrpeach;
+#X obj 336 558 audio-out;
+#X text 169 147 accelerometre;
+#X obj 336 516 synth;
+#X obj 50 388 3d-transform 1;
+#X obj 50 580 3d-object 3 1;
+#X msg 188 556 line 1 \, rect h 1.6;
+#X obj 163 190 unpack f f f;
+#X obj 204 341 * 9;
+#X obj 163 342 * -9;
+#X floatatom 163 217 5 0 0 0 - - -;
+#X floatatom 204 217 5 0 0 0 - - -;
+#X msg 163 363 ry \$1;
+#X msg 204 363 rx \$1;
+#X obj 188 534 loadbang;
+#X obj 303 112 cnv 15 140 30 empty empty empty 20 12 0 14 -262130 -66577
+0;
+#X obj 336 358 map -10 10 0 127;
+#X obj 163 85 dumpOSC 8000;
+#X text 496 175 1/ Créer un réseau Wi-Fi Adhoc avec votre;
+#X text 513 231 Ex : 192.168.0.17 (Linux : ifconfig);
+#X text 513 217 et noter votre adresse IP locale.;
+#X text 513 262 Menu Osc > Host et appuyer sur "Done".;
+#X text 495 250 3/ Rentrer cette adresse IP dans le téléphone :;
+#X text 499 354 < calibrage des données;
+#X text 509 530 l'accélération du téléphone;
+#X text 496 596 < le rectangle bouge en fonction de;
+#X text 509 610 l'accélération du téléphone;
+#X text 162 63 Réception OSC : port 8000 ouvert;
+#X text 499 417 < rotation du rectangle;
+#X obj 163 166 route /acc;
+#X text 495 50 Réception de données en OSC avec une;
+#X text 495 63 application Android ou iOS : andOSC ou touchOSC;
+#X text 495 77 Cela permet d'envoyer les données des capteurs;
+#X text 495 90 de votre appareil mobile vers votre ordinateur.;
+#X text 496 105 Ex : écran tactile \, accéléromètre \, ...;
+#X text 513 188 téléphone ou un HotSpot Wi-Fi.;
+#X text 496 516 < la hauteur du son est modifiée par;
+#X obj 738 12 ../../abstractions/include;
+#X text 495 206 2/ Connecter votre ordinateur sur ce réseau;
+#N canvas 36 228 979 504 _AVEC_TOUCHOSC_ 0;
+#X msg 158 364 draw line;
+#X obj 191 180 vsl 10 50 0 1 0 0 empty empty empty 0 -9 0 10 -228856
+-1 -1 0 1;
+#X obj 425 279 unpack f f;
+#X obj 482 304 * -1;
+#X obj 158 336 loadbang;
+#X obj 422 355 color 1 1 0;
+#X obj 422 329 translateXYZ 0 0 0.5;
+#X obj 422 424 square 0.1;
+#X obj 425 305 - 0.5;
+#X obj 225 157 cnv 15 1 300 empty empty empty 20 12 0 14 -128992 -262144
+0;
+#X obj 249 187 unpack f f f;
+#X obj 233 315 gemhead;
+#X obj 233 343 rotateXYZ 0 0 1;
+#X floatatom 320 324 3 0 0 0 - - -;
+#X obj 283 278 * 9;
+#X obj 249 278 * -9;
+#X obj 233 424 rectangle 1 1.6;
+#X obj 318 278 * 9;
+#X obj 358 312 separator;
+#X obj 261 362 s separ;
+#X obj 358 291 r separ;
+#X obj 346 157 cnv 15 1 300 empty empty empty 20 12 0 14 -128992 -262144
+0;
+#X obj 111 57 cnv 15 600 100 empty empty empty 20 12 0 14 -33289 -66577
+0;
+#X obj 113 57 cnv 15 600 96 empty empty empty 20 12 0 14 -262144 -66577
+0;
+#X obj 249 131 route /accxyz;
+#X obj 425 131 route /3/xy;
+#X obj 552 157 cnv 15 1 300 empty empty empty 20 12 0 14 -128992 -262144
+0;
+#X obj 554 157 cnv 15 400 220 empty empty empty 20 12 0 14 -162280
+-66577 0;
+#X obj 557 199 unpack f f;
+#X text 557 171 layout "simple" de touch osc;
+#X text 557 183 sur [grid];
+#X text 555 158 Interpretation ecran 3 (XY);
+#X obj 552 56 cnv 15 400 100 empty empty empty 20 12 0 14 -191407 -66577
+0;
+#X obj 558 129 sendOSC;
+#X text 685 108 << click pour mettre fader 1 � 1(max);
+#X text 716 87 << remplacer par l'ip du telephone;
+#X text 254 157 accelerometre;
+#X text 365 157 ecran3 xy;
+#X text 556 62 Exemple de connection et d'envoi vers l'appareil distant
+:;
+#X obj 129 131 route /1/fader1;
+#X text 558 382 Patch d'exemple pour patch osc avec PureData \, test�
+avec TouchOSC 1.3 (android sur Motorola defy+).;
+#X text 560 409 www.reso-nance.org;
+#X obj 233 400 spigot;
+#X obj 350 385 tgl 15 0 empty empty appuyer_ici 17 7 0 10 -258113 -1
+-1 0 1;
+#X obj 422 400 spigot;
+#X obj 129 79 inlet;
+#X msg 558 85 connect 192.168.0.18 8000;
+#X msg 581 107 send /1/fader1 1;
+#X obj 557 356 s \$0-cnv-pos-in;
+#X floatatom 557 278 5 0 0 0 - - -;
+#X msg 557 337 pos \$1 \$2;
+#X obj 557 318 pack f f;
+#X floatatom 602 278 5 0 0 0 - - -;
+#X obj 602 299 t f b;
+#X obj 735 160 cnv 15 210 210 empty empty empty 20 12 0 14 -66577 -66577
+0;
+#X obj 735 277 cnv 10 10 10 \$0-cnv-pos \$0-cnv-pos-in empty 20 12
+0 14 -257985 -66577 0;
+#X obj 557 232 * 200;
+#X obj 602 232 * 200;
+#X obj 557 250 + 735;
+#X obj 602 250 + 160;
+#N canvas 528 251 653 433 screen1 0;
+#X obj 103 135 vsl 10 50 0 1 0 0 empty empty empty 0 -9 0 10 -99865
+-257985 -257985 0 1;
+#X obj 116 135 vsl 10 50 0 1 0 0 empty empty empty 0 -9 0 10 -99865
+-257985 -257985 0 1;
+#X obj 129 135 vsl 10 50 0 1 0 0 empty empty empty 0 -9 0 10 -99865
+-257985 -257985 0 1;
+#X obj 142 135 vsl 10 50 0 1 0 0 empty empty empty 0 -9 0 10 -99865
+-257985 -257985 0 1;
+#X obj 106 119 hsl 45 10 0 1 0 0 empty empty empty -2 -8 0 10 -128992
+-4032 -1 0 1;
+#X obj 103 192 tgl 10 0 empty empty empty 17 7 0 10 -99865 -4032 -4032
+0 1;
+#X obj 116 192 tgl 10 0 empty empty empty 17 7 0 10 -99865 -4032 -4032
+0 1;
+#X obj 129 192 tgl 10 0 empty empty empty 17 7 0 10 -99865 -4032 -4032
+0 1;
+#X obj 142 192 tgl 10 0 empty empty empty 17 7 0 10 -99865 -4032 -4032
+0 1;
+#X obj 20 -54 inlet;
+#X obj 40 32 route /1/fader1 /1/fader2 /1/fader3 /1/fader4;
+#X obj 91 -4 route /1/fader5;
+#X obj -211 121 route /1/toggle1 /1/toggle2 /1/toggle3 /1/toggle4;
+#X obj 157 -31 print TOUCH-ECRAN-1;
+#X obj 101 101 cnv 10 53 13 empty empty Écran_1 5 8 0 9 -162280 -262144
+0;
+#X connect 9 0 10 0;
+#X connect 9 0 11 0;
+#X connect 9 0 12 0;
+#X connect 9 0 13 0;
+#X connect 10 0 0 0;
+#X connect 10 1 1 0;
+#X connect 10 2 2 0;
+#X connect 10 3 3 0;
+#X connect 11 0 4 0;
+#X connect 12 0 5 0;
+#X connect 12 1 6 0;
+#X connect 12 2 7 0;
+#X connect 12 3 8 0;
+#X coords 0 -1 1 1 55 105 2 100 100;
+#X restore 35 153 pd screen1;
+#X connect 0 0 16 0;
+#X connect 2 0 8 0;
+#X connect 2 1 3 0;
+#X connect 3 0 6 2;
+#X connect 4 0 0 0;
+#X connect 5 0 44 0;
+#X connect 6 0 5 0;
+#X connect 8 0 6 1;
+#X connect 10 0 15 0;
+#X connect 10 1 14 0;
+#X connect 10 2 17 0;
+#X connect 11 0 12 0;
+#X connect 12 0 19 0;
+#X connect 12 0 42 0;
+#X connect 13 0 12 3;
+#X connect 14 0 12 1;
+#X connect 15 0 12 2;
+#X connect 18 0 6 0;
+#X connect 20 0 18 0;
+#X connect 24 0 10 0;
+#X connect 25 0 2 0;
+#X connect 25 0 28 0;
+#X connect 28 0 56 0;
+#X connect 28 1 57 0;
+#X connect 39 0 1 0;
+#X connect 42 0 16 0;
+#X connect 43 0 42 1;
+#X connect 43 0 44 1;
+#X connect 44 0 7 0;
+#X connect 45 0 24 0;
+#X connect 45 0 39 0;
+#X connect 45 0 25 0;
+#X connect 45 0 60 0;
+#X connect 46 0 33 0;
+#X connect 47 0 33 0;
+#X connect 49 0 51 0;
+#X connect 50 0 48 0;
+#X connect 51 0 50 0;
+#X connect 52 0 53 0;
+#X connect 53 0 51 1;
+#X connect 53 1 49 0;
+#X connect 56 0 58 0;
+#X connect 57 0 59 0;
+#X connect 58 0 49 0;
+#X connect 59 0 52 0;
+#X restore 309 118 pd _AVEC_TOUCHOSC_;
+#X obj 284 163 route /touch;
+#X obj 284 186 unpack f f f;
+#X floatatom 284 213 5 0 0 0 - - -;
+#X floatatom 325 213 5 0 0 0 - - -;
+#X text 283 144 écran tactile;
+#X connect 10 0 8 0;
+#X connect 10 0 8 1;
+#X connect 11 0 12 0;
+#X connect 13 0 12 1;
+#X connect 14 0 17 0;
+#X connect 14 1 18 0;
+#X connect 15 0 20 0;
+#X connect 16 0 19 0;
+#X connect 17 0 16 0;
+#X connect 18 0 15 0;
+#X connect 18 0 23 0;
+#X connect 19 0 11 1;
+#X connect 20 0 11 1;
+#X connect 21 0 13 0;
+#X connect 23 0 10 0;
+#X connect 24 0 46 0;
+#X connect 24 0 36 0;
+#X connect 24 0 47 0;
+#X connect 36 0 14 0;
+#X connect 47 0 48 0;
+#X connect 48 0 49 0;
+#X connect 48 1 50 0;

@@ -1,0 +1,75 @@
+#N canvas 547 413 1369 728 10;
+#X obj 1 1 cnv 15 300 100 empty empty PDP_MIXER2 80 12 0 12 -99865
+-262144 0;
+#X obj 1 79 cnv 15 65 20 empty empty VIDEO_OUT 0 10 0 9 -221249 -262144
+0;
+#X obj 182 3 cnv 15 40 20 empty \$1pdp_mixer2_id \$1 10 10 0 12 -260097
+-33289 0;
+#X obj 580 511 outlet;
+#X obj 70 82 bng 15 250 50 0 \$1pdp_mixer2_reset empty reset 17 7 0
+8 -257985 -1 -1;
+#X obj 536 14 cnv 15 75 20 empty empty VIDEO_IN_1 0 10 0 12 -4034 -1
+0;
+#X obj 783 128 hsl 128 15 0 1 0 1 empty empty empty -2 -6 0 8 -262144
+-1 -1 0 1;
+#X obj 548 43 inlet;
+#X obj 706 46 inlet;
+#X obj 48 27 hsl 200 20 0 1 0 1 \$1pdp_mixer2_bar \$1pdp_mixer2_bar_init
+empty -2 -6 0 9 -260097 -1 -1 0 1;
+#X msg 216 289 0;
+#X obj 1 1 cnv 15 75 20 empty empty VIDEO_IN_1 0 10 0 9 -4034 -1 0
+;
+#X obj 227 1 cnv 15 75 20 empty empty VIDEO_IN_2 0 10 0 9 -4034 -1
+0;
+#X obj 689 17 cnv 15 75 20 empty empty VIDEO_IN_2 0 10 0 12 -4034 -1
+0;
+#X obj 78 254 loadbang;
+#X obj 72 373 symbol \$1;
+#X symbolatom 72 402 0 0 0 0 - - -;
+#X obj 78 286 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X symbolatom 169 402 0 0 0 0 - - -;
+#X obj 169 373 symbol \$2;
+#X obj 8 373 float \$1;
+#X floatatom 12 405 5 0 0 0 - - -;
+#X obj 633 512 cnv 15 65 20 empty empty VIDEO_OUT 0 10 0 12 -221249
+-262144 0;
+#X floatatom 693 295 5 0 0 0 - - -;
+#X obj 569 358 pdp_mix2;
+#X floatatom 693 318 5 0 0 0 - - -;
+#X text 626 362 pdp_mix2 adds two packets after applying attenuation
+;
+#X text 756 293 left packet attenuation;
+#X text 756 316 right packet attenuation;
+#X obj 215 252 r \$1pdp_mixer2_reset;
+#X obj 216 320 s \$1pdp_mixer2_bar_init;
+#X obj 72 448 s \$1pdp_mixer2_id;
+#X obj 812 70 r \$1pdp_mixer2_bar;
+#X obj 48 53 hsl 200 20 0 1 0 1 \$1pdp_mixer2_bar2 \$1pdp_mixer2_bar2_init
+empty -2 -6 0 9 -260097 -1 -1 0 1;
+#X obj 244 352 s \$1pdp_mixer2_bar2_init;
+#X obj 847 229 hsl 128 15 0 1 0 1 empty empty empty -2 -6 0 8 -262144
+-1 -1 0 1;
+#X obj 876 171 r \$1pdp_mixer2_bar2;
+#X connect 6 0 23 0;
+#X connect 7 0 24 0;
+#X connect 8 0 24 1;
+#X connect 10 0 30 0;
+#X connect 10 0 34 0;
+#X connect 14 0 17 0;
+#X connect 15 0 16 0;
+#X connect 16 0 31 0;
+#X connect 17 0 15 0;
+#X connect 17 0 19 0;
+#X connect 17 0 20 0;
+#X connect 17 0 10 0;
+#X connect 19 0 18 0;
+#X connect 20 0 21 0;
+#X connect 23 0 24 2;
+#X connect 24 0 3 0;
+#X connect 25 0 24 3;
+#X connect 29 0 10 0;
+#X connect 32 0 6 0;
+#X connect 35 0 25 0;
+#X connect 36 0 35 0;
+#X coords 0 -1 1 1 300 100 1 0 0;

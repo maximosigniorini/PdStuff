@@ -1,0 +1,17 @@
+#N canvas 596 326 534 323 10;
+#X obj 29 44 utils.clockk;
+#X obj 29 94 receive CLOCK;
+#X obj 29 -5 s TIME.START;
+#X obj 29 -26 tgl 15 0 empty empty start 17 7 0 8 -262144 -1 -1 1 1
+;
+#X obj 29 120 prepend set;
+#X msg 29 148 3.22;
+#X text 220 39 It's used in the Xth Sense software \; that's why you
+need to send a 1 or 0 \; to start it (note the global message \; identifier
+TIME.START).;
+#X text 221 114 And you can receive the time by \; placing a receiver
+(note the global \; message identifier CLOCK).;
+#X text 218 -7 Yes \, another clock \, but a bit weird.;
+#X connect 1 0 4 0;
+#X connect 3 0 2 0;
+#X connect 4 0 5 0;

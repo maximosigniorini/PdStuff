@@ -1,0 +1,108 @@
+#N canvas 642 354 1274 680 10;
+#X obj 0 1 cnv 15 330 240 empty empty PDP_Video_Grid 40 12 0 14 -99865
+-262144 0;
+#X obj 163 26 bng 15 250 50 0 \$1vgrdpdp_defaults empty Defaults 17
+7 0 8 -228856 -1 -228856;
+#X obj 106 499 outlet;
+#X obj 2 218 cnv 15 65 20 empty empty FileName1 0 10 0 9 -258113 -262144
+0;
+#N canvas 16 67 1891 1071 vgrdpdp_default_settings 0;
+#X obj 32 32 loadbang;
+#X obj 142 63 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 52 165 symbol \$1;
+#X symbolatom 52 194 0 0 0 0 - - -;
+#X obj 52 129 bng 15 250 50 0 empty empty click_here_to_see 0 -6 0
+8 -262144 -1 -1;
+#X symbolatom 149 194 0 0 0 0 - - -;
+#X obj 149 165 symbol \$2;
+#X obj 246 192 s \$1vgrdpdp_id;
+#X obj 116 34 r vgrdpdp_load_defaults;
+#X connect 0 0 1 0;
+#X connect 0 0 4 0;
+#X connect 2 0 3 0;
+#X connect 3 0 7 0;
+#X connect 4 0 2 0;
+#X connect 4 0 6 0;
+#X connect 6 0 5 0;
+#X connect 8 0 1 0;
+#X restore 770 50 pd vgrdpdp_default_settings;
+#X obj 263 4 cnv 15 40 20 empty \$1vgrdpdp_id \$1 10 10 0 14 -260097
+-33289 0;
+#X obj 7 65 videogrid videogrid1 3 5 #F0F0F0 #0F0F0F #F1882B mov:mpg
+60 40 ;
+#X obj 409 145 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 865 153 ADD VIDEO;
+#X text 1089 30 ADD VIDEOS FROM FOLDER;
+#X text 428 142 LIST STDOUT;
+#X msg 867 167 putvideo \$1;
+#X obj 870 132 openpanel;
+#X obj 867 108 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 559 144 clear;
+#X msg 729 163 seek \$1;
+#X floatatom 729 136 5 0 0 0 seek - -;
+#X msg 899 227 rows 3;
+#X msg 957 227 cols 5;
+#X obj 409 108 r \$1vgrdpdp_list_start;
+#X obj 102 23 bng 15 250 50 0 \$1vgrdpdp_list_clear empty Clear 20
+7 0 8 -258113 -1 -228856;
+#X obj 553 108 r \$1vgrdpdp_list_clear;
+#X obj 718 107 r \$1vgrdpdp_list_seek;
+#X obj 271 46 nbx 3 14 0 16 0 0 \$1vgrdpdp_list_seek \$1vgrdpdp_list_seek_init
+seek 0 -8 0 10 -262144 -1 -228856 0 256;
+#X obj 6 23 bng 15 250 50 0 \$1vgrdpdp_list_add empty Add_Video 20
+7 0 8 -260097 -1 -228856;
+#X obj 864 80 r \$1vgrdpdp_list_add;
+#X obj 164 46 bng 15 250 50 0 \$1vgrdpdp_list_add_folder \$1vgrdpdp_list_add_folder_init
+Add_Folder 20 7 0 8 -260097 -1 -228856;
+#X symbolatom 7 44 25 0 0 0 - - #1vgrdpdp_list_folder;
+#X obj 656 279 s \$1vgrdpdp_input_message;
+#X obj 480 11 r \$1vgrdpdp_input_message;
+#X symbolatom 9 199 50 0 0 0 - - -;
+#X obj 1004 72 r \$1vgrdpdp_list_add_folder;
+#X obj 1049 102 r \$1vgrdpdp_list_folder;
+#X msg 1079 148 set putvideodir \$1;
+#X msg 996 194 putvideodir /home/musa/0zpd/mandril/media;
+#X obj 263 218 cnv 15 65 20 empty empty FileName2 0 10 0 9 -258113
+-262144 0;
+#X obj 69 220 tgl 15 0 \$1vgrdpdp_output1 \$1vgrdpdp_output1_init empty
+17 7 0 10 -258113 -262144 -1 0 1;
+#X obj 243 220 tgl 15 0 \$1vgrdpdp_output2 \$1vgrdpdp_output2_init
+empty 17 7 0 10 -258113 -262144 -1 0 1;
+#X obj 111 434 spigot;
+#X obj 151 498 cnv 15 65 20 empty empty FileName1 0 10 0 9 -258113
+-262144 0;
+#X obj 314 436 spigot;
+#X obj 363 494 cnv 15 65 20 empty empty FileName2 0 10 0 9 -258113
+-262144 0;
+#X obj 350 395 r \$1vgrdpdp_output2;
+#X obj 147 393 r \$1vgrdpdp_output1;
+#X obj 316 496 outlet;
+#X connect 6 0 30 0;
+#X connect 7 0 28 0;
+#X connect 11 0 28 0;
+#X connect 12 0 11 0;
+#X connect 13 0 12 0;
+#X connect 14 0 28 0;
+#X connect 15 0 28 0;
+#X connect 16 0 15 0;
+#X connect 17 0 28 0;
+#X connect 18 0 28 0;
+#X connect 19 0 7 0;
+#X connect 21 0 14 0;
+#X connect 22 0 16 0;
+#X connect 25 0 13 0;
+#X connect 29 0 6 0;
+#X connect 30 0 38 0;
+#X connect 30 0 40 0;
+#X connect 31 0 34 0;
+#X connect 32 0 33 0;
+#X connect 33 0 34 0;
+#X connect 34 0 28 0;
+#X connect 38 0 2 0;
+#X connect 40 0 44 0;
+#X connect 42 0 40 1;
+#X connect 43 0 38 1;
+#X coords 0 -1 1 1 330 240 1 0 0;

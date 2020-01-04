@@ -1,0 +1,67 @@
+#N canvas 151 22 800 687 10;
+#X declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/numbers -path ../../abstractions/video -path
+../../abstractions/audio -path ../../abstractions/master;
+#X obj 7 202 cnv 1 470 1 empty empty FX 2 -6 1 12 -228856 -191407 0
+;
+#X obj 7 560 cnv 1 470 1 empty empty OUT 2 -6 1 12 -228856 -191407
+0;
+#X obj 7 123 cnv 1 470 1 empty empty IN 2 -6 1 12 -228856 -191407 0
+;
+#X obj 488 28 cnv 20 300 90 empty empty DESCRIPTION 10 15 0 16 -233017
+-128992 0;
+#X obj 63 576 3d-object;
+#X obj 261 314 physics 2;
+#X obj 395 314 physics 2;
+#X obj 395 291 * 360;
+#X obj 63 139 video-scratch;
+#X floatatom 108 350 5 0 0 2 répétitions - -;
+#X obj 261 166 mouse;
+#X obj 63 401 3d-transform;
+#X obj 63 234 video-multifx;
+#X obj 63 473 video-colors;
+#X msg 261 337 tx \$1 \, ty \$1 \, tz \$1;
+#X msg 395 336 rx \$1 \, ry \$1;
+#X obj 488 124 cnv 20 300 75 empty empty empty 10 15 0 16 -233017 -128992
+0;
+#X obj 488 205 cnv 20 300 350 empty empty empty 10 15 0 16 -228856
+-128992 0;
+#X obj 488 560 cnv 20 300 100 empty empty empty 10 15 0 16 -233017
+-128992 0;
+#N canvas 869 173 450 300 OPEN_VIDEO 0;
+#X obj 120 89 loadbang;
+#X text 180 89 antialiasing;
+#X obj 120 116 delay 500;
+#X msg 120 138 off \, antialias \, on;
+#X obj 120 160 s GEM-MASTER;
+#X connect 0 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X restore 488 7 pd OPEN_VIDEO;
+#X obj 63 372 repeat 5;
+#X text 498 57 A video is displayed on a cube in movement.;
+#X text 498 72 We use the [repeat] object to multiply;
+#X text 499 140 < video player;
+#X text 499 160 < mouse coordinates;
+#X text 499 243 < fx : video effects;
+#X text 499 312 < filter : five a physical behavior;
+#X text 565 326 to the data (elasticity);
+#X text 499 378 < fx : repeat the object;
+#X text 499 421 < fx : translation and rotation;
+#X text 499 581 < 3d object;
+#X text 499 491 < fx : colors;
+#X text 498 87 the 3D object and complexify the rendering.;
+#X obj 738 11 ../../abstractions/include;
+#X connect 5 0 14 0;
+#X connect 6 0 15 0;
+#X connect 7 0 6 0;
+#X connect 8 0 12 0;
+#X connect 9 0 20 1;
+#X connect 10 0 5 0;
+#X connect 10 1 7 0;
+#X connect 11 0 13 0;
+#X connect 12 0 20 0;
+#X connect 13 0 4 0;
+#X connect 14 0 11 1;
+#X connect 15 0 11 1;
+#X connect 20 0 11 0;

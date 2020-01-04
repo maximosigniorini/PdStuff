@@ -1,0 +1,17 @@
+#N canvas 223 223 717 187 10;
+#X obj 267 10 inlet;
+#X obj 324 122 f;
+#X obj 324 144 outlet;
+#X obj 267 41 route bang;
+#X text 352 123 float throws a type error for symbol \, list and anything
+;
+#X obj 418 90 canvaserror;
+#X msg 418 69 expected float got bang;
+#X text 7 5 Print error on receiving non-float \; \; in1 any message
+\; out1 floats only allowed through \, error otherwise. \; \; Requires:
+\; iemguts [canvaserror] \; John Flynn, f 37;
+#X connect 0 0 3 0;
+#X connect 1 0 2 0;
+#X connect 3 0 6 0;
+#X connect 3 1 1 0;
+#X connect 6 0 5 0;

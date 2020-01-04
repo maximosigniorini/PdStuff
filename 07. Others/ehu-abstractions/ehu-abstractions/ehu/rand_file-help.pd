@@ -1,0 +1,28 @@
+#N canvas 66 230 903 277 10;
+#X obj 300 75 cnv 15 200 180 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 314 105 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X symbolatom 314 217 80 0 0 0 - - -, f 80;
+#X msg 450 111 path/to/directory;
+#X text 22 75 Inlets : bang \, symbol path to directory;
+#X text 34 98 1 bang;
+#X text 27 172 Outlets :;
+#X text 25 226 Arguments :;
+#X text 45 248 1 path to directory;
+#X text 33 122 2 path to directory with files;
+#X text 39 197 1 symbol absolute path to the file;
+#X obj 314 150 ehu/rand_file ./gem;
+#X text 25 -1 ehu/rand_file abstraction help;
+#X text 20 21 returns an absolute path to a random file from a given
+directory;
+#X msg 400 84 arduino;
+#X obj 321 56 metro 1000;
+#X obj 321 35 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X connect 1 0 11 0;
+#X connect 3 0 11 1;
+#X connect 11 0 2 0;
+#X connect 14 0 11 1;
+#X connect 15 0 1 0;
+#X connect 16 0 15 0;

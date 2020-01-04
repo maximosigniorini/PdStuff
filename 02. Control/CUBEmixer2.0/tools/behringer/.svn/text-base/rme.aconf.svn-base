@@ -1,0 +1,105 @@
+state.R15 {
+	control.7 {
+		comment.access 'read write'
+		comment.type ENUMERATED
+		comment.count 1
+		comment.item.0 AutoSync
+		comment.item.1 Master
+		comment.item.2 'Word Clock'
+		iface PCM
+		name 'Sync Mode'
+		value AutoSync
+	}
+	control.8 {
+		comment.access 'read write'
+		comment.type ENUMERATED
+		comment.count 1
+		comment.item.0 'IEC958 In'
+		comment.item.1 'ADAT1 In'
+		comment.item.2 'ADAT2 In'
+		comment.item.3 'ADAT3 In'
+		iface PCM
+		name 'Preferred Sync Source'
+		value 'ADAT1 In'
+	}
+	control.11 {
+		comment.access read
+		comment.type ENUMERATED
+		comment.count 1
+		comment.item.0 'No Lock'
+		comment.item.1 Lock
+		comment.item.2 'No Lock Sync'
+		comment.item.3 'Lock Sync'
+		iface PCM
+		name 'ADAT1 Sync Check'
+		value 'Lock Sync'
+	}
+	control.12 {
+		comment.access read
+		comment.type ENUMERATED
+		comment.count 1
+		comment.item.0 'No Lock'
+		comment.item.1 Lock
+		comment.item.2 'No Lock Sync'
+		comment.item.3 'Lock Sync'
+		iface PCM
+		name 'ADAT2 Sync Check'
+		value 'Lock Sync'
+	}
+}
+state.R15_1 {
+	control.7 {
+		comment.access 'read write'
+		comment.type ENUMERATED
+		comment.count 1
+		comment.item.0 AutoSync
+		comment.item.1 Master
+		comment.item.2 'Word Clock'
+		iface PCM
+		name 'Sync Mode'
+		value AutoSync
+	}
+	control.8 {
+		comment.access 'read write'
+		comment.type ENUMERATED
+		comment.count 1
+		comment.item.0 'IEC958 In'
+		comment.item.1 'ADAT1 In'
+		comment.item.2 'ADAT2 In'
+		iface PCM
+		name 'Preferred Sync Source'
+		value 'ADAT1 In'
+	}
+	control.11 {
+		comment.access read
+		comment.type ENUMERATED
+		comment.count 1
+		comment.item.0 'No Lock'
+		comment.item.1 Lock
+		comment.item.2 'No Lock Sync'
+		comment.item.3 'Lock Sync'
+		iface PCM
+		name 'ADAT1 Sync Check'
+		value 'No Lock'
+	}
+	control.12 {
+		comment.access read
+		comment.type ENUMERATED
+		comment.count 1
+		comment.item.0 'No Lock'
+		comment.item.1 Lock
+		comment.item.2 'No Lock Sync'
+		comment.item.3 'Lock Sync'
+		iface PCM
+		name 'ADAT2 Sync Check'
+		value 'No Lock'
+	}
+	control.13 {
+		comment.access read
+		comment.type BOOLEAN
+		comment.count 1
+		iface PCM
+		name 'Timecode Valid'
+		value false
+	}
+}

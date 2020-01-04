@@ -1,0 +1,200 @@
+#N canvas 890 297 687 368 10;
+#X obj 332 131 tgl 15 0 empty empty on 17 7 1 10 -4034 -1 -1 0 1;
+#X obj 421 112 tgl 15 0 empty empty loop 17 7 0 8 -262144 -1 -1 0 1
+;
+#X obj 409 177 bng 15 250 50 0 empty empty stop 17 7 0 8 -257985 -1
+-1;
+#X obj 469 254 bng 15 250 50 0 empty empty end 17 7 0 10 -262144 -1
+-1;
+#X obj 282 89 r \$1audiof_file;
+#X obj 331 112 r \$1audiof_on;
+#X obj 410 154 r \$1audiof_stop;
+#X obj 422 90 r \$1audiof_loop;
+#N canvas 444 465 1335 470 playfile_core 0;
+#X msg 108 119 1;
+#X msg 83 -61 open \$1;
+#X msg 138 119 0;
+#X msg 897 194 open /home/musa/0zpd/samples/32391_m_o_HANG_F3.wav 2
+1e+06;
+#X msg 169 -52 set open \$1;
+#X obj 123 31 pipe 5;
+#X obj 123 11 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 123 53 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 182 183 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 245 91 spigot;
+#X obj 284 65 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 276 40 repetir;
+#X obj 223 226 outlet;
+#X text 264 227 end;
+#X obj 256 -160 inlet;
+#X obj 73 -158 inlet;
+#X obj 177 -105 spigot;
+#X text 301 -160 on;
+#X text 119 -158 filename;
+#X obj 366 -160 inlet;
+#X text 406 -163 stop;
+#X obj 457 -159 inlet;
+#X text 497 -162 loop;
+#X obj 85 225 outlet~;
+#X obj 85 148 readsf~ 2 1e+06;
+#X obj 150 228 outlet~;
+#X obj 320 -159 inlet;
+#X obj 271 -101 spigot;
+#X obj 547 -157 inlet;
+#X text 592 -158 n of channels;
+#X obj 689 -155 inlet;
+#X text 729 -157 buffer size;
+#X msg 901 134 open /home/musa/0zpd/samples/32391_m_o_HANG_F3.wav 2
+1e+06;
+#X obj 897 75 pack s f f;
+#X msg 897 104 set open \$1 \$2 \$3;
+#X msg 202 -19 open /home/musa/0zpd/samples/32391_m_o_HANG_F3.wav;
+#X text 988 43 acabar;
+#X obj 91 -102 spigot;
+#X connect 0 0 24 0;
+#X connect 1 0 6 0;
+#X connect 1 0 24 0;
+#X connect 2 0 24 0;
+#X connect 4 0 35 0;
+#X connect 5 0 7 0;
+#X connect 6 0 5 0;
+#X connect 7 0 0 0;
+#X connect 8 0 9 0;
+#X connect 8 0 12 0;
+#X connect 9 0 35 0;
+#X connect 10 0 9 1;
+#X connect 14 0 16 1;
+#X connect 14 0 27 1;
+#X connect 14 0 37 1;
+#X connect 15 0 16 0;
+#X connect 15 0 37 0;
+#X connect 16 0 4 0;
+#X connect 16 0 33 0;
+#X connect 19 0 2 0;
+#X connect 21 0 10 0;
+#X connect 24 0 23 0;
+#X connect 24 1 25 0;
+#X connect 24 2 8 0;
+#X connect 26 0 27 0;
+#X connect 27 0 35 0;
+#X connect 28 0 33 1;
+#X connect 30 0 33 2;
+#X connect 33 0 34 0;
+#X connect 34 0 32 0;
+#X connect 34 0 3 0;
+#X connect 35 0 24 0;
+#X connect 35 0 6 0;
+#X connect 37 0 1 0;
+#X restore 364 223 pd playfile_core;
+#X obj 336 326 outlet~;
+#X obj 400 326 outlet~;
+#N canvas 1205 783 569 410 defaultsettings 0;
+#X obj 61 112 symbol \$1;
+#X obj 61 76 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 153 159 ftos;
+#X obj 187 113 float \$1;
+#X floatatom 204 146 5 0 0 0 - - -;
+#X symbolatom 92 152 0 0 0 0 - - -;
+#X symbolatom 123 191 10 0 0 0 - - -;
+#X obj 125 237 s \$1audiof_id;
+#X obj 62 33 loadbang;
+#X obj 321 171 s \$1audiof_on_init;
+#X msg 323 144 0;
+#X obj 318 101 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 461 125 s \$1audiof_nchannels;
+#X obj 465 170 s \$1audiof_buffer;
+#X msg 461 101 2;
+#X msg 463 147 1e+06;
+#X obj 385 106 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X connect 0 0 5 0;
+#X connect 1 0 0 0;
+#X connect 1 0 3 0;
+#X connect 2 0 6 0;
+#X connect 3 0 4 0;
+#X connect 4 0 2 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 8 0 1 0;
+#X connect 8 0 11 0;
+#X connect 8 0 16 0;
+#X connect 10 0 9 0;
+#X connect 11 0 10 0;
+#X connect 14 0 12 0;
+#X connect 15 0 13 0;
+#X connect 16 0 14 0;
+#X connect 16 0 15 0;
+#X restore 33 87 pd defaultsettings;
+#X obj 0 0 cnv 15 160 70 empty empty audio_file 30 8 0 10 -99865 -228856
+0;
+#X obj 470 327 outlet;
+#X obj 281 7 inlet;
+#X obj 281 34 s \$1audiof_file;
+#X obj 3 19 tgl 14 0 \$1audiof_on \$1audiof_on_init on 17 7 1 8 -260097
+-1 -228856 0 1;
+#X obj 35 19 bng 14 250 50 0 \$1audiof_stop \$1audiof_stop_init stop
+17 7 0 8 -257985 -1 -228856;
+#X obj 80 19 tgl 14 0 \$1audiof_loop \$1audiof_loop_init loop 17 7
+0 8 -257985 -1 -228856 0 1;
+#X obj 349 308 cnv 15 35 15 empty empty audio1 0 7 0 8 -257985 -66577
+0;
+#X obj 139 54 cnv 15 20 15 empty empty end 0 7 0 8 -258113 -228856
+0;
+#X obj 414 308 cnv 15 35 15 empty empty audio2 0 7 0 8 -257985 -66577
+0;
+#X obj 484 309 cnv 15 20 15 empty empty end 0 7 0 8 -258113 -228856
+0;
+#X obj 0 55 cnv 15 35 15 empty empty audio1 0 7 0 8 -257985 -66577
+0;
+#X obj 73 55 cnv 15 35 15 empty empty audio2 0 7 0 8 -257985 -66577
+0;
+#X obj 5 36 hradio 15 1 0 10 empty \$0audiof_file_2 32391_m_o_HANG_F3.wav
+1 7 0 8 -1 -1 -260097 0;
+#X obj 71 195 split_path;
+#X obj 70 160 r \$1audiof_file;
+#X msg 71 260 label \$1;
+#X symbolatom 149 228 10 0 0 0 - - -;
+#X msg 81 239 set label \$1;
+#X obj 71 295 s \$0audiof_file_2;
+#X obj 379 155 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 326 8 audio file + play;
+#X obj 377 132 r \$1audiof_play;
+#X obj 145 0 bng 14 250 50 0 \$1audiof_play \$1audiof_play_init play
+-25 7 0 8 -4034 -1 -228856;
+#X obj 142 17 cnv 15 15 15 empty \$1audiof_id \$1 1 7 0 8 -260097 -66577
+0;
+#X obj 478 8 inlet;
+#X obj 478 35 s \$1audiof_play_init;
+#X obj 0 0 cnv 15 25 15 empty empty file 0 7 0 8 -4034 -66577 0;
+#X obj 527 156 r \$1audiof_nchannels;
+#X obj 533 187 r \$1audiof_buffer;
+#X connect 0 0 8 1;
+#X connect 1 0 8 4;
+#X connect 2 0 8 3;
+#X connect 4 0 8 0;
+#X connect 5 0 0 0;
+#X connect 6 0 2 0;
+#X connect 7 0 1 0;
+#X connect 8 0 9 0;
+#X connect 8 1 10 0;
+#X connect 8 2 3 0;
+#X connect 8 2 13 0;
+#X connect 14 0 15 0;
+#X connect 26 1 28 0;
+#X connect 26 1 29 0;
+#X connect 26 1 30 0;
+#X connect 27 0 26 0;
+#X connect 28 0 31 0;
+#X connect 32 0 8 2;
+#X connect 34 0 32 0;
+#X connect 37 0 38 0;
+#X connect 40 0 8 5;
+#X connect 41 0 8 6;
+#X coords 0 -1 1 1 160 70 1 0 0;

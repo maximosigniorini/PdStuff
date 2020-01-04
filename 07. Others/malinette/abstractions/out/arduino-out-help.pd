@@ -1,0 +1,45 @@
+#N canvas 226 123 694 509 10;
+#X obj 494 138 ../master/arduino-master;
+#X obj 126 221 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X msg 365 343 1 servo \, 2 digital \, 8 pwm;
+#X obj 146 221 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 166 221 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 186 221 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X msg 365 297 11 pwm;
+#X obj 126 360 arduino-out 11 2;
+#X msg 365 319 11 none;
+#X obj 236 223 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X text 240 204 11;
+#X text 492 118 You need [arduino-master];
+#X text 363 276 Pins setup;
+#X text 421 296 <- pin 11 \, mode PWM;
+#X text 426 320 <- pin 11 \, mode none (stop);
+#X text 127 205 1;
+#X text 28 274 Send data ->;
+#X obj 268 223 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X text 268 205 13;
+#X text 324 390 <- or just choose manually;
+#X obj 236 187 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 532 342 <- list of pin setups;
+#X text 125 44 arduino-out \; ----------- \; Send data to Arduino outputs
+: digital + PWM + servo \; \; Arguments \; \$1: pin number \; \$2:
+mode (0=none \, 1=digital \, 2=pwm \, 3=servo) \; Inlets : analog or
+digital \; Last inlet : pin setup \;;
+#X connect 1 0 7 0;
+#X connect 2 0 7 16;
+#X connect 3 0 7 1;
+#X connect 4 0 7 2;
+#X connect 5 0 7 3;
+#X connect 6 0 7 16;
+#X connect 8 0 7 16;
+#X connect 9 0 7 10;
+#X connect 17 0 7 12;
+#X connect 20 0 9 0;
+#X coords 0 0 1 1 66 60 0;

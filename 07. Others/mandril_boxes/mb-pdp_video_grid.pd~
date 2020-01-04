@@ -1,0 +1,360 @@
+#N canvas 616 366 1133 680 10;
+#X obj 489 190 r vpdp_thread;
+#X msg 494 231 thread \$1;
+#X obj 492 277 pdp_control;
+#X obj 0 1 cnv 15 330 220 empty empty PDP_Video_Grid 40 12 0 16 -99865
+-262144 0;
+#X obj 9 73 cnv 15 310 50 empty empty empty 2 12 0 14 -191407 -66577
+0;
+#X symbolatom 72 80 25 0 0 0 File_name #1fpdp_file_name_init #1fpdp_file_name
+;
+#X obj 110 47 tgl 15 0 vpdp_thread empty Thread 17 7 0 10 -228856 -1
+-228856 0 1;
+#X obj 214 33 bng 15 250 50 0 \$1fpdp_defaults empty Load_Defaults
+17 7 0 10 -228856 -1 -228856;
+#X obj 109 30 bng 15 250 50 0 \$1fpdp_apply_settings empty Apply_settings
+17 7 0 10 -260097 -1 -228856;
+#X obj 571 495 outlet;
+#X text 532 169 comment;
+#X text 617 574 TODO: -Provar v4l. -Agafar dades de la camera al iniciar??
+-Arreglar dimensions. -Obrir mes d'un device?;
+#X obj 1 201 cnv 15 65 20 empty empty VIDEO_OUT 0 10 0 12 -221249 -262144
+0;
+#X obj 215 51 bng 15 250 50 0 empty empty Change_Defaults 17 7 0 10
+-228856 -1 -228856;
+#X obj 108 199 tgl 15 0 \$1fpdp_monitor_on empty Monitor_led 17 7 0
+10 -228856 -1 -228856 0 1;
+#X obj 67 205 bng 15 250 50 0 empty \$1fpdp_monitor_out_video empty
+17 7 0 10 -128992 -258113 -1;
+#X obj 638 421 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 609 392 spigot;
+#X obj 657 360 r \$1fpdp_monitor_on;
+#X obj 630 483 cnv 15 65 20 empty empty VIDEO_OUT 0 10 0 12 -221249
+-262144 0;
+#X obj 264 201 cnv 15 65 20 empty empty AUDIO_OUT 0 10 0 12 -257985
+-1 0;
+#X obj 243 203 bng 15 250 50 0 empty \$1fpdp_monitor_out_audio empty
+17 7 0 10 -128992 -257985 -1;
+#X obj 655 443 s \$1fpdp_monitor_out_video;
+#X obj 228 80 bng 15 250 50 0 \$1fpdp_select_file \$1fpdp_select_file_init
+Select_file 17 7 0 10 -262144 -1 -1;
+#X obj 16 30 bng 15 250 50 0 \$1fpdp_video_start empty Start 20 7 0
+10 -4034 -1 -228856;
+#X obj 16 49 bng 15 250 50 0 \$1fpdp_video_stop empty Stop 20 7 0 10
+-258113 -1 -228856;
+#X obj 25 97 tgl 15 0 \$1fpdp_loop \$1fpdp_loop_init Loop 17 7 0 10
+-262144 -1 -1 0 1;
+#X obj 124 100 nbx 5 14 0 1000 0 0 \$1fpdp_velocity \$1fpdp_velocity_in
+Velocity -50 6 0 10 -262144 -1 -1 0 256;
+#X obj 261 102 nbx 5 14 0 1e+37 0 0 \$1fpdp_frame_command \$1fpdp_frame_command_init
+Frame_command -80 6 0 10 -262144 -1 -1 0 256;
+#X obj 9 128 cnv 15 310 45 empty empty empty 2 12 0 14 -228856 -66577
+0;
+#X floatatom 22 146 5 0 0 2 Frames_decoded #1fpdp_framesdecoded -;
+#X floatatom 125 146 5 0 0 2 Number_of_frames #1fpdp_numberframes -
+;
+#X floatatom 246 148 5 0 0 2 Framerate #1fpdp_framerate -;
+#X obj 9 177 hsl 310 15 0 100 0 0 empty \$1fpdp_bar empty -2 -8 0 10
+-260097 -1 -1 0 1;
+#X text 660 99 ->acabar;
+#N canvas 4 67 1891 1071 fpdp_default_settings 0;
+#X obj 32 32 loadbang;
+#X obj 142 63 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 63 138 0;
+#X obj 116 34 r epdp_load_defaults;
+#X msg 33 137 0;
+#X obj 32 168 s epdp_aging_dust_init;
+#X obj 32 189 s epdp_aging_scratches_init;
+#X obj 203 165 s epdp_baltan_value_init;
+#X msg 203 138 1.65798e+07;
+#X msg 357 137 0;
+#X msg 494 143 0;
+#X obj 492 167 s epdp_dice_size_init;
+#X obj 359 166 s epdp_cycle_y_init;
+#X obj 360 194 s epdp_cycle_u_init;
+#X obj 361 222 s epdp_cycle_v_init;
+#X msg 634 145 10;
+#X obj 634 166 s epdp_intrusion_threshold_init;
+#X obj 145 266 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 32 363 0;
+#X obj 28 416 s epdp_lens_x_init;
+#X obj 27 440 s epdp_lens_y_init;
+#X obj 27 467 s epdp_lens_size_init;
+#X obj 28 491 s epdp_lens_zoomfactor_init;
+#X obj 27 515 s epdp_lens_mode_init;
+#X msg 216 369 0;
+#X obj 216 415 s epdp_mosaic_censorshiplevel_init;
+#X obj 439 414 s epdp_nervous_nframes_init;
+#X obj 439 443 s epdp_nervous_mode_init;
+#X msg 436 376 0;
+#X obj 625 415 s epdp_puzzle_nblocks_init;
+#X msg 624 380 4;
+#X msg 33 617 0;
+#X obj 30 651 s epdp_quark_nframes_init;
+#X obj 31 680 s epdp_quark_tolerance_init;
+#X obj 168 544 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 210 625 0;
+#X obj 210 652 s epdp_radioactiv_mode_init;
+#X obj 211 679 s epdp_radioactiv_snaptime_init;
+#X obj 210 708 s epdp_radioactiv_snapinterval_init;
+#X msg 457 608 1;
+#X obj 459 643 s epdp_rev_grabtime_init;
+#X obj 459 672 s epdp_rev_linespace_init;
+#X msg 492 610 6;
+#X msg 527 610 50;
+#X obj 459 704 s epdp_rev_scale_init;
+#X obj 464 732 s epdp_rev_linecolor_init;
+#X msg 560 610 0;
+#X obj 652 643 s epdp_ripple_mode_init;
+#X obj 654 674 s epdp_ripple_motionthreshold_init;
+#X obj 657 703 s epdp_ripple_rain_init;
+#X msg 650 611 0;
+#X msg 33 792 0;
+#X obj 34 827 s epdp_shagadelic_mask_init;
+#X obj 168 762 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 274 801 0;
+#X obj 229 856 s epdp_simura_mode_init;
+#X obj 228 826 s epdp_simura_color_init;
+#X msg 229 800 16733;
+#X obj 416 827 s epdp_spriral_mode_init;
+#X obj 414 852 s epdp_spiral_focusx_init;
+#X obj 415 875 s epdp_spiral_focusy_init;
+#X obj 416 902 s epdp_spiral_depth_init;
+#X obj 416 932 s epdp_spiral_focusint_init;
+#X obj 418 960 s epdp_spiral_focusincr_init;
+#X obj 418 990 s epdp_spiral_xor_init;
+#X obj 420 1019 s epdp_spiral_animate_init;
+#X msg 414 797 0;
+#X msg 634 800 0;
+#X obj 643 829 s epdp_transform_mode_init;
+#X obj 171 974 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 22 1066 10;
+#X obj 13 1100 s epdp_underwatch_stripsize_init;
+#X obj 223 1099 s epdp_vertigo_zoom_init;
+#X obj 219 1128 s epdp_vertigo_phase_init;
+#X msg 224 1067 0;
+#X msg 414 1071 0;
+#X obj 418 1100 s epdp_warhol_xdiv_init;
+#X obj 427 1130 s epdp_warhol_ydiv_init;
+#X obj 429 1162 s epdp_warhol_color_init;
+#X obj 424 1194 s epdp_warhol_ycomp_init;
+#X obj 421 1222 s epdp_warhol_ucomp_init;
+#X obj 419 1252 s epdp_warhol_vcomp_init;
+#X obj 637 1103 s epdp_warp_mode_init;
+#X obj 642 1133 s epdp_warp_control_init;
+#X msg 636 1073 0;
+#X obj 942 138 symbol \$1;
+#X symbolatom 942 167 0 0 0 0 - - -;
+#X obj 942 102 bng 15 250 50 0 empty empty click_here_to_see 0 -6 0
+8 -262144 -1 -1;
+#X symbolatom 1039 167 0 0 0 0 - - -;
+#X obj 1039 138 symbol \$2;
+#X obj 1136 165 s \$1fpdp_id;
+#X connect 0 0 1 0;
+#X connect 0 0 87 0;
+#X connect 1 0 4 0;
+#X connect 1 0 2 0;
+#X connect 1 0 8 0;
+#X connect 1 0 9 0;
+#X connect 1 0 10 0;
+#X connect 1 0 15 0;
+#X connect 1 0 17 0;
+#X connect 2 0 6 0;
+#X connect 3 0 1 0;
+#X connect 4 0 5 0;
+#X connect 8 0 7 0;
+#X connect 9 0 12 0;
+#X connect 9 0 13 0;
+#X connect 9 0 14 0;
+#X connect 10 0 11 0;
+#X connect 15 0 16 0;
+#X connect 17 0 18 0;
+#X connect 17 0 24 0;
+#X connect 17 0 28 0;
+#X connect 17 0 30 0;
+#X connect 17 0 34 0;
+#X connect 18 0 19 0;
+#X connect 18 0 20 0;
+#X connect 18 0 21 0;
+#X connect 18 0 22 0;
+#X connect 18 0 23 0;
+#X connect 24 0 25 0;
+#X connect 28 0 26 0;
+#X connect 28 0 27 0;
+#X connect 30 0 29 0;
+#X connect 31 0 32 0;
+#X connect 31 0 33 0;
+#X connect 34 0 31 0;
+#X connect 34 0 35 0;
+#X connect 34 0 39 0;
+#X connect 34 0 42 0;
+#X connect 34 0 43 0;
+#X connect 34 0 46 0;
+#X connect 34 0 50 0;
+#X connect 34 0 53 0;
+#X connect 35 0 36 0;
+#X connect 35 0 37 0;
+#X connect 35 0 38 0;
+#X connect 39 0 40 0;
+#X connect 42 0 41 0;
+#X connect 43 0 44 0;
+#X connect 46 0 45 0;
+#X connect 50 0 47 0;
+#X connect 50 0 48 0;
+#X connect 50 0 49 0;
+#X connect 51 0 52 0;
+#X connect 53 0 51 0;
+#X connect 53 0 57 0;
+#X connect 53 0 54 0;
+#X connect 53 0 66 0;
+#X connect 53 0 67 0;
+#X connect 53 0 69 0;
+#X connect 54 0 55 0;
+#X connect 57 0 56 0;
+#X connect 66 0 58 0;
+#X connect 66 0 59 0;
+#X connect 66 0 60 0;
+#X connect 66 0 61 0;
+#X connect 66 0 62 0;
+#X connect 66 0 63 0;
+#X connect 66 0 64 0;
+#X connect 66 0 65 0;
+#X connect 67 0 68 0;
+#X connect 69 0 70 0;
+#X connect 69 0 74 0;
+#X connect 69 0 75 0;
+#X connect 69 0 84 0;
+#X connect 70 0 71 0;
+#X connect 74 0 72 0;
+#X connect 74 0 73 0;
+#X connect 75 0 76 0;
+#X connect 75 0 77 0;
+#X connect 75 0 78 0;
+#X connect 75 0 79 0;
+#X connect 75 0 80 0;
+#X connect 75 0 81 0;
+#X connect 84 0 82 0;
+#X connect 84 0 83 0;
+#X connect 85 0 86 0;
+#X connect 86 0 90 0;
+#X connect 87 0 85 0;
+#X connect 87 0 89 0;
+#X connect 89 0 88 0;
+#X restore 771 201 pd fpdp_default_settings;
+#N canvas 770 211 1064 754 fpdp_open_video_file_core 0;
+#X obj 156 417 outlet;
+#X obj 207 417 cnv 15 65 20 empty empty VIDEO_OUT 0 10 0 12 -221249
+-262144 0;
+#X obj 87 -41 bng 15 250 50 0 empty empty empty 20 8 0 8 -262144 -1
+-1;
+#X msg 687 8 loop \$1;
+#X obj 688 -14 tgl 15 0 empty empty empty 20 8 0 8 -262144 -1 -1 0
+1;
+#X msg 153 92 open \$1;
+#X obj -73 10 openpanel;
+#X obj -72 -29 bng 15 250 50 0 empty empty empty 20 8 0 8 -262144 -1
+-1;
+#X floatatom 365 1 5 0 0 0 - - -;
+#X msg 215 -31 stop;
+#X obj 292 -32 hsl 300 15 0 1000 0 0 empty empty empty -2 -6 0 8 -262144
+-1 -1 0 1;
+#X obj 229 13 metro 70;
+#X floatatom 315 184 5 0 0 0 - - -;
+#X floatatom 346 209 5 0 0 0 - - -;
+#X text 366 184 Number of frames decoded;
+#X text 395 208 Total number of frames;
+#X floatatom 881 -27 5 0 0 0 - - -;
+#X text 932 -27 Frame command;
+#X obj 880 -8 t b f;
+#X floatatom 377 233 5 0 0 0 - - -;
+#X text 426 233 Frame rate;
+#X obj 274 125 pdp_yqt ----------;
+#X obj 79 -71 r \$1fpdp_video_start;
+#X obj 215 -70 r \$1fpdp_video_stop;
+#X obj -70 -69 r \$1fpdp_select_file;
+#X obj -75 45 s \$1fpdp_file_name_init;
+#X obj 97 54 r \$1fpdp_file_name;
+#X obj 675 -62 r \$1fpdp_loop;
+#X obj 346 -70 r \$1fpdp_velocity;
+#X obj 786 -108 r \$1fpdp_frame_command;
+#X obj 315 332 s \$1fpdp_framesdecoded;
+#X obj 345 310 s \$1fpdp_numberframes;
+#X obj 377 281 s \$1fpdp_framerate;
+#X obj 675 368 hsl 128 15 0 100 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 620 287 /;
+#X floatatom 621 331 5 0 0 0 - - -;
+#X obj 589 371 * 100;
+#X obj 581 425 s \$1fpdp_bar;
+#X obj 830 316 +~;
+#X obj 847 411 outlet~;
+#X obj 901 405 cnv 15 65 20 empty empty AUDIO_OUT 0 10 0 12 -257985
+-1 0;
+#X connect 2 0 11 0;
+#X connect 3 0 21 0;
+#X connect 4 0 3 0;
+#X connect 5 0 21 0;
+#X connect 6 0 25 0;
+#X connect 7 0 6 0;
+#X connect 8 0 11 1;
+#X connect 9 0 11 0;
+#X connect 10 0 8 0;
+#X connect 11 0 21 0;
+#X connect 12 0 30 0;
+#X connect 12 0 34 0;
+#X connect 13 0 31 0;
+#X connect 13 0 34 1;
+#X connect 16 0 18 0;
+#X connect 18 0 21 0;
+#X connect 18 1 21 1;
+#X connect 19 0 32 0;
+#X connect 21 0 0 0;
+#X connect 21 1 12 0;
+#X connect 21 2 13 0;
+#X connect 21 3 19 0;
+#X connect 21 4 38 0;
+#X connect 21 5 38 1;
+#X connect 22 0 2 0;
+#X connect 23 0 9 0;
+#X connect 24 0 7 0;
+#X connect 26 0 5 0;
+#X connect 27 0 4 0;
+#X connect 28 0 10 0;
+#X connect 29 0 16 0;
+#X connect 34 0 35 0;
+#X connect 35 0 36 0;
+#X connect 36 0 33 0;
+#X connect 36 0 37 0;
+#X connect 38 0 39 0;
+#X restore 587 287 pd fpdp_open_video_file_core;
+#X obj 263 4 cnv 15 40 20 empty \$1vpdp_id \$1 10 10 0 16 -260097 -33289
+0;
+#X obj 879 493 outlet~;
+#X obj 933 487 cnv 15 65 20 empty empty AUDIO_OUT 0 10 0 12 -257985
+-1 0;
+#X obj 907 400 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 926 339 r \$1fpdp_monitor_on;
+#X obj 827 330 snapshot~;
+#X obj 845 377 spigot;
+#X obj 924 422 s \$1fpdp_monitor_out_audio;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 16 0 22 0;
+#X connect 17 0 16 0;
+#X connect 18 0 17 1;
+#X connect 36 0 9 0;
+#X connect 36 0 17 0;
+#X connect 36 1 38 0;
+#X connect 36 1 42 0;
+#X connect 40 0 44 0;
+#X connect 41 0 43 1;
+#X connect 42 0 43 0;
+#X connect 43 0 40 0;
+#X coords 0 -1 1 1 330 220 1 0 0;

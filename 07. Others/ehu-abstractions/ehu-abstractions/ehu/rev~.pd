@@ -1,0 +1,115 @@
+#N canvas 17 184 648 589 10;
+#X msg 131 333 roomsize \$1;
+#X msg 131 418 damping \$1;
+#X msg 131 382 width \$1;
+#X msg 13 286 wet \$1;
+#X msg 73 285 dry \$1;
+#X msg 31 410 print;
+#X msg 131 361 freeze \$1;
+#X msg 131 399 bypass \$1;
+#X obj 159 115 tgl 15 1 empty empty empty 0 -6 0 8 -258113 -1 -1 1
+1;
+#X obj 103 115 tgl 15 0 empty empty empty 0 -6 0 8 -4160 -1 -1 0 1
+;
+#X text 270 353 - start and stop "freeze" mode (off by default). If
+on \, reverb tail gets freezed (sample and hold).;
+#X obj 134 196 hsl 60 18 0 1 0 1 empty empty wet-dry 2 9 1 12 -225271
+-1 -1 2000 0;
+#X obj 134 175 hsl 60 18 0 1 0 1 empty empty width 2 9 1 12 -262131
+-1 -1 4100 0;
+#X obj 134 154 hsl 60 18 0 2 0 1 empty empty damping 2 9 1 12 -261689
+-1 -1 2900 0;
+#X obj 134 133 hsl 60 18 0.11 1.1 0 1 empty empty roomsize 2 9 1 12
+-261689 -1 -1 2900 0;
+#X text 263 123 - size of the room to be simulated. Larger values result
+in longer reverb. Values above 1 will result in feedback or 'room resonance'
+(i.e. reverb getting louder);
+#X floatatom 104 134 3 0 0 0 - - -;
+#X text 262 215 - stereo width of the reverb \, i.e. how much of the
+reverb part from the left and right channel mix. Turning this to 1
+(nearly gives two separate mono reverbs.;
+#X text 261 257 - level of the wet (reverbed) signal \, between 0 and
+1;
+#X text 268 283 - level of the dry (i.e. unprocessed or original) signal
+\, between 0 and 1 Note that wet and dry signals mix and thus can cause
+clipping if both are set at high levels.;
+#X text 270 328 - print the current values of these parameters.;
+#X text 270 382 - bypass reverb processing when set to 1 Can be used
+to compare reverbed signal with original signal \, and to save CPU
+when reverb is not needed.;
+#X floatatom 104 156 3 0 0 0 - - -;
+#X floatatom 104 178 3 0 0 0 - - -;
+#X floatatom 104 198 3 0 0 0 - - -;
+#X text 259 169 - amount of damping of the room's surfaces. <=1 means
+nearly no damping \, resulting in a lot of reflection (long reverb)
+\, >1 means high damping of signals (short reverb).;
+#X obj 132 451 freeverb~;
+#X obj 73 264 expr 1-$f1;
+#X obj 146 41 r loadbang;
+#X obj -7 26 inlet~;
+#X obj 56 27 inlet~;
+#X obj 158 529 outlet~;
+#X obj 77 531 outlet~;
+#X obj 253 25 inlet;
+#X obj 291 25 inlet;
+#X obj 332 25 inlet;
+#X obj 376 25 inlet;
+#X obj 421 25 inlet;
+#X obj 469 25 inlet;
+#X text 119 114 freeze;
+#X obj 296 517 namecanvas \$0-bla;
+#X obj 295 495 s \$0-bla;
+#X obj 295 450 r EHU_gop;
+#X text 369 446 GOP;
+#X msg 295 471 donecanvasdialog 1 -1 \$1 0 -1 1 1 100 105 100 100;
+#X obj 225 263 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 173 255 reverse;
+#X obj 208 243 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 146 63 set 1;
+#X text 244 3 freeze \, bypass \, roomsize \, damping \, width dry/wet
+;
+#X text 5 4 left \, right;
+#X obj 181 115 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113
+-1 -1;
+#X msg 217 116 0;
+#X connect 0 0 26 0;
+#X connect 1 0 26 0;
+#X connect 2 0 26 0;
+#X connect 3 0 26 0;
+#X connect 4 0 26 0;
+#X connect 5 0 26 0;
+#X connect 6 0 26 0;
+#X connect 7 0 26 0;
+#X connect 8 0 47 0;
+#X connect 9 0 6 0;
+#X connect 11 0 24 0;
+#X connect 11 0 27 0;
+#X connect 11 0 3 0;
+#X connect 12 0 2 0;
+#X connect 12 0 23 0;
+#X connect 13 0 1 0;
+#X connect 13 0 22 0;
+#X connect 14 0 0 0;
+#X connect 14 0 16 0;
+#X connect 26 0 32 0;
+#X connect 26 1 31 0;
+#X connect 27 0 4 0;
+#X connect 28 0 48 0;
+#X connect 29 0 26 0;
+#X connect 30 0 26 1;
+#X connect 33 0 9 0;
+#X connect 34 0 8 0;
+#X connect 35 0 14 0;
+#X connect 36 0 13 0;
+#X connect 37 0 12 0;
+#X connect 38 0 11 0;
+#X connect 42 0 44 0;
+#X connect 44 0 41 0;
+#X connect 45 0 7 0;
+#X connect 47 0 45 0;
+#X connect 48 0 45 0;
+#X connect 51 0 52 0;
+#X connect 52 0 11 0;
+#X coords 0 -1 105 100 100 117 1 100 100;

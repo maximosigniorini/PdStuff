@@ -1,0 +1,11 @@
+#N canvas 194 235 418 233 10;
+#X obj 54 -334 inlet bang;
+#X obj 54 -306 bang;
+#X text 36 -377 Retourne le nombre d'images d'une vidéo chargée;
+#X obj 54 -278 s \$1.get-totalFrames;
+#X obj 49 -191 outlet totalFrames;
+#X obj 49 -226 r \$1.totalFrames;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 5 0 4 0;
+#X coords 0 233 1 232 65 15 0;

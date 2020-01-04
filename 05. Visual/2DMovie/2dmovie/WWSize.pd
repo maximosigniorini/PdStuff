@@ -1,0 +1,16 @@
+#N canvas 565 180 429 269 10;
+#X obj 39 -271 inlet bang;
+#X obj 41 -129 unpack f f;
+#X obj 41 -89 outlet width;
+#X obj 129 -90 outlet height;
+#X obj 39 -242 bang;
+#X obj 39 -211 s get-size;
+#X obj 41 -162 r size;
+#X text 21 -304 Retourne la taille de la fenêtre de travail du GemManager
+;
+#X connect 0 0 4 0;
+#X connect 1 0 2 0;
+#X connect 1 1 3 0;
+#X connect 4 0 5 0;
+#X connect 6 0 1 0;
+#X coords 0 269 1 268 65 15 0;

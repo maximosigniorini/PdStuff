@@ -1,0 +1,24 @@
+#N canvas 1 135 572 411 10;
+#X declare -path ../in;
+#X obj 120 140 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X floatatom 120 280 5 0 0 0 - - -;
+#X obj 283 143 vsl 15 128 0 20000 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X floatatom 283 282 5 0 0 0 - - -;
+#X floatatom 120 344 8 0 0 0 - - -;
+#X floatatom 283 344 5 0 0 0 - - -;
+#X text 45 118 midi (0-127);
+#X text 259 120 hz (0-20000);
+#X obj 81 58 audio-in;
+#X obj 403 81 declare -path ../in;
+#X obj 120 303 midi-hz;
+#X text 70 9 midi-hz \; ------- \; Conversion between Midi and Hertz
+\;;
+#X connect 0 0 1 0;
+#X connect 1 0 10 0;
+#X connect 2 0 3 0;
+#X connect 3 0 10 1;
+#X connect 8 1 0 0;
+#X connect 10 0 4 0;
+#X connect 10 1 5 0;

@@ -1,0 +1,18 @@
+#N canvas 1330 293 450 300 10;
+#X text 123 14 \$1 channel number;
+#X obj 53 68 inlet~;
+#X obj 193 147 s \$1_IN_SRC;
+#X obj 194 98 f \$1;
+#X obj 193 66 inlet;
+#X obj 55 231 *~;
+#X obj 77 201 line~;
+#X msg 194 124 \$1_W_MLITE;
+#X obj 79 136 r w_mlite_fade;
+#X obj 53 254 s~ \$1_W_MLITE;
+#X connect 1 0 5 0;
+#X connect 3 0 7 0;
+#X connect 4 0 3 0;
+#X connect 5 0 9 0;
+#X connect 6 0 5 1;
+#X connect 7 0 2 0;
+#X connect 8 0 6 0;

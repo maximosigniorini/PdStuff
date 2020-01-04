@@ -1,0 +1,103 @@
+#N canvas 261 144 728 573 10;
+#X declare -lib ggee;
+#X text 7 193 play/pause;
+#X text 51 129 pitch;
+#X text 294 136 start;
+#X text 302 155 end;
+#X text 305 175 pan;
+#X text 310 200 goto;
+#X text 260 222 rec;
+#X text 332 169 sndin;
+#X obj 47 216 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 105 162 amp;
+#X obj 72 194 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 88 133 5 0 0 0 - - -;
+#X obj 126 157 vsl 15 50 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 157 138 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 161 158 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 167 179 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 171 201 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 297 228 adc~;
+#X obj 244 228 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 187 228 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 202 227 reset;
+#X obj 105 499 dac~;
+#X text 413 169 INLETS;
+#X text 279 6 GPL by www.ixi-audio.net;
+#X text 412 113 ARGUMENTS;
+#X text 411 129 1 Max length of recording buffer in secs;
+#X text 424 142 defaults to 20 secs if none is provided;
+#X text 413 430 OUTLETS;
+#X text 412 449 1 left sound channel;
+#X text 413 466 2 right sound channel;
+#X text 412 220 3 toogle play/pause;
+#X text 412 205 2 path of sound file to load;
+#X text 11 11 path to sound;
+#X text 12 229 load pannel;
+#X text 13 216 open;
+#X text 412 191 1 bang to open load panel;
+#X obj 851 509 moses 1;
+#X obj 861 519 moses 1;
+#X text 410 63 plays both MONO and STEREO wav files;
+#X text 412 31 SAMPLE PLAYER;
+#X text 412 235 4 loop on/off;
+#X text 413 250 5 pitch;
+#X text 413 265 6 amplitude;
+#X text 413 281 7 start point 0-1;
+#X text 413 299 8 end point 0-1;
+#X text 413 316 9 pan 0-1;
+#X text 410 332 10 jump to this point in sound 0-1;
+#X text 411 349 11 reset to initial values;
+#X text 410 367 12 record on/off **MAX 20 secs**;
+#X text 411 385 13 left channel sound in for recording;
+#X text 411 402 14 right channel sound in for recording;
+#X obj 77 162 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 50 160 loop;
+#X text 414 504 4 bangs on loop or end point;
+#X text 414 484 3 current position in sound 0-1;
+#X floatatom 170 467 5 0 0 0 - - -;
+#X obj 219 467 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 13 81 ehu/abs_path;
+#X text 414 524 5 bang on max recording time reached;
+#X obj 248 466 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 260 50 ehu/dsp;
+#X obj 260 29 loadbang;
+#X obj 81 263 splayer2~ 8;
+#X text 410 80 records STEREO input and plays it (experimental);
+#X msg 13 30 ../sounds/whistle_mono.wav;
+#X msg 23 51 ../sounds/whistle.wav;
+#X connect 8 0 62 0;
+#X connect 10 0 62 2;
+#X connect 11 0 62 4;
+#X connect 12 0 62 5;
+#X connect 13 0 62 6;
+#X connect 14 0 62 7;
+#X connect 15 0 62 8;
+#X connect 16 0 62 9;
+#X connect 17 0 62 12;
+#X connect 17 1 62 13;
+#X connect 18 0 62 11;
+#X connect 19 0 62 10;
+#X connect 51 0 62 3;
+#X connect 57 0 62 1;
+#X connect 61 0 60 0;
+#X connect 61 0 65 0;
+#X connect 62 0 21 0;
+#X connect 62 1 21 1;
+#X connect 62 2 55 0;
+#X connect 62 3 56 0;
+#X connect 62 4 59 0;
+#X connect 64 0 57 0;
+#X connect 65 0 57 0;

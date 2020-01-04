@@ -1,0 +1,148 @@
+#N canvas 483 154 196 83 10;
+#X obj 1 4 cnv 10 192 72 empty ColorMIDI empty 5 28 1 14 -262103 -1
+1.04858e+06;
+#X obj 2 41 cnv 9 9 9 empty ColorForm MIDI_Note_In 0 5 1 9 -258007
+-1 1.04858e+06;
+#X obj 76 42 nbx 3 11 0 128 0 1 \$0-SendMIDIPitch \$0-ReceiveMIDIPitch
+Pitch 0 -7 1 9 -258007 -1 -1 94 256;
+#X obj 105 42 nbx 3 11 0 128 0 1 \$0-SendMIDIVelocity \$0-ReceiveMIDIVelocity
+Vel 5 -7 1 9 -258007 -1 -1 100 256;
+#X obj 134 42 nbx 3 11 0 48 0 1 \$0-SendMIDIChannel \$0-ReceiveMIDIChannel
+Ch 6 -7 1 9 -258007 -1 -1 15 256;
+#X obj 76 57 nbx 2 11 0 16 0 1 \$0-SendARGOBusPitch \$0-ReceiveARGOBusPitch
+ARGOBus -55 6 1 9 -262144 -1 -1 1 256;
+#X obj 105 57 nbx 2 11 0 16 0 1 \$0-SendARGOBusVelocity \$0-ReceiveARGOBusVelocity
+empty -55 6 1 9 -262144 -1 -1 2 256;
+#N canvas 509 59 477 339 Help---- 0;
+#X obj 10 68 cnv 15 400 54 empty empty empty 20 12 0 14 -224896 -66577
+0;
+#X text 12 67 Construit sous/Build under;
+#X text 12 79 Pd 0.38.4-extended;
+#X obj 11 126 cnv 15 400 30 empty empty empty 20 12 0 14 -259090 -66577
+0;
+#X text 12 92 Voir/Look at:;
+#X text 12 105 http://sourceforge.net/projects/pure-data/;
+#X text 18 127 - Un module "ARGOGeneral" (et un seul) doit etre ouvert
+avant l'ouverture de ce module.;
+#N canvas 175 199 765 223 /SUBPATCH/ 0;
+#X obj -89 158 switch~;
+#X obj -87 31 r \$0-SendOnOff;
+#X obj -89 98 pipe 500;
+#X obj -88 54 t f f;
+#X obj 21 31 loadbang;
+#X obj 363 7 notein;
+#X obj 125 130 / 240;
+#N canvas 314 184 311 220 OutputARGOBusv3Ctrl 0;
+#X obj 54 5 inlet;
+#X obj -25 100 sprintf ARGOBus%d;
+#X obj 53 32 change;
+#X msg -24 144 set \$1;
+#X obj -24 123 tosymbol;
+#X text -84 4 No ARGObus 1..16 ->;
+#X obj 97 182 throw~ ARGOBus0;
+#X obj 98 69 sig~;
+#X obj 99 5 inlet;
+#X connect 0 0 2 0;
+#X connect 1 0 4 0;
+#X connect 2 0 1 0;
+#X connect 3 0 6 0;
+#X connect 4 0 3 0;
+#X connect 7 0 6 0;
+#X connect 8 0 7 0;
+#X restore -23 182 pd OutputARGOBusv3Ctrl;
+#X obj 126 109 - 60;
+#X obj 125 69 s \$0-ReceiveMIDIPitch;
+#X obj 290 69 s \$0-ReceiveMIDIVelocity;
+#X obj 446 154 s \$0-ReceiveMIDIChannel;
+#X obj -23 155 r \$0-SendARGOBusPitch;
+#N canvas 314 184 311 220 OutputARGOBusv3Ctrl 0;
+#X obj 54 5 inlet;
+#X obj -25 100 sprintf ARGOBus%d;
+#X obj 53 32 change;
+#X msg -24 144 set \$1;
+#X obj -24 123 tosymbol;
+#X text -84 4 No ARGObus 1..16 ->;
+#X obj 97 182 throw~ ARGOBus0;
+#X obj 98 69 sig~;
+#X obj 99 5 inlet;
+#X connect 0 0 2 0;
+#X connect 1 0 4 0;
+#X connect 2 0 1 0;
+#X connect 3 0 6 0;
+#X connect 4 0 3 0;
+#X connect 7 0 6 0;
+#X connect 8 0 7 0;
+#X restore 142 182 pd OutputARGOBusv3Ctrl;
+#X obj 142 155 r \$0-SendARGOBusVelocity;
+#X obj 291 114 / 128;
+#X obj 125 89 r \$0-SendMIDIPitch;
+#X obj 291 88 r \$0-SendMIDIVelocity;
+#X obj 612 154 s \$0-ReceiveMIDIPort;
+#X obj 611 85 / 16;
+#X obj 645 131 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -6 0 10
+-262144 -1 -1 0 256;
+#X obj 613 110 int;
+#X obj 612 131 + 1;
+#X obj 645 110 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -6 0 10
+-262144 -1 -1 0 256;
+#X obj 537 50 - 1;
+#X obj 379 43 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -6 0 10
+-262144 -1 -1 0 256;
+#X obj 446 90 mod 16;
+#X obj 457 135 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -6 0 10
+-262144 -1 -1 0 256;
+#X obj 446 112 + 1;
+#X connect 1 0 3 0;
+#X connect 2 0 0 0;
+#X connect 3 0 2 0;
+#X connect 5 0 9 0;
+#X connect 5 1 10 0;
+#X connect 5 2 24 0;
+#X connect 5 2 25 0;
+#X connect 6 0 7 1;
+#X connect 8 0 6 0;
+#X connect 12 0 7 0;
+#X connect 14 0 13 0;
+#X connect 15 0 13 1;
+#X connect 16 0 8 0;
+#X connect 17 0 15 0;
+#X connect 19 0 21 0;
+#X connect 19 0 23 0;
+#X connect 21 0 22 0;
+#X connect 21 0 20 0;
+#X connect 22 0 18 0;
+#X connect 24 0 19 0;
+#X connect 24 0 26 0;
+#X connect 26 0 28 0;
+#X connect 28 0 27 0;
+#X connect 28 0 11 0;
+#X restore 269 26 pd;
+#X obj 11 13 cnv 10 220 50 empty empty http://perso.orange.fr/Paresys/ARGOPd/
+5 44 1 9 -4033 -1 1.04858e+06;
+#X obj 180 20 cnv 10 10 10 empty empty Aide/Help 0 5 1 9 -4033 -1 1.04858e+06
+;
+#X obj 10 14 cnv 20 20 20 empty empty ARGOMIDINote 5 12 1 18 -4033
+-1 1.04858e+06;
+#X obj 15 37 cnv 10 10 10 empty empty Gerard 0 5 1 9 -4033 -1 1.04858e+06
+;
+#X obj 52 37 cnv 10 10 10 empty empty Paresys 0 5 1 9 -4033 -1 1.04858e+06
+;
+#X text 297 26 <- Clic;
+#X text 11 167 C3 = Do3 = note MIDI 60 envoie un signal nul sur les
+ARGOBus;
+#X text 73 180 = 261.626 Hz;
+#X text 11 252 - 1 entrée MIDI;
+#X text 11 204 - Choix de l'entrée MIDI:;
+#X text 33 217 Menu Pd -> Preferences -> MIDI settings... -> input
+device;
+#X text 33 230 En cliquant "use multiple devices" -> 4 ports sont possibles
+;
+#X text 12 265 - 2 sorties ARGOBus:Pitch et Velocity MIDI transformés
+en Audio;
+#X restore 44 5 pd Help----;
+#X obj 48 4 cnv 18 120 18 empty empty MIDINote 1 9 1 14 -4033 -1 1.04858e+06
+;
+#X obj 29 4 tgl 18 1 \$0-SendOnOff \$0-ReceiveOnOff empty 0 0 0 9 -4033
+-1 -1 1 1;
+#X obj 163 42 nbx 3 11 0 4 0 1 \$0-SendMIDIPort \$0-ReceiveMIDIPort
+Port 0 -7 1 9 -258007 -1 -1 1 256;

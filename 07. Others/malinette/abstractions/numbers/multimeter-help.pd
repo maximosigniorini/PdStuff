@@ -1,0 +1,27 @@
+#N canvas 1 82 781 414 10;
+#X obj 57 126 vsl 15 50 0 1 0 0 empty empty Analog_sensor_(0-1) 0 -9
+0 10 -262144 -1 -1 0 1;
+#X msg 465 229 5V;
+#X msg 569 229 GND;
+#X msg 515 229 A0;
+#X msg 490 187 stuff;
+#X msg 542 185 10k resistor;
+#X text 502 245 arduino;
+#X text 413 297 Vin Arduino = 5V \; default resistor in divider = 10kOhm
+\; \; Formula \; r = rknown * ((Vin / Vout) - 1 );
+#X floatatom 57 256 5 0 0 1 Volts - -;
+#X floatatom 172 255 5 0 0 1 Ohms - -;
+#X text 412 40 /// THE CIRCUIT \; 10 kohms resistor between an ANALOG
+PIN and GND \; then plug a crocodilewire to the ANALOG PIN \; plug
+a second crocodilewire to the 5V(Vin) \; ex \; 5V ---stufftomeasure--ANALOGPIN--10kresistor--GND
+;
+#X obj 57 192 multimeter;
+#X text 52 23 Multimeter \; ----------- \; Calculate the Resistance
+and the Voltage with Arduino \;;
+#X connect 0 0 11 0;
+#X connect 4 0 3 0;
+#X connect 4 0 1 0;
+#X connect 5 0 3 0;
+#X connect 5 0 2 0;
+#X connect 11 0 8 0;
+#X connect 11 1 9 0;

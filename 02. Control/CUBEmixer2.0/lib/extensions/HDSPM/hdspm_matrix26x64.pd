@@ -1,0 +1,179 @@
+#N canvas 216 12 777 848 10;
+#X obj 74 97 cnv 15 624 703 empty empty empty 20 12 0 14 -228992 -66577
+0;
+#X obj 73 96 nbxm 64 26 3 11 -100 27 0 \$0_matrix_fromgui \$0_matrix_togui
+#000000 0 8;
+#X obj 166 97 cnv 4 4 703 empty empty empty 20 12 0 14 -187584 -66577
+0;
+#X obj 262 97 cnv 4 4 703 empty empty empty 20 12 0 14 -187584 -66577
+0;
+#X obj 358 97 cnv 4 4 703 empty empty empty 20 12 0 14 -187584 -66577
+0;
+#X obj 74 182 cnv 2 624 2 empty empty empty 20 12 0 14 -99865 -66577
+0;
+#X obj 74 138 cnv 2 624 2 empty empty empty 20 12 0 14 -166848 -66577
+0;
+#X obj 73 94 cnv 2 624 2 empty empty empty 20 12 0 14 -99865 -66577
+0;
+#X text 82 80 1;
+#X text 106 79 2;
+#X text 128 79 3;
+#X text 153 78 4;
+#X text 179 78 5;
+#X text 203 77 6;
+#X text 225 77 7;
+#X text 250 76 8;
+#X text 275 78 9;
+#X text 293 76 10;
+#X text 315 76 11;
+#X text 340 75 12;
+#X text 363 75 13;
+#X text 388 73 14;
+#X text 410 74 15;
+#X text 437 76 16;
+#X text 460 77 17;
+#X text 482 75 18;
+#X text 508 75 19;
+#X text 532 76 20;
+#X text 556 76 21;
+#X text 580 75 22;
+#X text 602 76 23;
+#X text 628 77 24;
+#X text 650 77 25;
+#X text 677 76 26;
+#X text 62 94 1;
+#X text 62 116 3;
+#X text 63 139 5;
+#X text 62 159 7;
+#X text 63 182 9;
+#X text 64 228 3;
+#X text 65 251 5;
+#X text 64 271 7;
+#X text 63 294 9;
+#X text 63 337 3;
+#X text 64 360 5;
+#X text 63 380 7;
+#X text 62 403 9;
+#X text 63 448 3;
+#X text 64 471 5;
+#X text 63 491 7;
+#X text 62 514 9;
+#X text 63 558 3;
+#X text 64 581 5;
+#X text 63 601 7;
+#X text 62 624 9;
+#X text 62 668 3;
+#X text 63 691 5;
+#X text 62 711 7;
+#X text 62 732 9;
+#X text 61 776 3;
+#X obj 74 270 cnv 2 624 2 empty empty empty 20 12 0 14 -99865 -66577
+0;
+#X obj 74 226 cnv 2 624 2 empty empty empty 20 12 0 14 -166848 -66577
+0;
+#X obj 74 359 cnv 2 624 2 empty empty empty 20 12 0 14 -99865 -66577
+0;
+#X obj 74 315 cnv 2 624 2 empty empty empty 20 12 0 14 -166848 -66577
+0;
+#X obj 73 447 cnv 2 624 2 empty empty empty 20 12 0 14 -99865 -66577
+0;
+#X obj 73 403 cnv 2 624 2 empty empty empty 20 12 0 14 -166848 -66577
+0;
+#X obj 74 534 cnv 2 624 2 empty empty empty 20 12 0 14 -99865 -66577
+0;
+#X obj 74 490 cnv 2 624 2 empty empty empty 20 12 0 14 -166848 -66577
+0;
+#X obj 74 622 cnv 2 624 2 empty empty empty 20 12 0 14 -99865 -66577
+0;
+#X obj 74 578 cnv 2 624 2 empty empty empty 20 12 0 14 -166848 -66577
+0;
+#X obj 74 711 cnv 2 624 2 empty empty empty 20 12 0 14 -99865 -66577
+0;
+#X obj 74 667 cnv 2 624 2 empty empty empty 20 12 0 14 -166848 -66577
+0;
+#X obj 73 799 cnv 2 624 2 empty empty empty 20 12 0 14 -99865 -66577
+0;
+#X obj 73 755 cnv 2 624 2 empty empty empty 20 12 0 14 -166848 -66577
+0;
+#X obj 454 97 cnv 4 4 703 empty empty empty 20 12 0 14 -187584 -66577
+0;
+#X obj 550 97 cnv 4 4 703 empty empty empty 20 12 0 14 -187584 -66577
+0;
+#X obj 646 97 cnv 4 4 703 empty empty empty 20 12 0 14 -187584 -66577
+0;
+#X text 53 94 0;
+#X text 57 204 11;
+#X text 57 315 21;
+#X text 59 425 31;
+#X text 56 535 41;
+#X text 58 645 51;
+#X text 57 755 61;
+#X text 14 463 DAC;
+#X text 337 49 OUT;
+#X obj 431 17 namecanvas \$0OUTmatrix;
+#N canvas 1363 283 450 300 (subpatch) 0;
+#X obj 0 2 cnv 15 400 16 empty dummy OUT-ROUTING-DAC 135 10 0 14 -233017
+-66577 0;
+#N canvas 141 168 711 448 bus_sendreceive 0;
+#X msg 152 160 element \$1 \$2 \$3;
+#X obj 152 94 unpack 0 0 0;
+#X obj 152 137 pack 0 0 0;
+#X obj 231 115 + 100;
+#X text 275 114 dBm -> dBtech;
+#X obj 152 257 mtx_- 100;
+#X obj 152 235 relay matrix row col;
+#N canvas 0 0 450 300 tech2mid 0;
+#X obj 99 15 inlet;
+#X obj 99 123 outlet;
+#X obj 99 49 niagara 2;
+#X obj 157 71 mtx_- 100;
+#X obj 99 97 iem_append;
+#X connect 0 0 2 0;
+#X connect 2 0 4 0;
+#X connect 2 1 3 0;
+#X connect 3 0 4 1;
+#X connect 4 0 1 0;
+#X restore 197 280 pd tech2mid;
+#X obj 287 258 route element;
+#X obj 432 284 mtx_- 100;
+#X obj 432 218 loadbang;
+#X obj 432 261 mtx_zeros 52 16;
+#X msg 455 242 bang;
+#X obj 152 209 route list;
+#X obj 152 74 r \$0OUT_matrix_fromgui;
+#X obj 153 304 s \$0OUT_matrix_togui;
+#X obj 152 188 sendreceive OUT_ROUTE;
+#X msg 166 341 elem 1 1 100;
+#X connect 0 0 16 0;
+#X connect 1 0 2 0;
+#X connect 1 1 2 1;
+#X connect 1 2 3 0;
+#X connect 2 0 0 0;
+#X connect 3 0 2 2;
+#X connect 5 0 15 0;
+#X connect 6 0 5 0;
+#X connect 6 1 7 0;
+#X connect 6 2 7 0;
+#X connect 6 3 8 0;
+#X connect 7 0 15 0;
+#X connect 8 0 7 0;
+#X connect 8 1 15 0;
+#X connect 9 0 15 0;
+#X connect 10 0 11 0;
+#X connect 11 0 9 0;
+#X connect 12 0 11 0;
+#X connect 13 0 6 0;
+#X connect 13 1 6 0;
+#X connect 14 0 1 0;
+#X connect 16 0 13 0;
+#X connect 17 0 15 0;
+#X restore 35 118 pd bus_sendreceive;
+#X msg 201 118 vis 1;
+#X obj 201 99 t b;
+#X obj 201 79 r GUI_OUT_BUS_showmatrix;
+#X obj 201 138 s \$0OUTmatrix;
+#X connect 2 0 5 0;
+#X connect 3 0 2 0;
+#X connect 4 0 3 0;
+#X coords 0 0 1 1 400 20 1 0 0;
+#X restore 167 14 pd;

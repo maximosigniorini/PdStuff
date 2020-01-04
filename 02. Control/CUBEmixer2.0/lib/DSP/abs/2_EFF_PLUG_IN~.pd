@@ -1,0 +1,8 @@
+#N canvas 0 226 475 309 10;
+#X obj 147 91 inlet~;
+#X obj 147 206 outlet~;
+#X obj 148 117 EFF_PLUG_IN~ \$1 1;
+#X obj 148 137 EFF_PLUG_IN~ \$1 2;
+#X connect 0 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;

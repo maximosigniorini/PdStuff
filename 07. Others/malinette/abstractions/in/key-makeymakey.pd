@@ -1,0 +1,74 @@
+#N canvas 417 353 593 333 10;
+#X obj 239 203 tgl 10 0 empty empty empty 17 7 0 10 -257985 -1 -1 1
+1;
+#X obj 261 202 initbang;
+#X obj 100 246 outlet;
+#X obj 100 216 bng 15 100 50 0 empty empty ↑ 4 7 0 13 -262144 -1
+-1;
+#X obj 115 246 outlet;
+#X obj 115 216 bng 15 100 50 0 empty empty ↓ 4 7 0 13 -262144 -1
+-1;
+#X obj 130 246 outlet;
+#X obj 130 216 bng 15 100 50 0 empty empty → 4 7 0 13 -262144 -1
+-1;
+#X obj 145 246 outlet;
+#X obj 145 216 bng 15 100 50 0 empty empty ← 4 7 0 13 -262144 -1
+-1;
+#X obj 160 246 outlet;
+#X obj 160 216 bng 15 100 50 0 empty empty _ 5 6 0 10 -262144 -1 -1
+;
+#X obj 265 248 outlet;
+#X obj 235 216 bng 15 100 50 0 empty empty empty 5 7 0 10 -261234 -1
+-1;
+#X obj 175 246 outlet;
+#X obj 175 216 bng 15 100 50 0 empty empty w 4 7 0 10 -262144 -1 -1
+;
+#X obj 190 246 outlet;
+#X obj 190 216 bng 15 100 50 0 empty empty a 4 7 0 10 -262144 -1 -1
+;
+#X obj 205 246 outlet;
+#X obj 205 216 bng 15 100 50 0 empty empty s 4 7 0 10 -262144 -1 -1
+;
+#X obj 220 246 outlet;
+#X obj 220 216 bng 15 100 50 0 empty empty d 4 7 0 10 -262144 -1 -1
+;
+#X obj 100 100 spigot 1;
+#X obj 100 76 keyname;
+#X obj 100 124 sel 1;
+#X obj 100 146 symbol;
+#X obj 235 89 spigot 1;
+#X obj 100 175 sel Up Down Right Left Space z q s d;
+#X text 331 176 << Warning on azerty keyboard wasd = zqsd;
+#X obj 235 112 sel 1;
+#X obj 235 65 MouseState;
+#X connect 0 0 22 1;
+#X connect 0 0 26 1;
+#X connect 1 0 0 0;
+#X connect 3 0 2 0;
+#X connect 5 0 4 0;
+#X connect 7 0 6 0;
+#X connect 9 0 8 0;
+#X connect 11 0 10 0;
+#X connect 13 0 12 0;
+#X connect 15 0 14 0;
+#X connect 17 0 16 0;
+#X connect 19 0 18 0;
+#X connect 21 0 20 0;
+#X connect 22 0 24 0;
+#X connect 23 0 22 0;
+#X connect 23 1 25 1;
+#X connect 24 0 25 0;
+#X connect 25 0 27 0;
+#X connect 26 0 29 0;
+#X connect 27 0 3 0;
+#X connect 27 1 5 0;
+#X connect 27 2 7 0;
+#X connect 27 3 9 0;
+#X connect 27 4 11 0;
+#X connect 27 5 15 0;
+#X connect 27 6 17 0;
+#X connect 27 7 19 0;
+#X connect 27 8 21 0;
+#X connect 29 0 13 0;
+#X connect 30 0 26 0;
+#X coords 0 -1 1 1 150 35 1 100 200;

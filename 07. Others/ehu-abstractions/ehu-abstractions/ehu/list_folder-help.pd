@@ -1,0 +1,12 @@
+#N canvas 550 89 436 223 10;
+#X obj 52 115 ehu/list_folder;
+#X obj 52 158 print ALL_FILES;
+#X text 7 18 returns a list with all the absolute paths of the files
+in the given folder;
+#X msg 52 78 ./;
+#X text 85 82 for instance \, the current folder;
+#X msg 117 58 gem;
+#X text 156 57 gem named subfolder;
+#X connect 0 0 1 0;
+#X connect 3 0 0 0;
+#X connect 5 0 0 0;

@@ -1,0 +1,17 @@
+#N canvas 175 188 507 352 10;
+#X obj 66 287 dac~;
+#X msg 350 39 \; pd dsp 1;
+#X text 410 44 Audio on;
+#X floatatom 201 162 5 0 1 0 ratio_(0-1) - -;
+#X floatatom 316 162 5 0 32 0 bit_(0-32) - -;
+#X obj 65 203 audio-decimate;
+#X obj 66 114 osc~ 440;
+#X obj 65 261 *~ 0.3;
+#X text 63 26 audio-decimate \; -------------- \; Decimate \, Lo-Fi
+the sound.;
+#X connect 3 0 5 1;
+#X connect 4 0 5 2;
+#X connect 5 0 7 0;
+#X connect 6 0 5 0;
+#X connect 7 0 0 0;
+#X connect 7 0 0 1;

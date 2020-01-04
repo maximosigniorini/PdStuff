@@ -1,0 +1,64 @@
+#N canvas 785 238 491 318 10;
+#X obj 0 0 cnv 15 180 40 empty empty mpdp_play_video 40 8 0 9 -99865
+-228856 0;
+#X obj 154 3 cnv 15 20 15 empty \$1mppdp_id \$1 6 8 0 9 -260097 -33289
+0;
+#X obj 1 0 cnv 8 25 15 empty empty VIN 0 8 0 8 -4034 -1 0;
+#X obj 52 20 tgl 15 0 empty empty Configure 17 7 0 8 -260097 -1 -228856
+0 1;
+#X obj 5 19 tgl 15 0 empty empty Play 17 7 0 8 -4034 -1 -228856 0 1
+;
+#X obj -23 181 symbol \$1;
+#X symbolatom -23 210 0 0 0 0 - - -;
+#X obj -23 145 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X symbolatom 74 210 0 0 0 0 - - -;
+#X obj 74 181 symbol \$2;
+#X obj -39 106 loadbang;
+#X obj 172 176 f \$0;
+#X symbolatom 179 217 0 0 0 0 - - -;
+#X msg 172 267 \; \$1 vis \$2;
+#X obj 172 238 pack symbol float;
+#X obj 172 152 t b f;
+#X obj -18 249 s \$1mppdp_id;
+#N canvas 475 351 349 208 \$1-mpdp_play_win 0;
+#X obj -68 30 inlet;
+#X obj -60 182 outlet;
+#X obj 225 182 outlet;
+#X obj -72 0 mb-pdp_play_video \$1;
+#X connect 0 0 3 0;
+#X connect 3 0 1 0;
+#X connect 3 1 2 0;
+#X restore 247 52 pd \$1-mpdp_play_win;
+#X obj 172 195 makesymbol pd-\$1-mpdp_play_win;
+#X obj 244 2 inlet;
+#X obj 27 2 bng 10 250 50 0 empty \$1ppdp_monitor_in empty 17 7 0 10
+-99865 -4034 -191407;
+#X obj 284 1 cnv 8 25 15 empty empty VIN 0 8 0 8 -4034 -1 0;
+#X obj 152 21 bng 15 250 50 0 \$1ppdp_destroy_window empty empty 17
+7 0 7 -257985 -1 -228856;
+#X obj 133 21 bng 15 250 50 0 \$1ppdp_create_window empty empty 17
+7 0 8 -4160 -1 -228856;
+#X obj 56 73 s \$1ppdp_play_on_init;
+#X obj 247 97 outlet;
+#X obj 357 94 outlet;
+#X text 292 95 xv out;
+#X text 403 93 glx out;
+#X connect 3 0 15 0;
+#X connect 4 0 24 0;
+#X connect 5 0 6 0;
+#X connect 6 0 16 0;
+#X connect 7 0 5 0;
+#X connect 7 0 9 0;
+#X connect 9 0 8 0;
+#X connect 10 0 7 0;
+#X connect 11 0 18 0;
+#X connect 14 0 13 0;
+#X connect 15 0 11 0;
+#X connect 15 1 14 1;
+#X connect 17 0 25 0;
+#X connect 17 1 26 0;
+#X connect 18 0 12 0;
+#X connect 18 0 14 0;
+#X connect 19 0 17 0;
+#X coords 0 -1 1 1 180 40 1 0 0;

@@ -1,0 +1,66 @@
+#N canvas 1495 256 878 425 10;
+#X obj 101 146 popup 64 25 #ffffff signal sine~ pink~;
+#X obj 239 77 sendreceive /EXT/TESTTONE/SRC;
+#X msg 239 119 set \$1;
+#X obj 239 98 symbol;
+#X obj 223 159 sendreceive /EXT/TESTTONE/SINE;
+#X msg 223 182 set \$1;
+#X msg 452 91 set \$1;
+#X obj 452 56 sendreceive /EXT/TESTTONE/PULSE/ON;
+#X msg 502 181 set \$1;
+#X msg 513 288 set \$1;
+#X obj 502 102 sendreceive /EXT/TESTTONE/PULSE/PERIOD;
+#X obj 513 213 sendreceive /EXT/TESTTONE/PULSE/LENGTH;
+#X obj 513 258 clip 0 5000;
+#X obj 502 162 t f f;
+#X obj 513 233 f 200;
+#X obj 502 135 f 1000;
+#X obj 578 141 loadbang;
+#X obj 174 54 unpack 0 s;
+#X obj 312 219 f 1000;
+#X msg 664 283 range 0 \$1;
+#X obj 561 233 t b f f;
+#X obj 101 101 cnv 15 63 198 empty empty TEST- 2 10 0 12 -228992 -66577
+0;
+#X obj 101 117 cnv 15 63 15 empty empty TONE 2 10 0 12 -228992 -66577
+0;
+#X obj 102 227 tgl 15 0 \$0_pulse \$0_pulse pulse 20 6 0 12 -262144
+-1 -1 0 1;
+#X obj 103 256 nbx 4 14 100 5000 0 0 \$0_period \$0_period Len 0 -6
+0 12 -262144 -1 -1 100 256;
+#X obj 103 284 nbx 4 14 0 1000 0 0 \$0_length \$0_length len 0 -6 0
+12 -262144 -1 -1 0 256;
+#X obj 109 199 nbx 4 14 0 8000 0 0 \$0-f \$0-f freq 0 -6 0 12 -262144
+-1 -1 0 256;
+#X obj 101 220 cnv 2 63 2 empty empty empty 20 12 0 14 -62784 -66577
+0;
+#X connect 0 0 17 0;
+#X connect 1 0 3 0;
+#X connect 2 0 0 0;
+#X connect 3 0 2 0;
+#X connect 4 0 5 0;
+#X connect 5 0 26 0;
+#X connect 6 0 23 0;
+#X connect 7 0 6 0;
+#X connect 8 0 24 0;
+#X connect 9 0 25 0;
+#X connect 10 0 15 0;
+#X connect 11 0 14 0;
+#X connect 12 0 9 0;
+#X connect 13 0 8 0;
+#X connect 13 1 20 0;
+#X connect 14 0 12 0;
+#X connect 15 0 13 0;
+#X connect 16 0 15 0;
+#X connect 16 0 18 0;
+#X connect 17 1 1 0;
+#X connect 18 0 5 0;
+#X connect 19 0 25 0;
+#X connect 20 0 14 0;
+#X connect 20 1 12 2;
+#X connect 20 2 19 0;
+#X connect 23 0 7 0;
+#X connect 24 0 10 0;
+#X connect 25 0 11 0;
+#X connect 26 0 4 0;
+#X coords 0 -1 1 1 65 200 2 100 100;

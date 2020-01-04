@@ -1,0 +1,28 @@
+#N canvas 908 212 480 396 10;
+#X obj 111 115 hsl 100 12 1 0 0 0 empty empty empty -2 -8 0 10 -260097
+-1 -1 4950 1;
+#X obj 249 235 abs;
+#X obj 71 302 *~;
+#X obj 236 301 *~;
+#X obj 70 163 inlet~;
+#X obj 237 163 inlet~;
+#X obj 70 344 outlet~;
+#X obj 237 344 outlet~;
+#X obj 249 208 - 1;
+#X obj 135 13 loadbang;
+#X msg 135 37 0.5;
+#X text 315 22 *based on ab_pan.pd;
+#X obj 199 102 bng 10 250 50 0 empty empty empty 17 7 0 10 -257985
+-1 -1;
+#X connect 0 0 2 1;
+#X connect 0 0 8 0;
+#X connect 1 0 3 1;
+#X connect 2 0 6 0;
+#X connect 3 0 7 0;
+#X connect 4 0 2 0;
+#X connect 5 0 3 0;
+#X connect 8 0 1 0;
+#X connect 9 0 10 0;
+#X connect 10 0 0 0;
+#X connect 12 0 10 0;
+#X coords 0 -1 1 1 120 30 1 100 100;

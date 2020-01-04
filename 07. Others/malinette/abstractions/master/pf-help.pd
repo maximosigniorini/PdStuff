@@ -1,0 +1,16 @@
+#N canvas 165 122 788 379 10;
+#X obj 590 173 r BUTTON-FOLDER-OBJECT;
+#X symbolatom 590 198 30 0 0 0 - - -;
+#X obj 16 166 pf in;
+#X obj 14 278 pf ../examples/basics 1;
+#X text 11 15 pf \; -------------- \; Create a folder in the 'abstractions'
+folder of the 'malinette' folder \, then you can open it with this
+object and send the objects on the workspace. Arguments \; \$1: folder
+(symbol) \; \$2: mode (abstraction or patch);
+#X text 215 162 * Mode \; 0 (default): drop an objet into the current
+workspace \; 1: open as a project/workspace \;;
+#X symbolatom 16 209 30 0 0 0 - - -;
+#X text 216 277 <= This one open 'examples/basics' folder files as
+current workspace.;
+#X connect 0 0 1 0;
+#X connect 2 0 6 0;

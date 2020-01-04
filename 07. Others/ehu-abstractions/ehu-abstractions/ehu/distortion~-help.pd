@@ -1,0 +1,27 @@
+#N canvas 324 281 547 354 10;
+#X obj 289 44 cnv 15 200 130 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 319 -6 osc~ 330;
+#X obj 422 79 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 348 69 5 0 0 0 - - -;
+#X obj 318 184 ehu/out~;
+#X text 15 82 Outlets: audioA \, audioB;
+#X obj 334 20 osc~ 630;
+#X obj 389 79 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 389 48 hsl 60 12 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 319 108 ehu/distortion~;
+#X text 15 -11 ehu/distortion~ abstraction help;
+#X text 13 21 just provides a wrapper to dist~ object;
+#X text 10 45 Inlets: left audio \, right audio \, dist \, dry/wet
+\, reset \, stereo ON/OFF;
+#X connect 1 0 9 0;
+#X connect 2 0 9 5;
+#X connect 3 0 9 2;
+#X connect 6 0 9 1;
+#X connect 7 0 9 4;
+#X connect 8 0 9 3;
+#X connect 9 0 4 0;
+#X connect 9 1 4 1;

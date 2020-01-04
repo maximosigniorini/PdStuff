@@ -1,0 +1,104 @@
+#N canvas 113 242 783 408 10;
+#X obj 34 172 symbol \$1;
+#X obj 136 230 ftos;
+#X obj 105 164 float \$1;
+#X floatatom 105 193 5 0 0 0 - - -;
+#X symbolatom 35 205 0 0 0 0 - - -;
+#X symbolatom 95 243 10 0 0 0 - - -;
+#X obj 44 126 loadbang;
+#X obj 97 280 s \$1pdp_transform_id;
+#X obj 271 52 inlet;
+#X text 329 52 video;
+#X text 499 52 on/off;
+#X obj 300 274 outlet;
+#X obj 304 104 pdp_spigot;
+#X text 348 271 video;
+#X obj 380 189 pdp_transform;
+#X obj 459 159 hdl 15 1 0 6 empty empty empty 0 -6 0 8 -262144 -1 -1
+0;
+#X text 462 136 Choose transformation;
+#X obj 599 99 r \$1epdp_transform_mode;
+#X obj 403 18 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 440 20 r \$1epdp_transform_on;
+#X obj 0 0 cnv 15 150 75 empty empty empty 2 12 0 14 -191407 -66577
+0;
+#X obj 7 5 tgl 15 0 \$1epdp_transform_on \$1epdp_transform_on_init
+Transform 17 7 0 10 -260097 -1 -1 0 1;
+#X obj 22 42 hradio 15 1 0 6 \$1epdp_transform_mode \$1epdp_transform_mode_init
+Mode 0 -8 0 10 -262144 -1 -1 1;
+#X obj 98 7 cnv 15 20 10 empty \$1pdp_transform_id \$1 5 5 0 10 -260097
+-33289 0;
+#X obj 1 59 bng 15 250 50 0 \$1epdp_transform_midi_on empty midi 17
+7 0 8 -4160 -1 -1;
+#N canvas 26 337 729 624 midi_control 1;
+#X msg 160 164 ef1epdp_transform_on_midi;
+#X msg 321 162 ef1epdp_transform_mode_midi;
+#X text 63 14 MIDI;
+#X obj 94 137 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 217 185 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 344 185 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 269 363 5 0 0 0 - - -;
+#X obj 269 262 s midi_var_to_add;
+#X msg 160 130 set \$1epdp_transform_on_midi;
+#X obj 119 309 r \$1epdp_transform_on_midi;
+#X obj 93 485 s \$1epdp_transform_on_init;
+#X obj 78 44 r \$1epdp_transform_midi_on;
+#X msg 321 131 set \$1epdp_transform_mode_midi;
+#X obj 273 325 r \$1epdp_transform_mode_midi;
+#X obj 276 485 s \$1epdp_transform_mode_init;
+#X text 379 263 -->global value of mb-midi_control_pad;
+#X text 366 436 Need to check the correct scale factor for these values.
+;
+#X obj 366 401 autoscale 0 6;
+#X obj 354 359 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 3700 1;
+#X floatatom 285 425 5 0 0 0 - - -;
+#X obj 170 72 r \$1pdp_transform_id;
+#X obj 111 375 select 0;
+#X msg 168 426 0;
+#X msg 127 435 1;
+#X obj 98 405 alternate;
+#X connect 0 0 4 0;
+#X connect 0 0 7 0;
+#X connect 1 0 5 0;
+#X connect 1 0 7 0;
+#X connect 3 0 0 0;
+#X connect 4 0 1 0;
+#X connect 6 0 18 0;
+#X connect 8 0 0 0;
+#X connect 9 0 21 0;
+#X connect 11 0 3 0;
+#X connect 12 0 1 0;
+#X connect 13 0 6 0;
+#X connect 17 0 19 0;
+#X connect 17 0 14 0;
+#X connect 18 0 17 0;
+#X connect 20 0 8 0;
+#X connect 20 0 12 0;
+#X connect 21 1 24 0;
+#X connect 22 0 10 0;
+#X connect 23 0 10 0;
+#X connect 24 0 23 0;
+#X connect 24 1 22 0;
+#X restore 194 4 pd midi_control;
+#X connect 0 0 4 0;
+#X connect 1 0 5 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X connect 4 0 5 0;
+#X connect 5 0 7 0;
+#X connect 6 0 2 0;
+#X connect 6 0 0 0;
+#X connect 8 0 12 0;
+#X connect 12 0 11 0;
+#X connect 12 1 14 0;
+#X connect 14 0 11 0;
+#X connect 15 0 14 1;
+#X connect 17 0 15 0;
+#X connect 18 0 12 1;
+#X connect 19 0 18 0;
+#X coords 0 -1 1 1 150 75 1 0 0;

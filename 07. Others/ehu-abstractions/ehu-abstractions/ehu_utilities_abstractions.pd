@@ -1,0 +1,38 @@
+#N canvas 19 53 657 700 10;
+#X obj 23 55 ehu/loop_list;
+#X obj 22 93 ehu/timed_bang;
+#X obj 23 130 ehu/follow;
+#X obj 25 262 ehu/envelope;
+#X text 165 84 given a list of times (in milliseconds) it outputs bangs
+on timeouts. (its a kind of sequencer);
+#X text 164 128 follows values with delay. Eases discontinuities in
+streams of numbers;
+#X text 162 179 follows (elastically) values with delay. Eases discontinuities
+in streams of numbers;
+#X text 254 279 just wraps envgen adding some controls. outputs an
+envelope line. It is mainly used to control the envelope of an audio
+signal but also any other value (for eg. xloc of a video).;
+#X obj 27 232 ehu/timed_spigot;
+#X text 165 51 given a list or items (filenames \, numbers) it loops
+them on bang steping one item at each bang;
+#X obj 28 447 ehu/rand_file;
+#X obj 30 495 ehu/abs_path;
+#X text 160 488 given a filename located in the same directory where
+the;
+#X text 159 506 current working patch is \, this returns the absolute
+path;
+#X text 160 525 for that file;
+#X text 61 6 RIGHT CLICK > HELP to open help patches for each abstraction
+;
+#X text 164 232 allows incoming values to pass only every N milliseconds
+;
+#X obj 25 180 ehu/elastic_follow;
+#X text 146 441 given a path to a directory on bang it outputs the
+(absolute) path of random files within the directory;
+#X obj 31 567 ehu/list_folder;
+#X text 144 563 returns a list with all the absolute paths of the files
+in the given folder;
+#X obj 29 619 ehu/point_in_rect;
+#X text 163 616 checks for intersection between point and rect;
+#X obj 29 654 ehu/vdelay;
+#X text 161 651 delays a number;

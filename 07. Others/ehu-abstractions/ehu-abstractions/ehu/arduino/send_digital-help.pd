@@ -1,0 +1,5 @@
+#N canvas 0 0 450 300 10;
+#X text 290 113 send digital output;
+#X obj 18 102 ehu/arduino/send_digital;
+#X text 13 179 test all button does flash on/off all digital pins.
+useful to test;

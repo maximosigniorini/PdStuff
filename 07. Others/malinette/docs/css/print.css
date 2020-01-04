@@ -1,0 +1,27 @@
+@page {
+	size: landscape;
+	margin: 10pt;
+}
+body {
+	font-size: 10pt;
+}
+@media print {
+ html { width:29.7cm;height:21cm;}
+}
+.links{
+	display:none;
+	color:#333;
+}
+.grid_block {
+font-size: 8.5pt;
+	border-radius: 0.7em;
+	-moz-border-radius:0.7em;
+	-webkit-border-radius:0.7em;
+	border:1px solid orange;
+
+}
+
+.one_col {
+	width:9.8cm;
+	background-color:#eee;
+}

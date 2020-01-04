@@ -1,0 +1,31 @@
+#N canvas 277 346 701 386 10;
+#X obj 12 314 dac~;
+#X msg 179 201 medium \$1;
+#X msg 256 201 treeble \$1;
+#X msg 115 201 bass \$1;
+#X obj 115 136 vsl 15 50 0 1 0 0 empty empty 0-1 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 179 136 vsl 15 50 0 1 0 0 empty empty 0-1 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 256 136 vsl 15 50 0 1 0 0 empty empty 0-1 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 331 136 vsl 15 50 0 1 0 0 empty empty 0-1 0 -9 0 10 -262144
+-1 -1 0 1;
+#X msg 331 201 mix \$1;
+#X msg 477 88 \; pd dsp 1;
+#X text 537 93 Audio on;
+#X obj 10 215 noise~;
+#X obj 11 245 audio-3eq;
+#X text 7 18 audio-3eq \; --------- \; Simple 3band equalizer \; 3
+band to control the sound \, mix to control dry/wet;
+#X connect 1 0 12 1;
+#X connect 2 0 12 1;
+#X connect 3 0 12 1;
+#X connect 4 0 3 0;
+#X connect 5 0 1 0;
+#X connect 6 0 2 0;
+#X connect 7 0 8 0;
+#X connect 8 0 12 1;
+#X connect 11 0 12 0;
+#X connect 12 0 0 0;
+#X connect 12 0 0 1;

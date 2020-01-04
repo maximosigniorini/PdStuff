@@ -1,0 +1,155 @@
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/REV2/REV
+END
+++fdbk_matrix12~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/REV2/REV/++fdbk_matrix12~.pd
+END
+room_EDIT.pd
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/REV2/REV/room_EDIT.pd
+END
+late_diffuse24_6~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/REV2/REV/late_diffuse24_6~.pd
+END
+exp_uzi.pd
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/REV2/REV/exp_uzi.pd
+END
+rev_transf_elv_azm.pd
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/REV2/REV/rev_transf_elv_azm.pd
+END
+get_maxmin.pd
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/REV2/REV/get_maxmin.pd
+END
+24reverb_6_6_6~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/REV2/REV/24reverb_6_6_6~.pd
+END
+REV_6_6_6~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/REV2/REV/REV_6_6_6~.pd
+END
+statrev_tap~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/REV2/REV/statrev_tap~.pd
+END
+room_EDIT_pbank.pd
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/REV2/REV/room_EDIT_pbank.pd
+END
+early_echos12_1_2~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/REV2/REV/early_echos12_1_2~.pd
+END
+submatrix3~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/REV2/REV/submatrix3~.pd
+END
+submatrix4~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/REV2/REV/submatrix4~.pd
+END
+submatrix6~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/REV2/REV/submatrix6~.pd
+END
+schedule_max_min.pd
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/REV2/REV/schedule_max_min.pd
+END
+set_maxmin.pd
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/REV2/REV/set_maxmin.pd
+END
+submatrix8~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/REV2/REV/submatrix8~.pd
+END
+rev_pack_elv_azm.pd
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/REV2/REV/rev_pack_elv_azm.pd
+END
+12reverb_1_2_2~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/REV2/REV/12reverb_1_2_2~.pd
+END
+dynrev_tap~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/REV2/REV/dynrev_tap~.pd
+END
+++++fdbk_matrix24~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/REV2/REV/++++fdbk_matrix24~.pd
+END
+early_echos24_6_6~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/REV2/REV/early_echos24_6_6~.pd
+END
+neg_exp_uzi.pd
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/REV2/REV/neg_exp_uzi.pd
+END
+late_diffuse12_2~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/REV2/REV/late_diffuse12_2~.pd
+END
+REV_1_2_2~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/REV2/REV/REV_1_2_2~.pd
+END

@@ -1,0 +1,40 @@
+#N canvas 422 108 738 329 10;
+#X obj 2 -111 cnv 15 700 50 empty empty &fillapot 3 12 0 18 -204800
+-1 0;
+#X obj 463 42 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 508 105 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 442 142 hsl 128 15 0 20 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 12700 1;
+#X obj 415 -49 cnv 15 90 40 empty empty <50 20 8 0 12 -261234 -66577
+0;
+#X obj 506 -49 cnv 15 90 40 empty empty >=50 20 8 0 12 -204786 -66577
+0;
+#X obj 442 -31 hsl 128 15 0 100 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 10500 1;
+#X floatatom 481 -4 5 0 0 0 - - -;
+#X obj 439 21 > 50;
+#X obj 439 78 &fillapot 20;
+#X text 5 -83 Incrémente une valeur à la réception d'un 1;
+#X text 21 45 Arguments \; 1- nombre : valeur maximum atteinte par
+le compteur.;
+#X text 21 148 OUTLETS \; 1- nombre : valeur incrémentée \; 2- bang
+: maximum atteint.;
+#X floatatom 439 118 5 0 0 0 - - -;
+#X text 21 -45 Description \; Incrémente une valeur à chaque "1"
+reçu \, jusqu'à un maximum. Si une autre valeur est reçue \, le
+module renvoie la valeur 0 Ce patch sert de temporisateur pour vérifier
+qu'une valeur est reçue pendant un certain temps (le temps jusqu'à
+l'incrémentation maximum).;
+#X text 21 84 INLETS \; 1- nombre : la valeur 1 incrémente le compteur
+\, toute autre valeur fait retourner le compteur à zéro \; 2- nombre
+: valeur maximum atteinte par le compteur.;
+#X connect 6 0 7 0;
+#X connect 6 0 8 0;
+#X connect 8 0 1 0;
+#X connect 8 0 9 0;
+#X connect 9 0 13 0;
+#X connect 9 1 2 0;
+#X connect 13 0 3 0;
+#X coords 0 329 1 328 65 15 0;

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no;">
+<meta charset="UTF-8"> 
+<link rel="shortcut icon" type="image/x-icon" href="http://www.openscad.org/cheatsheet/images/favicon.ico">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="description" content="Abstractions in Malinette">
+<link type="text/css" rel="stylesheet" href="css/fonts.css" media="all">
+<link type="text/css" rel="stylesheet" href="css/main.css" media="all">
+<link type="text/css" rel="stylesheet" href="css/print.css" media="print">
+<title>Malinette - Cheat sheet</title>
+</head>
+<body>
+
+<header><h1>All Abstractions in Malinette</h1></header>
+<div id="grid"></div>
+<div id="int_column_data" style="display:none; width:100%;">
+  <ul>
+<li class="bloc"><div class="grid_block"><h2>in</h2><ul>
+<li><strong>arduino-analog-in</strong> :  Open and close analog inputs (sensors) </li>
+<li><strong>arduino-digital-in</strong> :  Digital sensors from Arduino </li>
+<li><strong>audio-in</strong> :  Get Audio input - pitch and sound level </li>
+<li><strong>key-char</strong> :  Get the 10 first alphabetic keys.</li>
+<li><strong>key-makeymakey</strong> :  Keys from MakeyMakey (arrows space click wasd) </li>
+<li><strong>key-num</strong> :  Get 10 numerical keys.</li>
+<li><strong>mouse</strong> :  Get X and Y positions from mouse device </li>
+<li><strong>video-in</strong> :  Get default camera </li>
+<li><strong>video-motion-blob</strong> :  Track the movement with the camera (blob) </li>
+<li><strong>video-red-blob</strong> :  Track a red color area (blob) </li>
+</ul></div></li>
+<li class="bloc"><div class="grid_block"><h2>out</h2><ul>
+<li><strong>3d-object</strong> :  Some basic 3d objects : cube + sphere + 3d model ... </li>
+<li><strong>3d-text</strong> :  Display text </li>
+<li><strong>arduino-out</strong> :  Send data to Arduino outputs : digital + PWM + servo </li>
+<li><strong>audio-out</strong> :  Audio bus send audio to the [audio-master] </li>
+<li><strong>midi-out</strong> :  Send MIDI notes </li>
+<li><strong>osc-out</strong> :  UDP/OSC connection </li>
+<li><strong>video-record</strong> :  Record video into a file (.mov) </li>
+<li><strong>video-screen</strong> :  Display visual elements in a rectangle </li>
+</ul></div></li>
+<li class="bloc"><div class="grid_block"><h2>video</h2><ul>
+<li><strong>3d-transform</strong> :  Basics 3d manipulations </li>
+<li><strong>video-camera</strong> :  Control the camera positions </li>
+<li><strong>video-colors</strong> :  Set colors balance </li>
+<li><strong>video-crop</strong> :  Get a part of an image (crop) </li>
+<li><strong>video-halftone</strong> :  Halftone (print point) effect </li>
+<li><strong>video-kaleidoscope</strong> :  Kaleidoscope effect </li>
+<li><strong>video-lumaoffset</strong> :  Offset pixels depending on the luminance </li>
+<li><strong>video-mix</strong> :  Mix two sources of video </li>
+<li><strong>video-multifx</strong> :  Some effects : color + inversion + gain + saturation + contrast + blur.</li>
+<li><strong>video-multiimage</strong> :  Load several pictures from a folder </li>
+<li><strong>video-scratch</strong> :  Open a movie file + play and scratch it </li>
+<li><strong>video-stopmotion</strong> :  Record single pictures (snapshot) to make an animation </li>
+</ul></div></li>
+<li class="bloc"><div class="grid_block"><h2>audio</h2><ul>
+<li><strong>audio-3eq</strong> :  Simple 3band equalizer </li>
+<li><strong>audio-attackdecay</strong> :  Enveloppe of a sound </li>
+<li><strong>audio-comp</strong> :  Audio compressor.</li>
+<li><strong>audio-cutoff</strong> :  Classic audio filter cutoff/resonance </li>
+<li><strong>audio-decimate</strong> :  Decimate , Lo-Fi the sound.</li>
+<li><strong>audio-delay</strong> :  Multidelay audio. </li>
+<li><strong>audio-disto</strong> :  Simple distortion </li>
+<li><strong>audio-ducker</strong> :  The level of one audio signal is reduced by the presence of another signal </li>
+<li><strong>audio-freeze</strong> :  Freeze the sound </li>
+<li><strong>audio-pitchdelay</strong> :  Simple delay used for "retuner/repitch" </li>
+<li><strong>audio-pitchshift</strong> :  Pitch the sound </li>
+<li><strong>audio-reverb</strong> :  Reverberation.</li>
+<li><strong>audio-sampler</strong> :  Play/open and record/save audio input or file </li>
+<li><strong>audio-sampler-transpose</strong> :  Transposition of a sound </li>
+<li><strong>audio-scratch</strong> :  Sampler/player with scratch </li>
+<li><strong>audio-volume</strong> :  Simple and slim volume mixer</li>
+<li><strong>oscilloscope~</strong> :  See audio signal in time </li>
+<li><strong>synth-bassdrum</strong> :  Bass drum synthetiser </li>
+<li><strong>synth-drums</strong> :  Synthesis sound of drums : kick + snare + hat + crash </li>
+<li><strong>synth-fm</strong> :  FM synthesis </li>
+<li><strong>synth</strong> :  Basic synthesis waveforms : sine + sawtooth + square + graph </li>
+<li><strong>synth-moog</strong> :  Moog synthetiser </li>
+<li><strong>synth-note</strong> :  Play a single synthesis sound with an enveloppe </li>
+<li><strong>synth-pluck</strong> :  String pizzicato synthesis </li>
+<li><strong>synth-vowel</strong> :  Vocal synthesis with vowels (a-i-o-ai-e) </li>
+<li><strong>synth-wobblebass</strong> :  Dubstep bass with nice LFO filtering </li>
+</ul></div></li>
+<li class="bloc"><div class="grid_block"><h2>numbers</h2><ul>
+<li><strong>autoscale</strong> :  Automap useful for sensor calibration </li>
+<li><strong>bang-start</strong> :  Loadbang and initbang with a delay </li>
+<li><strong>between</strong> :  Let pass numbers between the 2 values </li>
+<li><strong>bpm-ms</strong> :  Conversion BPM (Beat per minute) / Ms (Milliseconds) </li>
+<li><strong>data-sampler</strong> :  Record and play a flow of data (numbers+symbols) into a text file </li>
+<li><strong>fade</strong> :  Make a fade between two values </li>
+<li><strong>inverse</strong> :  Inverse the value between 0 and 1 </li>
+<li><strong>map</strong> :  Map a number between the boundaries (rule of three) </li>
+<li><strong>mapcurve</strong> :  Modify the data curve </li>
+<li><strong>midi-hz</strong> :  Conversion between Midi and Hertz </li>
+<li><strong>midi-sampler</strong> :  Play and record into a midi file </li>
+<li><strong>multimeter</strong> :  Calculate the Resistance and the Voltage with Arduino </li>
+<li><strong>notescale</strong> :  This object convert to melodic closest note of the scale mapping into musical scale </li>
+<li><strong>oscillator</strong> :  Simple oscillation of numbers </li>
+<li><strong>oscilloscope</strong> :  See data values in time </li>
+<li><strong>physics</strong> :  Simulate physic caracteristics like elasticity and gravity </li>
+<li><strong>seq-counter</strong> :  A looping counter with time + step and max </li>
+<li><strong>seq-randomizer</strong> :  A sequencer ouput random numbers </li>
+<li><strong>seq-sliders</strong> :  8 steps sequencer (0-1 float) </li>
+<li><strong>seq-sliders16</strong> :  16 steps sequencer (0-1 float) </li>
+<li><strong>seq-taptempo</strong> :  Tap tempo object </li>
+<li><strong>seq-toggles</strong> :  8 steps sequencer (0-1 integer) </li>
+<li><strong>spigot-toggle</strong> :  Switch a spigot </li>
+</ul></div></li>
+ </ul>
+
+</div><!--#int_column_data ends-->
+
+<footer>
+	<a href="http://malinette.info" target="_blank">La malinette</a> by <a href="http://reso-nance.org/" target="_blank">Reso-nance numerique</a>
+</footer>
+
+</body>
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script>
+$(document).ready(function(){
+	var column_width = 350;
+	writeGridContent();
+	$(window).resize(function() {
+  		writeGridContent();
+	});
+
+function writeGridContent(){
+		var column_content = "";
+		var width_offset = 20; //the body padding left and right
+		var allowableColumns =  Math.floor(($(window).width() - width_offset)/column_width);
+		
+		for(var i = 0 ; i < allowableColumns ; i++){
+			 column_content += '<div class="one_col" >'
+			 //loop through the content
+		 	$('#int_column_data li.bloc').each(function(index) {
+				if( index % allowableColumns == i ){ 
+					//column_content += i+"--"+allowableColumns+'--'+$(window).width();//debug
+					column_content +=  $(this).html()  ;
+				}
+			});
+			column_content += '</div>';
+		}
+		//$('#grid').css('width',column_width*allowableColumns);//center content
+		$('#grid').html(column_content);
+      }
+});
+</script>
+</html>

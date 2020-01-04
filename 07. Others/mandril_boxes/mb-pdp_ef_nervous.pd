@@ -1,0 +1,127 @@
+#N canvas 806 615 749 343 10;
+#X obj 34 172 symbol \$1;
+#X obj 136 230 ftos;
+#X obj 105 164 float \$1;
+#X floatatom 105 193 5 0 0 0 - - -;
+#X symbolatom 35 205 0 0 0 0 - - -;
+#X symbolatom 95 243 10 0 0 0 - - -;
+#X obj 44 126 loadbang;
+#X obj 281 54 inlet;
+#X text 339 54 video;
+#X text 509 54 on/off;
+#X obj 310 276 outlet;
+#X obj 314 106 pdp_spigot;
+#X text 358 273 video;
+#X obj 386 190 pdp_nervous;
+#X text 545 175 Mode;
+#X obj 524 176 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 1
+1;
+#X floatatom 496 151 5 0 0 0 - - -;
+#X text 544 149 Number of frames;
+#X obj 543 134 r \$1epdp_nervous_nframes;
+#X obj 582 177 r \$1epdp_nervous_mode;
+#X obj 440 27 r \$1epdp_nervous_on;
+#X obj 414 27 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 0 0 cnv 15 150 75 empty empty empty 2 12 0 14 -191407 -66577
+0;
+#X obj 7 5 tgl 15 0 \$1epdp_nervous_on \$1epdp_nervous_on_init Nervous
+17 7 0 10 -260097 -1 -1 0 1;
+#X obj 40 27 tgl 15 0 \$1epdp_nervous_mode \$1epdp_nervous_mode_init
+Mode 17 7 0 10 -262144 -1 -1 1 1;
+#X obj 82 48 nbx 5 14 0 1e+37 0 0 \$1epdp_nervous_nframes \$1epdp_nervous_nframes_init
+Numb.frames -70 5 0 8 -262144 -1 -1 134.646 256;
+#X obj 115 6 cnv 15 20 10 empty \$1pdp_nervous_id \$1 5 5 0 10 -260097
+-33289 0;
+#X obj 97 280 s \$1pdp_nervous_id;
+#X obj 2 59 bng 15 250 50 0 \$1epdp_nervous_midi_on empty midi 17 7
+0 8 -4160 -1 -1;
+#N canvas 33 176 982 604 midi_control 1;
+#X msg 363 127 ef1epdp_nervous_on_midi;
+#X msg 524 125 ef1epdp_nervous_mode_midi;
+#X text 26 62 MIDI;
+#X obj 297 100 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 420 148 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 547 148 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 472 225 s midi_var_to_add;
+#X msg 363 93 set \$1epdp_nervous_on_midi;
+#X obj 315 290 r \$1epdp_nervous_on_midi;
+#X obj 296 448 s \$1epdp_nervous_on_init;
+#X obj 112 52 r \$1epdp_nervous_midi_on;
+#X msg 524 94 set \$1epdp_nervous_mode_midi;
+#X obj 476 288 r \$1epdp_nervous_mode_midi;
+#X obj 479 448 s \$1epdp_nervous_mode_init;
+#X msg 716 123 ef1epdp_nervous_nframes_midi;
+#X obj 659 285 r \$1epdp_nervous_nframes_midi;
+#X msg 716 92 set \$1epdp_nervous_nframes_midi;
+#X obj 662 444 s \$1epdp_nervous_nframes_init;
+#X obj 373 35 r \$1pdp_nervous_id;
+#X text 583 222 -->global value of mb-midi_control_pad;
+#X obj 499 336 select 0;
+#X msg 556 387 0;
+#X msg 506 393 1;
+#X obj 486 366 alternate;
+#X floatatom 705 333 5 0 0 0 - - -;
+#X floatatom 731 402 8 0 0 0 - - -;
+#X obj 786 336 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 5700 1;
+#X obj 390 329 select 0;
+#X msg 447 380 0;
+#X msg 397 386 1;
+#X obj 377 359 alternate;
+#X obj 801 373 autoscale 0 300;
+#X connect 0 0 4 0;
+#X connect 0 0 6 0;
+#X connect 1 0 5 0;
+#X connect 1 0 6 0;
+#X connect 3 0 0 0;
+#X connect 4 0 1 0;
+#X connect 5 0 14 0;
+#X connect 7 0 0 0;
+#X connect 8 0 27 0;
+#X connect 10 0 3 0;
+#X connect 11 0 1 0;
+#X connect 12 0 20 0;
+#X connect 14 0 6 0;
+#X connect 15 0 24 0;
+#X connect 16 0 14 0;
+#X connect 18 0 7 0;
+#X connect 18 0 11 0;
+#X connect 18 0 16 0;
+#X connect 20 1 23 0;
+#X connect 21 0 13 0;
+#X connect 22 0 13 0;
+#X connect 23 0 22 0;
+#X connect 23 1 21 0;
+#X connect 24 0 26 0;
+#X connect 25 0 17 0;
+#X connect 26 0 31 0;
+#X connect 27 1 30 0;
+#X connect 28 0 9 0;
+#X connect 29 0 9 0;
+#X connect 30 0 29 0;
+#X connect 30 1 28 0;
+#X connect 31 0 25 0;
+#X restore 207 13 pd midi_control;
+#X connect 0 0 4 0;
+#X connect 1 0 5 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X connect 4 0 5 0;
+#X connect 5 0 27 0;
+#X connect 6 0 2 0;
+#X connect 6 0 0 0;
+#X connect 7 0 11 0;
+#X connect 11 0 10 0;
+#X connect 11 1 13 0;
+#X connect 13 0 10 0;
+#X connect 15 0 13 2;
+#X connect 16 0 13 1;
+#X connect 18 0 16 0;
+#X connect 19 0 15 0;
+#X connect 20 0 21 0;
+#X connect 21 0 11 1;
+#X coords 0 -1 1 1 150 75 1 0 0;

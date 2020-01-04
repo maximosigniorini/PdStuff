@@ -1,0 +1,64 @@
+#N canvas 80 165 1059 464 10;
+#X obj 114 306 vsl 15 50 0 1 0 0 empty empty X 5 30 0 10 -262144 -1
+-128992 0 1;
+#X obj 257 305 vsl 15 50 0 1 0 0 empty empty Y 5 30 0 10 -262144 -1
+-128992 0 1;
+#X floatatom 114 361 5 0 0 0 - - -;
+#X floatatom 257 361 5 0 0 0 - - -;
+#X obj 44 403 pix_texture;
+#X obj 44 428 rectangle 4 3;
+#X obj 114 193 video-in;
+#X msg 806 153 create \, 1;
+#X obj 806 207 gemwin;
+#X obj 806 73 loadbang;
+#X msg 816 178 0 \, destroy;
+#X text 882 153 <- on;
+#X text 886 179 <- off;
+#X obj 806 95 t b b;
+#X msg 833 123 reset \, dimen 640 480;
+#X obj 114 235 video-motion-blob;
+#X msg 391 183 display \$1;
+#X obj 391 161 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 391 206 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 391 228 cursor \$1;
+#X msg 392 273 blob \$1;
+#X floatatom 392 253 5 0 0 0 - - -;
+#X floatatom 393 303 5 0 0 0 - - -;
+#X msg 393 323 tolerance \$1;
+#X floatatom 393 347 5 0 0 0 - - -;
+#X msg 393 367 blur \$1;
+#X text 387 134 right inlet : controls;
+#X text 466 183 << display on/off (default = on) 1-0;
+#X text 465 228 << cursor on/off (default = on) 1-0;
+#X text 456 272 << blobsize in pixels;
+#X text 482 321 << tolerance (0-1) to adjust the precision;
+#X text 457 365 << blur (0-1) to adjust the precision;
+#X text 71 39 video-motion-blob \; ---------------- \; Track the movement
+with the camera (blob) \; A blob is an aera of pixels \; \; Outlets
+\; 1: X (0-1 float) \; 2: Y (0-1 float) \;;
+#X text 491 41 // from benjamin cadon. labomedia.org;
+#X connect 0 0 2 0;
+#X connect 1 0 3 0;
+#X connect 4 0 5 0;
+#X connect 6 0 4 0;
+#X connect 6 0 15 0;
+#X connect 7 0 8 0;
+#X connect 9 0 13 0;
+#X connect 10 0 8 0;
+#X connect 13 0 7 0;
+#X connect 13 1 14 0;
+#X connect 14 0 8 0;
+#X connect 15 0 0 0;
+#X connect 15 1 1 0;
+#X connect 16 0 15 1;
+#X connect 17 0 16 0;
+#X connect 18 0 19 0;
+#X connect 19 0 15 1;
+#X connect 20 0 15 1;
+#X connect 21 0 20 0;
+#X connect 22 0 23 0;
+#X connect 23 0 15 1;
+#X connect 24 0 25 0;
+#X connect 25 0 15 1;

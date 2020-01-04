@@ -1,0 +1,41 @@
+#N canvas 110 80 543 415 10;
+#X obj 369 236 gemwin;
+#X obj 368 271 gemhead;
+#X obj 368 298 world_light;
+#X msg 369 207 create \, 1 \, lighting 1;
+#X text 368 187 Create window;
+#X text 54 26 3d-physics \; ---------- \; from pmpd examples;
+#X text 217 232 forces 3D;
+#X msg 223 254 forces 1 0 0;
+#X msg 229 280 forces 0 1 0;
+#X msg 235 306 forces 0 0 2;
+#X msg 226 178 rigidity 3;
+#X floatatom 57 166 5 0 0 2 X - -;
+#X floatatom 96 166 5 0 0 2 Y - -;
+#X floatatom 132 164 5 0 0 2 Z - -;
+#X msg 222 139 mass 20;
+#X obj 57 247 3d-physics;
+#X msg 217 118 mass 10;
+#X obj 104 148 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 143 146 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 67 147 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 55 125 apply forces 3D;
+#X msg 223 200 rigidity 10;
+#X connect 1 0 2 0;
+#X connect 3 0 0 0;
+#X connect 7 0 15 3;
+#X connect 8 0 15 3;
+#X connect 9 0 15 3;
+#X connect 10 0 15 3;
+#X connect 11 0 15 0;
+#X connect 12 0 15 1;
+#X connect 13 0 15 2;
+#X connect 14 0 15 3;
+#X connect 16 0 15 3;
+#X connect 17 0 12 0;
+#X connect 18 0 13 0;
+#X connect 19 0 11 0;
+#X connect 21 0 15 3;

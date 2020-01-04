@@ -1,0 +1,16 @@
+#N canvas 548 195 450 300 10;
+#X obj 100 100 cnv 15 54 22 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 101 101 cnv 15 52 20 empty \$0-number 0 4 10 0 16 -66577 -228856
+0;
+#X obj 196 22 inlet;
+#X obj 194 48 int;
+#X obj 195 142 s \$0-number;
+#X floatatom 241 36 5 0 0 0 - - -;
+#X obj 272 102 print;
+#X msg 195 111 label \$1.;
+#X connect 2 0 3 0;
+#X connect 3 0 7 0;
+#X connect 5 0 3 0;
+#X connect 7 0 4 0;
+#X coords 0 -1 1 1 54 22 2 100 100;

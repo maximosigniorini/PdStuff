@@ -1,0 +1,10 @@
+#N canvas 571 185 450 300 10;
+#X obj 101 101 cnv 15 34 34 empty empty empty 20 12 0 14 -204800 -66577
+0;
+#X obj 104 104 knob 28 28 0 2 0 0 EAT_Matrixmix.Mix.\$1.Send.\$2 EAT_Matrixmix.Mix.\$1.\$2
+\$3 -24 17 193 18 -1 -66577 -204800 1350 1;
+#X obj 104 63 loadbang;
+#X msg 104 80 1;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X coords 0 -1 1 1 36 36 2 100 100;

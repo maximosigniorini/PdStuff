@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/src/patches/pd-0.38-4
+END
+alsa_midi.patch
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/src/patches/pd-0.38-4/alsa_midi.patch
+END
+g_rtext.c.diff
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/src/patches/pd-0.38-4/g_rtext.c.diff
+END
+mayer.diff
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/src/patches/pd-0.38-4/mayer.diff
+END
+s_audio_alsamm.diff
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/src/patches/pd-0.38-4/s_audio_alsamm.diff
+END
+s_midi_alsa.c
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/src/patches/pd-0.38-4/s_midi_alsa.c
+END
+u_pdsend.diff
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/src/patches/pd-0.38-4/u_pdsend.diff
+END
+g_all_guis.diff
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/src/patches/pd-0.38-4/g_all_guis.diff
+END
+g_all_guis.c.diff
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/src/patches/pd-0.38-4/g_all_guis.c.diff
+END

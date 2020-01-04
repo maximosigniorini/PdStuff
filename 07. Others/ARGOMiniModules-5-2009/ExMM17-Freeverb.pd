@@ -1,0 +1,617 @@
+#N canvas 410 85 391 444 10;
+#X obj 106 8 active;
+#N canvas 424 161 167 191 clic 0;
+#X obj 23 17 MouseState;
+#X obj 23 82 &;
+#X obj 23 100 == 0;
+#X obj 23 136 s \$0-SendClic;
+#X obj 48 51 t b f;
+#X obj 23 118 metro 200;
+#X obj 94 17 inlet;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 5 0;
+#X connect 4 0 1 0;
+#X connect 4 1 1 1;
+#X connect 5 0 3 0;
+#X connect 6 0 4 0;
+#X restore 106 29 pd clic;
+#X obj -106 155 dac~ 1 2;
+#N canvas 608 166 249 182 ARGOnOff 0;
+#X obj 100 100 tgl 18 1 \$0-SendOnOff \$0-ReceiveOnOff On/Off 20 9
+0 12 -4033 -1 -1 1 1;
+#X obj 99 39 loadbang;
+#X msg 99 62 \; pd dsp 1;
+#X obj 100 129 outlet;
+#X connect 0 0 3 0;
+#X connect 1 0 2 0;
+#X coords 0 -1 1 1 65 18 2 100 100;
+#X restore 104 53 pd ARGOnOff;
+#X obj 104 78 switch~;
+#X obj -214 -154 cnv 15 15 15 empty empty ExMM17_Freeverb 0 8 1 14
+-262144 -66577 0;
+#N canvas 302 22 582 408 ARGO 0;
+#X obj 101 101 cnv 20 244 34 empty ColorTime empty 20 12 0 14 -208064
+-1 1.04858e+06;
+#X obj 356 280 outlet~;
+#X obj 103 118 hsl 241 12 0 1 0 0 \$0-A ColorTime B2 0 7 1 9 -208064
+-1 -1 16792 0;
+#X obj 100 106 nbx 7 12 0 20000 0 1 \$0-A ColorTime Hz 60 7 1 9 -208064
+-1 -1 260.401 256;
+#X obj 194 104 cnv 10 65 10 empty ColorTime Oscill 1 5 1 14 -208064
+-1 1.04858e+06;
+#X obj 231 104 cnv 10 10 10 empty ColorTime Tri/Rectangle 1 5 1 14
+-208064 -1 1.04858e+06;
+#X obj 312 31 clip~ 0 20000;
+#X obj 17 130 ftom;
+#X obj 218 50 mtof;
+#X obj 311 -76 +~;
+#X obj 188 -43 snapshot~;
+#X obj 188 -21 change;
+#X obj 217 3 * 240;
+#X obj 218 26 - 108;
+#X obj 312 9 mtof~;
+#X obj 310 -38 *~ 240;
+#X obj 311 -16 -~ 108;
+#X obj 18 153 + 108;
+#X obj 19 175 / 240;
+#X msg 113 5 set \$1;
+#X msg 219 72 set \$1;
+#X obj 188 -76 r \$0-SendClic;
+#N canvas 60 186 518 313 pitch 0;
+#X obj 76 111 mod 12;
+#X obj 76 135 sel 0 1 2 3 4 5 6 7 8 9 10 11;
+#X msg 252 170 A;
+#X msg 279 170 A#;
+#X msg 306 170 B;
+#X msg 225 170 G#;
+#X msg 198 170 G;
+#X msg 171 170 F#;
+#X msg 9 170 C;
+#X msg 36 170 C#;
+#X msg 63 170 D;
+#X msg 90 170 D#;
+#X msg 117 170 E;
+#X msg 144 170 F;
+#X obj 211 9 inlet;
+#X obj 376 115 div 12;
+#X obj 376 137 - 2;
+#X obj 307 238 tosymbol;
+#X obj 210 69 t f f;
+#X obj 307 213 sprintf %s%d;
+#X text 383 170 -> Numero de l'octave;
+#X text 217 30 -> Numero MIDI de la note (69 = A3 = 440Hz);
+#X msg 307 260 label \$1;
+#X obj 307 283 outlet;
+#X connect 0 0 1 0;
+#X connect 1 0 8 0;
+#X connect 1 1 9 0;
+#X connect 1 2 10 0;
+#X connect 1 3 11 0;
+#X connect 1 4 12 0;
+#X connect 1 5 13 0;
+#X connect 1 6 7 0;
+#X connect 1 7 6 0;
+#X connect 1 8 5 0;
+#X connect 1 9 2 0;
+#X connect 1 10 3 0;
+#X connect 1 11 4 0;
+#X connect 2 0 19 0;
+#X connect 3 0 19 0;
+#X connect 4 0 19 0;
+#X connect 5 0 19 0;
+#X connect 6 0 19 0;
+#X connect 7 0 19 0;
+#X connect 8 0 19 0;
+#X connect 9 0 19 0;
+#X connect 10 0 19 0;
+#X connect 11 0 19 0;
+#X connect 12 0 19 0;
+#X connect 13 0 19 0;
+#X connect 14 0 18 0;
+#X connect 15 0 16 0;
+#X connect 16 0 19 1;
+#X connect 17 0 22 0;
+#X connect 18 0 0 0;
+#X connect 18 1 15 0;
+#X connect 19 0 17 0;
+#X connect 22 0 23 0;
+#X restore 114 53 pd pitch;
+#X obj 311 -100 inlet~;
+#X obj 101 131 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1728 -66577
+0;
+#X obj 409 279 outlet~;
+#X obj 335 131 cnv 4 10 4 empty empty empty 0 0 0 9 -1 -66577 0;
+#X obj 352 61 phasor~;
+#X obj 353 87 -~ 0.5;
+#X obj 493 158 -~ 0.5;
+#X obj 513 195 *~;
+#X obj 513 218 +~ 0.125;
+#X obj 463 278 outlet~;
+#X obj 493 136 expr~ $v1 < 0;
+#X obj 355 252 *~ 2;
+#X obj 409 247 *~ -2;
+#X obj 463 242 *~ 2;
+#X obj 513 242 *~ 8;
+#X obj 514 277 outlet~;
+#X obj 254 131 cnv 4 10 4 empty empty empty 0 0 0 9 -1 -66577 0;
+#X obj 180 131 cnv 4 10 4 empty empty empty 0 0 0 9 -1 -66577 0;
+#X text 84 134 Ramp up;
+#X text 158 135 Ramp down;
+#X text 231 136 Rectangle;
+#X text 313 136 Triangle;
+#X connect 2 0 9 1;
+#X connect 3 0 7 0;
+#X connect 6 0 28 0;
+#X connect 7 0 17 0;
+#X connect 8 0 20 0;
+#X connect 9 0 10 0;
+#X connect 9 0 15 0;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 11 0 19 0;
+#X connect 12 0 13 0;
+#X connect 13 0 8 0;
+#X connect 13 0 22 0;
+#X connect 14 0 6 0;
+#X connect 15 0 16 0;
+#X connect 16 0 14 0;
+#X connect 17 0 18 0;
+#X connect 18 0 9 1;
+#X connect 19 0 2 0;
+#X connect 20 0 3 0;
+#X connect 21 0 10 0;
+#X connect 22 0 2 0;
+#X connect 23 0 9 0;
+#X connect 28 0 29 0;
+#X connect 29 0 35 0;
+#X connect 29 0 36 0;
+#X connect 29 0 31 0;
+#X connect 29 0 34 0;
+#X connect 30 0 31 1;
+#X connect 30 0 37 0;
+#X connect 31 0 32 0;
+#X connect 32 0 38 0;
+#X connect 34 0 30 0;
+#X connect 35 0 1 0;
+#X connect 36 0 26 0;
+#X connect 37 0 33 0;
+#X connect 38 0 39 0;
+#X coords 0 -1 1 1 246 36 1 100 100;
+#X restore -212 -65 pd ARGO;
+#N canvas 189 190 372 210 ARGO 0;
+#X obj 101 113 cnv 4 10 4 empty empty empty 0 0 0 9 -1 -66577 0;
+#X obj 100 100 nbx 5 12 0 99999 0 1 \$0-A \$0-B Hz 47 7 1 9 -262144
+-1 -1 20 256;
+#X obj 158 103 cnv 10 20 10 empty empty Alea2 1 5 1 14 -262144 -1 1.04858e+06
+;
+#X obj 101 113 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 52 172 outlet~;
+#X obj 102 125 noisi~;
+#X text 4 3 draws a random number every n samples and interpolates
+between;
+#X text 4 -9 noisi~;
+#X text 5 30 the effect is that you get a bandlimited noise the bandwidth
+of which can be controlled without having to use expensive filters
+;
+#X text 2 73 (library zexy);
+#X connect 1 0 5 0;
+#X connect 5 0 4 0;
+#X coords 0 -1 1 1 95 18 2 100 100;
+#X restore -212 -131 pd ARGO;
+#N canvas 384 205 334 267 ARGO 0;
+#X obj 113 104 cnv 10 20 10 empty ColorAmpli Switch 1 5 1 14 -262144
+-1 1.04858e+06;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 101 112 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 89 16 inlet~;
+#X obj 195 106 tgl 10 0 \$0-A \$0-B empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X msg 150 63 1;
+#X msg 285 65 0;
+#X obj 89 228 outlet~;
+#X obj 149 16 inlet~;
+#X obj 195 101 cnv 2 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 149 40 threshold~ 0.5 1 0.49 1;
+#X obj 196 102 cnv 2 8 2 empty empty empty 20 12 0 14 -262144 -66577
+0;
+#X obj 88 200 *~;
+#X obj 103 173 line~;
+#X msg 103 150 \$1 20;
+#X connect 3 0 12 0;
+#X connect 4 0 14 0;
+#X connect 5 0 4 0;
+#X connect 6 0 4 0;
+#X connect 8 0 10 0;
+#X connect 10 0 5 0;
+#X connect 10 1 6 0;
+#X connect 12 0 7 0;
+#X connect 13 0 12 1;
+#X connect 14 0 13 0;
+#X coords 0 -1 1 1 106 17 2 100 100;
+#X restore -53 -14 pd ARGO;
+#X text 55 -13 <- Switch;
+#N canvas 302 22 582 408 ARGO 0;
+#X obj 101 101 cnv 20 244 34 empty ColorTime empty 20 12 0 14 -208064
+-1 1.04858e+06;
+#X obj 356 280 outlet~;
+#X obj 103 118 hsl 241 12 0 1 0 0 \$0-A ColorTime G-9 0 7 1 9 -208064
+-1 -1 3000 0;
+#X obj 100 106 nbx 7 12 0 20000 0 1 \$0-A ColorTime Hz 60 7 1 9 -208064
+-1 -1 0.0903307 256;
+#X obj 194 104 cnv 10 65 10 empty ColorTime Oscill 1 5 1 14 -208064
+-1 1.04858e+06;
+#X obj 231 104 cnv 10 10 10 empty ColorTime Tri/Rectangle 1 5 1 14
+-208064 -1 1.04858e+06;
+#X obj 312 31 clip~ 0 20000;
+#X obj 17 130 ftom;
+#X obj 218 50 mtof;
+#X obj 311 -76 +~;
+#X obj 188 -43 snapshot~;
+#X obj 188 -21 change;
+#X obj 217 3 * 240;
+#X obj 218 26 - 108;
+#X obj 312 9 mtof~;
+#X obj 310 -38 *~ 240;
+#X obj 311 -16 -~ 108;
+#X obj 18 153 + 108;
+#X obj 19 175 / 240;
+#X msg 113 5 set \$1;
+#X msg 219 72 set \$1;
+#X obj 188 -76 r \$0-SendClic;
+#N canvas 60 186 518 313 pitch 0;
+#X obj 76 111 mod 12;
+#X obj 76 135 sel 0 1 2 3 4 5 6 7 8 9 10 11;
+#X msg 252 170 A;
+#X msg 279 170 A#;
+#X msg 306 170 B;
+#X msg 225 170 G#;
+#X msg 198 170 G;
+#X msg 171 170 F#;
+#X msg 9 170 C;
+#X msg 36 170 C#;
+#X msg 63 170 D;
+#X msg 90 170 D#;
+#X msg 117 170 E;
+#X msg 144 170 F;
+#X obj 211 9 inlet;
+#X obj 376 115 div 12;
+#X obj 376 137 - 2;
+#X obj 307 238 tosymbol;
+#X obj 210 69 t f f;
+#X obj 307 213 sprintf %s%d;
+#X text 383 170 -> Numero de l'octave;
+#X text 217 30 -> Numero MIDI de la note (69 = A3 = 440Hz);
+#X msg 307 260 label \$1;
+#X obj 307 283 outlet;
+#X connect 0 0 1 0;
+#X connect 1 0 8 0;
+#X connect 1 1 9 0;
+#X connect 1 2 10 0;
+#X connect 1 3 11 0;
+#X connect 1 4 12 0;
+#X connect 1 5 13 0;
+#X connect 1 6 7 0;
+#X connect 1 7 6 0;
+#X connect 1 8 5 0;
+#X connect 1 9 2 0;
+#X connect 1 10 3 0;
+#X connect 1 11 4 0;
+#X connect 2 0 19 0;
+#X connect 3 0 19 0;
+#X connect 4 0 19 0;
+#X connect 5 0 19 0;
+#X connect 6 0 19 0;
+#X connect 7 0 19 0;
+#X connect 8 0 19 0;
+#X connect 9 0 19 0;
+#X connect 10 0 19 0;
+#X connect 11 0 19 0;
+#X connect 12 0 19 0;
+#X connect 13 0 19 0;
+#X connect 14 0 18 0;
+#X connect 15 0 16 0;
+#X connect 16 0 19 1;
+#X connect 17 0 22 0;
+#X connect 18 0 0 0;
+#X connect 18 1 15 0;
+#X connect 19 0 17 0;
+#X connect 22 0 23 0;
+#X restore 114 53 pd pitch;
+#X obj 311 -100 inlet~;
+#X obj 101 131 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1728 -66577
+0;
+#X obj 409 279 outlet~;
+#X obj 335 131 cnv 4 10 4 empty empty empty 0 0 0 9 -1 -66577 0;
+#X obj 352 61 phasor~;
+#X obj 353 87 -~ 0.5;
+#X obj 493 158 -~ 0.5;
+#X obj 513 195 *~;
+#X obj 513 218 +~ 0.125;
+#X obj 463 278 outlet~;
+#X obj 493 136 expr~ $v1 < 0;
+#X obj 355 252 *~ 2;
+#X obj 409 247 *~ -2;
+#X obj 463 242 *~ 2;
+#X obj 513 242 *~ 8;
+#X obj 514 277 outlet~;
+#X obj 253 131 cnv 4 10 4 empty empty empty 0 0 0 9 -1 -66577 0;
+#X obj 180 131 cnv 4 10 4 empty empty empty 0 0 0 9 -1 -66577 0;
+#X text 84 134 Ramp up;
+#X text 158 135 Ramp down;
+#X text 231 136 Rectangle;
+#X text 313 136 Triangle;
+#X connect 2 0 9 1;
+#X connect 3 0 7 0;
+#X connect 6 0 28 0;
+#X connect 7 0 17 0;
+#X connect 8 0 20 0;
+#X connect 9 0 10 0;
+#X connect 9 0 15 0;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 11 0 19 0;
+#X connect 12 0 13 0;
+#X connect 13 0 8 0;
+#X connect 13 0 22 0;
+#X connect 14 0 6 0;
+#X connect 15 0 16 0;
+#X connect 16 0 14 0;
+#X connect 17 0 18 0;
+#X connect 18 0 9 1;
+#X connect 19 0 2 0;
+#X connect 20 0 3 0;
+#X connect 21 0 10 0;
+#X connect 22 0 2 0;
+#X connect 23 0 9 0;
+#X connect 28 0 29 0;
+#X connect 29 0 35 0;
+#X connect 29 0 36 0;
+#X connect 29 0 31 0;
+#X connect 29 0 34 0;
+#X connect 30 0 31 1;
+#X connect 30 0 37 0;
+#X connect 31 0 32 0;
+#X connect 32 0 38 0;
+#X connect 34 0 30 0;
+#X connect 35 0 1 0;
+#X connect 36 0 26 0;
+#X connect 37 0 33 0;
+#X connect 38 0 39 0;
+#X coords 0 -1 1 1 246 36 1 100 100;
+#X restore -84 -125 pd ARGO;
+#N canvas 284 45 455 506 ARGO 0;
+#X obj 101 101 cnv 20 130 66 empty ColorForm empty 20 12 0 14 -188398
+-1 1.04858e+06;
+#X obj 162 104 cnv 10 40 10 empty ColorForm Freeverb 1 5 1 14 -188398
+-1 1.04858e+06;
+#X obj 101 163 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 221 163 cnv 4 10 4 empty empty empty 0 0 0 9 -1 -66577 0;
+#X obj 87 74 inlet~;
+#X obj 211 74 inlet~;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 89 296 outlet~;
+#X obj 188 295 outlet~;
+#X obj 221 101 cnv 4 10 4 empty empty empty 0 0 0 9 -1 -66577 0;
+#X obj 103 126 hsl 127 12 0 1 0 1 \$0-A ColorForm Brill 0 7 1 9 -188398
+-1 -1 9200 0;
+#X obj 103 114 hsl 127 12 0 1 0 1 \$0-A ColorForm Size 0 7 1 9 -188398
+-1 -1 10900 0;
+#X obj 103 150 hsl 127 12 0 1 0 1 \$0-A ColorAmpli Dir 0 7 1 9 -261299
+-1 -1 11100 0;
+#X obj 103 138 hsl 127 12 0 1 0 1 \$0-A ColorAmpli Stereo 0 7 1 9 -261299
+-1 -1 10400 0;
+#X obj 89 264 freeverb~;
+#X msg -120 188 roomsize \$1;
+#X msg -41 188 damping \$1;
+#X msg 31 188 width \$1;
+#X msg 100 187 wet \$1;
+#X msg 149 227 dry \$1;
+#X obj 148 187 - 1;
+#X obj 148 207 * -1;
+#X obj -120 145 * 1.1;
+#X obj -40 144 * -2.3;
+#X obj -40 165 + 2.3;
+#X obj -115 317 cnv 15 440 180 empty empty empty 20 12 0 14 -228856
+-66577 0;
+#X text -112 317 Citation;
+#X text -105 407 "freeverb~ is a simple implementation of the standard
+Schroeder/Moorer reverb model. It uses 8 comb filters in parallel on
+both channels. It then feeds the result of the reverb through 4 allpass
+filters in series on both channels. These "smooth" the sound. The filters
+on the right channel are slightly detuned compared to the left channel
+in order to create a stereo effect.";
+#X text -106 330 freeverb~ version 1.2 - reverb external for Pure Data
+and Max/MSP written by Olaf Matthes <olaf.matthes@gmx.de> - based on
+Freeverb \, the free \, studio-quality reverb SOURCE CODE in the public
+domain. Written by Jezar at Dreampoint - http://www.dreampoint.co.uk
+This software is published under GPL terms \, see file LICENSE.;
+#X connect 4 0 14 0;
+#X connect 5 0 14 1;
+#X connect 10 0 23 0;
+#X connect 11 0 22 0;
+#X connect 12 0 20 0;
+#X connect 12 0 18 0;
+#X connect 13 0 17 0;
+#X connect 14 0 7 0;
+#X connect 14 1 8 0;
+#X connect 15 0 14 0;
+#X connect 16 0 14 0;
+#X connect 17 0 14 0;
+#X connect 18 0 14 0;
+#X connect 19 0 14 0;
+#X connect 20 0 21 0;
+#X connect 21 0 19 0;
+#X connect 22 0 15 0;
+#X connect 23 0 24 0;
+#X connect 24 0 16 0;
+#X coords 0 -1 1 1 132 68 1 100 100;
+#X restore -119 19 pd ARGO;
+#N canvas 172 173 382 310 ARGO 0;
+#X text 12 234 peakamp~;
+#X text 11 247 cyclone library;
+#X text 12 262 http://suita.chopin.edu.pl/~czaja/miXed/externs/cyclone.html
+;
+#X text 12 275 pas de help \, dans Pd-extended. Voir doc Max/MSP MSP46ReferenceManual.pdf
+;
+#X obj 101 101 cnv 30 32 129 empty empty empty 20 12 0 14 -261299 -66577
+0;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 102 108 vu 8 120 \$0-B empty 0 0 1 9 -262144 -1 1 0;
+#X obj 75 30 env~;
+#X obj 115 4 inlet~;
+#X obj 74 53 - 100;
+#X obj 114 53 env~;
+#X obj 113 76 - 100;
+#X obj 115 31 peakamp~ 1000;
+#X connect 7 0 9 0;
+#X connect 8 0 7 0;
+#X connect 8 0 12 0;
+#X connect 9 0 6 0;
+#X connect 10 0 11 0;
+#X connect 11 0 6 1;
+#X connect 12 0 10 0;
+#X coords 0 -1 1 1 34 131 2 100 100;
+#X restore -18 152 pd ARGO;
+#N canvas 172 173 382 310 ARGO 0;
+#X text 12 234 peakamp~;
+#X text 11 247 cyclone library;
+#X text 12 262 http://suita.chopin.edu.pl/~czaja/miXed/externs/cyclone.html
+;
+#X text 12 275 pas de help \, dans Pd-extended. Voir doc Max/MSP MSP46ReferenceManual.pdf
+;
+#X obj 101 101 cnv 30 32 129 empty empty empty 20 12 0 14 -261299 -66577
+0;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 102 108 vu 8 120 \$0-B empty 0 0 1 9 -262144 -1 1 0;
+#X obj 75 30 env~;
+#X obj 115 4 inlet~;
+#X obj 74 53 - 100;
+#X obj 114 53 env~;
+#X obj 113 76 - 100;
+#X obj 115 31 peakamp~ 1000;
+#X connect 7 0 9 0;
+#X connect 8 0 7 0;
+#X connect 8 0 12 0;
+#X connect 9 0 6 0;
+#X connect 10 0 11 0;
+#X connect 11 0 6 1;
+#X connect 12 0 10 0;
+#X coords 0 -1 1 1 34 131 2 100 100;
+#X restore -7 152 pd ARGO;
+#N canvas 350 62 279 383 ARGO 0;
+#X obj 101 101 cnv 20 104 34 empty ColorAmpli empty 20 12 0 14 -261299
+-1 1.04858e+06;
+#X obj 85 274 outlet~;
+#X obj 134 104 cnv 10 20 10 empty ColorAmpli Ampli 1 5 1 14 -261299
+-1 1.04858e+06;
+#X obj 89 -82 inlet~;
+#X obj 85 245 *~;
+#X obj 103 118 hsl 101 12 0 1.25 0 1 \$0-A ColorAmpli -26dB 0 7 1 9
+-261299 -1 -1 5400 0;
+#X obj 100 161 pow~ 10000;
+#X obj 100 201 /~ 10000;
+#X msg 115 77 label \$1;
+#X obj 114 54 tosymbol;
+#X obj 115 -45 * 80;
+#X obj 115 -23 - 80;
+#X obj 114 19 sprintf %ddB;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 101 131 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X text 123 36 -> -80dB..20dB;
+#X text 120 0 -> -80 .. 20;
+#X text 104 139 -> 0..1.2;
+#X text 109 179 -> 1..100000;
+#X text 104 221 -> 0.0001..10 = -80dB..20dB;
+#X obj 195 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 195 131 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 210 273 outlet~;
+#X obj 214 -83 inlet~;
+#X obj 210 244 *~;
+#X connect 3 0 4 0;
+#X connect 4 0 1 0;
+#X connect 5 0 10 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 7 0 4 1;
+#X connect 7 0 24 1;
+#X connect 8 0 5 0;
+#X connect 9 0 8 0;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 12 0 9 0;
+#X connect 23 0 24 0;
+#X connect 24 0 22 0;
+#X coords 0 -1 1 1 106 36 1 100 100;
+#X restore -106 96 pd ARGO;
+#N canvas 350 62 312 366 ARGO 0;
+#X obj 101 101 cnv 20 104 34 empty ColorAmpli empty 20 12 0 14 -261299
+-1 1.04858e+06;
+#X obj 85 257 outlet~;
+#X obj 134 104 cnv 10 20 10 empty ColorAmpli Ampli 1 5 1 14 -261299
+-1 1.04858e+06;
+#X obj 89 -82 inlet~;
+#X obj 85 228 *~;
+#X obj 103 118 hsl 101 12 0 1.25 0 1 \$0-A ColorAmpli -22dB 0 7 1 9
+-261299 -1 -1 5800 0;
+#X obj 100 161 pow~ 10000;
+#X obj 100 195 /~ 10000;
+#X msg 213 61 label \$1;
+#X obj 212 38 tosymbol;
+#X obj 213 -61 * 80;
+#X obj 213 -39 - 80;
+#X obj 212 3 sprintf %ddB;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 101 131 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X text 221 20 -> -80dB..20dB;
+#X text 218 -16 -> -80 .. 20;
+#X text 104 139 -> 0..1.2;
+#X text 109 177 -> 1..100000;
+#X text 109 211 -> 0.0001..10 = -80dB..20dB;
+#X connect 3 0 4 0;
+#X connect 4 0 1 0;
+#X connect 5 0 10 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 7 0 4 1;
+#X connect 8 0 5 0;
+#X connect 9 0 8 0;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 12 0 9 0;
+#X coords 0 -1 1 1 106 36 1 100 100;
+#X restore -212 -106 pd ARGO;
+#X text 50 51 Click ->;
+#X text 3 112 <- General level;
+#X connect 0 0 1 0;
+#X connect 3 0 4 0;
+#X connect 6 2 8 0;
+#X connect 7 0 15 0;
+#X connect 8 0 11 0;
+#X connect 8 0 11 1;
+#X connect 10 2 8 1;
+#X connect 11 0 14 0;
+#X connect 11 1 14 1;
+#X connect 14 0 12 0;
+#X connect 14 0 2 0;
+#X connect 14 1 13 0;
+#X connect 14 1 2 1;
+#X connect 15 0 6 0;

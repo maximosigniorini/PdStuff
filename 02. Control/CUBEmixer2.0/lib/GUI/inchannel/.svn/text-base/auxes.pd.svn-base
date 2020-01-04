@@ -1,0 +1,8 @@
+#N canvas 1412 152 579 444 10;
+#X obj 100 100 cnv 15 161 169 empty empty AUX 20 12 0 14 -233017 -66577
+0;
+#X obj 120 126 auxe \$1 1;
+#X obj 120 156 auxe \$1 2;
+#X obj 120 186 auxe \$1 3;
+#X obj 120 216 auxe \$1 4;
+#X coords 0 -1 1 1 161 169 2 100 100;

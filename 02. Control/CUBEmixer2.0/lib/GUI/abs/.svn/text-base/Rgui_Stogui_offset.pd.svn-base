@@ -1,0 +1,12 @@
+#N canvas 282 94 530 208 10;
+#X obj 67 100 route set;
+#X msg 67 140 set \$1;
+#X obj 67 78 r \$1_gui;
+#X obj 67 160 s \$1_togui;
+#X text 32 23 receive BLA_gui \, subtract "offset" and send BLA_togui
+(set!);
+#X obj 67 120 - \$2;
+#X connect 0 0 5 0;
+#X connect 1 0 3 0;
+#X connect 2 0 0 0;
+#X connect 5 0 1 0;

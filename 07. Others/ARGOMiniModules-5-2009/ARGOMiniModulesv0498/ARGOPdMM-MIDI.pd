@@ -1,0 +1,227 @@
+#N canvas 366 158 356 124 10;
+#N canvas 550 303 278 218 MIDICtrlChange 0;
+#X obj 101 101 cnv 10 125 36 empty ColorMIDI empty 5 28 1 14 -262103
+-1 1.04858e+06;
+#X obj 153 124 nbx 3 11 0 128 0 0 \$0-A ColorMIDI empty 0 -7 1 9 -262103
+-1 -1 0 256;
+#X obj 185 124 nbx 3 11 0 128 0 0 \$0-A ColorMIDI empty 5 -7 1 9 -262103
+-1 -1 0 256;
+#X obj 131 124 nbx 2 11 0 48 0 0 \$0-A ColorMIDI empty 6 -7 1 9 -262103
+-1 -1 0 256;
+#X obj 109 124 nbx 2 11 0 4 0 0 \$0-A ColorMIDI empty 0 0 1 9 -262103
+-1 -1 0 256;
+#X obj 91 22 / 16;
+#X obj 91 47 int;
+#X obj 90 68 + 1;
+#X obj 111 -3 - 1;
+#X obj 123 22 mod 16;
+#X obj 123 64 + 1;
+#X obj 177 -51 ctlin;
+#X obj 154 114 cnv 9 9 9 empty ColorMIDI Control 0 5 1 9 -262103 -1
+1.04858e+06;
+#X obj 188 114 cnv 9 9 9 empty ColorMIDI Value 0 5 1 9 -262103 -1 1.04858e+06
+;
+#X obj 138 114 cnv 9 9 9 empty ColorMIDI Ch 0 5 1 9 -262103 -1 1.04858e+06
+;
+#X obj 113 114 cnv 9 9 9 empty ColorMIDI Port 0 5 1 9 -262103 -1 1.04858e+06
+;
+#X obj 107 104 cnv 10 20 10 empty ColorMIDI VisuInCtrlChange 1 5 1
+14 -262103 -1 1.04858e+06;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 7 0 4 0;
+#X connect 8 0 5 0;
+#X connect 8 0 9 0;
+#X connect 9 0 10 0;
+#X connect 10 0 3 0;
+#X connect 11 0 2 0;
+#X connect 11 1 1 0;
+#X connect 11 2 8 0;
+#X coords 0 -1 1 1 127 38 1 100 100;
+#X restore 11 14 pd MIDICtrlChange;
+#N canvas 393 87 263 351 MIDICtrlChange 0;
+#X obj 101 101 cnv 10 125 36 empty ColorMIDI empty 5 28 1 14 -262103
+-1 1.04858e+06;
+#X obj 157 114 cnv 9 9 9 empty ColorMIDI Control 0 5 1 9 -262103 -1
+1.04858e+06;
+#X obj 191 114 cnv 9 9 9 empty ColorMIDI Value 0 5 1 9 -262103 -1 1.04858e+06
+;
+#X obj 141 114 cnv 9 9 9 empty ColorMIDI Ch 0 5 1 9 -262103 -1 1.04858e+06
+;
+#X obj 116 114 cnv 9 9 9 empty ColorMIDI Port 0 5 1 9 -262103 -1 1.04858e+06
+;
+#X obj 120 104 cnv 10 20 10 empty ColorMIDI InCtrlChange 1 5 1 14 -262103
+-1 1.04858e+06;
+#X obj 158 124 nbx 3 11 0 128 0 1 \$0-A ColorMIDI empty 0 0 1 9 -262103
+-1 -1 7 256;
+#X obj 190 124 nbx 3 11 0 128 0 1 \$0-A ColorMIDI empty 0 0 1 9 -262103
+-1 -1 0 256;
+#X obj 136 124 nbx 2 11 1 16 0 1 \$0-A ColorMIDI empty 0 0 1 9 -262103
+-1 -1 1 256;
+#X obj 114 124 nbx 2 11 0 4 0 1 \$0-A ColorMIDI empty 0 0 1 9 -262103
+-1 -1 1 256;
+#X obj 187 162 / 240;
+#X obj 117 -75 / 16;
+#X obj 119 -50 int;
+#X obj 118 -29 + 1;
+#X obj 159 -94 - 1;
+#X obj 176 -23 mod 16;
+#X obj 176 -1 + 1;
+#X obj 119 -114 ctlin;
+#X obj 187 141 - 64;
+#X obj 187 74 spigot;
+#X obj 220 49 == 1;
+#X obj 118 -4 == 1;
+#X obj 176 24 == 1;
+#X obj 143 48 spigot;
+#X obj 84 21 spigot;
+#X obj 187 185 sig~;
+#X obj 187 206 outlet~;
+#X obj 101 133 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X connect 6 0 20 1;
+#X connect 7 0 18 0;
+#X connect 8 0 22 1;
+#X connect 9 0 21 1;
+#X connect 10 0 25 0;
+#X connect 11 0 12 0;
+#X connect 12 0 13 0;
+#X connect 13 0 21 0;
+#X connect 14 0 11 0;
+#X connect 14 0 15 0;
+#X connect 15 0 16 0;
+#X connect 16 0 22 0;
+#X connect 17 0 24 0;
+#X connect 17 1 20 0;
+#X connect 17 2 14 0;
+#X connect 18 0 10 0;
+#X connect 19 0 7 0;
+#X connect 20 0 19 1;
+#X connect 21 0 24 1;
+#X connect 22 0 23 1;
+#X connect 23 0 19 0;
+#X connect 24 0 23 0;
+#X connect 25 0 26 0;
+#X coords 0 -1 1 1 127 38 1 100 100;
+#X restore 11 56 pd MIDICtrlChange;
+#N canvas 351 232 260 211 MIDICtrlChange 0;
+#X obj 101 101 cnv 10 125 36 empty ColorMIDI empty 5 28 1 14 -262103
+-1 1.04858e+06;
+#X obj 131 124 nbx 2 11 0 48 0 0 \$0-A ColorMIDI empty 0 0 1 9 -262103
+-1 -1 0 256;
+#X obj 109 124 nbx 2 11 0 4 0 0 \$0-A ColorMIDI empty 0 0 1 9 -262103
+-1 -1 0 256;
+#X obj 91 33 / 16;
+#X obj 91 58 int;
+#X obj 90 79 + 1;
+#X obj 111 8 - 1;
+#X obj 123 33 mod 16;
+#X obj 123 75 + 1;
+#X obj 138 114 cnv 9 9 9 empty ColorMIDI Ch 0 5 1 9 -262103 -1 1.04858e+06
+;
+#X obj 113 114 cnv 9 9 9 empty ColorMIDI Port 0 5 1 9 -262103 -1 1.04858e+06
+;
+#X obj 129 104 cnv 10 20 10 empty ColorMIDI VisuInNote 1 5 1 14 -262103
+-1 1.04858e+06;
+#X obj 165 -22 notein;
+#X obj 159 124 nbx 3 11 0 128 0 1 \$0-A ColorMIDI empty 0 0 1 9 -262103
+-1 -1 60 256;
+#X obj 188 124 nbx 3 11 0 128 0 1 \$0-A ColorMIDI empty 0 0 1 9 -262103
+-1 -1 0 256;
+#X obj 164 114 cnv 9 9 9 empty ColorMIDI Pitch 0 5 1 9 -262103 -1 1.04858e+06
+;
+#X obj 193 114 cnv 9 9 9 empty ColorMIDI Vel 0 5 1 9 -262103 -1 1.04858e+06
+;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 2 0;
+#X connect 6 0 3 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 1 0;
+#X connect 12 0 13 0;
+#X connect 12 1 14 0;
+#X connect 12 2 6 0;
+#X coords 0 -1 1 1 127 38 1 100 100;
+#X restore 141 14 pd MIDICtrlChange;
+#N canvas 393 87 370 391 MIDICtrlChange 0;
+#X obj 101 101 cnv 10 125 36 empty ColorMIDI empty 5 28 1 14 -262103
+-1 1.04858e+06;
+#X obj 141 114 cnv 9 9 9 empty ColorMIDI Ch 0 5 1 9 -262103 -1 1.04858e+06
+;
+#X obj 142 104 cnv 10 20 10 empty ColorMIDI InNote 1 5 1 14 -262103
+-1 1.04858e+06;
+#X obj 131 124 nbx 2 11 1 16 0 1 \$0-A ColorMIDI empty 0 0 1 9 -262103
+-1 -1 1 256;
+#X obj 109 124 nbx 2 11 0 4 0 1 \$0-A ColorMIDI empty 0 0 1 9 -262103
+-1 -1 1 256;
+#X obj 119 183 / 240;
+#X obj 136 -51 / 16;
+#X obj 136 -26 int;
+#X obj 135 -5 + 1;
+#X obj 190 -76 - 1;
+#X obj 206 -1 mod 16;
+#X obj 206 21 + 1;
+#X obj 135 20 == 1;
+#X obj 206 46 == 1;
+#X obj 158 75 spigot;
+#X obj 102 45 spigot;
+#X obj 119 206 sig~;
+#X obj 119 227 outlet~;
+#X obj 101 133 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 138 114 cnv 9 9 9 empty ColorMIDI Ch 0 5 1 9 -262103 -1 1.04858e+06
+;
+#X obj 113 114 cnv 9 9 9 empty ColorMIDI Port 0 5 1 9 -262103 -1 1.04858e+06
+;
+#X obj 159 124 nbx 3 11 0 128 0 1 \$0-A ColorMIDI empty 0 0 1 9 -262103
+-1 -1 60 256;
+#X obj 188 124 nbx 3 11 0 128 0 1 \$0-A ColorMIDI empty 0 0 1 9 -262103
+-1 -1 0 256;
+#X obj 164 114 cnv 9 9 9 empty ColorMIDI Pitch 0 5 1 9 -262103 -1 1.04858e+06
+;
+#X obj 196 113 cnv 9 9 9 empty ColorMIDI Vel 0 5 1 9 -262103 -1 1.04858e+06
+;
+#X obj 216 133 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 171 204 sig~;
+#X obj 171 225 outlet~;
+#X obj 156 -100 notein;
+#X obj 201 75 spigot;
+#X obj 160 46 spigot;
+#X text 89 137 Pitch;
+#X text 198 140 Velocity;
+#X obj 119 162 - 60;
+#X obj 171 181 / 128;
+#X text 81 259 = 261.626 Hz;
+#X text 19 246 C3 = Do3 = note MIDI 60 envoie un signal nul en sortie
+;
+#X connect 3 0 13 1;
+#X connect 4 0 12 1;
+#X connect 5 0 16 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 12 0;
+#X connect 9 0 6 0;
+#X connect 9 0 10 0;
+#X connect 10 0 11 0;
+#X connect 11 0 13 0;
+#X connect 12 0 15 1;
+#X connect 12 0 30 1;
+#X connect 13 0 14 1;
+#X connect 13 0 29 1;
+#X connect 14 0 21 0;
+#X connect 15 0 14 0;
+#X connect 16 0 17 0;
+#X connect 21 0 33 0;
+#X connect 22 0 34 0;
+#X connect 26 0 27 0;
+#X connect 28 0 15 0;
+#X connect 28 1 30 0;
+#X connect 28 2 9 0;
+#X connect 29 0 22 0;
+#X connect 30 0 29 0;
+#X connect 33 0 5 0;
+#X connect 34 0 26 0;
+#X coords 0 -1 1 1 127 38 1 100 100;
+#X restore 141 56 pd MIDICtrlChange;

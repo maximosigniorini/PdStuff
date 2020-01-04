@@ -1,0 +1,37 @@
+#N canvas 45 114 528 382 10;
+#X msg 279 167 create \, 1;
+#X obj 279 221 gemwin;
+#X obj 279 87 loadbang;
+#X msg 289 192 0 \, destroy;
+#X text 355 167 <- on;
+#X text 361 193 <- off;
+#X obj 279 109 t b b;
+#X msg 306 137 reset \, dimen 640 480;
+#X text 121 157 <- debug;
+#X obj 30 312 pix_texture;
+#X text 45 183 <- output gemList;
+#X obj 30 270 colorRGB 0.1 0.2 1;
+#X obj 30 249 spigot;
+#X obj 63 228 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 30 291 translateXYZ -1 -1 -1;
+#X obj 30 332 circle 2;
+#X text 81 228 <- video in a blue circle;
+#X floatatom 30 113 5 0 0 0 - - -;
+#X text 68 110 <- choose camera;
+#X obj 30 142 video-in 0;
+#X text 31 25 video-in \; -------- \; Get default camera \; Argument
+\; \$1: camera (integer);
+#X connect 0 0 1 0;
+#X connect 2 0 6 0;
+#X connect 3 0 1 0;
+#X connect 6 0 0 0;
+#X connect 6 1 7 0;
+#X connect 7 0 1 0;
+#X connect 9 0 15 0;
+#X connect 11 0 14 0;
+#X connect 12 0 11 0;
+#X connect 13 0 12 1;
+#X connect 14 0 9 0;
+#X connect 17 0 19 0;
+#X connect 19 0 12 0;

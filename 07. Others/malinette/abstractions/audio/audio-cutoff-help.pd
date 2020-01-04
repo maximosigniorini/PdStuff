@@ -1,0 +1,58 @@
+#N canvas 1 92 727 556 10;
+#X obj 80 231 audio-cutoff;
+#X obj 80 447 dac~;
+#X obj 155 374 vsl 15 50 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 1700 1;
+#X obj 154 451 line~;
+#X msg 155 430 \$1 5;
+#X obj 79 418 *~;
+#X obj 112 417 *~;
+#X msg 79 64 \; pd dsp 1;
+#X obj 79 41 loadbang;
+#X obj 225 16 vsl 15 100 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X msg 225 151 reso \$1;
+#X obj 330 16 vsl 15 100 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 79 197 *~ 1;
+#X msg 330 151 cutoff \$1;
+#X obj 79 155 noise~;
+#X msg 434 170 mode \$1;
+#X obj 434 133 nbx 5 14 1 4 0 0 empty empty empty 0 -8 0 10 -262144
+-1 -1 1 256;
+#X msg 540 130 1;
+#X msg 581 130 3;
+#X text 542 108 lp;
+#X text 581 109 bp;
+#X text 275 369 ** lowpass \, highpass \, bandpass \, notch;
+#X floatatom 225 126 5 0 0 0 - - -;
+#X floatatom 330 126 5 0 0 0 - - -;
+#X text 336 169 midi 0 127;
+#X obj 182 385 init 0.5;
+#X text 274 224 audio-cutoff \; -------------------------- \; Classic
+audio filter cutoff/resonance \; Inlets \; 1 : audio signal \; 2 :
+command (put a message \$1 like : cutoff \$1 or reso \$1 to control
+thos parameters. \; and u can choose also the mode of filtering (lp
+\, hp \, bp \, n);
+#X connect 0 0 5 0;
+#X connect 0 0 6 0;
+#X connect 2 0 4 0;
+#X connect 3 0 5 1;
+#X connect 3 0 6 1;
+#X connect 4 0 3 0;
+#X connect 5 0 1 0;
+#X connect 6 0 1 1;
+#X connect 8 0 7 0;
+#X connect 9 0 22 0;
+#X connect 10 0 0 1;
+#X connect 11 0 23 0;
+#X connect 12 0 0 0;
+#X connect 13 0 0 1;
+#X connect 14 0 12 0;
+#X connect 15 0 0 1;
+#X connect 16 0 15 0;
+#X connect 17 0 15 0;
+#X connect 18 0 15 0;
+#X connect 22 0 10 0;
+#X connect 23 0 13 0;
+#X connect 25 0 2 0;

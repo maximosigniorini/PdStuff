@@ -1,0 +1,86 @@
+
+pix_openni (0.03 experimenting...)
+======================================
+pure data / Gem external to get Kinect rgb and depth streams, skeleton tracking, hand tracking
+
+* depends on OpenNI, NITE, SensorKinect
+
+2011/2012 by Matthias Kronlachner
+__________________________________________________________
+
+::INSTALL::
+tested under Ubuntu and OSX 10.6.8, should run under Windows if you know how to compile it
+
+OSX: 
+you don't have to compile the external for yourself -> use included binaries from build folder (copy pix_openni.pd_darwin in pix_openni folder)
+you still need OpenNI, NITE and SensorKinect!!
+* 	download latest OpenNI and NITE unstable build for OSX from http://www.openni.org/Downloads/OpenNIModules.aspx, 
+	sudo ./install.sh in the extracted folders
+*	install SensorKinect from https://github.com/avin2/SensorKinect
+
+
+Linux:
+*	get/install pd and Gem (http://puredata.info)
+
+*	get and install OpenNI, NITE and the hacked Primesense Kinect driver
+	--> instruction: https://github.com/avin2/SensorKinect
+	http://www.openni.org/Downloads/OpenNIModules.aspx
+
+*	edit Makefile for right path to Gem, pd and OpenNI sources
+
+*	#.../pix_openni> make
+
+*	have a look at the pix_openni-help.pd file!
+
+:: Usage ::
+
+tbf...
+
+Hand Tracking:
+
+to track multiple Hands edit following File: 
+	/usr/etc/primesense/Hands_*/Nite.ini
+and add or uncomment:
+
+	[HandTrackerManager]
+	AllowMultipleHands=1
+	TrackAdditionalHands=1
+
+_________________
+Changelog
+
+
+0.03	* switchable OSC Style output of tracking data /skeleton/joint/r_hand id x y z, /hand/coords id x y z
+	* switchable real-world coordinate output in [mm]
+	* switchable registration between rgb image and depth image -> change point of view from depth camera to match with rgb image (overlay)
+	* improved help file
+
+0.02
+	* OSX binaries
+	* output rgb and depth stream simultaneously
+	* hand tracking
+	* change image and depth modes
+	* init without .xml init file
+	* fixed depth to rgb conversion for output_mode 1 & 2
+
+
+0.01
+	* skeleton and rgb or depth stream output
+
+ ________________
+:::THINGS TO DO:::
+
+*	record and play function for sensor data
+
+*	support for multiple Kinect
+
+*	motor and led control as well as audio is currently not supported from SensorKinect
+	you can do that with pd external freenect: http://github.com/kronihias/freenect
+
+*	clean shutdown of OpenNI framework -> currently you have to kill pd at least under linux
+
+*	cpu performance optimization
+
+
+questions: m.kronlachner@gmail.com
+

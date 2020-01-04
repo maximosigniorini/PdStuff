@@ -1,0 +1,24 @@
+#N canvas 267 157 731 337 10;
+#X obj 204 247 ehu/out~;
+#X obj 326 13 ehu/dsp;
+#X obj 204 31 phasor~ 300;
+#X obj 204 98 ehu/tremolo~;
+#X obj 21 173 ehu/plot;
+#X obj 20 33 ehu/plot;
+#X text 378 59 just a stereo tremolo;
+#X text 378 86 INLETS left audio right audio freq shape depth;
+#X text 377 41 ehu/tremolo;
+#X text 386 152 based on;
+#X text 386 168 Patch by Pierre Massat \, GuitarExtended \, 2012;
+#X text 383 182 (based on a suggestion by "mod" \, Pure Data forum
+\, 2011);
+#X text 387 226 grap on parent \, abstraction and example by enrike
+hurtado 2016;
+#X text 389 293 GuitarExtended \, Pierre Massat \, 2012;
+#X text 392 273 adapted from;
+#X connect 2 0 3 0;
+#X connect 2 0 3 1;
+#X connect 2 0 5 0;
+#X connect 3 0 0 0;
+#X connect 3 0 4 0;
+#X connect 3 1 0 1;

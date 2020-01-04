@@ -1,0 +1,113 @@
+#N canvas 420 100 370 239 10;
+#X obj 147 16 namecanvas \$0-gui;
+#N canvas 241 86 752 532 viscode 0;
+#X msg 253 391 vis 1;
+#X obj 253 415 s \$0-gui;
+#X obj 196 34 loadbang;
+#X msg 268 36 bang;
+#X obj 196 155 s \$0-name;
+#X msg 196 128 label \$1;
+#X obj 267 126 makefilename channel:%02d;
+#X msg 267 148 label \$1;
+#X obj 267 175 s \$0-channel;
+#X msg 354 176 label \$1;
+#X obj 354 154 makefilename slot:%02d;
+#X obj 354 203 s \$0-slot;
+#X obj 196 94 symbol \$3;
+#X obj 267 94 i \$1;
+#X obj 302 94 i \$2;
+#X obj 196 64 t b b b b;
+#X obj 253 362 t b;
+#X text 194 476 0/1;
+#X obj 36 450 r \$0on_fromgui;
+#X obj 36 492 s \$0on_togui;
+#X obj 36 471 sr_plugin \$1 \$2 ON;
+#X obj 253 339 iem_r /IN/\$1/PLUGIN/\$2/\$3/EDIT;
+#X connect 0 0 1 0;
+#X connect 2 0 15 0;
+#X connect 3 0 15 0;
+#X connect 5 0 4 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 9 0 11 0;
+#X connect 10 0 9 0;
+#X connect 12 0 5 0;
+#X connect 13 0 6 0;
+#X connect 14 0 10 0;
+#X connect 15 0 12 0;
+#X connect 15 1 13 0;
+#X connect 15 2 14 0;
+#X connect 16 0 0 0;
+#X connect 18 0 20 0;
+#X connect 20 0 19 0;
+#X connect 21 0 16 0;
+#X restore 71 16 pd viscode;
+#X obj 45 121 popup 124 25 #ffffff character LIMITER COMP_1_4;
+#X obj 45 124 s \$0ch_fromgui;
+#X obj 45 125 r \$0ch_togui;
+#X obj 25 40 cnv 15 310 170 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#N canvas 142 0 882 561 code 0;
+#X text 377 193 0..1000;
+#X text 372 138 0..1000;
+#X text 376 257 0..50000;
+#X text 391 65 0..1;
+#X text 282 304 LIMITER/COMP_1_4;
+#X text 375 447 dB;
+#X obj 175 387 s \$0ch_togui;
+#X msg 270 387 options LIMITER COMP_1_4 \, name character;
+#X obj 412 341 loadbang;
+#X obj 175 299 r \$0ch_fromgui;
+#X obj 175 44 r \$0ratio_fromgui;
+#X obj 175 86 s \$0ratio_togui;
+#X obj 175 113 r \$0attack_fromgui;
+#X obj 175 155 s \$0attack_togui;
+#X obj 175 424 r \$0gain_fromgui;
+#X obj 175 466 s \$0gain_togui;
+#X obj 175 174 r \$0delay_fromgui;
+#X obj 175 216 s \$0delay_togui;
+#X obj 175 236 r \$0release_fromgui;
+#X obj 175 278 s \$0release_togui;
+#X obj 175 320 unpack 0 s;
+#X msg 175 359 set \$1;
+#X obj 175 64 sr_plugin \$1 \$2 \$3/PEAK_RATIO;
+#X obj 175 134 sr_plugin \$1 \$2 \$3/ATT_TIME;
+#X obj 175 195 sr_plugin \$1 \$2 \$3/DEL_TIME;
+#X obj 175 257 sr_plugin \$1 \$2 \$3/REL_TIME;
+#X obj 175 340 sr_plugin \$1 \$2 \$3/CHARACTERISTIC;
+#X obj 175 445 sr_plugin \$1 \$2 \$3/OUT/GAIN;
+#X connect 7 0 6 0;
+#X connect 8 0 7 0;
+#X connect 9 0 20 0;
+#X connect 10 0 22 0;
+#X connect 12 0 23 0;
+#X connect 14 0 27 0;
+#X connect 16 0 24 0;
+#X connect 20 1 26 0;
+#X connect 21 0 6 0;
+#X connect 22 0 11 0;
+#X connect 23 0 13 0;
+#X connect 24 0 17 0;
+#X connect 26 0 21 0;
+#X connect 27 0 15 0;
+#X restore 74 160 pd code;
+#X obj 188 102 nbx 5 14 0 1000 0 0 \$0attack_fromgui \$0attack_togui
+ATTACK 0 -6 0 12 -262144 -1 -1 0 256;
+#X obj 188 132 nbx 5 14 0 1000 0 0 \$0delay_fromgui \$0delay_togui
+DELAY 0 -6 0 12 -262144 -1 -1 0 256;
+#X obj 188 162 nbx 5 14 0 50000 0 0 \$0release_fromgui \$0release_togui
+RELEASE 0 -6 0 12 -262144 -1 -1 0 256;
+#X obj 258 63 vsl 30 128 0 127 0 0 \$0gain_fromgui \$0gain_togui GAIN
+3 -8 0 12 -262144 -1 -1 0 1;
+#X obj 46 92 hsl 128 15 0 1 0 0 \$0ratio_fromgui \$0ratio_togui PeakRatio
+-2 -6 0 12 -262144 -1 -1 0 1;
+#X obj 25 14 cnv 15 250 20 empty \$0-name COMPANDER 25 10 0 16 -233017
+-66577 0;
+#X obj 24 14 tgl 20 0 \$0on_fromgui \$0on_togui empty 0 -6 0 8 -262144
+-1 -1 0 1;
+#X obj 155 14 cnv 15 100 20 empty \$0-channel channel:01 0 10 0 16
+-233017 -62784 0;
+#X obj 265 14 cnv 15 70 20 empty \$0-slot slot:01 0 10 0 16 -233017
+-62784 0;
+#X connect 2 0 3 0;
+#X connect 4 0 2 0;

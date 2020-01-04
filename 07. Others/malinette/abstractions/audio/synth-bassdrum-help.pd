@@ -1,0 +1,25 @@
+#N canvas 67 89 514 368 10;
+#X obj 41 163 bng 15 250 50 0 empty empty Bang! 17 7 0 10 -262144 -1
+-1;
+#X obj 40 320 dac~;
+#X obj 196 150 hsl 40 15 40 100 0 0 empty empty freqence_freq1 -2 -8
+0 10 -262144 -1 -1 0 1;
+#X obj 119 147 hsl 40 15 0 1 0 0 empty empty 0-1 -2 -8 0 10 -262144
+-1 -1 0 1;
+#X msg 116 166 7 \$1;
+#X text 114 87 Messages syntax \; ID (0-7) \; Value (0-1);
+#X text 34 14 synth-bassdrum \; --------------- \; Bass drum synthetiser
+\;;
+#X text 33 55 Choose the parameter with the first number (0-7);
+#X obj 40 191 synth-bassdrum;
+#X text 233 230 on = freq1out;
+#X text 230 244 (3ieme inlet);
+#X text 233 265 off = normal;
+#X text 213 214 << toggle freq1 :;
+#X text 249 150 << only if toggle freq1 toggle is ON;
+#X connect 0 0 8 0;
+#X connect 2 0 8 2;
+#X connect 3 0 4 0;
+#X connect 4 0 8 1;
+#X connect 8 0 1 0;
+#X connect 8 0 1 1;

@@ -1,0 +1,443 @@
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs
+END
+AMBI_Order_Weight_Morphing.pd
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/AMBI_Order_Weight_Morphing.pd
+END
+4_ambi_enc~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/4_ambi_enc~.pd
+END
+2_DAC_OUTS~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/2_DAC_OUTS~.pd
+END
+$1_DAC_OUTS~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/$1_DAC_OUTS~.pd
+END
+DSP_label.pd
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/DSP_label.pd
+END
+adc_2_in~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/adc_2_in~.pd
+END
+listresize.pd
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/listresize.pd
+END
+3_ambi_jitter_enc~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/3_ambi_jitter_enc~.pd
+END
+aux_2_sum~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/aux_2_sum~.pd
+END
+VU_METER_BRIDGE~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/VU_METER_BRIDGE~.pd
+END
+$1_ADC-INS~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/$1_ADC-INS~.pd
+END
+BRIDGE_ELEMENT~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/BRIDGE_ELEMENT~.pd
+END
+$8_AUX_PLUG_IN~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/$8_AUX_PLUG_IN~.pd
+END
+$5_EFF_PLUG_IN~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/$5_EFF_PLUG_IN~.pd
+END
+4_ambi_dec~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/4_ambi_dec~.pd
+END
+DAC_Routing_Compensation_OUT52~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/DAC_Routing_Compensation_OUT52~.pd
+END
+catch_out_2_vol_dac~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/catch_out_2_vol_dac~.pd
+END
+IN-CH_8AUX_16BUS~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/IN-CH_8AUX_16BUS~.pd
+END
+AUX-CH~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/AUX-CH~.pd
+END
+sIN~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/sIN~.pd
+END
+ambiweight_matrix_2d.pd
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/ambiweight_matrix_2d.pd
+END
+IN-CH_4AUX_12BUS_4.o~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/IN-CH_4AUX_12BUS_4.o~.pd
+END
+ambiweight_matrix_3d.pd
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/ambiweight_matrix_3d.pd
+END
+AMBI-BUS-OUT~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/AMBI-BUS-OUT~.pd
+END
+bus_send_post~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/bus_send_post~.pd
+END
+26_DAC_OUTS~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/26_DAC_OUTS~.pd
+END
+0_bus_sends_post.pd
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/0_bus_sends_post.pd
+END
+EFF_PLUG_IN~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/EFF_PLUG_IN~.pd
+END
+AUX-RET-CH~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/AUX-RET-CH~.pd
+END
+mute_solo_logic.pd
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/mute_solo_logic.pd
+END
+BUS-Gain-Matrix-OUT_bus12_OUT52~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/BUS-Gain-Matrix-OUT_bus12_OUT52~.pd
+END
+SF_RECORDER_TOOL~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/SF_RECORDER_TOOL~.pd
+END
+BUS-Gain-Matrix-OUT_bus16_OUT52~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/BUS-Gain-Matrix-OUT_bus16_OUT52~.pd
+END
+16_bus_sends_post.pd
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/16_bus_sends_post.pd
+END
+ambi_rotate_z_3o_3d~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/ambi_rotate_z_3o_3d~.pd
+END
+ambi_rotate_z_4o_3d~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/ambi_rotate_z_4o_3d~.pd
+END
+$1_ambi_dec~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/$1_ambi_dec~.pd
+END
+ADC-IN-Distribute~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/ADC-IN-Distribute~.pd
+END
+BUS-catch~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/BUS-catch~.pd
+END
+AMBI-Gain-Decode-OUT~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/AMBI-Gain-Decode-OUT~.pd
+END
+AUX-SUM-Distribute~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/AUX-SUM-Distribute~.pd
+END
+aux_send_pre~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/aux_send_pre~.pd
+END
+ambi_DecodeToSpeakers.pd
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/ambi_DecodeToSpeakers.pd
+END
+ADC-IN-Distribute52~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/ADC-IN-Distribute52~.pd
+END
+3_ambi_enc~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/3_ambi_enc~.pd
+END
+AMBI-BUS-catch~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/AMBI-BUS-catch~.pd
+END
+dither~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/dither~.pd
+END
+CUBEmixer_plugin0~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/CUBEmixer_plugin0~.pd
+END
+1_DAC_OUTS~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/1_DAC_OUTS~.pd
+END
+$4_bus_sends_post.pd
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/$4_bus_sends_post.pd
+END
+The_MIXER~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/The_MIXER~.pd
+END
+26_ADC-INS~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/26_ADC-INS~.pd
+END
+$6_ambi_enc~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/$6_ambi_enc~.pd
+END
+BUS_OUT_Routing~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/BUS_OUT_Routing~.pd
+END
+64_ADC-INS~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/64_ADC-INS~.pd
+END
+IN-MIX-CH~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/IN-MIX-CH~.pd
+END
+0_AUX_PLUG_IN~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/0_AUX_PLUG_IN~.pd
+END
+AMBI-Gain-Decode-OUT_4.o~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/AMBI-Gain-Decode-OUT_4.o~.pd
+END
+BUS-Gain-Matrix-OUT_bus16~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/BUS-Gain-Matrix-OUT_bus16~.pd
+END
+0_EFF_PLUG_IN~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/0_EFF_PLUG_IN~.pd
+END
+1_EFF_PLUG_IN~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/1_EFF_PLUG_IN~.pd
+END
+IN-CH~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/IN-CH~.pd
+END
+2_EFF_PLUG_IN~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/2_EFF_PLUG_IN~.pd
+END
+4_EFF_PLUG_IN~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/4_EFF_PLUG_IN~.pd
+END
+CUBEmixer_plugin~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/CUBEmixer_plugin~.pd
+END
+catch_out_2_dac~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/catch_out_2_dac~.pd
+END
+$1_SF_PLAYER_TOOL~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/$1_SF_PLAYER_TOOL~.pd
+END
+3_ambi_dec~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/3_ambi_dec~.pd
+END
+64_DAC_OUTS~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/64_DAC_OUTS~.pd
+END
+aux_send_post~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/aux_send_post~.pd
+END
+IN-MIX-CH_24x8AUX_16BUS~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/IN-MIX-CH_24x8AUX_16BUS~.pd
+END
+BUS-Gain-Matrix-OUT~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/BUS-Gain-Matrix-OUT~.pd
+END
+DAC_Routing_Compensation~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs/DAC_Routing_Compensation~.pd
+END

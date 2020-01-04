@@ -1,0 +1,9 @@
+#N canvas 553 0 450 428 10;
+#X obj 99 217 t b f;
+#X obj 99 237 pack \$1 0;
+#X obj 99 261 outlet;
+#X obj 99 122 receive_parameter /EXT/RRR/EARLY/\$1/DEL_TIME;
+#X connect 0 0 1 0;
+#X connect 0 1 1 1;
+#X connect 1 0 2 0;
+#X connect 3 0 0 0;

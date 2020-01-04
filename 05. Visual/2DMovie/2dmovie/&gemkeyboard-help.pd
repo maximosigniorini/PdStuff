@@ -1,0 +1,67 @@
+#N canvas 290 87 931 407 10;
+#X obj 6 -67 cnv 15 700 50 empty empty &gemkeyboard 3 12 0 18 -204800
+-1 0;
+#X text 25 185 Arguments \; aucun;
+#X text 25 273 OUTLETS \; 1- liste de nombres : numéro de la touche
+et état (enfoncé 1 ou relaché 0).;
+#N canvas 0 22 454 304 gemwin 0;
+#X obj 132 136 gemwin;
+#X obj 67 89 outlet;
+#X obj 67 10 inlet;
+#X obj 67 41 route create;
+#X msg 67 70 set destroy;
+#X msg 182 68 set create;
+#X msg 132 112 create \, 1;
+#X msg 238 112 destroy;
+#N canvas 87 154 247 179 Gem.init 0;
+#X obj 59 46 loadbang;
+#X msg 118 81 reset;
+#X obj 118 113 outlet;
+#X obj 59 65 t b b;
+#X connect 0 0 3 0;
+#X connect 1 0 2 0;
+#X connect 3 1 1 0;
+#X restore 289 80 pd Gem.init;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 3 0 6 0;
+#X connect 3 1 5 0;
+#X connect 3 1 7 0;
+#X connect 4 0 1 0;
+#X connect 5 0 1 0;
+#X connect 6 0 0 0;
+#X connect 7 0 0 0;
+#X connect 8 0 0 0;
+#X restore 516 32 pd gemwin;
+#X msg 516 8 create;
+#X text 9 -39 Affiche les numéros des touches du clavier en mode GEM
+;
+#X obj 505 98 &gemkeyboard;
+#X text 660 66 à comparer avec :;
+#X obj 650 98 gemkeyboard;
+#X obj 750 98 gemkeyname;
+#X floatatom 650 137 5 0 0 0 - - -;
+#X floatatom 750 137 5 0 0 0 - - -;
+#X symbolatom 807 136 10 0 0 0 - - -;
+#X obj 505 136 unpack f f;
+#X floatatom 505 172 5 0 0 0 - - -;
+#X floatatom 562 172 5 0 0 0 - - -;
+#X text 25 3 Description \; Affiche les numéros des touches du clavier
+en mode GEM. Ce module complète [gemkeyboard] en ajoutant le keyreleased
+(relâché de touche) et le module [gemkeyname] qui \, lui \, n'est
+pas sensible aux touches spéciales (espace \, flèches \, etc.).;
+#X text 25 84 Les modules initiaux ne fonctionnent pas de la même
+façon selon les systèmes. En particulier \, sur PC \, [gemkeyname]
+donne des valeurs inverses (0 pour key_down et 1 pour key_up)...;
+#X text 25 229 INLETS \; aucun;
+#X text 25 141 Le module [&gemkeyboard] est compatible Mac et PC (avec
+des codes de touches différents bien-sûr selon les systèmes).;
+#X connect 3 0 4 0;
+#X connect 4 0 3 0;
+#X connect 6 0 13 0;
+#X connect 8 0 10 0;
+#X connect 9 0 11 0;
+#X connect 9 1 12 0;
+#X connect 13 0 14 0;
+#X connect 13 1 15 0;
+#X coords 0 407 1 406 65 15 0;

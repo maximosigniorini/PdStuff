@@ -1,0 +1,61 @@
+#N canvas 503 55 634 283 10;
+#X obj 1 1 cnv 15 66 98 empty empty ambisonic 5 8 0 8 -233017 -66577
+0;
+#X obj 8 31 nbx 4 14 0 999 0 0 \$1GUIambisonic_r_fromgui \$1GUIambisonic_r_togui
+r 50 8 0 8 -262144 -1 -1 1 256;
+#X obj 8 79 nbx 4 14 -360 360 0 0 \$1GUIambisonic_phi_fromgui \$1GUIambisonic_phi_togui
+AZI 40 8 0 8 -262144 -1 -1 0 256;
+#X obj 8 55 nbx 2 14 -1e+37 1e+37 0 0 \$1GUIambisonic_theta_fromgui
+\$1GUIambisonic_theta_togui ELV 28 8 0 8 -262144 -1 -1 0 256;
+#X obj 1 121 cnv 15 66 98 2 empty direct 10 8 0 8 -233017 -66577 0
+;
+#X obj 4 141 tgl 15 0 \$1GUIdirect_bus1_fromgui \$1GUIdirect_bus1_togui
+1 5 8 0 8 -262144 -1 -166441 0 100;
+#X obj 19 141 tgl 15 0 \$1GUIdirect_bus2_fromgui \$1GUIdirect_bus2_togui
+2 5 8 0 8 -262144 -1 -166441 0 100;
+#X obj 4 159 tgl 15 0 \$1GUIdirect_bus5_fromgui \$1GUIdirect_bus5_togui
+5 5 8 0 8 -262144 -1 -166441 0 100;
+#X obj 19 159 tgl 15 0 \$1GUIdirect_bus6_fromgui \$1GUIdirect_bus6_togui
+6 5 8 0 8 -262144 -1 -166441 0 100;
+#X obj 4 177 tgl 15 0 \$1GUIdirect_bus9_fromgui \$1GUIdirect_bus9_togui
+9 5 8 0 8 -262144 -1 -166441 0 100;
+#X obj 19 177 tgl 15 0 \$1GUIdirect_bus10_fromgui \$1GUIdirect_bus10_togui
+10 2 8 0 8 -262144 -1 -166441 0 100;
+#X obj 4 195 tgl 15 0 \$1GUIdirect_bus13_fromgui \$1GUIdirect_bus13_togui
+13 2 8 0 8 -262144 -1 -166441 0 100;
+#X obj 19 195 tgl 15 0 \$1GUIdirect_bus14_fromgui \$1GUIdirect_bus14_togui
+14 2 8 0 8 -262144 -1 -166441 0 100;
+#X obj 34 141 tgl 15 0 \$1GUIdirect_bus3_fromgui \$1GUIdirect_bus3_togui
+3 5 8 0 8 -262144 -1 -166441 0 100;
+#X obj 49 141 tgl 15 0 \$1GUIdirect_bus4_fromgui \$1GUIdirect_bus4_togui
+4 5 8 0 8 -262144 -1 -166441 0 100;
+#X obj 34 159 tgl 15 0 \$1GUIdirect_bus7_fromgui \$1GUIdirect_bus7_togui
+7 5 8 0 8 -262144 -1 -166441 0 100;
+#X obj 49 159 tgl 15 0 \$1GUIdirect_bus8_fromgui \$1GUIdirect_bus8_togui
+8 5 8 0 8 -262144 -1 -166441 0 100;
+#X obj 34 177 tgl 15 0 \$1GUIdirect_bus11_fromgui \$1GUIdirect_bus11_togui
+11 2 8 0 8 -262144 -1 -166441 0 100;
+#X obj 49 177 tgl 15 0 \$1GUIdirect_bus12_fromgui \$1GUIdirect_bus12_togui
+12 2 8 0 8 -262144 -1 -166441 0 100;
+#X obj 34 195 tgl 15 0 \$1GUIdirect_bus15_fromgui \$1GUIdirect_bus15_togui
+15 2 8 0 8 -262144 -1 -166441 0 100;
+#X obj 49 195 tgl 15 0 \$1GUIdirect_bus16_fromgui \$1GUIdirect_bus16_togui
+16 2 8 0 8 -262144 -1 -166441 0 100;
+#X msg 111 52 set 1;
+#X obj 111 30 loadbang;
+#X obj 237 74 receive_regname /IN/\$2/SPAT;
+#X obj 463 21 namecanvas \$0-spat;
+#X obj 237 198 s \$0-spat;
+#X msg 237 176 donecanvasdialog 1 1 2 0 -1 1 1 68 100 0 \$1;
+#X obj 237 132 * 120;
+#X obj 237 98 t f;
+#X msg 155 53 0;
+#X connect 21 0 1 0;
+#X connect 22 0 21 0;
+#X connect 22 0 29 0;
+#X connect 23 0 28 0;
+#X connect 26 0 25 0;
+#X connect 27 0 26 0;
+#X connect 28 0 27 0;
+#X connect 29 0 28 0;
+#X coords 0 -1 1 1 68 100 2 0 120;

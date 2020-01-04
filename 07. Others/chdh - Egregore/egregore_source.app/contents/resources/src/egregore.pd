@@ -1,0 +1,1110 @@
+#N canvas 641 28 581 581 10;
+#X declare -stdpath extra/Gem;
+#X declare -lib lib/backport/x_list;
+#X declare -lib lib/backport/x_net;
+#X declare declare -lib lib/Gem/l_386/Gem -lib lib/Gem/l_686/Gem -lib
+../../../../src/lib/Gem/Gem -lib ../../../../../lib/Gem/Gem -path abs
+-path lib/nusmuk-audio -path lib/nusmuk-utils -path lib/pmpd -path
+lib/rendu_egregore -path lib/share_mem -path lib/iem_tab -lib lib/iem_tab/iem_tab
+-path lib/gemvertexbuffer -path lib/mrpeach;
+#X obj 5 4 cnv 15 570 575 empty empty egregore 5 8 0 14 -1 -228856
+0;
+#X obj 292 299 cnv 15 277 248 empty empty empty 20 12 0 14 -191407
+-66577 0;
+#X obj 292 33 cnv 15 277 263 empty empty empty 20 12 0 14 -191407 -66577
+0;
+#X obj 10 400 cnv 15 277 173 empty empty empty 20 12 0 14 -191407 -66577
+0;
+#X obj 10 179 cnv 15 277 218 empty empty empty 20 12 0 14 -191407 -66577
+0;
+#X obj 10 33 cnv 15 277 143 empty empty empty 20 12 0 14 -191407 -66577
+0;
+#N canvas 530 222 657 466 cpu 0;
+#X obj 26 114 cputime;
+#X obj 26 69 metro 1000;
+#X msg 26 47 1;
+#X obj 26 92 t b b;
+#X obj 26 159 * 0.1;
+#X obj 26 136 int;
+#X obj 318 158 gemhead;
+#X obj 318 181 t b b;
+#X obj 318 204 realtime;
+#X obj 452 266 /;
+#X msg 452 242 1000 \$1;
+#X obj 318 267 +;
+#X obj 452 310 i;
+#X obj 452 334 change;
+#X obj 452 288 + 0.5;
+#X obj 26 25 r lb4;
+#X obj 512 388 r fps;
+#X obj 371 270 +;
+#X obj 318 291 / 11;
+#X obj 371 294 / 11;
+#X obj 333 244 * 10;
+#X obj 386 247 * 10;
+#X obj 271 21 r cpu2;
+#X obj 100 101 cnv 15 203 16 empty empty empty 20 12 0 14 -1 -66577
+0;
+#X obj 180 102 nbx 2 14 -1e+37 1e+37 0 0 empty empty fps -20 7 0 10
+-1 -262144 -262144 50 256;
+#X obj 232 102 nbx 3 14 -1e+37 1e+37 0 0 empty empty cpu -20 7 0 10
+-1 -262144 -262144 17 256;
+#X obj 265 102 nbx 3 14 -1e+37 1e+37 0 0 empty empty empty -20 7 0
+10 -1 -262144 -262144 3 256;
+#X obj 123 57 f;
+#X msg 123 78 set \$1;
+#X obj 123 126 t b;
+#X obj 193 57 f;
+#X msg 193 78 set \$1;
+#X obj 193 126 t b;
+#X obj 233 57 f;
+#X msg 233 78 set \$1;
+#X obj 233 126 t b;
+#X obj 100 313 s start_stop;
+#X obj 100 182 loadbang;
+#X obj 100 204 delay 1000;
+#X obj 100 258 f 1;
+#X obj 140 102 tgl 15 0 empty start_stop_ext render -37 7 0 10 -258113
+-262144 -262144 1 1;
+#X connect 0 0 5 0;
+#X connect 1 0 3 0;
+#X connect 2 0 1 0;
+#X connect 3 0 0 0;
+#X connect 3 1 0 1;
+#X connect 4 0 30 0;
+#X connect 5 0 4 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 7 1 8 1;
+#X connect 8 0 11 0;
+#X connect 9 0 14 0;
+#X connect 10 0 9 0;
+#X connect 11 0 18 0;
+#X connect 12 0 13 0;
+#X connect 13 0 27 0;
+#X connect 14 0 12 0;
+#X connect 15 0 2 0;
+#X connect 16 0 27 0;
+#X connect 17 0 19 0;
+#X connect 18 0 17 0;
+#X connect 18 0 20 0;
+#X connect 19 0 10 0;
+#X connect 19 0 21 0;
+#X connect 20 0 11 1;
+#X connect 21 0 17 1;
+#X connect 22 0 33 0;
+#X connect 24 0 29 0;
+#X connect 25 0 32 0;
+#X connect 26 0 35 0;
+#X connect 27 0 28 0;
+#X connect 28 0 24 0;
+#X connect 29 0 27 0;
+#X connect 30 0 31 0;
+#X connect 31 0 25 0;
+#X connect 32 0 30 0;
+#X connect 33 0 34 0;
+#X connect 34 0 26 0;
+#X connect 35 0 33 0;
+#X connect 37 0 38 0;
+#X connect 38 0 39 0;
+#X connect 39 0 40 0;
+#X connect 40 0 36 0;
+#X coords 0 -1 1 1 203 18 2 100 100;
+#X restore 371 10 pd cpu;
+#N canvas 459 135 450 300 config_button 0;
+#X obj 100 148 t b;
+#X obj 100 100 hradio 18 1 0 2 empty empty empty 0 -8 0 10 -262144
+-1 -1 1;
+#X obj 108 100 hradio 18 1 0 2 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X obj 100 100 cnv 15 44 18 empty empty empty 20 12 0 14 -262144 -66577
+0;
+#X obj 101 101 cnv 15 42 16 empty empty VIDEO 6 9 0 10 -1 -228856 0
+;
+#X msg 100 220 \; pd-video vis 1;
+#X connect 0 0 5 0;
+#X connect 1 0 0 0;
+#X connect 2 0 0 0;
+#X coords 0 -1 1 1 44 18 2 100 100;
+#X restore 341 554 pd config_button;
+#N canvas 526 136 450 300 config_button 0;
+#X obj 100 148 t b;
+#N canvas 15 529 200 318 engine 0;
+#N canvas 432 469 849 560 initialisation 0;
+#X obj 127 264 loadbang;
+#X obj 127 313 delay 100;
+#X obj 48 235 s gemwin;
+#X obj 202 360 s lb;
+#X obj 187 387 s lb0;
+#X obj 172 410 s lb1;
+#X obj 157 437 s lb2;
+#X obj 142 459 s lb3;
+#X obj 127 488 s lb4;
+#X obj 304 284 loadbang;
+#X msg 323 365 1;
+#X obj 323 387 s metro;
+#X msg 304 420 dsp 1;
+#X obj 304 442 s pd;
+#X obj 304 306 delay 200;
+#X obj 304 328 t b b b;
+#X obj 411 291 r lb3;
+#X msg 411 325 \; 1-chdh_nom_patch symbol mouches \; 1-chdh_nom_repertoire
+symbol mouches \; 2-chdh_nom_patch symbol emergence \; 2-chdh_nom_repertoire
+symbol emergence \; 3-chdh_nom_patch symbol fluide \; 3-chdh_nom_repertoire
+symbol fluide \; 4-chdh_nom_patch symbol morphing \; 4-chdh_nom_repertoire
+symbol morphing \; 5-chdh_nom_patch symbol chaos \; 5-chdh_nom_repertoire
+symbol chaos \;;
+#X obj 147 290 r reset_extern;
+#X msg 48 212 perspec -1 1 -1 1 4 150 \, view 0 0 4;
+#X obj 48 186 r lb0;
+#X obj 51 385 s lb5;
+#X obj 70 360 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 51 313 delay 1000;
+#X obj 127 335 t b b b b b b;
+#X text 605 22 only for recent Gem release;
+#X text 642 47 for linux pd version < 0.46;
+#X obj 431 20 declare -stdpath extra/Gem;
+#X obj 431 47 declare -lib lib/backport/x_list;
+#X obj 431 67 declare -lib lib/backport/x_net;
+#X obj 45 17 declare declare -lib lib/Gem/l_386/Gem -lib lib/Gem/l_686/Gem
+-lib ../../../../src/lib/Gem/Gem -lib ../../../../../lib/Gem/Gem -path
+abs -path lib/nusmuk-audio -path lib/nusmuk-utils -path lib/pmpd -path
+lib/rendu_egregore -path lib/share_mem -path lib/iem_tab -lib lib/iem_tab/iem_tab
+-path lib/gemvertexbuffer -path lib/mrpeach;
+#X connect 0 0 1 0;
+#X connect 0 0 23 0;
+#X connect 1 0 24 0;
+#X connect 9 0 14 0;
+#X connect 10 0 11 0;
+#X connect 12 0 13 0;
+#X connect 14 0 15 0;
+#X connect 15 0 12 0;
+#X connect 15 1 10 0;
+#X connect 16 0 17 0;
+#X connect 18 0 1 0;
+#X connect 19 0 2 0;
+#X connect 20 0 19 0;
+#X connect 22 0 21 0;
+#X connect 23 0 21 0;
+#X connect 24 0 8 0;
+#X connect 24 1 7 0;
+#X connect 24 2 6 0;
+#X connect 24 3 5 0;
+#X connect 24 4 4 0;
+#X connect 24 5 3 0;
+#X restore 4 28 pd initialisation ___________;
+#X obj 4 89 egregore_server nusmuk ______;
+#X obj 4 69 egregore_metro ______________;
+#X obj 4 109 egregore_dac;
+#N canvas 291 461 450 300 instruments_______________ 0;
+#X obj 15 35 instruments/mouches/mouches mouches 1;
+#X obj 15 55 instruments/emergence/emergence emergence 2;
+#X obj 15 74 instruments/fluide/fluide fluide 3;
+#X obj 15 95 instruments/morphing/morphing morphing 4;
+#X obj 15 115 instruments/chaos/chaos chaos 5;
+#X restore 4 49 pd instruments_______________;
+#X obj 4 8 egregore_gemwin 50 __________;
+#X obj 4 150 render ______________________;
+#X obj 4 170 init_config _________________;
+#X obj 4 191 param_down __________________;
+#X obj 4 211 param_read __________________;
+#X obj 4 231 text_display ________________;
+#N canvas 819 535 699 477 save_preset_old___________ 0;
+#X obj 16 34 vradio 15 1 0 7 empty empty empty 0 -6 0 8 -66577 -262144
+-262144 5;
+#X text 36 32 1;
+#X text 36 48 2;
+#X text 36 64 3;
+#N canvas 696 310 499 287 store 0;
+#X obj 8 260 s chdh_pre;
+#X obj 8 13 inlet;
+#X obj 40 186 r \$0-nom_patch;
+#X obj 8 142 t b f f;
+#X msg 8 233 interface \$1 \$2 store \$3;
+#X obj 8 208 pack s s f;
+#X obj 40 91 sel 5;
+#X msg 40 114 6;
+#X obj 8 34 t f f f;
+#X obj 194 145 + 1;
+#X obj 239 163 r \$0-nom_patch;
+#X obj 194 185 pack f s;
+#X msg 194 223 \$2 : preset \$1;
+#X obj 8 166 symbol local;
+#X obj 194 243 print_debug SAVE_PRESET;
+#X connect 1 0 8 0;
+#X connect 2 0 5 1;
+#X connect 3 0 13 0;
+#X connect 3 1 5 2;
+#X connect 4 0 0 0;
+#X connect 5 0 4 0;
+#X connect 6 0 7 0;
+#X connect 7 0 3 0;
+#X connect 8 0 3 0;
+#X connect 8 1 6 0;
+#X connect 8 2 9 0;
+#X connect 9 0 11 0;
+#X connect 10 0 11 1;
+#X connect 11 0 12 0;
+#X connect 12 0 14 0;
+#X connect 13 0 5 0;
+#X restore 16 154 pd store;
+#X obj 138 152 s \$0-not_save;
+#X obj 138 27 vradio 15 1 0 8 empty empty empty 0 -6 0 8 -66577 -262144
+-262144 0;
+#X text 17 12 save preset;
+#X text 35 111 6;
+#X obj 308 211 r \$0-nom_patch;
+#X obj 239 234 list prepend;
+#X obj 239 258 list prepend interface local;
+#X obj 239 278 list trim;
+#X obj 239 302 s chdh_pre;
+#X obj 239 186 list prepend interpol interp;
+#X obj 239 126 r preset0;
+#X obj 321 126 r preset1;
+#X obj 403 126 r preset2;
+#X obj 483 126 r preset3;
+#X msg 483 150 0 0 1 0 0 0;
+#X msg 403 150 0 1 0 0 0 0;
+#X msg 321 150 1 0 0 0 0 0;
+#X msg 239 149 0 0 0 0 0 1;
+#X obj 28 302 s \$0-nom_patch;
+#X msg 38 215 symbol emergence;
+#X msg 28 195 symbol mouches;
+#X msg 48 235 symbol chaos;
+#X msg 58 255 symbol morphing;
+#X msg 68 275 symbol fluide;
+#X text 35 125 initialisation;
+#X text 50 110 0 (rien);
+#X text 36 78 not used;
+#X text 36 93 not used;
+#X connect 0 0 4 0;
+#X connect 6 0 5 0;
+#X connect 9 0 10 1;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 12 0 13 0;
+#X connect 14 0 10 0;
+#X connect 15 0 22 0;
+#X connect 16 0 21 0;
+#X connect 17 0 20 0;
+#X connect 18 0 19 0;
+#X connect 19 0 14 0;
+#X connect 20 0 14 0;
+#X connect 21 0 14 0;
+#X connect 22 0 14 0;
+#X connect 24 0 23 0;
+#X connect 25 0 23 0;
+#X connect 26 0 23 0;
+#X connect 27 0 23 0;
+#X connect 28 0 23 0;
+#X restore 4 271 pd save_preset_old___________;
+#N canvas 250 660 243 133 presets 0;
+#N canvas 187 105 1113 554 write_preset 0;
+#X obj 331 -60 r chdh_post;
+#X msg 399 303 \$2 \$1;
+#X obj 399 165 list trim;
+#X obj 331 16 list split 1;
+#X obj 365 39 list trim;
+#X obj 365 65 t a a;
+#X obj 399 337 unpack f f;
+#X obj 522 383 +;
+#X text 423 17 nom interface;
+#X text 714 124 nom patch;
+#X obj 365 128 list split 1;
+#X text 689 326 index;
+#X text 339 -13 parametre;
+#N canvas 71 137 670 415 sel_nom_patch 0;
+#X obj 109 34 inlet;
+#X msg 109 79 0;
+#X msg 161 81 1;
+#X msg 211 83 2;
+#X msg 263 89 3;
+#X msg 312 91 4;
+#X obj 109 54 sel mouches emergence fluide morphing chaos;
+#X obj 117 252 outlet;
+#X obj 368 256 outlet;
+#X obj 112 140 t f b;
+#X msg 365 229 1;
+#X msg 398 230 0;
+#X connect 0 0 6 0;
+#X connect 1 0 9 0;
+#X connect 2 0 9 0;
+#X connect 3 0 9 0;
+#X connect 4 0 9 0;
+#X connect 5 0 9 0;
+#X connect 6 0 1 0;
+#X connect 6 1 2 0;
+#X connect 6 2 3 0;
+#X connect 6 3 4 0;
+#X connect 6 4 5 0;
+#X connect 6 5 11 0;
+#X connect 9 0 7 0;
+#X connect 9 1 10 0;
+#X connect 10 0 8 0;
+#X connect 11 0 8 0;
+#X restore 649 150 pd sel_nom_patch;
+#X obj 37 408 textfile;
+#X msg 171 101 0;
+#X obj 52 362 list trim;
+#X text 837 4 16 paramettres;
+#X text 839 22 1 volume;
+#X text 838 41 1 on/off;
+#X text 961 7 instruments :;
+#X text 984 29 mouches;
+#X text 982 45 emergence;
+#X text 981 62 fluide;
+#X text 985 77 morphing;
+#X text 985 94 chaos;
+#X obj 399 192 route paramettre rythme;
+#X text 837 132 18 paramettres * 5 instruments = 90 datas;
+#X obj 331 -38 route interface;
+#X obj 649 324 * 18;
+#X msg 649 124 symbol \$1;
+#X obj 466 218 route 0;
+#N canvas 222 464 450 300 spigot_list 0;
+#X obj 38 31 inlet;
+#X msg 38 74 16 \$1;
+#X obj 38 262 outlet;
+#X obj 38 52 route 24 16 17 18 19 20 21 22 23;
+#X connect 0 0 3 0;
+#X connect 1 0 2 0;
+#X connect 3 0 1 0;
+#X connect 3 9 2 0;
+#X restore 399 267 pd spigot_list;
+#X obj 649 98 list;
+#X msg 466 243 17 \$1;
+#X obj 365 102 spigot;
+#X obj 52 338 list prepend add egregore_data;
+#X obj 399 409 tabwrite \$0-preset;
+#X obj 836 -27 table \$0-preset 90;
+#X obj 68 160 f;
+#X obj 68 184 t f f;
+#X obj 109 184 + 1;
+#X obj 68 138 until;
+#X msg 68 118 90;
+#X msg 108 139 0;
+#X obj 67 271 list;
+#X obj 68 216 tabread \$0-preset;
+#X obj 52 293 list;
+#X msg 129 264 clear;
+#X obj 67 245 list prepend;
+#X obj 37 27 r write_preset;
+#X obj 37 61 t f b b b b;
+#X msg 20 433 \; preset\$1 color 1 0 0;
+#X msg 37 382 write ../data/presets/preset\$1.txt;
+#X connect 0 0 28 0;
+#X connect 1 0 6 0;
+#X connect 2 0 26 0;
+#X connect 3 1 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 35 0;
+#X connect 5 1 33 0;
+#X connect 6 0 37 0;
+#X connect 6 1 7 0;
+#X connect 7 0 37 1;
+#X connect 10 1 2 0;
+#X connect 13 0 29 0;
+#X connect 13 1 35 1;
+#X connect 16 0 14 0;
+#X connect 26 0 32 0;
+#X connect 26 1 31 0;
+#X connect 28 0 3 0;
+#X connect 29 0 7 1;
+#X connect 30 0 13 0;
+#X connect 31 0 34 0;
+#X connect 32 0 1 0;
+#X connect 33 0 30 0;
+#X connect 34 0 1 0;
+#X connect 35 0 10 0;
+#X connect 36 0 16 0;
+#X connect 39 0 40 0;
+#X connect 40 0 46 0;
+#X connect 40 1 41 0;
+#X connect 41 0 39 1;
+#X connect 42 0 39 0;
+#X connect 43 0 42 0;
+#X connect 44 0 39 1;
+#X connect 45 0 47 1;
+#X connect 45 0 49 1;
+#X connect 46 0 49 0;
+#X connect 47 0 36 0;
+#X connect 48 0 14 0;
+#X connect 49 0 45 0;
+#X connect 50 0 51 0;
+#X connect 51 0 53 0;
+#X connect 51 0 52 0;
+#X connect 51 1 47 0;
+#X connect 51 2 43 0;
+#X connect 51 3 44 0;
+#X connect 51 3 49 1;
+#X connect 51 4 48 0;
+#X connect 53 0 14 0;
+#X restore 23 15 pd write_preset _____;
+#N canvas 611 309 450 300 read_preset 0;
+#X obj 38 124 textfile;
+#N canvas 0 50 756 456 parse_text_file 0;
+#X obj 96 32 inlet;
+#X obj 96 118 list split 18;
+#X obj 206 121 list split 18;
+#X obj 96 198 t a a a;
+#N canvas 1 95 450 300 split_index 0;
+#X obj 23 23 inlet;
+#X obj 22 45 unpack f f f f f f f f f f f f f f f f;
+#X obj 22 194 outlet;
+#X msg 22 71 0 \$1;
+#X msg 36 90 1 \$1;
+#X msg 52 109 2 \$1;
+#X msg 67 127 3 \$1;
+#X msg 82 70 4 \$1;
+#X msg 96 90 5 \$1;
+#X msg 112 109 6 \$1;
+#X msg 127 127 7 \$1;
+#X msg 142 71 8 \$1;
+#X msg 156 90 9 \$1;
+#X msg 172 109 10 \$1;
+#X msg 185 129 11 \$1;
+#X msg 202 71 12 \$1;
+#X msg 216 90 13 \$1;
+#X msg 232 109 14 \$1;
+#X msg 247 127 15 \$1;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 1 1 4 0;
+#X connect 1 2 5 0;
+#X connect 1 3 6 0;
+#X connect 1 4 7 0;
+#X connect 1 5 8 0;
+#X connect 1 6 9 0;
+#X connect 1 7 10 0;
+#X connect 1 8 11 0;
+#X connect 1 9 12 0;
+#X connect 1 10 13 0;
+#X connect 1 11 14 0;
+#X connect 1 12 15 0;
+#X connect 1 13 16 0;
+#X connect 1 14 17 0;
+#X connect 1 15 18 0;
+#X connect 3 0 2 0;
+#X connect 4 0 2 0;
+#X connect 5 0 2 0;
+#X connect 6 0 2 0;
+#X connect 7 0 2 0;
+#X connect 8 0 2 0;
+#X connect 9 0 2 0;
+#X connect 10 0 2 0;
+#X connect 11 0 2 0;
+#X connect 12 0 2 0;
+#X connect 13 0 2 0;
+#X connect 14 0 2 0;
+#X connect 15 0 2 0;
+#X connect 16 0 2 0;
+#X connect 17 0 2 0;
+#X connect 18 0 2 0;
+#X restore 135 225 pd split_index;
+#X obj 116 419 s chdh_pre;
+#X obj 96 142 t a b;
+#X obj 206 142 t a b;
+#X obj 316 121 list split 18;
+#X obj 316 142 t a b;
+#X obj 426 121 list split 18;
+#X obj 426 142 t a b;
+#X obj 536 121 list split 18;
+#X obj 536 142 t a b;
+#X obj 116 308 pack f f s;
+#X obj 96 357 pack f s;
+#X obj 173 282 symbol;
+#X msg 563 168 chaos;
+#X msg 123 168 mouches;
+#X msg 233 167 emergence;
+#X msg 343 168 fluide;
+#X msg 453 168 morphing;
+#X msg 116 330 interface distant \$3 paramettre \$1 \$2;
+#X msg 96 382 interface distant \$2 rythme 0 \$1;
+#X msg 96 277 \$18;
+#X msg 115 252 24 \$17;
+#X obj 368 68 t b;
+#N canvas 50 111 450 300 send2 0;
+#X obj 24 19 inlet;
+#X obj 24 44 t b b a b b;
+#X msg 96 70 set;
+#X msg 78 94 addsemi;
+#X obj 60 114 list prepend add;
+#X obj 60 136 list trim;
+#X msg 65 211;
+#X connect 0 0 1 0;
+#X connect 1 0 6 0;
+#X connect 1 1 3 0;
+#X connect 1 2 4 0;
+#X connect 1 3 3 0;
+#X connect 1 4 2 0;
+#X connect 2 0 6 0;
+#X connect 3 0 6 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X restore 183 91 pd send2;
+#X obj 96 68 route egregore_data egregore_control nothing;
+#X obj 368 89 outlet;
+#X connect 0 0 28 0;
+#X connect 1 0 6 0;
+#X connect 1 1 2 0;
+#X connect 2 0 7 0;
+#X connect 2 1 8 0;
+#X connect 3 0 24 0;
+#X connect 3 1 25 0;
+#X connect 3 2 4 0;
+#X connect 4 0 14 0;
+#X connect 6 0 3 0;
+#X connect 6 1 18 0;
+#X connect 7 0 3 0;
+#X connect 7 1 19 0;
+#X connect 8 0 9 0;
+#X connect 8 1 10 0;
+#X connect 9 0 3 0;
+#X connect 9 1 20 0;
+#X connect 10 0 11 0;
+#X connect 10 1 12 0;
+#X connect 11 0 3 0;
+#X connect 11 1 21 0;
+#X connect 12 0 13 0;
+#X connect 13 0 3 0;
+#X connect 13 1 17 0;
+#X connect 14 0 22 0;
+#X connect 15 0 23 0;
+#X connect 16 0 14 2;
+#X connect 16 0 15 1;
+#X connect 17 0 16 0;
+#X connect 18 0 16 0;
+#X connect 19 0 16 0;
+#X connect 20 0 16 0;
+#X connect 21 0 16 0;
+#X connect 22 0 5 0;
+#X connect 23 0 5 0;
+#X connect 24 0 15 0;
+#X connect 25 0 14 0;
+#X connect 26 0 29 0;
+#X connect 28 0 1 0;
+#X connect 28 1 27 0;
+#X connect 28 3 26 0;
+#X restore 38 177 pd parse_text_file;
+#X obj 38 35 r read_preset;
+#X msg 38 90 read ../data/presets/preset\$1.txt \, rewind \, bang;
+#X connect 0 0 1 0;
+#X connect 2 0 3 0;
+#X connect 3 0 0 0;
+#X restore 23 35 pd read_preset ______;
+#N canvas 142 100 463 440 list_preset 0;
+#X obj 43 17 r lb4;
+#X obj 43 101 until;
+#X obj 43 48 t b b;
+#X msg 43 76 10;
+#X obj 43 132 f 0;
+#X msg 87 102 0;
+#X obj 43 233 textfile;
+#X obj 43 300 f;
+#X obj 43 252 route egregore_data;
+#X msg 43 327 \; preset\$1 color 1 0 0;
+#X obj 85 18 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 127 161 + 1;
+#X obj 43 159 t f f f;
+#X obj 43 274 t b;
+#X msg 43 199 read ../data/presets/preset\$1.txt \, rewind \, bang
+;
+#X msg 181 328 \; preset\$1 color 21 0 0;
+#X connect 0 0 2 0;
+#X connect 1 0 4 0;
+#X connect 2 0 3 0;
+#X connect 2 1 5 0;
+#X connect 3 0 1 0;
+#X connect 4 0 12 0;
+#X connect 5 0 4 1;
+#X connect 6 0 8 0;
+#X connect 7 0 9 0;
+#X connect 8 0 13 0;
+#X connect 10 0 2 0;
+#X connect 11 0 4 1;
+#X connect 12 0 14 0;
+#X connect 12 1 7 1;
+#X connect 12 1 15 0;
+#X connect 12 2 11 0;
+#X connect 13 0 7 0;
+#X connect 14 0 6 0;
+#X restore 23 55 pd list_preset ______;
+#X restore 4 252 pd presets __________________;
+#X obj 4 291 midi_learn __________________;
+#X coords 0 318 1 317 100 20 0;
+#X restore 100 61 pd engine;
+#X msg 100 220 \; pd-engine vis 1;
+#X obj 100 100 hradio 18 1 0 2 empty empty empty 0 -8 0 10 -262144
+-1 -1 1;
+#X obj 108 100 hradio 18 1 0 2 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X obj 100 100 cnv 15 44 18 empty empty empty 20 12 0 14 -262144 -66577
+0;
+#X obj 101 101 cnv 15 42 16 empty empty ENGINE 4 9 0 10 -1 -228856
+0;
+#N canvas 244 496 459 303 video 0;
+#X obj 10 8 cnv 15 435 285 empty empty VIDEO_SETTINGS 10 12 0 14 -1
+-262144 0;
+#X obj 18 35 cnv 15 420 250 empty empty empty 10 12 0 12 -233017 -66577
+0;
+#X obj 26 61 vradio 15 1 0 14 window_size_ext window_size_file empty
+0 -6 0 8 -262144 -1 -1 1;
+#X obj 45 62 cnv 15 50 12 empty empty 320x240px 0 7 0 10 -228856 -1
+0;
+#X obj 26 43 cnv 15 50 12 empty empty SIZE 0 7 0 12 -228856 -1 0;
+#X obj 45 77 cnv 15 50 12 empty empty 640x480px 0 7 0 10 -228856 -1
+0;
+#X obj 45 92 cnv 15 50 12 empty empty 800x600px 0 7 0 10 -228856 -1
+0;
+#X obj 45 107 cnv 15 50 12 empty empty 1024x768px 0 7 0 10 -228856
+-1 0;
+#X obj 45 122 cnv 15 50 12 empty empty 1280x720px 0 7 0 10 -228856
+-1 0;
+#X obj 45 137 cnv 15 50 12 empty empty 1280x800px 0 7 0 10 -228856
+-1 0;
+#X obj 45 152 cnv 15 50 12 empty empty 1280x1024px 0 7 0 10 -228856
+-1 0;
+#X obj 45 167 cnv 15 50 12 empty empty 1360x768px 0 7 0 10 -228856
+-1 0;
+#X obj 45 182 cnv 15 50 12 empty empty 1366x768px 0 7 0 10 -228856
+-1 0;
+#X obj 45 197 cnv 15 50 12 empty empty 1440x900px 0 7 0 10 -228856
+-1 0;
+#X obj 45 212 cnv 15 50 12 empty empty 1600x900px 0 7 0 10 -228856
+-1 0;
+#X obj 45 227 cnv 15 50 12 empty empty 1680x1050px 0 7 0 10 -228856
+-1 0;
+#X obj 45 242 cnv 15 50 12 empty empty 1920x1080px 0 7 0 10 -228856
+-1 0;
+#X obj 183 43 cnv 15 50 12 empty empty HORIZONTAL 0 7 0 12 -228856
+-1 0;
+#X obj 183 61 vradio 15 1 0 11 window_position_ext window_position_file
+empty 0 -6 0 8 -262144 -33289 -33289 0;
+#X obj 202 92 cnv 15 50 12 empty empty -1024px 0 7 0 10 -228856 -1
+0;
+#X obj 202 107 cnv 15 50 12 empty empty -1280px 0 7 0 10 -228856 -1
+0;
+#X obj 202 122 cnv 15 50 12 empty empty -1360px 0 7 0 10 -228856 -1
+0;
+#X obj 202 137 cnv 15 50 12 empty empty -1366px 0 7 0 10 -228856 -1
+0;
+#X obj 202 152 cnv 15 50 12 empty empty -1440px 0 7 0 10 -228856 -1
+0;
+#X obj 202 167 cnv 15 50 12 empty empty -1600px 0 7 0 10 -228856 -1
+0;
+#X obj 202 182 cnv 15 50 12 empty empty -1680px 0 7 0 10 -228856 -1
+0;
+#X obj 202 197 cnv 15 50 12 empty empty -1920px 0 7 0 10 -228856 -1
+0;
+#X obj 202 62 cnv 15 50 12 empty empty mobile 0 7 0 10 -228856 -1 0
+;
+#X obj 202 77 cnv 15 50 12 empty empty 0px 0 7 0 10 -228856 -1 0;
+#X obj 348 240 bng 15 250 50 0 apply_window_settings empty APPLY 20
+8 0 10 -258113 -1 -1;
+#X obj 348 257 bng 15 250 50 0 save_window_settings empty SAVE 20 8
+0 10 -258113 -1 -1;
+#X obj 263 91 vradio 15 1 0 8 window_position_ext_neg window_position_file_neg
+empty 0 -6 0 8 -262144 -262144 -33289 0;
+#X obj 282 92 cnv 15 50 12 empty empty 1024px 0 7 0 10 -228856 -1 0
+;
+#X obj 282 107 cnv 15 50 12 empty empty 1280px 0 7 0 10 -228856 -1
+0;
+#X obj 282 122 cnv 15 50 12 empty empty 1360px 0 7 0 10 -228856 -1
+0;
+#X obj 282 137 cnv 15 50 12 empty empty 1366px 0 7 0 10 -228856 -1
+0;
+#X obj 282 152 cnv 15 50 12 empty empty 1440px 0 7 0 10 -228856 -1
+0;
+#X obj 282 167 cnv 15 50 12 empty empty 1600px 0 7 0 10 -228856 -1
+0;
+#X obj 282 182 cnv 15 50 12 empty empty 1680px 0 7 0 10 -228856 -1
+0;
+#X obj 282 197 cnv 15 50 12 empty empty 1920px 0 7 0 10 -228856 -1
+0;
+#X obj 256 43 cnv 15 50 12 empty empty POSITION 0 7 0 12 -228856 -1
+0;
+#X obj 202 229 nbx 4 14 -1e+37 1e+37 0 0 custom_offset_x_ext custom_offset_x_file
+empty 0 -8 0 10 -262144 -1 -1 100 256;
+#X obj 202 211 cnv 15 50 12 empty empty custom: 0 7 0 10 -228856 -1
+0;
+#X obj 202 246 nbx 4 14 -1e+37 1e+37 0 0 custom_offset_y_ext custom_offset_y_file
+empty 0 -8 0 10 -262144 -1 -1 30 256;
+#X obj 252 229 cnv 15 15 12 empty empty horizontal 0 7 0 10 -228856
+-1 0;
+#X obj 252 245 cnv 15 15 12 empty empty vertical 0 7 0 10 -228856 -1
+0;
+#X obj 46 258 nbx 4 14 -1e+37 1e+37 0 0 custom_size_x_ext custom_size_x_file
+empty 0 -8 0 10 -262144 -1 -1 1920 256;
+#X obj 93 258 cnv 15 15 12 empty empty x 0 7 0 10 -228856 -1 0;
+#X obj 100 258 nbx 4 14 -1e+37 1e+37 0 0 custom_size_y_ext custom_size_y_file
+empty 0 -8 0 10 -262144 -1 -1 1200 256;
+#X obj 346 61 vradio 15 1 0 5 window_framerate_ext window_framerate_file
+empty 0 -6 0 8 -262144 -33289 -33289 0;
+#X obj 365 62 cnv 15 50 12 empty empty 50 0 7 0 10 -228856 -1 0;
+#X obj 365 77 cnv 15 50 12 empty empty 40 0 7 0 10 -228856 -1 0;
+#X obj 365 107 cnv 15 50 12 empty empty 25 0 7 0 10 -228856 -1 0;
+#X obj 365 122 cnv 15 50 12 empty empty 20 0 7 0 10 -228856 -1 0;
+#X obj 365 92 cnv 15 50 12 empty empty 30 0 7 0 10 -228856 -1 0;
+#X obj 346 42 cnv 15 50 12 empty empty FPS 0 7 0 12 -228856 -1 0;
+#X obj 346 170 tgl 15 0 window_fsaa_ext window_fsaa_file empty 17 7
+0 10 -262144 -1 -1 1 1;
+#X obj 346 151 cnv 15 50 12 empty empty ANTIALIASING 0 7 0 12 -228856
+-1 0;
+#X obj 365 170 cnv 15 50 12 empty empty ON 0 7 0 10 -228856 -1 0;
+#X restore 209 150 pd video;
+#X connect 0 0 2 0;
+#X connect 3 0 0 0;
+#X connect 4 0 0 0;
+#X coords 0 -1 1 1 44 18 2 100 100;
+#X restore 292 554 pd config_button;
+#X obj 293 471 fader_interface fluide 5;
+#N canvas 328 284 450 300 volume 0;
+#X msg 135 48 90;
+#X obj 134 23 r lb3;
+#X msg 179 178 label \$1dB;
+#X obj 100 140 int;
+#X obj 100 168 - 100;
+#X obj 100 100 cnv 15 110 15 empty empty empty 2 8 0 10 -1 -262144
+0;
+#X obj 103 101 hsl 100 14 0 100 0 0 all_vol empty -10dB 0 8 0 10 -66577
+-262144 -262144 8910 1;
+#X connect 0 0 6 0;
+#X connect 1 0 0 0;
+#X connect 2 0 6 0;
+#X connect 3 0 4 0;
+#X connect 4 0 2 0;
+#X connect 6 0 3 0;
+#X coords 0 -1 1 1 110 15 2 100 100;
+#X restore 264 11 pd volume;
+#X obj 11 70 fader_interface mouches 0;
+#X obj 11 85 fader_interface mouches 1;
+#X obj 11 100 fader_interface mouches 2;
+#X obj 11 115 fader_interface mouches 3;
+#X obj 11 130 fader_interface mouches 4;
+#X obj 11 145 fader_interface mouches 5;
+#X obj 11 160 fader_interface mouches 6;
+#X obj 11 321 fader_interface emergence 0;
+#X obj 11 216 fader_interface emergence 1;
+#X obj 11 231 fader_interface emergence 2;
+#X obj 11 246 fader_interface emergence 3;
+#X obj 11 261 fader_interface emergence 4;
+#X obj 11 276 fader_interface emergence 5;
+#X obj 11 291 fader_interface emergence 6;
+#X obj 11 306 fader_interface emergence 7;
+#X obj 11 336 fader_interface emergence 8;
+#X obj 11 351 fader_interface emergence 9;
+#X obj 11 366 fader_interface emergence 10;
+#X obj 11 381 fader_interface emergence 14;
+#X obj 11 437 fader_interface chaos 0;
+#X obj 11 452 fader_interface chaos 1;
+#X obj 11 512 fader_interface chaos 2;
+#X obj 11 527 fader_interface chaos 3;
+#X obj 11 467 fader_interface chaos 4;
+#X obj 11 482 fader_interface chaos 5;
+#X obj 11 497 fader_interface chaos 6;
+#X obj 11 557 fader_interface chaos 7;
+#X obj 11 542 fader_interface chaos 9;
+#X obj 293 280 fader_interface morphing 0;
+#X obj 293 70 fader_interface morphing 1;
+#X obj 293 100 fader_interface morphing 2;
+#X obj 293 85 fader_interface morphing 3;
+#X obj 293 115 fader_interface morphing 4;
+#X obj 293 130 fader_interface morphing 5;
+#X obj 293 145 fader_interface morphing 6;
+#X obj 293 235 fader_interface morphing 7;
+#X obj 293 205 fader_interface morphing 8;
+#X obj 293 190 fader_interface morphing 9;
+#X obj 293 250 fader_interface morphing 10;
+#X obj 293 160 fader_interface morphing 11;
+#X obj 293 265 fader_interface morphing 12;
+#X obj 293 175 fader_interface morphing 13;
+#X obj 293 220 fader_interface morphing 14;
+#X obj 293 366 fader_interface fluide 0;
+#X obj 293 381 fader_interface fluide 1;
+#X obj 293 351 fader_interface fluide 2;
+#X obj 293 426 fader_interface fluide 3;
+#X obj 293 456 fader_interface fluide 4;
+#X obj 293 336 fader_interface fluide 6;
+#X obj 293 441 fader_interface fluide 7;
+#X obj 293 396 fader_interface fluide 9;
+#X obj 293 411 fader_interface fluide 10;
+#X obj 293 486 fader_interface fluide 11;
+#X obj 293 501 fader_interface fluide 12;
+#X obj 293 516 fader_interface fluide 13;
+#X obj 293 531 fader_interface fluide 14;
+#X obj 11 34 instrument_interface mouches 1;
+#N canvas 298 462 588 448 config_button 0;
+#X obj 100 148 t b;
+#X obj 100 100 hradio 18 1 0 2 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#N canvas 643 137 376 104 live2 0;
+#X obj 11 8 cnv 15 355 90 empty empty LIVE 10 12 0 14 -1 -228856 0
+;
+#X obj 13 31 cnv 15 350 60 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X text 16 35 A live is available on the web.;
+#X obj 17 51 bng 15 250 50 0 dowload_live2 empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 36 51 click here to download;
+#X floatatom 68 72 5 0 0 0 - written_file -, f 5;
+#X text 19 71 file no;
+#X text 105 72 /;
+#X floatatom 116 72 5 0 0 0 - init_cfg_current -, f 5;
+#X restore 333 206 pd live2;
+#X obj 175 80 r init_cfg_live;
+#X msg 100 251 \; pd-live\$1 vis 1;
+#N canvas 640 632 387 162 live3 0;
+#X obj 4 5 cnv 15 376 150 empty empty LIVE 10 12 0 14 -1 -228856 0
+;
+#X obj 7 31 cnv 15 370 120 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 15 98 tgl 15 0 replay_data_live replay_data_live_set empty 17
+7 0 10 -262144 -1 -1 0 1;
+#X obj 17 121 hsl 350 15 0 127 0 0 replay_data_pos replay_data_pos_set
+00:00/40:20 -2 22 0 10 -262144 -45076 -45076 0 1;
+#X text 34 97 play;
+#X text 11 64 The control data have been recorded \, you can replay
+them here:;
+#X text 12 34 These instruments have been remotely controlled by chdh
+the 27th may 2015;
+#X restore 333 226 pd live3;
+#N canvas 643 137 376 104 live1 0;
+#X obj 10 7 cnv 15 355 90 empty empty LIVE 10 12 0 14 -1 -228856 0
+;
+#X obj 12 30 cnv 15 350 60 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X text 15 34 A live is happening at the moment!!;
+#X restore 333 186 pd live1;
+#N canvas 643 137 376 104 live0 0;
+#X obj 9 8 cnv 15 355 90 empty empty LIVE 10 12 0 14 -1 -228856 0;
+#X obj 11 31 cnv 15 350 60 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 13 55 cnv 15 200 20 empty performance_date_display 27_5_2015_/_21:00_CET
+2 5 0 10 -233017 -66577 0;
+#X text 14 35 A live will happen soon:;
+#X text 14 71 Stay connected to attend it;
+#X restore 333 166 pd live0;
+#N canvas 643 137 376 104 live-1 0;
+#X obj 9 8 cnv 15 355 90 empty empty LIVE 10 12 0 14 -1 -228856 0;
+#X obj 11 31 cnv 15 350 60 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 13 57 cnv 15 200 20 empty performance_date_display 27_5_2015_/_21:00_CET
+2 5 0 10 -233017 -66577 0;
+#X text 14 36 A live performance will happen on the:;
+#X text 15 73 Run egregore at this time to attend it.;
+#X restore 333 146 pd live-1;
+#X obj 424 100 r performance_date;
+#X obj 424 271 s performance_date_display;
+#X obj 424 138 list;
+#X obj 424 221 list prepend label;
+#X obj 424 247 list trim;
+#X msg 424 164 \$1_\$2_\$3_/_\$4\$5:\$6\$7_CET;
+#N canvas 643 137 376 104 live-2 0;
+#X obj 9 8 cnv 15 355 90 empty empty LIVE 10 12 0 14 -1 -228856 0;
+#X obj 11 31 cnv 15 350 60 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X text 14 36 internet connection failed;
+#X restore 333 126 pd live-2;
+#X obj 100 175 f -2;
+#X obj 175 103 t f b;
+#X msg 202 199 \; pd-live\$1 vis 0;
+#X obj 108 100 hradio 18 1 0 2 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X obj 100 100 cnv 15 44 18 empty empty empty 20 12 0 14 -262144 -66577
+0;
+#X obj 101 101 cnv 15 42 16 empty empty LIVE 9 9 0 10 -1 -228856 0
+;
+#X msg 202 174 -2 \, -1 \, 0 \, 1 \, 2;
+#X msg 219 134 \; pd-live3 vis 0;
+#X connect 0 0 16 0;
+#X connect 1 0 0 0;
+#X connect 3 0 17 0;
+#X connect 9 0 11 0;
+#X connect 11 0 14 0;
+#X connect 12 0 13 0;
+#X connect 13 0 10 0;
+#X connect 14 0 12 0;
+#X connect 16 0 4 0;
+#X connect 17 0 16 1;
+#X connect 17 1 22 0;
+#X connect 17 1 23 0;
+#X connect 19 0 0 0;
+#X connect 22 0 18 0;
+#X coords 0 -1 1 1 44 18 2 100 100;
+#X restore 390 554 pd config_button;
+#N canvas 50 417 604 324 config_button 0;
+#X obj 100 148 t b;
+#X obj 100 100 hradio 18 1 0 4 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X obj 109 100 hradio 18 1 0 4 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X obj 100 100 cnv 15 81 18 empty empty empty 20 12 0 14 -262144 -66577
+0;
+#X obj 101 101 cnv 15 79 16 empty empty USER_PRESET 5 9 0 10 -1 -228856
+0;
+#X msg 100 251 \; pd-user_preset vis 1;
+#N canvas 948 267 220 149 user_preset 0;
+#X obj 9 8 cnv 15 200 130 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 18 18 cnv 15 180 50 empty empty READ_LOCAL_PRESET 10 10 0 12
+-233017 -66577 0;
+#N canvas 0 50 450 300 write_local_preset 0;
+#X obj 100 100 bng 15 250 50 0 empty preset0 empty 17 7 0 10 -166441
+-262144 -262144;
+#X msg 100 127 0;
+#X obj 115 100 bng 15 250 50 0 empty preset1 empty 17 7 0 10 -99865
+-262144 -262144;
+#X msg 115 147 1;
+#X obj 130 100 bng 15 250 50 0 empty preset2 empty 17 7 0 10 -99865
+-262144 -262144;
+#X obj 145 100 bng 15 250 50 0 empty preset3 empty 17 7 0 10 -99865
+-262144 -262144;
+#X msg 130 127 2;
+#X msg 145 147 3;
+#X obj 160 100 bng 15 250 50 0 empty preset4 empty 17 7 0 10 -99865
+-262144 -262144;
+#X obj 175 100 bng 15 250 50 0 empty preset5 empty 17 7 0 10 -99865
+-262144 -262144;
+#X obj 190 100 bng 15 250 50 0 empty preset6 empty 17 7 0 10 -99865
+-262144 -262144;
+#X obj 205 100 bng 15 250 50 0 empty preset7 empty 17 7 0 10 -99865
+-262144 -262144;
+#X msg 160 127 4;
+#X msg 175 147 5;
+#X msg 190 127 6;
+#X msg 205 147 7;
+#X obj 220 100 bng 15 250 50 0 empty preset8 empty 17 7 0 10 -99865
+-262144 -262144;
+#X obj 235 100 bng 15 250 50 0 empty preset9 empty 17 7 0 10 -99865
+-262144 -262144;
+#X msg 220 127 8;
+#X msg 235 147 9;
+#X obj 102 197 s read_preset;
+#X connect 0 0 1 0;
+#X connect 1 0 20 0;
+#X connect 2 0 3 0;
+#X connect 3 0 20 0;
+#X connect 4 0 6 0;
+#X connect 5 0 7 0;
+#X connect 6 0 20 0;
+#X connect 7 0 20 0;
+#X connect 8 0 12 0;
+#X connect 9 0 13 0;
+#X connect 10 0 14 0;
+#X connect 11 0 15 0;
+#X connect 12 0 20 0;
+#X connect 13 0 20 0;
+#X connect 14 0 20 0;
+#X connect 15 0 20 0;
+#X connect 16 0 18 0;
+#X connect 17 0 19 0;
+#X connect 18 0 20 0;
+#X connect 19 0 20 0;
+#X coords 0 -1 1 1 150 15 2 100 100;
+#X restore 27 50 pd write_local_preset;
+#X obj 27 34 cnv 15 15 12 empty empty 1 2 10 0 10 -233017 -66577 0
+;
+#X obj 162 34 cnv 15 15 12 empty empty 10 2 10 0 10 -233017 -66577
+0;
+#X obj 18 78 cnv 15 180 50 empty empty WRITE_LOCAL_PRESET 10 10 0 12
+-233017 -66577 0;
+#X obj 27 94 cnv 15 15 12 empty empty 1 2 10 0 10 -233017 -66577 0
+;
+#X obj 162 94 cnv 15 15 12 empty empty 10 2 10 0 10 -233017 -66577
+0;
+#N canvas 0 50 450 300 write_local_preset 0;
+#X obj 100 100 bng 15 250 50 0 empty preset0 empty 17 7 0 10 -166441
+-262144 -262144;
+#X msg 100 127 0;
+#X obj 115 100 bng 15 250 50 0 empty preset1 empty 17 7 0 10 -99865
+-262144 -262144;
+#X msg 115 147 1;
+#X obj 130 100 bng 15 250 50 0 empty preset2 empty 17 7 0 10 -99865
+-262144 -262144;
+#X obj 145 100 bng 15 250 50 0 empty preset3 empty 17 7 0 10 -99865
+-262144 -262144;
+#X msg 130 127 2;
+#X msg 145 147 3;
+#X obj 160 100 bng 15 250 50 0 empty preset4 empty 17 7 0 10 -99865
+-262144 -262144;
+#X obj 175 100 bng 15 250 50 0 empty preset5 empty 17 7 0 10 -99865
+-262144 -262144;
+#X obj 190 100 bng 15 250 50 0 empty preset6 empty 17 7 0 10 -99865
+-262144 -262144;
+#X obj 205 100 bng 15 250 50 0 empty preset7 empty 17 7 0 10 -99865
+-262144 -262144;
+#X msg 160 127 4;
+#X msg 175 147 5;
+#X msg 190 127 6;
+#X msg 205 147 7;
+#X obj 220 100 bng 15 250 50 0 empty preset8 empty 17 7 0 10 -99865
+-262144 -262144;
+#X obj 235 100 bng 15 250 50 0 empty preset9 empty 17 7 0 10 -99865
+-262144 -262144;
+#X msg 220 127 8;
+#X msg 235 147 9;
+#X obj 102 197 s write_preset;
+#X connect 0 0 1 0;
+#X connect 1 0 20 0;
+#X connect 2 0 3 0;
+#X connect 3 0 20 0;
+#X connect 4 0 6 0;
+#X connect 5 0 7 0;
+#X connect 6 0 20 0;
+#X connect 7 0 20 0;
+#X connect 8 0 12 0;
+#X connect 9 0 13 0;
+#X connect 10 0 14 0;
+#X connect 11 0 15 0;
+#X connect 12 0 20 0;
+#X connect 13 0 20 0;
+#X connect 14 0 20 0;
+#X connect 15 0 20 0;
+#X connect 16 0 18 0;
+#X connect 17 0 19 0;
+#X connect 18 0 20 0;
+#X connect 19 0 20 0;
+#X coords 0 -1 1 1 150 15 2 100 100;
+#X restore 27 110 pd write_local_preset;
+#X restore 308 118 pd user_preset;
+#X connect 0 0 5 0;
+#X connect 1 0 0 0;
+#X connect 2 0 0 0;
+#X coords 0 -1 1 1 81 18 2 100 100;
+#X restore 488 554 pd config_button;
+#X obj 293 34 instrument_interface morphing 4;
+#X obj 11 180 instrument_interface emergence 2;
+#X obj 11 401 instrument_interface chaos 5;
+#X obj 293 300 instrument_interface fluide 3;
+#N canvas 455 145 450 300 config_button 0;
+#X obj 100 148 t b;
+#X obj 100 100 hradio 18 1 0 2 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X obj 108 100 hradio 18 1 0 2 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X obj 100 100 cnv 15 44 18 empty empty empty 20 12 0 14 -262144 -66577
+0;
+#X obj 101 101 cnv 15 42 16 empty empty MIDI 10 9 0 10 -1 -228856 0
+;
+#X msg 100 220 \; pd-midi vis 1;
+#N canvas 634 115 452 108 midi 0;
+#X obj 4 11 cnv 15 435 85 empty empty MIDI 10 12 0 14 -1 -262144 0
+;
+#X obj 12 38 cnv 15 420 50 empty empty empty 10 12 0 12 -233017 -66577
+0;
+#X obj 22 46 tgl 15 0 midi_learn_gui empty empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X obj 42 47 cnv 15 50 12 empty empty MIDI_LEARN 0 7 0 10 -228856 -1
+0;
+#X obj 22 66 bng 15 250 50 0 reset_midi_gui empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 42 67 cnv 15 50 12 empty empty RESET_MIDI_ASSIGNATIONS 0 7 0
+10 -228856 -1 0;
+#X restore 220 156 pd midi;
+#X connect 0 0 5 0;
+#X connect 1 0 0 0;
+#X connect 2 0 0 0;
+#X coords 0 -1 1 1 44 18 2 100 100;
+#X restore 439 554 pd config_button;

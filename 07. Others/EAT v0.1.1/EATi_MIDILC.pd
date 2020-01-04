@@ -1,0 +1,9 @@
+#N canvas 715 138 450 300 10;
+#X obj 11 11 cnv 14 120 14 empty empty \$2 30 9 1 11 -1 -204800 0;
+#X obj 25 11 tgl 13 0 \$1.\$2.\$3.\$4.midilearns \$1.\$2.\$3.\$4.midilearnr
+ML 3 7 0 7 -261689 -1 -162280 0 1;
+#X obj 11 11 tgl 13 0 \$1.\$2.\$3.\$4.midiccs \$1.\$2.\$3.\$4.midiccr
+MC 3 7 0 7 -233024 -1 -162280 0 1;
+#X text 10 32 Argument 1: Abstraction \; Argument 2: Parameter \; Argument
+3: \$1 \; Argument 4: \$2/all;
+#X coords 0 -1 1 1 122 16 2 10 10;

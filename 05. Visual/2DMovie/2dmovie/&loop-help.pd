@@ -1,0 +1,54 @@
+#N canvas 400 156 799 479 10;
+#X obj 4 1 cnv 15 700 50 empty empty &loop 3 12 0 18 -204800 -1 0;
+#X floatatom 406 206 5 0 0 0 - - -;
+#X obj 406 99 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 588 213 5 0 0 0 - - -;
+#X floatatom 591 123 5 0 0 0 - - -;
+#X floatatom 630 123 5 0 0 0 - - -;
+#X obj 406 122 metro 500;
+#X floatatom 669 123 5 0 0 0 - - -;
+#X obj 709 124 hradio 15 1 0 3 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X obj 760 124 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 521 99 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 521 122 metro 500;
+#X obj 701 196 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 406 163 &loop 10 20;
+#X text 7 29 Compteur cyclique qui fait défiler des nombres à chaque
+bang;
+#X text 24 159 Arguments \; 1- nombre : le chiffre de départ \; 2-
+nombre : le chiffre d'arrivée \; 3- nombre : le pas de progression
+(> 0) \; 4- nombre : le mode de progression (0 : croissant \, valeur
+par défaut \, 1 : décroissant \, 2 : croissant puis décroissant).
+;
+#X text 23 67 Description \; Compteur qui fait défiler une série
+de nombres de façon cyclique. Il complète le module [counter] en
+ajoutant un pas de progression et en simplifiant ses fonctions. Par
+défaut \, la progression se fait selon un pas de 1 et dans le sens
+croissant.;
+#X text 24 414 OUTLETS \; 1- nombre \; 2- bang à chaque extrémité
+de la boucle (lancé AVANT la valeur nombre);
+#X obj 588 170 &loop 10 20 2 2;
+#X text 24 267 INLETS \; 1- bang : déclencheur \; 2- nombre : le chiffre
+de départ \; 3- nombre : le chiffre d'arrivée \; 4- nombre : le pas
+de progression (> 0) \; 5- nombre : le mode de progression (0 : croissant
+\, valeur par défaut \, 1 : décroissant \, 2 : croissant puis décroissant)
+\; 5- bang : réinitialisation du compteur (au min ou au max \, selon
+le sens).;
+#X connect 2 0 6 0;
+#X connect 4 0 18 1;
+#X connect 5 0 18 2;
+#X connect 6 0 13 0;
+#X connect 7 0 18 3;
+#X connect 8 0 18 4;
+#X connect 9 0 18 4;
+#X connect 10 0 11 0;
+#X connect 11 0 18 0;
+#X connect 13 0 1 0;
+#X connect 18 0 3 0;
+#X connect 18 1 12 0;
+#X coords 0 479 1 478 65 15 0;

@@ -1,0 +1,28 @@
+#N canvas 0 0 782 452 10;
+#X obj 152 104 readsf~ 1;
+#X obj 153 139 s~ 1_PLAY;
+#X obj 226 104 readsf~ 1;
+#X obj 292 103 readsf~ 1;
+#X obj 366 103 readsf~ 1;
+#X obj 293 138 s~ 3_PLAY;
+#X obj 227 139 s~ 2_PLAY;
+#X obj 367 138 s~ 4_PLAY;
+#X obj 81 140 s~ 0_PLAY;
+#X obj 42 27 inlet~;
+#X obj 45 254 outlet~;
+#X obj 514 74 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 514 54 r DSP_get_in_sel;
+#X obj 514 184 s DSP_in_sel_src;
+#X msg 514 159 symbol \$1_PLAY;
+#X obj 514 136 for++ 1 \$1;
+#X obj 514 113 del 2;
+#X connect 0 0 1 0;
+#X connect 2 0 6 0;
+#X connect 3 0 5 0;
+#X connect 4 0 7 0;
+#X connect 11 0 16 0;
+#X connect 12 0 11 0;
+#X connect 14 0 13 0;
+#X connect 15 0 14 0;
+#X connect 16 0 15 0;

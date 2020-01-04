@@ -1,0 +1,20 @@
+#N canvas 431 239 450 300 10;
+#X obj 242 76 cnv 15 200 120 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 264 130 ehu/mix~;
+#X obj 257 29 osc~ 330;
+#X obj 312 29 osc~ 630;
+#X obj 255 237 ehu/out~;
+#X floatatom 355 104 5 0 0 0 - - -;
+#X floatatom 400 100 5 0 0 0 - - -;
+#X text 17 1 ehu/mix~ abstraction help;
+#X text 15 28 takes two signals and mixes them;
+#X text 7 60 Inlets : 1 audioA \, 2 audioB \, amplitude for A \, amplitude
+for B;
+#X text 11 90 Outlets : audio mix;
+#X connect 1 0 4 0;
+#X connect 1 0 4 1;
+#X connect 2 0 1 0;
+#X connect 3 0 1 1;
+#X connect 5 0 1 2;
+#X connect 6 0 1 3;

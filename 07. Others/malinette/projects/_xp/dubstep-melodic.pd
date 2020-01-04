@@ -1,0 +1,105 @@
+#N canvas 202 22 1098 825 10;
+#X declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/tools -path ../../abstractions/filters -path
+../../abstractions/fx-video -path ../../abstractions/fx-audio -path
+../../abstractions/master;
+#X declare -path abstractions/in -path abstractions/out -path abstractions/tools
+-path abstractions/filters -path abstractions/fx-video -path abstractions/fx-audio
+-path abstractions/master;
+#X obj 7 237 cnv 1 396 1 empty empty FILTERS 2 -6 1 12 -228856 -191407
+0;
+#X obj 7 404 cnv 1 800 1 empty empty OUT 2 -6 1 12 -228856 -191407
+0;
+#X obj 7 65 cnv 1 800 1 empty empty IN 2 -6 1 12 -228856 -191407 0
+;
+#X obj 7 237 cnv 1 800 1 empty empty TOOLS 400 -6 1 12 -228856 -191407
+0;
+#X text 96 8 DESCRIPTION \; Les coordonnées de la souris sont utilisées
+pour contrôler un synthétiseur.;
+#X obj 498 494 audio-out;
+#X text 503 418 hauteur;
+#N canvas 360 157 563 434 INIT 0;
+#X obj 101 101 cnv 8 48 8 empty empty INCLUDE 2 4 0 10 -233017 -66577
+0;
+#X obj 102 261 declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/tools -path ../../abstractions/filters -path
+../../abstractions/fx-video -path ../../abstractions/fx-audio -path
+../../abstractions/master;
+#X text 100 240 Use for standalone :;
+#X text 100 140 Use with the main.pd :;
+#X text 97 25 Import paths to find abstractions \; Always use it in
+the examples patchs.;
+#X obj 102 162 declare -path abstractions/in -path abstractions/out
+-path abstractions/tools -path abstractions/filters -path abstractions/fx-video
+-path abstractions/fx-audio -path abstractions/master;
+#X coords 0 -1 1 1 50 10 2 100 100;
+#X restore 756 26 pd INIT;
+#X obj 502 396 synth-wobblebass;
+#X obj 170 240 synth-drums;
+#X obj 132 199 between 0.01 0.3;
+#X obj 171 175 between 0.3 0.5;
+#X obj 310 406 audio-out;
+#X obj 485 260 * 100;
+#X obj 484 288 + 30;
+#X obj 309 351 audio-disto;
+#X obj 567 493 audio-freeze;
+#X obj 565 233 bang;
+#X obj 567 576 audio-out;
+#X obj 565 259 random 20;
+#X obj 564 287 + 50;
+#X obj 865 401 audio-out;
+#X text 856 440 hauteur;
+#X obj 847 242 * 100;
+#X obj 846 270 + 42;
+#X obj 864 372 synth-xylophone;
+#X obj 907 208 bang;
+#X obj 907 234 random 20;
+#X obj 906 262 + 50;
+#X obj 309 520 audio-pitchshift;
+#X obj 285 729 audio-out;
+#X obj 223 590 audio-delay 120;
+#X msg 309 38 seq 0.102564 0 0 0.0769231 0.461538 0 0 0 0.102564 0
+0 0 0.410256 0 0 0.769231;
+#X obj 127 70 seq-sliders16 240;
+#X obj 502 317 closestnote 1 0;
+#X obj 864 299 closestnote 1 0;
+#X connect 8 0 5 0;
+#X connect 8 0 5 1;
+#X connect 8 0 16 0;
+#X connect 8 0 29 0;
+#X connect 9 4 12 0;
+#X connect 9 4 12 1;
+#X connect 9 4 15 0;
+#X connect 9 4 31 0;
+#X connect 10 0 9 0;
+#X connect 10 0 13 0;
+#X connect 11 0 9 1;
+#X connect 11 0 17 0;
+#X connect 13 0 14 0;
+#X connect 14 0 34 0;
+#X connect 15 0 12 0;
+#X connect 15 0 12 1;
+#X connect 16 0 18 0;
+#X connect 16 0 18 1;
+#X connect 17 0 19 0;
+#X connect 19 0 20 0;
+#X connect 20 0 34 0;
+#X connect 23 0 24 0;
+#X connect 24 0 35 0;
+#X connect 25 0 21 0;
+#X connect 25 0 21 1;
+#X connect 26 0 27 0;
+#X connect 27 0 28 0;
+#X connect 28 0 35 0;
+#X connect 29 0 31 0;
+#X connect 31 0 30 0;
+#X connect 31 1 30 1;
+#X connect 32 0 33 0;
+#X connect 33 0 10 0;
+#X connect 33 0 11 0;
+#X connect 33 0 9 2;
+#X connect 33 0 8 1;
+#X connect 33 0 23 0;
+#X connect 33 0 26 0;
+#X connect 34 0 8 0;
+#X connect 35 0 25 0;

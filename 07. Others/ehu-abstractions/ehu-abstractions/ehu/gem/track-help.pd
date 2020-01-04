@@ -1,0 +1,31 @@
+#N canvas 450 202 397 401 10;
+#X obj 17 231 cnv 15 200 150 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X text 15 -11 ehu/track abstraction help;
+#X text -1 12 tracks movement in a video stream;
+#X floatatom 58 339 5 0 0 1 x - -;
+#X floatatom 88 358 5 0 0 1 y - -;
+#X floatatom 156 305 5 0 0 1 size - -;
+#X floatatom 82 236 3 0 100 2 threshold - -;
+#X text 153 321 how much movement;
+#X text 152 331 there is in the;
+#X text 152 341 image;
+#X obj 253 12 pix_movement;
+#X obj 253 32 pix_blob;
+#X obj 18 115 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113 -1
+-1;
+#X text -2 61 Inlets : mode \, color weights \, threshold \, view movement
+\, view video;
+#X obj 20 135 ehu/gem/win 600 400;
+#X text 1 24 just wraps pix_movement and pix_blob;
+#X obj 28 255 ehu/gem/track;
+#X obj 28 167 ehu/gem/cam 0;
+#X msg 73 112 set 1;
+#X text -9 91 Outlets: x \, y \, size (amount of change);
+#X connect 6 0 16 3;
+#X connect 12 0 14 0;
+#X connect 16 0 3 0;
+#X connect 16 1 4 0;
+#X connect 16 2 5 0;
+#X connect 17 0 16 0;
+#X connect 18 0 17 0;

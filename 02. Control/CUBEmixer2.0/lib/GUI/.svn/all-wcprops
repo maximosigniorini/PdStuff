@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/GUI
+END
+GUI16+OUT.pd
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/GUI/GUI16+OUT.pd
+END
+extensions.pd
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/GUI/extensions.pd
+END
+inchannel.pd
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/GUI/inchannel.pd
+END
+inchan.pd
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/GUI/inchan.pd
+END
+logo.pd
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/GUI/logo.pd
+END
+test2.pd
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/GUI/test2.pd
+END
+CUEstorage.pd
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/GUI/CUEstorage.pd
+END
+system.pd
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/GUI/system.pd
+END
+start.sh
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/GUI/start.sh
+END
+test24.pd
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/GUI/test24.pd
+END
+net.pd
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/GUI/net.pd
+END
+OUT.pd
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/GUI/OUT.pd
+END
+test16+OUT.pd
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/GUI/test16+OUT.pd
+END
+cue.pd
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/GUI/cue.pd
+END

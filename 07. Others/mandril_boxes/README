@@ -1,0 +1,59 @@
+Mandril_boxes 0.0.3
+
+poperbu 2010.
+
+To use the boxes:
+
+Copy mboxes folder to the ..pd/extra (or pd-extended/extra) dir or load the path in pd.
+
+
+Of course, Mandril Boxes is GPL.
+
++info: 	http://musa.poperbu.net/puredata 
+	poperbu@gmail.com
+
+
+-New boxes in v 0.0.3:
+ mb-audio_ampli.pd
+ mb-audio_pan.pd
+ mb-audio_out.pd
+ mb-audio_outbars.pd
+ mb-audio_vcffilter.pd
+ mb-audio_switch.pd
+ mb-audio_mfilter.pd
+ mb-audio_freeverb.pd
+ mb-audio_fiboverb.pd
+ mb-audio_rec.pd
+ mb-pdp_mgrid.pd
+ mb-gem_datascreen.pd
+
+-New boxes in v 0.0.2:
+ 
+ mb-audio_file.pd
+ mb-gem_mp_bufferbase.pd
+ mb-gem_mp_controlpoint.pd
+ mb-gem_part.pd
+ mb-gem_pix_control_transform2.pd
+ mb-gem_pix_text.pd
+ mb-gmedia_player_list.pd
+ mb-gmedia_player.pd
+ mb-pdp_loop.pd
+ mb-pdp_ocanvas.pd
+ mb-pdp_ocv_athreshold.pd
+ mb-pdp_ocv_bgsubstract.pd
+ mb-pdp_ocv_colorfilt.pd
+ mb-pdp_ocv_distrans.pd
+ mb-pdp_ocv_edge.pd
+ mb-pdp_ocv_effects.pd
+ mb-pdp_ocv_floodfill.pd
+ mb-pdp_ocv_laplace.pd
+ mb-pdp_ocv_morphology.pd
+ mb-pdp_ocv_threshold.pd
+ mb-pdp_pen.pd
+ mb-pmedia_player_list.pd
+ mb-pmedia_player.pd
+ mb-sequencer.pd
+ mmb-gem_mp_bufferbase.pd
+ mmb-pdp_ocv_effects.pd
+
+

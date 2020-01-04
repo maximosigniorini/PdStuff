@@ -1,0 +1,134 @@
+#N canvas 79 392 735 430 10;
+#X obj 34 172 symbol \$1;
+#X obj 136 230 ftos;
+#X obj 105 164 float \$1;
+#X floatatom 105 193 5 0 0 0 - - -;
+#X symbolatom 35 205 0 0 0 0 - - -;
+#X symbolatom 95 243 10 0 0 0 - - -;
+#X obj 44 126 loadbang;
+#X obj 289 62 inlet;
+#X text 347 62 video;
+#X text 517 62 on/off;
+#X obj 318 284 outlet;
+#X obj 322 114 pdp_spigot;
+#X text 366 281 video;
+#X obj 399 187 pdp_simura;
+#X floatatom 526 163 5 0 0 0 - - -;
+#X text 627 145 Color 0<c<65535;
+#X obj 568 204 hdl 15 1 0 9 empty empty empty 0 -6 0 8 -262144 -1 -1
+0;
+#X text 570 186 Mode;
+#X msg 624 170 56987;
+#X msg 607 109 16733;
+#X obj 444 100 r \$1epdp_simura_color;
+#X obj 602 75 r \$1epdp_simura_mode;
+#X obj 97 280 s \$1pdp_simura_id;
+#X obj 0 0 cnv 15 150 75 empty empty empty 2 12 0 14 -191407 -66577
+0;
+#X obj 7 5 tgl 15 0 \$1epdp_simura_on \$1epdp_simura_on_init Simura
+17 7 0 10 -260097 -1 -1 0 1;
+#X obj 79 57 nbx 5 14 0 66000 0 0 \$1epdp_simura_color \$1epdp_simura_color_init
+Color -35 5 0 8 -262144 -1 -1 31993 256;
+#X obj 7 35 hradio 15 1 0 9 \$1epdp_simura_mode \$1epdp_simura_mode_init
+Mode 0 -8 0 10 -262144 -1 -1 0;
+#X obj 101 7 cnv 15 20 10 empty \$1pdp_simura_id \$1 5 5 0 10 -260097
+-33289 0;
+#X obj 430 31 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 464 30 r \$1epdp_simura_on;
+#X obj 3 59 bng 15 250 50 0 \$1epdp_simura_midi_on empty midi 17 7
+0 8 -4160 -1 -1;
+#N canvas 276 261 715 598 midi_control 0;
+#X msg 115 153 ef1epdp_simura_on_midi;
+#X msg 276 151 ef1epdp_simura_color_midi;
+#X text 31 27 MIDI;
+#X obj 49 126 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 172 174 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 299 174 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 224 352 5 0 0 0 - - -;
+#X obj 224 251 s midi_var_to_add;
+#X msg 115 119 set \$1epdp_simura_on_midi;
+#X obj 67 316 r \$1epdp_simura_on_midi;
+#X obj 48 474 s \$1epdp_simura_on_init;
+#X obj 48 63 r \$1epdp_simura_midi_on;
+#X floatatom 250 421 8 0 0 0 - - -;
+#X msg 276 120 set \$1epdp_simura_color_midi;
+#X msg 475 152 ef1epdp_simura_mode_midi;
+#X obj 498 175 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 475 121 set \$1epdp_simura_mode_midi;
+#X obj 228 314 r \$1epdp_simura_color_midi;
+#X obj 231 474 s \$1epdp_simura_color_init;
+#X floatatom 473 424 8 0 0 0 - - -;
+#X obj 451 309 r \$1epdp_simura_mode_midi;
+#X obj 454 477 s \$1epdp_simura_mode_init;
+#X floatatom 471 334 8 0 0 0 - - -;
+#X text 347 253 -->global value of mb-midi_control_pad;
+#X obj 366 35 r \$1pdp_simura_id;
+#X obj 539 372 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 553 409 autoscale 0 9;
+#X obj 305 355 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 6200 1;
+#X obj 319 392 autoscale 0 65534;
+#X obj 143 381 select 0;
+#X msg 200 432 0;
+#X msg 150 438 1;
+#X obj 130 411 alternate;
+#X connect 0 0 4 0;
+#X connect 0 0 7 0;
+#X connect 1 0 5 0;
+#X connect 1 0 7 0;
+#X connect 3 0 0 0;
+#X connect 4 0 1 0;
+#X connect 5 0 14 0;
+#X connect 6 0 27 0;
+#X connect 8 0 0 0;
+#X connect 9 0 29 0;
+#X connect 11 0 3 0;
+#X connect 12 0 18 0;
+#X connect 13 0 1 0;
+#X connect 14 0 15 0;
+#X connect 14 0 7 0;
+#X connect 16 0 14 0;
+#X connect 17 0 6 0;
+#X connect 19 0 21 0;
+#X connect 20 0 22 0;
+#X connect 22 0 25 0;
+#X connect 24 0 8 0;
+#X connect 24 0 13 0;
+#X connect 24 0 16 0;
+#X connect 25 0 26 0;
+#X connect 26 0 19 0;
+#X connect 27 0 28 0;
+#X connect 28 0 12 0;
+#X connect 29 1 32 0;
+#X connect 30 0 10 0;
+#X connect 31 0 10 0;
+#X connect 32 0 31 0;
+#X connect 32 1 30 0;
+#X restore 192 24 pd midi_control;
+#X connect 0 0 4 0;
+#X connect 1 0 5 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X connect 4 0 5 0;
+#X connect 5 0 22 0;
+#X connect 6 0 2 0;
+#X connect 6 0 0 0;
+#X connect 7 0 11 0;
+#X connect 11 0 10 0;
+#X connect 11 1 13 0;
+#X connect 13 0 10 0;
+#X connect 14 0 13 1;
+#X connect 16 0 13 2;
+#X connect 18 0 14 0;
+#X connect 19 0 14 0;
+#X connect 20 0 13 1;
+#X connect 21 0 16 0;
+#X connect 28 0 11 1;
+#X connect 29 0 28 0;
+#X coords 0 -1 1 1 150 75 1 0 0;

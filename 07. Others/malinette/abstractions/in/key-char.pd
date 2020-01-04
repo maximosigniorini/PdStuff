@@ -1,0 +1,64 @@
+#N canvas 8 84 593 333 10;
+#X obj 100 130 key;
+#X obj 239 203 tgl 10 0 empty empty empty 17 7 0 10 -257985 -1 -1 1
+1;
+#X obj 261 202 initbang;
+#X obj 100 246 outlet;
+#X obj 100 216 bng 15 100 50 0 empty empty a 5 7 0 10 -262144 -1 -1
+;
+#X obj 115 246 outlet;
+#X obj 115 216 bng 15 100 50 0 empty empty z 5 7 0 10 -262144 -1 -1
+;
+#X obj 130 246 outlet;
+#X obj 130 216 bng 15 100 50 0 empty empty e 5 7 0 10 -262144 -1 -1
+;
+#X obj 145 246 outlet;
+#X obj 145 216 bng 15 100 50 0 empty empty r 5 7 0 10 -262144 -1 -1
+;
+#X obj 160 246 outlet;
+#X obj 160 216 bng 15 100 50 0 empty empty t 5 7 0 10 -262144 -1 -1
+;
+#X obj 175 246 outlet;
+#X obj 175 216 bng 15 100 50 0 empty empty y 5 7 0 10 -262144 -1 -1
+;
+#X obj 190 246 outlet;
+#X obj 190 216 bng 15 100 50 0 empty empty u 5 7 0 10 -262144 -1 -1
+;
+#X obj 205 246 outlet;
+#X obj 205 216 bng 15 100 50 0 empty empty i 5 7 0 10 -262144 -1 -1
+;
+#X obj 220 246 outlet;
+#X obj 220 216 bng 15 100 50 0 empty empty o 5 7 0 10 -262144 -1 -1
+;
+#X obj 235 246 outlet;
+#X obj 235 216 bng 15 100 50 0 empty empty p 5 7 0 10 -262144 -1 -1
+;
+#X obj 100 177 sel 97 122 101 114 116 121 117 105 111 112;
+#X text 393 155 a:97 \; z:122 \; e:101 \; r:114 \; t:116 \; y:121 \;
+u:117 \; i:105 \; o:111 \; p:112 \;;
+#X obj 100 153 spigot 1;
+#X connect 0 0 25 0;
+#X connect 1 0 25 1;
+#X connect 2 0 1 0;
+#X connect 4 0 3 0;
+#X connect 6 0 5 0;
+#X connect 8 0 7 0;
+#X connect 10 0 9 0;
+#X connect 12 0 11 0;
+#X connect 14 0 13 0;
+#X connect 16 0 15 0;
+#X connect 18 0 17 0;
+#X connect 20 0 19 0;
+#X connect 22 0 21 0;
+#X connect 23 0 4 0;
+#X connect 23 1 6 0;
+#X connect 23 2 8 0;
+#X connect 23 3 10 0;
+#X connect 23 4 12 0;
+#X connect 23 5 14 0;
+#X connect 23 6 16 0;
+#X connect 23 7 18 0;
+#X connect 23 8 20 0;
+#X connect 23 9 22 0;
+#X connect 25 0 23 0;
+#X coords 0 -1 1 1 150 35 1 100 200;

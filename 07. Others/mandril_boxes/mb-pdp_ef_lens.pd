@@ -1,0 +1,214 @@
+#N canvas 8 76 942 350 10;
+#X obj 34 172 symbol \$1;
+#X obj 136 230 ftos;
+#X obj 105 164 float \$1;
+#X floatatom 105 193 5 0 0 0 - - -;
+#X symbolatom 35 205 0 0 0 0 - - -;
+#X symbolatom 95 243 10 0 0 0 - - -;
+#X obj 44 126 loadbang;
+#X obj 97 280 s \$1pdp_lens_id;
+#X obj 220 61 inlet;
+#X text 278 61 video;
+#X text 448 61 on/off;
+#X obj 249 283 outlet;
+#X obj 253 113 pdp_spigot;
+#X text 297 280 video;
+#X obj 319 206 pdp_lens;
+#X floatatom 500 75 5 0 0 0 - - -;
+#X floatatom 501 105 5 0 0 0 - - -;
+#X text 633 73 X coordinate of lens upper left corner;
+#X text 639 103 Y coordinate of lens upper left corner;
+#X floatatom 502 139 5 0 0 0 - - -;
+#X text 654 139 Lens size;
+#X floatatom 509 176 5 0 0 0 - - -;
+#X text 686 174 Zoom factor;
+#X obj 527 203 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X text 657 202 Mode ( 0=static 1=inspecting );
+#X obj 541 73 r \$1epdp_lens_x;
+#X obj 548 105 r \$1epdp_lens_y;
+#X obj 546 142 r \$1epdp_lens_size;
+#X obj 546 175 r \$1epdp_lens_zoomfactor;
+#X obj 553 201 r \$1epdp_lens_mode;
+#X obj 0 0 cnv 15 150 75 empty empty empty 2 12 0 14 -191407 -66577
+0;
+#X obj 7 5 tgl 15 0 \$1epdp_lens_on \$1epdp_lens_on_init Lens 17 7
+0 10 -260097 -1 -1 1 1;
+#X obj 103 20 nbx 3 14 -1e+37 1e+37 0 0 \$1epdp_lens_x \$1epdp_lens_x_init
+X -10 5 0 8 -262144 -1 -1 55.3846 256;
+#X obj 104 37 nbx 3 14 -1e+37 1e+37 0 0 \$1epdp_lens_y \$1epdp_lens_y_init
+Y -10 5 0 8 -262144 -1 -1 29.1589 256;
+#X obj 48 23 nbx 3 14 -1e+37 1e+37 0 0 \$1epdp_lens_size \$1epdp_lens_size_init
+Size -30 5 0 8 -262144 -1 -1 209.764 256;
+#X obj 48 40 nbx 3 14 -1e+37 1e+37 0 0 \$1epdp_lens_zoomfactor \$1epdp_lens_zoomfactor_init
+Zoom -30 5 0 8 -262144 -1 -1 75.5906 256;
+#X obj 24 57 tgl 15 0 \$1epdp_lens_mode \$1epdp_lens_mode_init Static/Inspecting
+17 7 0 8 -262144 -1 -1 0 1;
+#X obj 107 4 cnv 15 20 10 empty \$1pdp_lens_id \$1 5 5 0 10 -260097
+-33289 0;
+#X obj 348 54 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 355 26 r \$1epdp_lens_on;
+#X obj 3 56 bng 15 250 50 0 \$1epdp_lens_midi_on empty empty 17 7 0
+8 -4160 -1 -1;
+#N canvas 21 648 1221 704 midi_control 0;
+#X msg 125 177 ef1epdp_lens_on_midi;
+#X msg 286 175 ef1epdp_lens_size_midi;
+#X text 29 58 MIDI;
+#X obj 59 150 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 200 249 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 309 198 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 124 450 5 0 0 0 - - -;
+#X obj 584 350 s midi_var_to_add;
+#X msg 125 143 set \$1epdp_lens_on_midi;
+#X obj 121 420 r \$1epdp_lens_on_midi;
+#X obj 102 578 s \$1epdp_lens_on_init;
+#X obj 282 418 r \$1epdp_lens_size_midi;
+#X obj 7 93 r \$1epdp_lens_midi_on;
+#X obj 285 578 s \$1epdp_lens_size_init;
+#X msg 286 144 set \$1epdp_lens_size_midi;
+#X msg 470 140 set \$1epdp_lens_x_midi;
+#X msg 626 140 set \$1epdp_lens_y_midi;
+#X msg 784 140 set \$1epdp_lens_zoomfactor_midi;
+#X msg 992 143 set \$1epdp_lens_mode_midi;
+#X obj 535 73 r \$1pdp_lens_id;
+#X msg 469 182 0epdp_lens_x_midi;
+#X obj 492 205 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 628 183 0epdp_lens_y_midi;
+#X obj 651 206 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 789 181 ef1epdp_lens_zoomfactor_midi;
+#X obj 812 204 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 986 181 ef1epdp_lens_mode_midi;
+#X obj 470 418 r \$1epdp_lens_x_midi;
+#X obj 607 419 r \$1epdp_lens_y_midi;
+#X obj 756 418 r \$1epdp_lens_zoomfactor_midi;
+#X obj 967 417 r \$1epdp_lens_mode_midi;
+#X obj 454 580 s \$1epdp_lens_x_init;
+#X obj 750 581 s \$1epdp_lens_zoomfactor_init;
+#X obj 951 579 s \$1epdp_lens_mode_midi_init;
+#X text 701 346 -->global value of mb-midi_control_pad;
+#X obj 111 483 select 0;
+#X msg 168 534 0;
+#X msg 118 540 1;
+#X obj 98 513 alternate;
+#X floatatom 278 448 5 0 0 0 - - -;
+#X floatatom 301 545 8 0 0 0 - - -;
+#X obj 278 479 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 11100 1;
+#X obj 315 516 autoscale 0 240;
+#X obj 615 580 s \$1epdp_lens_y_init;
+#X obj 1024 477 select 0;
+#X msg 1081 528 0;
+#X msg 1031 534 1;
+#X obj 1011 507 alternate;
+#X floatatom 810 446 5 0 0 0 - - -;
+#X floatatom 890 546 8 0 0 0 - - -;
+#X obj 849 463 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 4000 1;
+#X obj 882 520 autoscale 0 240;
+#X floatatom 635 453 5 0 0 0 - - -;
+#X floatatom 660 555 8 0 0 0 - - -;
+#X obj 646 482 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 1300 1;
+#X obj 655 522 autoscale 0 240;
+#X floatatom 492 448 5 0 0 0 - - -;
+#X floatatom 524 546 8 0 0 0 - - -;
+#X obj 509 482 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 1200 1;
+#X obj 506 512 autoscale 0 240;
+#X connect 0 0 4 0;
+#X connect 0 0 7 0;
+#X connect 0 0 1 0;
+#X connect 1 0 5 0;
+#X connect 1 0 7 0;
+#X connect 3 0 0 0;
+#X connect 4 0 1 0;
+#X connect 5 0 20 0;
+#X connect 8 0 0 0;
+#X connect 9 0 6 0;
+#X connect 9 0 35 0;
+#X connect 11 0 39 0;
+#X connect 12 0 3 0;
+#X connect 14 0 1 0;
+#X connect 15 0 20 0;
+#X connect 16 0 22 0;
+#X connect 17 0 24 0;
+#X connect 18 0 26 0;
+#X connect 19 0 8 0;
+#X connect 19 0 14 0;
+#X connect 19 0 15 0;
+#X connect 19 0 16 0;
+#X connect 19 0 17 0;
+#X connect 19 0 18 0;
+#X connect 20 0 21 0;
+#X connect 20 0 7 0;
+#X connect 21 0 22 0;
+#X connect 22 0 23 0;
+#X connect 22 0 7 0;
+#X connect 23 0 24 0;
+#X connect 24 0 25 0;
+#X connect 24 0 7 0;
+#X connect 25 0 26 0;
+#X connect 26 0 7 0;
+#X connect 27 0 56 0;
+#X connect 28 0 52 0;
+#X connect 29 0 48 0;
+#X connect 30 0 44 0;
+#X connect 35 1 38 0;
+#X connect 36 0 10 0;
+#X connect 37 0 10 0;
+#X connect 38 0 37 0;
+#X connect 38 1 36 0;
+#X connect 39 0 41 0;
+#X connect 40 0 13 0;
+#X connect 41 0 42 0;
+#X connect 42 0 40 0;
+#X connect 44 1 47 0;
+#X connect 45 0 33 0;
+#X connect 46 0 33 0;
+#X connect 47 0 46 0;
+#X connect 47 1 45 0;
+#X connect 48 0 50 0;
+#X connect 49 0 32 0;
+#X connect 50 0 51 0;
+#X connect 51 0 49 0;
+#X connect 52 0 54 0;
+#X connect 53 0 43 0;
+#X connect 54 0 55 0;
+#X connect 55 0 53 0;
+#X connect 56 0 58 0;
+#X connect 57 0 31 0;
+#X connect 58 0 59 0;
+#X connect 59 0 57 0;
+#X restore 177 12 pd midi_control;
+#X connect 0 0 4 0;
+#X connect 1 0 5 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X connect 4 0 5 0;
+#X connect 5 0 7 0;
+#X connect 6 0 2 0;
+#X connect 6 0 0 0;
+#X connect 8 0 12 0;
+#X connect 12 0 11 0;
+#X connect 12 1 14 0;
+#X connect 14 0 11 0;
+#X connect 15 0 14 1;
+#X connect 16 0 14 2;
+#X connect 19 0 14 3;
+#X connect 21 0 14 4;
+#X connect 23 0 14 5;
+#X connect 25 0 15 0;
+#X connect 26 0 16 0;
+#X connect 27 0 19 0;
+#X connect 28 0 21 0;
+#X connect 29 0 23 0;
+#X connect 38 0 12 1;
+#X connect 39 0 38 0;
+#X coords 0 -1 1 1 150 75 1 0 0;

@@ -1,0 +1,21 @@
+#N canvas 386 129 616 286 10;
+#X declare -lib ggee;
+#X declare -lib ggee;
+#X obj 146 3 bng 35 250 50 0 empty empty click_me 40 10 0 10 -258079
+-1 -1;
+#X text -18 82 background image filling the screen;
+#X text 228 66 image with alpha chanel that follows the mouse;
+#X obj 223 17 ehu/gem/win 640 450;
+#X obj 317 92 ehu/gem/mouse;
+#X msg 230 94 index 10;
+#X obj 230 183 ehu/gem/texture 100 100 100 100;
+#X obj 230 128 ehu/gem/picture picts/alpha.tif;
+#X obj -15 163 ehu/gem/texture 320 225 640 450;
+#X obj -15 106 ehu/gem/picture picts/imagen1.jpg;
+#X connect 0 0 3 0;
+#X connect 0 0 5 0;
+#X connect 4 0 6 2;
+#X connect 4 1 6 3;
+#X connect 5 0 7 0;
+#X connect 7 0 6 0;
+#X connect 9 0 8 0;

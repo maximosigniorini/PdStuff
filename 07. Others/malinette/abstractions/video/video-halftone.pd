@@ -1,0 +1,45 @@
+#N canvas 146 215 663 370 10;
+#X obj 62 254 pix_halftone;
+#X obj 208 135 hradio 8 1 0 5 empty empty style 10 -6 0 8 -262144 -1
+-1 0;
+#X msg 198 210 style \$1;
+#X obj 62 299 pix_texture;
+#X obj 62 331 outlet;
+#X obj 41 34 inlet;
+#X obj 104 133 nbx 3 10 -1e+37 32 0 0 empty empty size 0 -5 0 9 -262144
+-1 -1 3 256;
+#X obj 139 133 nbx 3 10 -1e+37 1e+37 0 0 empty empty angle 0 -5 0 9
+-262144 -1 -1 20 256;
+#X obj 174 133 nbx 3 10 -1e+37 1e+37 0 0 empty empty smooth 0 -5 0
+9 -262144 -1 -1 0 256;
+#X obj 390 116 route size angle smooth style;
+#X obj 390 88 inlet command;
+#X obj 8 162 gate 2;
+#X obj 237 106 tgl 8 0 empty empty empty 17 7 0 10 -257985 -1 -1 1
+1;
+#X obj 8 114 + 1;
+#X obj 237 8 initbang;
+#X msg 336 57 size 3 \, angle 0 \, smooth 0;
+#X obj 41 67 pix_rgba;
+#X connect 0 0 3 0;
+#X connect 1 0 2 0;
+#X connect 2 0 0 0;
+#X connect 3 0 4 0;
+#X connect 5 0 16 0;
+#X connect 6 0 0 1;
+#X connect 7 0 0 2;
+#X connect 8 0 0 3;
+#X connect 9 0 6 0;
+#X connect 9 1 7 0;
+#X connect 9 2 8 0;
+#X connect 9 3 1 0;
+#X connect 10 0 9 0;
+#X connect 11 0 3 0;
+#X connect 11 1 0 0;
+#X connect 12 0 13 0;
+#X connect 13 0 11 0;
+#X connect 14 0 12 0;
+#X connect 14 0 15 0;
+#X connect 15 0 9 0;
+#X connect 16 0 11 1;
+#X coords 0 -1 1 1 150 50 1 100 100;

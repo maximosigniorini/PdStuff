@@ -1,0 +1,227 @@
+#N canvas 368 48 221 465 10;
+#N canvas 332 229 220 219 ARGO 0;
+#X obj 101 101 cnv 15 93 16 empty ColorAmpli empty 20 12 0 14 -261299
+-1 0;
+#X obj 152 105 cnv 10 20 10 empty ColorAmpli dBrms 1 5 1 14 -261299
+-1 1.04858e+06;
+#X obj 102 -71 inlet~;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 100 106 nbx 6 12 -100 100 0 1 \$0-A ColorAmpli empty 0 0 1 9
+-261299 -1 -1 -100 256;
+#X obj 104 76 - 100;
+#X obj 102 -21 * 10;
+#X obj 102 3 int;
+#X obj 102 53 / 10;
+#X obj 102 -46 env~ 512;
+#X obj 101 28 change;
+#X connect 2 0 9 0;
+#X connect 5 0 4 0;
+#X connect 6 0 7 0;
+#X connect 7 0 10 0;
+#X connect 8 0 5 0;
+#X connect 9 0 6 0;
+#X connect 10 0 8 0;
+#X coords 0 -1 1 1 95 18 2 100 100;
+#X restore 76 101 pd ARGO;
+#N canvas 585 156 393 346 ARGO 0;
+#X obj 40 -36 inlet~;
+#X obj 101 101 cnv 12 198 18 empty empty empty 20 12 0 14 -262144 -1
+1.04858e+06;
+#X obj 254 105 cnv 10 44 10 empty empty Scope 1 5 1 14 -262144 -1 1.04858e+06
+;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X msg 186 31 frgb 255 0 0;
+#X text 64 254 Voir examples:cyclone:pink-test.pd;
+#X text 64 265 Voir examples:cyclone:scope-...;
+#X obj 128 103 nbx 4 12 1 2000 0 1 empty ColorTime ms/div 40 7 1 9
+-208064 -1 -1 50 256;
+#X msg -19 30 range -1 1;
+#X obj 101 120 Scope~ 198 129 100 3 176 -1 1 0 0 0 0 255 0 0 255 255
+255 0;
+#X text 64 276 Voir MSP46ReferenceManual.pdf;
+#X obj 217 103 tgl 12 1 \$0-A \$0-B Sync 15 6 1 9 -262144 -1 -1 0 1
+;
+#X msg 142 6 delay 0 \, triglevel 0 \, trigger 0;
+#X obj 140 -41 sel 0 1;
+#X msg 183 55 brgb 255 255 255;
+#X msg 62 14 bufsize 176;
+#X obj 94 63 * 2;
+#X msg 159 -19 delay 1 \, triglevel 0.1 \, trigger 1;
+#X obj 41 -8 clip~ -1 1;
+#X connect 0 0 18 0;
+#X connect 4 0 9 0;
+#X connect 7 0 16 0;
+#X connect 8 0 9 0;
+#X connect 11 0 13 0;
+#X connect 12 0 9 0;
+#X connect 13 0 12 0;
+#X connect 13 1 17 0;
+#X connect 14 0 9 0;
+#X connect 15 0 9 0;
+#X connect 16 0 9 0;
+#X connect 17 0 9 0;
+#X connect 18 0 9 0;
+#X coords 0 -1 1 1 200 150 2 100 100;
+#X restore 9 148 pd ARGO;
+#N canvas 332 229 266 174 ARGO 0;
+#X obj 101 101 cnv 15 93 16 empty ColorAmpli empty 20 12 0 14 -261299
+-1 0;
+#X obj 170 105 cnv 10 20 10 empty ColorAmpli Val 1 5 1 14 -261299 -1
+1.04858e+06;
+#X obj 78 -7 inlet~;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 100 106 nbx 6 12 -10000 10000 0 1 \$0-A ColorAmpli empty 0 0
+1 9 -261299 -1 -1 0.01 256;
+#X obj 101 47 snapshot~;
+#X obj 101 69 change;
+#X obj 126 -6 r \$0-SendClic;
+#X connect 2 0 5 0;
+#X connect 5 0 6 0;
+#X connect 6 0 4 0;
+#X connect 7 0 5 0;
+#X coords 0 -1 1 1 95 18 2 100 100;
+#X restore 76 74 pd ARGO;
+#N canvas 172 173 382 310 ARGO 0;
+#X text 12 234 peakamp~;
+#X text 11 247 cyclone library;
+#X text 12 262 http://suita.chopin.edu.pl/~czaja/miXed/externs/cyclone.html
+;
+#X text 12 275 pas de help \, dans Pd-extended. Voir doc Max/MSP MSP46ReferenceManual.pdf
+;
+#X obj 101 101 cnv 30 32 129 empty ColorAmpli empty 20 12 0 14 -261299
+-1 0;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 102 108 vu 8 120 \$0-B empty 0 0 1 9 -262144 -1 1 0;
+#X obj 75 30 env~;
+#X obj 115 4 inlet~;
+#X obj 74 53 - 100;
+#X obj 114 53 env~;
+#X obj 113 76 - 100;
+#X obj 115 31 peakamp~ 1000;
+#X connect 7 0 9 0;
+#X connect 8 0 7 0;
+#X connect 8 0 12 0;
+#X connect 9 0 6 0;
+#X connect 10 0 11 0;
+#X connect 11 0 6 1;
+#X connect 12 0 10 0;
+#X coords 0 -1 1 1 34 131 2 100 100;
+#X restore 8 9 pd ARGO;
+#N canvas 310 130 478 295 ARGO 0;
+#X obj 95 47 cartopol~;
+#X obj 95 20 rfft~;
+#X obj -23 77 vectral~ 1024;
+#X obj -23 3 count~ 0 1024 1 1;
+#X msg -109 34 slide 10 10;
+#X msg 161 72 range 0 512 \, 2 \, bufsize 512;
+#X obj 95 -28 inlet~;
+#X msg -129 61 slide 1 1;
+#X obj -23 35 *~ 0.361;
+#X obj 101 101 cnv 12 198 34 empty empty empty 20 12 0 14 -262144 -1
+1.04858e+06;
+#X obj 158 105 cnv 10 44 10 empty empty Spectrum(2000Hz/div) 1 5 1
+14 -262144 -1 1.04858e+06;
+#X obj 101 120 Scope~ 198 129 2 3 512 0 512 0 0 0 0 255 0 0 255 252
+255 0;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 115 103 tgl 12 1 \$0-SendLoop \$0-ReceiveLoop Gliss 15 6 1 9
+-262144 -1 -1 0 1;
+#X obj -128 7 sel 0 1;
+#X msg 168 13 frgb 255 0 0;
+#X obj 169 -12 block~ 1024;
+#X text -126 207 Voir examples:cyclone:pink-test.pd;
+#X text -126 218 Voir examples:cyclone:scope-...;
+#X msg 166 44 brgb 255 255 255;
+#X text -126 229 Voir MSP46ReferenceManual.pdf;
+#X obj 95 -2 *~ 10;
+#X connect 0 0 2 2;
+#X connect 1 0 0 0;
+#X connect 1 1 0 1;
+#X connect 2 0 11 0;
+#X connect 3 0 2 1;
+#X connect 3 0 8 0;
+#X connect 4 0 2 0;
+#X connect 5 0 11 0;
+#X connect 6 0 21 0;
+#X connect 7 0 2 0;
+#X connect 8 0 2 0;
+#X connect 13 0 14 0;
+#X connect 14 0 7 0;
+#X connect 14 1 4 0;
+#X connect 15 0 11 0;
+#X connect 19 0 11 0;
+#X connect 21 0 1 0;
+#X coords 0 -1 1 1 200 150 2 100 100;
+#X restore 10 306 pd ARGO;
+#N canvas 413 140 402 279 ARGO 0;
+#X obj 101 101 cnv 10 88 41 \$0-A \$0-B empty 20 12 0 14 -1 -1 1.04858e+06
+;
+#X obj 101 109 nbx 4 12 0 1e+37 0 0 \$0 \$0-ReceiveCpuPeak CPUPeak
+42 7 1 10 -24198 -1 -24198 72 256;
+#X obj 101 122 nbx 4 12 0 1e+37 0 0 \$0 \$0-ReceiveCpuMean CPUMean
+42 7 1 10 -24198 -1 -24198 72.61 256;
+#X text 141 83 5 3 2009;
+#X obj 145 -55 cputime;
+#X obj 145 -76 t b b;
+#X text 188 24 (c) musil@iem.kug.ac.at;
+#X text 230 37 IEM KUG;
+#X text 78 18 CPU-load;
+#X obj 144 -125 loadbang;
+#X text 205 48 graz \, austria 2001;
+#X obj 145 -100 metro 500;
+#X obj 145 -34 * 0.2;
+#X text 237 -88 -dsp-load in %;
+#X text 228 -101 measure average- and peak-;
+#X obj 37 18 * 100;
+#X obj 37 63 int;
+#X obj 37 41 + 0.499;
+#X obj 37 86 * 0.01;
+#N canvas 524 162 422 273 1p1zmodif 0;
+#X text 134 89 (c) musil@iem.kug.ac.at;
+#X text 179 99 IEM KUG;
+#X obj 14 195 +;
+#X text 151 108 graz \, austria 2001;
+#X text 135 71 y[n] = a0*x[n] + a1*x[n-1] + b1*y[n-1];
+#X text 18 13 x[n];
+#X text 16 244 y[n];
+#X text 84 111 y[n-1];
+#X text 134 56 <float> control-IIR-filter 1.order;
+#X obj 15 28 inlet;
+#X obj 14 228 outlet;
+#X obj 15 112 * 0.1;
+#X obj 59 156 * 0.9;
+#X text 139 144 a1 = 0;
+#X text 139 155 b1 = 0.9;
+#X text 139 133 a0 = 0.1;
+#X obj 15 50 t f b;
+#X text 135 40 Inspiré de 1p1z;
+#X obj 59 112 f 0;
+#X connect 2 0 10 0;
+#X connect 2 0 18 1;
+#X connect 9 0 16 0;
+#X connect 11 0 2 0;
+#X connect 12 0 2 1;
+#X connect 16 0 11 0;
+#X connect 16 1 18 0;
+#X connect 18 0 12 0;
+#X restore 37 -8 pd 1p1zmodif;
+#X text 146 9 Inspiré de 5.reference/iemabs/help-dsp.pd;
+#X connect 4 0 12 0;
+#X connect 5 0 4 0;
+#X connect 5 1 4 1;
+#X connect 9 0 11 0;
+#X connect 11 0 5 0;
+#X connect 12 0 19 0;
+#X connect 12 0 1 0;
+#X connect 15 0 17 0;
+#X connect 16 0 18 0;
+#X connect 17 0 16 0;
+#X connect 18 0 2 0;
+#X connect 19 0 15 0;
+#X coords 0 -1 1 1 90 43 1 100 100;
+#X restore 77 25 pd ARGO;

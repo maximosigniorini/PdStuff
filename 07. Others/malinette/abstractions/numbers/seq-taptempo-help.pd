@@ -1,0 +1,15 @@
+#N canvas 144 211 450 300 10;
+#X obj 96 148 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 189 215 5 0 0 0 - - -;
+#X obj 96 216 bng 15 50 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 96 173 seq-taptempo;
+#X floatatom 189 146 5 0 0 0 - - -;
+#X text 91 11 seq-taptempo \; ------------ \; Tap tempo object \; inlet
+\; 1 : bang taptempo \; 2 : time \; outlets \; 1: bang \; 2: time in
+msec;
+#X connect 0 0 3 0;
+#X connect 3 0 2 0;
+#X connect 3 1 1 0;
+#X connect 4 0 3 1;

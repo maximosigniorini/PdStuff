@@ -1,0 +1,7 @@
+#N canvas 0 54 1024 546 10;
+#X obj 9 8 pulso;
+#X obj 10 370 mixout;
+#X obj 10 501 recordable;
+#X obj 917 34 utilmenu;
+#X connect 1 0 2 0;
+#X connect 1 1 2 1;

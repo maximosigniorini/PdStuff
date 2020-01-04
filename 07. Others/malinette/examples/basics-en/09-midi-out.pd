@@ -1,0 +1,40 @@
+#N canvas 151 22 800 687 10;
+#X declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/numbers -path ../../abstractions/video -path
+../../abstractions/audio -path ../../abstractions/master;
+#X obj 7 279 cnv 1 470 1 empty empty FX 2 -6 1 12 -228856 -191407 0
+;
+#X obj 7 431 cnv 1 470 1 empty empty OUT 2 -6 1 12 -228856 -191407
+0;
+#X obj 7 123 cnv 1 470 1 empty empty IN 2 -6 1 12 -228856 -191407 0
+;
+#X obj 488 28 cnv 20 300 90 empty empty DESCRIPTION 10 15 0 16 -233017
+-128992 0;
+#X obj 488 124 cnv 20 300 150 empty empty empty 10 15 0 16 -233017
+-128992 0;
+#X obj 488 279 cnv 20 300 150 empty empty empty 10 15 0 16 -233017
+-128992 0;
+#X obj 488 434 cnv 20 300 230 empty empty empty 10 15 0 16 -233017
+-128992 0;
+#X obj 262 183 mouse;
+#X obj 262 449 midi-out;
+#X obj 262 348 notescale;
+#X obj 262 299 map 0 1 0 127;
+#X text 496 70 (Ardour \, LMMS \, Ableton \, Cubase \, ...).;
+#X obj 498 574 cnv 20 280 80 empty empty empty 10 15 0 16 -262130 -128992
+0;
+#X floatatom 278 214 5 0 0 0 - - -;
+#X text 496 55 Send Midi data to another software;
+#X text 497 89 ! Switch-on MIDI in the Media tab;
+#X text 495 181 < X and Y positions of the mouse controller;
+#X text 495 462 < Midi-out;
+#X text 496 361 < Harmonic conversion;
+#X text 496 301 < Conversion to Midi (0-127);
+#X text 505 597 Jack (Linux) \, Midi Yoke (Windows) \,;
+#X text 505 581 You will maybe need a MIDI-router software :;
+#X text 505 611 Midi Patchbay (Mac OSX).;
+#X obj 737 12 ../../abstractions/include;
+#X connect 7 0 10 0;
+#X connect 7 0 13 0;
+#X connect 9 0 8 0;
+#X connect 10 0 9 0;

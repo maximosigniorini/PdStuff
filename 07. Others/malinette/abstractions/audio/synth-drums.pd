@@ -1,0 +1,54 @@
+#N canvas 1 317 761 342 10;
+#X obj 295 113 route kick snare hat crash;
+#X obj 100 18 inlet;
+#X obj 147 18 inlet;
+#X obj 194 18 inlet;
+#X obj 241 18 inlet;
+#X obj 295 50 inlet;
+#X msg 339 77 snare cutoff \$1;
+#X obj 100 130 synth-drum/kick;
+#X obj 194 130 synth-drum/hat;
+#X obj 147 130 synth-drum/snare;
+#X obj 241 130 synth-drum/cymbal;
+#X obj 322 230 outlet~;
+#X obj 100 232 outlet~;
+#X obj 146 232 outlet~;
+#X obj 193 231 outlet~;
+#X obj 241 230 outlet~;
+#X text 288 18 < bangs;
+#X text 442 77 example message control;
+#X text 454 240 // from http://lesobjetsvolants.com/music/;
+#X text 333 51 < commands;
+#X text 457 193 synth-drums \; ----------- \; Synthetic drums with
+4 sounds \;;
+#X obj 100 119 bng 8 250 50 0 empty empty kick 11 5 1 9 -261682 -1
+-1;
+#X obj 147 119 bng 8 250 50 0 empty empty snare 11 5 1 9 -261682 -1
+-1;
+#X obj 194 119 bng 8 250 50 0 empty empty hat 11 5 1 9 -261682 -1 -1
+;
+#X obj 241 119 bng 8 250 50 0 empty empty crash 11 5 1 9 -261682 -1
+-1;
+#X connect 0 0 7 1;
+#X connect 0 1 9 1;
+#X connect 0 2 8 1;
+#X connect 0 3 10 1;
+#X connect 1 0 21 0;
+#X connect 2 0 22 0;
+#X connect 3 0 23 0;
+#X connect 4 0 24 0;
+#X connect 5 0 0 0;
+#X connect 6 0 0 0;
+#X connect 7 0 11 0;
+#X connect 7 0 12 0;
+#X connect 8 0 11 0;
+#X connect 8 0 14 0;
+#X connect 9 0 11 0;
+#X connect 9 0 13 0;
+#X connect 10 0 11 0;
+#X connect 10 0 15 0;
+#X connect 21 0 7 0;
+#X connect 22 0 9 0;
+#X connect 23 0 8 0;
+#X connect 24 0 10 0;
+#X coords 0 -1 1 1 186 75 1 100 100;

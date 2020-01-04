@@ -1,0 +1,17 @@
+#N canvas 548 44 640 521 10;
+#X obj 18 -146 bng 30 250 50 0 empty empty empty 17 7 0 10 -250685
+-1 -1;
+#X obj 222 -96 autoscale 0 100;
+#X obj 18 -107 ehu/gem/win 640 480;
+#X obj 212 -125 ehu/gem/mouse;
+#X obj 75 101 ehu/gem/texture 320 240 649 480;
+#X obj 75 -20 ehu/gem/video videos/whistle.mp4;
+#X obj 309 107 ehu/gem/texture 320 240 649 480;
+#X text 111 -188 * move Y loc of mouse on the graphics window to scratch
+the video;
+#X connect 0 0 2 0;
+#X connect 1 0 5 5;
+#X connect 3 1 1 0;
+#X connect 5 0 4 0;
+#X connect 5 0 6 0;
+#X connect 5 1 1 2;

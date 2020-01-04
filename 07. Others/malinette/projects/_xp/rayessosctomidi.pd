@@ -1,0 +1,113 @@
+#N canvas 202 0 822 660 10;
+#X declare -lib mrpeach;
+#X declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/tools -path ../../abstractions/filters -path
+../../abstractions/fx-video -path ../../abstractions/fx-audio -path
+../../abstractions/master;
+#X declare -path abstractions/in -path abstractions/out -path abstractions/tools
+-path abstractions/filters -path abstractions/fx-video -path abstractions/fx-audio
+-path abstractions/master;
+#X declare -lib mrpeach;
+#X declare -lib mrpeach;
+#X obj 143 114 route /accxyz;
+#X obj 40 54 import mrpeach;
+#X obj 143 54 dumpOSC 8000;
+#X text 144 97 accelerometre;
+#X obj 143 138 unpack f f f;
+#X floatatom 143 165 5 0 0 0 - - -;
+#X floatatom 177 165 5 0 0 0 - - -;
+#N canvas 362 156 563 434 INIT 0;
+#X obj 101 101 cnv 8 48 8 empty empty INCLUDE 2 4 0 10 -233017 -66577
+0;
+#X obj 102 261 declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/tools -path ../../abstractions/filters -path
+../../abstractions/fx-video -path ../../abstractions/fx-audio -path
+../../abstractions/master;
+#X text 100 240 Use for standalone :;
+#X text 100 140 Use with the main.pd :;
+#X text 97 25 Import paths to find abstractions \; Always use it in
+the examples patchs.;
+#X obj 102 162 declare -path abstractions/in -path abstractions/out
+-path abstractions/tools -path abstractions/filters -path abstractions/fx-video
+-path abstractions/fx-audio -path abstractions/master;
+#X coords 0 -1 1 1 50 10 2 100 100;
+#X restore 767 71 pd INIT;
+#X obj 606 81 dumpOSC 12000;
+#X obj 578 510 ctlout 60 1;
+#X obj 656 510 ctlout 61 1;
+#X obj 737 510 ctlout 62 1;
+#X obj 814 510 ctlout 63 1;
+#X obj 843 464 ctlout 64 1;
+#X obj 925 465 ctlout 65 1;
+#X text 602 53 arduino via osc;
+#X obj 604 125 route /a0 /a1 /a2 /a3 /a4 /a5;
+#X obj 577 550 noteout 2;
+#X floatatom 212 165 5 0 0 0 - - -;
+#X obj 60 362 ctlout 50 1;
+#X obj 138 363 ctlout 51 1;
+#X text 55 385 accx;
+#X text 136 388 accy;
+#X obj 246 365 ctlout 52 1;
+#X obj 324 366 ctlout 53 1;
+#X text 249 390 3x;
+#X text 328 390 3y;
+#X text 37 522 toggle 1 2 3 4;
+#X text 35 581 toggle 0;
+#X text 231 580 fader 1;
+#X obj 42 499 ctlout 54 1;
+#X obj 120 500 ctlout 55 1;
+#X obj 228 502 ctlout 56 1;
+#X obj 306 503 ctlout 57 1;
+#X obj 41 563 ctlout 58 1;
+#X obj 235 561 ctlout 59 1;
+#X obj 415 50 import mrpeach;
+#X obj 415 557 udpsend;
+#X text 361 94 press >>;
+#X obj 415 583 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 455 330 pack f f f;
+#X floatatom 434 225 5 0 0 0 - - -;
+#X msg 415 93 connect 192.168.0.18 8000;
+#X obj 264 159 print;
+#X obj 443 504 packOSC;
+#X msg 454 418 /accxyz \$1;
+#X floatatom 490 282 5 0 0 0 - - -;
+#X obj 1005 38 import mrpeach;
+#X obj 1005 545 udpsend;
+#X text 951 82 press >>;
+#X obj 1005 571 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+1 1;
+#X floatatom 1024 213 5 0 0 0 - - -;
+#X obj 1033 492 packOSC;
+#X msg 1005 81 connect 192.168.0.18 12000;
+#X msg 1044 406 /a0 \$1;
+#X floatatom 609 167 5 0 0 0 - - -;
+#X connect 0 0 4 0;
+#X connect 2 0 0 0;
+#X connect 2 0 43 0;
+#X connect 4 0 5 0;
+#X connect 4 1 6 0;
+#X connect 4 2 18 0;
+#X connect 5 0 19 0;
+#X connect 6 0 20 0;
+#X connect 8 0 16 0;
+#X connect 16 0 9 0;
+#X connect 16 0 55 0;
+#X connect 16 1 10 0;
+#X connect 16 2 11 0;
+#X connect 16 3 12 0;
+#X connect 16 4 13 0;
+#X connect 16 5 14 0;
+#X connect 37 0 39 0;
+#X connect 40 0 45 0;
+#X connect 41 0 40 0;
+#X connect 42 0 37 0;
+#X connect 44 0 37 0;
+#X connect 45 0 44 0;
+#X connect 46 0 40 1;
+#X connect 46 0 40 2;
+#X connect 48 0 50 0;
+#X connect 51 0 54 0;
+#X connect 52 0 48 0;
+#X connect 53 0 48 0;
+#X connect 54 0 52 0;

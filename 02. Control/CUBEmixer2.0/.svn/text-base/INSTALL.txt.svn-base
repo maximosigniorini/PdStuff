@@ -1,0 +1,80 @@
+#CUBEmixer: for the IEM CUBE and other environments
+#Institut of Electronic Music and Acoustics Graz - 2005
+#Programming-Concept and Development: Musil, Ritsch, Zmoelnig
+#based on  various developments on IEM Graz 
+#================================================= */
+
+Intallation instruction:
+
+Either you install it from the complete package (see a) or if you want to compile it, check out
+from SVN (see b)
+
+A) What you need:
+
+1)  PD: Version  0.39-2 or higher Version
+
+	see http://crca.ucsd.edu/~msp/software.html
+
+        sh: wget http://crca.ucsd.edu/~msp/Software/pd-0.39-2.src.tar.gz
+
+2.) Get this package (chances are high, you already have it...)
+
+
+ a) Packages:
+
+    Download as complete Package from
+
+    IEM Project Page - http://sourceforge.net/projects/iem/
+
+   or directly:
+
+    http://sourceforge.net/project/showfiles.php?group_id=132916&package_id=181748
+
+   Unpack and follow instruction there.
+
+ b) Development Version
+
+   Get the current development version via Subversion (SVN) from sourceforge;
+   the sourceforge-project is called "iem", and you need to get the sub-project "CUBEmixer".
+   To get the main development branch use something like
+     sh: svn co  https://svn.sourceforge.net/svnroot/iem/spatialization/CUBEmixer/trunk/ CUBEmixer
+
+   You can also get a sub-branch; you can find a list of available sub-branches here:
+    http://svn.sourceforge.net/viewcvs.cgi/iem/spatialization/CUBEmixer/branches/
+
+3.) Configuration
+
+   if needed your system can be configured with local settings which ar in  folder etc/CUBEmixer/
+
+   linux and other unixes:
+
+    default values are in  LocalVars.template.sh
+    make a local copy to LocalVars.sh in the same folder
+   
+     cp etc/CUBEmixer/LocalVars.template.sh  etc/CUBEmixer/LocalVars.sh
+
+    and edit etc/CUBEmixer/LocalVars.sh (read instructions there)
+
+   windows:
+
+    default values are in  LocalVars.template.bat
+    make a local copy to LocalVars.sh in the same folder
+   
+     cp etc/CUBEmixer/LocalVars.template.bat  etc/CUBEmixer/LocalVars.bat
+
+    and edit etc/CUBEmixer/LocalVars.bat  with an text editor (read instructions in comments).
+
+  linux only:
+    If you want to use your extensions there are two arguments used in the script
+    the DSP-Patch and the GUI patch (for projects and developments) 
+
+4.) Put the CUBEmixer in your favorite place and look at the bin/ folder for the startup script.
+
+	Please start Mixer with skript located in the 'bin' folder for your
+
+	linux: Cubemixer.sh
+ 	windows: first start 'CUBEmixerDSP.bat' and then 'CubemixerGUI.bat'
+
+    you can put an Alias or link on your Desktop or menu to start the Mixer.
+
+

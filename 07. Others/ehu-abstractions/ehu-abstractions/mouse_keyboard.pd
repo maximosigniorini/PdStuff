@@ -1,0 +1,65 @@
+#N canvas 445 108 564 403 10;
+#X declare -lib ggee;
+#X declare -lib ggee;
+#X obj 3 30 cnv 15 370 150 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 393 90 bng 30 250 50 0 empty empty click_me 0 -6 0 10 -258079
+-1 -1;
+#X obj 78 122 nbx 5 25 -1e+37 1e+37 0 0 empty empty y_position 0 -10
+0 10 -261241 -1 -1 0 256;
+#X obj 8 122 nbx 5 25 -1e+37 1e+37 0 0 empty empty x_position 0 -10
+0 10 -4032 -1 -1 0 256;
+#X obj 164 82 bng 30 250 50 0 empty empty empty 0 -6 0 10 -257985 -1
+-1;
+#X obj 164 117 bng 30 250 50 0 empty empty empty 0 -6 0 10 -4034 -1
+-1;
+#X obj 213 82 bng 30 250 50 0 empty empty empty 0 -6 0 10 -257985 -1
+-1;
+#X obj 213 117 bng 30 250 50 0 empty empty empty 0 -6 0 10 -4034 -1
+-1;
+#X obj 262 82 bng 30 250 50 0 empty empty empty 0 -6 0 10 -257985 -1
+-1;
+#X obj 262 117 bng 30 250 50 0 empty empty empty 0 -6 0 10 -4034 -1
+-1;
+#X text 166 156 left;
+#X text 209 156 middle;
+#X text 262 156 right;
+#X text 299 123 mousedown;
+#X text 299 89 mouseup;
+#X text 408 133 open graphics window;
+#X obj 393 151 ehu/gem/win 400 300;
+#X obj 121 33 ehu/gem/mouse;
+#X text 223 30 mouse;
+#X obj 302 209 cnv 15 250 170 empty empty empty 20 12 0 14 -233017
+-66577 0;
+#X obj 320 234 gemkeyboard;
+#X obj 320 352 print spacebar!;
+#X obj 320 258 select 32 27 65;
+#X obj 378 305 print A!;
+#X obj 349 329 print Esc!;
+#X obj 407 282 print any_other_key;
+#X text 316 216 gem keyboard;
+#X obj 27 295 ehu/gem/texture 200 150 400 300;
+#X obj 130 263 print;
+#X obj 27 206 ehu/gem/video videos/whistle.mp4;
+#X text 10 -2 * move mouse over graphics window and click \, press
+the keyboard;
+#X connect 1 0 16 0;
+#X connect 1 0 29 1;
+#X connect 5 0 29 1;
+#X connect 9 0 29 1;
+#X connect 17 0 3 0;
+#X connect 17 1 2 0;
+#X connect 17 2 5 0;
+#X connect 17 3 4 0;
+#X connect 17 4 7 0;
+#X connect 17 5 6 0;
+#X connect 17 6 9 0;
+#X connect 17 7 8 0;
+#X connect 20 0 22 0;
+#X connect 22 0 21 0;
+#X connect 22 1 24 0;
+#X connect 22 2 23 0;
+#X connect 22 3 25 0;
+#X connect 29 0 27 0;
+#X connect 29 5 28 0;

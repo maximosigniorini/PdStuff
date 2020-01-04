@@ -1,0 +1,42 @@
+#N canvas 420 449 509 367 10;
+#X obj 188 100 gemhead;
+#X obj 188 190 pix_video;
+#X obj 188 282 outlet;
+#X obj 171 103 tgl 10 0 empty empty empty 17 7 0 10 -257985 -1 -1 1
+1;
+#X obj 171 47 initbang;
+#X obj 171 116 tgl 10 0 empty empty debug -27 6 0 8 -228856 -1 -1 0
+1;
+#X obj 331 283 spigot;
+#X text 308 214 <- flip video 180°;
+#X obj 331 303 pix_texture;
+#X obj 331 330 rectangle 4 3;
+#X obj 331 258 pix_separator;
+#X obj 188 252 pix_separator;
+#X obj 188 220 rotateXYZ 0 -180 0;
+#X obj 25 87 initbang;
+#X obj 25 110 f \$1;
+#X msg 52 173 device \$1;
+#X obj 122 11 inlet camera;
+#X obj 25 132 sel 0;
+#X obj 122 116 nbx 1 10 -1e+37 1e+37 0 0 empty empty cam -18 6 0 8
+-262144 -1 -1 0 256;
+#X connect 0 0 1 0;
+#X connect 1 0 10 0;
+#X connect 1 0 12 0;
+#X connect 3 0 0 0;
+#X connect 4 0 3 0;
+#X connect 5 0 6 1;
+#X connect 6 0 8 0;
+#X connect 8 0 9 0;
+#X connect 10 0 6 0;
+#X connect 11 0 2 0;
+#X connect 12 0 11 0;
+#X connect 12 0 10 0;
+#X connect 13 0 14 0;
+#X connect 14 0 17 0;
+#X connect 15 0 1 0;
+#X connect 16 0 18 0;
+#X connect 17 1 18 0;
+#X connect 18 0 15 0;
+#X coords 0 -1 1 1 85 30 1 100 100;

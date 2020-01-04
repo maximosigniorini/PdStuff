@@ -1,0 +1,185 @@
+#N canvas 267 287 319 171 10;
+#N canvas 0 0 376 407 license 0;
+#X text 8 47 All rights reserved.;
+#X text 8 227 The names of its contributors may not be used to endorse
+or promote products derived from this software without specific prior
+written permission.;
+#X text 8 87 Redistribution and use in source and binary forms \, with
+or without modification \, are permitted provided that the following
+conditions are met:;
+#X text 8 127 Redistributions of source code must retain the above
+copyright notice \, this list of conditions and the following disclaimer.
+;
+#X text 8 297 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
+CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES \, INCLUDING
+\, BUT NOT LIMITED TO \, THE IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
+THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT \, INDIRECT
+\, INCIDENTAL \, SPECIAL \, EXEMPLARY \, OR CONSEQUENTIAL DAMAGES (INCLUDING
+\, BUT NOT LIMITED TO \, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES
+;
+#X text 8 167 Redistributions in binary form must reproduce the above
+copyright notice \, this list of conditions and the following disclaimer
+in the documentation and/or other materials provided with the distribution.
+;
+#X text 8 7 Copyright 2008 \, João Pais;
+#X text 8 27 jmmmpais@gmail.com;
+#X restore 15 140 pd license;
+#X text 102 15 PD Color Palettes;
+#X text 15 59 Data Structures palette;
+#X text 15 47 Click the Bng for;
+#X text 185 47 Click the patch for;
+#X text 185 59 Tcl/Tk palette;
+#N canvas 425 550 260 301 Tcl/Tk 0;
+#X obj 39 38 cnv 20 30 25 empty empty 0 -25 14 0 14 -262144 -33289
+0;
+#X obj 39 63 cnv 20 30 25 empty empty 1 -25 14 0 14 -166441 -33289
+0;
+#X obj 39 88 cnv 20 30 25 empty empty 2 -25 14 0 14 -66577 -33289 0
+;
+#X obj 39 113 cnv 20 30 25 empty empty 3 -25 14 0 14 -261689 -33289
+0;
+#X obj 39 138 cnv 20 30 25 empty empty 4 -25 14 0 14 -261681 -33289
+0;
+#X obj 39 163 cnv 20 30 25 empty empty 5 -25 14 0 14 -262131 -33289
+0;
+#X obj 39 188 cnv 20 30 25 empty empty 6 -25 14 0 14 -225271 -33289
+0;
+#X obj 39 213 cnv 20 30 25 empty empty 7 -25 14 0 14 -225280 -33289
+0;
+#X obj 39 238 cnv 20 30 25 empty empty 8 -25 14 0 14 -228992 -33289
+0;
+#X obj 39 263 cnv 20 30 25 empty empty 9 -25 14 0 14 -257472 -33289
+0;
+#X obj 119 38 cnv 20 30 25 empty empty 10 -25 14 0 14 -233017 -33289
+0;
+#X obj 119 63 cnv 20 30 25 empty empty 11 -25 14 0 14 -128992 -33289
+0;
+#X obj 119 88 cnv 20 30 25 empty empty 12 -25 14 0 14 -33289 -33289
+0;
+#X obj 119 113 cnv 20 30 25 empty empty 13 -25 14 0 14 -258699 -33289
+0;
+#X obj 119 138 cnv 20 30 25 empty empty 14 -25 14 0 14 -260818 -33289
+0;
+#X obj 119 163 cnv 20 30 25 empty empty 15 -25 14 0 14 -241291 -33289
+0;
+#X obj 119 188 cnv 20 30 25 empty empty 16 -25 14 0 14 -24198 -33289
+0;
+#X obj 119 213 cnv 20 30 25 empty empty 17 -25 14 0 14 -44926 -33289
+0;
+#X obj 119 238 cnv 20 30 25 empty empty 18 -25 14 0 14 -62784 -33289
+0;
+#X obj 119 263 cnv 20 30 25 empty empty 19 -25 14 0 14 -250685 -33289
+0;
+#X obj 199 38 cnv 20 30 25 empty empty 20 -25 14 0 14 -195568 -33289
+0;
+#X obj 199 63 cnv 20 30 25 empty empty 21 -25 14 0 14 -99865 -33289
+0;
+#X obj 199 88 cnv 20 30 25 empty empty 22 -25 14 0 14 -1 -33289 0;
+#X obj 199 113 cnv 20 30 25 empty empty 23 -25 14 0 14 -143491 -33289
+0;
+#X obj 199 138 cnv 20 30 25 empty empty 24 -25 14 0 14 -90881 -33289
+0;
+#X obj 199 163 cnv 20 30 25 empty empty 25 -25 14 0 14 -123526 -33289
+0;
+#X obj 199 188 cnv 20 30 25 empty empty 26 -25 14 0 14 -42246 -33289
+0;
+#X obj 199 213 cnv 20 30 25 empty empty 27 -25 14 0 14 -1109 -33289
+0;
+#X obj 199 238 cnv 20 30 25 empty empty 28 -25 14 0 14 -355 -33289
+0;
+#X obj 199 263 cnv 20 30 25 empty empty 29 -25 14 0 14 -90133 -33289
+0;
+#X text 71 10 PD Tcl/Tk palette;
+#X restore 188 77 pd Tcl/Tk;
+#N canvas 71 339 842 341 Data 0;
+#X obj 198 275 pointer;
+#X obj 72 145 f;
+#X obj 97 145 + 1;
+#X obj 72 105 until;
+#X obj 72 165 t f f f f;
+#X obj 73 195 t f f;
+#X obj 73 235 -;
+#X msg 87 125 0;
+#X obj 73 255 * 0.5;
+#X obj 100 215 mod 100;
+#X obj 15 235 * 12;
+#X obj 15 255 mod 1200;
+#X obj 152 215 mod 2;
+#X obj 152 235 expr if ($f1 == 0 \, -2 \, 29);
+#N canvas 496 445 536 114 farben 0;
+#X obj 20 71 drawnumber farbe 0 ynpos;
+#X obj 20 51 drawpolygon farbe 20 0 20 11 20;
+#X obj 20 21 struct \$0-color float x float y float farbe float ynpos
+;
+#X text 220 51 DRAWS RECTANGLE;
+#X text 220 71 DRAWS COLOUR NUMBER;
+#X text 360 21 STRUCT WITH VARIABLES;
+#X restore 212 138 pd farben;
+#X obj 151 22 bng 13 250 50 0 empty empty empty 0 -6 0 8 -233017 -1
+-1;
+#X obj 151 38 t b b b b b;
+#X msg 214 88 vis 0 \, clear;
+#X msg 151 88 vis 1;
+#X obj 73 275 + 20;
+#X text 170 19 Generates a fresh new Data-S palette;
+#X obj 15 295 append \$0-color x y farbe ynpos;
+#X text 332 138 STRUCTURE SUBPATCH;
+#X text 332 159 PAINTING SUBPATCH;
+#X text 454 24 BANG;
+#X text 454 44 - clears paiting patch farben-datas;
+#X text 454 64 - gets the pointer of the painting patch;
+#X text 454 84 - generates 900 structures \, whose colour == id number
+(0 to 899);
+#X text 464 114 - positioning them at 12pt horizontal distance \, in
+rows of 100 structures. Each row is 50pt apart.;
+#X text 454 144 - opens up the subpatch with the vis command;
+#X msg 72 85 1000;
+#N canvas 0 0 1249 525 \$0-farben-datas 0;
+#X restore 212 159 pd \$0-farben-datas;
+#X obj 214 108 s pd-\$0-farben-datas;
+#X obj 198 195 \$0;
+#X msg 198 255 traverse pd-\$1-farben-datas \, bang;
+#X connect 0 0 21 4;
+#X connect 1 0 2 0;
+#X connect 1 0 4 0;
+#X connect 2 0 1 1;
+#X connect 3 0 1 0;
+#X connect 4 0 10 0;
+#X connect 4 1 5 0;
+#X connect 4 2 21 2;
+#X connect 4 3 12 0;
+#X connect 5 0 6 0;
+#X connect 5 1 9 0;
+#X connect 6 0 8 0;
+#X connect 7 0 1 1;
+#X connect 8 0 19 0;
+#X connect 9 0 6 1;
+#X connect 10 0 11 0;
+#X connect 11 0 21 0;
+#X connect 12 0 13 0;
+#X connect 13 0 21 3;
+#X connect 15 0 16 0;
+#X connect 16 0 18 0;
+#X connect 16 1 30 0;
+#X connect 16 2 7 0;
+#X connect 16 3 33 0;
+#X connect 16 4 17 0;
+#X connect 17 0 32 0;
+#X connect 18 0 32 0;
+#X connect 19 0 21 1;
+#X connect 30 0 3 0;
+#X connect 33 0 34 0;
+#X connect 34 0 0 0;
+#X coords 0 -1 1 1 106 17 1 60 20;
+#X restore 17 77 pd Data Struct;
+#N canvas 504 106 494 344 META 0;
+#X text 12 55 AUTHOR João Pais <jmmmpais@googlemail.com>;
+#X text 12 95 LICENSE BSD;
+#X text 12 75 LIBRARY jmmmp;
+#X text 13 115 WEBSITE http://puredata.info/Members/jmmmp;
+#X text 12 6 DESCRIPTION PD Color Palettes;
+#X text 12 36 KEYWORDS color tcl/tk data structures;
+#X text 12 135 VERSION 2008;
+#X restore 255 140 pd META;
+#X text 12 122 (C) 2008 João Pais - jmmmpais@gmail.com;

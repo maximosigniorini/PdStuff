@@ -1,0 +1,18 @@
+#N canvas 208 255 450 300 10;
+#X obj 32 127 scale.gui.multi;
+#X text 208 27 A handy GUI scaler \, with settable top \; and bottom
+value \, plus you can \; reverse the stream.;
+#X obj 35 43 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 5200 1;
+#X obj 35 173 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 6969 1;
+#X obj 32 86 scale.lin 1 0 127;
+#X text 213 90 ARGUMENTS;
+#X text 213 153 INLET;
+#X text 211 209 OUTLET;
+#X text 214 107 None;
+#X text 213 170 Stream values between 0 and 1;
+#X text 211 225 Scaled stream values.;
+#X connect 0 0 3 0;
+#X connect 2 0 4 0;
+#X connect 4 0 0 0;

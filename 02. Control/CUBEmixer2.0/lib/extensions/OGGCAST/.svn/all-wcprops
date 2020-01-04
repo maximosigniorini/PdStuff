@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/OGGCAST
+END
+GUI.pd
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/OGGCAST/GUI.pd
+END
+OGGSRC.pd
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/OGGCAST/OGGSRC.pd
+END
+DSP.pd
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/OGGCAST/DSP.pd
+END

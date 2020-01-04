@@ -1,0 +1,191 @@
+#N canvas 4 605 895 334 10;
+#X obj 34 172 symbol \$1;
+#X obj 136 230 ftos;
+#X obj 105 164 float \$1;
+#X floatatom 105 193 5 0 0 0 - - -;
+#X symbolatom 35 205 0 0 0 0 - - -;
+#X symbolatom 95 243 10 0 0 0 - - -;
+#X obj 44 126 loadbang;
+#X obj 97 280 s \$1pdp_ascii_id;
+#X obj 251 50 inlet;
+#X text 309 50 video;
+#X text 479 50 on/off;
+#X obj 280 272 outlet;
+#X obj 284 102 pdp_spigot;
+#X text 328 269 video;
+#X msg 506 137 color \$1;
+#X obj 577 138 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 1
+1;
+#X msg 506 162 brightness \$1;
+#X floatatom 608 163 5 0 0 0 - - -;
+#X floatatom 506 188 5 0 0 0 - - -;
+#X obj 570 90 openpanel;
+#X obj 642 91 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X msg 508 90 load \$1;
+#X text 508 111 ( file with the same format than charmaps.dat );
+#X obj 395 203 pdp_ascii;
+#X text 556 187 Character to pixel ratio;
+#X text 656 164 Increase brightness ( default 25 );
+#X text 597 137 Activate/suppress colors;
+#X text 666 90 Load a characters map;
+#X obj 653 -1 r \$1epdp_ascii_loadmap;
+#X obj 659 24 r \$1epdp_ascii_color;
+#X obj 667 45 r \$1epdp_ascii_brightness;
+#X obj 688 70 r \$1epdp_ascii_charpixratio;
+#X obj 413 9 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 446 12 r \$1epdp_ascii_on;
+#X obj 0 0 cnv 15 150 75 empty empty empty 2 12 0 14 -191407 -66577
+0;
+#X obj 7 5 tgl 15 0 \$1epdp_ascii_on \$1epdp_ascii_on_init ASCII 17
+7 0 10 -260097 -1 -1 0 1;
+#X obj 8 26 bng 15 250 50 0 \$1epdp_ascii_loadmap \$1epdp_ascii_loadmap_init
+Load_map 17 7 0 8 -262144 -1 -1;
+#X obj 8 44 tgl 15 0 \$1epdp_ascii_color \$1epdp_ascii_color_init Color
+17 7 0 8 -262144 -1 -1 1 1;
+#X obj 80 25 nbx 5 14 -1e+37 1e+37 0 0 \$1epdp_ascii_brightness \$1epdp_ascii_brightness_init
+Brightness 0 -8 0 8 -262144 -1 -1 0 256;
+#X obj 81 55 nbx 5 14 -1e+37 1e+37 0 0 \$1epdp_ascii_charpixratio \$1epdp_ascii_charpixratio_init
+ChrPixRatio 0 -8 0 8 -262144 -1 -1 0.472441 256;
+#X obj 68 4 cnv 15 20 10 empty \$1pdp_ascii_id \$1 5 5 0 10 -260097
+-33289 0;
+#X obj 3 59 bng 15 250 50 0 \$1epdp_ascii_midi_on empty midi 17 7 0
+8 -4160 -1 -1;
+#N canvas 946 312 1081 564 midi_control 1;
+#X msg 77 175 ef1epdp_ascii_on_midi;
+#X msg 238 173 ef1epdp_ascii_loadmap_midi;
+#X text 27 19 MIDI;
+#X obj 11 148 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 134 196 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 261 196 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 32 368 5 0 0 0 - - -;
+#X obj 30 413 select 0;
+#X msg 143 472 0;
+#X msg 62 471 1;
+#X obj 414 279 s midi_var_to_add;
+#X msg 77 141 set \$1epdp_ascii_on_midi;
+#X obj 29 338 r \$1epdp_ascii_on_midi;
+#X obj 10 496 s \$1epdp_ascii_on_init;
+#X obj 33 54 r \$1epdp_ascii_midi_on;
+#X msg 428 172 ef1epdp_ascii_color_midi;
+#X obj 451 195 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 238 142 set \$1epdp_ascii_loadmap_midi;
+#X msg 428 141 set \$1epdp_ascii_color_midi;
+#X msg 609 171 ef1epdp_ascii_brightness_midi;
+#X obj 632 194 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 609 140 set \$1epdp_ascii_brightness_midi;
+#X msg 829 166 ef1epdp_ascii_charpixratio_midi;
+#X obj 852 189 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 829 135 set \$1epdp_ascii_charpixratio_midi;
+#X obj 190 336 r \$1epdp_ascii_loadmap_midi;
+#X obj 193 496 s \$1epdp_ascii_loadmap_init;
+#X obj 200 383 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 396 354 5 0 0 0 - - -;
+#X obj 394 399 select 0;
+#X obj 393 324 r \$1epdp_ascii_color_midi;
+#X obj 377 504 s \$1epdp_ascii_color_init;
+#X floatatom 632 349 5 0 0 0 - - -;
+#X obj 629 319 r \$1epdp_ascii_brightness_midi;
+#X obj 610 477 s \$1epdp_ascii_brightness_init;
+#X obj 841 317 r \$1epdp_ascii_charpixratio_midi;
+#X obj 822 475 s \$1epdp_ascii_charpixratio_init;
+#X text 531 278 -->global value of mb-midi_control_pad;
+#X text 516 453 Need to check the correct scale factor for these values.
+;
+#X obj 446 44 r \$1pdp_ascii_id;
+#X floatatom 113 384 1 0 0 0 - - -;
+#X obj 85 444 alternate;
+#X msg 508 461 0;
+#X msg 427 460 1;
+#X obj 450 433 alternate;
+#X floatatom 864 372 5 0 0 0 - - -;
+#X floatatom 890 441 8 0 0 0 - - -;
+#X obj 945 375 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 200 1;
+#X obj 959 412 autoscale 0 30;
+#X connect 0 0 4 0;
+#X connect 0 0 10 0;
+#X connect 1 0 5 0;
+#X connect 1 0 10 0;
+#X connect 3 0 0 0;
+#X connect 4 0 1 0;
+#X connect 5 0 15 0;
+#X connect 6 0 7 0;
+#X connect 7 1 41 0;
+#X connect 8 0 13 0;
+#X connect 9 0 13 0;
+#X connect 11 0 0 0;
+#X connect 12 0 6 0;
+#X connect 12 0 40 0;
+#X connect 14 0 3 0;
+#X connect 15 0 16 0;
+#X connect 15 0 10 0;
+#X connect 16 0 19 0;
+#X connect 17 0 1 0;
+#X connect 18 0 15 0;
+#X connect 19 0 20 0;
+#X connect 19 0 10 0;
+#X connect 20 0 22 0;
+#X connect 21 0 19 0;
+#X connect 22 0 23 0;
+#X connect 22 0 10 0;
+#X connect 24 0 22 0;
+#X connect 25 0 27 0;
+#X connect 27 0 26 0;
+#X connect 28 0 29 0;
+#X connect 29 1 44 0;
+#X connect 30 0 28 0;
+#X connect 32 0 34 0;
+#X connect 33 0 32 0;
+#X connect 35 0 45 0;
+#X connect 39 0 11 0;
+#X connect 39 0 17 0;
+#X connect 39 0 18 0;
+#X connect 39 0 21 0;
+#X connect 39 0 24 0;
+#X connect 41 0 9 0;
+#X connect 41 1 8 0;
+#X connect 42 0 31 0;
+#X connect 43 0 31 0;
+#X connect 44 0 43 0;
+#X connect 44 1 42 0;
+#X connect 45 0 47 0;
+#X connect 46 0 36 0;
+#X connect 47 0 48 0;
+#X connect 48 0 46 0;
+#X restore 172 16 pd midi_control;
+#X connect 0 0 4 0;
+#X connect 1 0 5 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X connect 4 0 5 0;
+#X connect 5 0 7 0;
+#X connect 6 0 2 0;
+#X connect 6 0 0 0;
+#X connect 8 0 12 0;
+#X connect 12 0 11 0;
+#X connect 12 1 23 0;
+#X connect 14 0 23 0;
+#X connect 15 0 14 0;
+#X connect 16 0 23 0;
+#X connect 17 0 16 0;
+#X connect 18 0 23 1;
+#X connect 19 0 21 0;
+#X connect 20 0 19 0;
+#X connect 21 0 23 0;
+#X connect 23 0 11 0;
+#X connect 28 0 20 0;
+#X connect 29 0 15 0;
+#X connect 30 0 17 0;
+#X connect 31 0 18 0;
+#X connect 32 0 12 1;
+#X connect 33 0 32 0;
+#X coords 0 -1 1 1 150 75 1 0 0;

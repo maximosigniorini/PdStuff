@@ -1,0 +1,195 @@
+? src/s_midi_alsa.c
+Index: src/configure.in
+===================================================================
+RCS file: /cvsroot/pure-data/pd/src/configure.in,v
+retrieving revision 1.7
+diff -u -r1.7 configure.in
+--- src/configure.in	7 Nov 2004 04:04:17 -0000	1.7
++++ src/configure.in	2 May 2005 08:53:25 -0000
+@@ -166,12 +166,14 @@
+         -I../portaudio/pa_common -I../portaudio/pablio \
+         -I../portaudio/portmidi-macosx \
+ 	-fno-strict-aliasing"
+-    SYSSRC="s_midi_oss.c s_audio_oss.c"
++    SYSSRC="s_audio_oss.c"
+     if test x$alsa == "xyes";
+     then
+-    	SYSSRC=$SYSSRC" s_audio_alsa.c s_audio_alsamm.c"
++    	SYSSRC=$SYSSRC" s_audio_alsa.c s_audio_alsamm.c s_midi_alsa.c"
+ 	MORECFLAGS=$MORECFLAGS" -DPA_USE_ALSA -DUSEAPI_ALSA"
+ 	LDFLAGS=$LDFLAGS" -lasound"
++    else
++        SYSSRC=$SYSSRC" s_midi_oss.c"
+     fi
+     if test x$portaudio == "xyes";
+     then
+Index: src/s_midi.c
+===================================================================
+RCS file: /cvsroot/pure-data/pd/src/s_midi.c,v
+retrieving revision 1.5
+diff -u -r1.5 s_midi.c
+--- src/s_midi.c	6 Nov 2004 16:07:34 -0000	1.5
++++ src/s_midi.c	2 May 2005 08:53:25 -0000
+@@ -448,9 +448,11 @@
+ 
+ /******************** dialog window and device listing ********************/
+ 
++#ifndef USEAPI_ALSA
+ #ifdef USEAPI_OSS
+ void midi_oss_init( void);
+ #endif
++#endif
+ 
+     /* last requested parameters */
+ static int midi_nmidiindev;
+@@ -486,9 +488,11 @@
+ void sys_open_midi(int nmidiindev, int *midiindev,
+     int nmidioutdev, int *midioutdev, int enable)
+ {
++#ifndef USEAPI_ALSA
+ #ifdef USEAPI_OSS
+     midi_oss_init();
+ #endif
++#endif
+     if (enable)
+         sys_do_open_midi(nmidiindev, midiindev, nmidioutdev, midioutdev);
+     sys_save_midi_params(nmidiindev, midiindev,
+@@ -593,15 +597,28 @@
+     midioutdev3 = (noutdev > 2 && midioutdev[2]>=0 ? midioutdev[2]+1 : 0);  
+     midioutdev4 = (noutdev > 3 && midioutdev[3]>=0 ? midioutdev[3]+1 : 0);  
+ 
++#ifndef USEAPI_ALSA
++    sprintf(buf,
++"pdtk_midi_dialog %%s \
++%s %d %d %d %d %s %d %d %d %d \
++%d 0\n",
++        indevliststring,
++        midiindev1, midiindev2, midiindev3, midiindev4, 
++        outdevliststring,
++        midioutdev1, midioutdev2, midioutdev3, midioutdev4,
++        (flongform != 0));
++#endif
++#ifdef USEAPI_ALSA
+     sprintf(buf,
+ "pdtk_midi_dialog %%s \
+ %s %d %d %d %d %s %d %d %d %d \
+-%d\n",
++%d 1\n",
+         indevliststring,
+         midiindev1, midiindev2, midiindev3, midiindev4, 
+         outdevliststring,
+         midioutdev1, midioutdev2, midioutdev3, midioutdev4,
+         (flongform != 0));
++#endif
+     gfxstub_deleteforkey(0);
+     gfxstub_new(&glob_pdobject, (void *)glob_midi_properties, buf);
+ }
+@@ -613,6 +630,7 @@
+     int nmidioutdev, midioutdev[MAXMIDIOUTDEV];
+     int i, nindev, noutdev;
+     int newmidiindev[4], newmidioutdev[4];
++    int alsadevin, alsadevout;
+ 
+     for (i = 0; i < 4; i++)
+     {
+@@ -636,7 +654,15 @@
+             noutdev++;
+         }
+     }
++    alsadevin = atom_getintarg(8, argc, argv);
++    alsadevout = atom_getintarg(9, argc, argv);
++	
+ 
+     sys_close_midi();
++#ifndef USEAPI_ALSA
+     sys_open_midi(nindev, newmidiindev, noutdev, newmidioutdev, 1);
++#endif
++#ifdef USEAPI_ALSA
++    sys_open_midi(alsadevin, newmidiindev, alsadevout, newmidioutdev, 1);
++#endif
+ }
+Index: src/u_main.tk
+===================================================================
+RCS file: /cvsroot/pure-data/pd/src/u_main.tk,v
+retrieving revision 1.8
+diff -u -r1.8 u_main.tk
+--- src/u_main.tk	28 Nov 2004 21:20:43 -0000	1.8
++++ src/u_main.tk	2 May 2005 08:53:25 -0000
+@@ -3474,7 +3474,7 @@
+ 
+ proc midi_apply {id} {
+     global midi_indev1 midi_indev2 midi_indev3 midi_indev4 
+-    global midi_outdev1 midi_outdev2 midi_outdev3 midi_outdev4 
++    global midi_outdev1 midi_outdev2 midi_outdev3 midi_outdev4 midi_alsain midi_alsaout
+ 
+     pd [concat pd midi-dialog \
+     	$midi_indev1 \
+@@ -3485,6 +3485,8 @@
+     	$midi_outdev2 \
+     	$midi_outdev3 \
+     	$midi_outdev4 \
++    	$midi_alsain \
++    	$midi_alsaout \
+ 	\;]
+ }
+ 
+@@ -3523,10 +3525,10 @@
+ # turn longform on and restart the dialog.
+ 
+ proc pdtk_midi_dialog {id indevlist indev1 indev2 indev3 indev4 \
+-    	outdevlist outdev1 outdev2 outdev3 outdev4 longform} {
++    	outdevlist outdev1 outdev2 outdev3 outdev4 longform alsa} {
+     global midi_indev1 midi_indev2 midi_indev3 midi_indev4 
+     global midi_outdev1 midi_outdev2 midi_outdev3 midi_outdev4
+-    global midi_indevlist midi_outdevlist
++    global midi_indevlist midi_outdevlist midi_alsain midi_alsaout
+ 
+     set midi_indev1 $indev1
+     set midi_indev2 $indev2
+@@ -3538,7 +3540,9 @@
+     set midi_outdev4 $outdev4
+     set midi_indevlist $indevlist
+     set midi_outdevlist $outdevlist
+-
++    set midi_alsain [llength $indevlist]
++    set midi_alsaout [llength $outdevlist]
++    
+     toplevel $id
+     wm title $id {midi}
+     wm protocol $id WM_DELETE_WINDOW [concat midi_cancel $id]
+@@ -3554,11 +3558,12 @@
+     pack $id.buttonframe.cancel -side left -expand 1
+     pack $id.buttonframe.apply -side left -expand 1
+     pack $id.buttonframe.ok -side left -expand 1
+-    
+-    	# input device 1
++
+     frame $id.in1f
+     pack $id.in1f -side top
+ 
++  if {$alsa == 0} {
++    	# input device 1
+     label $id.in1f.l1 -text "input device 1:"
+     button $id.in1f.x1 -text [lindex $indevlist $midi_indev1] \
+     	-command [list midi_popup $id $id.in1f.x1 midi_indev1 $indevlist]
+@@ -3645,10 +3650,19 @@
+     if {$longform == 0} {
+ 	frame $id.longbutton
+ 	pack $id.longbutton -side top
+-    	button $id.longbutton.b -text {use multiple devices} \
++    	button $id.longbutton.b -text {use multiple alsa devices} \
+     	    -command  {pd pd midi-properties 1 \;}
+     	pack $id.longbutton.b
+     }
++    }
++    if {$alsa} {
++    	label $id.in1f.l1 -text "In Channels:"
++    	entry $id.in1f.x1 -textvariable midi_alsain -width 4
++        pack $id.in1f.l1 $id.in1f.x1 -side left
++	label $id.in1f.l2 -text "Out Channels:"
++    	entry $id.in1f.x2 -textvariable midi_alsaout -width 4
++        pack $id.in1f.l2 $id.in1f.x2 -side left
++    }
+ }
+ 
+ ############ pdtk_path_dialog -- dialog window for search path #########

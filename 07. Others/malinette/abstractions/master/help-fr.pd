@@ -1,0 +1,425 @@
+#N canvas 234 120 450 300 10;
+#X obj 100 100 bng 16 250 52 0 \$0-open-help \$0-open-help-in empty
+16 7 1 9 -262144 -228856 -260097;
+#X obj 117 100 bng 16 250 50 0 \$0-open-help \$0-open-help-in empty
+16 7 1 9 -262144 -228856 -260097;
+#N canvas 319 453 318 218 OPEN 0;
+#X obj 118 93 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X msg 118 112 vis \$1;
+#X obj 118 71 r \$0-open-help;
+#X obj 118 132 s pd-\$0-HELP;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 2 0 0 0;
+#X restore 216 67 pd OPEN;
+#N canvas 151 79 407 375 \$0-HELP 1;
+#X obj 33 19 cnv 20 350 20 empty empty AIDES 10 10 0 12 -260097 -262144
+0;
+#N canvas 215 79 1100 677 1-MODES 0;
+#X obj 23 51 cnv 3 500 3 empty empty Modes 0 -20 0 30 -162280 -162280
+0;
+#X obj 23 74 cnv 15 110 20 empty empty ACTION 5 12 0 14 -233017 -66577
+0;
+#X obj 23 95 cnv 15 1060 220 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 552 205 image ../../docs/mode_action.gif;
+#X obj 23 384 cnv 15 110 20 empty empty EDIT 5 12 0 14 -233017 -66577
+0;
+#X obj 23 405 cnv 15 1060 220 empty empty empty 20 12 0 14 -233017
+-66577 0;
+#X obj 552 516 image ../../docs/mode_edition.gif;
+#X text 151 17 Dans Pure Data (Pd) \, vous avez deux modes : action
+et édition. Vous basculez entre les deux avec Ctl+e ou Cmd+e.;
+#X text 141 73 = Curseur en forme de flèche;
+#X text 138 385 = Curseur en forme de main;
+#X text 30 319 Clic = action ou ouvrir un objet;
+#X text 266 320 Clic + maintenir et \; glisser en haut et en bas;
+#X text 674 319 Clic + écrire + touche Entrée;
+#X text 868 320 Dessiner un tableau avec la souris;
+#X text 453 321 Clic + drag + touche "Majuscule" \; = float (nombres
+décimaux);
+#X text 272 628 Selectionner des objets \; bouger \, copier \, coller
+;
+#X text 477 629 Dupliquer (Ctrl+D) ou \; copier et coller;
+#X text 670 628 Connecter dans le sens \; sortie vers entrée !;
+#X text 28 628 Créer un objet (menu Ajouter ou \; Ctl+1);
+#X text 876 628 Déconnecter: Clic sur la connection \; et supprimer
+;
+#X restore 38 97 pd 1-MODES;
+#X obj 33 242 cnv 20 350 20 empty empty APPRENDRE_PLUS 10 10 0 12 -260097
+-262144 0;
+#N canvas 300 105 899 418 2-CONNECTIONS 0;
+#X obj 23 51 cnv 3 500 3 empty empty Connections 0 -20 0 30 -162280
+-162280 0;
+#X obj 22 105 cnv 15 850 220 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 446 215 image ../../docs/connection.gif;
+#X text 22 60 Connecter des objets pas à pas ...;
+#X text 16 335 En mode Edit \, sélectionner une sortie;
+#X text 286 335 Clic et maintenir (drag);
+#X text 456 336 Jusqu'à l'entrée de l'autre objet;
+#X text 734 338 Relâcher;
+#X restore 38 118 pd 2-CONNECTIONS;
+#N canvas 290 128 607 624 3-OBJETS 0;
+#X msg 263 70;
+#X text 260 90 message;
+#X obj 314 70 delay;
+#X floatatom 362 70 5 0 0 0 - - -;
+#X symbolatom 408 70 10 0 0 0 - - -;
+#X text 407 90 symbol;
+#X obj 32 52 cnv 3 500 3 empty empty Objects 0 -20 0 30 -162280 -162280
+0;
+#X obj 54 300 mouse;
+#X obj 52 419 3d-object;
+#X msg 190 387 object 1 \, size 0.5 \, line 1;
+#X obj 54 548 3d-object;
+#X msg 192 527 object \$1;
+#X floatatom 192 507 5 0 5 0 - - -;
+#X text 30 193 * Arguments :;
+#X obj 149 203 delay 2000;
+#X text 188 233 Argument;
+#X obj 230 153 delay;
+#X text 155 219 ^;
+#X text 155 221 |;
+#X text 195 218 ^;
+#X text 195 220 |;
+#X text 325 217 ^;
+#X text 325 219 |;
+#X text 379 218 ^;
+#X text 379 219 |;
+#X obj 318 201 select 0 1 2 3 4;
+#X text 482 71 any text;
+#X text 34 69 * Types d'éléments à reconnaître :;
+#X text 311 90 objet;
+#X text 360 90 nombre;
+#X text 483 90 commentaire;
+#X text 33 119 * Aide : Clic droit > Aide pour chaque objet;
+#X text 31 147 * Entrées et sorties :;
+#X text 176 145 entrée >;
+#X text 176 159 sortie >;
+#X text 268 144 < entrée;
+#X text 96 234 Nom de l'objet;
+#X text 275 233 Nom de l'objet;
+#X text 368 234 Plusieurs arguments;
+#X text 30 269 * Les abstractions de la Malinette :;
+#X text 212 293 Clic droit > Fichier d'aide \; Vous connaîtrez les
+arguments \, entrées et sorties Clic droit > Ouvrir \; Vous pourrez
+regarder à l'intérieur et changer les objets. Open Source power !
+;
+#X text 357 386 <= clic (en mode action);
+#X text 215 421 La plupart du temps \, les abstractions de la Malinette
+ont plusieurs entrées : une principale sur la gauche et d'autres sur
+la droite. Celle la plus à doite correspond généralement à l'ensemble
+de commandes possibles.;
+#X text 235 505 <= choisir un objet 3D (clic + drag en mode action)
+;
+#X text 258 526 <= un message (notez le bord droit en forme de drapeau)
+;
+#X text 232 559 Vous pouvez utiliser cette commande avec une variable
+\$1 pour changer dynamiquement le paramètre associé.;
+#X connect 9 0 8 1;
+#X connect 11 0 10 1;
+#X connect 12 0 11 0;
+#X restore 38 139 pd 3-OBJETS;
+#N canvas 311 80 541 658 4-REGLES 0;
+#X obj 23 194 cnv 15 500 15 empty empty empty 0 -20 0 30 -228856 -162280
+0;
+#X obj 23 69 cnv 15 500 15 empty empty empty 0 -20 0 30 -228856 -162280
+0;
+#X obj 23 53 cnv 3 500 3 empty empty Règles_dans_Pure_Data 0 -20 0
+30 -162280 -162280 0;
+#X floatatom 69 266 5 0 0 0 - - -;
+#X floatatom 127 264 5 0 0 0 - - -;
+#X floatatom 69 341 5 0 0 0 - - -;
+#X obj 139 130 bang;
+#X obj 61 588 +;
+#X obj 130 588 +;
+#X floatatom 61 611 5 0 0 0 faux! - -;
+#X floatatom 130 611 5 0 0 1 correct - -;
+#X floatatom 93 556 5 0 0 0 - - -;
+#X msg 51 442 clic;
+#X obj 43 342 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144 -1
+-1;
+#X obj 243 291 pack f f;
+#X floatatom 283 244 5 0 0 0 - - -;
+#X floatatom 243 244 5 0 0 0 - - -;
+#X msg 243 314 size \$1 \$2;
+#X obj 283 266 t b f;
+#X floatatom 246 551 5 0 0 0 - - -;
+#X obj 246 595 +;
+#X obj 246 572 t f f;
+#X floatatom 246 617 5 0 0 0 - - -;
+#X obj 139 110 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 139 155 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 37 266 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 69 313 f;
+#X floatatom 238 121 5 0 0 0 - - -;
+#X floatatom 238 150 5 0 0 0 - - -;
+#X msg 283 121 40;
+#X obj 22 374 cnv 15 500 15 empty empty empty 0 -20 0 30 -228856 -162280
+0;
+#X text 79 121 input --;
+#X text 73 135 output --;
+#X text 180 118 |;
+#X text 180 128 |;
+#X text 180 138 |;
+#X text 180 144 V;
+#X text 217 100 * Dataflow :;
+#X obj 51 502 print A;
+#X obj 108 501 print B;
+#X text 95 473 2nd;
+#X text 26 472 1st;
+#X msg 241 442 clic;
+#X obj 241 502 print A;
+#X obj 298 501 print B;
+#X text 216 472 2nd;
+#X text 285 473 1st;
+#X obj 243 337 vsl 25 21 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X text 27 67 1 - Du haut vers le bas \, connection de la sortie à
+l'entrée;
+#X text 27 192 2 - Entrées chaudes et entrées froides;
+#X text 66 219 gauche \; chaude \; direct;
+#X text 124 218 droite \; froide \; stockage;
+#X text 229 220 * Connections ordonnées : objet [trigger] ou [t];
+#X text 327 265 les données sont envoyées;
+#X text 329 279 de la droite vers la gauche;
+#X text 28 372 3- Priorités : ordre de connections;
+#X text 25 389 Ces deux exemples semblent identiques mais leurs ordre
+de création n'est pas le même. Regarder la fenêtre Pd (menu Fenpetre).
+;
+#X text 30 536 * Exemple avec une addition :;
+#X text 242 533 => solution : l'objet [trigger];
+#X connect 3 0 26 0;
+#X connect 4 0 26 1;
+#X connect 6 0 24 0;
+#X connect 7 0 9 0;
+#X connect 8 0 10 0;
+#X connect 11 0 7 0;
+#X connect 11 0 7 1;
+#X connect 11 0 8 1;
+#X connect 11 0 8 0;
+#X connect 12 0 38 0;
+#X connect 12 0 39 0;
+#X connect 14 0 17 0;
+#X connect 15 0 18 0;
+#X connect 16 0 14 0;
+#X connect 17 0 47 0;
+#X connect 18 0 14 0;
+#X connect 18 1 14 1;
+#X connect 19 0 21 0;
+#X connect 20 0 22 0;
+#X connect 21 0 20 0;
+#X connect 21 1 20 1;
+#X connect 23 0 6 0;
+#X connect 25 0 26 0;
+#X connect 26 0 5 0;
+#X connect 26 0 13 0;
+#X connect 27 0 28 0;
+#X connect 29 0 28 0;
+#X connect 42 0 44 0;
+#X connect 42 0 43 0;
+#X restore 38 160 pd 4-REGLES;
+#N canvas 292 178 857 536 5-TYPES_DE_DONNEES 0;
+#X obj 24 51 cnv 3 500 3 empty empty Types_de_données 0 -20 0 30 -162280
+-162280 0;
+#X floatatom 96 463 5 0 0 0 - - -;
+#X symbolatom 165 463 10 0 0 0 - - -;
+#X obj 27 485 bng 15 250 50 0 empty empty bang -6 23 1 12 -262144 -1
+-1;
+#X obj 27 427 route bang float symbol list;
+#X obj 96 485 bng 15 250 50 0 empty empty float -4 23 1 12 -262144
+-1 -1;
+#X obj 165 485 bng 15 250 50 0 empty empty symbol -12 23 1 12 -262144
+-1 -1;
+#X obj 234 485 bng 15 250 50 0 empty empty list -2 23 1 12 -262144
+-1 -1;
+#X obj 304 485 bng 15 250 50 0 empty empty undefined -18 23 1 12 -262144
+-1 -1;
+#X obj 25 100 cnv 15 100 25 empty empty TYPE 5 13 0 18 -260818 -1 0
+;
+#X obj 516 260 cnv 15 150 25 empty empty empty 20 12 0 14 -228992 -66577
+0;
+#X obj 25 260 cnv 15 100 25 empty empty empty 20 12 0 14 -228992 -66577
+0;
+#X obj 516 220 cnv 15 150 25 empty empty empty 20 12 0 14 -228992 -66577
+0;
+#X obj 25 221 cnv 15 100 25 empty empty empty 20 12 0 14 -228992 -66577
+0;
+#X obj 516 180 cnv 15 150 25 empty empty empty 20 12 0 14 -228992 -66577
+0;
+#X obj 25 180 cnv 15 100 25 empty empty empty 20 12 0 14 -228992 -66577
+0;
+#X obj 516 140 cnv 15 150 25 empty empty empty 20 12 0 14 -228992 -66577
+0;
+#X obj 516 300 cnv 15 150 25 empty empty empty 20 12 0 14 -228992 -66577
+0;
+#X obj 25 300 cnv 15 100 25 empty empty empty 20 12 0 14 -228992 -66577
+0;
+#X text 30 182 Integer;
+#X text 31 223 Float;
+#X text 31 260 Symbol;
+#X obj 132 260 cnv 15 220 25 empty empty empty 20 12 0 14 -228992 -66577
+0;
+#X obj 132 221 cnv 15 220 25 empty empty empty 20 12 0 14 -228992 -66577
+0;
+#X obj 132 180 cnv 15 220 25 empty empty empty 20 12 0 14 -228992 -66577
+0;
+#X obj 132 140 cnv 15 220 25 empty empty empty 20 12 0 14 -228992 -66577
+0;
+#X obj 132 300 cnv 15 220 25 empty empty empty 20 12 0 14 -228992 -66577
+0;
+#X obj 132 100 cnv 15 220 25 empty empty DESCRIPTION 5 13 0 18 -260818
+-1 0;
+#X obj 359 100 cnv 15 150 25 empty empty MESSAGES 5 13 0 18 -260818
+-1 0;
+#X obj 516 100 cnv 15 150 25 empty empty EDITION 5 13 0 18 -260818
+-1 0;
+#X obj 673 260 cnv 15 163 25 empty empty empty 20 12 0 14 -228992 -66577
+0;
+#X obj 673 220 cnv 15 163 25 empty empty empty 20 12 0 14 -228992 -66577
+0;
+#X obj 673 180 cnv 15 163 25 empty empty empty 20 12 0 14 -228992 -66577
+0;
+#X obj 673 140 cnv 15 163 25 empty empty empty 20 12 0 14 -228992 -66577
+0;
+#X obj 673 300 cnv 15 163 25 empty empty empty 20 12 0 14 -228992 -66577
+0;
+#X obj 673 100 cnv 15 163 25 empty empty STORAGE 5 13 0 18 -260818
+-1 0;
+#X obj 679 184 i;
+#X obj 679 224 f;
+#X obj 679 264 symbol;
+#X obj 719 184 int;
+#X obj 719 224 float;
+#X obj 679 144 b;
+#X obj 719 144 bang;
+#X obj 680 303 list;
+#X obj 27 383 r TYPE;
+#X obj 38 405 print TYPE;
+#X obj 359 260 cnv 15 150 25 empty empty empty 20 12 0 14 -228992 -66577
+0;
+#X obj 359 220 cnv 15 150 25 empty empty empty 20 12 0 14 -228992 -66577
+0;
+#X obj 359 180 cnv 15 150 25 empty empty empty 20 12 0 14 -228992 -66577
+0;
+#X obj 359 140 cnv 15 150 25 empty empty empty 20 12 0 14 -228992 -66577
+0;
+#X obj 359 300 cnv 15 150 25 empty empty empty 20 12 0 14 -228992 -66577
+0;
+#X obj 25 140 cnv 15 100 25 empty empty empty 20 12 0 14 -228992 -66577
+0;
+#X text 30 142 Bang;
+#X obj 524 145 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 368 145 bang;
+#X msg 368 303 45 2.7 pomme;
+#X msg 368 224 4.72;
+#X msg 368 264 symbol hello;
+#X msg 368 184 4;
+#X obj 368 339 s TYPE;
+#X floatatom 524 185 5 0 0 0 - - -;
+#X floatatom 524 225 5 0 0 0 - - -;
+#X symbolatom 524 266 10 0 0 0 - - -;
+#X obj 525 305 pack;
+#X text 594 228 + shift;
+#X obj 525 332 unpack;
+#X text 593 188 + shift;
+#X text 33 302 List;
+#X text 310 33 (adapté des cours de Rapha�l Isdant);
+#X text 23 61 C'est plutôt difficile de distinguer les différents
+types de données. Fiez-vous aux indices visuels \, le bord droit.
+;
+#X text 141 183 Nombre entier;
+#X text 139 223 Nombre décimaux;
+#X text 139 263 Textes \, mots \, ...;
+#X text 140 142 Impulsion;
+#X text 215 426 <= Déterminer les données selon leurs types;
+#X text 548 426 D'autres types \; "any" pour anything ([trigger] object)
+\; "pointer" (data structures);
+#X text 593 176 + clic;
+#X text 594 216 + clic;
+#X text 592 261 + clic;
+#X text 139 302 Plusieurs éléments (paquet);
+#X connect 1 0 5 0;
+#X connect 2 0 6 0;
+#X connect 4 0 3 0;
+#X connect 4 1 1 0;
+#X connect 4 2 2 0;
+#X connect 4 3 7 0;
+#X connect 4 4 8 0;
+#X connect 44 0 4 0;
+#X connect 44 0 45 0;
+#X connect 54 0 59 0;
+#X connect 55 0 59 0;
+#X connect 56 0 59 0;
+#X connect 57 0 59 0;
+#X connect 58 0 59 0;
+#X restore 38 181 pd 5-TYPES_DE_DONNEES;
+#N canvas 290 142 554 615 6-OBJETS_GRAPHIQUES 0;
+#X obj 104 112 tgl 30 1 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X obj 35 112 bng 30 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 185 208 hsl 128 15 0 127 0 0 empty empty empty -2 -6 0 8 -262144
+-1 -1 0 1;
+#X obj 32 445 vu 15 120 empty empty -1 -8 0 8 -66577 -1 1 0;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array \$0_my_array 10 float 3;
+#A 0 0 0.200001 -0.0714264 -0.371425 0.0714297 -0.242854 -0.342854
+-0.314282 -0.114284 0.228572;
+#X coords 0 1 10 -1 200 140 1 0 0;
+#X restore 178 449 graph;
+#X obj 181 280 vsl 15 128 0 127 0 0 empty empty empty 0 -8 0 8 -262144
+-1 -1 0 1;
+#X obj 32 207 hradio 15 1 0 8 empty empty empty 0 -6 0 8 -262144 -1
+-1 0;
+#X obj 32 279 vradio 15 1 0 8 empty empty empty 0 -6 0 8 -262144 -1
+-1 0;
+#X text 99 85 Toggle;
+#X text 358 182 Canvas;
+#X obj 361 204 cnv 15 100 60 empty empty empty 20 12 0 14 -250685 -66577
+0;
+#X floatatom 259 112 5 0 0 0 - - -;
+#X symbolatom 171 113 10 0 0 0 - - -;
+#X text 168 86 Symbol;
+#X text 256 87 Number;
+#X text 32 85 Bang;
+#X obj 34 51 cnv 3 500 3 empty empty Graphical_objects 0 -20 0 30 -162280
+-162280 0;
+#X floatatom 104 147 5 0 0 0 - - -;
+#X text 30 183 Horizontal radio;
+#X text 28 257 Vertical radio;
+#X floatatom 32 230 5 0 0 0 - - -;
+#X text 179 184 Horizontal slider;
+#X text 178 258 Vertical slider;
+#X text 176 416 Array;
+#X text 27 417 VU-meter;
+#X floatatom 182 227 5 0 0 0 - - -;
+#X text 33 61 Dans le menu "Ajouter" :;
+#X text 353 63 * Clic droit > propriétés;
+#X text 354 95 * En mode action \, click + \; shift sur les nombre
+et \; sliders pour obtenir des \; nombres décimaux.;
+#X connect 0 0 17 0;
+#X connect 2 0 25 0;
+#X connect 6 0 20 0;
+#X restore 38 202 pd 6-OBJETS_GRAPHIQUES;
+#X text 34 50 Pour utiliser la Malinette \, vous avez besoin de connaître
+quelques bases de Pure Data :;
+#X text 34 270 Une bonne façon d'apprendre Pure Data est de suivre
+les examples du manuel : menu Aide > Navigateur > Manuals > 0.Intro
+> +pager.pd;
+#X text 33 320 Ou/et de suivre le manuel en ligne : https://fr.flossmanuals.net
+;
+#X restore 216 97 pd \$0-HELP;
+#X obj 133 103 bng 10 250 50 0 \$0-open-help \$0-open-help-in empty
+16 7 1 9 -262144 -228856 -260097;
+#X obj 100 100 cnv 15 44 16 empty empty ? 5 9 1 9 -228856 -99865 0
+;
+#X obj 114 107 cnv 4 1 1 empty empty AIDES 0 2 1 9 -228856 -99865 0
+;
+#X coords 0 -1 1 1 44 16 2 100 100;

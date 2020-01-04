@@ -1,0 +1,12 @@
+#N canvas 4 53 450 300 10;
+#X obj 122 70 pack~;
+#X obj 122 93 length;
+#X floatatom 145 139 5 0 0 0 - - -;
+#X obj 122 116 change;
+#X obj 122 157 outlet;
+#X obj 121 39 sig~ 1;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 3 0 4 0;
+#X connect 3 0 2 0;
+#X connect 5 0 0 0;

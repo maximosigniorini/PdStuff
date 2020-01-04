@@ -1,0 +1,35 @@
+#N canvas 134 80 548 607 10;
+#X obj 44 202 osc~ 440;
+#X obj 44 222 *~ 0.2;
+#X obj 102 225 *~ 0.2;
+#X obj 102 203 noise~;
+#X floatatom 108 254 5 0 1 0 - - -;
+#X floatatom 109 290 5 0 1 0 - - -;
+#X text 38 181 Test sounds;
+#X obj 421 400 ../master/audio-master;
+#X text 175 436 ===> send audio to audio-master ====>;
+#X text 44 406 Bus n°1;
+#X text 420 496 Final output;
+#X obj 47 470 *~ 0.2;
+#X obj 47 450 osc~ 1100;
+#X text 47 567 Bus n°2;
+#X text 147 253 volume (0-1);
+#X text 106 343 <- mute;
+#X text 105 357 <- fade out (2000 ms);
+#X text 147 293 panning (0-1);
+#X obj 46 491 audio-out 0.4 0.1;
+#X obj 45 327 audio-out;
+#X text 105 369 <- random volume;
+#X text 105 383 <- random panning;
+#X text 38 19 audio-out \; --------- \; Audio bus send audio to the
+[audio-master] \; Arguments \; \$1 : volume (0-1) \; \$2 : panning
+(0.1-1) \; Inlets \; 1: Audio left input (~) \; 2: Audio right input
+(~) \; 3: Volume (0-1) \; 4: Panning (0-1) \;;
+#X connect 0 0 1 0;
+#X connect 1 0 19 0;
+#X connect 2 0 19 1;
+#X connect 3 0 2 0;
+#X connect 4 0 19 2;
+#X connect 5 0 19 3;
+#X connect 11 0 18 0;
+#X connect 12 0 11 0;

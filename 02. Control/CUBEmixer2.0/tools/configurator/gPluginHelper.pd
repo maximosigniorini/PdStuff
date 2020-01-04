@@ -1,0 +1,17 @@
+#N canvas 0 0 450 300 10;
+#X obj 206 130 r \$2;
+#X obj 115 195 pack s 0;
+#X obj 115 135 symbol \$1;
+#X obj 115 108 b;
+#X obj 115 82 r \$3-inlet;
+#X obj 115 236 s \$3-outlet;
+#X text 63 49 [gPluginHelper COMANDER \$0-COMPANDER \$0];
+#X obj 206 152 route float;
+#X msg 115 216 \$2 \$1;
+#X connect 0 0 7 0;
+#X connect 1 0 8 0;
+#X connect 2 0 1 0;
+#X connect 3 0 2 0;
+#X connect 4 0 3 0;
+#X connect 7 0 1 1;
+#X connect 8 0 5 0;

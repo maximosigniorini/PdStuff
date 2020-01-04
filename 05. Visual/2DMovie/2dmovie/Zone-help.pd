@@ -1,0 +1,172 @@
+#N canvas 335 28 917 514 10;
+#X obj 2 -175 cnv 15 700 50 empty empty Zone 3 12 0 18 -260080 -1 0
+;
+#X text 591 -158 @author Pertuit;
+#X text 22 -91 DESCRIPTION;
+#X text 21 49 ARGUMENTS;
+#X text 22 152 INLETS \; aucun;
+#X text 22 196 OUTLETS \; aucun;
+#X obj 503 -83 gemmanager;
+#N canvas 127 59 1133 664 variables-et-fonctions 0;
+#X floatatom 77 390 5 0 0 0 - - -;
+#X floatatom 77 204 5 0 0 0 - - -;
+#X obj 74 91 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X floatatom 77 264 5 0 0 0 - - -;
+#X floatatom 77 327 5 0 0 0 - - -;
+#X msg 76 149 1;
+#X msg 137 148 0;
+#X obj 623 421 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 624 478 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 627 164 5 0 0 0 - - -;
+#X floatatom 624 32 5 0 0 0 - - -;
+#X obj 73 34 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 79 492 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 79 540 5 0 0 0 - - -;
+#X floatatom 184 540 5 0 0 0 - - -;
+#X text 72 6 VARIABLES;
+#X text 79 462 FONCTIONS;
+#X obj 74 114 s zone1.visible;
+#X obj 76 171 s zone1.alpha;
+#X obj 77 231 s zone1.x;
+#X obj 77 293 s zone1.y;
+#X obj 77 356 s zone1.scaleX;
+#X text 190 49 mode - Mode d'affichage de la zone : zone pleine (0
+\, par défaut) ou contour (1).;
+#X obj 73 60 s zone1.mode;
+#X obj 79 515 getImageSize zone1;
+#X msg 107 148 0.2;
+#X text 184 165 alpha - Transparence de la zone (0 à 1). Les zones
+sont définies par défaut avec une transparence de 0.2.;
+#X text 200 106 visible - Variable de visibilité de la zone : visible
+(1) ou invisible (0).;
+#X text 164 230 x - Position de la zone sur l'axe horizontal (en pixels).
+;
+#X text 165 292 y - Position de la zone sur l'axe vertical (en pixels).
+;
+#X text 184 348 scaleX - Echelle horizontale de la zone. La valeur
+1 correspond à la taille initiale de la zone.;
+#X text 185 410 scaleY - Echelle verticale de la zone. La valeur 1
+correspond à la taille initiale de la zone.;
+#X obj 624 60 s zone1.rotation;
+#X text 742 53 rotation - Rotation de la zone par rapport au centre.
+L'angle de rotation est en degré.;
+#X obj 625 119 s zone1.color;
+#X msg 679 97 0 0 1;
+#X msg 625 97 1 0 0;
+#X obj 627 193 s zone1.layer;
+#X obj 627 355 s zone1.mouseMode;
+#X obj 623 392 r zone1.mouseOver;
+#X obj 624 448 r zone1.mouseClic;
+#X floatatom 178 620 5 0 0 0 - - -;
+#X floatatom 79 620 5 0 0 0 - - -;
+#X obj 79 572 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 79 595 getPosition zone1;
+#X obj 77 417 s zone1.scaleY;
+#X text 754 326 mouseMode - Activation de la souris : non actif (0
+\, par défaut) \, souris active (1) ou souris active avec drag&drop
+de la zone (2).;
+#X msg 627 327 0;
+#X msg 657 327 1;
+#X msg 687 327 2;
+#X text 742 162 layer - Numéro de la couche d'affichage dans la chaîne
+d'affichage gem. Par défaut \, les zones sont placées sur la couche
+60 de façon à apparaître devant les images utilisées comme fond
+d'écran (couche 50). On peut jouer sur cette variable pour passer
+devant ou derrière des images.;
+#X text 754 382 mouseOver - teste le survol de la zone par la souris
+: 1 (sur la zone) ou 0 (en dehors de la zone). Il faut que "mouseMode"
+soit à 1 ou 2 (souris active).;
+#X text 754 436 mouseClic - teste le clic sur la zone : 1 (clic sur
+la zone) ou 0 (en dehors). Il faut que "mouseMode" soit à 1 ou 2 (souris
+active).;
+#X text 743 111 color - Réglage des couleurs appliquées à la zone
+: liste des 3 couleurs RVB (0 à 1).;
+#X text 215 506 getImageSize - Retourne la valeur de la taille de la
+zone (en pixels) dans la fenêtre de travail.;
+#X text 215 587 getPosition - Retourne la valeur de la position en
+x et y de la zone dans la fenêtre de travail.;
+#X floatatom 627 254 5 0 0 0 - - -;
+#X obj 627 283 s zone1.depthZ;
+#X text 754 249 depthZ - Profondeur selon z du plan de projection de
+la zone. Par défaut \, le plan de projection est le plan XY pour z=0.
+Cette variable est utile pour le positionnement des images planes 2DMovie
+par rapport aux formes 3D gem.;
+#X connect 0 0 45 0;
+#X connect 1 0 19 0;
+#X connect 2 0 17 0;
+#X connect 3 0 20 0;
+#X connect 4 0 21 0;
+#X connect 5 0 18 0;
+#X connect 6 0 18 0;
+#X connect 9 0 37 0;
+#X connect 10 0 32 0;
+#X connect 11 0 23 0;
+#X connect 12 0 24 0;
+#X connect 24 0 13 0;
+#X connect 24 1 14 0;
+#X connect 25 0 18 0;
+#X connect 35 0 34 0;
+#X connect 36 0 34 0;
+#X connect 39 0 7 0;
+#X connect 40 0 8 0;
+#X connect 43 0 44 0;
+#X connect 44 0 42 0;
+#X connect 44 1 41 0;
+#X connect 47 0 38 0;
+#X connect 48 0 38 0;
+#X connect 49 0 38 0;
+#X connect 56 0 57 0;
+#X restore 26 268 pd variables-et-fonctions;
+#X text 141 -169 Patch pour l'affichage d'une zone rectangulaire.;
+#X text 21 13 Le point d'ancrage de la zone est son centre.;
+#X text 23 117 Par ex: [zone mazone 10 10 20 100];
+#X text 21 -70 Le patch Zone définit une zone rectangulaire de couleur.
+;
+#X text 21 -11 Voir les patches : [hitTestObject] et [hitTestCircle]
+;
+#X text 21 -50 On peut utiliser cette zone comme simple surface ou
+bien comme zone sensible (collision entre un objet graphique et cette
+surface rendue transparente \, par exemple).;
+#X text 22 70 1- symbole : le nom de la variable Zone \; 2 et 3- nombres
+: sa position en x et y (en pixels) \; 4 et 5- nombres : sa surface
+(largeur \, hauteur) en pixels;
+#X obj 470 6 zone zone1 220 280 300 100;
+#X text 591 -146 @version 1;
+#X obj 677 -40 loadbang;
+#X text 23 238 On utilise des liaisons sans fil pour communiquer.;
+#X text 591 -171 @library 2DMovie;
+#X obj 409 165 r zone1.mouseOver;
+#X obj 409 188 + 0.2;
+#X msg 677 -7 \; zone2.color 1 0 0 \; zone3.color 0 1 0 \; zone4.color
+1 1 0 \; zone1.mouseMode 1 \; zone2.mouseMode 1 \; zone3.mouseMode
+1 \; zone4.mouseMode 1 \;;
+#X obj 523 165 r zone2.mouseOver;
+#X obj 637 165 r zone3.mouseOver;
+#X obj 751 165 r zone4.mouseOver;
+#X obj 751 211 s zone4.alpha;
+#X obj 637 211 s zone3.alpha;
+#X obj 523 211 s zone2.alpha;
+#X obj 409 211 s zone1.alpha;
+#X obj 523 188 + 0.2;
+#X obj 637 188 + 0.2;
+#X obj 751 188 + 0.2;
+#X text 521 243 (survol des zones avec la souris);
+#X obj 470 33 zone zone2 320 200 160 200;
+#X obj 470 60 zone zone3 450 220 320 50;
+#X obj 470 87 zone zone4 450 220 250 300;
+#X connect 17 0 22 0;
+#X connect 20 0 21 0;
+#X connect 21 0 29 0;
+#X connect 23 0 30 0;
+#X connect 24 0 31 0;
+#X connect 25 0 32 0;
+#X connect 30 0 28 0;
+#X connect 31 0 27 0;
+#X connect 32 0 26 0;
+#X coords 0 514 1 513 65 15 0;

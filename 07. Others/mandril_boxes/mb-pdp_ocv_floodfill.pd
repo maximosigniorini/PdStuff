@@ -1,0 +1,255 @@
+#N canvas 4 63 1655 740 10;
+#X obj 34 319 symbol \$1;
+#X obj 134 359 ftos;
+#X obj 105 311 float \$1;
+#X floatatom 105 340 5 0 0 0 - - -;
+#X symbolatom 35 352 0 0 0 0 - - -;
+#X symbolatom 95 390 10 0 0 0 - - -;
+#X obj 44 273 loadbang;
+#X obj 97 427 s \$1pdp_ocv_floodfill_id;
+#X obj 251 50 inlet;
+#X text 309 50 video;
+#X text 478 32 on/off;
+#X obj 308 532 outlet;
+#X obj 284 102 pdp_spigot;
+#X text 355 528 video;
+#X obj 413 9 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 446 12 r \$1pdp_ocv_floodfill_on;
+#X obj 0 0 cnv 15 150 150 empty empty empty 2 12 0 14 -191407 -66577
+0;
+#X obj 6 4 tgl 15 0 \$1pdp_ocv_floodfill_on \$1pdp_ocv_floodfill_on_init
+floodfill 17 7 0 8 -260097 -1 -1 0 1;
+#X obj 80 4 cnv 15 20 10 empty \$1pdp_ocv_floodfill_id \$1 5 5 0 10
+-260097 -33289 0;
+#X obj 106 3 bng 15 250 50 0 \$1pdp_ocv_floodfill_midi_on empty midi
+17 7 0 8 -4160 -1 -1;
+#N canvas 758 501 1081 564 midi_control 0;
+#X msg 77 175 ffpdp_ocv_floodfill_on_midi;
+#X text 27 19 MIDI;
+#X obj 11 148 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 134 196 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 261 196 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 32 368 5 0 0 0 - - -;
+#X obj 30 413 select 0;
+#X msg 143 472 0;
+#X msg 62 471 1;
+#X obj 414 279 s midi_var_to_add;
+#X msg 77 141 set \$1pdp_ocv_floodfill_on_midi;
+#X obj 29 338 r \$1pdp_ocv_floodfill_on_midi;
+#X obj 10 496 s \$1pdp_ocv_floodfill_on_init;
+#X obj 33 54 r \$1pdp_ocv_floodfill_midi_on;
+#X text 531 278 -->global value of mb-midi_control_pad;
+#X obj 446 44 r \$1pdp_ocv_floodfill_id;
+#X floatatom 113 384 1 0 0 0 - - -;
+#X obj 85 444 alternate;
+#X floatatom 531 396 5 0 0 0 - - -;
+#X floatatom 557 465 8 0 0 0 - - -;
+#X obj 612 399 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X msg 277 170 ffpdp_ocv_floodfill_tolerance_midi;
+#X obj 231 497 s \$1pdp_ocv_floodfill_set_init;
+#X obj 508 341 r \$1pdp_ocv_floodfill_threshold_midi;
+#X obj 489 499 s \$1pdp_ocv_floodfill_threshold_init;
+#X obj 626 436 autoscale 0 300;
+#X msg 277 139 set \$1pdp_ocv_floodfill_tolerance_midi;
+#X obj 228 337 r \$1pdp_ocv_floodfill_tolerance_midi;
+#X floatatom 228 408 5 0 0 0 - - -;
+#X connect 0 0 3 0;
+#X connect 0 0 9 0;
+#X connect 2 0 0 0;
+#X connect 3 0 21 0;
+#X connect 5 0 6 0;
+#X connect 6 1 17 0;
+#X connect 7 0 12 0;
+#X connect 8 0 12 0;
+#X connect 10 0 0 0;
+#X connect 11 0 5 0;
+#X connect 11 0 16 0;
+#X connect 13 0 2 0;
+#X connect 15 0 10 0;
+#X connect 15 0 26 0;
+#X connect 17 0 8 0;
+#X connect 17 1 7 0;
+#X connect 18 0 20 0;
+#X connect 19 0 24 0;
+#X connect 20 0 25 0;
+#X connect 21 0 4 0;
+#X connect 21 0 9 0;
+#X connect 23 0 18 0;
+#X connect 25 0 19 0;
+#X connect 26 0 21 0;
+#X connect 27 0 28 0;
+#X connect 28 0 22 0;
+#X restore 172 16 pd midi_control;
+#X obj 44 43 nbx 3 14 -1e+37 1e+37 0 0 empty \$1pdp_ocv_floodfill_ltolerance
+empty 0 30 0 8 -66577 -260097 -260097 0 256;
+#X text 1303 109 select a color;
+#X floatatom 914 132 5 0 0 0 - - -;
+#X obj 1181 43 r \$1pdp_ocv_floodfill_R;
+#X obj 1221 65 r \$1pdp_ocv_floodfill_G;
+#X obj 1263 88 r \$1pdp_ocv_floodfill_B;
+#X obj 2 132 nbx 3 14 0 256 0 0 \$1pdp_ocv_floodfill_R \$1pdp_ocv_floodfill_R_init
+empty 0 -8 0 8 -258113 -1 -1 0 256;
+#X obj 34 132 nbx 3 14 0 256 0 0 \$1pdp_ocv_floodfill_G \$1pdp_ocv_floodfill_G_init
+empty 0 -8 0 8 -4034 -1 -1 0 256;
+#X obj 65 132 nbx 3 14 0 256 0 0 \$1pdp_ocv_floodfill_B \$1pdp_ocv_floodfill_B_init
+empty 0 -8 0 8 -4160 -1 -1 0 256;
+#X obj 25 517 f \$0;
+#X symbolatom 32 558 0 0 0 0 - - -;
+#X msg 25 608 \; \$1 vis \$2;
+#X obj 25 579 pack symbol float;
+#X obj 25 493 t b f;
+#X obj 21 463 r \$1pdp_ocv_floodfill_selectcolor;
+#X obj 97 133 tgl 12 0 \$1pdp_ocv_floodfill_selectcolor empty select
+17 7 0 8 -99865 -1 -1 0 1;
+#N canvas 424 463 289 77 \$1-pdp_selectcolorf 0;
+#X obj -12 2 pdp_colorgrid pdp_colorgrid3 256 0 256 50 0 50 0 1 1 10
+10 137 26;
+#X obj -12 56 nbx 3 15 0 256 0 0 \$1pdp_ocv_floodfill_R_init empty
+empty 0 -8 0 10 -258113 -1 -1 0 256;
+#X obj 112 58 nbx 3 15 0 256 0 0 \$1pdp_ocv_floodfill_G_init empty
+empty 0 -8 0 10 -4034 -1 -1 0 256;
+#X obj 207 58 nbx 3 15 0 256 0 0 \$1pdp_ocv_floodfill_B_init empty
+empty 0 -8 0 10 -4160 -1 -1 0 256;
+#X connect 0 0 1 0;
+#X connect 0 1 2 0;
+#X connect 0 2 3 0;
+#X restore 26 656 pd \$1-pdp_selectcolorf;
+#X obj 25 536 makesymbol pd-\$1-pdp_selectcolorf;
+#X msg 665 87 mark \$1 \$2;
+#X msg 660 166 color \$1;
+#X obj 661 144 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 740 73 mark %x %y : mark a component;
+#X text 740 85 ( 0 <= %x <= 1 );
+#X text 741 96 ( 0 <= %y <= 1 );
+#X obj 948 395 route 0 1 2 3 4 5 6 7 8 9;
+#X floatatom 949 440 5 0 0 0 - - -;
+#X floatatom 985 441 5 0 0 0 - - -;
+#X floatatom 1021 441 5 0 0 0 - - -;
+#X floatatom 1057 441 5 0 0 0 - - -;
+#X obj 949 418 unpack f f f f;
+#X text 951 457 X;
+#X text 988 457 Y;
+#X text 1020 458 Width;
+#X text 1058 458 Height;
+#X msg 1411 305 delete 1;
+#X msg 725 166 clear;
+#X text 1107 396 detected components;
+#X text 954 133 lower tolerance ( default 20 );
+#X obj 781 365 pdp_opencv_floodfill;
+#X obj 914 108 r \$1pdp_ocv_floodfill_ltolerance;
+#X floatatom 926 187 5 0 0 0 - - -;
+#X text 964 189 upper tolerance ( default 20 );
+#X obj 926 163 r \$1pdp_ocv_floodfill_utolerance;
+#X obj 663 30 inlet;
+#X text 708 33 video window out;
+#X obj 663 53 route press;
+#X msg 551 101 connectivity 10;
+#X obj 551 71 loadbang;
+#X obj 8 25 knob 32 32 0 500 0 0 \$1pdp_ocv_floodfill_ltolerance \$1pdp_ocv_floodfill_ltolerance_init
+Ltolerance -7 40 192 8 -99865 -260097 -1 0 1;
+#X obj 82 26 knob 32 32 0 500 0 0 \$1pdp_ocv_floodfill_utolerance \$1pdp_ocv_floodfill_utolerance_init
+Utolerance -7 40 192 8 -99865 -260097 -1 0 1;
+#X obj 117 45 nbx 3 14 -1e+37 1e+37 0 0 empty \$1pdp_ocv_floodfill_utolerance
+empty 0 30 0 8 -66577 -260097 -260097 0 256;
+#X obj 10 71 tgl 12 0 \$1pdp_ocv_floodfill_color \$1pdp_ocv_floodfill_color_init
+color 17 7 0 8 -260097 -1 -1 0 1;
+#X obj 666 119 r \$1pdp_ocv_floodfill_color;
+#X obj 68 72 bng 12 250 50 0 \$1pdp_ocv_floodfill_clear \$1pdp_ocv_floodfill_clear_init
+clear 17 7 0 8 -258113 -1 -1;
+#X obj 730 140 r \$1pdp_ocv_floodfill_clear;
+#X obj 2 90 hradio 12 1 0 10 \$1pdp_ocv_floodfill_comp \$1pdp_ocv_floodfill_comp_init
+empty 0 -8 0 10 -260097 -1 -1 0;
+#X obj 123 88 nbx 1 14 -1e+37 1e+37 0 0 empty \$1pdp_ocv_floodfill_comp
+empty 0 30 0 8 -66577 -260097 -260097 0 256;
+#X floatatom 1181 85 5 0 0 0 - - -;
+#X floatatom 1338 190 5 0 0 0 - - -;
+#X obj 1264 154 t b f;
+#X obj 1338 142 r \$1pdp_ocv_floodfill_comp;
+#X obj 1180 64 int;
+#X floatatom 1222 108 5 0 0 0 - - -;
+#X obj 1221 87 int;
+#X floatatom 1264 131 5 0 0 0 - - -;
+#X obj 1263 110 int;
+#X obj 1222 130 t b f;
+#X obj 1224 213 pack f f f f;
+#X msg 1224 242 fillcolor \$4 \$1 \$2 \$3;
+#X obj 1385 257 int;
+#X obj 1406 212 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 1225 280 delete \$1;
+#X obj 7 109 bng 12 250 50 0 \$1pdp_ocv_floodfill_delete \$1pdp_ocv_floodfill_delete_init
+delete 17 7 0 8 -257985 -1 -1;
+#X obj 1416 189 r \$1pdp_ocv_floodfill_delete;
+#X obj 1352 165 + 1;
+#X connect 0 0 4 0;
+#X connect 1 0 5 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X connect 4 0 5 0;
+#X connect 5 0 7 0;
+#X connect 6 0 2 0;
+#X connect 6 0 0 0;
+#X connect 8 0 12 0;
+#X connect 12 0 11 0;
+#X connect 12 1 59 0;
+#X connect 14 0 12 1;
+#X connect 15 0 14 0;
+#X connect 23 0 59 1;
+#X connect 24 0 82 0;
+#X connect 25 0 84 0;
+#X connect 26 0 86 0;
+#X connect 30 0 38 0;
+#X connect 33 0 32 0;
+#X connect 34 0 30 0;
+#X connect 34 1 33 1;
+#X connect 35 0 34 0;
+#X connect 38 0 31 0;
+#X connect 38 0 33 0;
+#X connect 39 0 59 0;
+#X connect 40 0 59 0;
+#X connect 41 0 40 0;
+#X connect 45 0 50 0;
+#X connect 50 0 46 0;
+#X connect 50 1 47 0;
+#X connect 50 2 48 0;
+#X connect 50 3 49 0;
+#X connect 55 0 59 0;
+#X connect 56 0 59 0;
+#X connect 59 0 11 0;
+#X connect 59 1 45 0;
+#X connect 60 0 23 0;
+#X connect 61 0 59 2;
+#X connect 63 0 61 0;
+#X connect 64 0 66 0;
+#X connect 66 0 39 0;
+#X connect 67 0 59 0;
+#X connect 68 0 67 0;
+#X connect 73 0 41 0;
+#X connect 75 0 56 0;
+#X connect 78 0 88 0;
+#X connect 79 0 88 3;
+#X connect 79 0 90 1;
+#X connect 80 0 88 0;
+#X connect 80 1 88 2;
+#X connect 81 0 95 0;
+#X connect 82 0 78 0;
+#X connect 83 0 87 0;
+#X connect 84 0 83 0;
+#X connect 85 0 80 0;
+#X connect 86 0 85 0;
+#X connect 87 0 88 0;
+#X connect 87 1 88 1;
+#X connect 88 0 89 0;
+#X connect 89 0 59 0;
+#X connect 90 0 92 0;
+#X connect 91 0 90 0;
+#X connect 92 0 59 0;
+#X connect 94 0 91 0;
+#X connect 95 0 79 0;
+#X coords 0 -1 1 1 150 150 1 0 0;

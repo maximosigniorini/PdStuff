@@ -1,0 +1,125 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/src/iemgui
+END
+LICENCE.txt
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/src/iemgui/LICENCE.txt
+END
+sym_dial.c
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/src/iemgui/sym_dial.c
+END
+iemlib.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/src/iemgui/iemlib.h
+END
+makefile_win
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/src/iemgui/makefile_win
+END
+room_sim_2d.c
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/src/iemgui/room_sim_2d.c
+END
+room_sim_3d.c
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/src/iemgui/room_sim_3d.c
+END
+iem_event.c
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/src/iemgui/iem_event.c
+END
+iem_image.c
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/src/iemgui/iem_image.c
+END
+iemgui.c
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/src/iemgui/iemgui.c
+END
+iemgui.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/src/iemgui/iemgui.dsp
+END
+iemgui.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/src/iemgui/iemgui.h
+END
+iem_vu.c
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/src/iemgui/iem_vu.c
+END
+cube_sphere.c
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/src/iemgui/cube_sphere.c
+END
+numberbox_matrix.c
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/src/iemgui/numberbox_matrix.c
+END
+hfadl_scale.c
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/src/iemgui/hfadl_scale.c
+END
+vfad_scale.c
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/src/iemgui/vfad_scale.c
+END
+iemgui.dsw
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/src/iemgui/iemgui.dsw
+END
+hfadr_scale.c
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/src/iemgui/hfadr_scale.c
+END
+help-cube_sphere.pd
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/src/iemgui/help-cube_sphere.pd
+END
+makefile
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/src/iemgui/makefile
+END

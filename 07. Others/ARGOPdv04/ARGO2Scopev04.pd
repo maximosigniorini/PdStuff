@@ -1,0 +1,274 @@
+#N canvas 376 98 416 442 10;
+#X obj 52 339 active;
+#X obj 52 356 s \$0-SendActive;
+#X obj 8 77 nbx 2 12 0 16 0 1 \$0-SendARGOBusInput \$0-ReceiveARGOBusInput
+ARGOBus -55 6 1 9 -262144 -1 -1 0 256;
+#X obj 9 47 tgl 10 1 \$0-SendInput1 \$0-ReceiveInput1 1 2 -6 1 9 -262144
+-1 -1 1 1;
+#X obj 9 244 tgl 10 1 \$0-SendInput2 \$0-ReceiveInput2 2 2 -6 1 9 -262144
+-1 -1 1 1;
+#X obj 342 24 vsl 11 195 0 10 0 1 \$0-SendZoomY ColorAmpli empty 0
+-8 0 8 -261299 -1 -1 2700 0;
+#X obj 356 194 cnv 10 20 10 empty empty 1 0 5 1 9 -262144 -1 1.04858e+06
+;
+#X obj 356 153 cnv 10 20 10 empty empty 10 0 5 1 9 -262144 -1 1.04858e+06
+;
+#X obj 355 19 cnv 10 20 10 empty empty 100 0 5 1 9 -262144 -1 1.04858e+06
+;
+#X obj 283 6 tgl 12 1 \$0-SendAuto \$0-ReceiveAuto Auto 14 6 1 9 -262144
+-1 -1 1 1;
+#X obj 210 6 bng 12 250 50 0 \$0-SendAction \$0-ReceiveAction Action
+14 6 1 9 -262144 -1 -1;
+#X obj 43 23 cnv 20 298 198 empty ColorForm empty 20 12 0 14 -188398
+-1 1.04858e+06;
+#N canvas 0 22 454 304 graph2 0;
+#X array \$0S-- 1120 float 0;
+#X coords 0 1 1119 -1 300 200 1;
+#X restore 42 22 graph;
+#N canvas 520 193 508 255 Help-- 0;
+#X obj 10 67 cnv 15 400 54 empty empty empty 20 12 0 14 -224896 -66577
+0;
+#X text 12 66 Construit sous/Build under;
+#X text 12 78 Pd 0.38.4-extended;
+#X obj 11 124 cnv 15 400 30 empty empty empty 20 12 0 14 -259090 -66577
+0;
+#X text 12 91 Voir/Look at:;
+#X text 12 104 http://sourceforge.net/projects/pure-data/;
+#X text 18 125 - Un module "ARGOGeneral" (et un seul) doit etre ouvert
+avant l'ouverture de ce module.;
+#X text 17 210 - A faire: Choix lignes ou points;
+#N canvas 15 288 1007 307 /SUBPATCH/ 0;
+#X obj 188 80 *~ 1;
+#X obj 324 5 r \$0-SendZoomY;
+#X obj 188 101 clip~ -1 1;
+#X msg 757 180 resize \$1;
+#X obj 701 48 * 1;
+#X obj 699 5 r \$0-SendZoomX;
+#X obj 630 231 s \$0-ReceiveZoomX;
+#X msg 618 203 label \$1;
+#X obj 700 70 t b f f;
+#X obj 701 153 tosymbol;
+#X obj 702 105 / 44.1;
+#X obj 701 130 sprintf %d_ms;
+#X obj 826 52 samplerate~;
+#X obj 803 5 loadbang;
+#X obj 826 75 / 1000;
+#X obj 8 5 r \$0-SendAuto;
+#X obj 38 166 metro 500;
+#X obj 307 84 r \$0-SendAction;
+#X obj 685 203 delay 500;
+#X obj 172 6 r \$0-SendARGOBusInput;
+#N canvas 512 263 261 204 InputARGOBusv3 0;
+#X obj 48 74 sprintf ARGOBus%d;
+#X obj 46 30 inlet;
+#X obj 49 158 outlet~;
+#X msg 49 116 set \$1;
+#X obj 49 95 tosymbol;
+#X obj 47 52 change;
+#X text 88 30 <- No ARGObus 1..16;
+#X obj 49 137 r~ ARGOBus0;
+#X connect 0 0 4 0;
+#X connect 1 0 5 0;
+#X connect 3 0 7 0;
+#X connect 4 0 3 0;
+#X connect 5 0 0 0;
+#X connect 7 0 2 0;
+#X restore 172 29 pd InputARGOBusv3;
+#X obj 557 182 r ColorTime;
+#X obj -102 226 switch~;
+#X obj -99 7 r \$0-SendOnOff;
+#X obj -101 117 pipe 500;
+#X obj -100 54 t f f;
+#X obj 103 230 s \$0-ReceiveY;
+#X obj -47 180 r ColorForm;
+#X obj 105 6 loadbang;
+#X obj 104 125 snapshot~;
+#X obj 104 207 change;
+#X obj 700 25 t f f;
+#X obj 104 29 metro 100;
+#X obj 323 29 t b f f;
+#X obj 345 50 * 1;
+#X obj 187 205 tabwrite~ \$0S--;
+#X obj 756 230 s \$0S--;
+#X obj 273 129 + 50;
+#X msg 767 201 yticks 0 0.2 4;
+#X obj 803 29 t b b b;
+#X msg 876 180 resize \$1;
+#X msg 886 201 yticks 0 0.2 4;
+#X obj 875 230 s \$0S2--;
+#X obj 442 79 *~ 1;
+#X obj 443 100 clip~ -1 1;
+#N canvas 512 263 261 204 InputARGOBusv3 0;
+#X obj 48 74 sprintf ARGOBus%d;
+#X obj 46 30 inlet;
+#X obj 49 158 outlet~;
+#X msg 49 116 set \$1;
+#X obj 49 95 tosymbol;
+#X obj 47 52 change;
+#X text 88 30 <- No ARGObus 1..16;
+#X obj 49 137 r~ ARGOBus0;
+#X connect 0 0 4 0;
+#X connect 1 0 5 0;
+#X connect 3 0 7 0;
+#X connect 4 0 3 0;
+#X connect 5 0 0 0;
+#X connect 7 0 2 0;
+#X restore 427 28 pd InputARGOBusv3;
+#X obj 359 124 snapshot~;
+#X obj 359 206 change;
+#X obj 587 29 t b f f;
+#X obj 609 50 * 1;
+#X obj 442 204 tabwrite~ \$0S2--;
+#X obj 427 5 r \$0-SendARGOBusInput2;
+#X obj 588 5 r \$0-SendZoomY2;
+#X obj 358 229 s \$0-ReceiveY2;
+#N canvas 662 178 237 172 2Adc 0;
+#X obj 36 75 *~;
+#X obj 88 108 *~;
+#X obj 36 21 adc~ 1 2;
+#X obj 36 131 outlet~;
+#X obj 53 51 r \$0-SendInput1;
+#X obj 105 84 r \$0-SendInput2;
+#X obj 89 131 outlet~;
+#X connect 0 0 3 0;
+#X connect 1 0 6 0;
+#X connect 2 0 0 0;
+#X connect 2 1 1 0;
+#X connect 4 0 0 1;
+#X connect 5 0 1 1;
+#X restore 215 50 pd 2Adc;
+#X obj 822 147 spigot;
+#X obj 823 122 sel 1;
+#N canvas 253 178 191 215 clic2 0;
+#X obj 23 17 MouseState;
+#X obj 23 82 &;
+#X obj 23 105 == 0;
+#X obj 32 58 t b f;
+#X obj 32 37 r \$0-SendActive;
+#X obj 22 147 outlet;
+#X obj 22 126 change;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 6 0;
+#X connect 3 0 1 0;
+#X connect 3 1 1 1;
+#X connect 4 0 3 0;
+#X connect 6 0 5 0;
+#X restore 838 97 pd clic2;
+#X connect 0 0 2 0;
+#X connect 1 0 33 0;
+#X connect 2 0 29 0;
+#X connect 2 0 35 0;
+#X connect 3 0 36 0;
+#X connect 4 0 8 0;
+#X connect 5 0 31 0;
+#X connect 7 0 6 0;
+#X connect 8 0 35 0;
+#X connect 8 0 50 0;
+#X connect 8 1 10 0;
+#X connect 8 2 55 0;
+#X connect 9 0 7 0;
+#X connect 10 0 11 0;
+#X connect 10 0 37 0;
+#X connect 11 0 9 0;
+#X connect 12 0 14 0;
+#X connect 13 0 39 0;
+#X connect 14 0 10 1;
+#X connect 15 0 16 0;
+#X connect 16 0 35 0;
+#X connect 16 0 50 0;
+#X connect 17 0 35 0;
+#X connect 17 0 50 0;
+#X connect 18 0 6 0;
+#X connect 19 0 20 0;
+#X connect 20 0 0 0;
+#X connect 21 0 6 0;
+#X connect 23 0 25 0;
+#X connect 24 0 22 0;
+#X connect 25 0 24 0;
+#X connect 25 1 16 0;
+#X connect 27 0 26 0;
+#X connect 27 0 53 0;
+#X connect 28 0 32 0;
+#X connect 29 0 30 0;
+#X connect 30 0 26 0;
+#X connect 31 0 4 0;
+#X connect 31 1 4 1;
+#X connect 32 0 29 0;
+#X connect 32 0 46 0;
+#X connect 33 0 35 0;
+#X connect 33 1 34 0;
+#X connect 33 2 34 1;
+#X connect 34 0 0 1;
+#X connect 37 0 16 1;
+#X connect 38 0 36 0;
+#X connect 39 0 18 0;
+#X connect 39 1 12 0;
+#X connect 39 2 38 0;
+#X connect 39 2 41 0;
+#X connect 40 0 42 0;
+#X connect 41 0 42 0;
+#X connect 43 0 44 0;
+#X connect 44 0 46 0;
+#X connect 44 0 50 0;
+#X connect 45 0 43 0;
+#X connect 46 0 47 0;
+#X connect 47 0 53 0;
+#X connect 48 0 50 0;
+#X connect 48 1 49 0;
+#X connect 48 2 49 1;
+#X connect 49 0 43 1;
+#X connect 51 0 45 0;
+#X connect 52 0 48 0;
+#X connect 54 0 0 0;
+#X connect 54 1 43 0;
+#X connect 55 0 40 0;
+#X connect 55 0 3 0;
+#X connect 56 0 4 0;
+#X connect 57 0 55 1;
+#X connect 57 0 56 0;
+#X restore 269 26 pd;
+#X obj 11 13 cnv 10 220 50 empty empty http://perso.orange.fr/Paresys/ARGOPd/
+5 44 1 9 -4033 -1 1.04858e+06;
+#X obj 176 20 cnv 10 10 10 empty empty Aide/Help 0 5 1 9 -4033 -1 1.04858e+06
+;
+#X obj 13 15 cnv 20 20 20 empty empty ARGO2Scope 5 12 1 18 -4033 -1
+1.04858e+06;
+#X obj 15 37 cnv 10 10 10 empty empty Gerard 0 5 1 9 -4033 -1 1.04858e+06
+;
+#X obj 56 37 cnv 10 10 10 empty empty Paresys 0 5 1 9 -4033 -1 1.04858e+06
+;
+#X text 297 26 <- Clic;
+#X text 16 182 - 2 entrées Audio ARGOBus;
+#X text 201 158 (Entrée gauche d'une carte-son standard);
+#X text 201 170 (Entrée droite d'une carte-son standard);
+#X text 16 158 - 1 = Entrée (ADC) Audio 1;
+#X text 16 170 - 2 = Entrée (ADC) Audio 2;
+#X restore 101 2 pd Help--;
+#X obj 31 24 vsl 11 195 -1 1 0 0 empty \$0-ReceiveY empty 0 0 0 8 -188398
+-1 -1 9682 0;
+#X obj 100 1 cnv 18 80 18 empty empty Scope 1 9 1 14 -4033 -1 1.04858e+06
+;
+#X obj 81 1 tgl 18 1 \$0-SendOnOff \$0-ReceiveOnOff empty 0 0 0 9 -4033
+-1 -1 1 1;
+#X obj 43 223 cnv 20 298 198 empty ColorForm empty 20 12 0 14 -188398
+-1 1.04858e+06;
+#N canvas 0 22 458 308 graph2 0;
+#X array \$0S2-- 1120 float 0;
+#X coords 0 1 1119 -1 300 200 1;
+#X restore 42 222 graph;
+#X obj 31 224 vsl 11 195 -1 1 0 0 empty \$0-ReceiveY2 empty 0 0 0 8
+-188398 -1 -1 9688 0;
+#X obj 342 224 vsl 11 195 0 10 0 1 \$0-SendZoomY2 ColorAmpli empty
+0 -8 0 8 -261299 -1 -1 2300 0;
+#X obj 356 394 cnv 10 20 10 empty empty 1 0 5 1 9 -262144 -1 1.04858e+06
+;
+#X obj 356 353 cnv 10 20 10 empty empty 10 0 5 1 9 -262144 -1 1.04858e+06
+;
+#X obj 355 219 cnv 10 20 10 empty empty 100 0 5 1 9 -262144 -1 1.04858e+06
+;
+#X obj 45 422 hsl 295 11 10 148 0 1 \$0-SendZoomX \$0-ReceiveZoomX
+25_ms -2 -5 1 9 -208064 -1 -1 5000 0;
+#X obj 8 269 nbx 2 12 0 16 0 1 \$0-SendARGOBusInput2 \$0-ReceiveARGOBusInput2
+ARGOBus -55 6 1 9 -262144 -1 -1 0 256;
+#X connect 0 0 1 0;

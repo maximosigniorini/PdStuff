@@ -1,0 +1,79 @@
+#N canvas 181 18 116 126 10;
+#X obj 3 2 cnv 20 64 88 empty empty EQ 40 8 0 12 -233017 -66577 0;
+#N canvas 500 0 607 307 code 0;
+#X obj 108 253 outlet;
+#X obj 107 52 inlet;
+#X obj 106 93 select 0 1;
+#X msg 104 123 31;
+#X msg 136 122 -1;
+#X text 119 18 change the FRONT-color of the nbx's;
+#X obj 110 73 f;
+#X obj 224 255 outlet;
+#X msg 109 219 color \$2 \$1 \$1;
+#X obj 107 192 pack 0 0;
+#X obj 189 140 colorschemes/gain;
+#X obj 277 185 colorschemes/freq;
+#X obj 207 112 t b b;
+#X msg 223 235 color \$2 \$1 \$1;
+#X obj 225 212 pack 0 0;
+#X msg 207 78 bang;
+#X obj 245 78 loadbang;
+#X obj 458 262 outlet;
+#X msg 457 241 color \$2 \$1 \$1;
+#X obj 459 218 pack 0 0;
+#X obj 108 167 t f f f;
+#X connect 1 0 6 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 3 0 20 0;
+#X connect 4 0 20 0;
+#X connect 6 0 2 0;
+#X connect 8 0 0 0;
+#X connect 9 0 8 0;
+#X connect 10 0 9 1;
+#X connect 11 0 14 1;
+#X connect 12 0 10 0;
+#X connect 12 1 11 0;
+#X connect 13 0 7 0;
+#X connect 14 0 13 0;
+#X connect 15 0 12 0;
+#X connect 16 0 12 0;
+#X connect 18 0 17 0;
+#X connect 19 0 18 0;
+#X connect 20 0 9 0;
+#X connect 20 1 14 0;
+#X connect 20 2 19 0;
+#X restore 30 3 pd code;
+#X obj 77 100 tgl 15 0 \$1GUIinchan_eq_lowcut_tgl_fromgui \$1GUIinchan_eq_lowcut_tgl_togui
+L 6 8 0 8 -262144 -166441 -166441 0 1;
+#X obj 77 32 tgl 15 0 \$1GUIinchan_eq_hicut_tgl_fromgui \$1GUIinchan_eq_hicut_tgl_togui
+H 6 8 0 8 -262144 -166441 -166441 0 1;
+#X obj 3 100 nbx 3 12 -100 20 0 0 \$1GUIinchan_eq_low_gain_fromgui
+\$1GUIinchan_eq_low_gain_togui empty 0 -6 0 8 -228992 -166441 -166441
+0 256;
+#X obj 3 79 nbx 3 12 -100 20 0 0 \$1GUIinchan_eq_mid2_gain_fromgui
+\$1GUIinchan_eq_mid2_gain_togui empty 0 -6 0 8 -228992 -166441 -166441
+0 256;
+#X obj 54 79 nbx 4 12 100 9999 1 0 \$1GUIinchan_eq_mid2_freq_fromgui
+\$1GUIinchan_eq_mid2_freq_togui empty 0 -6 0 8 -187584 -166441 -166441
+100 256;
+#X obj 3 57 nbx 3 12 -100 20 0 0 \$1GUIinchan_eq_mid1_gain_fromgui
+\$1GUIinchan_eq_mid1_gain_togui empty 0 -6 0 8 -228992 -166441 -166441
+0 256;
+#X obj 3 35 nbx 3 12 -100 20 0 0 \$1GUIinchan_eq_hi_gain_fromgui \$1GUIinchan_eq_hi_gain_togui
+empty 0 -6 0 8 -228992 -166441 -166441 -100 256;
+#X obj 54 57 nbx 4 12 100 9999 1 0 \$1GUIinchan_eq_mid1_freq_fromgui
+\$1GUIinchan_eq_mid1_freq_togui empty 0 -6 0 8 -187584 -166441 -166441
+100 256;
+#X obj 8 4 tgl 20 0 \$1GUIinchan_eq_tgl_fromgui \$1GUIinchan_eq_tgl_togui
+empty 0 -6 0 8 -262144 -1 -1 0 1;
+#X connect 1 0 4 0;
+#X connect 1 0 5 0;
+#X connect 1 0 7 0;
+#X connect 1 0 8 0;
+#X connect 1 1 9 0;
+#X connect 1 1 6 0;
+#X connect 1 2 3 0;
+#X connect 1 2 2 0;
+#X connect 10 0 1 0;
+#X coords 0 0 1 1 66 90 1;

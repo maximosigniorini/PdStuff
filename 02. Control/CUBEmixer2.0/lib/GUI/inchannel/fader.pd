@@ -1,0 +1,17 @@
+#N canvas 0 0 779 389 10;
+#X obj 100 100 cnv 15 75 135 empty empty empty 20 12 0 14 -195568 -66577
+0;
+#X obj 115 103 vsl 25 128 0 127 0 0 \$1GUI_input_gain_fromgui \$1GUI_input_gain_togui
+empty 0 -8 0 8 -228992 -1 -1 0 1;
+#X obj 143 103 vsl 15 128 0 127 0 0 \$1GUI_input_sub_fromgui \$1GUI_input_sub_togui
+empty 0 -8 0 8 -245568 -1 -1 0 1;
+#X obj 160 108 vfad_scale -1;
+#X obj 103 108 vfad_scale -1;
+#X obj 358 167 gui_sr_fader \$1GUI_input_gain /IN/%d/FADER_GAIN;
+#X obj 333 185 gui_sr_fader \$1GUI_input_sub /IN/%d/LFC/GAIN;
+#X obj 333 150 t f f;
+#X obj 333 132 r \$1GUI_inchannel_selected;
+#X connect 7 0 6 0;
+#X connect 7 1 5 0;
+#X connect 8 0 7 0;
+#X coords 0 -1 1 1 75 135 2 100 100;

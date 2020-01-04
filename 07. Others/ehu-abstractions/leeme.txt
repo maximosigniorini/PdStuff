@@ -1,0 +1,218 @@
+ESTE DOCUMENTO ES VIEJO. LEETE LA VERSION EN INGLES, SORRY.
+
+ehu 0.6 -  12/2011
+
+
+- Contacto --
+enrike@ixi-audio.net
+cualquier tipo de comentarios y / o contribuciones son bienvenidas
+
+
+--- Licencia --- GPL
+Esta biblioteca es software libre, puede redistribuirlo y / o modificarlo bajo los términos
+Menor de la GNU General Public License publicada por la Free Software Foundation.
+
+Esta biblioteca se distribuye con la esperanza de que sea útil, pero SIN NINGUNA GARANTÍA, incluso sin la garantía implícita de COMERCIABILIDAD o IDONEIDAD PARA UN PROPÓSITO PARTICULAR.
+  Véase la Licencia Pública General de GNU para más detalles.
+Usted debería haber recibido una copia de la Licencia Pública General de GNU junto con esta biblioteca;
+  si no, escriba a la Free Software Foundation, Inc, 59 Temple Place, Suite 330, Boston,
+  MA 02111-1307 EE.UU.
+
+Las abstracctiones que controlan pduino (port, analog_input, analog_output, digital_input digital_output_pwm,  set_input, digital_IO_mode) se basan en el código tomado del ejemplo arduino-help.pd por Gerda Strobl y Georg Holtzmann con licencia GNU GPL
+
+
+--- Requisitos del sistema --- 
+EHU PureData es una colección de abstracciones que utiliza algunos externals y abstracciones de PD. La mayoría de las abstracciones y externals usados se incluyen en la versión "Extended" de PD
+http://puredata.org/downloads
+http://puredata.org/Members/hans
+
+Los únicos que no están incluidos allí son Arduino (Pduino) y xsample.
+Pduino se puede descargar de http://at.or.at/hans/pd/objects.html sólo tienes que copiar el archivo arduino.pd en la carpeta extra dentro de PD
+
+- Xsample se puede descargar desde :
+
+Windows : http://grrrr.org/ext/beta/windows/pd/xsample.dll
+mac : http://grrrr.org/ext/beta/macos/pd/xsample.pd_darwin
+linux : http://grrrr.org/ext/beta/
+
+copia el archivo xsample.dll (windows), xsample.pd_darwin (OSX) o xsample.pd_linux y los archivos .pd de ayuda en la carpeta pd/extra. Abre PD, vete al menu "file" > startup, dale a new, escribe "xsample", dale a ok, dale a apply, dale a ok, reinicia PD.
+
+
+--- Instalación ---
+Copia la carpeta EHU dentro de la carpeta "extra" que hay dentro de PD.
+Windows : algo asi como C:\Archivos de programa\pd\extra
+GNU/Linux : /usr/lib/pd/extra o /usr/local/lib/pd/extra
+Apple Mac OSX: Va en el interior del paquete PureData en la carpeta PD-extra/Content/Resources/extra, por lo que necesitas hacer control-click en la aplicación PD y elegir la opción "Mostrar contenido del paquete", luego copias en Content/Resources/extra la carpeta ehu.
+
+Además puede ser que necesites añadir la ruta extra/ehu al path de PD. Para ello, selecciona "Archivo -> path" en el menú y añade el nuevo path apuntando a la carpeta extra/ehu.
+
+
+--- Descripción ---
+EHU es un conjunto de abstracciones para PureData entorno de programación gráfica  en tiempo real (http://www.puredata.org, http://en.wikipedia.org/wiki/Puredata). El objetivo principal de EHU es  controlar/manipular/analizar/secuenciar vídeo y audio en tiempo real. EHU encapsula la complejidad de la programación con PureData para permitir la rápida produccion de prototipos de sistemas interactivos. EHU está desarrollado para personas con conocimientos básicos de PD, pero también para usuarios más avanzados para facilitar y acelerar lo más posible el desarrollo. EHU también incluyeabstracciones para el control de Arduino (http://www.arduino.cc) desde PD (reusando el ejemplo de pduino por Gerda Strobl y Georg Holtzmann). Las principales áreas cubiertas por las abstracciones EHU son: archivos de vídeo, cámaras de vídeo, imágenes, utilidades de audio, y utilidades en general.
+
+
+
+: Abstracciones incluidas en el EHU: (ver archivos de ayuda y los ejemplos incluidos)
+
++ Gráficos / vídeo (basados en GEM):
+ehu/gem/win : controla la ventana gráfica GEM
+ehu/gem/mouse: informa la posicion del ratón  y los eventos de todos los botones de ratón
+ehu/gem/video : lee un archivo de vídeo
+ehu/gem/picture : lee una imagen (TIFF, JPG, PNG)
+ehu/gem/cam : lee una cámara de vídeo
+ehu/gem/rect : dibuja un rectángulo
+ehu/gem/circle : dibuja un circulo
+ehu/gem/texture : renderiza la informacion que llega de un objeto cam, video o picture
+
++ Video sensores: (basados en GEM)
+ehu/gem/track : analiza la imagen de un vídeo (ehu/cam o ehu/video)
+
++ Utilidades en general :
+ehu/loop_list : dada una lista de nombres de archivo hace un bucle en bang
+ehu/timed_bang : dada una lista de tiempos (en milisegundos) expulsa bangs segun los tiempos
+ehu/follow : sigue un valor con retraso
+ehu/elastic_follow : sigue un valor con retraso elastico
+ehu/packer2 : enpaqueta un mensaje con un nombre y dos valores, por ejemplo: [rango 0,6 0,4 (
+ehu/packer3 : enpaqueta un mensaje con un nombre y tres valores, por ejemplo: [color 0,6 0,4 1 (
+ehu/packer4 : enpaqueta un mensaje con un nombre y cuatro valores, por ejemplo: [color 0,6 0,4 1 0,8 (
+ehu/envelope : sólo envuelve el ebjeto envgen añadiendo algunos controles. Expulsa una linea envolvente (envelope). Es utilizado principalmente para controlar el envolvente de un sonido, pero también paracualquier otro valor (por ej. xloc de un vídeo).
+ehu/force :  fuerza un valor a un umbral si más grande o más pequeño que el umbral
+ehu/timed_spigot : permite pasr un valor sólo cada N milisegundos
+
++ Audio abstracciones:
+ehu/dsp : conmuta el DSP (Procesamiento Digital de Sonido) en Pure Data on / off
+ehu/sound~ : lee un archivo de audio wav y aiff (sólo envuelve xgroove~)
+ehu/out~ : salida de sonido estéreo (DAC ~) con regulador de volumen / mute y número
+ehu/in~ : entrada de sonido estéreo (ADC ~) con regulador de volumen / mute y número
+ehu/del~ : sólo un delay simple
+ehu/rev~: GUI para freeverb~ reverb
+ehu/mix~ : mezclas y fundide dos canales de sonido
+ehu/ring~ : modulación ring básica
+ehu/vol~: controla de volumen de una señal de sonido con regulador de volumen / mute y número
+ehu/plot~ : muestra la forma de una señal de sonido
+ehu/fm~ : sólo un sintetizador FM con filtro envolvente (envelope) incluido
+ehu/recorder~ : graba a disco (archivo) una senal de sonido
+
++ Audio "sensores":
+ehu/pitch_sensor : análisis de la frecuencia (nota MIDI y herzios) y la amplitud de la señal de sonido (sólo envuelve fiddle~)
+ehu/hit_sensor : detecta golpes o ataques en una señal de sonido (sólo envuelve bonk~)
+
++ Arduino:
+ehu/arduino/port : abre o cierra el puerto COM donde está conectado Arduino
+ehu/arduino/analog_input : recibe informacion de entradas analógicas
+ehu/arduino/digital_input : recibe informacion de las entradas digitales
+ehu/arduino/digital_output_pwm : controla pins de salida PWM (digital 9,10,11)
+ehu/arduino/set_input : conmuta entradas ON/OFF
+ehu/arduino/digital_IO_mode : establece el modo (de entrada o de salida) para pins digital
+
+
+
+
+--- Cómo usar ---
+
+Mira la carpeta de ejemplos. Hay ejemplos de diferentes formas de usar las abstracciones.
+
+GUI: La mayoría de las abstracciones puede ser controlado desde las entradas (inlets), sino también desde la GUI que disponen. Cada elemento GUI es controlado a través de una de las entradas. El objetivo principal de estos dos sistemas diferentes es hacer frente a dos necesidades diferentes. Por una parte una situacion "live coding" como un concierto o un trabajo rápido de prototipado, por otro lado una situación como una instalación en la que el patch está terminado y se ejecuta automaticamente.
+
+- (NOTA : esto *NO* funciona en esta version) Para obtener el sonido de video es necsario preparar un wav (con la pista de audio del video) con el mismo nombre que el video junto a el archivo de vídeo. Por ejemplo: train.mov, train.wav. Esto se debe a que GEM se centra principalmente en vídeo y 3D.
+
+- Las rutas a los archivos son relativas a la carpeta que se está trabajando. Por lo tanto, es una buena idea para guardar patches de trabajo al empezar a trabajar en ellos.
+
+- Para transparencia usar imágenes TIFF con canal alfa
+
+- Orden de rendering :
+Las abstracions gráfica (cam, video, picture ...) reciven un mensage "set" con un numero entero que establece el orden. Los valores más altos hacen que se dibuje sobre objectos con valores mas bajos, el min valor es 1
+
+- Quality / mode
+Pasa un mensaje [quality 1( o [quality 0( a ehu/win para cambiar la calidad del rendering de las imágenes y vídeo. El valor predeterminado es de quality 1
+Pasa un mensaje [mode 1( o [mode 0( a ehu/win si tienes problemas con el rendering del vídeo (cuadrados de color blanco sin video), algunas tarjetas gráficas requieren modo 0. El valor predeterminado es el modo 1.
+
+
+
+- Formatos de archivo de vídeo (gracias a la PD lista de correo!):
+Mac : formato mov de Quicktime con MJPEG (Motion JPEG) funciona bastante bien y no necesita demasiada CPU en general.
+Windows : formato AVI con códec dv funciona bastate bien (por lo que nose necesita instalar QuickTime).
+GNU / Linux : haz pruebas. depende de las librerias instaladas en tu máquina.
+
+
+
+
+- Video efectos / filtros:
+Gem ofrece una gran variedad de objetos para llevar a cabo operaciones en vídeo como pix_contrast, pix_reduce etc...  Una vez más mira los ejemplos para mas detalles.
+
+
+
+- Abstracciones GUI:
+Algunas abstracciones EHU,  incluyen controles GUI. Si no desea ver la GUI, con un click derecho, seleccione Propiedades > quita la opcion "graph on parent" y guarda el archivo. La próxima vez que lo abras no tendra la GUI visible. Marque "graph on parent" de nuevo para volver a modo de GUI. Además puedes retransmitir por medio de objeto "send" un mensaje de nombre EHU_gop con valor 1/0. Esta será recibido por todos los objetos EHU. Dado que esto cambia las propiedades de los objetos de la libreria usa esta opcion a tu propio riesgo. Sin embargo, esto debería reducir la carga de la CPU, por lo que es bastante util si se está utilizando para situaciones en las que los controles GUI no será utilizados (como una instalación o un patch con mucho consumo de CPU)
+
+
+
+- Lista de mensajes enviados EHU:
+"EHU_quality" 1 / 0 afecta el antialias de las imágenes
+"EHU_mode" 1 / 0 establece el modo de textura de la imagen, algunas tarjetas gráficas necesidad de "mode 0", a fin de obtener cualquier imagen o vídeo renderizados adecuadamente. También puede pasar un mensaje "quality" y "mode" a ehu/win en la segunda entrada, como [quality 1( o [mode 0(
+"EHU_gop" toogles las GUI en los objetos EHU
+"EHU_win" mensaje se transmite por el objeto ehu/win cuando se abre.  Contiene una lista con la anchura y la altura de la ventanade GEM. Puedes consultar estos valores en cualquier momento mediante el envío de un mensaje "EHU_win_get"
+"EHU_comport_closed" cuando el puerto se cierra o reable por Arduino
+
+
+
+
+- Cambios ---
+0.6 12/2010
+- Separated data reading from rendering by creating a texture object specialised on rendering. Cam/picture and video are focused now only in reading the data from the files.
+- Several changes in track object
+
+0.5 04/10
+- render and reader funcionality separated into different objects. It allows for example to have multiple copies of the stream of a camara into screen.
+
+
+0.4 11/09
+- renamed arduino abstractions with get/set names to make it more clear.
+- added list_rand / ifnew / moses4 abstractions
+- arduino and gem abstractions have its own namespace ehu/arduino and ehu/gem
+
+0.3 12/08
+- new structure with folders documentation, ehu, examples 
+- it can be installed now into extra folder within PD
+- adding few many new objects for sound, arduino, utilities plus help and examples
+- updating to PD extended 0.40.3
+- major clean up/rewrite/creation of abstractions
+- added GOP message to show/hide "graph on parent" GUI
+
+0.2 5/08
+- mayor cleanup. kind of usable now.
+
+0.1.2 6/07
+- examples combined with help files
+- objects have now graphic GUI integrated (graph on parent => True)
+
+0.1.1 5/07
+- added filter examples
+- changed names to [ehu/video] format to avoid having to set path
+- removed open import dialogue. paths to files must be relative from now on.
+
+0.1 5/07
+- basic patches created
+
+
+
+
+
+
+-- Por hacer ---
+- cuadrante
+- video does not bang on loop when go_to
+- pix_multiimage?
+- fix bypass in picture object. should go back to original image when bypass goes off
+- movement2 objet, pix_blob abs for color track
+- track abstraction anadir rectangulo de referencia dentro de la abstraccion 
+- create an abstraction that deals with particles?
+- get several outs from the cam abs (not so easy with current approach of cam) --> dummy abstraction? with separator?
+...
+- plot abs should have arguments: sample length, width, length to resize the table
+
+
+
+
+-- Reconocimientos --
+EHU es un proyecto desarrollado por ixi audio (http://www.ixi-audio.net) para de la Facultad de Bellas Artes en la UPV / EHU Universidad Pública del País Vasco (Euskal Herriko Universitatea, de ahí el nombre EHU) y su desarrollo ha sido apoyado por la universidad. http://www.ehu.es

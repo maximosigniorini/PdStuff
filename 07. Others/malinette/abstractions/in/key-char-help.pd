@@ -1,0 +1,8 @@
+#N canvas 453 283 450 300 10;
+#X obj 105 125 key-char;
+#X obj 136 198 print e;
+#X obj 105 235 print a;
+#X text 101 35 key-char \; -------- \; Get the 10 first alphabetic
+keys.;
+#X connect 0 0 2 0;
+#X connect 0 2 1 0;

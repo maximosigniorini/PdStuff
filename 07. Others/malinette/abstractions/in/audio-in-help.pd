@@ -1,0 +1,22 @@
+#N canvas 362 307 643 356 10;
+#X obj 124 180 audio-in;
+#X obj 83 238 dac~;
+#X floatatom 163 238 5 0 0 0 - - -;
+#X floatatom 202 209 5 0 0 0 - - -;
+#X msg 450 45 \; pd dsp 1;
+#X msg 451 83 \; pd dsp 0;
+#X text 511 53 AUDIO ON;
+#X text 514 87 AUDIO OFF;
+#X obj 83 214 *~ 0.6;
+#X text 199 237 pitch midi (0-127);
+#X text 238 208 enveloppe (0-1);
+#X text 64 258 Audio output;
+#X text 52 28 audio-in \; -------- \; Get Audio input - pitch and sound
+level \; Outlets \; \$1: sound from mic/line input \; \$2: pitch data
+(midi) mapped (0-1) \; \$3: enveloppe data (audiolevel) mapped (0-1)
+;
+#X connect 0 0 8 0;
+#X connect 0 1 2 0;
+#X connect 0 2 3 0;
+#X connect 8 0 1 0;
+#X connect 8 0 1 1;

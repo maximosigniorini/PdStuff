@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/CUE
+END
+general.pd
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/CUE/general.pd
+END
+RAM.pd
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/CUE/RAM.pd
+END
+inchannel.pd
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/CUE/inchannel.pd
+END
+test.pd
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/CUE/test.pd
+END
+testB.pd
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/CUE/testB.pd
+END
+lfc.pd
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/CUE/lfc.pd
+END
+main.pd
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/CUE/main.pd
+END
+start.sh
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/CUE/start.sh
+END
+target.pd
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/CUE/target.pd
+END
+bus.pd
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/CUE/bus.pd
+END
+auxillary.pd
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/CUE/auxillary.pd
+END

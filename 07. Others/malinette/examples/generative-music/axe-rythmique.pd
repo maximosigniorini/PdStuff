@@ -1,0 +1,81 @@
+#N canvas 243 79 811 667 10;
+#X declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/tools -path ../../abstractions/filters -path
+../../abstractions/fx-video -path ../../abstractions/fx-audio -path
+../../abstractions/master;
+#X declare -path abstractions/in -path .abstractions/out -path abstractions/tools
+-path abstractions/filters -path abstractions/fx-video -path abstractions/fx-audio
+-path abstractions/master;
+#X obj -25 187 cnv 1 396 1 empty empty FILTERS 2 -6 1 12 -228856 -191407
+0;
+#X obj -25 354 cnv 1 800 1 empty empty OUT 2 -6 1 12 -228856 -191407
+0;
+#X obj -25 63 cnv 1 800 1 empty empty IN 2 -6 1 12 -228856 -191407
+0;
+#X obj -25 187 cnv 1 800 1 empty empty TOOLS 400 -6 1 12 -228856 -191407
+0;
+#X obj 356 328 synth-drums;
+#X obj 467 454 audio-out;
+#X obj 63 107 tgl 15 0 empty empty on/off 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 208 71 5 0 0 2 time - -;
+#X msg 63 126 onoff \$1;
+#X msg 208 90 time \$1;
+#X obj 535 441 audio-disto;
+#X obj 536 536 audio-out;
+#X obj 536 483 audio-reverb;
+#X obj 208 143 seq-sliders;
+#X obj 373 143 seq-sliders;
+#X obj 541 143 seq-sliders;
+#X msg 281 80 seq 0.8 0 0.7 0 0 0.3 0 0.4;
+#X msg 406 103 seq 0 0 0 0.3 0.8 0 0 0.3;
+#X msg 541 75 seq 0.8 0.5 0.8 0.5 0.8 0.5 0.8 0.5;
+#X obj 407 40 loadbang;
+#X text 641 447 << distortion !;
+#X text 691 495 << reverb !;
+#X text 25 433 DESCRIPTION \; Dans cette exemple on charge des sequence
+et on utilise la seconde sortie de l'objet seq-sliders qui permet de
+donner des probabilité en fonction du slider... \; ainsi on obtient
+un rythme qui change de temps a autres...;
+#X text 117 233 probabilités >;
+#X text 153 211 forte;
+#X text 154 255 faible;
+#N canvas 364 155 563 434 INIT 0;
+#X obj 101 101 cnv 8 48 8 empty empty INCLUDE 2 4 0 10 -233017 -66577
+0;
+#X obj 102 261 declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/tools -path ../../abstractions/filters -path
+../../abstractions/fx-video -path ../../abstractions/fx-audio -path
+../../abstractions/master;
+#X obj 102 162 declare -path abstractions/in -path .abstractions/out
+-path abstractions/tools -path abstractions/filters -path abstractions/fx-video
+-path abstractions/fx-audio -path abstractions/master;
+#X text 100 240 Use for standalone :;
+#X text 100 140 Use with the main.pd :;
+#X text 97 25 Import paths to find abstractions \; Always use it in
+the examples patchs.;
+#X coords 0 -1 1 1 50 10 2 100 100;
+#X restore 726 36 pd INIT;
+#X connect 4 4 5 0;
+#X connect 4 4 5 1;
+#X connect 4 4 10 0;
+#X connect 6 0 8 0;
+#X connect 7 0 9 0;
+#X connect 8 0 13 0;
+#X connect 8 0 14 0;
+#X connect 8 0 15 0;
+#X connect 9 0 14 0;
+#X connect 9 0 15 0;
+#X connect 9 0 13 0;
+#X connect 10 0 12 0;
+#X connect 12 0 11 0;
+#X connect 12 1 11 1;
+#X connect 13 1 4 0;
+#X connect 14 1 4 1;
+#X connect 15 1 4 2;
+#X connect 16 0 13 0;
+#X connect 17 0 14 0;
+#X connect 18 0 15 0;
+#X connect 19 0 16 0;
+#X connect 19 0 17 0;
+#X connect 19 0 18 0;

@@ -1,0 +1,16 @@
+#N canvas 323 281 609 280 10;
+#X obj 66 151 inverse;
+#X obj 69 113 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 69 197 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X text 68 92 0-1;
+#X text 75 176 1-0;
+#X obj 433 155 + 1;
+#X obj 433 130 * -1;
+#X text 386 139 =;
+#X text 60 19 Inverse \; ------- \; Inverse the value between 0 and
+1 \;;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;
+#X connect 6 0 5 0;

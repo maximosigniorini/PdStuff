@@ -1,0 +1,17 @@
+#N canvas 255 179 401 324 10;
+#X obj 248 -18 inlet bang;
+#X obj 58 -19 inlet anything;
+#X obj 136 183 outlet;
+#X text 29 -63 Laisse passer une donnée une seule fois;
+#X msg 137 35 0;
+#X obj 75 63 spigot 1;
+#X msg 212 54 1;
+#X obj 136 133 t a b;
+#X connect 0 0 6 0;
+#X connect 1 0 5 0;
+#X connect 4 0 5 1;
+#X connect 5 0 7 0;
+#X connect 6 0 5 1;
+#X connect 7 0 2 0;
+#X connect 7 1 4 0;
+#X coords 0 324 1 323 65 15 0;

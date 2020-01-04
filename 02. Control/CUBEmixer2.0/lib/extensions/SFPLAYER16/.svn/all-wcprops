@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/SFPLAYER16
+END
+GUI.pd
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/SFPLAYER16/GUI.pd
+END
+DSP.pd
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/SFPLAYER16/DSP.pd
+END
+SFPLAYER4~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/SFPLAYER16/SFPLAYER4~.pd
+END

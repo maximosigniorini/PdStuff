@@ -1,0 +1,150 @@
+#N canvas 1244 432 629 335 10;
+#X obj 288 28 inlet;
+#X obj 337 28 cnv 15 55 20 empty empty GEM_IN 0 10 0 12 -4034 -1 0
+;
+#X obj 289 209 outlet;
+#X obj 343 207 cnv 15 55 20 empty empty GEM_OUT 0 10 0 12 -221249 -262144
+0;
+#N canvas 244 172 1254 969 gempix_texture_default_settings 0;
+#X obj 16 40 loadbang;
+#X obj 381 114 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 26 207 symbol \$1;
+#X symbolatom 26 236 0 0 0 0 - - -;
+#X obj 32 120 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X symbolatom 123 236 0 0 0 0 - - -;
+#X obj 123 207 symbol \$2;
+#X obj -38 207 float \$1;
+#X floatatom -34 239 5 0 0 0 - - -;
+#X msg 370 194 50;
+#X obj 241 252 s \$1gempix_texture_on_init;
+#X obj 415 246 s \$1gempix_texture_render_init;
+#X msg 496 189 0;
+#X obj 502 225 s \$1gempix_texture_quality_init;
+#X msg 606 190 1;
+#X obj 610 251 s \$1gempix_texture_repeat_init;
+#X obj 712 226 s \$1gempix_texture_rectangle_init;
+#X msg 709 196 1;
+#X msg 806 198 1;
+#X obj 809 252 s \$1gempix_texture_clientstorage_init;
+#X obj 919 224 s \$1gempix_texture_env_init;
+#X obj 547 56 r \$1gempix_texture_reset;
+#X obj 177 127 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 180 20 r \$1gempix_texture_defaults;
+#X obj 26 282 s \$1gempix_texture_id;
+#X obj 310 44 s \$1gempix_texture_apply_settings;
+#X obj 239 224 init 1;
+#X msg 920 191 5;
+#X connect 0 0 4 0;
+#X connect 0 0 22 0;
+#X connect 1 0 9 0;
+#X connect 1 0 12 0;
+#X connect 1 0 14 0;
+#X connect 1 0 17 0;
+#X connect 1 0 18 0;
+#X connect 1 0 27 0;
+#X connect 2 0 3 0;
+#X connect 3 0 24 0;
+#X connect 4 0 2 0;
+#X connect 4 0 6 0;
+#X connect 4 0 7 0;
+#X connect 6 0 5 0;
+#X connect 7 0 8 0;
+#X connect 9 0 11 0;
+#X connect 12 0 13 0;
+#X connect 14 0 15 0;
+#X connect 17 0 16 0;
+#X connect 18 0 19 0;
+#X connect 21 0 1 0;
+#X connect 22 0 1 0;
+#X connect 23 0 22 0;
+#X connect 26 0 10 0;
+#X connect 27 0 20 0;
+#X restore 412 32 pd gempix_texture_default_settings;
+#X obj 0 0 cnv 15 200 155 empty empty gempix_texture 45 12 0 12 -99865
+-262144 0;
+#X obj 0 1 cnv 15 40 15 empty empty GEM_IN 0 8 0 8 -4034 -1 0;
+#X obj 212 4 cnv 15 30 15 empty \$1gempix_texture_id \$1 10 10 0 12
+-260097 -33289 0;
+#X obj 5 25 cnv 15 190 110 empty empty empty 2 12 0 14 -128992 -228856
+0;
+#X obj 8 27 tgl 15 0 \$1gempix_texture_on \$1gempix_texture_on_init
+Enable 17 7 0 10 -4034 -1 -228856 0 1;
+#X obj 8 66 tgl 15 0 \$1gempix_texture_quality \$1gempix_texture_quality_init
+Quality 17 7 0 10 -260097 -1 -1 0 1;
+#X obj 8 83 tgl 15 0 \$1gempix_texture_repeat \$1gempix_texture_repeat_init
+Repeat 17 7 0 10 -260097 -1 -1 1 1;
+#X obj 8 118 tgl 15 0 \$1gempix_texture_rectangle \$1gempix_texture_rectangle_init
+Rectangle 17 7 0 10 -260097 -1 -1 1 1;
+#X obj 8 101 tgl 15 0 \$1gempix_texture_clientstorage \$1gempix_texture_clientstorage_init
+ClStorage 17 7 0 10 -260097 -1 -1 1 1;
+#X obj 100 38 vradio 15 1 0 6 \$1gempix_texture_env \$1gempix_texture_env_init
+ENV 0 -8 0 9 -260097 -1 -1 5;
+#X text 116 35 REPL;
+#X text 115 51 DECAL;
+#X text 115 66 BLEND;
+#X text 114 81 ADD;
+#X text 115 96 COMB.;
+#X text 116 110 MOD.;
+#X obj 9 45 bng 15 250 50 0 \$1gempix_texture_reset \$1gempix_texture_reset_init
+reset 17 7 0 8 -257985 -1 -1;
+#X obj 0 140 cnv 15 40 15 empty empty GEM_OUT 0 8 0 8 -258113 -262144
+0;
+#X obj 157 28 cnv 15 30 15 empty \$1gempix_texture_id \$1 4 8 0 10
+-260097 -33289 0;
+#X obj 322 122 r \$1gempix_texture_on;
+#X obj 289 156 spigot;
+#N canvas 516 206 1040 547 gempix_texture_core 0;
+#X obj 50 22 inlet;
+#X obj 94 22 cnv 15 55 20 empty empty GEM_IN 0 10 0 12 -4034 -1 0;
+#X obj 312 430 pix_texture;
+#X msg 466 77 quality \$1;
+#X obj 466 53 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0 1
+;
+#X obj 812 59 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 1 1
+;
+#X msg 812 78 rectangle \$1;
+#X obj 808 177 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 1
+1;
+#X obj 641 60 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 1 1
+;
+#X msg 808 196 client_storage \$1;
+#X msg 641 79 repeat \$1;
+#X msg 822 333 env \$1;
+#X obj 823 313 hradio 15 1 0 6 empty empty empty 0 -6 0 8 -262144 -1
+-1 5;
+#X obj 467 26 r \$1gempix_texture_quality;
+#X obj 641 24 r \$1gempix_texture_repeat;
+#X obj 806 24 r \$1gempix_texture_rectangle;
+#X obj 809 150 r \$1gempix_texture_clientstorage;
+#X obj 818 265 r \$1gempix_texture_env;
+#X obj 215 511 outlet;
+#X floatatom 389 455 5 0 0 0 - - -;
+#X symbolatom 356 505 10 0 0 0 - - -;
+#X connect 0 0 2 0;
+#X connect 2 0 18 0;
+#X connect 2 1 19 0;
+#X connect 2 1 20 0;
+#X connect 3 0 2 0;
+#X connect 4 0 3 0;
+#X connect 5 0 6 0;
+#X connect 6 0 2 0;
+#X connect 7 0 9 0;
+#X connect 8 0 10 0;
+#X connect 9 0 2 0;
+#X connect 10 0 2 0;
+#X connect 11 0 2 0;
+#X connect 12 0 11 0;
+#X connect 13 0 4 0;
+#X connect 14 0 8 0;
+#X connect 15 0 5 0;
+#X connect 16 0 7 0;
+#X connect 17 0 12 0;
+#X restore 288 91 pd gempix_texture_core;
+#X connect 0 0 26 0;
+#X connect 24 0 25 1;
+#X connect 25 0 2 0;
+#X connect 26 0 25 0;
+#X coords 0 -1 1 1 200 155 1 0 0;

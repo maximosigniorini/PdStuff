@@ -1,0 +1,399 @@
+#N canvas 398 95 335 290 10;
+#N canvas 350 62 279 383 ARGO 0;
+#X obj 101 101 cnv 20 104 34 empty ColorAmpli empty 20 12 0 14 -261299
+-1 1.04858e+06;
+#X obj 85 274 outlet~;
+#X obj 134 104 cnv 10 20 10 empty ColorAmpli Ampli 1 5 1 14 -261299
+-1 1.04858e+06;
+#X obj 89 -82 inlet~;
+#X obj 85 245 *~;
+#X obj 103 118 hsl 101 12 0 1.25 0 1 \$0-A ColorAmpli -12dB 0 7 1 9
+-261299 -1 -1 6800 0;
+#X obj 100 161 pow~ 10000;
+#X obj 100 201 /~ 10000;
+#X msg 115 77 label \$1;
+#X obj 114 54 tosymbol;
+#X obj 115 -45 * 80;
+#X obj 115 -23 - 80;
+#X obj 114 19 sprintf %ddB;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 101 131 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X text 123 36 -> -80dB..20dB;
+#X text 120 0 -> -80 .. 20;
+#X text 104 139 -> 0..1.2;
+#X text 109 179 -> 1..100000;
+#X text 104 221 -> 0.0001..10 = -80dB..20dB;
+#X obj 195 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 195 131 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 210 273 outlet~;
+#X obj 214 -83 inlet~;
+#X obj 210 244 *~;
+#X connect 3 0 4 0;
+#X connect 4 0 1 0;
+#X connect 5 0 10 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 7 0 4 1;
+#X connect 7 0 24 1;
+#X connect 8 0 5 0;
+#X connect 9 0 8 0;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 12 0 9 0;
+#X connect 23 0 24 0;
+#X connect 24 0 22 0;
+#X coords 0 -1 1 1 106 36 1 100 100;
+#X restore 125 207 pd ARGO;
+#N canvas 608 166 249 182 ARGOnOff 0;
+#X obj 100 100 tgl 18 1 \$0-SendOnOff \$0-ReceiveOnOff On/Off 20 9
+0 12 -4033 -1 -1 1 1;
+#X obj 99 39 loadbang;
+#X msg 99 62 \; pd dsp 1;
+#X obj 100 129 outlet;
+#X connect 0 0 3 0;
+#X connect 1 0 2 0;
+#X coords 0 -1 1 1 65 18 2 100 100;
+#X restore 181 19 pd ARGOnOff;
+#X obj 181 44 switch~;
+#X obj 16 23 cnv 15 15 15 empty empty ExMM40c-PlayerTrig.pd 0 8 1 14
+-262144 -1 0;
+#X obj 162 261 dac~ 1 2;
+#N canvas 219 229 729 436 ARGO 0;
+#X obj 368 103 cnv 10 20 10 empty empty Play 1 5 1 14 -262144 -1 1.04858e+06
+;
+#X obj 101 131 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 89 401 outlet~;
+#X obj 264 11 openpanel;
+#X msg 212 301 1;
+#X msg 141 275 0;
+#X msg 292 57 set \$1;
+#X msg 242 326 open \$1;
+#X obj 191 233 t b b;
+#X msg 116 359 set 0;
+#X obj 179 138 sel 1 0;
+#X floatatom 230 180 5 0 0 0 - - -;
+#X msg 230 157 set \$1;
+#X obj 204 210 sel 1;
+#X msg 173 334 set 1;
+#X obj 195 5 key;
+#X obj 196 28 select 32;
+#X obj -11 6 loadbang;
+#X obj 243 353 readsf~ 2;
+#X obj 274 272 list2symbol;
+#X obj 242 301 symbol;
+#X obj 265 31 t b s;
+#X text 369 281 avec espace;
+#X text 351 269 -> pour les noms de fichier;
+#X obj 151 101 tgl 12 1 \$0-A \$0-B Play(Space) 14 6 1 9 -262144 -1
+-1 1 1;
+#X obj 100 114 bng 16 250 50 0 \$0-A \$0-B empty 0 0 1 9 -262144 -1
+-1;
+#X obj 311 101 bng 12 250 50 0 \$0-A \$0-B Stop 14 6 1 9 -262144 -1
+-1;
+#X obj 249 101 tgl 12 1 \$0-A \$0-B Loop 15 6 1 9 -262144 -1 -1 0 1
+;
+#X symbolatom 117 114 46 0 0 0 - - -;
+#X msg 8 147 set \$1;
+#X obj -7 196 list2symbol;
+#X obj -11 40 t b b;
+#X obj 174 277 delay 5;
+#X obj 50 6 inlet~;
+#X obj 50 29 threshold~ 0.5 5 0.49 5;
+#X text 346 36 Lit un fichier Audio Mono (1 canal).;
+#X text 346 49 Le canal 2 d'un fichier Audio Stereo est mélangé au
+canal 1;
+#X text 346 63 Les canaux 3 \, 4... d'un fichier Audio de plus de 2
+canaux ne sont pas lus.;
+#X text 296 184 Channels 3 \, 4... of an Audio file of more than 2
+channels are not read.;
+#X text 296 170 Channel 2 of a Stereo Audio file is mixed with channel
+1;
+#X text 297 156 Reads an Mono Audio file (1 channel).;
+#X obj 466 98 cnv 15 60 30 empty empty empty 20 12 0 14 -24198 -66577
+0;
+#N canvas 294 22 563 525 Help 0;
+#X obj 8 103 cnv 15 400 100 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X text 11 102 Citation;
+#X obj 8 348 cnv 15 550 300 empty empty empty 20 12 0 14 -224896 -66577
+0;
+#X text 10 -23 - Ne lit pas un fichier au format mp3 \, SoundDesigner
+II (.SDII ou .SD2);
+#X text 27 48 error: soundfiler_read: x.aiff: unknown or bad header
+format;
+#X text 14 72 Solution: ouvrir puis sauver le fichier au format aiff
+avec Audacity;
+#X text 13 9 - Ne lit pas un fichier au format aiff "Entier petit boutien"
+comme les pistes d'un CD Audio copiées avec le finder du Mac. Les messages
+d'erreur s'affichent:;
+#X text 27 59 error: dsp: xxx.aiff: unknown or bad header format;
+#X text 9 -42 - Lit un fichier Audio au format aiff \, wave;
+#X text 30 118 READSF~ - read a soundfile;
+#X text 29 136 The wave \, aiff \, and nextstep formats are parsed
+automatically \, although only 2- 3- and 4- byte samples are accepted
+(4 bytes implies floating point and is not available in aiff format.)
+;
+#X text 20 606 Erreur dans la fenêtre Pd:;
+#X text 11 249 - Peut Ouvrir automatiquement 1 fichier qui se trouve
+dans le même dossier que lui \, quelquesoit l'emplacement du dossier.
+Pour cela ouvrir le module et taper le nom du fichier (sans chemin
+d'accés) dans le message. Sauver le patch. Fermer le patch. Ré-ouvrir
+le patch. Le dossier contenant le module ARGO et le fichier image est
+ainsi transportable.;
+#X text 11 208 - Si le Patch est sauvé avec 1 Player contenant un nom
+de fichier Audio \, ce fichier sera lu automatiquement à la prochaine
+ouverture s'il n'a pas changé d'emplacement.;
+#X text 54 544 Les canaux 1 2 3 4 sortent sur les sorties 5 6 7 8;
+#X text 54 555 Les canaux 5 6 7 8 sortent sur les sorties 1 2 3 4;
+#X text 36 566 Pas de bug sur un fichier à 2 ou 4 canaux;
+#X text 36 577 Pas de bug sur un fichier wav;
+#X text 35 533 Sur un fichier aiff à 8 canaux;
+#X text 24 517 Bug du Player à 8 sorties.;
+#X text 186 466 If the sample rate of pd is set to 44100 \, files having
+the sample rates of 44100 are correctly played \, other files will
+be transposed.;
+#X text 188 439 WARNING The sample rate of the output depends on the
+system sample rate of pd:;
+#X text 16 355 - ATTENTION Le taux d'échantillonnage de la lecture
+du fichier dépends du taux d'échantillonnage de Pd.;
+#X text 28 382 Si le taux d'échantillonnage de Pd est de 44100 (Menu
+Preferences -> Audio Settings...) \, les fichiers échantillonnés à
+44100 Hz sont lus correctement \, sinon ils sont transposés.;
+#X restore 473 104 pd Help;
+#X text 75 81 Trig Decl;
+#X msg -7 172 RwandaP10.aiff;
+#X msg 199 58 set 1;
+#X obj 100 101 bng 12 250 50 0 \$0-A \$0-B empty 14 6 1 9 -262144 -1
+-1;
+#X obj 101 101 cnv 2 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 102 102 cnv 2 8 2 empty empty empty 20 12 0 14 -262144 -66577
+0;
+#X text 405 100 14 4 2009;
+#X connect 3 0 21 0;
+#X connect 4 0 18 0;
+#X connect 5 0 18 0;
+#X connect 6 0 28 0;
+#X connect 7 0 18 0;
+#X connect 8 0 32 0;
+#X connect 8 1 20 0;
+#X connect 9 0 24 0;
+#X connect 10 0 8 0;
+#X connect 10 1 9 0;
+#X connect 10 1 5 0;
+#X connect 11 0 13 0;
+#X connect 12 0 11 0;
+#X connect 13 0 8 0;
+#X connect 14 0 24 0;
+#X connect 15 0 16 0;
+#X connect 16 0 24 0;
+#X connect 17 0 31 0;
+#X connect 18 0 2 0;
+#X connect 18 1 2 0;
+#X connect 18 2 11 0;
+#X connect 18 2 9 0;
+#X connect 19 0 20 1;
+#X connect 20 0 7 0;
+#X connect 21 0 28 0;
+#X connect 21 1 6 0;
+#X connect 24 0 10 0;
+#X connect 25 0 3 0;
+#X connect 26 0 5 0;
+#X connect 26 0 9 0;
+#X connect 27 0 12 0;
+#X connect 28 0 19 0;
+#X connect 28 0 29 0;
+#X connect 29 0 44 0;
+#X connect 30 0 6 0;
+#X connect 31 0 28 0;
+#X connect 31 1 44 0;
+#X connect 32 0 4 0;
+#X connect 32 0 14 0;
+#X connect 33 0 34 0;
+#X connect 34 0 46 0;
+#X connect 44 0 30 0;
+#X connect 45 0 46 0;
+#X connect 46 0 8 0;
+#X coords 0 -1 1 1 300 36 2 100 100;
+#X restore 19 144 pd ARGO;
+#X text 124 127 Audio player 2 channels 1 output;
+#N canvas 302 22 582 408 ARGO 0;
+#X obj 101 101 cnv 20 244 34 empty ColorTime empty 20 12 0 14 -208064
+-1 1.04858e+06;
+#X obj 356 280 outlet~;
+#X obj 103 118 hsl 241 12 0 1 0 0 \$0-A ColorTime G$-8 0 7 1 9 -208064
+-1 -1 4400 0;
+#X obj 100 106 nbx 7 12 0 20000 0 1 \$0-A ColorTime Hz 60 7 1 9 -208064
+-1 -1 0.202785 256;
+#X obj 194 104 cnv 10 65 10 empty ColorTime Oscill 1 5 1 14 -208064
+-1 1.04858e+06;
+#X obj 231 104 cnv 10 10 10 empty ColorTime Tri/Rectangle 1 5 1 14
+-208064 -1 1.04858e+06;
+#X obj 312 31 clip~ 0 20000;
+#X obj 17 130 ftom;
+#X obj 218 50 mtof;
+#X obj 311 -76 +~;
+#X obj 188 -43 snapshot~;
+#X obj 188 -21 change;
+#X obj 217 3 * 240;
+#X obj 218 26 - 108;
+#X obj 312 9 mtof~;
+#X obj 310 -38 *~ 240;
+#X obj 311 -16 -~ 108;
+#X obj 18 153 + 108;
+#X obj 19 175 / 240;
+#X msg 113 5 set \$1;
+#X msg 219 72 set \$1;
+#X obj 188 -76 r \$0-SendClic;
+#N canvas 60 186 518 313 pitch 0;
+#X obj 76 111 mod 12;
+#X obj 76 135 sel 0 1 2 3 4 5 6 7 8 9 10 11;
+#X msg 252 170 A;
+#X msg 279 170 A#;
+#X msg 306 170 B;
+#X msg 225 170 G#;
+#X msg 198 170 G;
+#X msg 171 170 F#;
+#X msg 9 170 C;
+#X msg 36 170 C#;
+#X msg 63 170 D;
+#X msg 90 170 D#;
+#X msg 117 170 E;
+#X msg 144 170 F;
+#X obj 211 9 inlet;
+#X obj 376 115 div 12;
+#X obj 376 137 - 2;
+#X obj 307 238 tosymbol;
+#X obj 210 69 t f f;
+#X obj 307 213 sprintf %s%d;
+#X text 383 170 -> Numero de l'octave;
+#X text 217 30 -> Numero MIDI de la note (69 = A3 = 440Hz);
+#X msg 307 260 label \$1;
+#X obj 307 283 outlet;
+#X connect 0 0 1 0;
+#X connect 1 0 8 0;
+#X connect 1 1 9 0;
+#X connect 1 2 10 0;
+#X connect 1 3 11 0;
+#X connect 1 4 12 0;
+#X connect 1 5 13 0;
+#X connect 1 6 7 0;
+#X connect 1 7 6 0;
+#X connect 1 8 5 0;
+#X connect 1 9 2 0;
+#X connect 1 10 3 0;
+#X connect 1 11 4 0;
+#X connect 2 0 19 0;
+#X connect 3 0 19 0;
+#X connect 4 0 19 0;
+#X connect 5 0 19 0;
+#X connect 6 0 19 0;
+#X connect 7 0 19 0;
+#X connect 8 0 19 0;
+#X connect 9 0 19 0;
+#X connect 10 0 19 0;
+#X connect 11 0 19 0;
+#X connect 12 0 19 0;
+#X connect 13 0 19 0;
+#X connect 14 0 18 0;
+#X connect 15 0 16 0;
+#X connect 16 0 19 1;
+#X connect 17 0 22 0;
+#X connect 18 0 0 0;
+#X connect 18 1 15 0;
+#X connect 19 0 17 0;
+#X connect 22 0 23 0;
+#X restore 114 53 pd pitch;
+#X obj 311 -100 inlet~;
+#X obj 101 131 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1728 -66577
+0;
+#X obj 409 279 outlet~;
+#X obj 335 131 cnv 4 10 4 empty empty empty 0 0 0 9 -1 -66577 0;
+#X obj 352 61 phasor~;
+#X obj 353 87 -~ 0.5;
+#X obj 493 158 -~ 0.5;
+#X obj 513 195 *~;
+#X obj 513 218 +~ 0.125;
+#X obj 463 278 outlet~;
+#X obj 493 136 expr~ $v1 < 0;
+#X obj 355 252 *~ 2;
+#X obj 409 247 *~ -2;
+#X obj 463 242 *~ 2;
+#X obj 513 242 *~ 8;
+#X obj 514 277 outlet~;
+#X obj 254 131 cnv 4 10 4 empty empty empty 0 0 0 9 -1 -66577 0;
+#X obj 180 131 cnv 4 10 4 empty empty empty 0 0 0 9 -1 -66577 0;
+#X text 84 134 Ramp up;
+#X text 158 135 Ramp down;
+#X text 231 136 Rectangle;
+#X text 313 136 Triangle;
+#X connect 2 0 9 1;
+#X connect 3 0 7 0;
+#X connect 6 0 28 0;
+#X connect 7 0 17 0;
+#X connect 8 0 20 0;
+#X connect 9 0 10 0;
+#X connect 9 0 15 0;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 11 0 19 0;
+#X connect 12 0 13 0;
+#X connect 13 0 8 0;
+#X connect 13 0 22 0;
+#X connect 14 0 6 0;
+#X connect 15 0 16 0;
+#X connect 16 0 14 0;
+#X connect 17 0 18 0;
+#X connect 18 0 9 1;
+#X connect 19 0 2 0;
+#X connect 20 0 3 0;
+#X connect 21 0 10 0;
+#X connect 22 0 2 0;
+#X connect 23 0 9 0;
+#X connect 28 0 29 0;
+#X connect 29 0 35 0;
+#X connect 29 0 36 0;
+#X connect 29 0 31 0;
+#X connect 29 0 34 0;
+#X connect 30 0 31 1;
+#X connect 30 0 37 0;
+#X connect 31 0 32 0;
+#X connect 32 0 38 0;
+#X connect 34 0 30 0;
+#X connect 35 0 1 0;
+#X connect 36 0 26 0;
+#X connect 37 0 33 0;
+#X connect 38 0 39 0;
+#X coords 0 -1 1 1 246 36 1 100 100;
+#X restore 19 83 pd ARGO;
+#X obj 253 18 active;
+#N canvas 424 161 167 191 clic 0;
+#X obj 23 17 MouseState;
+#X obj 23 82 &;
+#X obj 23 100 == 0;
+#X obj 23 136 s \$0-SendClic;
+#X obj 48 51 t b f;
+#X obj 23 118 metro 200;
+#X obj 94 17 inlet;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 5 0;
+#X connect 4 0 1 0;
+#X connect 4 1 1 1;
+#X connect 5 0 3 0;
+#X connect 6 0 4 0;
+#X restore 253 39 pd clic;
+#X connect 0 0 4 0;
+#X connect 0 1 4 1;
+#X connect 1 0 2 0;
+#X connect 5 0 0 0;
+#X connect 5 0 0 1;
+#X connect 7 0 5 0;
+#X connect 8 0 9 0;

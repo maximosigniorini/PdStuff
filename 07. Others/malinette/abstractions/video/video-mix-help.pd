@@ -1,0 +1,25 @@
+#N canvas 1 95 657 375 10;
+#X msg 439 109 0 \, destroy;
+#X msg 426 78 create \, 1;
+#X obj 426 184 gemwin;
+#X msg 451 159 lighting 1;
+#X obj 451 139 loadbang;
+#X text 423 55 Gem window;
+#X text 509 77 <- on;
+#X text 511 110 <- off;
+#X obj 105 263 rectangle 4 3;
+#X obj 428 259 gemhead;
+#X obj 428 281 world_light;
+#X text 168 175 mix (0-1);
+#X obj 105 188 video-mix;
+#X text 62 152 video 1;
+#X text 120 152 video 2;
+#X text 87 31 video-mix \; ------------------------ \; Mix two sources
+of video \;;
+#X connect 0 0 2 0;
+#X connect 1 0 2 0;
+#X connect 3 0 2 0;
+#X connect 4 0 3 0;
+#X connect 9 0 10 0;
+#X connect 12 0 8 0;
+#X coords 0 0 1 1 150 50 0;

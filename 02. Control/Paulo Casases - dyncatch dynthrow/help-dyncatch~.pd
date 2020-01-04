@@ -1,0 +1,30 @@
+#N canvas 262 471 697 291 10;
+#X obj 101 88 osc~ 220;
+#X obj 101 109 *~ 0.5;
+#X obj 177 271 dac~;
+#X obj 204 109 *~ 0.5;
+#X obj 204 88 osc~ 440;
+#X obj 233 176 dyncatch~ test;
+#X obj 101 130 dynthrow~ test;
+#X obj 204 130 dynthrow~ test2;
+#X obj 277 227 dyncatch~ test2;
+#X obj 121 165 dyncatch~ test;
+#X obj 53 227 dyncatch~ test2;
+#X text 319 80 this example will create [catch~ test2.1] \, [catch~
+test2.2] \, [throw~ test2.1] \, [throw~ test2.2] and [catch~ test.1]
+\, [catch~ test.2] \, [throw~ test.1] \, [throw~ test.2];
+#X text 69 14 Acts like throw~ and catch~ but allows more than one
+catch~ per throw~. Uses dynamic objet creation to do this. Tested under
+PD 0.40.3-Extended (PD-Extended is required).;
+#X text 411 243 Author: Paulo Casaes;
+#X text 327 129 When a dyncatch~ is deleted it's corresponding catch~
+will still exists (giving errors in the console) but next time a dyncatch~
+with the same name is created it will use that available throw~.;
+#X connect 0 0 1 0;
+#X connect 1 0 6 0;
+#X connect 3 0 7 0;
+#X connect 4 0 3 0;
+#X connect 5 0 2 1;
+#X connect 8 0 2 1;
+#X connect 9 0 2 0;
+#X connect 10 0 2 0;

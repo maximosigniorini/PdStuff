@@ -1,0 +1,9 @@
+#N canvas 273 451 450 300 10;
+#X declare -lib flatspace;
+#X text 50 10 select/close the serial port:;
+#X text 49 80 argument is por number;
+#X text 37 184 code modified from arduino-help.pd example by gerda
+strobl and georg holtzman;
+#X obj 47 116 ehu/arduino/control 2;
+#X text 48 50 inlets are : on/off \, COM port (num) \, info (bang)
+;

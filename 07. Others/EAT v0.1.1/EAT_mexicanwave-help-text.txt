@@ -1,0 +1,20 @@
+ElectroAcousticTools
+
+EAT_Mexicanwave~
+
+This module is a multi-point panner. It provides a mexican wave behaviour for 1-12 channels (13 in total including dedicated subwoofer channel 13).
+
+Creation Arguments
+
+EAT_Mexicanwave~ ID_tag n-channels
+
+e.g. EAT_Mexicanwave~ Grill 12
+
+Parameter
+
+Gain: Control maximum gain in overall wave behaviour.
+Gradient: Control wave shape from small and sharp to wide and gentle.
+Frequency: Control speed and direction of mexican wave behaviour (stationary in middle).
+ADV: Open 12x12 input mixer.
+MIDI: Access MIDI learn and MIDI control on/off for parameter control.
+HELP: Access help files.

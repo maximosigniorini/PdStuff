@@ -1,0 +1,15 @@
+#N canvas 304 81 408 272 10;
+#X msg 252 85 \; pd dsp 1;
+#X text 312 90 Audio on;
+#X text 171 167 Compressor with waveshaping;
+#X obj 20 107 phasor~ 1000;
+#X text 172 155 // from Nicolas Montgermont;
+#X obj 20 202 dac~;
+#X obj 19 150 audio-comp 0.3;
+#X text 170 179 quartic enveloppe;
+#X text 19 11 audio-comp \; ---------------- \; Audio compressor.;
+#X connect 3 0 6 0;
+#X connect 3 0 6 1;
+#X connect 6 0 5 0;
+#X connect 6 1 5 1;
+#X coords 0 0 1 1 74 49 0;

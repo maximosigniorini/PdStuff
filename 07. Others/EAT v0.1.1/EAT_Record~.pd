@@ -1,0 +1,823 @@
+#N canvas 182 22 614 675 10;
+#X obj 11 13 cnv 13 13 15 empty \$0-t1 ✓ 1 8 1 14 -1 -24198 0;
+#X obj 11 13 cnv 13 1 1 empty \$0-x1 ✘ 0 2 1 4 -1 -1 0;
+#X obj 43 13 cnv 15 15 15 empty \$0-t2 ✓ 3 8 1 14 -1 -24198 0;
+#X obj 43 13 cnv 15 1 1 empty \$0-x2 ✘ 1 2 1 4 -1 -1 0;
+#X obj 81 13 cnv 15 15 15 empty \$0-t3 ✓ 3 8 1 14 -1 -24198 0;
+#X obj 81 13 cnv 15 1 1 empty \$0-x3 ✘ 1 2 1 4 -1 -1 0;
+#X obj 119 13 cnv 15 15 15 empty \$0-t4 ✓ 3 8 1 14 -1 -24198 0;
+#X obj 119 13 cnv 15 1 1 empty \$0-x4 ✘ 1 2 1 4 -1 -1 0;
+#X obj 157 13 cnv 15 15 15 empty \$0-t5 ✓ 3 8 1 14 -1 -24198 0;
+#X obj 157 13 cnv 15 1 1 empty \$0-x5 ✘ 1 2 1 4 -1 -1 0;
+#X obj 195 13 cnv 15 15 15 empty \$0-t6 ✓ 3 8 1 14 -1 -24198 0;
+#X obj 195 13 cnv 15 1 1 empty \$0-x6 ✘ 1 2 1 4 -1 -1 0;
+#X obj 233 13 cnv 15 15 15 empty \$0-t7 ✓ 3 8 1 14 -1 -24198 0;
+#X obj 233 13 cnv 15 1 1 empty \$0-x7 ✘ 1 2 1 4 -1 -1 0;
+#X obj 271 13 cnv 15 15 15 empty \$0-t8 ✓ 3 8 1 14 -1 -24198 0;
+#X obj 271 13 cnv 15 1 1 empty \$0-x8 ✘ 1 2 1 4 -1 -1 0;
+#X obj 308 13 cnv 15 15 15 empty \$0-t9 ✓ 3 8 1 14 -1 -24198 0;
+#X obj 308 13 cnv 15 1 1 empty \$0-x9 ✘ 1 2 1 4 -1 -1 0;
+#X obj 346 13 cnv 15 15 15 empty \$0-t10 ✓ 3 8 1 14 -1 -24198 0;
+#X obj 346 13 cnv 15 1 1 empty \$0-x10 ✘ 1 2 1 4 -1 -1 0;
+#X obj 422 13 cnv 15 15 15 empty \$0-t12 ✓ 3 8 1 14 -1 -24198 0;
+#X obj 422 13 cnv 15 1 1 empty \$0-x12 ✘ 1 2 1 4 -1 -1 0;
+#X obj 460 13 cnv 15 15 15 empty \$0-t13 ✓ 3 8 1 14 -1 -24198 0;
+#X obj 460 13 cnv 15 1 1 empty \$0-x13 ✘ 1 2 1 4 -1 -1 0;
+#X obj 97 13 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0;
+#X obj 135 13 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 173 13 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 211 13 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 249 13 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 286 13 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 324 13 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 362 13 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 384 13 cnv 15 15 15 empty \$0-t11 ✓ 3 8 1 14 -1 -24198 0;
+#X obj 384 13 cnv 15 1 1 empty \$0-x11 ✘ 1 2 1 4 -1 -1 0;
+#X obj 400 13 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 438 13 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 476 13 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 498 13 cnv 10 11 15 empty empty i 7 9 2 14 -1 -228856 0;
+#X obj 25 13 cnv 15 17 15 empty empty empty 4 9 1 11 -1 -204800 0;
+#X obj 59 13 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0;
+#X obj 11 162 cnv 13 13 15 empty \$0-t1 ✓ 1 8 1 14 -1 -24198 0;
+#X obj 11 162 cnv 13 1 1 empty \$0-x1 ✘ 0 2 1 4 -1 -1 0;
+#X obj 43 162 cnv 15 15 15 empty \$0-t2 ✓ 3 8 1 14 -1 -24198 0;
+#X obj 43 162 cnv 15 1 1 empty \$0-x2 ✘ 1 2 1 4 -1 -1 0;
+#X obj 81 162 cnv 15 15 15 empty \$0-t3 ✓ 3 8 1 14 -1 -24198 0;
+#X obj 81 162 cnv 15 1 1 empty \$0-x3 ✘ 1 2 1 4 -1 -1 0;
+#X obj 119 162 cnv 15 15 15 empty \$0-t4 ✓ 3 8 1 14 -1 -24198 0;
+#X obj 119 162 cnv 15 1 1 empty \$0-x4 ✘ 1 2 1 4 -1 -1 0;
+#X obj 157 162 cnv 15 15 15 empty \$0-t5 ✓ 3 8 1 14 -1 -24198 0;
+#X obj 157 162 cnv 15 1 1 empty \$0-x5 ✘ 1 2 1 4 -1 -1 0;
+#X obj 195 162 cnv 15 15 15 empty \$0-t6 ✓ 3 8 1 14 -1 -24198 0;
+#X obj 195 162 cnv 15 1 1 empty \$0-x6 ✘ 1 2 1 4 -1 -1 0;
+#X obj 233 162 cnv 15 15 15 empty \$0-t7 ✓ 3 8 1 14 -1 -24198 0;
+#X obj 233 162 cnv 15 1 1 empty \$0-x7 ✘ 1 2 1 4 -1 -1 0;
+#X obj 271 162 cnv 15 15 15 empty \$0-t8 ✓ 3 8 1 14 -1 -24198 0;
+#X obj 271 162 cnv 15 1 1 empty \$0-x8 ✘ 1 2 1 4 -1 -1 0;
+#X obj 308 162 cnv 15 15 15 empty \$0-t9 ✓ 3 8 1 14 -1 -24198 0;
+#X obj 308 162 cnv 15 1 1 empty \$0-x9 ✘ 1 2 1 4 -1 -1 0;
+#X obj 346 162 cnv 15 15 15 empty \$0-t10 ✓ 3 8 1 14 -1 -24198 0
+;
+#X obj 346 162 cnv 15 1 1 empty \$0-x10 ✘ 1 2 1 4 -1 -1 0;
+#X obj 422 162 cnv 15 15 15 empty \$0-t12 ✓ 3 8 1 14 -1 -24198 0
+;
+#X obj 422 162 cnv 15 1 1 empty \$0-x12 ✘ 1 2 1 4 -1 -1 0;
+#X obj 460 162 cnv 15 15 15 empty \$0-t13 ✓ 3 8 1 14 -1 -24198 0
+;
+#X obj 460 162 cnv 15 1 1 empty \$0-x13 ✘ 1 2 1 4 -1 -1 0;
+#X obj 97 162 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 135 162 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 173 162 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 211 162 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 249 162 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 286 162 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 324 162 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 362 162 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 384 162 cnv 15 15 15 empty \$0-t11 ✓ 3 8 1 14 -1 -24198 0
+;
+#X obj 384 162 cnv 15 1 1 empty \$0-x11 ✘ 1 2 1 4 -1 -1 0;
+#X obj 400 162 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 438 162 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 476 162 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 498 162 cnv 10 11 15 empty empty i 7 9 2 14 -1 -228856 0;
+#X obj 25 162 cnv 15 17 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 59 162 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 11 31 cnv 15 15 15 empty empty E 4 9 1 11 -1 -204800 0;
+#X obj 29 31 cnv 15 15 15 empty empty A 4 9 1 11 -1 -204800 0;
+#X obj 47 31 cnv 15 15 15 empty empty T 4 9 1 11 -1 -204800 0;
+#X obj 449 31 cnv 15 60 15 empty empty RECORD 9 9 1 11 -1 -204800 0
+;
+#X obj 27 31 cnv 1 1 15 empty empty empty 20 12 0 14 -66577 -66577
+0;
+#X obj 45 31 cnv 1 1 15 empty empty empty 20 12 0 14 -66577 -66577
+0;
+#X obj 63 31 cnv 1 1 15 empty empty empty 20 12 0 14 -66577 -66577
+0;
+#X obj 388 31 cnv 15 60 15 empty \$0-uniqueid \$1 1 9 1 11 -1 -128992
+0;
+#X obj 11 29 cnv 1 498 1 empty empty empty 4 9 1 11 -66577 -204800
+0;
+#X obj 11 47 cnv 1 498 1 empty empty empty 4 9 1 11 -66577 -204800
+0;
+#X obj 11 160 cnv 1 498 1 empty empty empty 4 9 1 11 -66577 -204800
+0;
+#X obj 73 114 cnv 11 13 11 empty empty Bit 2 6 1 10 -1 -204800 0;
+#X obj 85 126 cnv 10 26 10 empty empty 16 2 6 1 10 -1 -128992 0;
+#X obj 65 31 cnv 15 15 15 empty \$0-chdisplay \$2 2 9 1 11 -1 -128992
+0;
+#X obj 340 312 inlet~;
+#X obj 350 329 inlet~;
+#X obj 360 346 inlet~;
+#X obj 370 363 inlet~;
+#X obj 380 380 inlet~;
+#X obj 390 397 inlet~;
+#X obj 400 414 inlet~;
+#X obj 410 431 inlet~;
+#X obj 420 448 inlet~;
+#X obj 430 465 inlet~;
+#X obj 440 482 inlet~;
+#X obj 450 499 inlet~;
+#X obj 460 516 inlet~;
+#X obj 469 533 inlet;
+#X obj 469 550 outlet;
+#X obj 486 125 bng 23 500 50 0 \$0-help \$0-helpr HELP 1 12 1 9 -1
+-204800 -204800;
+#X obj 114 114 cnv 1 1 45 empty empty empty 20 12 0 14 -66577 -66577
+0;
+#X obj 116 114 cnv 1 1 45 empty empty empty 20 12 0 14 -162280 -66577
+0;
+#X obj 112 114 cnv 1 1 45 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 118 114 cnv 1 1 45 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 454 125 bng 23 500 50 0 \$0-midi empty MIDI 4 12 1 9 -1 -204800
+-204800;
+#X obj 81 31 cnv 15 43 15 empty empty Channel 1 9 1 11 -1 -128992 0
+;
+#X obj 125 31 cnv 15 262 15 empty empty Processing 1 9 1 11 -1 -128992
+0;
+#N canvas 432 269 562 106 display 0;
+#N canvas 0 22 528 110 Channel 0;
+#X obj 14 1 loadbang;
+#X obj 14 35 < 10;
+#X obj 14 52 sel 1;
+#X msg 14 86 label_pos \$1 \$2;
+#X msg 14 69 6 9;
+#X obj 14 103 s \$0-chdisplay;
+#X msg 41 69 2 9;
+#X obj 14 18 float \$2;
+#X connect 0 0 7 0;
+#X connect 1 0 2 0;
+#X connect 2 0 4 0;
+#X connect 2 1 6 0;
+#X connect 3 0 5 0;
+#X connect 4 0 3 0;
+#X connect 6 0 3 0;
+#X connect 7 0 1 0;
+#X restore 35 31 pd Channel Display;
+#N canvas 311 148 663 258 Recording 0;
+#X obj 192 94 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 192 109 metro 1000;
+#X obj 192 126 counter 0 59;
+#X obj 384 126 counter 0 99;
+#X obj 384 109 metro 10;
+#X obj 0 126 counter 0 59;
+#X obj 0 109 metro 60000;
+#X msg 192 77 1;
+#X msg 36 77 0;
+#X obj 468 143 < 10;
+#X obj 468 160 sel 1;
+#X obj 468 194 prepend label_pos;
+#X obj 384 211 s \$0-time_msecs;
+#X obj 384 194 prepend label;
+#X obj 276 143 < 10;
+#X obj 276 160 sel 1;
+#X obj 276 194 prepend label_pos;
+#X obj 192 194 prepend label;
+#X obj 84 143 < 10;
+#X obj 84 160 sel 1;
+#X obj 84 194 prepend label_pos;
+#X obj 0 194 prepend label;
+#X obj 192 211 s \$0-time_secs;
+#X obj 0 211 s \$0-time_mins;
+#X obj 0 177 list-l2s;
+#X obj 192 177 list-l2s;
+#X obj 384 177 list-l2s;
+#X msg 225 39 1;
+#X obj 192 56 spigot;
+#X msg 438 177 ms;
+#X obj 504 160 io;
+#X msg 246 177 ss;
+#X msg 54 177 m;
+#X obj 286 56 spigot;
+#X msg 65 39 1;
+#X msg 319 39 0;
+#X obj 286 90 print EAT;
+#X msg 286 73 Error! You need to NAME the file before you can record.
+;
+#X obj 349 39 init 1;
+#X obj 286 12 io;
+#X obj 521 143 loadbang;
+#X msg 255 73 0;
+#X obj 255 39 io;
+#X msg 117 177 3 20;
+#X msg 342 177 6 20;
+#X msg 534 177 3 20;
+#X msg 501 177 3 20;
+#X msg 468 177 6 20;
+#X msg 150 177 10 20;
+#X msg 84 177 16 20;
+#X msg 309 177 4 20;
+#X msg 276 177 14 20;
+#X obj 192 -5 r EAT_Record.Record.\$1.Send.all;
+#X obj 36 22 r EAT_Record.Stop.\$1.Send.all;
+#X obj 319 22 r EAT_Record.Name.\$1.Send.all;
+#X obj 504 109 r EAT_Record.Name.\$1.Send.all;
+#X connect 0 0 1 0;
+#X connect 0 0 4 0;
+#X connect 0 0 6 0;
+#X connect 1 0 2 0;
+#X connect 2 0 14 0;
+#X connect 2 0 25 0;
+#X connect 3 0 9 0;
+#X connect 3 0 26 0;
+#X connect 4 0 3 0;
+#X connect 5 0 18 0;
+#X connect 5 0 24 0;
+#X connect 6 0 5 0;
+#X connect 7 0 0 0;
+#X connect 8 0 0 0;
+#X connect 9 0 10 0;
+#X connect 10 0 47 0;
+#X connect 10 1 46 0;
+#X connect 11 0 12 0;
+#X connect 13 0 12 0;
+#X connect 14 0 15 0;
+#X connect 15 0 51 0;
+#X connect 15 1 50 0;
+#X connect 16 0 22 0;
+#X connect 17 0 22 0;
+#X connect 18 0 19 0;
+#X connect 19 0 49 0;
+#X connect 19 1 43 0;
+#X connect 20 0 23 0;
+#X connect 21 0 23 0;
+#X connect 24 0 21 0;
+#X connect 25 0 17 0;
+#X connect 26 0 13 0;
+#X connect 27 0 28 1;
+#X connect 28 0 7 0;
+#X connect 28 0 41 0;
+#X connect 29 0 13 0;
+#X connect 30 0 29 0;
+#X connect 30 0 31 0;
+#X connect 30 0 32 0;
+#X connect 30 0 45 0;
+#X connect 30 0 44 0;
+#X connect 30 0 48 0;
+#X connect 31 0 17 0;
+#X connect 32 0 21 0;
+#X connect 33 0 37 0;
+#X connect 34 0 33 1;
+#X connect 35 0 33 1;
+#X connect 37 0 36 0;
+#X connect 38 0 33 1;
+#X connect 39 0 33 0;
+#X connect 40 0 30 0;
+#X connect 41 0 42 0;
+#X connect 42 0 28 1;
+#X connect 43 0 20 0;
+#X connect 44 0 16 0;
+#X connect 45 0 11 0;
+#X connect 46 0 11 0;
+#X connect 47 0 11 0;
+#X connect 48 0 20 0;
+#X connect 49 0 20 0;
+#X connect 50 0 16 0;
+#X connect 51 0 16 0;
+#X connect 52 0 28 0;
+#X connect 52 0 39 0;
+#X connect 53 0 8 0;
+#X connect 53 0 34 0;
+#X connect 54 0 27 0;
+#X connect 54 0 35 0;
+#X connect 55 0 5 2;
+#X connect 55 0 2 2;
+#X connect 55 0 3 2;
+#X connect 55 0 30 0;
+#X restore 35 51 pd Recording Time;
+#X text 175 32 Processes the different control data for palatable representation
+using intuitive units.;
+#X restore 10 263 pd display;
+#N canvas 802 50 285 181 midicc 0;
+#X obj 2 -6 EATi_MIDICCMONO EAT_Record Record \$1 all 0 1 1 1;
+#X obj 143 -6 EATi_MIDICCMONO EAT_Record Stop \$1 all 0 1 1 1;
+#X restore 10 243 pd midicc;
+#N canvas 793 148 131 146 \$0_midi 0;
+#X obj 30 -35 cnv 15 25 15 empty empty MIDI 2 9 1 11 -1 -204800 0;
+#X obj 56 -35 cnv 15 68 15 empty empty CONTROL 2 9 1 11 -1 -204800
+0;
+#X obj -1 -38 cnv 1 2 99 empty empty empty 2 8 1 11 -66577 -204800
+0;
+#X obj 2 -38 cnv 1 124 2 empty empty empty 2 8 1 11 -66577 -204800
+0;
+#X obj 125 -38 cnv 2 2 99 empty empty empty 2 8 1 11 -66577 -204800
+0;
+#X obj 2 -35 cnv 15 27 15 empty empty empty 2 9 1 11 -1 -204800 0;
+#X obj 30 -19 cnv 15 94 15 empty empty EAT_Record 2 9 1 11 -1 -204800
+0;
+#X obj 2 -19 cnv 15 27 15 empty empty empty 2 9 1 11 -1 -204800 0;
+#X obj 30 -3 cnv 15 94 15 empty empty ID_\$1 2 9 1 11 -1 -204800 0
+;
+#X obj 2 -3 cnv 15 27 15 empty empty empty 2 9 1 11 -1 -204800 0;
+#X obj 30 13 cnv 15 94 15 empty empty All_Channels 2 9 1 11 -1 -204800
+0;
+#X obj 2 13 cnv 15 27 15 empty empty empty 2 9 1 11 -1 -204800 0;
+#X obj 13 78 pddplink eat_transport.pd -text GLOBAL TRANSPORT;
+#X obj 11 91 pddplink eat_transport.pd -text WITH MIDI PRESETS;
+#X obj -1 62 cnv 1 128 2 empty empty empty 2 8 1 11 -66577 -204800
+0;
+#X obj 8 65 pddplink eat_transport.pd -text CLICK HERE TO OPEN;
+#X obj 2 29 EATi_MIDILC EAT_Record Record \$1 all;
+#X obj 2 45 EATi_MIDILC EAT_Record Stop \$1 all;
+#X restore 10 350 pd \$0_midi;
+#X obj 10 300 float \$0;
+#X obj 10 283 r \$0-midi;
+#X msg 10 317 \; pd-\$1_midi vis 1;
+#X obj 10 387 getdir 1;
+#X obj 10 404 s parentfilepath;
+#X obj 10 370 r getparentfilepath;
+#N canvas 361 173 450 300 help_link 0;
+#X obj 114 88 r \$0-help;
+#X obj 114 105 getdir;
+#X text 122 48 Opens help file.;
+#X msg 114 122 \; pd open EAT_record~-help.pd \$1;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X restore 10 424 pd help_link;
+#X obj 512 10 namecanvas \$0-\$2;
+#X obj 194 329 outlet~;
+#X obj 195 346 outlet~;
+#X obj 197 380 outlet~;
+#X obj 196 363 outlet~;
+#X obj 199 414 outlet~;
+#X obj 198 397 outlet~;
+#X obj 201 448 outlet~;
+#X obj 200 431 outlet~;
+#X obj 202 465 outlet~;
+#X obj 203 482 outlet~;
+#X obj 204 499 outlet~;
+#X obj 205 516 outlet~;
+#X obj 207 533 outlet~;
+#X obj 105 533 r \$0-writesfwrap;
+#N canvas 0 22 450 300 demultiplex_writesf 0;
+#X obj 240 188 s \$0.writesf;
+#X obj 209 52 loadbang;
+#X obj 209 103 kalashnikov;
+#X obj 209 86 t b f;
+#X msg 240 171 connect \$1 0 15 \$2;
+#X obj 240 137 + 1;
+#X obj 240 154 pack;
+#X obj 240 120 t f f;
+#X msg 97 69 connect 14 0 15 0;
+#X obj 209 69 float \$2;
+#X text 88 225 Connects up the required numbers of channels for writesf~
+in response to channel creation argument.;
+#X connect 1 0 8 0;
+#X connect 1 0 9 0;
+#X connect 2 1 7 0;
+#X connect 3 0 2 0;
+#X connect 3 1 2 1;
+#X connect 4 0 0 0;
+#X connect 5 0 6 0;
+#X connect 6 0 4 0;
+#X connect 7 0 5 0;
+#X connect 7 1 6 1;
+#X connect 8 0 0 0;
+#X connect 9 0 3 0;
+#X restore 10 223 pd demultiplex_writesf;
+#X obj 87 114 cnv 11 24 11 empty empty Rate 2 6 1 10 -1 -204800 0;
+#X obj 73 126 vradio 11 1 0 3 EAT_Record.BitRate.\$1.Send.all EAT_Record.BitRate.\$1.all
+empty 0 -8 0 10 -204800 -1 -1 1;
+#X obj 85 137 cnv 10 26 10 empty empty 24 2 6 1 10 -1 -128992 0;
+#X obj 85 148 cnv 11 26 11 empty empty 32 2 6 1 10 -1 -128992 0;
+#X obj 254 125 bng 23 1000 50 0 EAT_Record.Stop.\$1.Send.all EAT_Record.Stop.\$1.all
+STOP 1 12 1 9 -1 -261234 -204800;
+#X obj 190 125 bng 23 500 50 0 EAT_Record.Name.\$1.Send.all EAT_Record.Name.\$1.all
+NAME 0 12 1 9 -1 -204800 -204800;
+#X obj 222 125 bng 23 1000 50 0 EAT_Record.Record.\$1.Send.all EAT_Record.Record.\$1.all
+REC 4 12 1 9 -1 -261234 -204800;
+#X obj 120 114 cnv 11 36 11 empty empty Sample 2 6 1 10 -1 -204800
+0;
+#X obj 132 126 cnv 10 33 10 empty empty 44100 2 6 1 10 -1 -128992 0
+;
+#X obj 184 114 cnv 1 1 45 empty empty empty 20 12 0 14 -66577 -66577
+0;
+#X obj 186 114 cnv 1 1 45 empty empty empty 20 12 0 14 -162280 -66577
+0;
+#X obj 182 114 cnv 1 1 45 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 188 114 cnv 1 1 45 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 157 114 cnv 11 24 11 empty empty Rate 2 6 1 10 -1 -204800 0
+;
+#X obj 120 126 vradio 11 1 0 3 EAT_Record.SampleRate.\$1.Send.all EAT_Record.SampleRate.\$1.all
+empty 0 -8 0 10 -204800 -1 -1 1;
+#X obj 166 126 cnv 10 15 10 empty empty Hz 2 6 1 10 -1 -128992 0;
+#X obj 132 137 cnv 10 33 10 empty empty 48000 2 6 1 10 -1 -128992 0
+;
+#X obj 166 137 cnv 10 15 10 empty empty Hz 2 6 1 10 -1 -128992 0;
+#X obj 132 148 cnv 11 33 11 empty empty 96000 2 6 1 10 -1 -128992 0
+;
+#X obj 166 148 cnv 11 15 11 empty empty Hz 2 6 1 10 -1 -128992 0;
+#X obj 216 114 cnv 1 1 45 empty empty empty 20 12 0 14 -66577 -66577
+0;
+#X obj 218 114 cnv 1 1 45 empty empty empty 20 12 0 14 -162280 -66577
+0;
+#X obj 214 114 cnv 1 1 45 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 220 114 cnv 1 1 45 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 248 114 cnv 1 1 45 empty empty empty 20 12 0 14 -66577 -66577
+0;
+#X obj 250 114 cnv 1 1 45 empty empty empty 20 12 0 14 -162280 -66577
+0;
+#X obj 246 114 cnv 1 1 45 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 252 114 cnv 1 1 45 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 280 114 cnv 1 1 45 empty empty empty 20 12 0 14 -66577 -66577
+0;
+#X obj 282 114 cnv 1 1 45 empty empty empty 20 12 0 14 -162280 -66577
+0;
+#X obj 278 114 cnv 1 1 45 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 284 114 cnv 1 1 45 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 480 114 cnv 1 1 45 empty empty empty 20 12 0 14 -66577 -66577
+0;
+#X obj 482 114 cnv 1 1 45 empty empty empty 20 12 0 14 -162280 -66577
+0;
+#X obj 478 114 cnv 1 1 45 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 484 114 cnv 1 1 45 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 448 114 cnv 1 1 45 empty empty empty 20 12 0 14 -66577 -66577
+0;
+#X obj 450 114 cnv 1 1 45 empty empty empty 20 12 0 14 -162280 -66577
+0;
+#X obj 446 114 cnv 1 1 45 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 452 114 cnv 1 1 45 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 254 114 cnv 10 23 10 empty empty empty 20 12 0 14 -1 -66577
+0;
+#X obj 254 149 cnv 10 23 10 empty empty empty 20 12 0 14 -1 -66577
+0;
+#X obj 222 114 cnv 10 23 10 empty empty empty 20 12 0 14 -1 -66577
+0;
+#X obj 222 149 cnv 10 23 10 empty empty empty 20 12 0 14 -1 -66577
+0;
+#X obj 190 114 cnv 10 23 10 empty empty empty 20 12 0 14 -1 -66577
+0;
+#X obj 190 149 cnv 10 23 10 empty empty empty 20 12 0 14 -1 -66577
+0;
+#X obj 486 114 cnv 10 23 10 empty empty empty 20 12 0 14 -1 -66577
+0;
+#X obj 486 149 cnv 10 23 10 empty empty empty 20 12 0 14 -1 -66577
+0;
+#X obj 454 114 cnv 10 23 10 empty empty empty 20 12 0 14 -1 -66577
+0;
+#X obj 454 149 cnv 10 23 10 empty empty empty 20 12 0 14 -1 -66577
+0;
+#X obj 67 114 cnv 1 1 45 empty empty empty 20 12 0 14 -66577 -66577
+0;
+#X obj 69 114 cnv 1 1 45 empty empty empty 20 12 0 14 -162280 -66577
+0;
+#X obj 65 114 cnv 1 1 45 empty empty empty 20 12 0 14 -1 -66577 0;
+#X obj 71 114 cnv 1 1 45 empty empty empty 20 12 0 14 -1 -66577 0;
+#X obj 11 114 cnv 11 18 11 empty empty File 2 6 1 10 -1 -204800 0;
+#X obj 30 114 cnv 11 34 11 empty empty Format 2 6 1 10 -1 -204800 0
+;
+#X obj 11 126 vradio 11 1 0 2 EAT_Record.Format.\$1.Send.all EAT_Record.Format.\$1.all
+empty 0 -8 0 10 -204800 -1 -1 0;
+#X obj 23 126 cnv 10 41 10 empty empty Wave 2 6 1 10 -1 -128992 0;
+#X obj 23 137 cnv 11 41 11 empty empty Aiff 2 6 1 10 -1 -128992 0;
+#X obj 11 149 cnv 10 53 10 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 400 126 cnv 33 45 33 empty \$0-time_msecs ms 3 20 1 30 -1 -204800
+0;
+#X obj 343 126 cnv 15 40 33 empty \$0-time_secs ss 6 20 1 30 -1 -204800
+0;
+#X obj 286 126 cnv 15 40 33 empty \$0-time_mins m 10 20 1 30 -1 -204800
+0;
+#X obj 327 126 cnv 15 15 33 empty empty : 3 20 1 30 -1 -204800 0;
+#X obj 286 114 cnv 11 88 11 empty empty Recording 41 6 1 10 -1 -204800
+0;
+#X obj 375 114 cnv 11 70 11 empty empty Time 2 6 1 10 -1 -204800 0
+;
+#X obj 11 49 cnv 8 498 62 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 15 52 cnv 11 34 11 empty \$0-red.1 empty 20 12 0 14 -258699
+-262144 0;
+#X obj 15 67 cnv 11 34 11 empty \$0-amber.1 empty 20 12 0 14 -260818
+-262144 0;
+#X obj 15 82 cnv 11 34 11 empty \$0-yellow.1 empty 20 12 0 14 -241291
+-262144 0;
+#X obj 15 97 cnv 11 34 11 empty \$0-green.1 empty 20 12 0 14 -4033
+-262144 0;
+#X obj 54 52 cnv 11 33 11 empty \$0-red.2 empty 20 12 0 14 -258699
+-262144 0;
+#X obj 54 67 cnv 11 33 11 empty \$0-amber.2 empty 20 12 0 14 -260818
+-262144 0;
+#X obj 54 82 cnv 11 33 11 empty \$0-yellow.2 empty 20 12 0 14 -241291
+-262144 0;
+#X obj 54 97 cnv 11 33 11 empty \$0-green.2 empty 20 12 0 14 -4033
+-262144 0;
+#X obj 92 52 cnv 11 33 11 empty \$0-red.3 empty 20 12 0 14 -258699
+-262144 0;
+#X obj 92 67 cnv 11 33 11 empty \$0-amber.3 empty 20 12 0 14 -260818
+-262144 0;
+#X obj 92 82 cnv 11 33 11 empty \$0-yellow.3 empty 20 12 0 14 -241291
+-262144 0;
+#X obj 92 97 cnv 11 33 11 empty \$0-green.3 empty 20 12 0 14 -4033
+-262144 0;
+#X obj 130 52 cnv 11 33 11 empty \$0-red.4 empty 20 12 0 14 -258699
+-262144 0;
+#X obj 130 67 cnv 11 33 11 empty \$0-amber.4 empty 20 12 0 14 -260818
+-262144 0;
+#X obj 130 82 cnv 11 33 11 empty \$0-yellow.4 empty 20 12 0 14 -241291
+-262144 0;
+#X obj 130 97 cnv 11 33 11 empty \$0-green.4 empty 20 12 0 14 -4033
+-262144 0;
+#X obj 168 52 cnv 11 33 11 empty \$0-red.5 empty 20 12 0 14 -258699
+-262144 0;
+#X obj 168 67 cnv 11 33 11 empty \$0-amber.5 empty 20 12 0 14 -260818
+-262144 0;
+#X obj 168 82 cnv 11 33 11 empty \$0-yellow.5 empty 20 12 0 14 -241291
+-262144 0;
+#X obj 168 97 cnv 11 33 11 empty \$0-green.5 empty 20 12 0 14 -4033
+-262144 0;
+#X obj 206 52 cnv 11 33 11 empty \$0-red.6 empty 20 12 0 14 -258699
+-262144 0;
+#X obj 206 67 cnv 11 33 11 empty \$0-amber.6 empty 20 12 0 14 -260818
+-262144 0;
+#X obj 206 82 cnv 11 33 11 empty \$0-yellow.6 empty 20 12 0 14 -241291
+-262144 0;
+#X obj 206 97 cnv 11 33 11 empty \$0-green.6 empty 20 12 0 14 -4033
+-262144 0;
+#X obj 244 52 cnv 11 33 11 empty \$0-red.7 empty 20 12 0 14 -258699
+-262144 0;
+#X obj 244 67 cnv 11 33 11 empty \$0-amber.7 empty 20 12 0 14 -260818
+-262144 0;
+#X obj 244 82 cnv 11 33 11 empty \$0-yellow.7 empty 20 12 0 14 -241291
+-262144 0;
+#X obj 244 97 cnv 11 33 11 empty \$0-green.7 empty 20 12 0 14 -4033
+-262144 0;
+#X obj 282 52 cnv 11 33 11 empty \$0-red.8 empty 20 12 0 14 -258699
+-262144 0;
+#X obj 282 67 cnv 11 33 11 empty \$0-amber.8 empty 20 12 0 14 -260818
+-262144 0;
+#X obj 282 82 cnv 11 33 11 empty \$0-yellow.8 empty 20 12 0 14 -241291
+-262144 0;
+#X obj 282 97 cnv 11 33 11 empty \$0-green.8 empty 20 12 0 14 -4033
+-262144 0;
+#X obj 320 52 cnv 11 33 11 empty \$0-red.9 empty 20 12 0 14 -258699
+-262144 0;
+#X obj 320 67 cnv 11 33 11 empty \$0-amber.9 empty 20 12 0 14 -260818
+-262144 0;
+#X obj 320 82 cnv 11 33 11 empty \$0-yellow.9 empty 20 12 0 14 -241291
+-262144 0;
+#X obj 320 97 cnv 11 33 11 empty \$0-green.9 empty 20 12 0 14 -4033
+-262144 0;
+#X obj 358 52 cnv 11 33 11 empty \$0-red.10 empty 20 12 0 14 -258699
+-262144 0;
+#X obj 358 67 cnv 11 33 11 empty \$0-amber.10 empty 20 12 0 14 -260818
+-262144 0;
+#X obj 358 82 cnv 11 33 11 empty \$0-yellow.10 empty 20 12 0 14 -241291
+-262144 0;
+#X obj 358 97 cnv 11 33 11 empty \$0-green.10 empty 20 12 0 14 -4033
+-262144 0;
+#X obj 396 52 cnv 11 33 11 empty \$0-red.11 empty 20 12 0 14 -258699
+-262144 0;
+#X obj 396 67 cnv 11 33 11 empty \$0-amber.11 empty 20 12 0 14 -260818
+-262144 0;
+#X obj 396 82 cnv 11 33 11 empty \$0-yellow.11 empty 20 12 0 14 -241291
+-262144 0;
+#X obj 396 97 cnv 11 33 11 empty \$0-green.11 empty 20 12 0 14 -4033
+-262144 0;
+#X obj 434 52 cnv 11 33 11 empty \$0-red.12 empty 20 12 0 14 -258699
+-262144 0;
+#X obj 434 67 cnv 11 33 11 empty \$0-amber.12 empty 20 12 0 14 -260818
+-262144 0;
+#X obj 434 82 cnv 11 33 11 empty \$0-yellow.12 empty 20 12 0 14 -241291
+-262144 0;
+#X obj 434 97 cnv 11 33 11 empty \$0-green.12 empty 20 12 0 14 -4033
+-262144 0;
+#X obj 472 52 cnv 11 33 11 empty \$0-red.13 empty 20 12 0 14 -258699
+-262144 0;
+#X obj 472 67 cnv 11 33 11 empty \$0-amber.13 empty 20 12 0 14 -260818
+-262144 0;
+#X obj 472 82 cnv 11 33 11 empty \$0-yellow.13 empty 20 12 0 14 -241291
+-262144 0;
+#X obj 472 97 cnv 11 33 11 empty \$0-green.13 empty 20 12 0 14 -4033
+-262144 0;
+#X obj 11 112 cnv 1 498 1 empty empty empty 4 9 1 11 -66577 -204800
+0;
+#N canvas 0 22 988 362 vu_meters 0;
+#X obj 692 0 inlet~;
+#X obj 703 17 inlet~;
+#X obj 714 34 inlet~;
+#X obj 725 51 inlet~;
+#X obj 736 68 inlet~;
+#X obj 747 85 inlet~;
+#X obj 758 102 inlet~;
+#X obj 769 119 inlet~;
+#X obj 780 136 inlet~;
+#X obj 791 153 inlet~;
+#X obj 802 170 inlet~;
+#X obj 813 187 inlet~;
+#X obj 825 204 inlet~;
+#X obj -81 221 EATi_VU 1 \$0;
+#X obj -7 221 EATi_VU 2 \$0;
+#X obj 67 221 EATi_VU 3 \$0;
+#X obj 141 221 EATi_VU 4 \$0;
+#X obj 215 221 EATi_VU 5 \$0;
+#X obj 289 221 EATi_VU 6 \$0;
+#X obj 363 221 EATi_VU 7 \$0;
+#X obj 437 221 EATi_VU 8 \$0;
+#X obj 511 221 EATi_VU 9 \$0;
+#X obj 585 221 EATi_VU 10 \$0;
+#X obj 665 221 EATi_VU 11 \$0;
+#X obj 745 221 EATi_VU 12 \$0;
+#X obj 825 221 EATi_VU 13 \$0;
+#X connect 0 0 13 0;
+#X connect 1 0 14 0;
+#X connect 2 0 15 0;
+#X connect 3 0 16 0;
+#X connect 4 0 17 0;
+#X connect 5 0 18 0;
+#X connect 6 0 19 0;
+#X connect 7 0 20 0;
+#X connect 8 0 21 0;
+#X connect 9 0 22 0;
+#X connect 10 0 23 0;
+#X connect 11 0 24 0;
+#X connect 12 0 25 0;
+#X restore 253 549 pd vu_meters;
+#X obj 10 183 EATi_demultiplex_channels \$0 \$2;
+#N canvas 629 122 639 420 Recording 0;
+#X obj 184 54 savepanel;
+#X obj 184 71 prepend set;
+#X msg 184 88 /Users/Rich/Desktop/SEXTEST;
+#X obj 184 183 prepend -rate;
+#X obj 223 132 sel 0 1;
+#X msg 223 149 44100;
+#X msg 262 149 48000;
+#X msg 301 149 96000;
+#X obj 184 166 prepend;
+#X obj 340 149 init 48000;
+#X obj 184 261 prepend;
+#X obj 223 227 sel 0 1;
+#X msg 223 244 2;
+#X msg 250 244 3;
+#X msg 277 244 4;
+#X obj 184 278 prepend -bytes;
+#X obj 223 322 sel 0;
+#X msg 223 339 -wave;
+#X msg 264 339 -aiff;
+#X obj 304 339 init -wave;
+#X obj 304 244 init 3;
+#X obj 184 356 prepend;
+#X obj 419 132 init 1;
+#X obj 419 227 init 1;
+#X obj 419 322 init 0;
+#X obj 184 373 prepend open;
+#X obj 4 71 t b b;
+#X msg 4 88 start;
+#X obj 4 105 s \$0-writesfwrap;
+#X obj 4 168 s \$0-writesfwrap;
+#X msg 4 151 stop;
+#X obj 184 390 s \$0-writesfwrap;
+#X msg 37 29 1;
+#X obj 4 46 spigot;
+#X msg 67 63 0;
+#X obj 67 29 io;
+#X obj 4 -5 r EAT_Record.Record.\$1.Send.all;
+#X obj 37 12 r EAT_Record.Name.\$1.Send.all;
+#X obj 4 134 r EAT_Record.Stop.\$1.Send.all;
+#X obj 184 37 r EAT_Record.Name.\$1.Send.all;
+#X obj 223 115 r EAT_Record.SampleRate.\$1.Send.all;
+#X obj 419 149 s EAT_Record.SampleRate.\$1.all;
+#X obj 419 244 s EAT_Record.BitRate.\$1.all;
+#X obj 223 210 r EAT_Record.BitRate.\$1.Send.all;
+#X obj 419 339 s EAT_Record.Format.\$1.all;
+#X obj 223 305 r EAT_Record.Format.\$1.Send.all;
+#X text 222 -4 Manages detailed argument for file creation in writesf~
+based upon parameters set on GUI for bit rate \, format \, etc.;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 8 0;
+#X connect 3 0 10 0;
+#X connect 4 0 5 0;
+#X connect 4 1 6 0;
+#X connect 4 2 7 0;
+#X connect 5 0 8 1;
+#X connect 6 0 8 1;
+#X connect 7 0 8 1;
+#X connect 8 0 3 0;
+#X connect 9 0 8 1;
+#X connect 10 0 15 0;
+#X connect 11 0 12 0;
+#X connect 11 1 13 0;
+#X connect 11 2 14 0;
+#X connect 12 0 10 1;
+#X connect 13 0 10 1;
+#X connect 14 0 10 1;
+#X connect 15 0 21 0;
+#X connect 16 0 17 0;
+#X connect 16 1 18 0;
+#X connect 17 0 21 1;
+#X connect 18 0 21 1;
+#X connect 19 0 21 1;
+#X connect 20 0 10 1;
+#X connect 21 0 25 0;
+#X connect 22 0 41 0;
+#X connect 23 0 42 0;
+#X connect 24 0 44 0;
+#X connect 25 0 31 0;
+#X connect 26 0 27 0;
+#X connect 26 1 2 0;
+#X connect 27 0 28 0;
+#X connect 30 0 29 0;
+#X connect 32 0 33 1;
+#X connect 33 0 34 0;
+#X connect 33 0 26 0;
+#X connect 34 0 35 0;
+#X connect 35 0 33 1;
+#X connect 36 0 33 0;
+#X connect 37 0 32 0;
+#X connect 38 0 30 0;
+#X connect 39 0 0 0;
+#X connect 40 0 4 0;
+#X connect 43 0 11 0;
+#X connect 45 0 16 0;
+#X restore 10 203 pd Recording Guts;
+#X obj 384 126 cnv 2 15 33 empty empty : 3 20 1 30 -1 -204800 0;
+#N canvas 60 272 426 101 presets 0;
+#X obj 1 2 EATi_PRESET EAT_Record Format \$1 all;
+#X obj 142 2 EATi_PRESET EAT_Record BitRate \$1 all;
+#X obj 283 2 EATi_PRESET EAT_Record SampleRate \$1 all;
+#X restore 10 444 pd presets;
+#X obj 331 549 EATi_writesfwrap~ \$2 \$0;
+#X connect 94 0 128 0;
+#X connect 94 0 263 0;
+#X connect 94 0 268 1;
+#X connect 95 0 129 0;
+#X connect 95 0 263 1;
+#X connect 95 0 268 2;
+#X connect 96 0 131 0;
+#X connect 96 0 263 2;
+#X connect 96 0 268 3;
+#X connect 97 0 130 0;
+#X connect 97 0 263 3;
+#X connect 97 0 268 4;
+#X connect 98 0 133 0;
+#X connect 98 0 263 4;
+#X connect 98 0 268 5;
+#X connect 99 0 132 0;
+#X connect 99 0 263 5;
+#X connect 99 0 268 6;
+#X connect 100 0 135 0;
+#X connect 100 0 263 6;
+#X connect 100 0 268 7;
+#X connect 101 0 134 0;
+#X connect 101 0 263 7;
+#X connect 101 0 268 8;
+#X connect 102 0 136 0;
+#X connect 102 0 263 8;
+#X connect 102 0 268 9;
+#X connect 103 0 137 0;
+#X connect 103 0 263 9;
+#X connect 103 0 268 10;
+#X connect 104 0 138 0;
+#X connect 104 0 263 10;
+#X connect 104 0 268 11;
+#X connect 105 0 139 0;
+#X connect 105 0 263 11;
+#X connect 105 0 268 12;
+#X connect 106 0 140 0;
+#X connect 106 0 263 12;
+#X connect 106 0 268 13;
+#X connect 107 0 108 0;
+#X connect 120 0 122 0;
+#X connect 121 0 120 0;
+#X connect 123 0 124 0;
+#X connect 125 0 123 0;
+#X connect 141 0 268 0;
+#X coords 0 -1 1 1 500 170 1 10 10;

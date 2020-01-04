@@ -1,0 +1,67 @@
+#N canvas 245 0 811 644 10;
+#X declare -path ../in -path ../out -path ../tools -path ../filters
+-path ../lib;
+#X declare -path ../lib/Pix_openni;
+#X obj -25 187 cnv 1 396 1 empty empty FILTERS 2 -6 1 12 -228856 -191407
+0;
+#N canvas 400 311 645 287 INIT 0;
+#X obj 240 100 bng 10 250 50 0 empty empty SAVE-AS -45 6 0 9 -260097
+-1 -1;
+#X obj 103 200 namecanvas \$0-patch-name;
+#X obj 100 160 s \$0-patch-name;
+#X msg 100 131 menusaveas;
+#X obj 220 130 savepanel;
+#X obj 220 157 s UPDATE_PATCH;
+#X obj 50 33 declare -path ../in -path ../out -path ../tools -path
+../filters -path ../lib;
+#X text 50 4 Always use this subpatch in the presets;
+#X obj 101 101 cnv 8 80 8 empty empty INIT 5 5 0 10 -233017 -66577
+0;
+#X connect 0 0 3 0;
+#X connect 0 0 4 0;
+#X connect 3 0 2 0;
+#X connect 4 0 5 0;
+#X coords 0 -1 1 1 150 10 2 100 100;
+#X restore 625 -2 pd INIT;
+#X obj -25 354 cnv 1 800 1 empty empty OUT 2 -6 1 12 -228856 -191407
+0;
+#X obj -25 63 cnv 1 800 1 empty empty IN 2 -6 1 12 -228856 -191407
+0;
+#X obj -25 187 cnv 1 800 1 empty empty TOOLS 400 -6 1 12 -228856 -191407
+0;
+#X obj 436 50 kinect;
+#X obj 174 267 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 25
+-262144 -1 -1 0 256;
+#X obj 174 450 audio-out;
+#X obj 174 402 synth;
+#X obj 174 315 map 0 1 0 127;
+#X obj 487 398 video-scratch;
+#X obj 487 457 video-screen;
+#X text 11 80 DESCRIPTION \; Cet exemple marche avec la kinect \, et
+avec la main droite vous controlez \; en x : la hauteur d'un son \;
+en y : le volume du son \; en z la piste de lecture d'une video \;
+;
+#X obj 329 266 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 25
+-262144 -1 -1 0 256;
+#X obj 487 267 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 25
+-262144 -1 -1 0 256;
+#X obj 329 288 inverse;
+#X obj 329 312 map 0.3 0.6 0 2;
+#X obj 487 308 map 0 1 0 1;
+#X text 242 248 x;
+#X text 394 246 y;
+#X text 543 248 z;
+#X text 56 306 calibration >>;
+#X connect 5 1 6 0;
+#X connect 5 2 13 0;
+#X connect 5 3 14 0;
+#X connect 6 0 9 0;
+#X connect 8 0 7 0;
+#X connect 8 0 7 1;
+#X connect 9 0 8 0;
+#X connect 10 0 11 0;
+#X connect 13 0 15 0;
+#X connect 14 0 17 0;
+#X connect 15 0 16 0;
+#X connect 16 0 8 1;
+#X connect 17 0 10 0;

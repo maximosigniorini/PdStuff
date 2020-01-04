@@ -1,0 +1,24 @@
+#N canvas 647 118 628 378 10;
+#X msg 241 98 0 1000;
+#X msg 295 97 255 1000;
+#X obj 250 129 line 0 300;
+#X obj 379 90 ehu/envelope 6000;
+#X obj 379 258 * 255;
+#X obj 28 135 ehu/dmx/slider 1;
+#X obj 28 176 ehu/dmx/slider 2;
+#X text 31 209 etc...;
+#X obj 24 42 ehu/dmx/control 3;
+#X text 29 110 a slider for each DMX chanel;
+#X obj 32 299 ehu/dmx/matrix;
+#X text 256 63 just two examples of how to automatise DMX;
+#X text 24 14 main DMX control. argument is COM port of DMX interface
+;
+#X text 29 246 matrix of DMX chanels;
+#X text 28 261 switch on/off to control;
+#X text 28 275 simultaneusly;
+#X text 421 259 DMX range is 0 to 255;
+#X connect 0 0 2 0;
+#X connect 1 0 2 0;
+#X connect 2 0 5 0;
+#X connect 3 0 4 0;
+#X connect 4 0 10 0;

@@ -1,0 +1,18 @@
+#N canvas 664 155 451 336 10;
+#X msg 87 181 0 2 5;
+#X text 83 27 arduino-analog-in \; ----------------- \; Open and close
+analog inputs (sensors) \; Argument \; \$1: pin number \; Inlet \;
+\$1: list of inputs to switch on \; ex : a message [3 4 5[ will switch
+on inputs 3 \, 4 \, 5 \;;
+#X text 128 181 <- list of pins;
+#X obj 249 179 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 87 225 arduino-analog-in 3;
+#X obj 250 201 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 272 174 <- reset : closse all pins;
+#X text 271 197 <- enable/disable vu-meter;
+#X text 146 169 open;
+#X connect 0 0 4 0;
+#X connect 3 0 4 1;
+#X connect 5 0 4 1;

@@ -1,0 +1,18 @@
+#N canvas 355 227 283 269 10;
+#X obj 57 197 s get_table;
+#X obj 30 95 spigot 0;
+#X obj 30 75 r ask_table;
+#X obj 30 115 route \$2;
+#X msg 57 176 get \$1;
+#X obj 57 155 symbol \$1;
+#X obj 75 53 inlet;
+#X obj 30 135 t b b;
+#X obj 30 218 outlet;
+#X connect 1 0 3 0;
+#X connect 2 0 1 0;
+#X connect 3 0 7 0;
+#X connect 4 0 0 0;
+#X connect 5 0 4 0;
+#X connect 6 0 1 1;
+#X connect 7 0 8 0;
+#X connect 7 1 5 0;

@@ -1,0 +1,215 @@
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/BIN/abs
+END
+blockfilter_overlap_add_fft1~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/BIN/abs/blockfilter_overlap_add_fft1~.pd
+END
+blockfilter_overlap_add_fft2~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/BIN/abs/blockfilter_overlap_add_fft2~.pd
+END
+create_HRTF_tables.pd
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/BIN/abs/create_HRTF_tables.pd
+END
+bin_ambi_reduced_decode_control_fft3.pd
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/BIN/abs/bin_ambi_reduced_decode_control_fft3.pd
+END
+blockfilter_fft_convolution_7~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/BIN/abs/blockfilter_fft_convolution_7~.pd
+END
+blockfilter_fft_convolution_9~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/BIN/abs/blockfilter_fft_convolution_9~.pd
+END
+bin_ambi_decode_3o_2d_12ls_fft~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/BIN/abs/bin_ambi_decode_3o_2d_12ls_fft~.pd
+END
+ambi_order_dim_2_channels.pd
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/BIN/abs/ambi_order_dim_2_channels.pd
+END
+bin_ambi_decode_5o_2d_12ls_fft~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/BIN/abs/bin_ambi_decode_5o_2d_12ls_fft~.pd
+END
+bin_ambi_reduced_decode_sequencer_fft2.pd
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/BIN/abs/bin_ambi_reduced_decode_sequencer_fft2.pd
+END
+bin_ambi_decode_3o_3d_32ls_fft~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/BIN/abs/bin_ambi_decode_3o_3d_32ls_fft~.pd
+END
+blockfilter_overlap_add_fft~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/BIN/abs/blockfilter_overlap_add_fft~.pd
+END
+blockfilter_fft_convolution_11~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/BIN/abs/blockfilter_fft_convolution_11~.pd
+END
+init_rect_win.pd
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/BIN/abs/init_rect_win.pd
+END
+blockfilter_fft_convolution_15~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/BIN/abs/blockfilter_fft_convolution_15~.pd
+END
+blockfilter_fft_convolution_16~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/BIN/abs/blockfilter_fft_convolution_16~.pd
+END
+bin_ambi_decode_5o_3d_38ls_fft~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/BIN/abs/bin_ambi_decode_5o_3d_38ls_fft~.pd
+END
+blockfilter_fft_convolution_25tm~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/BIN/abs/blockfilter_fft_convolution_25tm~.pd
+END
+blockfilter_fft_convolution_36~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/BIN/abs/blockfilter_fft_convolution_36~.pd
+END
+blockfilter_overlap_add_ifft~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/BIN/abs/blockfilter_overlap_add_ifft~.pd
+END
+bin_ambi_decode_4o_3d_32ls_fft+~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/BIN/abs/bin_ambi_decode_4o_3d_32ls_fft+~.pd
+END
+bin_ambi_reduced_decode_sequencer_fir.pd
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/BIN/abs/bin_ambi_reduced_decode_sequencer_fir.pd
+END
+init_fft_HRIR_fadeout_win.pd
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/BIN/abs/init_fft_HRIR_fadeout_win.pd
+END
+bin_ambi_reduced_decode_control_fft2.pd
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/BIN/abs/bin_ambi_reduced_decode_control_fft2.pd
+END
+create_HRIR_tables.pd
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/BIN/abs/create_HRIR_tables.pd
+END
+bin_ambi_decode_4o_2d_12ls_fft~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/BIN/abs/bin_ambi_decode_4o_2d_12ls_fft~.pd
+END
+bin_ambi_decode_2o_3d_32ls_fft~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/BIN/abs/bin_ambi_decode_2o_3d_32ls_fft~.pd
+END
+bin_ambi_decode_4o_3d_32ls_fft~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/BIN/abs/bin_ambi_decode_4o_3d_32ls_fft~.pd
+END
+bin_ambi_decode_4o_2d_18ls_fft~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/BIN/abs/bin_ambi_decode_4o_2d_18ls_fft~.pd
+END
+bin_ambi_decode_4o_2d_36ls_fft~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/BIN/abs/bin_ambi_decode_4o_2d_36ls_fft~.pd
+END
+bin_ambi_reduced_decode_control_fir.pd
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/BIN/abs/bin_ambi_reduced_decode_control_fir.pd
+END
+blockfilter_fft_convolution_25~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/BIN/abs/blockfilter_fft_convolution_25~.pd
+END
+bin_ambi_decode_5o_2d_12ls_fft+~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/BIN/abs/bin_ambi_decode_5o_2d_12ls_fft+~.pd
+END
+create_HRIR_red_tables.pd
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/BIN/abs/create_HRIR_red_tables.pd
+END
+init_fir_HRIR_fadeout_win.pd
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/BIN/abs/init_fir_HRIR_fadeout_win.pd
+END

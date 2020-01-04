@@ -1,0 +1,11 @@
+#N canvas 1 79 450 300 10;
+#X obj 226 133 oscilloscope~;
+#X obj 227 67 osc~ 30;
+#X floatatom 227 37 5 0 0 0 - - -;
+#X floatatom 319 109 5 0 0 0 - - -;
+#X text 355 111 tempo;
+#X text 35 46 oscilloscope~ \; ------------- \; See audio signal in
+time \; Argument \; \$1:tempo (msec);
+#X connect 1 0 0 0;
+#X connect 2 0 1 0;
+#X connect 3 0 0 1;

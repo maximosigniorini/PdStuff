@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib
+END
+importPlugins.sh
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/importPlugins.sh
+END
+start.sh
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/start.sh
+END
+importPlugins.tcl
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/importPlugins.tcl
+END
+pd38.source
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/pd38.source
+END

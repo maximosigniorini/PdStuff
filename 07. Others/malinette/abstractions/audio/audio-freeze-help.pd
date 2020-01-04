@@ -1,0 +1,27 @@
+#N canvas 306 190 711 316 10;
+#X obj 32 264 dac~;
+#X obj 30 142 adc~;
+#X obj 31 168 audio-freeze;
+#X obj 102 110 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 51 95 one shot > freeze !;
+#X msg 262 133 speed \$1;
+#X floatatom 262 107 5 0 0 0 - - -;
+#X text 353 132 Speed is the lenght of the sample (from 0 to 2second)
+Purity = quality of sound circular is the default mode of constant
+freeze. One shot is for one shot freeze;
+#X msg 262 198 mode \$1;
+#X obj 262 164 vradio 15 1 0 2 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X text 16 9 audio-freeze \; ----------- \; Freeze the sound \; record
+many tables and mix it to create this effect which keep the sound frozen.
+;
+#X connect 1 0 2 0;
+#X connect 1 1 2 0;
+#X connect 2 0 0 0;
+#X connect 2 0 0 1;
+#X connect 3 0 2 1;
+#X connect 5 0 2 2;
+#X connect 6 0 5 0;
+#X connect 8 0 2 2;
+#X connect 9 0 8 0;

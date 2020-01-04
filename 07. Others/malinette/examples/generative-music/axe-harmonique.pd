@@ -1,0 +1,93 @@
+#N canvas 253 96 811 644 10;
+#X declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/tools -path ../../abstractions/filters -path
+../../abstractions/fx-video -path ../../abstractions/fx-audio -path
+../../abstractions/master;
+#X declare -path abstractions/in -path .abstractions/out -path abstractions/tools
+-path abstractions/filters -path abstractions/fx-video -path abstractions/fx-audio
+-path abstractions/master;
+#X obj -25 187 cnv 1 396 1 empty empty FILTERS 2 -6 1 12 -228856 -191407
+0;
+#X obj -25 354 cnv 1 800 1 empty empty OUT 2 -6 1 12 -228856 -191407
+0;
+#X obj -25 63 cnv 1 800 1 empty empty IN 2 -6 1 12 -228856 -191407
+0;
+#X obj -25 187 cnv 1 800 1 empty empty TOOLS 400 -6 1 12 -228856 -191407
+0;
+#X obj 170 63 seq-sliders;
+#X obj 170 257 gamme;
+#X obj 44 23 loadbang;
+#X obj 311 477 audio-out;
+#X obj 170 347 synth;
+#X obj 377 63 seq-sliders;
+#X obj 377 257 gamme;
+#X obj 377 349 synth;
+#X msg 338 45 onoff \$1;
+#X obj 338 25 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 170 234 map 0 1 20 40;
+#X msg 419 46 time \$1;
+#X floatatom 420 26 5 0 0 0 - - -;
+#X obj 557 63 seq-sliders;
+#X obj 557 257 gamme;
+#X obj 557 237 map 0 1 20 60;
+#X obj 557 349 synth;
+#X obj 317 407 *~ 1;
+#X msg 44 46 onoff 0 \, time 400 \, rand 1 \, rand-time 400;
+#X obj 377 237 map 0 1 20 50;
+#X floatatom 85 241 5 0 0 0 - - -;
+#X obj 426 518 audio-out;
+#X obj 411 417 audio-freeze;
+#X text 38 420 Musique Generative \; AXE HARMONIQUE;
+#X obj 55 211 vradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144 -1
+-1 0;
+#N canvas 364 155 563 434 INIT 0;
+#X obj 101 101 cnv 8 48 8 empty empty INCLUDE 2 4 0 10 -233017 -66577
+0;
+#X obj 102 261 declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/tools -path ../../abstractions/filters -path
+../../abstractions/fx-video -path ../../abstractions/fx-audio -path
+../../abstractions/master;
+#X obj 102 162 declare -path abstractions/in -path .abstractions/out
+-path abstractions/tools -path abstractions/filters -path abstractions/fx-video
+-path abstractions/fx-audio -path abstractions/master;
+#X text 100 240 Use for standalone :;
+#X text 100 140 Use with the main.pd :;
+#X text 97 25 Import paths to find abstractions \; Always use it in
+the examples patchs.;
+#X coords 0 -1 1 1 50 10 2 100 100;
+#X restore 726 36 pd INIT;
+#X connect 4 0 14 0;
+#X connect 5 0 8 0;
+#X connect 5 0 21 1;
+#X connect 6 0 22 0;
+#X connect 8 0 21 0;
+#X connect 9 0 23 0;
+#X connect 10 0 11 0;
+#X connect 11 0 21 0;
+#X connect 12 0 4 0;
+#X connect 12 0 9 0;
+#X connect 12 0 17 0;
+#X connect 13 0 12 0;
+#X connect 14 0 5 0;
+#X connect 15 0 4 0;
+#X connect 15 0 9 0;
+#X connect 15 0 17 0;
+#X connect 16 0 15 0;
+#X connect 17 0 19 0;
+#X connect 18 0 20 0;
+#X connect 19 0 18 0;
+#X connect 20 0 21 0;
+#X connect 21 0 7 0;
+#X connect 21 0 7 1;
+#X connect 21 0 26 0;
+#X connect 22 0 4 0;
+#X connect 22 0 9 0;
+#X connect 22 0 17 0;
+#X connect 23 0 10 0;
+#X connect 24 0 5 1;
+#X connect 24 0 10 1;
+#X connect 24 0 18 1;
+#X connect 26 0 25 0;
+#X connect 26 0 25 1;
+#X connect 28 0 24 0;

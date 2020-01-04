@@ -1,0 +1,545 @@
+#N canvas 434 137 447 314 10;
+#X obj 315 -112 active;
+#N canvas 424 161 167 191 clic 0;
+#X obj 23 17 MouseState;
+#X obj 23 82 &;
+#X obj 23 100 == 0;
+#X obj 23 136 s \$0-SendClic;
+#X obj 48 51 t b f;
+#X obj 23 118 metro 200;
+#X obj 94 17 inlet;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 5 0;
+#X connect 4 0 1 0;
+#X connect 4 1 1 1;
+#X connect 5 0 3 0;
+#X connect 6 0 4 0;
+#X restore 315 -91 pd clic;
+#N canvas 608 166 249 182 ARGOnOff 0;
+#X obj 100 100 tgl 18 1 \$0-SendOnOff \$0-ReceiveOnOff On/Off 20 9
+0 12 -4033 -1 -1 0 1;
+#X obj 99 39 loadbang;
+#X msg 99 62 \; pd dsp 1;
+#X obj 100 129 outlet;
+#X connect 0 0 3 0;
+#X connect 1 0 2 0;
+#X coords 0 -1 1 1 65 18 2 100 100;
+#X restore 313 -67 pd ARGOnOff;
+#X obj 313 -42 switch~;
+#X text 108 -152 ATTENTION;
+#X text 237 -167 - ARGOGeneral doit etre ouvert;
+#X text 256 -143 - Audio On;
+#X text 256 -155 - GEM On;
+#X obj 219 77 dac~;
+#N canvas 350 62 279 383 ARGO 0;
+#X obj 101 101 cnv 20 104 34 empty ColorAmpli empty 20 12 0 14 -261299
+-1 1.04858e+06;
+#X obj 85 274 outlet~;
+#X obj 134 104 cnv 10 20 10 empty ColorAmpli Ampli 1 5 1 14 -261299
+-1 1.04858e+06;
+#X obj 89 -82 inlet~;
+#X obj 85 245 *~;
+#X obj 103 118 hsl 101 12 0 1.25 0 1 \$0-A ColorAmpli -17dB 0 7 1 9
+-261299 -1 -1 6300 0;
+#X obj 100 161 pow~ 10000;
+#X obj 100 201 /~ 10000;
+#X msg 115 77 label \$1;
+#X obj 114 54 tosymbol;
+#X obj 115 -45 * 80;
+#X obj 115 -23 - 80;
+#X obj 114 19 sprintf %ddB;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 101 131 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X text 123 36 -> -80dB..20dB;
+#X text 120 0 -> -80 .. 20;
+#X text 104 139 -> 0..1.2;
+#X text 109 179 -> 1..100000;
+#X text 104 221 -> 0.0001..10 = -80dB..20dB;
+#X obj 195 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 195 131 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 210 273 outlet~;
+#X obj 214 -83 inlet~;
+#X obj 210 244 *~;
+#X connect 3 0 4 0;
+#X connect 4 0 1 0;
+#X connect 5 0 10 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 7 0 4 1;
+#X connect 7 0 24 1;
+#X connect 8 0 5 0;
+#X connect 9 0 8 0;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 12 0 9 0;
+#X connect 23 0 24 0;
+#X connect 24 0 22 0;
+#X coords 0 -1 1 1 106 36 1 100 100;
+#X restore 176 28 pd ARGO;
+#X text 257 -131 - Light Off;
+#N canvas 302 22 582 408 ARGO 0;
+#X obj 101 101 cnv 20 244 34 empty ColorTime empty 20 12 0 14 -208064
+-1 1.04858e+06;
+#X obj 356 280 outlet~;
+#X obj 103 118 hsl 241 12 0 1 0 0 \$0-A ColorTime A-9 0 7 1 9 -208064
+-1 -1 3200 0;
+#X obj 100 106 nbx 7 12 0 20000 0 1 \$0-A ColorTime Hz 60 7 1 9 -208064
+-1 -1 0.101393 256;
+#X obj 194 104 cnv 10 65 10 empty ColorTime Oscill 1 5 1 14 -208064
+-1 1.04858e+06;
+#X obj 231 104 cnv 10 10 10 empty ColorTime Tri/Rectangle 1 5 1 14
+-208064 -1 1.04858e+06;
+#X obj 312 31 clip~ 0 20000;
+#X obj 17 130 ftom;
+#X obj 218 50 mtof;
+#X obj 311 -76 +~;
+#X obj 188 -43 snapshot~;
+#X obj 188 -21 change;
+#X obj 217 3 * 240;
+#X obj 218 26 - 108;
+#X obj 312 9 mtof~;
+#X obj 310 -38 *~ 240;
+#X obj 311 -16 -~ 108;
+#X obj 18 153 + 108;
+#X obj 19 175 / 240;
+#X msg 113 5 set \$1;
+#X msg 219 72 set \$1;
+#X obj 188 -76 r \$0-SendClic;
+#N canvas 60 186 518 313 pitch 0;
+#X obj 76 111 mod 12;
+#X obj 76 135 sel 0 1 2 3 4 5 6 7 8 9 10 11;
+#X msg 252 170 A;
+#X msg 279 170 A#;
+#X msg 306 170 B;
+#X msg 225 170 G#;
+#X msg 198 170 G;
+#X msg 171 170 F#;
+#X msg 9 170 C;
+#X msg 36 170 C#;
+#X msg 63 170 D;
+#X msg 90 170 D#;
+#X msg 117 170 E;
+#X msg 144 170 F;
+#X obj 211 9 inlet;
+#X obj 376 115 div 12;
+#X obj 376 137 - 2;
+#X obj 307 238 tosymbol;
+#X obj 210 69 t f f;
+#X obj 307 213 sprintf %s%d;
+#X text 383 170 -> Numero de l'octave;
+#X text 217 30 -> Numero MIDI de la note (69 = A3 = 440Hz);
+#X msg 307 260 label \$1;
+#X obj 307 283 outlet;
+#X connect 0 0 1 0;
+#X connect 1 0 8 0;
+#X connect 1 1 9 0;
+#X connect 1 2 10 0;
+#X connect 1 3 11 0;
+#X connect 1 4 12 0;
+#X connect 1 5 13 0;
+#X connect 1 6 7 0;
+#X connect 1 7 6 0;
+#X connect 1 8 5 0;
+#X connect 1 9 2 0;
+#X connect 1 10 3 0;
+#X connect 1 11 4 0;
+#X connect 2 0 19 0;
+#X connect 3 0 19 0;
+#X connect 4 0 19 0;
+#X connect 5 0 19 0;
+#X connect 6 0 19 0;
+#X connect 7 0 19 0;
+#X connect 8 0 19 0;
+#X connect 9 0 19 0;
+#X connect 10 0 19 0;
+#X connect 11 0 19 0;
+#X connect 12 0 19 0;
+#X connect 13 0 19 0;
+#X connect 14 0 18 0;
+#X connect 15 0 16 0;
+#X connect 16 0 19 1;
+#X connect 17 0 22 0;
+#X connect 18 0 0 0;
+#X connect 18 1 15 0;
+#X connect 19 0 17 0;
+#X connect 22 0 23 0;
+#X restore 114 53 pd pitch;
+#X obj 311 -100 inlet~;
+#X obj 101 131 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1728 -66577
+0;
+#X obj 409 279 outlet~;
+#X obj 335 131 cnv 4 10 4 empty empty empty 0 0 0 9 -1 -66577 0;
+#X obj 352 61 phasor~;
+#X obj 353 87 -~ 0.5;
+#X obj 493 158 -~ 0.5;
+#X obj 513 195 *~;
+#X obj 513 218 +~ 0.125;
+#X obj 463 278 outlet~;
+#X obj 493 136 expr~ $v1 < 0;
+#X obj 355 252 *~ 2;
+#X obj 409 247 *~ -2;
+#X obj 463 242 *~ 2;
+#X obj 513 242 *~ 8;
+#X obj 514 277 outlet~;
+#X obj 254 131 cnv 4 10 4 empty empty empty 0 0 0 9 -1 -66577 0;
+#X obj 180 131 cnv 4 10 4 empty empty empty 0 0 0 9 -1 -66577 0;
+#X text 84 134 Ramp up;
+#X text 158 135 Ramp down;
+#X text 231 136 Rectangle;
+#X text 313 136 Triangle;
+#X connect 2 0 9 1;
+#X connect 3 0 7 0;
+#X connect 6 0 28 0;
+#X connect 7 0 17 0;
+#X connect 8 0 20 0;
+#X connect 9 0 10 0;
+#X connect 9 0 15 0;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 11 0 19 0;
+#X connect 12 0 13 0;
+#X connect 13 0 8 0;
+#X connect 13 0 22 0;
+#X connect 14 0 6 0;
+#X connect 15 0 16 0;
+#X connect 16 0 14 0;
+#X connect 17 0 18 0;
+#X connect 18 0 9 1;
+#X connect 19 0 2 0;
+#X connect 20 0 3 0;
+#X connect 21 0 10 0;
+#X connect 22 0 2 0;
+#X connect 23 0 9 0;
+#X connect 28 0 29 0;
+#X connect 29 0 35 0;
+#X connect 29 0 36 0;
+#X connect 29 0 31 0;
+#X connect 29 0 34 0;
+#X connect 30 0 31 1;
+#X connect 30 0 37 0;
+#X connect 31 0 32 0;
+#X connect 32 0 38 0;
+#X connect 34 0 30 0;
+#X connect 35 0 1 0;
+#X connect 36 0 26 0;
+#X connect 37 0 33 0;
+#X connect 38 0 39 0;
+#X coords 0 -1 1 1 246 36 1 100 100;
+#X restore -18 -168 pd ARGO;
+#N canvas 350 62 312 366 ARGO 0;
+#X obj 101 101 cnv 20 104 34 empty ColorAmpli empty 20 12 0 14 -261299
+-1 1.04858e+06;
+#X obj 85 257 outlet~;
+#X obj 134 104 cnv 10 20 10 empty ColorAmpli Ampli 1 5 1 14 -261299
+-1 1.04858e+06;
+#X obj 89 -82 inlet~;
+#X obj 85 228 *~;
+#X obj 103 118 hsl 101 12 0 1.25 0 1 \$0-A ColorAmpli -4dB 0 7 1 9
+-261299 -1 -1 7600 0;
+#X obj 100 161 pow~ 10000;
+#X obj 100 195 /~ 10000;
+#X msg 213 61 label \$1;
+#X obj 212 38 tosymbol;
+#X obj 213 -61 * 80;
+#X obj 213 -39 - 80;
+#X obj 212 3 sprintf %ddB;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 101 131 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X text 221 20 -> -80dB..20dB;
+#X text 218 -16 -> -80 .. 20;
+#X text 104 139 -> 0..1.2;
+#X text 109 177 -> 1..100000;
+#X text 109 211 -> 0.0001..10 = -80dB..20dB;
+#X connect 3 0 4 0;
+#X connect 4 0 1 0;
+#X connect 5 0 10 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 7 0 4 1;
+#X connect 8 0 5 0;
+#X connect 9 0 8 0;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 12 0 9 0;
+#X coords 0 -1 1 1 106 36 1 100 100;
+#X restore -18 -125 pd ARGO;
+#N canvas 208 58 616 354 ARGO 0;
+#X obj 101 101 cnv 10 298 58 \$0-A \$0-B empty 20 12 0 14 -128992 -1
+1.04858e+06;
+#X obj 101 155 cnv 4 10 4 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 288 104 cnv 10 20 10 empty ColorGEM PDP-Film 1 5 1 14 -128992
+-1 1.04858e+06;
+#X obj 86 324 outlet;
+#X obj 40 -2 loadbang;
+#X obj 40 22 delay 1000;
+#X obj 142 14 openpanel;
+#X msg 170 62 set \$1;
+#X msg 195 241 open \$1;
+#X obj 140 211 list2symbol;
+#X obj 143 38 t b s;
+#X symbolatom 116 114 46 0 0 0 - - -;
+#X msg 4 147 set \$1;
+#X obj 29 217 list2symbol;
+#X obj 53 62 t b b;
+#X obj 201 134 cnv 10 8 8 empty empty I 0 8 1 18 -128992 -1 0;
+#N canvas 0 202 422 280 Frame 0;
+#X obj 283 39 inlet;
+#X obj 87 234 outlet;
+#X msg 281 206 range 0 \$1;
+#X msg 188 207 set \$1;
+#X obj 134 91 +~;
+#X obj 188 133 snapshot~;
+#X obj 188 183 change;
+#X obj 193 38 r \$0-SendClic;
+#X obj 24 37 loadbang;
+#X obj 24 135 snapshot~;
+#X obj 87 207 change;
+#X obj 24 64 metro 40;
+#X obj 188 158 int;
+#X obj 24 157 int;
+#X obj 24 182 clip 0 10;
+#X obj 95 63 *~ 10;
+#X obj 347 39 inlet;
+#X text 336 16 Actualiser;
+#X text 353 2 bang;
+#X obj 95 38 inlet~;
+#X obj 188 236 outlet;
+#X obj 151 38 inlet;
+#X obj 282 83 max 1;
+#X text 322 82 Bug si 0 frame;
+#X obj 258 111 / 2;
+#X text 286 4 Total;
+#X text 282 19 Frames;
+#X connect 0 0 14 2;
+#X connect 0 0 22 0;
+#X connect 2 0 20 0;
+#X connect 3 0 20 0;
+#X connect 4 0 5 0;
+#X connect 4 0 9 0;
+#X connect 5 0 12 0;
+#X connect 6 0 3 0;
+#X connect 7 0 5 0;
+#X connect 8 0 11 0;
+#X connect 9 0 13 0;
+#X connect 10 0 1 0;
+#X connect 11 0 9 0;
+#X connect 12 0 6 0;
+#X connect 13 0 14 0;
+#X connect 14 0 10 0;
+#X connect 15 0 4 0;
+#X connect 16 0 10 0;
+#X connect 19 0 15 0;
+#X connect 21 0 4 1;
+#X connect 22 0 2 0;
+#X connect 22 0 24 0;
+#X connect 24 0 15 1;
+#X restore 249 240 pd Frame;
+#X text 92 82 Frame;
+#X obj 91 62 inlet~;
+#X obj 264 130 nbx 5 12 -2 1e+08 0 0 \$0-A ColorGEM TotalFrames 45
+7 1 9 -262144 -1 -1 472 256;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 420 123 cnv 15 60 30 empty empty empty 20 12 0 14 -24198 -66577
+0;
+#N canvas 40 32 414 536 Help 0;
+#X text 10 415 - Si le module est sauvé avec 1 nom de fichier \, Ce
+fichier sera lu automatiquement a la prochaine ouverture s'il n'a pas
+changé d'emplacement.;
+#X text 9 6 - Ouvre des fichiers Film (.mov .avi...);
+#X obj 7 538 cnv 15 400 230 empty empty empty 20 12 0 14 -224896 -66577
+0;
+#X text 11 538 - Erreur dans la fenêtre Pd:;
+#X text 8 24 - ATTENTION: Ouvrir la fenetre GEM avant l'ouverture d'un
+fichier film (ou avant l'ouverture du module si un fichier film s'ouvre
+automatiquement). Voir module ARGOGeneral;
+#X text 20 80 YUV = Luma \, ChromaB \, ChromaR;
+#X text 8 68 - RGB = Red \, Green \, Blue;
+#X text 10 456 - Peut Ouvrir automatiquement 1 fichier qui se trouve
+dans le même dossier que lui \, quelquesoit l'emplacement du dossier.
+Pour cela taper le nom du fichier (sans chemin d'accés) dans le message.
+Sauver le patch. Fermer le patch. Ré-ouvrir le patch. Le dossier contenant
+le module ARGO et le fichier image est ainsi transportable.;
+#X obj 8 103 cnv 15 400 310 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X text 11 102 Citation;
+#X text 19 130 pdp_qt~ is the same as pdp_qt exept that it also outputs
+the audio data corresponding to the current frame on its 2 rightmost
+outlets. if there is a lag between audio and video a pdp_del object
+can be inserted to delay the image. note that in order to get acceptable
+audio quality with relatively few dropouts you might need to increase
+the pd audio latency.;
+#X text 19 115 pdp_qt plays a quicktime movie.;
+#X text 36 553 - pdp_qt: error decoding audio;
+#X text 49 570 ???;
+#X text 35 585 - GL: invalid operation;
+#X text 49 601 en RGBA ???;
+#X text 18 223 In pdp_qt~ playback is synchronized to the audio stream.
+;
+#X restore 427 129 pd Help;
+#X obj -52 -2 r \$0-SendOnOff;
+#X obj -52 63 sel 1;
+#X obj -52 21 t f f;
+#X obj -15 63 delay 1000;
+#X obj 195 280 pdp_qt~;
+#X obj 245 155 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 389 155 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X text 361 159 Audio Right;
+#X text 218 159 Audio Left;
+#X obj 225 327 outlet~;
+#X obj 367 325 outlet~;
+#X msg -28 182 /Movies/Ex10LeJourLaNuit.mp4;
+#X msg 123 240 autoplay 0;
+#X msg 75 240 loop 0;
+#X obj 219 4 cnv 15 340 90 empty empty empty 20 12 0 14 -258113 -66577
+0;
+#X text 222 5 Ne fonctionne pas sous Windows;
+#X text 222 20 N'ouvre pas un fichier sans chemin d'acces dans le meme
+dossier que lui.;
+#X text 222 47 Fen Pd -> pdp_qt: error decoding audio;
+#X text 222 74 Sous MacOSX le son est haché;
+#X obj 380 233 print;
+#X obj 100 114 bng 16 250 50 0 \$0-A \$0-B empty 0 0 1 9 -262144 -1
+-1;
+#X obj 307 142 nbx 5 12 0 472 0 0 \$0-SendFrame \$0-ReceiveFrame empty
+0 -5 1 9 -262144 -1 -1 184 256;
+#X obj 104 142 hsl 201 12 0 472 0 1 \$0-SendFrame \$0-ReceiveFrame
+Frame 0 7 1 9 -262144 -1 -1 10000 0;
+#X text 96 160 PDP;
+#X text 406 98 10 2 2009;
+#X connect 4 0 5 0;
+#X connect 5 0 14 0;
+#X connect 5 0 26 0;
+#X connect 6 0 10 0;
+#X connect 7 0 11 0;
+#X connect 8 0 27 0;
+#X connect 9 0 8 0;
+#X connect 10 0 11 0;
+#X connect 10 1 7 0;
+#X connect 11 0 9 0;
+#X connect 11 0 12 0;
+#X connect 12 0 34 0;
+#X connect 13 0 7 0;
+#X connect 14 0 11 0;
+#X connect 14 1 34 0;
+#X connect 16 0 27 0;
+#X connect 16 1 44 0;
+#X connect 16 1 45 0;
+#X connect 18 0 16 0;
+#X connect 23 0 25 0;
+#X connect 24 0 34 0;
+#X connect 25 0 24 0;
+#X connect 26 0 35 0;
+#X connect 26 0 36 0;
+#X connect 27 0 3 0;
+#X connect 27 2 19 0;
+#X connect 27 2 16 2;
+#X connect 27 3 32 0;
+#X connect 27 4 33 0;
+#X connect 34 0 13 0;
+#X connect 35 0 27 0;
+#X connect 36 0 27 0;
+#X connect 43 0 6 0;
+#X connect 44 0 16 1;
+#X connect 45 0 16 1;
+#X coords 0 -1 1 1 300 60 1 100 100;
+#X restore -18 -82 pd ARGO;
+#X obj -18 -188 cnv 15 15 15 empty empty ExMM50d-PDP-Film-Ctrl.pd 0
+8 1 14 -262144 -1 0;
+#X obj 200 100 cnv 15 200 20 empty empty empty 20 12 0 14 -258113 -66577
+0;
+#X text 213 102 Sous MacOSX le son est haché;
+#N canvas 413 140 399 318 ARGO 0;
+#X obj 101 101 cnv 10 150 41 \$0-A \$0-B empty 20 12 0 14 -128992 -1
+1.04858e+06;
+#X obj 192 104 cnv 10 20 10 empty ColorGEM PDP-Out 1 5 1 14 -128992
+-1 1.04858e+06;
+#X obj 139 55 key;
+#X obj 276 129 cnv 15 60 30 empty empty empty 20 12 0 14 -24198 -66577
+0;
+#N canvas 590 196 410 312 Help 0;
+#X obj 6 322 cnv 15 400 230 empty empty empty 20 12 0 14 -224896 -66577
+0;
+#X obj 6 7 cnv 15 400 310 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X text 9 6 Citation;
+#X text 15 23 pdp_glx ouputs video in a window using the openGL extension
+on an X11 window system. if a pdp message is received and a window
+is not open \, one is created automaticly.;
+#X restore 283 136 pd Help;
+#X obj 20 20 cnv 15 340 30 empty empty empty 20 12 0 14 -258113 -66577
+0;
+#X text 24 26 Ne fonctionne pas sous Windows;
+#X obj 95 292 pdp_glx;
+#X msg 221 262 fullscreen;
+#X msg 18 261 interpol \$1;
+#X msg 143 262 dim 400 300;
+#X obj 101 130 tgl 12 1 \$0-A \$0-B (F)ullScreen 15 7 1 9 -262144 -1
+-1 0 1;
+#X obj 171 238 sel 0;
+#X obj 140 76 select 32 70 102;
+#X obj 101 118 tgl 12 1 \$0-A \$0-B Interpol 15 7 1 9 -262144 -1 -1
+1 1;
+#X msg 346 262 create;
+#X msg 292 261 destroy;
+#X obj 101 106 tgl 12 1 \$0-A \$0-B PDPWindow 15 7 1 9 -262144 -1 -1
+0 1;
+#X obj 191 154 sel 0;
+#X obj 171 215 int;
+#X obj 179 181 t b b;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 91 78 inlet;
+#X obj 95 261 spigot;
+#X msg 207 210 0;
+#X obj 226 181 t b b b;
+#X msg 241 210 1;
+#X text 255 96 10 2 2009;
+#X connect 2 0 13 0;
+#X connect 8 0 7 0;
+#X connect 9 0 7 0;
+#X connect 10 0 7 0;
+#X connect 11 0 19 0;
+#X connect 12 0 10 0;
+#X connect 12 1 8 0;
+#X connect 13 1 11 0;
+#X connect 13 2 11 0;
+#X connect 14 0 9 0;
+#X connect 15 0 7 0;
+#X connect 16 0 7 0;
+#X connect 17 0 18 0;
+#X connect 18 0 20 0;
+#X connect 18 1 25 0;
+#X connect 19 0 12 0;
+#X connect 20 0 16 0;
+#X connect 20 1 24 0;
+#X connect 22 0 23 0;
+#X connect 23 0 7 0;
+#X connect 24 0 23 1;
+#X connect 25 0 26 0;
+#X connect 25 1 19 0;
+#X connect 25 2 15 0;
+#X connect 26 0 23 1;
+#X coords 0 -1 1 1 152 43 1 100 100;
+#X restore -18 11 pd ARGO;
+#X connect 0 0 1 0;
+#X connect 2 0 3 0;
+#X connect 9 0 8 0;
+#X connect 9 1 8 1;
+#X connect 11 3 12 0;
+#X connect 12 0 13 0;
+#X connect 13 0 17 0;
+#X connect 13 1 9 0;
+#X connect 13 2 9 1;

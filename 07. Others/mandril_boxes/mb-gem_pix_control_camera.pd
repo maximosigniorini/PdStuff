@@ -1,0 +1,203 @@
+#N canvas 892 307 634 557 10;
+#X obj 269 20 inlet;
+#X obj 318 20 cnv 15 55 20 empty empty GEM_IN 0 10 0 12 -4034 -1 0
+;
+#X obj 285 324 outlet;
+#X obj 339 322 cnv 15 55 20 empty empty GEM_OUT 0 10 0 12 -221249 -262144
+0;
+#X obj 0 0 cnv 15 230 175 empty empty gempix_camera 45 12 0 12 -99865
+-262144 0;
+#X obj 3 2 cnv 15 40 15 empty empty GEM_IN 0 8 0 8 -4034 -1 0;
+#X obj 184 3 cnv 15 30 15 empty \$1gempix_camera_id \$1 10 10 0 12
+-260097 -33289 0;
+#X obj 1 158 cnv 15 40 15 empty empty GEM_OUT 0 8 0 8 -258113 -262144
+0;
+#X obj 7 23 cnv 15 215 130 empty empty empty 2 12 0 14 -128992 -228856
+0;
+#X obj 137 27 bng 15 250 50 0 \$1gempix_camera_reset empty reset 17
+7 0 10 -257985 -1 -1;
+#X obj 11 25 tgl 15 0 \$1gempix_camera_on \$1gempix_camera_on_init
+Enable 17 7 0 10 -4034 -1 -228856 0 1;
+#X obj 10 51 tgl 15 0 \$1gempix_camera_forward 1gempix_camera_forward_init
+forward 17 7 0 10 -260097 -1 -1 0 1;
+#X obj 10 66 tgl 15 0 \$1gempix_camera_reverse \$1gempix_camera_reverse_init
+reverse 17 7 0 10 -260097 -1 -1 0 1;
+#X obj 89 51 tgl 15 0 \$1gempix_camera_right 1gempix_camera_right_init
+right 17 7 0 10 -260097 -1 -1 0 1;
+#X obj 89 65 tgl 15 0 \$1gempix_camera_left \$1gempix_camera_left_init
+left 17 7 0 10 -260097 -1 -1 0 1;
+#X obj 154 51 tgl 15 0 \$1gempix_camera_up 1gempix_camera_up_init up
+17 7 0 10 -260097 -1 -1 0 1;
+#X obj 154 65 tgl 15 0 \$1gempix_camera_down \$1gempix_camera_down_init
+down 17 7 0 10 -260097 -1 -1 0 1;
+#X obj 12 99 nbx 3 14 -100 100 0 0 \$1gempix_camera_distance \$1gempix_camera_distance_init
+distance -2 -8 0 10 -66577 -260097 -1 5 256;
+#X obj 12 128 nbx 3 14 0 100 0 0 \$1gempix_camera_speed \$1gempix_camera_speed_init
+speed -2 -8 0 10 -33289 -260097 -1 0 256;
+#X obj 79 91 hsl 128 15 -50 50 0 0 \$1gempix_camera_lookx \$1gempix_camera_lookx_init
+look_X 2 8 0 10 -66577 -260097 -260097 0 1;
+#X obj 79 109 hsl 128 15 -50 50 0 0 \$1gempix_camera_looky \$1gempix_camera_looky_init
+look_Y 2 8 0 10 -66577 -260097 -260097 0 1;
+#X obj 79 127 hsl 128 15 -50 50 0 0 \$1gempix_camera_lookz \$1gempix_camera_lookz_init
+look_Z 2 8 0 10 -66577 -260097 -260097 0 1;
+#N canvas 509 115 1065 969 gempix_camera_default_settings 0;
+#X obj 42 42 loadbang;
+#X obj 52 209 symbol \$1;
+#X symbolatom 52 238 0 0 0 0 - - -;
+#X obj 58 122 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X symbolatom 149 238 0 0 0 0 - - -;
+#X obj 149 209 symbol \$2;
+#X obj -12 209 float \$1;
+#X floatatom -8 241 5 0 0 0 - - -;
+#X obj 177 127 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 52 284 s \$1gempix_camera_id;
+#X obj 588 59 s \$1gempix_camera_apply_settings;
+#X text 408 86 camera defaults:;
+#X obj 394 165 r \$1gempix_defaults;
+#X obj 445 248 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 285 375 s \$1gempix_camera_on_init;
+#X msg 285 347 0;
+#X msg 487 303 0;
+#X obj 472 364 s \$1gempix_camera_forward_init;
+#X obj 473 388 s \$1gempix_camera_reverse_init;
+#X obj 473 415 s \$1gempix_camera_right_init;
+#X obj 476 439 s \$1gempix_camera_left_init;
+#X obj 671 363 s \$1gempix_camera_up_init;
+#X obj 668 387 s \$1gempix_camera_down_init;
+#X obj 845 383 s \$1gempix_camera_speed_init;
+#X obj 847 359 s \$1gempix_camera_distance_init;
+#X msg 664 306 0;
+#X msg 841 310 0;
+#X obj 539 166 r \$1gempix_camera_reset;
+#X msg 869 307 5;
+#X connect 0 0 3 0;
+#X connect 0 0 8 0;
+#X connect 1 0 2 0;
+#X connect 2 0 9 0;
+#X connect 3 0 1 0;
+#X connect 3 0 5 0;
+#X connect 3 0 6 0;
+#X connect 5 0 4 0;
+#X connect 6 0 7 0;
+#X connect 8 0 13 0;
+#X connect 12 0 13 0;
+#X connect 13 0 15 0;
+#X connect 13 0 16 0;
+#X connect 13 0 25 0;
+#X connect 13 0 26 0;
+#X connect 13 0 28 0;
+#X connect 15 0 14 0;
+#X connect 16 0 17 0;
+#X connect 16 0 18 0;
+#X connect 16 0 19 0;
+#X connect 16 0 20 0;
+#X connect 25 0 21 0;
+#X connect 25 0 22 0;
+#X connect 26 0 23 0;
+#X connect 27 0 13 0;
+#X connect 28 0 24 0;
+#X restore 393 24 pd gempix_camera_default_settings;
+#N canvas 764 404 999 717 gempix_camera_core 0;
+#X obj 165 28 inlet;
+#X obj 205 23 cnv 15 55 20 empty empty GEM_IN 0 10 0 12 -4034 -1 0
+;
+#X obj 206 583 outlet;
+#X obj 260 581 cnv 15 55 20 empty empty GEM_OUT 0 10 0 12 -221249 -262144
+0;
+#X obj 327 423 camera;
+#X obj 543 141 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X obj 566 122 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X obj 690 135 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X obj 715 110 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X msg 690 151 left \$1;
+#X msg 716 129 right \$1;
+#X obj 866 135 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X obj 891 110 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X msg 892 129 up \$1;
+#X msg 866 151 down \$1;
+#X msg 443 123 reset;
+#X msg 566 139 forward \$1;
+#X msg 543 157 reverse \$1;
+#X msg 1037 164 speed \$1;
+#X floatatom 1037 146 5 0 0 0 - - -;
+#X floatatom 1038 107 5 0 0 0 - - -;
+#X msg 819 294 lookX \$1;
+#X msg 819 331 lookY \$1;
+#X msg 819 367 lookZ \$1;
+#X floatatom 819 278 5 0 0 0 - - -;
+#X floatatom 819 351 5 0 0 0 - - -;
+#X floatatom 819 314 5 0 0 0 - - -;
+#X msg 1038 125 distance \$1;
+#X floatatom 292 71 5 0 0 0 - - -;
+#X obj 263 132 + 1;
+#X floatatom 263 173 5 0 0 0 - - -;
+#X obj 271 29 r \$1gempix_camera_on;
+#X obj 230 248 gate 2;
+#X obj 416 30 r \$1gempix_camera_reset;
+#X obj 531 56 r \$1gempix_camera_forward;
+#X obj 506 80 r \$1gempix_camera_reverse;
+#X obj 715 52 r \$1gempix_camera_right;
+#X obj 690 76 r \$1gempix_camera_left;
+#X obj 882 49 r \$1gempix_camera_up;
+#X obj 857 73 r \$1gempix_camera_down;
+#X obj 1044 48 r \$1gempix_camera_distance;
+#X obj 1019 72 r \$1gempix_camera_speed;
+#X obj 872 270 r \$1gempix_camera_lookx;
+#X obj 883 315 r \$1gempix_camera_looky;
+#X obj 894 350 r \$1gempix_camera_lookz;
+#X connect 0 0 32 1;
+#X connect 4 0 2 0;
+#X connect 5 0 17 0;
+#X connect 6 0 16 0;
+#X connect 7 0 9 0;
+#X connect 8 0 10 0;
+#X connect 9 0 4 0;
+#X connect 10 0 4 0;
+#X connect 11 0 14 0;
+#X connect 12 0 13 0;
+#X connect 13 0 4 0;
+#X connect 14 0 4 0;
+#X connect 15 0 4 0;
+#X connect 16 0 4 0;
+#X connect 17 0 4 0;
+#X connect 18 0 4 0;
+#X connect 19 0 18 0;
+#X connect 20 0 27 0;
+#X connect 21 0 4 0;
+#X connect 22 0 4 0;
+#X connect 23 0 4 0;
+#X connect 24 0 21 0;
+#X connect 25 0 23 0;
+#X connect 26 0 22 0;
+#X connect 27 0 4 0;
+#X connect 28 0 29 0;
+#X connect 29 0 30 0;
+#X connect 30 0 32 0;
+#X connect 31 0 28 0;
+#X connect 32 0 2 0;
+#X connect 32 1 4 0;
+#X connect 33 0 15 0;
+#X connect 34 0 6 0;
+#X connect 35 0 5 0;
+#X connect 36 0 8 0;
+#X connect 37 0 7 0;
+#X connect 38 0 12 0;
+#X connect 39 0 11 0;
+#X connect 40 0 20 0;
+#X connect 41 0 19 0;
+#X connect 42 0 24 0;
+#X connect 43 0 26 0;
+#X connect 44 0 25 0;
+#X restore 296 120 pd gempix_camera_core;
+#X connect 0 0 23 0;
+#X connect 23 0 2 0;
+#X coords 0 -1 1 1 230 175 1 0 0;

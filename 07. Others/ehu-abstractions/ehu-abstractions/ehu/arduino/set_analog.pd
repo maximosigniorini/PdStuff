@@ -1,0 +1,84 @@
+#N canvas 80 245 450 300 10;
+#X msg 103 146 analogIns 5 0;
+#N canvas 147 342 650 354 serin 1;
+#X obj 59 322 outlet;
+#X obj 59 236 trigger bang anything;
+#X obj 182 260 list;
+#X obj 60 61 tgl 15 0 junk_to_hide_inlet junk_to_hide_outlet 0 5 9
+1 12 -262130 -1 -1 0 2;
+#X obj 75 61 tgl 15 0 junk_to_hide_inlet junk_to_hide_outlet 1 5 9
+1 12 -262130 -1 -1 0 1;
+#X obj 90 61 tgl 15 0 junk_to_hide_inlet junk_to_hide_outlet 2 5 9
+1 12 -262130 -1 -1 0 1;
+#X obj 105 61 tgl 15 0 junk_to_hide_inlet junk_to_hide_outlet 3 5 9
+1 12 -262130 -1 -1 0 1;
+#X obj 120 61 tgl 15 0 junk_to_hide_inlet junk_to_hide_outlet 4 5 9
+1 12 -262130 -1 -1 0 1;
+#X obj 135 61 tgl 15 0 junk_to_hide_inlet junk_to_hide_outlet 5 5 9
+1 12 -262130 -1 -1 0 1;
+#X obj 150 61 tgl 15 0 junk_to_hide_inlet junk_to_hide_outlet 6 5 9
+1 12 -262130 -1 -1 0 1;
+#X obj 165 61 tgl 15 0 junk_to_hide_inlet junk_to_hide_outlet 7 5 9
+1 12 -262130 -1 -1 0 1;
+#X msg 59 210 analogIns \$1 \$2;
+#X msg 35 106 0 \$1;
+#X msg 70 106 1 \$1;
+#X msg 105 106 2 \$1;
+#X msg 140 106 3 \$1;
+#X msg 175 106 4 \$1;
+#X msg 210 106 5 \$1;
+#X msg 245 106 6 \$1;
+#X msg 280 106 7 \$1;
+#X msg 183 281 set \$1 \$2 \$3;
+#X obj 60 14 inlet;
+#X obj 309 13 r EHU_comport_closed;
+#X msg 308 44 0;
+#X obj 60 35 select 0 1 2 3 4 5 6 7;
+#X connect 1 0 0 0;
+#X connect 1 1 2 0;
+#X connect 2 0 20 0;
+#X connect 3 0 12 0;
+#X connect 4 0 13 0;
+#X connect 5 0 14 0;
+#X connect 6 0 15 0;
+#X connect 7 0 16 0;
+#X connect 8 0 17 0;
+#X connect 9 0 18 0;
+#X connect 10 0 19 0;
+#X connect 11 0 1 0;
+#X connect 12 0 11 0;
+#X connect 13 0 11 0;
+#X connect 14 0 11 0;
+#X connect 15 0 11 0;
+#X connect 16 0 11 0;
+#X connect 17 0 11 0;
+#X connect 18 0 11 0;
+#X connect 19 0 11 0;
+#X connect 20 0 0 0;
+#X connect 21 0 24 0;
+#X connect 22 0 23 0;
+#X connect 23 0 10 0;
+#X connect 23 0 9 0;
+#X connect 23 0 7 0;
+#X connect 23 0 6 0;
+#X connect 23 0 5 0;
+#X connect 23 0 4 0;
+#X connect 23 0 3 0;
+#X connect 23 0 8 0;
+#X connect 24 0 3 0;
+#X connect 24 1 4 0;
+#X connect 24 2 5 0;
+#X connect 24 3 6 0;
+#X connect 24 4 7 0;
+#X connect 24 5 8 0;
+#X connect 24 6 9 0;
+#X connect 24 7 10 0;
+#X coords 0 -1 1 1 120 16 1 60 60;
+#X restore 103 116 pd serin;
+#X text 4 163 which analogIns to enable:;
+#X obj 103 53 inlet;
+#X obj 103 201 send EHU_arduino;
+#X connect 0 0 4 0;
+#X connect 1 0 0 0;
+#X connect 3 0 1 0;
+#X coords 0 -1 1 1 125 35 1 100 100;

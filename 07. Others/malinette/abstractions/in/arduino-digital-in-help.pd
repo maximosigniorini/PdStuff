@@ -1,0 +1,8 @@
+#N canvas 456 130 450 300 10;
+#X obj 92 212 arduino-digital-in 3;
+#X msg 92 182 4 8 9;
+#X text 91 35 arduino-digital-in \; ------------------ \; Digital sensors
+from Arduino \; Argument \; \$1: pin number \; Inlet \; \$1: list of
+inputs to switch on \; ex : a message [3 4 5[ will switch on inputs
+3 \, 4 \, 5 \;;
+#X connect 1 0 0 0;

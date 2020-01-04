@@ -1,0 +1,33 @@
+#N canvas 209 383 727 305 10;
+#X obj 2 -115 cnv 15 700 50 empty empty &alea 3 12 0 18 -204800 -1
+0;
+#X floatatom 389 66 8 0 0 0 - - -;
+#X floatatom 552 65 8 0 0 0 - - -;
+#X obj 391 -3 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 417 -4 5 0 0 0 - - -;
+#X floatatom 456 -4 5 0 0 0 - - -;
+#X obj 552 -7 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 593 -5 5 0 0 0 - - -;
+#X floatatom 632 -5 5 0 0 0 - - -;
+#X text 5 -87 Nombre aléatoire entre deux valeurs;
+#X text 21 -49 Description \; Produit un nombre aléatoire entre deux
+valeurs (incluses). Par défaut \, le nombre en sortie est un entier.
+;
+#X obj 552 35 &alea 0.05 0.1 3;
+#X text 21 104 OUTLETS \; 1- nombre;
+#X obj 389 36 &alea -5 5;
+#X text 21 1 Arguments \; 1 et 2- nombres : valeurs min et max \; 3-
+nombre : nombre de chiffres après la virgule;
+#X text 21 55 INLETS \; 1- bang : déclencheur \; 2 et 3- nombres :
+valeurs min et max;
+#X connect 3 0 13 0;
+#X connect 4 0 13 1;
+#X connect 5 0 13 2;
+#X connect 6 0 11 0;
+#X connect 7 0 11 1;
+#X connect 8 0 11 2;
+#X connect 11 0 2 0;
+#X connect 13 0 1 0;
+#X coords 0 305 1 304 65 15 0;

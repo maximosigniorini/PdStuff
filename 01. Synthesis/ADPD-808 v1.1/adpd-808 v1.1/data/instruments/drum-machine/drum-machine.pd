@@ -1,0 +1,98 @@
+#N canvas 161 203 1119 626 10;
+#X obj 84 530 vol~;
+#X floatatom 124 533 5 0 0 0 - - -;
+#X obj 100 191 hradio 15 1 0 32 empty empty empty 0 -8 0 10 -1 -260097
+-1 7;
+#X obj 115 461 vsl 15 40 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 82 489 *~;
+#X obj 76 600 dac~;
+#X obj 307 463 vsl 15 40 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 274 491 *~;
+#X obj 530 464 vsl 15 40 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 497 492 *~;
+#X obj 100 146 seq-row;
+#X obj 100 176 seq-row;
+#X obj 100 161 seq-row;
+#X obj 100 131 seq-row;
+#X obj 720 464 vsl 15 40 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 687 492 *~;
+#X obj 930 464 vsl 15 40 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 897 492 *~;
+#X obj 100 116 seq-row;
+#X obj 99 246 s kick-bang;
+#X obj 47 452 r~ kick;
+#X obj 260 247 s hihat-bang;
+#X obj 178 246 s snare-bang;
+#X obj 343 248 s clank-bang;
+#X obj 432 246 s buzzer-bang;
+#X obj 240 446 r~ snare;
+#X obj 473 445 r~ hihat;
+#X obj 658 449 r~ clank;
+#X obj 874 448 r~ buzzer;
+#N canvas 0 22 450 300 clock 1;
+#X obj 134 140 f;
+#X obj 165 140 + 1;
+#X obj 133 163 % 32;
+#X obj 211 47 inlet BPM;
+#X obj 126 80 inlet ON/OFF;
+#X obj 140 204 outlet;
+#X obj 224 82 ../../resources/bpm2ms;
+#X obj 135 114 metro;
+#X connect 0 0 1 0;
+#X connect 0 0 2 0;
+#X connect 1 0 0 1;
+#X connect 2 0 5 0;
+#X connect 3 0 6 0;
+#X connect 4 0 7 0;
+#X connect 6 0 7 1;
+#X connect 7 0 0 0;
+#X restore 20 225 pd clock;
+#X obj 100 101 cnv 15 583 14 empty empty ADPD-808_Drum_Machine 200
+7 0 12 -260097 -1 0;
+#X obj 100 101 tgl 15 0 empty empty ON/OFF 20 7 0 10 -262144 -258113
+-1 0 1;
+#X obj 161 101 nbx 3 15 -1e+37 1e+37 0 0 empty empty BPM 40 8 0 10
+-1 -4034 -1 120 256;
+#X obj 581 192 cnv 10 102 14 empty empty empty 20 12 0 14 -260097 -66577
+0;
+#X obj 163 56 loadbang;
+#X msg 162 78 120;
+#X connect 0 0 5 0;
+#X connect 0 0 5 1;
+#X connect 1 0 0 1;
+#X connect 3 0 4 1;
+#X connect 4 0 0 0;
+#X connect 6 0 7 1;
+#X connect 7 0 0 0;
+#X connect 8 0 9 1;
+#X connect 9 0 0 0;
+#X connect 10 0 21 0;
+#X connect 11 0 19 0;
+#X connect 12 0 22 0;
+#X connect 13 0 23 0;
+#X connect 14 0 15 1;
+#X connect 15 0 0 0;
+#X connect 16 0 17 1;
+#X connect 17 0 0 0;
+#X connect 18 0 24 0;
+#X connect 20 0 4 0;
+#X connect 25 0 7 0;
+#X connect 26 0 9 0;
+#X connect 27 0 15 0;
+#X connect 28 0 17 0;
+#X connect 29 0 18 0;
+#X connect 29 0 13 0;
+#X connect 29 0 10 0;
+#X connect 29 0 12 0;
+#X connect 29 0 11 0;
+#X connect 29 0 2 0;
+#X connect 31 0 29 0;
+#X connect 32 0 29 1;
+#X connect 34 0 35 0;
+#X connect 35 0 32 0;
+#X coords 0 -1 1 1 583 106 2 100 100;

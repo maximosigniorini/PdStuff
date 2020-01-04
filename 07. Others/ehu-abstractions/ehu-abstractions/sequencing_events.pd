@@ -1,0 +1,57 @@
+#N canvas 30 130 738 271 10;
+#X msg 89 179 300;
+#X msg 118 179 600;
+#X msg 147 179 800;
+#X obj 89 206 osc~;
+#X obj 78 235 ehu/out~;
+#X obj 89 156 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 112 156 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 135 156 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 29 114 5 0 0 0 - - -;
+#X obj 340 13 ehu/dsp;
+#X obj 250 6 loadbang;
+#X obj 441 170 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X symbolatom 441 236 10 0 0 0 - - -;
+#X obj 441 199 ehu/loop_list;
+#X obj 29 82 ehu/timed_bang;
+#X obj 89 134 select 0 1 2;
+#X floatatom 89 112 5 0 0 0 - - -;
+#X obj 441 118 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 441 94 t b b;
+#X obj 441 148 metro 500;
+#X msg 549 163 file1.wav file2.wav file3.wav;
+#X text 112 55 timed sequence loop between frequencies;
+#X text 436 51 LOOP_LIST;
+#X text 31 34 TIMED_BANG;
+#X text 434 66 sequence loop between file names every 500 ms;
+#X msg 29 56 300 80 800;
+#X connect 0 0 3 0;
+#X connect 1 0 3 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 3 0 4 1;
+#X connect 5 0 0 0;
+#X connect 6 0 1 0;
+#X connect 7 0 2 0;
+#X connect 10 0 9 0;
+#X connect 10 0 25 0;
+#X connect 10 0 18 0;
+#X connect 11 0 13 0;
+#X connect 13 0 12 0;
+#X connect 14 0 8 0;
+#X connect 14 1 16 0;
+#X connect 15 0 5 0;
+#X connect 15 1 6 0;
+#X connect 15 2 7 0;
+#X connect 16 0 15 0;
+#X connect 17 0 19 0;
+#X connect 18 0 17 0;
+#X connect 18 1 20 0;
+#X connect 19 0 11 0;
+#X connect 20 0 13 1;
+#X connect 25 0 14 0;

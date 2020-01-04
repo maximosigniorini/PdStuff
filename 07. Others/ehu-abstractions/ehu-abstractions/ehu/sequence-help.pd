@@ -1,0 +1,43 @@
+#N canvas 283 218 569 407 10;
+#X obj 15 -46 cnv 15 380 240 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X symbolatom 42 22 10 0 0 0 - - -;
+#X obj 42 -33 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 154 17 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 154 -33 homer1.avi file2.mov fileXX.mpg;
+#X obj 98 82 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 154 128 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 42 129 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 42 60 500 2000 4000;
+#X text 130 59 miliseconds;
+#X obj 42 -10 ehu/seq_file;
+#X obj 42 100 ehu/seq_time;
+#X floatatom 98 125 5 0 0 0 - - -;
+#X obj 98 173 gate 3;
+#X obj 98 205 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 115 205 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 132 205 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 98 143 + 1;
+#X connect 2 0 10 0;
+#X connect 4 0 10 2;
+#X connect 5 0 11 1;
+#X connect 7 0 13 1;
+#X connect 8 0 11 0;
+#X connect 10 0 1 0;
+#X connect 10 1 3 0;
+#X connect 11 0 7 0;
+#X connect 11 1 12 0;
+#X connect 11 2 6 0;
+#X connect 12 0 17 0;
+#X connect 13 0 14 0;
+#X connect 13 1 15 0;
+#X connect 13 2 16 0;
+#X connect 17 0 13 0;

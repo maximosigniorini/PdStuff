@@ -1,0 +1,31 @@
+#N canvas 1 79 836 464 10;
+#X obj 401 139 audio-ducker;
+#X text 697 197 seuil de compression;
+#X text 696 228 durée de l'attack (ms);
+#X text 696 263 duréedu decay (ms);
+#X msg 627 196 thresh 80;
+#X msg 627 228 attack 10;
+#X msg 627 262 tresh 20;
+#X obj 401 14 osc~ 100;
+#X obj 490 -2 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 516 -4 >> la batterie compresse le synthé;
+#X obj 403 257 ../out/audio-out;
+#X obj 490 36 synth-drums;
+#X text 32 -48 audio-ducker \; ------------ \; The level of one audio
+signal is reduced by the presence of another signal \; Ducking Effect
+\;;
+#X connect 0 0 10 0;
+#X connect 0 0 10 1;
+#X connect 4 0 0 2;
+#X connect 5 0 0 2;
+#X connect 6 0 0 2;
+#X connect 7 0 0 0;
+#X connect 8 0 11 0;
+#X connect 8 0 11 1;
+#X connect 8 0 11 2;
+#X connect 8 0 11 3;
+#X connect 11 4 0 1;
+#X connect 11 4 10 1;
+#X connect 11 4 10 0;
+#X coords 0 464 1 463 102 45 0;

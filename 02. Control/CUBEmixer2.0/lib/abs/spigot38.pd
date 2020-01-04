@@ -1,0 +1,13 @@
+#N canvas 0 0 454 304 10;
+#X obj 88 144 spigot;
+#X obj 149 86 loadbang;
+#X obj 149 107 f \$1;
+#X obj 72 47 inlet;
+#X obj 140 46 inlet;
+#X obj 88 187 outlet;
+#X text 207 44 pd-0.38 compatible spigot;
+#X connect 0 0 5 0;
+#X connect 1 0 2 0;
+#X connect 2 0 0 1;
+#X connect 3 0 0 0;
+#X connect 4 0 0 1;

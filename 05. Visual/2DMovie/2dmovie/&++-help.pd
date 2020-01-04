@@ -1,0 +1,27 @@
+#N canvas 180 121 725 341 10;
+#X obj 2 -138 cnv 15 700 50 empty empty &++ 3 12 0 18 -204800 -1 0
+;
+#X floatatom 458 105 5 0 0 0 - - -;
+#X floatatom 543 -29 5 0 0 0 - - -;
+#X obj 437 -73 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 555 -3 bng 15 250 50 0 empty empty inversion 17 7 0 10 -262144
+-1 -1;
+#X obj 437 -48 metro 300;
+#X obj 458 75 r variable;
+#X text 21 118 OUTLETS \; 1- nombre : variable incrémentée;
+#X text 5 -110 Compteur qui incrémente une variable;
+#X text 21 -72 Description \; Compteur qui incrémente (ou décrémente)
+une variable selon un pas donné.;
+#X text 21 -16 Arguments \; 1- symbole : le nom de la variable à incrémenter
+\; 2- nombre : le pas de progression (0 par défaut);
+#X text 21 44 INLETS \; 1- bang : déclencheur \; 2- nombre : le pas
+de la progression \; 2- bang : inversion du sens de la progression
+;
+#X obj 437 24 &++ variable 10;
+#X connect 2 0 12 1;
+#X connect 3 0 5 0;
+#X connect 4 0 12 1;
+#X connect 5 0 12 0;
+#X connect 6 0 1 0;
+#X coords 0 341 1 340 65 15 0;

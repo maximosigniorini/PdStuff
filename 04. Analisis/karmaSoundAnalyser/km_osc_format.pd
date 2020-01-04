@@ -1,0 +1,30 @@
+#N canvas 721 193 433 415 10;
+#X obj 28 166 spigot;
+#X obj 61 143 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 111 126 r osc_status;
+#X text 77 145 Broadcasting;
+#X text 116 373 Receive this with your OSC sender;
+#X obj 28 372 s osc_out_raw;
+#X obj 89 99 inlet enabled;
+#X obj 28 46 inlet value;
+#X obj 61 99 i 1;
+#X obj 61 74 loadbang;
+#X obj 28 194 route bang;
+#X obj 28 230 i 1;
+#X text 29 8 FORMAT OSC MESSAGES;
+#X obj 28 291 km_osc_pack_mrpeach \$1;
+#X text 40 313 Use either km_osc_pack_native or km_osc_pack_mrpeach
+;
+#X text 40 329 According to your OSC sender;
+#X connect 0 0 10 0;
+#X connect 1 0 0 1;
+#X connect 2 0 1 0;
+#X connect 6 0 1 0;
+#X connect 7 0 0 0;
+#X connect 8 0 1 0;
+#X connect 9 0 8 0;
+#X connect 10 0 11 0;
+#X connect 10 1 13 0;
+#X connect 11 0 13 0;
+#X connect 13 0 5 0;

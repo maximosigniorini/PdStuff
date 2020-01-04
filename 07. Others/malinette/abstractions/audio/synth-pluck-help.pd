@@ -1,0 +1,24 @@
+#N canvas 122 141 472 497 10;
+#X obj 73 326 dac~;
+#X msg 346 277 \; pd dsp 1;
+#X obj 346 254 loadbang;
+#X obj 57 280 synth-pluck;
+#X obj 57 202 loadbang;
+#X obj 57 225 metro 500;
+#X obj 57 248 random 127;
+#X obj 32 210 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 135 248 5 0 0 1 length_(ms) - -;
+#X text 55 55 synth-pluck \; ----------- \; String pizzicato synthesis
+\; Arguments \; \$1: length \; Inlets \; 1: pitch (0-127 float) \;
+2: length (ms) \;;
+#X obj 58 350 oscilloscope~;
+#X connect 2 0 1 0;
+#X connect 3 0 0 0;
+#X connect 3 0 0 1;
+#X connect 3 0 10 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 6 0 3 0;
+#X connect 7 0 5 0;
+#X connect 8 0 3 1;

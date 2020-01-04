@@ -1,0 +1,143 @@
+#N canvas 6 97 756 524 10;
+#X obj 186 104 tgl 10 0 \$0-onoff \$0-onoff-in empty 17 7 0 10 -257985
+-1 -1 1 1;
+#N canvas 193 383 829 289 ENGINE 0;
+#X text 251 147 <- use library as a prefix to see dependancies;
+#X obj 90 11 inlet;
+#X text 217 31 Messages from GUI;
+#X obj 672 229 outlet;
+#X obj 90 235 outlet;
+#X obj 690 85 r \$0-label;
+#X msg 672 152 symbol \$1-\$2;
+#X obj 218 48 r \$0-slider1;
+#X obj 311 48 r \$0-slider2;
+#X obj 416 48 r \$0-slider3;
+#X obj 311 71 + 0.3;
+#X obj 690 106 t b s;
+#X obj 672 129 pack 0 s;
+#X obj 90 55 spigot;
+#X obj 123 35 r \$0-onoff;
+#X obj 90 148 maxlib/scale 0 1 8 30 0;
+#X connect 1 0 13 0;
+#X connect 5 0 11 0;
+#X connect 6 0 3 0;
+#X connect 7 0 15 1;
+#X connect 8 0 10 0;
+#X connect 9 0 12 0;
+#X connect 9 0 15 5;
+#X connect 10 0 15 2;
+#X connect 11 0 12 0;
+#X connect 11 1 12 1;
+#X connect 12 0 6 0;
+#X connect 13 0 15 0;
+#X connect 14 0 13 1;
+#X connect 15 0 4 0;
+#X restore 50 345 pd ENGINE;
+#X obj 55 123 vsl 15 30 0 1 0 0 \$0-slider1 \$0-slider1-in 1 4 20 0
+10 -228856 -1 -1 580 1;
+#X obj 72 123 vsl 15 30 0 1 0 0 \$0-slider2 \$0-slider2-in 2 4 20 0
+10 -228856 -1 -1 580 1;
+#X text 217 101 < use a toggle \$0-onoff to switch on and off the abstraction
+;
+#X obj 50 297 inlet data;
+#N canvas 723 132 411 364 COMMUNICATION 0;
+#X obj 103 106 inlet commands;
+#X obj 103 134 route onoff size label;
+#X obj 103 281 s \$0-onoff-in;
+#X obj 189 191 s \$0-label-in;
+#X text 101 51 Route messages to GUI or ENGINE \; --------------------------------
+;
+#X obj 189 162 symbol;
+#X obj 146 258 s \$0-slider1-in;
+#X obj 163 237 s \$0-slider2-in;
+#X obj 173 216 s \$0-slider3-in;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 1 1 6 0;
+#X connect 1 1 7 0;
+#X connect 1 1 8 0;
+#X connect 1 2 5 0;
+#X connect 5 0 3 0;
+#X restore 468 390 pd COMMUNICATION;
+#X obj 468 303 inlet commands;
+#X obj 50 451 outlet float;
+#X text 49 277 Any data on the left : numbers \, audio \, video \,
+...;
+#X text 466 281 Inlet for commands on the right;
+#X text 49 235 ENGINE \; -------------------------;
+#X text 466 240 COMMANDS \; -------------------------;
+#X text 133 449 < argument for [inlets];
+#X text 578 390 < send messages to GUI;
+#X text 117 342 < receive messages from GUI;
+#X text 50 12 A good practice is to split an abstraction in 3 parts
+: COMMANDS > GUI > ENGINE;
+#X text 47 67 G.U.I. \; -------------------------;
+#X obj 89 123 vsl 15 30 0 1 0 0 \$0-slider3 \$0-slider3-in 3 4 20 0
+10 -228856 -1 -1 580 1;
+#X text 218 130 < objects with "\$0" send and receive messages \; send
+: \$0-slider1 \; receive: \$0-slider1-in (see the "-in" for receive
+messages) \;;
+#X symbolatom 112 138 13 0 0 2 Label #0-label-in #0-label;
+#X obj 101 415 outlet symbol;
+#N canvas 248 132 728 365 INIT_ARGUMENTS 0;
+#X obj 78 115 f \$1;
+#X text 116 115 <- test float argument;
+#X obj 78 91 initbang;
+#X obj 474 139 symbol;
+#X obj 399 162 select symbol;
+#X obj 399 111 t b b;
+#X obj 399 86 initbang;
+#X floatatom 147 157 5 0 0 0 - - -;
+#X symbolatom 474 186 10 0 0 0 - - -;
+#X obj 120 160 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 78 137 moses 0.0001;
+#X text 189 155 <- every numbers > 0 are okay;
+#X text 417 187 empty;
+#X obj 399 188 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 541 184 not empty;
+#X text 529 138 <- test symbol argument;
+#X obj 147 307 outlet;
+#X msg 474 243 label \$1;
+#X obj 399 136 symbol \$2;
+#X text 75 186 empty;
+#X obj 57 187 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 79 24 Test arguments before use them \; And use defaults values
+if not \; ------------------------------;
+#X msg 57 213 0.5;
+#X msg 399 211 symbol default;
+#X msg 147 242 size \$1;
+#X obj 595 219 initbang;
+#X text 138 90 <- instead of [loadbang];
+#X msg 595 242 onoff 1;
+#X connect 0 0 10 0;
+#X connect 2 0 0 0;
+#X connect 3 0 4 1;
+#X connect 4 0 13 0;
+#X connect 4 1 8 0;
+#X connect 5 0 18 0;
+#X connect 5 1 3 0;
+#X connect 6 0 5 0;
+#X connect 7 0 9 0;
+#X connect 7 0 24 0;
+#X connect 8 0 17 0;
+#X connect 10 0 20 0;
+#X connect 10 1 7 0;
+#X connect 13 0 23 0;
+#X connect 17 0 16 0;
+#X connect 18 0 4 0;
+#X connect 20 0 22 0;
+#X connect 22 0 24 0;
+#X connect 23 0 17 0;
+#X connect 24 0 16 0;
+#X connect 25 0 27 0;
+#X connect 27 0 16 0;
+#X restore 489 353 pd INIT_ARGUMENTS;
+#X connect 1 0 8 0;
+#X connect 1 1 21 0;
+#X connect 5 0 1 0;
+#X connect 7 0 6 0;
+#X connect 22 0 6 0;
+#X coords 0 -1 1 1 150 60 1 50 100;

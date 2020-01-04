@@ -1,0 +1,13 @@
+#N canvas 0 0 642 267 10;
+#X obj 30 49 unpack 0 0;
+#X obj 30 71 pp set;
+#X obj 95 72 pp set;
+#X obj 30 102 outlet;
+#X obj 95 103 outlet;
+#X obj 30 29 r \$1_togui;
+#X text 194 63 1.arg: <symbol> receive first name;
+#X connect 0 0 1 0;
+#X connect 0 1 2 0;
+#X connect 1 0 3 0;
+#X connect 2 0 4 0;
+#X connect 5 0 0 0;

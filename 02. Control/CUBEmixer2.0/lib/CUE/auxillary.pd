@@ -1,0 +1,14 @@
+#N canvas 0 0 450 300 10;
+#X obj 122 28 inlet settings;
+#X obj 255 28 inlet params;
+#X obj 122 248 outlet settings;
+#X obj 255 248 outlet params;
+#X obj 98 86 receive/prepend \$1/DST;
+#X obj 255 138 receive/prepend \$1/GAIN;
+#X obj 122 106 receive/prepend \$1/PRE;
+#X connect 0 0 4 0;
+#X connect 0 0 6 0;
+#X connect 1 0 5 0;
+#X connect 4 0 2 0;
+#X connect 5 0 3 0;
+#X connect 6 0 2 0;

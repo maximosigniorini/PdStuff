@@ -1,0 +1,128 @@
+#N canvas 294 300 876 334 10;
+#X obj 34 172 symbol \$1;
+#X obj 136 230 ftos;
+#X obj 105 164 float \$1;
+#X floatatom 105 193 5 0 0 0 - - -;
+#X symbolatom 35 205 0 0 0 0 - - -;
+#X symbolatom 95 243 10 0 0 0 - - -;
+#X obj 44 126 loadbang;
+#X obj 97 280 s \$1pdp_noise_id;
+#X obj 245 47 inlet;
+#X text 303 47 video;
+#X text 473 47 on/off;
+#X obj 274 269 outlet;
+#X text 322 266 video;
+#X obj 375 211 pdp_noise;
+#X obj 415 104 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X msg 553 151 dim 320 240;
+#X text 644 153 set packet dimensions;
+#X msg 523 222 type grey;
+#X msg 544 249 type yv12;
+#X text 619 224 generate greyscale;
+#X text 619 243 generate colour (default);
+#X msg 534 109 75;
+#X text 602 82 set seed value;
+#X obj 536 176 r \$1epdp_noise_type;
+#X obj 525 200 select 0 1;
+#X obj 419 79 r \$1epdp_noise_start;
+#X obj 561 56 r \$1epdp_noise_seed;
+#X msg 565 86 set \$1;
+#X obj 718 101 pack 0 0;
+#X obj 777 101 t b f;
+#X floatatom 718 82 5 0 0 0 - - -;
+#X floatatom 777 81 5 0 0 0 - - -;
+#X msg 718 122 dim \$1 \$2;
+#X obj 694 30 r \$1epdp_noise_x;
+#X obj 731 53 r \$1epdp_noise_y;
+#X obj 300 98 pdp_spigot;
+#X obj 410 10 r \$1epdp_noise_on;
+#X obj 371 17 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 0 0 cnv 15 150 75 empty empty empty 2 12 0 14 -191407 -66577
+0;
+#X obj 7 5 tgl 15 0 \$1epdp_noise_on \$1epdp_noise_on_init Noise 17
+7 0 10 -260097 -1 -1 0 1;
+#X obj 91 23 vradio 15 1 0 2 \$1epdp_noise_type \$1epdp_noise_type_init
+empty 0 -8 0 10 -262144 -1 -1 1;
+#X text 108 21 Grey;
+#X text 109 37 Color;
+#X obj 10 35 nbx 5 14 -1e+37 1e+37 0 0 \$1epdp_noise_seed \$1epdp_noise_seed_init
+seed 0 -8 0 8 -262144 -1 -1 75 256;
+#X obj 38 55 nbx 3 14 0 1080 0 0 \$1epdp_noise_x \$1epdp_noise_x_init
+X -10 5 0 8 -262144 -1 -1 28 256;
+#X obj 82 55 nbx 3 14 0 1080 0 0 \$1epdp_noise_y \$1epdp_noise_y_init
+y -10 5 0 8 -262144 -1 -1 0 256;
+#X obj 93 2 bng 15 250 50 0 \$1epdp_noise_start \$1epdp_noise_start_init
+apply 17 7 0 8 -257985 -1 -1;
+#X obj 66 2 cnv 15 20 10 empty \$1pdp_noise_id \$1 5 5 0 10 -260097
+-33289 0;
+#X obj 1 57 bng 15 250 50 0 \$1epdp_noise_midi_on empty empty 17 7
+0 8 -4160 -1 -1;
+#N canvas 12 98 647 639 midi_control 1;
+#X msg 171 192 ef1epdp_noise_on_midi;
+#X text 105 24 MIDI;
+#X obj 105 165 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 228 213 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 280 290 s midi_var_to_add;
+#X msg 171 158 set \$1epdp_noise_on_midi;
+#X obj 123 355 r \$1epdp_noise_on_midi;
+#X obj 104 513 s \$1epdp_noise_on_init;
+#X obj 116 55 r \$1epdp_noise_midi_on;
+#X text 387 293 -->global value of mb-midi_control_pad;
+#X text 178 427 Need to check the correct scale factor for these values.
+;
+#X obj 181 100 r $pdp_noise_id;
+#X obj 121 404 select 0;
+#X msg 178 455 0;
+#X msg 128 461 1;
+#X obj 108 434 alternate;
+#X connect 0 0 3 0;
+#X connect 0 0 4 0;
+#X connect 2 0 0 0;
+#X connect 5 0 0 0;
+#X connect 6 0 12 0;
+#X connect 8 0 2 0;
+#X connect 11 0 5 0;
+#X connect 12 1 15 0;
+#X connect 13 0 7 0;
+#X connect 14 0 7 0;
+#X connect 15 0 14 0;
+#X connect 15 1 13 0;
+#X restore 179 11 pd midi_control;
+#X connect 0 0 4 0;
+#X connect 1 0 5 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X connect 4 0 5 0;
+#X connect 5 0 7 0;
+#X connect 6 0 2 0;
+#X connect 6 0 0 0;
+#X connect 8 0 35 0;
+#X connect 13 0 11 0;
+#X connect 14 0 13 0;
+#X connect 15 0 13 0;
+#X connect 17 0 13 0;
+#X connect 18 0 13 0;
+#X connect 21 0 13 0;
+#X connect 23 0 24 0;
+#X connect 24 0 17 0;
+#X connect 24 1 18 0;
+#X connect 25 0 14 0;
+#X connect 26 0 27 0;
+#X connect 27 0 21 0;
+#X connect 28 0 32 0;
+#X connect 29 0 28 0;
+#X connect 29 1 28 1;
+#X connect 30 0 28 0;
+#X connect 31 0 29 0;
+#X connect 32 0 13 0;
+#X connect 33 0 30 0;
+#X connect 34 0 31 0;
+#X connect 35 0 11 0;
+#X connect 35 1 13 0;
+#X connect 36 0 37 0;
+#X connect 37 0 35 1;
+#X coords 0 -1 1 1 150 75 1 0 0;

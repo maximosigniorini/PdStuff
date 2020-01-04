@@ -1,0 +1,151 @@
+#N canvas 1 83 450 300 10;
+#X obj 5 3 cnv 15 590 15 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 8 260 cnv 15 150 110 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 2 239 cnv 15 590 15 empty empty empty 20 12 0 14 -158509 -66577
+0;
+#X text 7 2 ATTRIBUTES Messages;
+#X text 5 239 Lists :;
+#X text 168 332 Output all norm of position vector (sqrt(x*x+y*y))
+in a list on outlet No 1;
+#X obj 9 374 cnv 15 150 110 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 9 487 cnv 15 150 110 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 611 26 cnv 15 150 110 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 605 5 cnv 15 590 15 empty empty empty 20 12 0 14 -158509 -66577
+0;
+#X obj 612 140 cnv 15 150 110 empty empty empty 20 12 0 14 -233017
+-66577 0;
+#X obj 612 253 cnv 15 150 110 empty empty empty 20 12 0 14 -233017
+-66577 0;
+#X text 833 502 \$2 (optional): Masses Id;
+#X text 832 489 \$1 : table name;
+#X text 608 5 tables :;
+#X text 15 30 The attributes messages ask the object to output some
+of his internal parameters. They can be output by lists for positions
+and forces of links;
+#X text 168 272 Output all links center positions in a list on outlet
+No 1;
+#X text 168 304 Output all links x or y in a list on outlet No 1;
+#X obj 10 603 cnv 15 150 110 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X text 182 611 Output all link lenght deformation speed in a list
+on outlet No 1;
+#X text 182 647 Output all link lenght deformation speed in x or y
+in a list on outlet No 1;
+#X text 212 675 Output all norm of link lenght deformation speed vector
+(sqrt(x*x+y*y)) in a list on outlet No 1;
+#X obj 612 369 cnv 15 150 110 empty empty empty 20 12 0 14 -233017
+-66577 0;
+#X text 808 377 Output all link lenght deformation speed in a list
+on outlet No 1;
+#X text 808 413 Output all link lenght deformation speed in x or y
+in a list on outlet No 1;
+#X text 838 441 Output all norm of link lenght deformation speed vector
+(sqrt(x*x+y*y)) in a list on outlet No 1;
+#X text 794 35 Output all links center positions in a table [\$1];
+#X text 794 67 Output all links center positions x or y in a table
+[\$1];
+#X text 793 105 Output all norm of links center positions vector (sqrt(x*x+y*y))
+in a table [\$1];
+#X text 168 385 Output all link lenght in a list on outlet No 1;
+#X text 170 418 Output all link lenght in x or y in a list on outlet
+No 1;
+#X text 179 446 Output all norm of link lenght vector (sqrt(x*x+y*y))
+in a list on outlet No 1;
+#X text 169 501 Output all link center speed in a list on outlet No
+1;
+#X text 173 531 Output all link center speed in x or y in a list on
+outlet No 1;
+#X text 192 567 Output all norm of link center speed vector (sqrt(x*x+y*y))
+in a list on outlet No 1;
+#X text 797 154 Output all link length in a list on outlet No 1;
+#X text 796 181 Output all link length in x or y in a list on outlet
+No 1;
+#X text 799 218 Output all norm of link length vector (sqrt(x*x+y*y))
+in a list on outlet No 1;
+#X text 795 264 Output all link center speed in a list on outlet No
+1;
+#X text 799 294 Output all link center speed in x or y in a list on
+outlet No 1;
+#X text 815 326 Output all norm of link center speed vector (sqrt(x*x+y*y))
+in a list on outlet No 1;
+#X msg 9 290 linkPosXL [\$1];
+#X msg 10 309 linkPosYL [\$1];
+#X msg 10 328 linkPosZL [\$1];
+#X msg 10 347 linkPosNormL [\$1];
+#X msg 11 381 linkLengthL [\$1];
+#X msg 11 400 linkLengthXL [\$1];
+#X msg 11 419 linkLengthYL [\$1];
+#X msg 12 438 linkLengthZL [\$1];
+#X msg 14 494 linkPosSpeedL [\$1];
+#X msg 14 513 linkPosSpeedXL [\$1];
+#X msg 13 532 linkPosSpeedYL [\$1];
+#X msg 13 551 linkPosSpeedsZL [\$1];
+#X msg 12 570 linkPosSpeedNormL [\$1];
+#X msg 12 610 linkLengthSpeedL [\$1];
+#X msg 12 629 linkLengthSpeedXL [\$1];
+#X msg 12 648 linkLengthSpeedYL [\$1];
+#X msg 13 667 linkLengthSpeedZL [\$1];
+#X msg 615 38 linkPosT \$1 [\$2];
+#X msg 615 57 linkPosXT \$1 [\$2];
+#X msg 615 75 linkPosYT \$1 [\$2];
+#X msg 615 95 linkPosZT \$1 [\$2];
+#X msg 614 114 linkPosNormT \$1 [\$2];
+#X msg 616 152 linkLengthT \$1 [\$2];
+#X msg 616 171 linkLengthXT \$1 [\$2];
+#X msg 616 190 linkLengthYT \$1 [\$2];
+#X msg 616 209 linkLengthZT \$1 [\$2];
+#X msg 615 228 linkLengthNormT \$1 [\$2];
+#X msg 616 259 linkPosSpeedT \$1 [\$2];
+#X msg 616 278 linkPosSpeedXT \$1 [\$2];
+#X msg 616 297 linkPosSpeedYT \$1 [\$2];
+#X msg 616 316 linkPosSpeedZT \$1 [\$2];
+#X msg 616 335 linkPosSpeedNormT \$1 [\$2];
+#X msg 614 376 linkLengthSpeedT \$1 [\$2];
+#X msg 613 395 linkLengthSpeedXT \$1 [\$2];
+#X msg 614 414 linkLengthSpeedYT \$1 [\$2];
+#X msg 615 433 linkLengthSpeedZT \$1 [\$2];
+#X obj 8 88 cnv 15 150 100 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X text 172 93 \$1 : id float or symbol of masses (nothing for all)
+;
+#X text 172 153 \$1 : id float or symbol of masses (nothing for all)
+;
+#X msg 12 96 linkPos [\$1];
+#X msg 12 156 linkEnd [\$1];
+#X text 173 113 output a message for every links :;
+#X text 173 173 output a message for every links :;
+#X text 202 130 linkPos symbolId number centerX centerY centerZ;
+#X text 172 189 linkEnd symbolId number posX1 posY1 posZ1 posX2 posY2
+posZ2;
+#X obj 2 69 cnv 15 590 15 empty empty empty 20 12 0 14 -158509 -66577
+0;
+#X text 5 69 generic :;
+#X msg 10 457 linkLengthNormL [\$1];
+#X msg 13 687 linkLengthSpeedNormL [\$1];
+#X msg 615 453 linkLengthSpeedNormT \$1 [\$2];
+#X obj 614 543 cnv 15 150 250 empty empty empty 20 12 0 14 -233017
+-66577 0;
+#X obj 608 522 cnv 15 590 15 empty empty empty 20 12 0 14 -158509 -66577
+0;
+#X text 611 522 tables :;
+#X msg 628 551 linkEndT \$1 [\$2];
+#X text 790 551 Put position of the 2 link end on a table [\$1] \,
+filter on link id is possible;
+#X text 795 583 table is posX1 posY1 posZ1 posX2 posY2 posZ2 ....;
+#X msg 640 571 linkEnd1T \$1 [\$2];
+#X msg 639 591 linkEnd2T \$1 [\$2];
+#X msg 638 612 linkEndXT \$1 [\$2];
+#X msg 638 631 linkEnd1XT \$1 [\$2];
+#X msg 638 651 linkEnd2XT \$1 [\$2];
+#X msg 639 673 linkEndYT \$1 [\$2];
+#X msg 641 693 linkEnd1YT \$1 [\$2];
+#X msg 640 713 linkEnd2YT \$1 [\$2];
+#X msg 639 733 linkEndZT \$1 [\$2];
+#X msg 641 753 linkEnd1ZT \$1 [\$2];
+#X msg 640 773 linkEnd2ZT \$1 [\$2];
+#X msg 9 271 linkPosL [\$1);

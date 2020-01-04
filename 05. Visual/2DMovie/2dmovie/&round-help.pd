@@ -1,0 +1,33 @@
+#N canvas 335 220 858 315 10;
+#X obj 2 -105 cnv 15 700 50 empty empty &round 3 12 0 18 -204800 -1
+0;
+#X floatatom 548 63 8 0 0 0 - - -;
+#X obj 470 -15 hsl 128 15 0 40 0 0 snd-slidertest rcv-slidertest empty
+-2 -8 0 10 -262144 -1 -1 0 1;
+#X floatatom 459 30 10 0 0 0 - - -;
+#X floatatom 459 95 10 0 0 0 - - -;
+#X obj 459 61 int;
+#X floatatom 681 -7 5 0 0 0 - - -;
+#X floatatom 632 61 8 0 0 0 - - -;
+#X text 5 -77 Arrondi d'un nombre;
+#X text 21 -39 Description \; Arrondi d'un nombre en précisant le
+nombre de chiffres après la virgule (par défaut 0). Ce module est
+particulièrement utile dans l'utilisation des éléments de l'interface
+Pd (comme les sliders) qui renvoient des nombres à virgule et non
+des entiers.;
+#X obj 548 30 &round;
+#X obj 631 29 &round 2;
+#X text 21 51 Arguments \; 1- nombre : nombre de chiffres après la
+virgule;
+#X text 21 91 INLETS \; 1- nombre : valeur à arrondir \; 2- nombre
+: nombre de chiffres après la virgule;
+#X text 21 144 OUTLETS \; 1- nombre;
+#X connect 2 0 3 0;
+#X connect 2 0 10 0;
+#X connect 2 0 11 0;
+#X connect 3 0 5 0;
+#X connect 5 0 4 0;
+#X connect 6 0 11 1;
+#X connect 10 0 1 0;
+#X connect 11 0 7 0;
+#X coords 0 315 1 314 65 15 0;

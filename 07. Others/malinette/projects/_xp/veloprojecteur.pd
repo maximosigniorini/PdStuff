@@ -1,0 +1,76 @@
+#N canvas 196 48 822 660 10;
+#X declare -path abstractions/in -path abstractions/out -path abstractions/tools
+-path abstractions/filters -path abstractions/master -path examples/basics
+;
+#X obj 7 237 cnv 1 396 1 empty empty FILTERS 2 -6 1 12 -228856 -191407
+0;
+#X obj 7 404 cnv 1 800 1 empty empty OUT 2 -6 1 12 -228856 -191407
+0;
+#X obj 7 65 cnv 1 800 1 empty empty IN 2 -6 1 12 -228856 -191407 0
+;
+#X obj 7 237 cnv 1 800 1 empty empty TOOLS 400 -6 1 12 -228856 -191407
+0;
+#X text 96 8 DESCRIPTION \; Les coordonnées de la souris sont utilisées
+pour contrôler un synthétiseur.;
+#X obj 33 501 video-scratch;
+#X obj 198 579 audio-out;
+#X obj 33 557 video-screen;
+#N canvas 623 136 429 190 OPEN_GEM 0;
+#X obj 96 77 loadbang;
+#X msg 96 131 \; GEM-MASTER on;
+#X obj 96 101 delay 500;
+#X text 50 49 Démarrer Gem avec 500ms de retard;
+#X connect 0 0 2 0;
+#X connect 2 0 1 0;
+#X restore 736 41 pd OPEN_GEM;
+#X obj 745 19 ../../abstractions/include;
+#X obj 196 501 audio-scratch;
+#X obj 255 116 key-num;
+#X obj 76 281 counter 1000;
+#X floatatom 25 291 5 0 0 0 - - -;
+#X obj 76 336 / 1000;
+#X floatatom 173 283 5 0 0 0 - - -;
+#X obj 486 394 fade;
+#X obj 507 327 timer;
+#X obj 507 284 counter 2;
+#X obj 507 305 sel 0 1;
+#X text 493 255 calcul temps de fade;
+#X obj 250 222 timer;
+#X obj 292 223 timer;
+#X obj 279 256 >;
+#X floatatom 236 288 5 0 0 0 - - -;
+#X obj 376 425 inverse;
+#X obj 343 396 gate 2;
+#X obj 279 288 + 1;
+#X obj 507 370 + 100;
+#X text 301 303 SEns;
+#X connect 5 0 7 0;
+#X connect 10 0 6 0;
+#X connect 10 0 6 1;
+#X connect 11 0 12 0;
+#X connect 11 0 18 0;
+#X connect 11 0 21 0;
+#X connect 11 0 22 1;
+#X connect 11 1 21 1;
+#X connect 11 1 22 0;
+#X connect 12 0 13 0;
+#X connect 12 0 14 0;
+#X connect 14 0 16 0;
+#X connect 15 0 12 4;
+#X connect 15 0 14 1;
+#X connect 16 0 26 1;
+#X connect 17 0 28 0;
+#X connect 18 0 19 0;
+#X connect 19 0 17 0;
+#X connect 19 1 17 1;
+#X connect 21 0 23 0;
+#X connect 22 0 23 1;
+#X connect 23 0 24 0;
+#X connect 23 0 27 0;
+#X connect 25 0 10 1;
+#X connect 25 0 5 0;
+#X connect 26 0 5 0;
+#X connect 26 0 10 1;
+#X connect 26 1 25 0;
+#X connect 27 0 26 0;
+#X connect 28 0 16 1;

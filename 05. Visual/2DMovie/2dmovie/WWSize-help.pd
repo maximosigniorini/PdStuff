@@ -1,0 +1,26 @@
+#N canvas 281 22 775 346 10;
+#X obj 2 -363 cnv 15 700 50 empty empty WWSize 3 12 0 18 -260080 -1
+0;
+#X text 591 -346 @author Pertuit;
+#X obj 463 -289 gemmanager;
+#X floatatom 522 -179 5 0 0 0 - - -;
+#X floatatom 471 -179 5 0 0 0 - - -;
+#X obj 471 -238 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 22 -100 OUTLETS \; 1- nombre : largeur \; 2- nombre : hauteur
+;
+#X text 22 -187 ARGUMENTS \; aucun;
+#X text 22 -144 INLETS \; 1- bang : déclencheur;
+#X text 591 -334 @version 1;
+#X text 591 -359 @library 2DMovie;
+#X text 22 -235 Par défaut \, la taille de la fenêtre de travail
+est de 640 x 400;
+#X text 141 -357 Fonction retournant la taille de la fenêtre de travail
+;
+#X text 22 -281 DESCRIPTION \; Fonction retournant la taille de la
+fenêtre de travail du GemManager (Working Window).;
+#X obj 471 -210 WWSize;
+#X connect 5 0 14 0;
+#X connect 14 0 4 0;
+#X connect 14 1 3 0;
+#X coords 0 346 1 345 65 15 0;

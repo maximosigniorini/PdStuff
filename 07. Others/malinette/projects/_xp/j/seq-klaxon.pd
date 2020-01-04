@@ -1,0 +1,115 @@
+#N canvas 155 0 800 684 10;
+#X declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/tools -path ../../abstractions/filters -path
+../../abstractions/fx-video -path ../../abstractions/fx-audio -path
+../../abstractions/master;
+#X declare -path abstractions/in -path abstractions/out -path abstractions/tools
+-path abstractions/filters -path abstractions/fx-video -path abstractions/fx-audio
+-path abstractions/master;
+#N canvas 468 137 801 468 INIT 0;
+#X obj 101 101 cnv 8 48 8 empty empty INCLUDE 2 4 0 10 -233017 -66577
+0;
+#X obj 102 261 declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/tools -path ../../abstractions/filters -path
+../../abstractions/fx-video -path ../../abstractions/fx-audio -path
+../../abstractions/master;
+#X text 100 240 Use for standalone :;
+#X text 100 140 Use with the main.pd :;
+#X text 97 25 Import paths to find abstractions \; Always use it in
+the examples patchs.;
+#X obj 102 162 declare -path abstractions/in -path abstractions/out
+-path abstractions/tools -path abstractions/filters -path abstractions/fx-video
+-path abstractions/fx-audio -path abstractions/master;
+#X obj 565 311 savepanel;
+#X obj 565 146 route savetofile;
+#X obj 565 166 unpack s s;
+#X obj 565 125 iemguts/receivecanvas 1;
+#X text 562 96 Get new saved file;
+#X text 562 289 Or inside this abstraction ?;
+#X obj 565 209 s CURRENT-FILE;
+#X obj 622 189 s CURRENT-FOLDER;
+#X connect 7 0 8 0;
+#X connect 8 0 12 0;
+#X connect 8 1 13 0;
+#X connect 9 0 7 0;
+#X coords 0 -1 1 1 50 10 2 100 100;
+#X restore 711 18 pd INIT;
+#X text 597 13 ! Do not delete >;
+#X obj 7 242 cnv 1 786 1 empty empty FX 2 -6 1 12 -228856 -191407 0
+;
+#X obj 7 431 cnv 1 786 1 empty empty OUT 2 -6 1 12 -228856 -191407
+0;
+#X obj 7 53 cnv 1 786 1 empty empty IN 2 -6 1 12 -228856 -191407 0
+;
+#X obj 150 118 seq-sliders;
+#X obj 341 122 seq-sliders;
+#X obj 150 282 notescale;
+#X obj 107 22 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X floatatom 208 14 5 0 0 0 - - -;
+#X obj 339 73 count 8;
+#X obj 341 98 sel 0;
+#X obj 150 342 synth;
+#X obj 151 444 audio-out;
+#X obj 340 299 notescale;
+#X obj 337 269 map 0 1 25 55;
+#X obj 150 257 map 0 1 45 80;
+#X obj 151 389 audio-attackdecay;
+#X obj 347 362 synth;
+#X obj 369 549 audio-out;
+#X obj 360 459 audio-attackdecay;
+#X obj 582 115 seq-sliders;
+#X obj 582 91 sel 0;
+#X obj 581 292 notescale;
+#X obj 588 355 synth;
+#X obj 610 542 audio-out;
+#X obj 601 452 audio-attackdecay;
+#X obj 578 262 map 0 1 55 70;
+#X msg 49 101 onoff 0;
+#X obj 159 27 metro 200;
+#X obj 580 66 count 3;
+#X obj 149 91 sel 0;
+#X obj 147 66 count 1;
+#X floatatom 210 62 5 0 0 0 - - -;
+#X floatatom 394 62 5 0 0 0 - - -;
+#X floatatom 651 51 5 0 0 0 - - -;
+#X obj 51 80 loadbang;
+#X connect 5 0 16 0;
+#X connect 6 0 15 0;
+#X connect 7 0 12 0;
+#X connect 7 0 17 1;
+#X connect 8 0 29 0;
+#X connect 9 0 29 1;
+#X connect 10 0 11 0;
+#X connect 11 0 6 0;
+#X connect 12 0 17 0;
+#X connect 14 0 18 0;
+#X connect 14 0 20 1;
+#X connect 15 0 14 0;
+#X connect 16 0 7 0;
+#X connect 17 0 13 0;
+#X connect 17 0 13 1;
+#X connect 18 0 20 0;
+#X connect 20 0 19 0;
+#X connect 20 0 19 1;
+#X connect 21 0 27 0;
+#X connect 22 0 21 0;
+#X connect 23 0 24 0;
+#X connect 23 0 26 1;
+#X connect 24 0 26 0;
+#X connect 26 0 25 0;
+#X connect 26 0 25 1;
+#X connect 27 0 23 0;
+#X connect 28 0 5 0;
+#X connect 28 0 6 0;
+#X connect 28 0 21 0;
+#X connect 29 0 10 0;
+#X connect 29 0 30 0;
+#X connect 29 0 32 0;
+#X connect 30 0 22 0;
+#X connect 31 0 5 0;
+#X connect 32 0 31 0;
+#X connect 33 0 32 1;
+#X connect 34 0 10 1;
+#X connect 35 0 30 1;
+#X connect 36 0 28 0;

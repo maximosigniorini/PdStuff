@@ -1,0 +1,77 @@
+#N canvas 151 22 800 687 10;
+#X declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/numbers -path ../../abstractions/video -path
+../../abstractions/audio -path ../../abstractions/master;
+#X obj 7 279 cnv 1 470 1 empty empty FX 2 -6 1 12 -228856 -191407 0
+;
+#X obj 7 431 cnv 1 470 1 empty empty OUT 2 -6 1 12 -228856 -191407
+0;
+#X obj 7 123 cnv 1 470 1 empty empty IN 2 -6 1 12 -228856 -191407 0
+;
+#X obj 488 28 cnv 20 300 90 empty empty DESCRIPTION 10 15 0 16 -233017
+-128992 0;
+#X obj 488 124 cnv 20 300 150 empty empty empty 10 15 0 16 -233017
+-128992 0;
+#X obj 488 279 cnv 20 300 150 empty empty empty 10 15 0 16 -233017
+-128992 0;
+#X obj 488 434 cnv 20 300 230 empty empty empty 10 15 0 16 -233017
+-128992 0;
+#X text 494 557 < sortie audio;
+#X obj 36 191 pack f f;
+#X obj 36 212 route 36 37 38 39;
+#X floatatom 36 237 5 0 0 0 - - -;
+#X floatatom 68 237 5 0 0 0 - - -;
+#X floatatom 100 237 5 0 0 0 - - -;
+#X floatatom 132 237 5 0 0 0 - - -;
+#X obj 36 170 stripnote;
+#X obj 36 148 notein;
+#X obj 36 442 synth-drums;
+#X obj 169 526 audio-out;
+#X obj 210 178 ctlin 1;
+#X floatatom 210 221 5 0 0 0 - - -;
+#X floatatom 261 221 5 0 0 0 - - -;
+#X floatatom 313 220 5 0 0 0 - - -;
+#X floatatom 364 221 5 0 0 0 - - -;
+#X obj 261 178 ctlin 2;
+#X obj 313 178 ctlin 3;
+#X obj 364 178 ctlin 4;
+#X floatatom 247 242 5 0 0 0 - - -;
+#X floatatom 298 242 5 0 0 0 - - -;
+#X floatatom 350 241 5 0 0 0 - - -;
+#X floatatom 401 242 5 0 0 0 - - -;
+#X obj 247 199 ctlin 5;
+#X obj 298 199 ctlin 6;
+#X obj 350 199 ctlin 7;
+#X obj 401 199 ctlin 8;
+#X text 495 70 ! activer le Midi dans "Média";
+#X text 495 479 < générateur de sons de percussions;
+#X text 496 171 < réceptions des contrôleurs Midi;
+#X text 495 141 < réceptions des notes Midi;
+#X text 207 159 CONTROLEURS (sliders \, potentiomètres \, ...);
+#X text 34 129 NOTES (clavier \, pad \, ...);
+#X text 496 55 Réception des données Midi d'un contrôleur Midi.
+;
+#X obj 738 11 ../../abstractions/include;
+#X connect 8 0 9 0;
+#X connect 9 0 10 0;
+#X connect 9 1 11 0;
+#X connect 9 2 12 0;
+#X connect 9 3 13 0;
+#X connect 10 0 16 0;
+#X connect 11 0 16 1;
+#X connect 12 0 16 2;
+#X connect 13 0 16 3;
+#X connect 14 0 8 0;
+#X connect 14 1 8 1;
+#X connect 15 0 14 0;
+#X connect 15 1 14 1;
+#X connect 16 4 17 0;
+#X connect 16 4 17 1;
+#X connect 18 0 19 0;
+#X connect 23 0 20 0;
+#X connect 24 0 21 0;
+#X connect 25 0 22 0;
+#X connect 30 0 26 0;
+#X connect 31 0 27 0;
+#X connect 32 0 28 0;
+#X connect 33 0 29 0;

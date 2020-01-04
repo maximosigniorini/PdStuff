@@ -1,0 +1,473 @@
+#N canvas 424 57 228 247 10;
+#X obj 85 29 nbx 2 12 -0 16 0 1 \$0-SendARGOBusInput \$0-ReceiveARGOBusInput
+ARGOBus -55 6 1 9 -262144 -1 -1 1 256;
+#X obj 4 30 tgl 10 1 \$0-SendInput1 \$0-ReceiveInput1 1 2 -6 1 9 -262144
+-1 -1 0 1;
+#X obj 202 30 tgl 10 1 \$0-SendInput2 \$0-ReceiveInput2 2 2 -6 1 9
+-262144 -1 -1 0 1;
+#X obj 107 29 nbx 2 12 -0 16 0 1 \$0-SendARGOBusInput2 \$0-ReceiveARGOBusInput2
+empty 0 6 1 9 -262144 -1 -1 2 256;
+#N canvas 205 43 485 601 Help--- 0;
+#X obj -24 61 cnv 15 440 54 empty empty empty 20 12 0 14 -224896 -66577
+0;
+#X text -22 60 Construit sous/Build under;
+#X text -22 72 Pd 0.38.4-extended;
+#X obj -23 118 cnv 15 440 30 empty empty empty 20 12 0 14 -259090 -66577
+0;
+#X text -22 85 Voir/Look at:;
+#X text -22 98 http://sourceforge.net/projects/pure-data/;
+#X text -16 119 - Un module "ARGOGeneral" (et un seul) doit etre ouvert
+avant l'ouverture de ce module.;
+#X text -21 475 - 2 x 8 sorties Audio DAC;
+#X text -21 488 - 2 x 1 sortie Audio ARGOBus;
+#N canvas 485 209 423 196 /SUBPATCH/ 0;
+#N canvas 662 178 307 231 2Adc 0;
+#X obj 82 81 *~;
+#X obj 134 114 *~;
+#X obj 82 27 adc~ 1 2;
+#X obj 77 147 outlet~;
+#X obj 99 57 r \$0-SendInput1;
+#X obj 151 90 r \$0-SendInput2;
+#X obj 134 146 outlet~;
+#X connect 0 0 3 0;
+#X connect 1 0 6 0;
+#X connect 2 0 0 0;
+#X connect 2 1 1 0;
+#X connect 4 0 0 1;
+#X connect 5 0 1 1;
+#X restore 122 41 pd 2Adc;
+#X obj -13 20 r \$0-SendARGOBusInput;
+#X obj 186 17 r \$0-SendARGOBusInput2;
+#N canvas 512 263 265 208 InputARGOBusv3 0;
+#X obj 48 74 sprintf ARGOBus%d;
+#X obj 46 30 inlet;
+#X obj 49 158 outlet~;
+#X msg 49 116 set \$1;
+#X obj 49 95 tosymbol;
+#X obj 47 52 change;
+#X text 88 30 <- No ARGObus 1..16;
+#X obj 49 137 r~ ARGOBus0;
+#X connect 0 0 4 0;
+#X connect 1 0 5 0;
+#X connect 3 0 7 0;
+#X connect 4 0 3 0;
+#X connect 5 0 0 0;
+#X connect 7 0 2 0;
+#X restore -12 43 pd InputARGOBusv3;
+#N canvas 512 263 273 216 InputARGOBusv3 0;
+#X obj 48 74 sprintf ARGOBus%d;
+#X obj 46 30 inlet;
+#X obj 49 158 outlet~;
+#X msg 49 116 set \$1;
+#X obj 49 95 tosymbol;
+#X obj 47 52 change;
+#X text 88 30 <- No ARGObus 1..16;
+#X obj 49 137 r~ ARGOBus0;
+#X connect 0 0 4 0;
+#X connect 1 0 5 0;
+#X connect 3 0 7 0;
+#X connect 4 0 3 0;
+#X connect 5 0 0 0;
+#X connect 7 0 2 0;
+#X restore 186 39 pd InputARGOBusv3;
+#X obj 82 123 switch~;
+#N canvas 379 112 685 302 OutputMono1v3 0;
+#X obj 291 33 + 100;
+#X obj 292 54 dbtorms;
+#X msg 291 197 set \$1;
+#N canvas 264 25 378 350 8Dac 0;
+#X obj 34 92 *~;
+#X obj 53 110 *~;
+#X obj 34 241 dac~ 1 2 3 4 5 6 7 8;
+#X obj 72 128 *~;
+#X obj 91 146 *~;
+#X obj 111 164 *~;
+#X obj 130 182 *~;
+#X obj 149 200 *~;
+#X obj 169 218 *~;
+#X obj 34 24 inlet~;
+#X obj 51 68 r \$0-SendDac11;
+#X obj 70 86 r \$0-SendDac12;
+#X obj 89 104 r \$0-SendDac13;
+#X obj 108 122 r \$0-SendDac14;
+#X obj 127 141 r \$0-SendDac15;
+#X obj 145 158 r \$0-SendDac16;
+#X obj 166 176 r \$0-SendDac17;
+#X obj 187 194 r \$0-SendDac18;
+#X connect 0 0 2 0;
+#X connect 1 0 2 1;
+#X connect 3 0 2 2;
+#X connect 4 0 2 3;
+#X connect 5 0 2 4;
+#X connect 6 0 2 5;
+#X connect 7 0 2 6;
+#X connect 8 0 2 7;
+#X connect 9 0 0 0;
+#X connect 9 0 1 0;
+#X connect 9 0 3 0;
+#X connect 9 0 4 0;
+#X connect 9 0 5 0;
+#X connect 9 0 6 0;
+#X connect 9 0 7 0;
+#X connect 9 0 8 0;
+#X connect 10 0 0 1;
+#X connect 11 0 1 1;
+#X connect 12 0 3 1;
+#X connect 13 0 4 1;
+#X connect 14 0 5 1;
+#X connect 15 0 6 1;
+#X connect 16 0 7 1;
+#X connect 17 0 8 1;
+#X restore 141 221 pd 8Dac;
+#X obj 196 179 env~;
+#X obj 195 199 - 96.98;
+#X obj 196 157 *~;
+#X obj 196 12 inlet~;
+#X obj 476 12 r \$0-SendVolume1;
+#X obj 195 221 s \$0-Vumetre1;
+#X obj 477 220 s \$0-ReceivedB1;
+#X obj 291 221 s \$0-ReceiveVolume1;
+#X obj 282 12 r \$0-SenddB1;
+#X obj 372 12 r \$0-SendOnOff;
+#X obj 342 89 * 1;
+#X obj 347 54 t b f;
+#X obj 303 134 line~;
+#X msg 342 110 \$1 100;
+#X obj 429 220 outlet;
+#X obj 390 54 pipe 500;
+#X obj 11 12 r \$0-SendARGOBusSortie1;
+#N canvas 314 184 345 247 OutputARGOBusv3 0;
+#X obj 54 5 inlet;
+#X obj 99 5 inlet~;
+#X obj -25 100 sprintf ARGOBus%d;
+#X obj 53 32 change;
+#X msg -24 144 set \$1;
+#X obj -24 123 tosymbol;
+#X text -84 4 No ARGObus 1..16 ->;
+#X obj 97 182 throw~ ARGOBus0;
+#X connect 0 0 3 0;
+#X connect 1 0 7 0;
+#X connect 2 0 5 0;
+#X connect 3 0 2 0;
+#X connect 4 0 7 0;
+#X connect 5 0 4 0;
+#X restore 10 222 pd OutputARGOBusv3;
+#X connect 0 0 1 0;
+#X connect 1 0 14 0;
+#X connect 2 0 11 0;
+#X connect 4 0 5 0;
+#X connect 5 0 9 0;
+#X connect 6 0 3 0;
+#X connect 6 0 4 0;
+#X connect 6 0 21 1;
+#X connect 7 0 6 0;
+#X connect 8 0 10 0;
+#X connect 12 0 0 0;
+#X connect 12 0 2 0;
+#X connect 13 0 15 0;
+#X connect 13 0 19 0;
+#X connect 14 0 17 0;
+#X connect 15 0 14 0;
+#X connect 15 1 14 1;
+#X connect 16 0 6 1;
+#X connect 17 0 16 0;
+#X connect 19 0 18 0;
+#X connect 20 0 21 0;
+#X restore 83 102 pd OutputMono1v3;
+#N canvas 250 86 744 285 OutputMono2v3 0;
+#X obj 235 33 + 100;
+#X obj 235 55 dbtorms;
+#X msg 267 113 set \$1;
+#N canvas 264 25 362 334 8Dac 0;
+#X obj 34 92 *~;
+#X obj 53 110 *~;
+#X obj 34 241 dac~ 1 2 3 4 5 6 7 8;
+#X obj 72 128 *~;
+#X obj 91 146 *~;
+#X obj 111 164 *~;
+#X obj 130 182 *~;
+#X obj 149 200 *~;
+#X obj 169 218 *~;
+#X obj 34 24 inlet~;
+#X obj 51 68 r \$0-SendDac21;
+#X obj 70 86 r \$0-SendDac22;
+#X obj 89 105 r \$0-SendDac23;
+#X obj 108 122 r \$0-SendDac24;
+#X obj 127 142 r \$0-SendDac25;
+#X obj 145 158 r \$0-SendDac26;
+#X obj 166 176 r \$0-SendDac27;
+#X obj 187 194 r \$0-SendDac28;
+#X connect 0 0 2 0;
+#X connect 1 0 2 1;
+#X connect 3 0 2 2;
+#X connect 4 0 2 3;
+#X connect 5 0 2 4;
+#X connect 6 0 2 5;
+#X connect 7 0 2 6;
+#X connect 8 0 2 7;
+#X connect 9 0 0 0;
+#X connect 9 0 1 0;
+#X connect 9 0 3 0;
+#X connect 9 0 4 0;
+#X connect 9 0 5 0;
+#X connect 9 0 6 0;
+#X connect 9 0 7 0;
+#X connect 9 0 8 0;
+#X connect 10 0 0 1;
+#X connect 11 0 1 1;
+#X connect 12 0 3 1;
+#X connect 13 0 4 1;
+#X connect 14 0 5 1;
+#X connect 15 0 6 1;
+#X connect 16 0 7 1;
+#X connect 17 0 8 1;
+#X restore 146 227 pd 8Dac;
+#X obj 202 182 env~;
+#X obj 201 204 - 96.98;
+#X obj 170 158 *~;
+#X obj 171 8 inlet~;
+#X obj 575 10 r \$0-SendVolume2;
+#X obj 201 227 s \$0-Vumetre2;
+#X obj 576 225 s \$0-ReceivedB2;
+#X obj 298 226 s \$0-ReceiveVolume2;
+#X obj 324 9 r \$0-SenddB2;
+#X obj 413 9 r \$0-SendVolumeGeneral;
+#X obj 437 226 s \$0-ReceiveVolume1;
+#X obj 219 8 r \$0-SendOnOff;
+#X obj 185 92 * 1;
+#X obj 193 32 t b f;
+#X obj 185 136 line~;
+#X msg 185 115 \$1 100;
+#X obj 4 8 r \$0-SendARGOBusSortie2;
+#N canvas 314 184 318 216 OutputARGOBusv3 0;
+#X obj 54 5 inlet;
+#X obj 99 5 inlet~;
+#X obj -25 100 sprintf ARGOBus%d;
+#X obj 53 32 change;
+#X msg -24 144 set \$1;
+#X obj -24 123 tosymbol;
+#X text -84 4 No ARGObus 1..16 ->;
+#X obj 97 182 throw~ ARGOBus0;
+#X connect 0 0 3 0;
+#X connect 1 0 7 0;
+#X connect 2 0 5 0;
+#X connect 3 0 2 0;
+#X connect 4 0 7 0;
+#X connect 5 0 4 0;
+#X restore 3 227 pd OutputARGOBusv3;
+#X connect 0 0 1 0;
+#X connect 1 0 16 0;
+#X connect 2 0 11 0;
+#X connect 4 0 5 0;
+#X connect 5 0 9 0;
+#X connect 6 0 3 0;
+#X connect 6 0 4 0;
+#X connect 6 0 21 1;
+#X connect 7 0 6 0;
+#X connect 8 0 10 0;
+#X connect 12 0 0 0;
+#X connect 12 0 2 0;
+#X connect 13 0 14 0;
+#X connect 13 0 11 0;
+#X connect 15 0 17 0;
+#X connect 16 0 19 0;
+#X connect 17 0 16 0;
+#X connect 17 1 16 1;
+#X connect 18 0 6 1;
+#X connect 19 0 18 0;
+#X connect 20 0 21 0;
+#X restore 200 102 pd OutputMono2v3;
+#N canvas 0 22 627 289 Reverbfree 0;
+#X obj 33 165 inlet~;
+#X obj 120 249 outlet~;
+#X obj 178 249 outlet~;
+#X obj 455 185 r ColorForm;
+#X obj 498 156 inlet~;
+#X obj 120 219 freeverb~;
+#X msg -5 70 roomsize \$1;
+#X msg 50 95 damping \$1;
+#X msg 134 97 width \$1;
+#X msg 296 117 wet \$1;
+#X msg 245 117 dry \$1;
+#X msg 350 116 freeze \$1;
+#X obj 265 56 r \$0-SendDirReverb;
+#X obj 244 77 - 1;
+#X obj 244 97 * -1;
+#X obj 95 29 r \$0-SendBrillance;
+#X obj -4 29 r \$0-SendSize;
+#X obj 135 76 r \$0-SendStereo;
+#X msg 423 157 clear;
+#X obj 351 95 r \$0-SendFreeze;
+#X obj 423 116 r \$0-SendReset;
+#X obj 423 137 b 1;
+#X obj -5 50 * 1.1;
+#X obj 95 49 * -2.3;
+#X obj 95 70 + 2.3;
+#X obj 252 212 r ColorAmpli;
+#X obj 234 232 s \$0-ReceiveStereo;
+#X obj 251 252 s \$0-ReceiveDirReverb;
+#X obj 455 207 s \$0-ReceiveSize;
+#X obj 465 227 s \$0-ReceiveBrillance;
+#X obj 460 249 s \$0-ReceiveFreeze;
+#X obj 438 269 s \$0-ReceiveReset;
+#X connect 0 0 5 0;
+#X connect 3 0 28 0;
+#X connect 3 0 29 0;
+#X connect 3 0 30 0;
+#X connect 3 0 31 0;
+#X connect 4 0 5 1;
+#X connect 5 0 1 0;
+#X connect 5 1 2 0;
+#X connect 6 0 5 0;
+#X connect 7 0 5 0;
+#X connect 8 0 5 0;
+#X connect 9 0 5 0;
+#X connect 10 0 5 0;
+#X connect 11 0 5 0;
+#X connect 12 0 13 0;
+#X connect 12 0 9 0;
+#X connect 13 0 14 0;
+#X connect 14 0 10 0;
+#X connect 15 0 23 0;
+#X connect 16 0 22 0;
+#X connect 17 0 8 0;
+#X connect 18 0 5 0;
+#X connect 19 0 11 0;
+#X connect 20 0 21 0;
+#X connect 21 0 18 0;
+#X connect 22 0 6 0;
+#X connect 23 0 24 0;
+#X connect 24 0 7 0;
+#X connect 25 0 26 0;
+#X connect 25 0 27 0;
+#X restore 100 79 pd Reverbfree;
+#X connect 0 0 8 0;
+#X connect 0 1 8 1;
+#X connect 1 0 3 0;
+#X connect 2 0 4 0;
+#X connect 3 0 8 0;
+#X connect 4 0 8 1;
+#X connect 6 0 5 0;
+#X connect 8 0 6 0;
+#X connect 8 1 7 0;
+#X restore 214 25 pd;
+#X obj -24 7 cnv 10 220 50 empty empty http://perso.orange.fr/Paresys/ARGOPd/
+5 44 1 9 -4033 -1 1.04858e+06;
+#X obj 144 15 cnv 10 10 10 empty empty Aide/Help 0 5 1 9 -4033 -1 1.04858e+06
+;
+#X obj -23 8 cnv 20 20 20 empty empty ARGO2Freeverb 5 12 1 18 -4033
+-1 1.04858e+06;
+#X obj -20 31 cnv 10 10 10 empty empty Gerard 0 5 1 9 -4033 -1 1.04858e+06
+;
+#X obj 17 31 cnv 10 10 10 empty empty Paresys 0 5 1 9 -4033 -1 1.04858e+06
+;
+#X text 241 25 <- Clic;
+#X text -21 363 - Size = Taille de l'espace simulé par la reverbération
+;
+#X text -21 376 - Brill = Brillance;
+#X text -21 434 - Dir = Direct (Dry);
+#X text -21 412 - Stereo -> A gauche -> Reverbération monophonique
+;
+#X text 63 422 A droite -> Reverbération stereophonique maxi;
+#X text 163 338 (Entrée gauche d'une carte-son standard);
+#X text 163 350 (Entrée droite d'une carte-son standard);
+#X text -21 446 - Rev = Réverbéré (Wet);
+#X text -21 462 - Les 2 entrées sont mélangées dans la réverbération
+;
+#X text -21 338 - 1 = Entrée (ADC) Audio 1;
+#X text -21 350 - 2 = Entrée (ADC) Audio 2;
+#X text -21 388 - Freeze -> La réverbération est figée \, gelée;
+#X text -21 400 - Reset -> A utiliser en cas de forte saturation;
+#X obj -23 151 cnv 15 440 180 empty empty empty 20 12 0 14 -228856
+-66577 0;
+#X text -20 151 Citation;
+#X text -13 241 "freeverb~ is a simple implementation of the standard
+Schroeder/Moorer reverb model. It uses 8 comb filters in parallel on
+both channels. It then feeds the result of the reverb through 4 allpass
+filters in series on both channels. These "smooth" the sound. The filters
+on the right channel are slightly detuned compared to the left channel
+in order to create a stereo effect.";
+#X text -14 164 freeverb~ version 1.2 - reverb external for Pure Data
+and Max/MSP written by Olaf Matthes <olaf.matthes@gmx.de> - based on
+Freeverb \, the free \, studio-quality reverb SOURCE CODE in the public
+domain. Written by Jezar at Dreampoint - http://www.dreampoint.co.uk
+This software is published under GPL terms \, see file LICENSE.;
+#X obj -22 505 cnv 15 440 100 empty empty empty 20 12 0 14 -224896
+-66577 0;
+#X text -16 506 - Ne fonctionne pas sous Pd-0.39.2-extended-rc3 sous
+MacOSX Solution: remplacer le fichier freeverb~.pd_darwin de Pd-0.39.2-extended-rc3
+par celui de Pd-0.38.4-extended;
+#X text -18 546 - Ne fonctionne pas sous Pd-0.39.2-extended-rc3 sous
+Windows Solution: remplacer le fichier freeverb~.dll de Pd-0.39.2-extended-rc3
+par celui de Pd-0.38.4-extended;
+#X restore 98 7 pd Help---;
+#X obj 3 45 cnv 30 212 41 empty ColorForm empty 10 5 1 9 -188398 -1
+1.04858e+06;
+#X obj 45 57 hsl 129 12 0 1 0 1 \$0-SendBrillance \$0-ReceiveBrillance
+Brill 0 5 1 9 -188398 -1 -1 5400 0;
+#X obj 45 45 hsl 129 12 0 1 0 1 \$0-SendSize \$0-ReceiveSize Size 0
+5 1 9 -188398 -1 -1 8400 0;
+#X obj 119 72 bng 12 250 50 0 \$0-SendReset \$0-ReceiveReset Reset
+14 6 1 9 -188398 -1 -1;
+#X obj 42 72 tgl 12 1 \$0-SendFreeze \$0-ReceiveFreeze Freeze 14 6
+1 9 -188398 -1 -1 0 1;
+#X obj 3 87 cnv 20 212 125 empty ColorAmpli empty 20 12 0 14 -261299
+-1 1.04858e+06;
+#X obj 45 99 hsl 129 12 0 1 0 1 \$0-SendDirReverb \$0-ReceiveDirReverb
+Dir 0 5 1 9 -261299 -1 -1 6400 0;
+#X obj 179 101 cnv 12 1 1 empty ColorAmpli Rev 0 3 1 9 -261299 -1 1.04858e+06
+;
+#X obj 114 113 vsl 11 119 -98 20 0 0 \$0-SendVolume2 \$0-ReceiveVolume2
+empty -3 -8 1 10 -262144 -1 -1 9800 0;
+#X obj 126 113 vu 8 120 \$0-Vumetre2 empty -1 -8 1 9 -1 -1 0 0;
+#X obj 135 225 tgl 10 1 \$0-SendDac21 \$0-ReceiveDac21 empty 0 -6 0
+8 -262144 -1 -1 0 1;
+#X obj 145 225 tgl 10 1 \$0-SendDac22 \$0-ReceiveDac22 empty 0 -6 0
+8 -262144 -1 -1 1 1;
+#X obj 155 225 tgl 10 1 \$0-SendDac23 \$0-ReceiveDac23 empty 0 -6 0
+8 -262144 -1 -1 0 1;
+#X obj 165 225 tgl 10 1 \$0-SendDac24 \$0-ReceiveDac24 empty 0 -6 0
+8 -262144 -1 -1 0 1;
+#X obj 175 225 tgl 10 1 \$0-SendDac25 \$0-ReceiveDac25 empty 0 -6 0
+8 -262144 -1 -1 0 1;
+#X obj 185 225 tgl 10 1 \$0-SendDac26 \$0-ReceiveDac26 empty 0 -6 0
+8 -262144 -1 -1 0 1;
+#X obj 195 225 tgl 10 1 \$0-SendDac27 \$0-ReceiveDac27 empty 0 -6 0
+8 -262144 -1 -1 0 1;
+#X obj 205 225 tgl 10 1 \$0-SendDac28 \$0-ReceiveDac28 empty 0 -6 0
+8 -262144 -1 -1 0 1;
+#X obj 135 164 nbx 4 12 -100 60 0 1 \$0-SenddB2 \$0-ReceivedB2 dB 40
+6 1 9 -262144 -1 -1 0 256;
+#X obj 95 113 vsl 11 119 -98 20 0 1 \$0-SendVolume1 \$0-ReceiveVolume1
+empty -3 -8 1 10 -262144 -1 -1 9800 0;
+#X obj 86 113 vu 8 120 \$0-Vumetre1 empty -1 -8 1 9 -1 -1 0 0;
+#X obj 62 213 nbx 2 12 0 16 0 1 \$0-SendARGOBusSortie1 \$0-ReceiveARGOBusSortie1
+ARGOBus -55 6 1 9 -262144 -1 -1 0 256;
+#X obj 5 225 tgl 10 1 \$0-SendDac11 \$0-ReceiveDac11 empty 0 -6 0 8
+-262144 -1 -1 1 1;
+#X obj 15 225 tgl 10 1 \$0-SendDac12 \$0-ReceiveDac12 empty 0 -6 0
+8 -262144 -1 -1 0 1;
+#X obj 25 225 tgl 10 1 \$0-SendDac13 \$0-ReceiveDac13 empty 0 -6 0
+8 -262144 -1 -1 0 1;
+#X obj 35 225 tgl 10 1 \$0-SendDac14 \$0-ReceiveDac14 empty 0 -6 0
+8 -262144 -1 -1 0 1;
+#X obj 45 225 tgl 10 1 \$0-SendDac15 \$0-ReceiveDac15 empty 0 -6 0
+8 -262144 -1 -1 0 1;
+#X obj 55 225 tgl 10 1 \$0-SendDac16 \$0-ReceiveDac16 empty 0 -6 0
+8 -262144 -1 -1 0 1;
+#X obj 65 225 tgl 10 1 \$0-SendDac17 \$0-ReceiveDac17 empty 0 -6 0
+8 -262144 -1 -1 0 1;
+#X obj 75 225 tgl 10 1 \$0-SendDac18 \$0-ReceiveDac18 empty 0 -6 0
+8 -262144 -1 -1 0 1;
+#X obj 31 164 nbx 4 12 -100 60 0 1 \$0-SenddB1 \$0-ReceivedB1 dB 40
+6 1 9 -262144 -1 -1 0 256;
+#X obj 106 113 vsl 8 119 -98 20 0 0 \$0-SendVolumeGeneral \$0-ReceiveVolumeGeneral
+empty -3 -8 1 10 -262144 -1 -1 0 0;
+#X obj 192 213 nbx 2 12 0 16 0 1 \$0-SendARGOBusSortie2 \$0-ReceiveARGOBusSortie2
+ARGOBus -55 6 1 9 -262144 -1 -1 0 256;
+#X obj 45 87 hsl 129 12 0 1 0 1 \$0-SendStereo \$0-ReceiveStereo Stereo
+0 6 1 9 -261299 -1 -1 3800 0;
+#X obj 77 6 tgl 18 1 \$0-SendOnOff \$0-ReceiveOnOff empty 0 0 0 9 -4033
+-1 -1 1 1;
+#X obj 96 6 cnv 18 80 18 empty empty Freeverb 1 9 1 14 -4033 -1 1.04858e+06
+;

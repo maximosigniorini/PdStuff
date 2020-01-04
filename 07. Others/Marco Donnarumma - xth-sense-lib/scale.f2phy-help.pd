@@ -1,0 +1,37 @@
+#N canvas 147 186 580 478 10;
+#X obj 58 61 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 4500 1;
+#X obj 58 126 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 3524 1;
+#X text 238 138 ARGUMENT;
+#X text 240 208 INLET;
+#X text 239 274 OUTLETS;
+#X text 239 58 Scale a stream of values using simple physical modeling.
+;
+#X text 240 77 Needs the pmpd library.;
+#X text 239 154 Modeling modes;
+#X obj 55 92 scale.f2phy 0;
+#X text 238 168 (0 \, 1 \, 2 \, 3 \, 4);
+#X obj 58 181 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 4500 1;
+#X obj 58 246 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 7173 1;
+#X obj 55 212 scale.f2phy 1;
+#X obj 58 301 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 4500 1;
+#X obj 58 366 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 694 1;
+#X obj 55 332 scale.f2phy 2;
+#X text 240 225 Stream of values;
+#X text 240 290 Modeled stream of values;
+#X obj 7 21 initz.delay 45 2000;
+#X connect 0 0 8 0;
+#X connect 8 0 1 0;
+#X connect 10 0 12 0;
+#X connect 12 0 11 0;
+#X connect 13 0 15 0;
+#X connect 15 0 14 0;
+#X connect 18 0 0 0;
+#X connect 18 0 10 0;
+#X connect 18 0 13 0;
+#X connect 18 0 14 0;

@@ -1,0 +1,14 @@
+#N canvas 166 94 667 506 10;
+#X obj 33 80 gPlugin;
+#X obj 32 17 cnv 15 220 60 empty empty CUBEmixer 20 30 0 28 -233017
+-66577 0;
+#X obj 253 17 cnv 15 260 60 empty empty configurator 0 30 0 28 -233017
+-66577 0;
+#N canvas 0 0 450 300 /SUBPATCH/ 0;
+#X obj 101 101 bng 58 250 50 0 \$0-generate \$0-generate SAVE 11 30
+0 12 -258699 -241291 -1;
+#X obj 112 182 r \$0-generate;
+#X obj 112 230 s CUBEmixer_generateConfig;
+#X connect 1 0 2 0;
+#X coords 0 -1 1 1 60 60 1 100 100;
+#X restore 512 17 pd;

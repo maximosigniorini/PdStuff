@@ -1,0 +1,103 @@
+#N canvas 155 0 800 684 10;
+#X declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/tools -path ../../abstractions/filters -path
+../../abstractions/fx-video -path ../../abstractions/fx-audio -path
+../../abstractions/master;
+#X declare -path abstractions/in -path abstractions/out -path abstractions/tools
+-path abstractions/filters -path abstractions/fx-video -path abstractions/fx-audio
+-path abstractions/master;
+#N canvas 468 137 801 468 INIT 0;
+#X obj 101 101 cnv 8 48 8 empty empty INCLUDE 2 4 0 10 -233017 -66577
+0;
+#X obj 102 261 declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/tools -path ../../abstractions/filters -path
+../../abstractions/fx-video -path ../../abstractions/fx-audio -path
+../../abstractions/master;
+#X text 100 240 Use for standalone :;
+#X text 100 140 Use with the main.pd :;
+#X text 97 25 Import paths to find abstractions \; Always use it in
+the examples patchs.;
+#X obj 102 162 declare -path abstractions/in -path abstractions/out
+-path abstractions/tools -path abstractions/filters -path abstractions/fx-video
+-path abstractions/fx-audio -path abstractions/master;
+#X obj 565 311 savepanel;
+#X obj 565 146 route savetofile;
+#X obj 565 166 unpack s s;
+#X obj 565 125 iemguts/receivecanvas 1;
+#X text 562 96 Get new saved file;
+#X text 562 289 Or inside this abstraction ?;
+#X obj 565 209 s CURRENT-FILE;
+#X obj 622 189 s CURRENT-FOLDER;
+#X connect 7 0 8 0;
+#X connect 8 0 12 0;
+#X connect 8 1 13 0;
+#X connect 9 0 7 0;
+#X coords 0 -1 1 1 50 10 2 100 100;
+#X restore 711 18 pd INIT;
+#X text 602 12 ! Do not delete >;
+#X obj 7 242 cnv 1 786 1 empty empty FX 2 -6 1 12 -228856 -191407 0
+;
+#X obj 7 431 cnv 1 786 1 empty empty OUT 2 -6 1 12 -228856 -191407
+0;
+#X obj 7 53 cnv 1 786 1 empty empty IN 2 -6 1 12 -228856 -191407 0
+;
+#X obj 130 67 video-in 1;
+#X obj 125 191 video-screen;
+#X obj 127 110 3d-transform;
+#X obj 277 67 loadbang;
+#X msg 284 99 rz -87;
+#X msg 294 144 1.4;
+#X obj 244 504 arduino-out;
+#X obj 332 286 osc~ 0.5;
+#X obj 333 321 snapshot~;
+#X obj 401 360 metro 100;
+#X obj 333 346 + 1;
+#X obj 333 369 / 2;
+#X obj 401 338 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 333 458 5 0 0 0 - - -;
+#X msg 333 392 \$1 100;
+#X obj 333 414 line;
+#X floatatom 332 259 5 0 0 0 - - -;
+#X obj 527 277 synth-note;
+#X obj 539 486 audio-out;
+#X obj 532 413 audio-decimate;
+#X obj 527 240 map 0 1 50 70;
+#X msg 285 251 0;
+#X msg 378 244 0.3;
+#X msg 134 311 0 \, 0.3 3000;
+#X obj 282 461 + 0.05;
+#X obj 112 390 fade 3000;
+#X obj 333 436 * 0.25;
+#X msg 239 339 0 3000;
+#X msg 214 281 0.5 3000;
+#X obj 40 467 mapcurve;
+#X connect 5 0 7 0;
+#X connect 7 0 6 0;
+#X connect 8 0 9 0;
+#X connect 8 0 10 0;
+#X connect 9 0 7 1;
+#X connect 10 0 6 1;
+#X connect 12 0 13 0;
+#X connect 13 0 15 0;
+#X connect 14 0 13 0;
+#X connect 15 0 16 0;
+#X connect 16 0 19 0;
+#X connect 17 0 14 0;
+#X connect 19 0 20 0;
+#X connect 20 0 25 0;
+#X connect 20 0 31 0;
+#X connect 21 0 12 0;
+#X connect 22 0 24 0;
+#X connect 24 0 23 1;
+#X connect 24 0 23 0;
+#X connect 25 0 22 1;
+#X connect 25 0 22 0;
+#X connect 26 0 12 0;
+#X connect 27 0 12 0;
+#X connect 28 0 20 0;
+#X connect 29 0 11 8;
+#X connect 31 0 18 0;
+#X connect 31 0 29 0;
+#X connect 32 0 20 0;
+#X connect 33 0 20 0;

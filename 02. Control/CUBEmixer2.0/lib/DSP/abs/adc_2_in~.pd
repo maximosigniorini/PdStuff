@@ -1,0 +1,6 @@
+#N canvas 118 101 474 324 10;
+#X obj 46 38 adc~ \$1;
+#X obj 45 75 s~ \$1_ADC;
+#X obj 44 113 outlet~;
+#X obj 173 67 DSP_label IN \$1_ADC;
+#X connect 0 0 1 0;

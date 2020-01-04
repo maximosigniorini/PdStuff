@@ -1,0 +1,143 @@
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/RRR/abs
+END
+0rev_tap~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/RRR/abs/0rev_tap~.pd
+END
+rrr_pack_elv_azm.pd
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/RRR/abs/rrr_pack_elv_azm.pd
+END
+late_diffuse12_6~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/RRR/abs/late_diffuse12_6~.pd
+END
+$1fdbk_matrix12~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/RRR/abs/$1fdbk_matrix12~.pd
+END
+exp_uzi.pd
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/RRR/abs/exp_uzi.pd
+END
+rrr_pack_earlydel.pd
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/RRR/abs/rrr_pack_earlydel.pd
+END
+$2rev_tap~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/RRR/abs/$2rev_tap~.pd
+END
+feedbackmatrix.txt
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/RRR/abs/feedbackmatrix.txt
+END
+early_echos12_6_12~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/RRR/abs/early_echos12_6_12~.pd
+END
+sphere.pd
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/RRR/abs/sphere.pd
+END
+get_maxmin.pd
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/RRR/abs/get_maxmin.pd
+END
+rrr_transf_elv_azm.pd
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/RRR/abs/rrr_transf_elv_azm.pd
+END
+submatrix3~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/RRR/abs/submatrix3~.pd
+END
+submatrix4~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/RRR/abs/submatrix4~.pd
+END
+rrr_pack_earlydamp.pd
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/RRR/abs/rrr_pack_earlydamp.pd
+END
+12reverb_6_12_6~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/RRR/abs/12reverb_6_12_6~.pd
+END
+room_EDIT+12_earlies.pd
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/RRR/abs/room_EDIT+12_earlies.pd
+END
+schedule_max_min.pd
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/RRR/abs/schedule_max_min.pd
+END
+set_maxmin.pd
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/RRR/abs/set_maxmin.pd
+END
+REV_6_12_6~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/RRR/abs/REV_6_12_6~.pd
+END
+send_receive_azm_elv.pd
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/RRR/abs/send_receive_azm_elv.pd
+END
+RRR_SRC~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/RRR/abs/RRR_SRC~.pd
+END
+0fdbk_matrix12~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/extensions/RRR/abs/0fdbk_matrix12~.pd
+END

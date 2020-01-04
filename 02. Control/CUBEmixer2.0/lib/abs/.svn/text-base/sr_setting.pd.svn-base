@@ -1,0 +1,36 @@
+#N canvas 285 172 739 596 10;
+#X obj 131 151 inlet;
+#X obj 131 480 outlet;
+#X obj 296 129 inlet;
+#X text 129 502 message out;
+#X text 376 540 published under the Gnu GPL;
+#X obj 131 247 sendreceive \$1;
+#X obj 326 310 any;
+#X msg 326 282 bang;
+#X obj 326 336 route bang;
+#X obj 326 261 bang;
+#X obj 391 357 pp \$1;
+#X obj 296 149 symbol;
+#X obj 296 169 t s s;
+#X msg 421 335 \$1;
+#X text 347 522 (c) IOhannes m zmoelnig \, IEM 2005;
+#X text 16 12 [sr_parameter]: this is a [sendreceive] (with feedback-supression)
+that additionally listens on "CUE_SETTINGS_GET" for a bang on which
+it sends its current value (if any) to the global receiver "CUE_SETTINGS_SET"
+with its (current) name prepended.;
+#X obj 326 240 r /CUE/SETTINGS/GET;
+#X obj 391 378 s /CUE/SETTINGS/SET;
+#X connect 0 0 5 0;
+#X connect 2 0 11 0;
+#X connect 5 0 1 0;
+#X connect 5 0 6 1;
+#X connect 6 0 8 0;
+#X connect 7 0 6 0;
+#X connect 8 1 10 0;
+#X connect 9 0 7 0;
+#X connect 10 0 17 0;
+#X connect 11 0 12 0;
+#X connect 12 0 5 1;
+#X connect 12 1 13 0;
+#X connect 13 0 10 1;
+#X connect 16 0 9 0;

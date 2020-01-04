@@ -1,0 +1,430 @@
+#N canvas 255 57 492 286 10;
+#X obj -6 14 active;
+#N canvas 424 161 167 191 clic 0;
+#X obj 23 17 MouseState;
+#X obj 23 82 &;
+#X obj 23 100 == 0;
+#X obj 23 136 s \$0-SendClic;
+#X obj 48 51 t b f;
+#X obj 23 118 metro 200;
+#X obj 94 17 inlet;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 5 0;
+#X connect 4 0 1 0;
+#X connect 4 1 1 1;
+#X connect 5 0 3 0;
+#X connect 6 0 4 0;
+#X restore -6 35 pd clic;
+#X obj -253 108 dac~ 1 2;
+#N canvas 608 166 249 182 ARGOnOff 0;
+#X obj 100 100 tgl 18 1 \$0-SendOnOff \$0-ReceiveOnOff On/Off 20 9
+0 12 -4033 -1 -1 1 1;
+#X obj 99 39 loadbang;
+#X msg 99 62 \; pd dsp 1;
+#X obj 100 129 outlet;
+#X connect 0 0 3 0;
+#X connect 1 0 2 0;
+#X coords 0 -1 1 1 65 18 2 100 100;
+#X restore -8 59 pd ARGOnOff;
+#X obj -8 84 switch~;
+#X obj -369 -139 cnv 15 15 15 empty empty ExMM27a-FFTSimple.pd 0 8
+1 14 -262144 -66577 0;
+#N canvas 350 62 279 383 ARGO 0;
+#X obj 101 101 cnv 20 104 34 empty ColorAmpli empty 20 12 0 14 -261299
+-1 1.04858e+06;
+#X obj 85 274 outlet~;
+#X obj 134 104 cnv 10 20 10 empty ColorAmpli Ampli 1 5 1 14 -261299
+-1 1.04858e+06;
+#X obj 89 -82 inlet~;
+#X obj 85 245 *~;
+#X obj 103 118 hsl 101 12 0 1.25 0 1 \$0-A ColorAmpli 0dB 0 7 1 9 -261299
+-1 -1 8000 0;
+#X obj 100 161 pow~ 10000;
+#X obj 100 201 /~ 10000;
+#X msg 115 77 label \$1;
+#X obj 114 54 tosymbol;
+#X obj 115 -45 * 80;
+#X obj 115 -23 - 80;
+#X obj 114 19 sprintf %ddB;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 101 131 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X text 123 36 -> -80dB..20dB;
+#X text 120 0 -> -80 .. 20;
+#X text 104 139 -> 0..1.2;
+#X text 109 179 -> 1..100000;
+#X text 104 221 -> 0.0001..10 = -80dB..20dB;
+#X obj 195 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 195 131 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 210 273 outlet~;
+#X obj 214 -83 inlet~;
+#X obj 210 244 *~;
+#X connect 3 0 4 0;
+#X connect 4 0 1 0;
+#X connect 5 0 10 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 7 0 4 1;
+#X connect 7 0 24 1;
+#X connect 8 0 5 0;
+#X connect 9 0 8 0;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 12 0 9 0;
+#X connect 23 0 24 0;
+#X connect 24 0 22 0;
+#X coords 0 -1 1 1 106 36 1 100 100;
+#X restore -277 60 pd ARGO;
+#X text -265 43 General level;
+#N canvas 148 112 729 436 ARGO 0;
+#X obj 368 103 cnv 10 20 10 empty empty Play 1 5 1 14 -262144 -1 1.04858e+06
+;
+#X obj 101 131 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 89 401 outlet~;
+#X obj 261 7 openpanel;
+#X msg 212 301 1;
+#X msg 141 275 0;
+#X msg 289 53 set \$1;
+#X msg 242 326 open \$1;
+#X obj 191 233 t b b;
+#X msg 116 359 set 0;
+#X obj 179 138 sel 1 0;
+#X floatatom 230 180 5 0 0 0 - - -;
+#X msg 230 157 set \$1;
+#X obj 204 210 sel 1;
+#X msg 173 334 set 1;
+#X obj 48 5 key;
+#X obj 49 28 select 32;
+#X obj -11 6 loadbang;
+#X obj 243 353 readsf~ 2;
+#X obj 274 272 list2symbol;
+#X obj 242 301 symbol;
+#X obj 262 27 t b s;
+#X text 369 281 avec espace;
+#X text 351 269 -> pour les noms de fichier;
+#X obj 151 101 tgl 12 1 \$0-A \$0-B Play(Space) 14 6 1 9 -262144 -1
+-1 1 1;
+#X obj 100 114 bng 16 250 50 0 \$0-A \$0-B empty 0 0 1 9 -262144 -1
+-1;
+#X obj 311 101 bng 12 250 50 0 \$0-A \$0-B Stop 14 6 1 9 -262144 -1
+-1;
+#X obj 249 101 tgl 12 1 \$0-A \$0-B Loop 15 6 1 9 -262144 -1 -1 1 1
+;
+#X symbolatom 117 114 46 0 0 0 - - -;
+#X msg 8 147 set \$1;
+#X obj -7 196 list2symbol;
+#X obj -11 40 t b b;
+#X obj 139 101 bng 12 250 50 0 \$0-A \$0-B empty 14 6 1 9 -262144 -1
+-1;
+#X obj 139 101 bng 12 250 50 0 \$0-A \$0-B empty 14 6 1 9 -262144 -1
+-1;
+#X obj 174 277 delay 5;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 113 5 inlet~;
+#X obj 113 28 threshold~ 0.5 5 0.49 5;
+#X text 346 36 Lit un fichier Audio Mono (1 canal).;
+#X text 346 49 Le canal 2 d'un fichier Audio Stereo est mélangé au
+canal 1;
+#X text 346 63 Les canaux 3 \, 4... d'un fichier Audio de plus de 2
+canaux ne sont pas lus.;
+#X text 296 184 Channels 3 \, 4... of an Audio file of more than 2
+channels are not read.;
+#X text 296 170 Channel 2 of a Stereo Audio file is mixed with channel
+1;
+#X text 297 156 Reads an Mono Audio file (1 channel).;
+#X obj 410 103 cnv 15 60 30 empty empty empty 20 12 0 14 -24198 -66577
+0;
+#N canvas 294 22 563 525 Help 0;
+#X obj 8 103 cnv 15 400 100 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X text 11 102 Citation;
+#X obj 8 348 cnv 15 550 300 empty empty empty 20 12 0 14 -224896 -66577
+0;
+#X text 10 -23 - Ne lit pas un fichier au format mp3 \, SoundDesigner
+II (.SDII ou .SD2);
+#X text 27 48 error: soundfiler_read: x.aiff: unknown or bad header
+format;
+#X text 14 72 Solution: ouvrir puis sauver le fichier au format aiff
+avec Audacity;
+#X text 13 9 - Ne lit pas un fichier au format aiff "Entier petit boutien"
+comme les pistes d'un CD Audio copiées avec le finder du Mac. Les messages
+d'erreur s'affichent:;
+#X text 27 59 error: dsp: xxx.aiff: unknown or bad header format;
+#X text 9 -42 - Lit un fichier Audio au format aiff \, wave;
+#X text 30 118 READSF~ - read a soundfile;
+#X text 29 136 The wave \, aiff \, and nextstep formats are parsed
+automatically \, although only 2- 3- and 4- byte samples are accepted
+(4 bytes implies floating point and is not available in aiff format.)
+;
+#X text 20 606 Erreur dans la fenêtre Pd:;
+#X text 11 249 - Peut Ouvrir automatiquement 1 fichier qui se trouve
+dans le même dossier que lui \, quelquesoit l'emplacement du dossier.
+Pour cela ouvrir le module et taper le nom du fichier (sans chemin
+d'accés) dans le message. Sauver le patch. Fermer le patch. Ré-ouvrir
+le patch. Le dossier contenant le module ARGO et le fichier image est
+ainsi transportable.;
+#X text 11 208 - Si le Patch est sauvé avec 1 Player contenant un nom
+de fichier Audio \, ce fichier sera lu automatiquement à la prochaine
+ouverture s'il n'a pas changé d'emplacement.;
+#X text 54 544 Les canaux 1 2 3 4 sortent sur les sorties 5 6 7 8;
+#X text 54 555 Les canaux 5 6 7 8 sortent sur les sorties 1 2 3 4;
+#X text 36 566 Pas de bug sur un fichier à 2 ou 4 canaux;
+#X text 36 577 Pas de bug sur un fichier wav;
+#X text 35 533 Sur un fichier aiff à 8 canaux;
+#X text 24 517 Bug du Player à 8 sorties.;
+#X text 186 466 If the sample rate of pd is set to 44100 \, files having
+the sample rates of 44100 are correctly played \, other files will
+be transposed.;
+#X text 188 439 WARNING The sample rate of the output depends on the
+system sample rate of pd:;
+#X text 16 355 - ATTENTION Le taux d'échantillonnage de la lecture
+du fichier dépends du taux d'échantillonnage de Pd.;
+#X text 28 382 Si le taux d'échantillonnage de Pd est de 44100 (Menu
+Preferences -> Audio Settings...) \, les fichiers échantillonnés à
+44100 Hz sont lus correctement \, sinon ils sont transposés.;
+#X restore 417 109 pd Help;
+#X msg -7 172 Vlc.aiff;
+#X connect 3 0 21 0;
+#X connect 4 0 18 0;
+#X connect 5 0 18 0;
+#X connect 6 0 28 0;
+#X connect 7 0 18 0;
+#X connect 8 0 34 0;
+#X connect 8 1 20 0;
+#X connect 9 0 24 0;
+#X connect 10 0 8 0;
+#X connect 10 1 9 0;
+#X connect 10 1 5 0;
+#X connect 11 0 13 0;
+#X connect 12 0 11 0;
+#X connect 13 0 8 0;
+#X connect 14 0 24 0;
+#X connect 14 0 33 0;
+#X connect 15 0 16 0;
+#X connect 16 0 24 0;
+#X connect 17 0 31 0;
+#X connect 18 0 2 0;
+#X connect 18 1 2 0;
+#X connect 18 2 11 0;
+#X connect 18 2 9 0;
+#X connect 19 0 20 1;
+#X connect 20 0 7 0;
+#X connect 21 0 28 0;
+#X connect 21 1 6 0;
+#X connect 24 0 10 0;
+#X connect 25 0 3 0;
+#X connect 26 0 5 0;
+#X connect 26 0 9 0;
+#X connect 27 0 12 0;
+#X connect 28 0 19 0;
+#X connect 28 0 29 0;
+#X connect 29 0 46 0;
+#X connect 30 0 6 0;
+#X connect 31 0 28 0;
+#X connect 31 1 46 0;
+#X connect 32 0 24 0;
+#X connect 34 0 4 0;
+#X connect 34 0 14 0;
+#X connect 36 0 37 0;
+#X connect 37 0 32 0;
+#X connect 46 0 30 0;
+#X coords 0 -1 1 1 300 36 2 100 100;
+#X restore -224 -102 pd ARGO;
+#N canvas 350 62 236 332 ARGO 0;
+#X obj 101 101 cnv 20 104 34 empty ColorAmpli empty 20 12 0 14 -261299
+-1 1.04858e+06;
+#X obj 92 302 outlet~;
+#X obj 141 104 cnv 10 20 10 empty ColorAmpli Mix 1 5 1 14 -261299 -1
+1.04858e+06;
+#X obj 88 75 inlet~;
+#X obj 181 75 inlet~;
+#X obj 86 272 *~;
+#X obj 103 118 hsl 101 12 -1 1 0 1 \$0-A ColorAmpli 0.8 0 7 1 9 -261299
+-1 -1 9000 0;
+#X msg 22 132 label \$1;
+#X obj 21 109 tosymbol;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 101 131 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 195 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 179 271 *~;
+#X obj 136 145 + 1;
+#X obj 136 170 / 2;
+#X obj 101 196 t b f;
+#X msg 101 220 1;
+#X obj 101 247 -;
+#X connect 3 0 5 0;
+#X connect 4 0 12 0;
+#X connect 5 0 1 0;
+#X connect 6 0 8 0;
+#X connect 6 0 13 0;
+#X connect 7 0 6 0;
+#X connect 8 0 7 0;
+#X connect 12 0 1 0;
+#X connect 13 0 14 0;
+#X connect 14 0 15 0;
+#X connect 14 0 12 1;
+#X connect 15 0 16 0;
+#X connect 15 1 17 1;
+#X connect 16 0 17 0;
+#X connect 17 0 5 1;
+#X coords 0 -1 1 1 106 36 1 100 100;
+#X restore -225 -5 pd ARGO;
+#N canvas 279 140 298 263 ARGO 0;
+#X obj 101 101 cnv 10 164 15 empty ColorForm empty 20 12 0 14 -188398
+-1 1.04858e+06;
+#X obj 85 62 inlet~;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 84 197 outlet~;
+#X obj 172 104 cnv 10 20 10 empty ColorForm FFT-Simple1 1 5 1 14 -188398
+-1 1.04858e+06;
+#X obj 101 112 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#N canvas 557 109 307 380 FFT-Simple 0;
+#X obj -75 64 *~;
+#X obj -75 18 inlet~;
+#X obj -75 87 rfft~;
+#X obj -75 296 *~;
+#X obj -74 248 rifft~;
+#X obj -75 345 outlet~;
+#X obj -60 40 tabreceive~ \$0-hann;
+#X obj -60 272 tabreceive~ \$0-hann;
+#X obj 82 343 switch~ 1024 4 1;
+#X msg 175 283 0;
+#X msg 70 284 1;
+#X text 81 3 64..65536;
+#X msg 102 284 set \$1 4 1;
+#X obj 82 19 r \$0-FFTSize;
+#X obj 94 249 /;
+#X obj -75 320 *~;
+#X obj -74 164 *~;
+#X obj 80 184 t b b f f f b;
+#X obj 114 217 *;
+#X msg 85 217 100;
+#X text -47 320 Normalize;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;
+#X connect 2 0 16 0;
+#X connect 2 1 16 1;
+#X connect 3 0 15 0;
+#X connect 4 0 3 0;
+#X connect 6 0 0 1;
+#X connect 7 0 3 1;
+#X connect 9 0 8 0;
+#X connect 10 0 8 0;
+#X connect 12 0 8 0;
+#X connect 13 0 17 0;
+#X connect 14 0 15 1;
+#X connect 15 0 5 0;
+#X connect 16 0 4 0;
+#X connect 16 0 4 1;
+#X connect 17 0 10 0;
+#X connect 17 1 19 0;
+#X connect 17 2 18 0;
+#X connect 17 3 18 1;
+#X connect 17 4 12 0;
+#X connect 17 5 9 0;
+#X connect 18 0 14 1;
+#X connect 19 0 14 0;
+#X restore 84 150 pd FFT-Simple;
+#X connect 1 0 6 0;
+#X connect 6 0 3 0;
+#X coords 0 -1 1 1 166 17 1 100 100;
+#X restore -126 -42 pd ARGO;
+#N canvas 385 85 565 505 ARGO 0;
+#X obj 101 101 cnv 10 228 15 empty ColorForm empty 20 12 0 14 -188398
+-1 1.04858e+06;
+#X obj 101 105 cnv 10 20 10 empty ColorForm Init-FFT 1 5 1 14 -188398
+-1 1.04858e+06;
+#X obj 155 103 hradio 12 1 1 11 \$0-A ColorForm empty 0 -8 0 10 -188398
+-1 -1 6;
+#X obj 287 103 nbx 5 12 1 99999 0 1 \$0-A ColorForm empty 0 0 1 9 -188398
+-1 -1 4096 256;
+#X text 138 75 Nommer FFTGeneral???;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array \$0-hann 4096 float 0;
+#X coords 0 0 4095 1 300 100 0;
+#X restore 79 203 graph;
+#X obj 133 391 osc~;
+#X obj 133 417 *~ -0.5;
+#X obj 133 444 +~ 0.5;
+#X obj 106 468 tabwrite~ \$0-hann;
+#X obj 173 261 samplerate~;
+#X obj 154 286 swap;
+#X obj 154 310 /;
+#X obj 153 237 t f b f;
+#X msg 378 439 resize \$1;
+#X obj 350 468 s \$0-hann;
+#X msg 181 360 0;
+#X obj 154 335 t f b;
+#X obj 154 200 pow 2;
+#X msg 154 177 2;
+#X obj 154 154 t b f;
+#X obj 154 123 + 6;
+#X text 22 50 calculate Hann window table (variable window size);
+#X text 161 219 <- window-size;
+#X text 249 220 64..65536;
+#X text 163 137 <- 6..16;
+#X text 23 14 Voir Pd-0.40.3-extended -> 3.audio.examples/I05.compressor.pd
+-> pd hann-window;
+#X obj 170 390 phasor~;
+#N canvas 9 234 450 300 (subpatch) 0;
+#X array \$0-FFTIndex 4096 float 0;
+#X coords 0 0 4095 1 300 100 0;
+#X restore 78 231 graph;
+#X obj 216 468 tabwrite~ \$0-FFTIndex;
+#X obj 412 468 s \$0-FFTIndex;
+#X obj 24 468 s \$0-FFTSize;
+#X text 214 157 Sil le son d'un MiniModule FFT est haché \, avec Init-FFT
+grand (65536...) -> Pd-extended -> Preferences -> Audio Settings...
+-> delay (msec) -> Augmenter;
+#X connect 2 0 21 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 9 0;
+#X connect 10 0 11 1;
+#X connect 11 0 12 0;
+#X connect 11 1 12 1;
+#X connect 12 0 17 0;
+#X connect 13 0 11 0;
+#X connect 13 1 10 0;
+#X connect 13 2 14 0;
+#X connect 14 0 15 0;
+#X connect 14 0 30 0;
+#X connect 16 0 6 1;
+#X connect 16 0 27 1;
+#X connect 17 0 6 0;
+#X connect 17 0 27 0;
+#X connect 17 1 9 0;
+#X connect 17 1 16 0;
+#X connect 17 1 29 0;
+#X connect 18 0 13 0;
+#X connect 18 0 3 0;
+#X connect 18 0 31 0;
+#X connect 19 0 18 0;
+#X connect 20 0 19 0;
+#X connect 20 1 18 1;
+#X connect 21 0 20 0;
+#X connect 27 0 29 0;
+#X coords 0 -1 1 1 230 17 1 100 100;
+#X restore -124 -139 pd ARGO;
+#X text -183 -140 Change ->;
+#X text -364 10 Mic Direct / Effect ->;
+#X connect 0 0 1 0;
+#X connect 3 0 4 0;
+#X connect 6 0 2 0;
+#X connect 6 1 2 1;
+#X connect 8 0 9 0;
+#X connect 8 0 10 0;
+#X connect 9 0 6 0;
+#X connect 9 0 6 1;
+#X connect 10 0 9 1;

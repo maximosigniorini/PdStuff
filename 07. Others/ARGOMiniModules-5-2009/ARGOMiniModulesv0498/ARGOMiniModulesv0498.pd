@@ -1,0 +1,264 @@
+#N canvas 364 125 416 283 10;
+#N canvas 402 156 396 363 AFaire 0;
+#X text 1 -162 A faire;
+#X text 32 -146 Chaos;
+#X text 32 -131 fiddle~ (flatspace);
+#X text 33 -46 Envelop et Trig entre -1 et +1 au lieu de entre 0 et
+1 ???;
+#X text 33 8 Pot rect horizontal;
+#X obj 29 -147 cnv 1 1 340 empty empty empty 20 12 0 14 -1 -262144
+0;
+#X text 33 48 Carre;
+#X text 32 -20 Jukebox;
+#X text 32 -33 Cosmetic;
+#X text 33 62 OSC Send & Receive;
+#X text 33 75 MIDI InterfaceZ;
+#X text 32 35 Arduino Analog In & Digital Out;
+#X text 33 87 Oscill3;
+#X text 33 99 HID;
+#X text 33 111 Distorsion avec dist~ comme ARGO1Distor1v04.pd;
+#X text 32 135 swap~ comme ARGO1Alter1v04.pd;
+#X text 33 123 Clip~;
+#X text 32 147 Normalize;
+#X text 34 -99 Pulse avec train~ de cyclone library;
+#X text 34 -86 acos~ de cyclone library;
+#X obj 31 -68 cnv 15 200 16 empty empty empty 20 12 0 14 -260097 -66577
+0;
+#X text 33 -69 Gliss sur slider Delay;
+#X text 32 160 GEM Record;
+#X text 56 172 Lignt;
+#X text 102 161 Volume;
+#X text 102 173 Crop;
+#X text 146 162 Text;
+#X text 147 174 Particle;
+#X text 32 -6 Audio On/Off;
+#X restore 70 117 pd AFaire;
+#N canvas 419 78 520 422 Help---------------- 0;
+#X text 7 213 Inputs ->;
+#X obj 204 105 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 204 122 cnv 4 10 4 empty empty empty 20 12 0 14 -258113 -66577
+0;
+#X text 221 115 Amplitude Control Input;
+#N canvas 350 62 354 291 ARGO 0;
+#X obj 101 151 outlet~;
+#X obj 116 115 cnv 10 20 10 empty empty MiniModule 1 5 1 14 -262144
+-1 1.04858e+06;
+#X obj 105 58 inlet~;
+#X obj 154 59 inlet~;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 101 131 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 160 150 outlet~;
+#X obj 195 131 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 195 101 cnv 4 10 4 empty empty empty 20 12 0 14 -3522 -66577
+0;
+#X coords 0 -1 1 1 106 36 2 100 100;
+#X restore 63 123 pd ARGO;
+#X text 4 115 Inputs ->;
+#X text -2 147 Outputs ->;
+#X obj 204 139 cnv 4 10 4 empty empty empty 20 12 0 14 -1728 -66577
+0;
+#X text 221 132 Frequency Control Input;
+#X obj 204 156 cnv 4 10 4 empty empty empty 20 12 0 14 -3522 -66577
+0;
+#X text 221 150 Timbral Control Input;
+#X obj 309 280 cnv 15 200 60 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X text 388 302 Ctrl E;
+#X text 383 318 Apple E (MacOS);
+#X text 339 284 Mode Edit <-> Mode Play;
+#N canvas 350 62 354 291 ARGO 0;
+#X obj 101 151 outlet~;
+#X obj 116 115 cnv 10 20 10 empty empty MiniModule 1 5 1 14 -262144
+-1 1.04858e+06;
+#X obj 105 58 inlet~;
+#X obj 154 59 inlet~;
+#X obj 195 101 cnv 4 10 4 empty empty empty 20 12 0 14 -258113 -66577
+0;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 101 131 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 160 150 outlet~;
+#X obj 195 131 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X coords 0 -1 1 1 106 36 2 100 100;
+#X restore 65 218 pd ARGO;
+#X text 0 242 Outputs ->;
+#X obj 4 42 cnv 15 370 38 empty empty empty 20 12 0 14 -224896 -66577
+0;
+#X text 5 58 Voir/Look at: http://puredata.info/downloads;
+#X obj 3 5 cnv 18 370 30 empty empty ARGOPdMiniModules 1 10 1 14 -4033
+-1 1.04858e+06;
+#X obj 6 24 cnv 10 10 10 empty empty Gerard 0 5 1 9 -4033 -1 1.04858e+06
+;
+#X obj 37 24 cnv 10 10 10 empty empty Paresys 0 5 1 9 -4033 -1 1.04858e+06
+;
+#X obj 174 13 cnv 10 10 10 empty empty http://pagesperso-orange.fr/Paresys/ARGOPd/
+0 5 1 9 -4033 -1 1.04858e+06;
+#X text 221 98 Audio Input or Output;
+#X obj 204 173 cnv 4 10 4 empty empty empty 20 12 0 14 -128992 -66577
+0;
+#X text 221 166 GEM Input or Output;
+#N canvas 350 62 354 291 ARGO 0;
+#X obj 154 59 inlet~;
+#X obj 101 101 cnv 10 104 34 empty ColorForm empty 20 12 0 14 -228856
+-1 1.04858e+06;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -128992 -66577
+0;
+#X obj 118 108 cnv 10 20 10 empty empty MiniModule 1 5 1 14 -228856
+-1 1.04858e+06;
+#X obj 195 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 139 121 cnv 10 20 10 empty empty GEM 1 5 1 14 -228856 -1 1.04858e+06
+;
+#X obj 101 131 cnv 4 10 4 empty empty empty 20 12 0 14 -128992 -66577
+0;
+#X obj 105 58 inlet;
+#X obj 101 151 outlet;
+#X coords 0 -1 1 1 106 36 2 100 100;
+#X restore 65 310 pd ARGO;
+#X text 5 44 Construit sous / Build under Pd 0.40.3-extended;
+#X text 221 200 Trigger Input;
+#N canvas 350 62 354 291 ARGO 0;
+#X obj 154 59 inlet~;
+#X obj 101 101 cnv 10 104 34 empty ColorForm empty 20 12 0 14 -228856
+-1 1.04858e+06;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -128992 -66577
+0;
+#X obj 118 108 cnv 10 20 10 empty empty MiniModule 1 5 1 14 -228856
+-1 1.04858e+06;
+#X obj 195 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 139 121 cnv 10 20 10 empty empty GEM 1 5 1 14 -228856 -1 1.04858e+06
+;
+#X obj 101 131 cnv 4 10 4 empty empty empty 20 12 0 14 -128992 -66577
+0;
+#X obj 105 58 inlet;
+#X obj 101 151 outlet;
+#X coords 0 -1 1 1 106 36 2 100 100;
+#X restore 65 367 pd ARGO;
+#X obj 309 344 cnv 15 200 60 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X text 327 367 Mouse Right Click;
+#X text 327 382 Ctrl + Click (MacOS);
+#X text 453 372 -> Open;
+#X text 345 347 Help on a MiniModule:;
+#X text 0 346 gemlist ->;
+#X text 16 180 Audio Signal ->;
+#X text 70 272 Audio Signal ->;
+#X obj 204 224 cnv 4 10 4 empty empty empty 20 12 0 14 -260097 -66577
+0;
+#X text 221 217 OSC;
+#X obj 204 190 cnv 4 10 4 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 174 24 cnv 10 10 10 empty empty http://gerard.paresys.free.fr/ARGOPd/
+0 5 1 9 -4033 -1 1.04858e+06;
+#N canvas 350 62 354 291 ARGO 0;
+#X obj 154 59 inlet~;
+#X obj 101 101 cnv 10 104 34 empty ColorForm empty 20 12 0 14 -128992
+-1 1.04858e+06;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 118 108 cnv 10 20 10 empty empty MiniModule 1 5 1 14 -128992
+-1 1.04858e+06;
+#X obj 195 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 139 121 cnv 10 20 10 empty empty PDP 1 5 1 14 -128992 -1 1.04858e+06
+;
+#X obj 101 131 cnv 4 10 4 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 105 58 inlet;
+#X obj 101 151 outlet;
+#X coords 0 -1 1 1 106 36 2 100 100;
+#X restore 190 310 pd ARGO;
+#N canvas 350 62 354 291 ARGO 0;
+#X obj 154 59 inlet~;
+#X obj 101 101 cnv 10 104 34 empty ColorForm empty 20 12 0 14 -128992
+-1 1.04858e+06;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 118 108 cnv 10 20 10 empty empty MiniModule 1 5 1 14 -128992
+-1 1.04858e+06;
+#X obj 195 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 139 121 cnv 10 20 10 empty empty PDP 1 5 1 14 -128992 -1 1.04858e+06
+;
+#X obj 101 131 cnv 4 10 4 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 105 58 inlet;
+#X obj 101 151 outlet;
+#X coords 0 -1 1 1 106 36 2 100 100;
+#X restore 190 367 pd ARGO;
+#X text 150 347 PDP ->;
+#X obj 203 203 bng 12 250 50 0 \$0-A \$0-B empty 14 6 1 9 -262144 -1
+-1;
+#X obj 204 203 cnv 2 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 205 204 cnv 2 8 2 empty empty empty 20 12 0 14 -262144 -66577
+0;
+#X text 221 183 PDP Input or Output;
+#X connect 4 0 15 1;
+#X connect 15 1 26 1;
+#X connect 15 1 42 1;
+#X connect 26 0 29 0;
+#X connect 42 0 43 0;
+#X restore -178 -84 pd Help----------------;
+#X obj -186 -85 cnv 18 160 18 empty empty ARGOPdMiniModules 1 10 1
+14 -4033 -1 1.04858e+06;
+#N canvas 608 166 249 182 ARGOnOff 0;
+#X obj 100 100 tgl 18 1 \$0-SendOnOff \$0-ReceiveOnOff On/Off 20 9
+0 12 -4033 -1 -1 0 1;
+#X obj 99 39 loadbang;
+#X msg 99 62 \; pd dsp 1;
+#X obj 100 129 outlet;
+#X connect 0 0 3 0;
+#X connect 1 0 2 0;
+#X coords 0 -1 1 1 65 18 2 100 100;
+#X restore 62 17 pd ARGOnOff;
+#X obj 62 42 switch~;
+#X text -24 -85 <- Help;
+#N canvas 402 163 396 363 Problems 0;
+#X text 32 -147 Alea1 ecrit sr=44100.000000 sn=0.000000;
+#X text 33 -120 ReInjection impossible Solution:ARGOBus;
+#X text 81 -71 (warning: xxxx-del1: multiply defined);
+#X obj 29 -147 cnv 1 1 340 empty empty empty 20 12 0 14 -1 -262144
+0;
+#X text 33 73 Affichage nom des notes pb mod -> utiliser &?;
+#X text 82 -57 Voir -> ExMM10c-DelayPingPongProbleme.pd;
+#X text 83 -44 Voir -> ExMM10c-DelayPingPongProblemeResolu.pd;
+#X text 83 -108 Voir -> ExMM10b-DelayLoop.pd;
+#X text 33 -83 MiniModule Delay pas duplicable;
+#X text 81 -4 (warning: wavetable: multiply defined);
+#X text 33 -16 MiniModule Oscill 12Sinus pas duplicable;
+#X text 33 24 MiniModule Arduino Dig-Input pas duplicable;
+#X text 1 -162 Problèmes;
+#X restore 70 94 pd Problems;
+#X obj -183 151 cnv 15 370 38 empty empty empty 20 12 0 14 -224896
+-66577 0;
+#X text -182 167 Voir/Look at: http://puredata.info/downloads;
+#X text -182 153 Construit sous / Build under Pd 0.40.3-extended;
+#X obj -183 -55 ARGOPdMM-In;
+#X obj -183 -34 ARGOPdMM-Generator;
+#X obj -183 -12 ARGOPdMM-Player;
+#X obj -183 12 ARGOPdMM-Effect;
+#X obj -183 34 ARGOPdMM-FFT;
+#X obj -183 79 ARGOPdMM-Ampli;
+#X obj -58 -56 ARGOPdMM-Display;
+#X obj -183 102 ARGOPdMM-Record;
+#X obj -183 126 ARGOPdMM-Out;
+#X obj -58 35 ARGOPdMM-Switch;
+#X obj -58 58 ARGOPdMM-Simple;
+#X obj -58 82 ARGOPdMM-Arduino;
+#X obj -58 103 ARGOPdMM-GEM;
+#X obj -58 126 ARGOPdMM-PDP;
+#X obj -58 -34 ARGOPdMM-MIDI;
+#X obj -58 -10 ARGOPdMM-Detect;
+#X obj -58 11 ARGOPdMM-Control;
+#X obj 67 -50 ARGOPdMM-Model-Mono;
+#X obj 67 -26 ARGOPdMM-Model-Stereo;
+#X obj -183 55 ARGOPdMM-Filter;
+#X connect 3 0 4 0;

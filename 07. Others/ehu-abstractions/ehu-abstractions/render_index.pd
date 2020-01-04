@@ -1,0 +1,36 @@
+#N canvas 172 214 638 295 10;
+#X obj 28 3 bng 35 250 50 0 empty empty click_me 40 10 0 10 -258079
+-1 -1;
+#X msg 215 122 index \$1;
+#X text 16 59 higher index number goes on top. min value is 1;
+#X obj 7 84 nbx 5 14 1 1e+37 0 0 empty empty empty 0 -8 0 10 -262144
+-1 -1 1 256;
+#X obj 215 98 nbx 5 14 1 1e+37 0 0 empty empty empty 0 -8 0 10 -262144
+-1 -1 1 256;
+#X msg 7 105 set \$1;
+#X obj 130 13 ehu/gem/win 640 450;
+#X obj 7 194 ehu/gem/texture 220 125 400 300;
+#X obj 215 200 ehu/gem/texture 380 285 400 300;
+#X msg 423 122 index \$1;
+#X obj 423 98 nbx 5 14 1 1e+37 0 0 empty empty empty 0 -8 0 10 -262144
+-1 -1 1 256;
+#X obj 423 145 ehu/gem/cam 0;
+#X msg 215 75 4;
+#X obj 423 200 ehu/gem/texture 230 285 400 300;
+#X msg 423 75 3;
+#X obj 7 139 ehu/gem/picture picts/imagen1.jpg;
+#X obj 215 145 ehu/gem/picture picts/alpha.tif;
+#X connect 0 0 12 0;
+#X connect 0 0 6 0;
+#X connect 0 0 14 0;
+#X connect 1 0 16 0;
+#X connect 3 0 5 0;
+#X connect 4 0 1 0;
+#X connect 5 0 15 0;
+#X connect 9 0 11 0;
+#X connect 10 0 9 0;
+#X connect 11 0 13 0;
+#X connect 12 0 4 0;
+#X connect 14 0 10 0;
+#X connect 15 0 7 0;
+#X connect 16 0 8 0;

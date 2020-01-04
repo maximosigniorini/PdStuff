@@ -1,0 +1,44 @@
+====== MALINETTE - TO DO ======
+
+===== TO DO - SOFT - 0.90 ===== 
+  * SOURCES : des patchs ?
+  * UPDATE : organisation des abstractions, noms, dossiers, ... (sans "audio-", sans "video-" ?)
+  * UPDATE : synth-moog paramètres, map ( + inverse), audio-pitchdelay, physics, plusieurs arduinos ?, video-motionblob : ajouter outlet taux de mouvement..., audio-sampler resize avec openpanel ?,mapcurve presets
+  * UNIFIER les samplers
+  * TESTS : video-stopmotion, video-record, audio-sampler-transpose, notescale, between , video-stopmotion, synth-pluck, 3d-physics
+  * NEW : video-feedback, video-fiducials, tuner guitar, objet chrono, fft, wiimote, texte défilant
+  * test projection double écran GEM
+  * exemples pédagogiques
+  * XBee ?
+  * preset réseau/Web : chat, rss, ...
+  * fichier preferences.txt (dimensions video, langue, ...)
+
+===== TO DO - SOFT - 1.0 ===== 
+  * DEBUGS
+  * mettre les dépendances, vérifier les sources des patchs
+  * homogénéisation des objets et de leurs aides. Clarification, homogénéisation des objets séquenceurs, 
+  * Installation simple en un clic multiplateforme (pd + quelques librairies a jours + malinette + arduino) + en faire un paquet pour pure data (http://fr.openclassrooms.com/informatique/cours/creer-une-installation)
+  * interface (1) : 1 seul fenêtre (avec le menu), amélioration des objets boutons tof/menu (tree view ou sélecteur + scroll) , modes edit/action plus claire, performances meilleures avec GUI
+  * interface (2) : zoom (même avec GUI), deux apparences pour chaque objet (une pour débutant, une pour confirmé)
+  * nombre de Ctl-Z plus grand
+  * enregistrement vidéo et son de bonne qualité
+  * améliorer l'inclusion des chemins d'abstractions
+  * nouvelles abstractions/objet pour toutes les plateformes : glsl, tracking-zones ajustables (à la olivier baudu http://yamatierea.org/papatchs/#4corners), opencv (main, visage), list-folder (en tcl ?), kinect, physics
+  * preview gem
+  * système de presets
+  * Séparation interface graphique / moteur de Pd (?)
+  * ajout de fonction comme scroll dans les fenetre de sous patch et abstractions 
+  * tooltips on inlets/outlets : data type and description
+
+
+===== TO DO - HARD ===== 
+  * Kit d'extension : musicbox, animabot...
+  * Test Teensy ?
+  * capacitif, calculer la distance du capteur SHARP, ultrason
+  * Boite final bois
+  * connectifques homogene ou shield ? connectiques collèges plus facile
+  * teensy HID + kit mongolinette magnetique ou easyplug
+  * I2C support par le firmata de capteurs en + qui marche differement ... ultrason...
+  * voir autre kits de capteurs possible... (mater en detail ce que fait grove, df robot et companie)
+
+

@@ -1,0 +1,57 @@
+#N canvas 236 55 812 645 12;
+#X declare -path ../in -path ../out -path ../tools -path ../filters
+-path ../lib;
+#X obj 7 257 cnv 1 396 1 empty empty FILTERS 2 -6 1 12 -228856 -191407
+0;
+#X obj 7 424 cnv 1 800 1 empty empty OUT 2 -6 1 12 -228856 -191407
+0;
+#X obj 7 85 cnv 1 800 1 empty empty IN 2 -6 1 12 -228856 -191407 0
+;
+#X obj 7 257 cnv 1 800 1 empty empty TOOLS 400 -6 1 12 -228856 -191407
+0;
+#N canvas 390 316 645 287 INIT 0;
+#X obj 103 161 declare -path ../in -path ../out -path ../tools -path
+../filters -path ../lib;
+#X text 103 132 Always use this subpatch in the presets;
+#X obj 101 101 cnv 8 38 8 empty empty INIT 5 4 0 10 -233017 -66577
+0;
+#X coords 0 -1 1 1 40 10 2 100 100;
+#X restore 765 6 pd INIT;
+#X obj 49 13 arduino-analog-in;
+#X floatatom 35 191 5 0 0 0 - - -;
+#X obj 271 463 arduino-out;
+#X obj 94 182 ohmmeter;
+#X obj 29 278 oscilloscope;
+#X obj 351 134 video-in;
+#X obj 351 177 video-motion-blob;
+#X floatatom 351 261 5 0 0 0 - - -;
+#X floatatom 496 254 5 0 0 0 - - -;
+#X obj 504 489 3d-object;
+#X obj 507 369 3d-transform;
+#X obj 509 283 gemhead;
+#X obj 509 308 repeat 10;
+#X obj 507 339 translateXYZ 0.1 0 0;
+#X obj 660 347 * 360;
+#X msg 660 373 rx \$1 \, ry \$1;
+#X floatatom 134 139 5 0 0 0 - - -;
+#X obj 241 113 map 0 0.2 0 1;
+#X obj 243 89 average 5;
+#X floatatom 67 98 5 0 0 0 - - -;
+#X connect 5 0 24 0;
+#X connect 5 1 23 0;
+#X connect 6 0 9 0;
+#X connect 6 0 8 0;
+#X connect 6 0 19 0;
+#X connect 6 0 12 0;
+#X connect 10 0 11 0;
+#X connect 11 1 13 0;
+#X connect 12 0 7 9;
+#X connect 12 0 7 12;
+#X connect 15 0 14 0;
+#X connect 16 0 17 0;
+#X connect 17 0 18 0;
+#X connect 18 0 15 0;
+#X connect 19 0 20 0;
+#X connect 20 0 15 1;
+#X connect 21 0 6 0;
+#X connect 23 0 22 0;

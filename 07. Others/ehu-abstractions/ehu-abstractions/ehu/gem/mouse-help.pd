@@ -1,0 +1,52 @@
+#N canvas 421 49 550 363 10;
+#X obj 4 23 cnv 15 370 150 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 393 38 bng 30 250 50 0 empty empty click_me 0 -6 0 10 -258079
+-1 -1;
+#X text 10 -2 * move mouse over graphics window and click;
+#X obj 92 124 nbx 5 25 -1e+037 1e+037 0 0 empty empty y_position 0
+-10 0 10 -261241 -1 -1 0 256;
+#X obj 22 124 nbx 5 25 -1e+037 1e+037 0 0 empty empty x_position 0
+-10 0 10 -4032 -1 -1 0 256;
+#X obj 178 84 bng 30 250 50 0 empty empty empty 0 -6 0 10 -257985 -1
+-1;
+#X obj 178 119 bng 30 250 50 0 empty empty empty 0 -6 0 10 -4034 -1
+-1;
+#X obj 227 84 bng 30 250 50 0 empty empty empty 0 -6 0 10 -257985 -1
+-1;
+#X obj 227 119 bng 30 250 50 0 empty empty empty 0 -6 0 10 -4034 -1
+-1;
+#X obj 276 84 bng 30 250 50 0 empty empty empty 0 -6 0 10 -257985 -1
+-1;
+#X obj 276 119 bng 30 250 50 0 empty empty empty 0 -6 0 10 -4034 -1
+-1;
+#X text 180 158 left;
+#X text 223 158 middle;
+#X text 276 158 right;
+#X text 313 125 mousedown;
+#X text 313 91 mouseup;
+#X text 408 81 open graphics window;
+#X obj 47 203 gemkeyboard;
+#X obj 47 321 print spacebar!;
+#X obj 47 227 select 32 27 65;
+#X obj 105 274 print A!;
+#X obj 76 298 print Esc!;
+#X obj 134 251 print any_other_key;
+#X obj 393 99 ehu/gem/win 400 300;
+#X obj 135 35 ehu/gem/mouse;
+#X text 258 29 mouse;
+#X text 43 185 gem keyboard;
+#X connect 1 0 23 0;
+#X connect 17 0 19 0;
+#X connect 19 0 18 0;
+#X connect 19 1 21 0;
+#X connect 19 2 20 0;
+#X connect 19 3 22 0;
+#X connect 24 0 4 0;
+#X connect 24 1 3 0;
+#X connect 24 2 6 0;
+#X connect 24 3 5 0;
+#X connect 24 4 8 0;
+#X connect 24 5 7 0;
+#X connect 24 6 10 0;
+#X connect 24 7 9 0;

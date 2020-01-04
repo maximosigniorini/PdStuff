@@ -1,0 +1,39 @@
+#N canvas 324 346 884 270 10;
+#X msg 290 86 bang;
+#X obj 289 232 outlet;
+#X msg 380 176 list my 1 list of things and stuff;
+#X obj 332 11 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 481 15 inlet;
+#X obj 325 46 t b b b b b;
+#X obj 481 41 route bang float symbol list;
+#X msg 410 206 anything message;
+#X obj 481 68 print jTestAllTypes_gotBang;
+#X obj 531 88 print jTestAllTypes_gotFloat;
+#X obj 581 108 print jTestAllTypes_gotSymbol;
+#X obj 631 128 print jTestAllTypes_gotList;
+#X obj 681 148 print jTestAllTypes_gotAnything;
+#X msg 320 116 692.8;
+#X msg 350 146 symbol mySymbol;
+#X text 6 6 Run all types through a cross connected object(s) for testing
+and print results according to type. \; \; in1 output of cross connected
+object(s) \; out1 one message of each type b f s l \; \; John Flynn
+, f 39;
+#X connect 0 0 1 0;
+#X connect 2 0 1 0;
+#X connect 3 0 5 0;
+#X connect 4 0 6 0;
+#X connect 5 0 7 0;
+#X connect 5 1 2 0;
+#X connect 5 2 14 0;
+#X connect 5 3 13 0;
+#X connect 5 4 0 0;
+#X connect 6 0 8 0;
+#X connect 6 1 9 0;
+#X connect 6 2 10 0;
+#X connect 6 3 11 0;
+#X connect 6 4 12 0;
+#X connect 7 0 1 0;
+#X connect 13 0 1 0;
+#X connect 14 0 1 0;
+#X coords 0 -1 1 1 98 17 1 250 10;

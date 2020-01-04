@@ -1,0 +1,61 @@
+#N canvas 1178 560 484 318 10;
+#X obj 0 0 cnv 15 190 40 empty empty mgem_pix_capture_video 0 8 0 9
+-99865 -228856 0;
+#X obj 165 2 cnv 15 20 15 empty \$1vgempixcap_id \$1 6 8 0 9 -260097
+-33289 0;
+#X obj 1 22 cnv 8 35 15 empty empty gemOUT 0 8 0 8 -258113 -262144
+0;
+#X obj 114 23 tgl 12 0 empty empty Configure 17 7 0 8 -260097 -1 -228856
+0 1;
+#X obj -23 181 symbol \$1;
+#X symbolatom -23 210 0 0 0 0 - - -;
+#X obj -23 145 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X symbolatom 74 210 0 0 0 0 - - -;
+#X obj 74 181 symbol \$2;
+#X obj -39 106 loadbang;
+#X obj 172 176 f \$0;
+#X symbolatom 179 217 0 0 0 0 - - -;
+#X msg 172 267 \; \$1 vis \$2;
+#X obj 172 238 pack symbol float;
+#X obj 172 152 t b f;
+#X obj 246 114 outlet;
+#X obj 350 120 outlet;
+#X obj 52 22 tgl 12 0 \$1vgempix_on_init empty Capture 17 7 0 8 -4034
+-1 -228856 0 1;
+#X obj 38 23 bng 10 250 50 0 empty \$1vgempix_monitor_out empty 17
+7 0 10 -128992 -258113 -1;
+#N canvas 898 498 326 198 \$1-mgem_capture_win 1;
+#X obj -111 178 outlet;
+#X obj -132 2 mb-gem_pix_capture_video \$1;
+#X obj -107 42 inlet;
+#X connect 1 0 0 0;
+#X connect 2 0 1 0;
+#X restore 243 66 pd \$1-mgem_capture_win;
+#X obj 172 195 makesymbol pd-\$1-mgem_capture_win;
+#X obj 286 121 cnv 8 35 15 empty empty gemOUT 0 8 0 8 -258113 -262144
+0;
+#X text 398 121 device captured;
+#X obj 317 92 r \$1vgempix_device2;
+#X obj 9 131 s \$1vgempix_defaults;
+#X obj -18 249 s \$1vgempixcap_id;
+#X obj 244 16 inlet;
+#X text 287 11 gemhead;
+#X connect 3 0 14 0;
+#X connect 4 0 5 0;
+#X connect 5 0 25 0;
+#X connect 6 0 4 0;
+#X connect 6 0 8 0;
+#X connect 6 0 24 0;
+#X connect 8 0 7 0;
+#X connect 9 0 6 0;
+#X connect 10 0 20 0;
+#X connect 13 0 12 0;
+#X connect 14 0 10 0;
+#X connect 14 1 13 1;
+#X connect 19 0 15 0;
+#X connect 20 0 11 0;
+#X connect 20 0 13 0;
+#X connect 23 0 16 0;
+#X connect 26 0 19 0;
+#X coords 0 -1 1 1 190 40 1 0 0;

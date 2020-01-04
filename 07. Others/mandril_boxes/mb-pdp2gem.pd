@@ -1,0 +1,94 @@
+#N canvas 926 316 961 511 10;
+#X msg 781 297 colorspace YUV;
+#X obj 473 385 pdp2gem;
+#X msg 663 295 colorspace RGB;
+#X msg 540 295 colorspace RGBA;
+#X obj 0 0 cnv 15 140 90 empty empty pdp_2_gem 24 10 0 10 -99865 -262144
+0;
+#X obj 99 5 cnv 15 30 15 empty \$1pdp2gem_id \$1 2 5 0 10 -260097 -33289
+0;
+#X obj 2 22 tgl 17 0 \$1pdp2gem_on \$1pdp2gem_on_init Enable 17 7 0
+10 -4034 -1 -228856 0 1;
+#X obj 482 74 cnv 15 65 20 empty empty VIDEO_IN 0 10 0 12 -4034 -1
+0;
+#X obj 441 76 inlet;
+#X text 551 75 ->pdp;
+#X obj 82 29 vradio 15 1 0 3 \$1pdp2gem_colorspace \$1pdp2gem_colorspace_init
+empty 0 -8 0 8 -260097 -1 -228856 0;
+#X text 100 27 RGBA;
+#X text 101 44 RGB;
+#X text 100 59 YUV;
+#X obj 601 122 r \$1pdp2gem_on;
+#X obj 461 183 pdp_spigot;
+#X floatatom 590 143 5 0 0 0 - - -;
+#X obj 392 274 spigot;
+#X obj 756 150 r \$1pdp2gem_colorspace;
+#X obj 631 251 select 0 1 2;
+#X obj 497 439 outlet;
+#X obj 115 217 loadbang;
+#X obj 108 288 s \$1pdp2gem_on_init;
+#X msg 112 253 0;
+#X obj 104 326 s \$1pdp2gem_colorspace_init;
+#X obj 551 440 cnv 15 55 20 empty empty GEM_OUT 0 10 0 12 -221249 -262144
+0;
+#X obj 137 400 symbol \$1;
+#X symbolatom 137 429 0 0 0 0 - - -;
+#X obj 137 364 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X symbolatom 234 429 0 0 0 0 - - -;
+#X obj 234 400 symbol \$2;
+#X obj 137 475 s \$1pdp2gem_id;
+#X text 616 440 ->GEM;
+#X obj 76 403 float \$1;
+#X floatatom 76 433 5 0 0 0 - - -;
+#X obj 663 199 spigot;
+#X obj 44 51 nbx 3 14 0 1e+37 0 0 \$1pdp2gem_render \$1pdp2gem_render_init
+Render -40 6 0 8 -66577 -260097 -228856 50 256;
+#X msg 165 256 50;
+#X obj 210 308 s \$1pdp2gem_render_init;
+#X obj 294 141 r \$1pdp2gem_render;
+#X msg 302 176 set \$1;
+#X obj 392 210 gemhead 50;
+#X obj 420 161 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 512 128 select 1;
+#X obj 1 2 cnv 8 20 15 empty empty VIN 0 8 0 8 -4034 -1 0;
+#X obj 3 73 cnv 8 40 15 empty empty GEMOUT 0 8 0 8 -258113 -228856
+0;
+#X connect 0 0 1 0;
+#X connect 1 0 20 0;
+#X connect 2 0 1 0;
+#X connect 3 0 1 0;
+#X connect 8 0 15 0;
+#X connect 14 0 16 0;
+#X connect 15 1 1 0;
+#X connect 16 0 15 1;
+#X connect 16 0 17 1;
+#X connect 16 0 35 1;
+#X connect 16 0 41 0;
+#X connect 16 0 43 0;
+#X connect 17 0 1 0;
+#X connect 18 0 35 0;
+#X connect 19 0 3 0;
+#X connect 19 1 2 0;
+#X connect 19 2 0 0;
+#X connect 21 0 23 0;
+#X connect 21 0 28 0;
+#X connect 21 0 37 0;
+#X connect 23 0 22 0;
+#X connect 23 0 24 0;
+#X connect 26 0 27 0;
+#X connect 27 0 31 0;
+#X connect 28 0 26 0;
+#X connect 28 0 30 0;
+#X connect 28 0 33 0;
+#X connect 30 0 29 0;
+#X connect 33 0 34 0;
+#X connect 35 0 19 0;
+#X connect 37 0 38 0;
+#X connect 39 0 40 0;
+#X connect 40 0 41 0;
+#X connect 41 0 17 0;
+#X connect 42 0 41 0;
+#X connect 43 0 42 0;
+#X coords 0 -1 1 1 140 90 1 0 0;

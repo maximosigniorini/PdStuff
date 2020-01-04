@@ -1,0 +1,19 @@
+#N canvas 454 75 550 520 10;
+#X declare -lib flatspace;
+#X text 17 -20 code modified from arduino-help.pd example by gerda
+strobl and georg holtzman;
+#X text 310 385 get Analog Input;
+#X text 264 238 send digital output;
+#X text 304 118 (0=input \, 1=output);
+#X text 306 100 set input/output mode of digital pins;
+#X text 164 334 set analog inputs on/off (1 = on and 0 = off);
+#X obj 14 101 ehu/arduino/set_digital;
+#X obj 11 161 ehu/arduino/get_digital;
+#X obj 14 225 ehu/arduino/send_digital;
+#X obj 15 321 ehu/arduino/set_analog;
+#X obj 14 368 ehu/arduino/get_analog;
+#X obj 15 439 ehu/arduino/send_pwm;
+#X text 203 40 select/close the COM serial port;
+#X text 271 172 get digital output;
+#X text 236 452 send analog output with Pulse Width Modulation;
+#X obj 25 28 ehu/arduino/control 2;

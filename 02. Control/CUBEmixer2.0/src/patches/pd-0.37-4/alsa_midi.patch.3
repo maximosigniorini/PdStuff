@@ -1,0 +1,68 @@
+--- pd-0.37-4/src/u_main.tk	2004-07-05 22:51:43.000000000 +0200
++++ pd-0.37-4.patched/src/u_main.tk	2005-07-18 15:03:09.677858296 +0200
+@@ -3077,7 +3077,8 @@
+ 
+ proc midi_apply {id} {
+     global midi_indev1 midi_indev2 midi_indev3 midi_indev4 
+-    global midi_outdev1 midi_outdev2 midi_outdev3 midi_outdev4 
++    global midi_outdev1 midi_outdev2 midi_outdev3 midi_outdev4
++    global midi_alsain midi_alsaout
+ 
+     pd [concat pd midi-dialog \
+     	$midi_indev1 \
+@@ -3088,6 +3089,8 @@
+     	$midi_outdev2 \
+     	$midi_outdev3 \
+     	$midi_outdev4 \
++	$midi_alsain \
++	$midi_alsaout \
+ 	\;]
+ }
+ 
+@@ -3126,10 +3129,11 @@
+ # turn longform on and restart the dialog.
+ 
+ proc pdtk_midi_dialog {id indevlist indev1 indev2 indev3 indev4 \
+-    	outdevlist outdev1 outdev2 outdev3 outdev4 longform} {
++    	outdevlist outdev1 outdev2 outdev3 outdev4 longform alsa} {
+     global midi_indev1 midi_indev2 midi_indev3 midi_indev4 
+     global midi_outdev1 midi_outdev2 midi_outdev3 midi_outdev4
+     global midi_indevlist midi_outdevlist
++    global midi_alsain midi_alsaout
+ 
+     set midi_indev1 $indev1
+     set midi_indev2 $indev2
+@@ -3141,6 +3145,8 @@
+     set midi_outdev4 $outdev4
+     set midi_indevlist $indevlist
+     set midi_outdevlist $outdevlist
++    set midi_alsain [llength $indevlist]
++    set midi_alsaout [llength $outdevlist]
+ 
+     toplevel $id
+     wm title $id {midi}
+@@ -3158,6 +3164,7 @@
+     pack $id.buttonframe.apply -side left -expand 1
+     pack $id.buttonframe.ok -side left -expand 1
+     
++   if {$alsa == 0} {
+     	# input device 1
+     frame $id.in1f
+     pack $id.in1f -side top
+@@ -3252,6 +3259,16 @@
+     	    -command  {pd pd midi-properties 1 \;}
+     	pack $id.longbutton.b
+     }
++    }
++    if {$alsa} {
++       label $id.in1f.l1 -text "In Channels:"
++       entry $id.in1f.x1 -textvariable midi_alsain -width 4
++        pack $id.in1f.l1 $id.in1f.x1 -side left
++       label $id.in1f.l2 -text "Out Channels:"
++       entry $id.in1f.x2 -textvariable midi_alsaout -width 4
++        pack $id.in1f.l2 $id.in1f.x2 -side left
++    }
++
+ }
+ 
+ ############ pdtk_path_dialog -- dialog window for search path #########

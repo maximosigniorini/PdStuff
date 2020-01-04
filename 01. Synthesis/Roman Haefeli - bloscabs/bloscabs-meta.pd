@@ -1,0 +1,7 @@
+#N canvas 10 152 200 200 10;
+#N canvas 482 166 420 300 META 0;
+#X text 10 30 AUTHOR Roman Haefeli;
+#X text 10 10 VERSION 0.1;
+#X text 10 70 LICENSE GPL-2;
+#X text 10 50 NAME bloscabs;
+#X restore 10 10 pd META;

@@ -1,0 +1,128 @@
+#N canvas 62 50 1283 647 10;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array \$0-x 41473 float 2;
+#X coords 0 1 41473 -1 200 140 1 0 0;
+#X restore 409 22 graph;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array \$0-h 50504 float 2;
+#X coords 0 1 50504 -1 200 140 1 0 0;
+#X restore 619 22 graph;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array \$0-y-tab-conv 91976 float 2;
+#X coords 0 1 91976 -1 200 140 1 0 0;
+#X restore 849 22 graph;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array \$0-y-fft-conv 91976 float 2;
+#X coords 0 1 91976 -1 200 140 1 0 0;
+#X restore 1059 22 graph;
+#X obj 409 417 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 409 464 jTabConv \$0-x \$0-h \$0-y-fft-conv;
+#X obj 409 518 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 409 584 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 409 565 tab_conv \$0-x \$0-h \$0-y-tab-conv;
+#X obj 409 321 soundfiler;
+#X obj 409 226 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 409 246 openpanel;
+#X msg 409 288 read -resize \$1 \$2-x;
+#X obj 409 268 pack s \$0;
+#X floatatom 409 343 15 0 0 0 - - -, f 15;
+#X obj 539 226 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 539 246 openpanel;
+#X obj 539 268 pack s \$0;
+#X msg 539 288 read -resize \$1 \$2-h;
+#X text 750 191 check error in method against iem_tab [tab_conv];
+#X obj 753 264 tab_sum \$0-y-tab-conv;
+#X obj 753 224 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 753 244 t b b;
+#X obj 863 316 -;
+#X floatatom 863 338 15 0 0 0 total_error - -, f 15;
+#X obj 763 284 tab_sum \$0-y-fft-conv;
+#X obj 409 483 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 753 416 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 753 459 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array \$0-y-diff 91976 float 2;
+#X coords 0 0.001 91976 -0.001 200 140 1 0 0;
+#X restore 1060 424 graph;
+#X text 456 493 instant-ish!;
+#X text 471 591 13seconds;
+#X obj 753 436 tab_sub \$0-y-tab-conv \$0-y-fft-conv \$0-y-diff;
+#X text 748 383 show error as difference between tables;
+#X obj 753 490 loadbang;
+#X obj 753 512 pack \$0;
+#X msg 753 534 \; \$1-y-diff ylabel 5.15 -0.001 0 0.001;
+#X text 408 384 convolve tables using either method;
+#X obj 619 464 realtime;
+#X obj 619 565 realtime;
+#X obj 619 486 print time-fft;
+#X obj 619 587 print time-tab-conv;
+#X obj 409 437 t b b;
+#X obj 409 538 t b b;
+#X obj 11 598 import iem_tab;
+#X text 406 191 load samples (or draw on tables);
+#X obj 1104 224 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1104 244 pack \$0;
+#X msg 1104 266 \; \$1-x const 0 \; \$1-h const 0 \; \$1-y-tab-conv
+const 0 \; \$1-y-fft-conv const 0 \; \$1-y-diff const 0 \;;
+#X text 1100 191 clear tables;
+#X text 9 4 Convolve two tables by multiplication in the frequency
+domain using FFT. \; \; \$1 Table 1 (referred to here as 'x') \; \$2
+Table 2 (referred to here as 'h') \; \$3 Output table (referred to
+as 'y' or 'XH') \; \; in1 bang to convolve tables \; out2 bang when
+done \; \; The FFT method works very quickly for long tables. In comparison
+\, on this machine \, for 1 second tables at 44.1k iem_tab tab_conv
+(presumably time domain) takes >10 seconds whereas this method takes
+a few milliseconds. The speed of computation is governed by switch~'s
+oversampling rate (on this machine 2048 seems to be optimal). \; \;
+There is some error when comparing to iem_tab tab_conv which presumably
+is down to number precision error going back and forth through fft~/ifft~
+(specifically gain from ifft~ at huge blocksize which needs to be normalised).
+This may be unacceptable for some applications e.g. filtering but acceptable
+for reverb or special effects. \; \; Requires: \; jLibrary [jArraySize]
+\; jLibrary [jLog] \; iem_tab [tab_complex_mul] \; \; TO DO: \; - Try
+to eliminate/reduce error? Maybe block FFT? \; - switch~ only required
+elements \; - vanilla complex multiply (tried \, iem_tab way faster)
+\; \; John Flynn;
+#X connect 4 0 42 0;
+#X connect 5 0 26 0;
+#X connect 5 0 38 1;
+#X connect 6 0 43 0;
+#X connect 8 0 7 0;
+#X connect 8 0 39 1;
+#X connect 9 0 14 0;
+#X connect 10 0 11 0;
+#X connect 11 0 13 0;
+#X connect 12 0 9 0;
+#X connect 13 0 12 0;
+#X connect 15 0 16 0;
+#X connect 16 0 17 0;
+#X connect 17 0 18 0;
+#X connect 18 0 9 0;
+#X connect 20 1 23 0;
+#X connect 21 0 22 0;
+#X connect 22 0 20 0;
+#X connect 22 1 25 0;
+#X connect 23 0 24 0;
+#X connect 25 1 23 1;
+#X connect 27 0 32 0;
+#X connect 32 0 28 0;
+#X connect 34 0 35 0;
+#X connect 35 0 36 0;
+#X connect 38 0 40 0;
+#X connect 39 0 41 0;
+#X connect 42 0 5 0;
+#X connect 42 1 38 0;
+#X connect 43 0 8 0;
+#X connect 43 1 39 0;
+#X connect 46 0 47 0;
+#X connect 47 0 48 0;

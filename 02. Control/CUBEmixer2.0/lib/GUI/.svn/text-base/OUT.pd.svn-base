@@ -1,0 +1,23 @@
+#N canvas 21 17 574 402 10;
+#X obj 13 3 OUT/BUS/16;
+#X obj 13 193 OUT/ambi;
+#X obj 85 193 OUT/LFC;
+#X obj 165 193 OUT/main;
+#X obj 410 373 s GUI_dspNames;
+#X obj 410 355 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 416 265 s BUS_ROUTE;
+#X msg 416 200 bang;
+#X obj 416 222 mtx_rand 52 16;
+#X obj 416 243 mtx_* 127;
+#N canvas 0 0 450 300 net 0;
+#X obj 108 99 NET/GUInet;
+#X restore 486 311 pd net;
+#X obj 412 316 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 412 334 s GUInet_init;
+#X connect 5 0 4 0;
+#X connect 7 0 8 0;
+#X connect 8 0 9 0;
+#X connect 9 0 6 0;
+#X connect 11 0 12 0;

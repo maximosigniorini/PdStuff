@@ -1,0 +1,151 @@
+#N canvas 254 80 1022 626 10;
+#X declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/tools -path ../../abstractions/filters -path
+../../abstractions/fx-video -path ../../abstractions/fx-audio -path
+../../abstractions/master;
+#X declare -path abstractions/in -path .abstractions/out -path abstractions/tools
+-path abstractions/filters -path abstractions/fx-video -path abstractions/fx-audio
+-path abstractions/master;
+#X obj -25 187 cnv 1 396 1 empty empty FILTERS 2 -6 1 12 -228856 -191407
+0;
+#X obj -25 354 cnv 1 800 1 empty empty OUT 2 -6 1 12 -228856 -191407
+0;
+#X obj -25 63 cnv 1 800 1 empty empty IN 2 -6 1 12 -228856 -191407
+0;
+#X obj -25 187 cnv 1 800 1 empty empty TOOLS 400 -6 1 12 -228856 -191407
+0;
+#X obj 240 39 autechre/autechre;
+#X obj 355 149 audio-out;
+#X obj 435 217 audio-disto;
+#X obj 435 256 audio-out;
+#X obj 193 364 audio-freeze;
+#X obj 193 426 audio-out;
+#X obj 696 261 audio-pitchshift;
+#X obj 708 336 audio-out;
+#X obj 714 202 random 3000;
+#X obj 714 225 fade 100;
+#X obj 708 423 audio-disto;
+#X obj 709 461 audio-out;
+#X obj 193 249 synth;
+#X obj 193 123 random 100;
+#X obj 28 253 synth;
+#X obj 28 121 random 100;
+#X obj 28 144 map 0 100 35 55;
+#X obj 11 456 audio-out;
+#X obj 11 389 audio-reverb;
+#X obj 11 342 audio-attackdecay;
+#X obj 193 143 map 0 100 15 25;
+#X obj 294 466 audio-disto;
+#X obj 295 503 audio-out;
+#X obj 193 164 gamme;
+#X obj 28 165 gamme;
+#X obj 384 431 audio-cutoff;
+#X obj 384 503 audio-out;
+#N canvas 308 106 891 578 melo 0;
+#X obj 38 263 synth;
+#X obj 31 479 audio-out;
+#X obj 42 407 audio-reverb;
+#X obj 21 352 audio-attackdecay;
+#X obj 38 115 gamme;
+#X obj 366 30 seq-sliders;
+#X obj 38 94 map 0 1 35 55;
+#X obj 188 233 + 0;
+#X obj 232 249 * 12;
+#X obj 295 217 vradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X msg 378 200 seq 0.93 0.1 0.07 0.17 0.65 0.32 0 0.5;
+#X connect 0 0 3 0;
+#X connect 2 0 1 0;
+#X connect 2 1 1 1;
+#X connect 3 0 1 0;
+#X connect 3 0 1 1;
+#X connect 3 0 2 0;
+#X connect 4 0 3 1;
+#X connect 4 0 7 0;
+#X connect 5 0 6 0;
+#X connect 6 0 4 0;
+#X connect 7 0 0 0;
+#X connect 8 0 7 1;
+#X connect 9 0 8 0;
+#X connect 10 0 5 0;
+#X restore 530 91 pd melo;
+#X obj 806 88 audio-freeze;
+#X obj 807 154 audio-out;
+#X obj 695 61 audio-in;
+#X obj 658 100 audio-sampler;
+#X obj 440 412 fade 100;
+#X obj 440 392 + 0;
+#X obj 122 324 audio-volume;
+#X obj 563 495 audio-volume;
+#X obj 166 527 audio-volume;
+#N canvas 364 155 563 434 INIT 0;
+#X obj 101 101 cnv 8 48 8 empty empty INCLUDE 2 4 0 10 -233017 -66577
+0;
+#X obj 102 261 declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/tools -path ../../abstractions/filters -path
+../../abstractions/fx-video -path ../../abstractions/fx-audio -path
+../../abstractions/master;
+#X obj 102 162 declare -path abstractions/in -path .abstractions/out
+-path abstractions/tools -path abstractions/filters -path abstractions/fx-video
+-path abstractions/fx-audio -path abstractions/master;
+#X text 100 240 Use for standalone :;
+#X text 100 140 Use with the main.pd :;
+#X text 97 25 Import paths to find abstractions \; Always use it in
+the examples patchs.;
+#X coords 0 -1 1 1 50 10 2 100 100;
+#X restore 766 26 pd INIT;
+#X connect 4 0 12 0;
+#X connect 4 0 17 0;
+#X connect 4 1 19 0;
+#X connect 4 4 5 0;
+#X connect 4 5 5 1;
+#X connect 4 5 6 0;
+#X connect 4 5 10 0;
+#X connect 4 5 29 0;
+#X connect 6 0 7 1;
+#X connect 6 0 7 0;
+#X connect 8 0 9 0;
+#X connect 8 0 9 1;
+#X connect 10 0 11 0;
+#X connect 10 0 11 1;
+#X connect 11 0 14 0;
+#X connect 12 0 13 0;
+#X connect 13 0 10 2;
+#X connect 14 0 15 1;
+#X connect 14 0 15 0;
+#X connect 16 0 8 0;
+#X connect 17 0 24 0;
+#X connect 18 0 23 0;
+#X connect 18 0 38 0;
+#X connect 19 0 20 0;
+#X connect 20 0 28 0;
+#X connect 22 0 21 0;
+#X connect 22 1 21 1;
+#X connect 23 0 21 0;
+#X connect 23 0 21 1;
+#X connect 23 0 22 0;
+#X connect 24 0 27 0;
+#X connect 25 0 26 0;
+#X connect 25 0 26 1;
+#X connect 25 0 39 0;
+#X connect 25 0 40 0;
+#X connect 27 0 16 0;
+#X connect 27 0 10 1;
+#X connect 27 0 37 0;
+#X connect 28 0 18 0;
+#X connect 28 0 23 1;
+#X connect 29 0 30 0;
+#X connect 29 0 30 1;
+#X connect 29 0 25 0;
+#X connect 32 0 33 0;
+#X connect 32 0 33 1;
+#X connect 33 0 10 0;
+#X connect 34 0 32 0;
+#X connect 34 0 35 0;
+#X connect 35 0 33 0;
+#X connect 35 0 32 0;
+#X connect 36 0 29 1;
+#X connect 37 0 36 0;
+#X connect 38 0 8 0;
+#X connect 39 0 10 0;
+#X connect 40 0 22 0;

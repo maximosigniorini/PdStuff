@@ -1,0 +1,206 @@
+#N canvas 502 171 1072 471 10;
+#X obj 34 260 symbol \$1;
+#X obj 136 318 ftos;
+#X obj 105 252 float \$1;
+#X floatatom 105 281 5 0 0 0 - - -;
+#X symbolatom 35 293 0 0 0 0 - - -;
+#X symbolatom 77 337 10 0 0 0 - - -;
+#X obj 44 214 loadbang;
+#X obj 97 368 s \$1pdp_spiral_id;
+#X obj 262 53 inlet;
+#X text 320 53 video;
+#X text 490 53 on/off;
+#X obj 291 275 outlet;
+#X obj 295 105 pdp_spigot;
+#X text 339 272 video;
+#X floatatom 617 40 5 0 0 0 - - -;
+#X obj 420 216 pdp_spiral ---------------------;
+#X obj 584 15 hdl 15 1 0 8 empty empty empty 0 -6 0 8 -262144 -1 -1
+0;
+#X text 714 15 Mode;
+#X text 664 40 Focus X;
+#X floatatom 651 62 5 0 0 0 - - -;
+#X text 698 62 Focus Y;
+#X floatatom 668 89 5 0 0 0 - - -;
+#X text 715 89 Depth Shift;
+#X floatatom 679 117 5 0 0 0 - - -;
+#X text 725 118 Focus interval;
+#X text 557 382 Focus increment;
+#X floatatom 689 146 5 0 0 0 - - -;
+#X text 557 382 Focus increment;
+#X obj 707 170 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X obj 721 193 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X text 734 172 Toggle XOR;
+#X text 745 194 Animate Focus;
+#X obj 669 271 r \$1epdp_spiral_focusx;
+#X obj 670 294 r \$1epdp_spiral_focusy;
+#X obj 671 321 r \$1epdp_spiral_depth;
+#X obj 671 351 r \$1epdp_spiral_focusint;
+#X obj 673 379 r \$1epdp_spiral_focusincr;
+#X obj 673 409 r \$1epdp_spiral_xor;
+#X obj 675 438 r \$1epdp_spiral_animate;
+#X obj 418 9 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 458 10 r \$1epdp_spiral_on;
+#X obj 0 0 cnv 15 150 156 empty empty empty 2 12 0 14 -191407 -66577
+0;
+#X obj 7 5 tgl 15 1 \$1epdp_spiral_on \$1epdp_spiral_on_init Spiral
+17 7 0 10 -260097 -1 -1 0 1;
+#X obj 22 34 hradio 15 1 0 8 \$1epdp_spiral_mode \$1epdp_spiral_mode_init
+Mode 0 -8 0 8 -262144 -1 -1 1;
+#X obj 22 81 nbx 4 14 -1e+37 1e+37 0 0 \$1epdp_spiral_focusx \$1epdp_spiral_focusx_init
+FocusX 0 -8 0 8 -262144 -1 -1 0 256;
+#X obj 79 80 nbx 4 14 -1e+37 1e+37 0 0 \$1epdp_spiral_focusy \$1epdp_spiral_focusy_init
+FocusY 0 -8 0 8 -262144 -1 -1 0 256;
+#X obj 107 99 nbx 3 14 0 1e+37 0 0 \$1epdp_spiral_depth \$1epdp_spiral_depth_init
+Depth_Shift -70 5 0 8 -262144 -1 -1 0 256;
+#X obj 107 116 nbx 3 14 0 1e+37 0 0 \$1epdp_spiral_focusint \$1epdp_spiral_focusint_init
+Focus_Inerv. -70 5 0 8 -262144 -1 -1 0 256;
+#X obj 107 133 nbx 3 14 0 1e+37 0 0 \$1epdp_spiral_focusincr \$1epdp_spiral_focusincr_init
+Focus_Incr. -70 5 0 8 -262144 -1 -1 0 256;
+#X obj 17 51 tgl 15 0 \$1epdp_spiral_xor \$1epdp_spiral_xor_init XOR
+17 7 0 8 -262144 -1 -1 0 1;
+#X obj 64 51 tgl 15 0 \$1epdp_spiral_animate \$1epdp_spiral_animate_init
+Anim_Focus 17 7 0 8 -262144 -1 -1 0 1;
+#X obj 105 3 cnv 15 20 10 empty \$1pdp_spiral_id \$1 5 5 0 10 -260097
+-33289 0;
+#X obj 1 138 bng 15 250 50 0 \$1epdp_spiral_midi_on empty midi 17 7
+0 8 -4160 -1 -1;
+#N canvas 12 98 1635 704 midi_control 1;
+#X msg 133 -9 ef1epdp_spiral_on_midi;
+#X text 54 -171 MIDI;
+#X obj 67 -36 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 190 12 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 317 12 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 242 190 5 0 0 0 - - -;
+#X obj 458 109 s midi_var_to_add;
+#X msg 133 -43 set \$1epdp_spiral_on_midi;
+#X obj 85 154 r \$1epdp_spiral_on_midi;
+#X obj 66 312 s \$1epdp_spiral_on_init;
+#X obj 78 -142 r \$1epdp_spiral_midi_on;
+#X text 568 111 -->global value of mb-midi_control_pad;
+#X text 962 7 Need to check the correct scale factor for these values.
+;
+#X msg 906 -21 eepdp_spiral_size_midi;
+#X msg 294 -42 set \$1epdp_spiral_mode_midi;
+#X msg 294 -11 eepdp_spiral_mode_midi;
+#X msg 1103 -24 eepdp_spiral_size_midi;
+#X msg 1103 -55 set \$1epdp_spiral_focusy_midi;
+#X msg 906 -52 set \$1epdp_spiral_focusx_midi;
+#X msg 1303 -12 eepdp_spiral_size_midi;
+#X msg 1303 -43 set \$1epdp_spiral_depth_midi;
+#X msg 968 68 eepdp_spiral_size_midi;
+#X msg 968 37 set \$1epdp_spiral_focusint_midi;
+#X msg 1181 66 eepdp_spiral_size_midi;
+#X msg 1181 35 set \$1epdp_spiral_incr_midi;
+#X msg 469 -13 eepdp_spiral_mode_midi;
+#X msg 469 -44 set \$1epdp_spiral_xor_midi;
+#X msg 647 -13 eepdp_spiral_mode_midi;
+#X msg 647 -44 set \$1epdp_spiral_animate_midi;
+#X obj 143 -101 r \$1pdp_spiral_id;
+#X obj 552 16 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 246 152 r \$1epdp_spiral_mode_midi;
+#X obj 424 159 r \$1epdp_spiral_xor_midi;
+#X obj 584 157 r \$1epdp_spiral_animate_midi;
+#X obj 267 220 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 270 267 autoscale 0 8;
+#X floatatom 219 265 5 0 0 0 - - -;
+#X obj 249 312 s \$1epdp_spiral_mode_init;
+#X obj 595 327 s \$1epdp_spiral_animate_init;
+#X obj 435 329 s \$1epdp_spiral_xor_init;
+#X obj 89 202 select 0;
+#X msg 146 253 0;
+#X msg 96 259 1;
+#X obj 76 232 alternate;
+#X obj 645 214 select 0;
+#X msg 702 265 0;
+#X msg 652 271 1;
+#X obj 632 244 alternate;
+#X obj 459 205 select 0;
+#X msg 516 256 0;
+#X msg 466 262 1;
+#X obj 446 235 alternate;
+#X connect 0 0 3 0;
+#X connect 0 0 6 0;
+#X connect 2 0 0 0;
+#X connect 4 0 25 0;
+#X connect 7 0 0 0;
+#X connect 8 0 40 0;
+#X connect 10 0 2 0;
+#X connect 14 0 15 0;
+#X connect 15 0 4 0;
+#X connect 15 0 6 0;
+#X connect 17 0 16 0;
+#X connect 18 0 13 0;
+#X connect 20 0 19 0;
+#X connect 22 0 21 0;
+#X connect 24 0 23 0;
+#X connect 25 0 30 0;
+#X connect 25 0 6 0;
+#X connect 26 0 25 0;
+#X connect 27 0 6 0;
+#X connect 28 0 27 0;
+#X connect 29 0 7 0;
+#X connect 30 0 27 0;
+#X connect 31 0 5 0;
+#X connect 31 0 34 0;
+#X connect 32 0 48 0;
+#X connect 33 0 44 0;
+#X connect 34 0 35 0;
+#X connect 35 0 36 0;
+#X connect 35 0 37 0;
+#X connect 40 1 43 0;
+#X connect 41 0 9 0;
+#X connect 42 0 9 0;
+#X connect 43 0 42 0;
+#X connect 43 1 41 0;
+#X connect 44 1 47 0;
+#X connect 45 0 38 0;
+#X connect 46 0 38 0;
+#X connect 47 0 46 0;
+#X connect 47 1 45 0;
+#X connect 48 1 51 0;
+#X connect 49 0 39 0;
+#X connect 50 0 39 0;
+#X connect 51 0 50 0;
+#X connect 51 1 49 0;
+#X restore 198 9 pd midi_control;
+#X obj 662 240 r \$1epdp_spiral_mode;
+#X connect 0 0 4 0;
+#X connect 1 0 5 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X connect 4 0 5 0;
+#X connect 5 0 7 0;
+#X connect 6 0 2 0;
+#X connect 6 0 0 0;
+#X connect 8 0 12 0;
+#X connect 12 0 11 0;
+#X connect 12 1 15 0;
+#X connect 14 0 15 2;
+#X connect 15 0 11 0;
+#X connect 16 0 15 1;
+#X connect 19 0 15 3;
+#X connect 21 0 15 4;
+#X connect 23 0 15 5;
+#X connect 26 0 15 6;
+#X connect 28 0 15 7;
+#X connect 29 0 15 8;
+#X connect 32 0 14 0;
+#X connect 33 0 19 0;
+#X connect 34 0 21 0;
+#X connect 35 0 23 0;
+#X connect 36 0 26 0;
+#X connect 37 0 28 0;
+#X connect 38 0 29 0;
+#X connect 39 0 12 1;
+#X connect 40 0 39 0;
+#X connect 54 0 16 0;
+#X coords 0 -1 1 1 150 156 1 0 0;

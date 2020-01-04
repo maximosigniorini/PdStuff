@@ -1,0 +1,112 @@
+#N canvas 46 23 1166 711 10;
+#X obj 90 35 inlet~;
+#X obj 113 212 outlet~;
+#X obj 88 233 outlet~;
+#X obj 212 212 outlet~;
+#X obj 186 233 outlet~;
+#X obj 157 35 inlet~;
+#X obj 90 67 hp1~ 7;
+#X obj 158 67 hp1~ 7;
+#X obj 161 168 outlet~;
+#X obj 137 190 outlet~;
+#X obj 406 255 outlet~;
+#X obj 380 276 outlet~;
+#X obj 504 168 outlet~;
+#X obj 479 190 outlet~;
+#X obj 455 211 outlet~;
+#X obj 431 233 outlet~;
+#X text 248 251 early echoes;
+#X text 376 297 late reverb;
+#X obj 228 35 inlet~;
+#X obj 295 35 inlet~;
+#X obj 228 67 hp1~ 7;
+#X obj 296 67 hp1~ 7;
+#X obj 366 35 inlet~;
+#X obj 434 35 inlet~;
+#X obj 366 67 hp1~ 7;
+#X obj 435 67 hp1~ 7;
+#X obj 260 168 outlet~;
+#X obj 236 190 outlet~;
+#X obj 358 168 outlet~;
+#X obj 333 190 outlet~;
+#X obj 308 212 outlet~;
+#X obj 283 233 outlet~;
+#X obj 89 132 12reverb_6_12_6~ \$2 \$3 _____________________________________
+;
+#X text 528 146 3.arg: <float/sym> performance of feedback-delays;
+#X text 876 146 (0 \, stat \, dyn) default: 0 = stat;
+#X text 528 133 2.arg: <float/sym> performance of feedback-matrix;
+#X text 876 133 (0 \, ++ \, +++ \, ++++) default: 0 = ++;
+#X text 528 120 1.arg: <float> reverb-order (12);
+#X obj 535 33 inlet;
+#X text 97 460 "early delay" : <list> of <float> index (0 .. 11) +
+;
+#X text 104 474 "early damp" : <list> of <float> index (0 .. 11) +
+;
+#X text 447 460 + <float> delay-time of early reflection [ms];
+#X text 447 474 + <float> lin. rms damping of early reflection [-]
+;
+#X text 104 418 "early gain" : <float> output-gain of all earlies [MIDI-dB]
+;
+#X text 455 430 of all earlies [kHz];
+#X text 90 432 "early cutoff" : <float> lp2-output-cutoff-freq of;
+#X text 468 446 ( Q < 0.5) [-];
+#X text 125 446 "early Q" : <float> quality of lp2-output-filter (
+;
+#X text 461 532 ( Q < 0.5) [-];
+#X text 83 518 "reverb cutoff" : <float> lp2-output-cutoff-freq of
+;
+#X text 118 532 "reverb Q" : <float> quality of lp2-output-filter (
+;
+#X text 426 518 of all late diffuse [kHz];
+#X text 349 504 of all late diffuse [MIDI-dB];
+#X text 97 504 "reverb gain" : <float> output-gain of;
+#X text 68 547 "reverb del_time" : <list> of <float> index (0 .. 11)
++;
+#X text 446 547 + <float> delay-time of FDN [ms];
+#X text 48 560 "reverb dec_lm_freq" : <float> FDN-decay-frequency;
+#X text 48 574 "reverb dec_mh_freq" : <float> FDN-decay-frequency;
+#X text 55 588 "reverb dec_l_time" : <float> FDN-decay-time (T-60 dB)
+;
+#X text 370 588 (T-60 dB) of low-band [sec];
+#X text 55 602 "reverb dec_m_time" : <float> FDN-decay-time (T-60 dB)
+;
+#X text 55 616 "reverb dec_h_time" : <float> FDN-decay-time (T-60 dB)
+;
+#X text 370 602 (T-60 dB) of medium-band [sec];
+#X text 370 616 (T-60 dB) of high-band [sec];
+#X text 335 560 frequency between low- and medium-band [kHz];
+#X text 335 574 frequency between medium- and high-band [kHz];
+#X text 519 17 parameters;
+#X text 248 392 parameters:;
+#X connect 0 0 6 0;
+#X connect 5 0 7 0;
+#X connect 6 0 32 0;
+#X connect 7 0 32 1;
+#X connect 18 0 20 0;
+#X connect 19 0 21 0;
+#X connect 20 0 32 2;
+#X connect 21 0 32 3;
+#X connect 22 0 24 0;
+#X connect 23 0 25 0;
+#X connect 24 0 32 4;
+#X connect 25 0 32 5;
+#X connect 32 0 2 0;
+#X connect 32 1 1 0;
+#X connect 32 2 9 0;
+#X connect 32 3 8 0;
+#X connect 32 4 4 0;
+#X connect 32 5 3 0;
+#X connect 32 6 27 0;
+#X connect 32 7 26 0;
+#X connect 32 8 31 0;
+#X connect 32 9 30 0;
+#X connect 32 10 29 0;
+#X connect 32 11 28 0;
+#X connect 32 12 11 0;
+#X connect 32 13 10 0;
+#X connect 32 14 15 0;
+#X connect 32 15 14 0;
+#X connect 32 16 13 0;
+#X connect 32 17 12 0;
+#X connect 38 0 32 6;

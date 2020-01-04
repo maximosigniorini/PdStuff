@@ -1,0 +1,58 @@
+#N canvas 243 48 803 617 10;
+#X declare -path ../in -path ../out -path ../tools -path ../filters
+-path ../lib;
+#X obj -25 187 cnv 1 396 1 empty empty FILTERS 2 -6 1 12 -228856 -191407
+0;
+#N canvas 400 311 645 287 INIT 0;
+#X obj 240 100 bng 10 250 50 0 empty empty SAVE-AS -45 6 0 9 -260097
+-1 -1;
+#X obj 103 200 namecanvas \$0-patch-name;
+#X obj 100 160 s \$0-patch-name;
+#X msg 100 131 menusaveas;
+#X obj 220 130 savepanel;
+#X obj 220 157 s UPDATE_PATCH;
+#X obj 50 33 declare -path ../in -path ../out -path ../tools -path
+../filters -path ../lib;
+#X text 50 4 Always use this subpatch in the presets;
+#X obj 101 101 cnv 8 80 8 empty empty INIT 5 5 0 10 -233017 -66577
+0;
+#X connect 0 0 3 0;
+#X connect 0 0 4 0;
+#X connect 3 0 2 0;
+#X connect 4 0 5 0;
+#X coords 0 -1 1 1 150 10 2 100 100;
+#X restore 625 -2 pd INIT;
+#X obj -25 354 cnv 1 800 1 empty empty OUT 2 -6 1 12 -228856 -191407
+0;
+#X obj -25 63 cnv 1 800 1 empty empty IN 2 -6 1 12 -228856 -191407
+0;
+#X obj 375 187 cnv 1 400 1 empty empty TOOLS 2 -6 1 12 -228856 -191407
+0;
+#X obj 33 111 video-scratch;
+#X obj 240 418 audio-out;
+#X obj 33 418 synth-drums;
+#X obj 33 392 sel 1 2 3 4;
+#X obj 426 420 loadbang;
+#X msg 426 447 \; GEM-MASTER onoff 1;
+#X text 426 400 Démarre Gem en même temps que le patch;
+#X obj 33 202 detect/detect2;
+#X text 400 216 < vous pouvez desactivez la webcam \; pour faire rentrer
+un flux video par l'entrée;
+#X text 401 243 < afficher ou pas les cellules (change le gem view
+aussi);
+#X text 191 109 < possibilité de faire entrer un autre flux video
+dans le detecteur \; ex : lecture d'un film... \; 1 desactiver la camera
+\, ensuite jouer avec la piste de lecture ou Play.;
+#X text 189 164 << connecter;
+#X text 33 4 Experimental !!! utiliser ce patch est a vos risques et
+peril ! \; \; Conseil : utiliser deux sessions puredata si interaction
+sur du gem (utiliser de l'osc pour communiquer entre les deux sessions)
+;
+#X connect 7 4 6 0;
+#X connect 7 4 6 1;
+#X connect 8 0 7 0;
+#X connect 8 1 7 1;
+#X connect 8 2 7 2;
+#X connect 8 3 7 3;
+#X connect 9 0 10 0;
+#X connect 12 0 8 0;

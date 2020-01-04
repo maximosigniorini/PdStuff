@@ -1,0 +1,9 @@
+#N canvas 0 0 642 267 10;
+#X text 232 63 1.arg: <symbol> receive first name;
+#X obj 34 55 inlet;
+#X obj 141 53 inlet;
+#X obj 34 87 schedule_max_min;
+#X obj 34 112 s \$1_fromgui;
+#X connect 1 0 3 0;
+#X connect 2 0 3 1;
+#X connect 3 0 4 0;

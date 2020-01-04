@@ -1,0 +1,59 @@
+#N canvas 404 22 865 689 10;
+#X obj 2 -147 cnv 15 700 50 empty empty 2DMovie 3 12 0 18 -260080 -1
+0;
+#X text 591 -130 @author Pertuit;
+#X text 591 -118 @version 1;
+#X text 591 -143 @library 2DMovie;
+#X text 141 -141 Introduction à la bibliothèque 2DMovie;
+#X text 44 -68 INTRODUCTION :;
+#X text 444 -68 INSTALLATION :;
+#X text 44 206 PRINCIPAUX MODULES :;
+#X text 444 -1 - sur Mac : /Users/monNom/Library/Pd;
+#X text 444 27 - sur UNIX : /usr/local/lib/pd-externals;
+#X text 44 263 Image simple :;
+#X text 44 233 Gestionnaire GEM :;
+#X obj 172 233 pddplink ../GemManager-help.pd;
+#X obj 302 293 pddplink ../MovieClip-help.pd;
+#X obj 152 263 pddplink ../SimpleImage-help.pd;
+#X text 44 293 Image animée dans un tableau d'images :;
+#X text 44 323 Bouton d'images :;
+#X obj 172 323 pddplink ../SimpleButton-help.pd;
+#X obj 222 353 pddplink ../Zone-help.pd;
+#X obj 192 383 pddplink ../Label-help.pd;
+#X text 44 353 Zone sensible à la souris :;
+#X text 44 383 Chaîne de caractère :;
+#X obj 261 413 pddplink ../SoundPlayer-help.pd;
+#X obj 332 473 pddplink ../examples;
+#X text 444 47 Il faut alors ajouter le path dans les préférences
+:;
+#X text 444 62 - sur Mac : /Users/monNom/Library/Pd/2DMovie;
+#X text 444 76 - sur PC : C:(/)Program Files(/)Common Files(/)Pd(/)2DMovie
+;
+#X text 444 90 - sur UNIX : /usr/local/lib/pd-externals/2DMovie;
+#X text 442 164 [declare -path 2DMovie];
+#X text 44 -41 2DMovie est une bibliothèque conçue pour simplifier
+la réalisation d'animations 2D avec Pure Data. Elle permet d'afficher
+des images fixes ou animées (tableaux d'images) en appelant un simple
+objet \, de rendre facilement les images affichées sensibles ou non
+à la souris \, de les positionner et de les animer à l'aide de variables
+et de fonctions.;
+#X text 44 59 Elle se base sur les éléments courants de GEM (pix_image
+\, pix_multiimage \, text3d \, etc.) et s'inspire librement des classes
+d'animation utilisées en ActionScript bien qu'il ne soit question
+ici que d'images bitmap (pas de vectoriel).;
+#X text 44 473 Consultez aussi les exemples d'utilisations :;
+#X text 444 -41 Comme toutes les bibliothèques externes \, le dossier
+2DMovie doit être installé dans le répertoire Pd (à créer \, s'il
+n'existe pas) se trouvant dans :;
+#X text 44 413 Lecteur audio basique ou évolué :;
+#X obj 411 413 pddplink ../SoundControl-help.pd;
+#X text 44 443 Lecteur vidéo :;
+#X obj 156 443 pddplink ../VideoClip-help.pd;
+#X text 44 119 Ce projet universitaire a pour objet de faciliter la
+création d'images afin de se concentrer sur l'aspect algorithmique
+de leur manipulation. Tous les patches sont documentés en français.
+;
+#X text 444 13 - sur PC : C:(/)Program Files(/)Common Files(/)Pd;
+#X text 444 109 On peut aussi placer le dossier 2DMovie dans un répertoire
+de travail quelconque \, mais il faut alors ajouter dans le patch Pure
+Data une instruction pour déclarer la bibliothèque :;

@@ -1,0 +1,12 @@
+#N canvas 381 98 807 469 10;
+#X obj 201 34 inlet \$0GUI-prepend;
+#X obj 87 164 gui_sr \$1_name \$2;
+#X obj 54 204 gui_sr_offset \$1_tgl \$2/ON;
+#X obj 201 95 makefilename %s_\$3_togui;
+#X obj 201 62 t s s;
+#X obj 231 119 makefilename %s_\$3_on_togui;
+#X connect 0 0 4 0;
+#X connect 3 0 1 1;
+#X connect 4 0 3 0;
+#X connect 4 1 5 0;
+#X connect 5 0 2 1;

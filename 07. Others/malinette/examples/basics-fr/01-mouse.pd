@@ -1,0 +1,47 @@
+#N canvas 151 22 800 687 10;
+#X declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/numbers -path ../../abstractions/video -path
+../../abstractions/audio -path ../../abstractions/master;
+#X obj 7 279 cnv 1 470 1 empty empty FX 2 -6 1 12 -228856 -191407 0
+;
+#X obj 7 431 cnv 1 470 1 empty empty OUT 2 -6 1 12 -228856 -191407
+0;
+#X obj 7 123 cnv 1 470 1 empty empty IN 2 -6 1 12 -228856 -191407 0
+;
+#X obj 245 145 mouse;
+#X obj 245 514 audio-out;
+#X text 196 449 hauteur;
+#X text 339 445 volume;
+#X obj 245 308 map 0 1 0 127;
+#X floatatom 193 170 5 0 0 0 - - -;
+#X obj 245 343 notescale;
+#X obj 245 465 synth 2;
+#X text 251 157 x;
+#X text 291 157 y;
+#X text 278 446 waveform;
+#X obj 488 28 cnv 20 300 90 empty empty DESCRIPTION 10 15 0 16 -233017
+-128992 0;
+#X text 496 55 Les coordonnées de la souris sont utilisées;
+#X text 326 158 clic;
+#X text 496 70 pour contrôler la hauteur de note d'un;
+#X text 496 85 d'un synthétiseur.;
+#X obj 488 124 cnv 20 300 150 empty empty empty 10 15 0 16 -233017
+-128992 0;
+#X text 506 157 (0 à gauche de l'écran et 1 à droite);
+#X obj 488 279 cnv 20 300 150 empty empty empty 10 15 0 16 -233017
+-128992 0;
+#X text 510 321 avec une règle de trois;
+#X obj 488 434 cnv 20 300 230 empty empty empty 10 15 0 16 -233017
+-128992 0;
+#X text 496 308 < conversion en notes MIDI (0-127);
+#X text 495 479 < génération du son de synthèse;
+#X text 494 557 < sortie audio;
+#X text 496 361 < conversion en gamme musicale (majeur);
+#X text 496 141 < positions X de la souris;
+#X obj 737 11 ../../abstractions/include;
+#X connect 3 0 7 0;
+#X connect 3 0 8 0;
+#X connect 7 0 9 0;
+#X connect 9 0 10 0;
+#X connect 10 0 4 0;
+#X connect 10 0 4 1;

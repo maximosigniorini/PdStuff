@@ -1,0 +1,309 @@
+#N canvas 491 185 159 293 10;
+#X obj 23 39 tgl 12 1 \$0-SendPlay \$0-ReceivePlay Play(Space) 14 6
+1 9 -262144 -1 -1 0 1;
+#X obj 23 23 bng 12 250 50 0 \$0-SendOpen \$0-ReceiveOpen Open... 14
+6 1 9 -262144 -1 -1;
+#X obj 103 40 bng 11 250 50 0 \$0-SendStop \$0-ReceiveStop Stop 14
+6 1 9 -262144 -1 -1;
+#X obj 103 23 tgl 12 1 \$0-SendLoop \$0-ReceiveLoop Loop 14 6 1 9 -262144
+-1 -1 0 1;
+#X obj 2 83 cnv 50 149 60 empty ColorForm empty 20 12 0 14 -188398
+-1 1.04858e+06;
+#N canvas 0 22 450 300 graph3 0;
+#X array \$0A1 63748 float 2;
+#X coords 0 1 63748 -1 149 60 1;
+#X restore 2 83 graph;
+#X symbolatom 2 56 21 0 0 0 - #0-ReceiveFileName #0;
+#X obj 29 1 tgl 18 1 \$0-SendOnOff \$0-ReceiveOnOff empty 0 0 0 9 -4033
+-1 -1 1 1;
+#N canvas 324 37 467 543 Help 0;
+#X obj 7 121 cnv 15 400 30 empty empty empty 20 12 0 14 -259090 -66577
+0;
+#X text 14 122 - Un module "ARGOGeneral" (et un seul) doit etre ouvert
+avant l'ouverture de ce module.;
+#X text 6 453 - Raccourci clavier Barre d'espace -> Play On/Off;
+#X obj 6 63 cnv 15 400 54 empty empty empty 20 12 0 14 -224896 -66577
+0;
+#X text 8 62 Construit sous/Build under;
+#X text 8 74 Pd 0.38.4-extended;
+#X text 8 87 Voir/Look at:;
+#X text 8 100 http://sourceforge.net/projects/pure-data/;
+#X text 7 505 - 8 sorties Audio DAC;
+#X text 6 301 - Si le fichier Audio a plus de 1 piste \, les autres
+pistes ne sont pas entendues.;
+#X text 7 493 - 1 sortie Audio ARGOBus;
+#X text 7 160 - ARGO1Play1 lit un fichier Audio mono au format aiff
+\, wave;
+#X text 6 472 - Gliss (en ms) permet de choisir la vitesse du "scratch"
+;
+#N canvas 5 127 799 462 Pd 0;
+#X obj 235 30 openpanel;
+#X msg 183 194 1;
+#X msg 92 191 0;
+#X msg 409 85 set \$1;
+#X obj 235 9 r \$0-SendOpen;
+#X msg 222 206 open \$1;
+#X obj 138 12 r \$0-SendPlay;
+#X obj 177 86 t b b;
+#X obj 103 410 s \$0-ReceivePlay;
+#X obj 41 12 r \$0-SendStop;
+#X msg 103 311 set 0;
+#X obj 152 144 delay 300;
+#X obj 137 32 sel 1 0;
+#X obj 297 216 r \$0-SendLoop;
+#X floatatom 298 260 5 0 0 0 - - -;
+#X msg 298 238 set \$1;
+#X obj 297 278 sel 1;
+#X msg 152 311 set 1;
+#X obj 11 12 key;
+#X obj 12 310 select 32;
+#X obj 482 236 soundfiler;
+#X obj 482 9 loadbang;
+#X msg 479 121 /Volumes/Fichiers/Sons/1.aiff;
+#X obj 363 373 hip~ 5;
+#X obj 453 320 line~;
+#X obj 453 278 * 441;
+#X obj 453 299 pack 0 100;
+#X obj 483 256 / 100;
+#X obj 331 9 r \$0-SendScratch;
+#X obj 453 340 tabread4~ \$0A1;
+#X obj 461 192 pack s s s;
+#X obj 497 65 symbol \$0A1;
+#X obj 453 9 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 222 233 readsf~ 2;
+#X msg 222 123 /Volumes/Fichiers/Sons/1.aiff;
+#X text 500 147 -> pour les noms de fichier avec espace;
+#X msg 461 214 read -resize \$1 \$2;
+#X obj 593 12 r \$0-SendGliss;
+#X obj 595 409 s \$0-ReceiveFileName;
+#X obj 596 191 stripdir;
+#X obj 483 34 t b b;
+#X obj 236 51 t b s;
+#X obj 222 145 l2s;
+#X obj 471 148 l2s;
+#X obj 208 361 r ColorTime;
+#X obj 208 391 s \$0-ReceiveScratch;
+#X obj 222 410 s \$0-ReceiveGliss;
+#X obj 361 414 switch~;
+#N canvas 379 112 661 278 OutputMono1v3 0;
+#X obj 291 33 + 100;
+#X obj 292 54 dbtorms;
+#X msg 291 197 set \$1;
+#N canvas 264 25 378 350 8Dac 0;
+#X obj 34 92 *~;
+#X obj 53 110 *~;
+#X obj 34 241 dac~ 1 2 3 4 5 6 7 8;
+#X obj 72 128 *~;
+#X obj 91 146 *~;
+#X obj 111 164 *~;
+#X obj 130 182 *~;
+#X obj 149 200 *~;
+#X obj 169 218 *~;
+#X obj 34 24 inlet~;
+#X obj 51 68 r \$0-SendDac11;
+#X obj 70 86 r \$0-SendDac12;
+#X obj 89 104 r \$0-SendDac13;
+#X obj 108 122 r \$0-SendDac14;
+#X obj 127 141 r \$0-SendDac15;
+#X obj 145 158 r \$0-SendDac16;
+#X obj 166 176 r \$0-SendDac17;
+#X obj 187 194 r \$0-SendDac18;
+#X connect 0 0 2 0;
+#X connect 1 0 2 1;
+#X connect 3 0 2 2;
+#X connect 4 0 2 3;
+#X connect 5 0 2 4;
+#X connect 6 0 2 5;
+#X connect 7 0 2 6;
+#X connect 8 0 2 7;
+#X connect 9 0 0 0;
+#X connect 9 0 1 0;
+#X connect 9 0 3 0;
+#X connect 9 0 4 0;
+#X connect 9 0 5 0;
+#X connect 9 0 6 0;
+#X connect 9 0 7 0;
+#X connect 9 0 8 0;
+#X connect 10 0 0 1;
+#X connect 11 0 1 1;
+#X connect 12 0 3 1;
+#X connect 13 0 4 1;
+#X connect 14 0 5 1;
+#X connect 15 0 6 1;
+#X connect 16 0 7 1;
+#X connect 17 0 8 1;
+#X restore 141 221 pd 8Dac;
+#X obj 196 179 env~;
+#X obj 195 199 - 96.98;
+#X obj 196 157 *~;
+#X obj 196 12 inlet~;
+#X obj 476 12 r \$0-SendVolume1;
+#X obj 195 221 s \$0-Vumetre1;
+#X obj 477 220 s \$0-ReceivedB1;
+#X obj 291 221 s \$0-ReceiveVolume1;
+#X obj 282 12 r \$0-SenddB1;
+#X obj 372 12 r \$0-SendOnOff;
+#X obj 342 89 * 1;
+#X obj 347 54 t b f;
+#X obj 303 134 line~;
+#X msg 342 110 \$1 100;
+#X obj 429 220 outlet;
+#X obj 390 54 pipe 500;
+#X obj 11 12 r \$0-SendARGOBusSortie1;
+#N canvas 314 184 341 243 OutputARGOBusv3 0;
+#X obj 54 5 inlet;
+#X obj 99 5 inlet~;
+#X obj -25 100 sprintf ARGOBus%d;
+#X obj 53 32 change;
+#X msg -24 144 set \$1;
+#X obj -24 123 tosymbol;
+#X text -84 4 No ARGObus 1..16 ->;
+#X obj 97 182 throw~ ARGOBus0;
+#X connect 0 0 3 0;
+#X connect 1 0 7 0;
+#X connect 2 0 5 0;
+#X connect 3 0 2 0;
+#X connect 4 0 7 0;
+#X connect 5 0 4 0;
+#X restore 10 222 pd OutputARGOBusv3;
+#X connect 0 0 1 0;
+#X connect 1 0 14 0;
+#X connect 2 0 11 0;
+#X connect 4 0 5 0;
+#X connect 5 0 9 0;
+#X connect 6 0 3 0;
+#X connect 6 0 4 0;
+#X connect 6 0 21 1;
+#X connect 7 0 6 0;
+#X connect 8 0 10 0;
+#X connect 12 0 0 0;
+#X connect 12 0 2 0;
+#X connect 13 0 15 0;
+#X connect 13 0 19 0;
+#X connect 14 0 17 0;
+#X connect 15 0 14 0;
+#X connect 15 1 14 1;
+#X connect 16 0 6 1;
+#X connect 17 0 16 0;
+#X connect 19 0 18 0;
+#X connect 20 0 21 0;
+#X restore 362 393 pd OutputMono1v3;
+#X connect 0 0 41 0;
+#X connect 1 0 33 0;
+#X connect 2 0 33 0;
+#X connect 3 0 34 0;
+#X connect 3 0 22 0;
+#X connect 4 0 0 0;
+#X connect 5 0 33 0;
+#X connect 6 0 12 0;
+#X connect 7 0 11 0;
+#X connect 7 1 34 0;
+#X connect 9 0 2 0;
+#X connect 9 0 10 0;
+#X connect 10 0 8 0;
+#X connect 11 0 1 0;
+#X connect 11 0 17 0;
+#X connect 12 0 7 0;
+#X connect 12 1 10 0;
+#X connect 12 1 2 0;
+#X connect 13 0 15 0;
+#X connect 14 0 16 0;
+#X connect 15 0 14 0;
+#X connect 16 0 7 0;
+#X connect 17 0 8 0;
+#X connect 18 0 19 0;
+#X connect 19 0 8 0;
+#X connect 20 0 27 0;
+#X connect 21 0 40 0;
+#X connect 22 0 43 0;
+#X connect 23 0 48 0;
+#X connect 24 0 29 0;
+#X connect 25 0 26 0;
+#X connect 26 0 24 0;
+#X connect 27 0 25 1;
+#X connect 28 0 25 0;
+#X connect 29 0 23 0;
+#X connect 30 0 36 0;
+#X connect 31 0 30 1;
+#X connect 32 0 40 0;
+#X connect 33 0 23 0;
+#X connect 33 2 14 0;
+#X connect 33 2 10 0;
+#X connect 34 0 42 0;
+#X connect 36 0 20 0;
+#X connect 37 0 26 1;
+#X connect 39 0 38 0;
+#X connect 40 0 22 0;
+#X connect 40 1 31 0;
+#X connect 41 0 22 0;
+#X connect 41 1 3 0;
+#X connect 42 0 5 0;
+#X connect 43 0 39 0;
+#X connect 43 0 30 0;
+#X connect 44 0 45 0;
+#X connect 44 0 46 0;
+#X connect 48 0 47 0;
+#X restore 240 25 pd;
+#X obj 5 8 cnv 10 220 50 empty empty http://perso.orange.fr/Paresys/ARGOPd/
+5 44 1 9 -4033 -1 1.04858e+06;
+#X obj 174 15 cnv 10 10 10 empty empty Aide/Help 0 5 1 9 -4033 -1 1.04858e+06
+;
+#X obj 9 32 cnv 10 10 10 empty empty Gerard 0 5 1 9 -4033 -1 1.04858e+06
+;
+#X obj 46 32 cnv 10 10 10 empty empty Paresys 0 5 1 9 -4033 -1 1.04858e+06
+;
+#X obj 6 9 cnv 20 20 20 \$0-Help empty ARGO1Play1 5 12 1 18 -4033 -1
+1.04858e+06;
+#X text 7 178 - Ne lit pas un fichier au format mp3 \, SoundDesigner
+II (.SDII ou .SD2);
+#X text 22 246 error: soundfiler_read: x.aiff: unknown or bad header
+format;
+#X text 9 270 Solution: ouvrir puis sauver le fichier au format aiff
+avec Audacity;
+#X text 8 210 - Ne lit pas un fichier au format aiff "Entier petit
+boutien" comme les pistes d'un CD Audio copiées avec le finder du Mac.
+Les messages d'erreur s'affichent:;
+#X text 22 257 error: dsp: xxx.aiff: unknown or bad header format;
+#X text 7 334 - Si le fichier Audio a plus de 4 millions échantillons
+par piste (90 secondes à 44100 échantillons/sec) \, la forme d'onde
+ne peut pas s'afficher complètement et un message d'erreur s'affiche:
+;
+#X text 21 383 error: soundfiler_read: truncated to 4000_000 elements
+;
+#X text 5 397 Seuls les 4 millions premiers échantillons seront affichés.
+Mais le fichier sera lu complétement.;
+#X text 4 422 Solution: Utiliser ARGO2Play2;
+#X text 266 26 <- Clic;
+#X restore 50 2 pd Help;
+#X obj 2 155 cnv 20 149 102 empty ColorAmpli empty 20 12 0 14 -261299
+-1 1.04858e+06;
+#X obj 102 157 vsl 11 119 -98 20 0 1 \$0-SendVolume1 \$0-ReceiveVolume1
+empty -3 -8 1 10 -262144 -1 -1 9800 0;
+#X obj 93 157 vu 8 120 \$0-Vumetre1 empty -1 -8 1 9 -1 -1 0 0;
+#X obj 69 257 nbx 2 12 0 16 0 1 \$0-SendARGOBusSortie1 \$0-ReceiveARGOBusSortie1
+ARGOBus -55 6 1 9 -262144 -1 -1 0 256;
+#X obj 12 269 tgl 10 1 \$0-SendDac11 \$0-ReceiveDac11 empty 0 -6 0
+8 -262144 -1 -1 1 1;
+#X obj 22 269 tgl 10 1 \$0-SendDac12 \$0-ReceiveDac12 empty 0 -6 0
+8 -262144 -1 -1 1 1;
+#X obj 32 269 tgl 10 1 \$0-SendDac13 \$0-ReceiveDac13 empty 0 -6 0
+8 -262144 -1 -1 0 1;
+#X obj 42 269 tgl 10 1 \$0-SendDac14 \$0-ReceiveDac14 empty 0 -6 0
+8 -262144 -1 -1 0 1;
+#X obj 52 269 tgl 10 1 \$0-SendDac15 \$0-ReceiveDac15 empty 0 -6 0
+8 -262144 -1 -1 0 1;
+#X obj 62 269 tgl 10 1 \$0-SendDac16 \$0-ReceiveDac16 empty 0 -6 0
+8 -262144 -1 -1 0 1;
+#X obj 72 269 tgl 10 1 \$0-SendDac17 \$0-ReceiveDac17 empty 0 -6 0
+8 -262144 -1 -1 0 1;
+#X obj 82 269 tgl 10 1 \$0-SendDac18 \$0-ReceiveDac18 empty 0 -6 0
+8 -262144 -1 -1 0 1;
+#X obj 40 208 nbx 4 12 -100 60 0 1 \$0-SenddB1 \$0-ReceivedB1 dB 38
+6 1 9 -262144 -1 -1 0 256;
+#X obj 2 155 nbx 4 12 10 9999 0 1 \$0-SendGliss \$0-ReceiveGliss Gliss
+40 6 1 9 -208064 -1 -1 500 256;
+#X obj 5 143 hsl 144 12 0 100 0 1 \$0-SendScratch \$0-ReceiveScratch
+Scratch 0 5 1 9 -208064 -1 -1 0 0;
+#X obj 48 1 cnv 18 60 18 empty empty Play1 1 9 1 14 -4033 -1 1.04858e+06
+;

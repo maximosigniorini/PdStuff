@@ -1,0 +1,81 @@
+#N canvas 570 375 615 519 10;
+#X obj 220 36 r 1_IN_FADER_GAIN;
+#X floatatom 223 66 5 0 0 0 - - -;
+#X obj 279 354 ctlout;
+#X obj 277 384 ctlin;
+#X obj 278 407 pack 0 0 0;
+#X obj 279 442 print;
+#X floatatom 364 66 5 0 0 0 - - -;
+#X obj 361 36 r 1_IN_AMBI_AZI;
+#X obj 134 300 MIDI/inchannel/sr_gain 105 2 2_IN_FADER_GAIN;
+#N canvas 0 467 764 449 aconnect 0;
+#X obj 212 201 aconnect;
+#X obj 212 143 t b b;
+#X obj 280 88 inlet;
+#X msg 212 117 reset;
+#X obj 323 143 r MIDIconnections;
+#X msg 104 256 add MIDIconnections connect \$1 \$2 \$3 \$4;
+#X msg 242 166 set \, add;
+#X obj 333 197 print;
+#X msg 177 171 bang;
+#X obj 104 233 route list;
+#X msg 482 165 \; MIDIconnections connect 64 0 128 0 \; MIDIconnections
+connect 72 0 128 0 \; MIDIconnections connect 96 0 128 0 \; MIDIconnections
+connect 104 0 128 0 \; MIDIconnections connect 128 1 64 0 \; MIDIconnections
+connect 128 1 72 0 \; MIDIconnections connect 128 1 96 0 \; MIDIconnections
+connect 128 1 104 0 \;;
+#X msg 242 297 \; MIDIconnections connect 64 0 128 0 \; MIDIconnections
+connect 72 0 128 0 \; MIDIconnections connect 96 0 128 0 \; MIDIconnections
+connect 104 0 128 0 \; MIDIconnections connect 128 1 64 0 \; MIDIconnections
+connect 128 1 72 0 \; MIDIconnections connect 128 1 96 0 \; MIDIconnections
+connect 128 1 104 0 \;;
+#X connect 0 0 7 0;
+#X connect 0 0 9 0;
+#X connect 1 0 0 0;
+#X connect 1 1 6 0;
+#X connect 2 0 11 0;
+#X connect 3 0 1 0;
+#X connect 4 0 0 0;
+#X connect 5 0 11 0;
+#X connect 6 0 11 0;
+#X connect 8 0 0 0;
+#X connect 9 0 5 0;
+#X restore 77 404 pd aconnect;
+#X msg 77 377 bang;
+#X floatatom 363 126 5 0 0 0 - - -;
+#X obj 360 96 r 1_IN_AMBI_ELV;
+#X floatatom 165 129 5 0 0 0 - - -;
+#X obj 164 100 r 1_IN_AMBI_RAD;
+#X floatatom 249 199 5 0 0 0 - - -;
+#X floatatom 412 198 5 0 0 0 - - -;
+#X floatatom 553 198 5 0 0 0 - - -;
+#X floatatom 552 258 5 0 0 0 - - -;
+#X floatatom 354 261 5 0 0 0 - - -;
+#X floatatom 438 331 5 0 0 0 - - -;
+#X obj 437 301 r 2_IN_ON;
+#X obj 409 168 r 2_IN_FADER_GAIN;
+#X obj 550 168 r 2_IN_AMBI_AZI;
+#X obj 550 228 r 2_IN_AMBI_ELV;
+#X obj 353 232 r 2_IN_AMBI_RAD;
+#X obj 248 169 r 1_IN_ON;
+#X obj 75 193 test16+8bus;
+#X floatatom 412 459 5 0 0 0 - - -;
+#X obj 409 429 r 1_OUT_BUS_GAIN;
+#X floatatom 412 409 5 0 0 0 - - -;
+#X obj 409 379 r OUT_MASTER_GAIN;
+#X connect 0 0 1 0;
+#X connect 3 0 4 0;
+#X connect 3 1 4 1;
+#X connect 3 2 4 2;
+#X connect 7 0 6 0;
+#X connect 10 0 9 0;
+#X connect 12 0 11 0;
+#X connect 14 0 13 0;
+#X connect 21 0 20 0;
+#X connect 22 0 16 0;
+#X connect 23 0 17 0;
+#X connect 24 0 18 0;
+#X connect 25 0 19 0;
+#X connect 26 0 15 0;
+#X connect 29 0 28 0;
+#X connect 31 0 30 0;

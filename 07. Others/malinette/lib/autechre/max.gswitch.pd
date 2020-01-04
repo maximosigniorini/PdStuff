@@ -1,0 +1,38 @@
+#N canvas 254 222 638 347 12;
+#X obj 176 233 spigot;
+#X obj 25 24 inlet;
+#X obj 118 24 inlet;
+#X obj 176 24 inlet;
+#X obj 25 113 sel 0;
+#X msg 25 143 0;
+#X msg 55 143 1;
+#X obj 118 233 spigot;
+#X msg 25 175 1;
+#X msg 55 175 0;
+#X obj 155 288 outlet;
+#X text 231 45 Switches the output between two input streams;
+#X text 230 81 A bang at the control (left) input toggles the switch.
+A zero at the control input sets the switch to the left input \, greater
+than zero sets the right input.;
+#X obj 25 56 route bang;
+#X obj 25 86 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0 1
+;
+#X text 229 156 A number at one of the inputs is passed to the output
+if it is selected.;
+#X text 232 24 gswitch;
+#X connect 0 0 10 0;
+#X connect 1 0 13 0;
+#X connect 2 0 7 0;
+#X connect 3 0 0 0;
+#X connect 4 0 5 0;
+#X connect 4 1 6 0;
+#X connect 5 0 0 1;
+#X connect 5 0 8 0;
+#X connect 6 0 0 1;
+#X connect 6 0 9 0;
+#X connect 7 0 10 0;
+#X connect 8 0 7 1;
+#X connect 9 0 7 1;
+#X connect 13 0 14 0;
+#X connect 13 1 4 0;
+#X connect 14 0 4 0;

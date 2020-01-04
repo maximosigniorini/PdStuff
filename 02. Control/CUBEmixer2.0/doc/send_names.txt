@@ -1,0 +1,272 @@
+1. Spalte = send/receive-name
+
+
+===INPUT=====================================================================================
+
+soundfile-player: 
+--------------------------------------------------------
+jeder soundfile-player (egal wieviele kanaele er hat) hat einen uniq-name <ID>
+ausgabe des sfplayers  sollte auf <ID>:<channel>_PLAY erfolgen
+
+der <ID> wird immer prefixed (ist also hier $1)
+$1_SFPLAY_FILE <soundfile>: liest <soundfile>
+$1_SFPLAY_CTRL play | pause | stop | loop <1|0}>: start/pause/stop/loop on|off
+$1_SFPLAY_CTRL jump <time> : springt zur zeit <time> in [ms]
+
+  not stored for GUI
+$1_SFPLAY_LENGTH   length of loaded file
+$1_SFPLAY_POS      position of playing file
+
+
+===CHANNEL===================================================================================
+Routing Parameter werden nur am Anfang geladen und eingestellt, und duerfen im Sound einen
+Knackser verursachen.
+  (fuer IN-MIX-CH)
+--------------------------------------------------------
+
+$1_IN_SRC : selected INPUT or AUX-RET (1_ADC ... 52_ADC, 1_AUX ... 8_AUX)
+$1_IN_DEL : Delay (0 ... 1000 ms)
+$1_IN_INV : Signal-Inverter (+1 or -1)
+$1_IN_AUX_1_DST : selected Destination of 1. AUX-SND (1_AUX ... 8_AUX) (--> audio-engine: [throw~ 1_AUX_SND])
+
+
+Operating Parameter werden im Betrieb staendig nachgeladen und verursachen keine Knackser.
+  (fuer IN-MIX-CH)
+--------------------------------------------------------
+
+$1_IN_ON: on/off (!mute)
+IN_SOLO: (1 - N) ch-number of exclusive ON;     0: all channels in prev. ON-state
+IN_SELECT: (1 - N) ch-number of exclusive SELECT;     0: all channels in prev. ON-state
+
+
+$1_IN_ADJ_GAIN : adjust the INPUT-Level (0 ... 150 MIDI-dB)
+
+$1_IN_EQ_ON :
+$1_IN_LOWCUT_FREQ : in Hz
+$1_IN_LOWCUT_ON : positive logik (1=on, 0=off)
+$1_IN_HIGHCUT_FREQ :
+$1_IN_HIGHCUT_ON :
+$1_IN_EQ_LOW_TRANS_FREQ :
+$1_IN_EQ_LOW_GAIN :
+$1_IN_EQ_MID2_FREQ :
+$1_IN_EQ_MID2_Q :
+$1_IN_EQ_MID2_GAIN :
+$1_IN_EQ_MID1_FREQ : (> MID2_FREQ)
+$1_IN_EQ_MID1_Q :
+$1_IN_EQ_MID1_GAIN :
+$1_IN_EQ_HIGH_TRANS_FREQ :
+$1_IN_EQ_HIGH_GAIN :
+
+$1_IN_AUX_1_PRE  : Pre-Fader or Post-Fader of 1. AUX-SND (0 or 1) (default=0=post; 1=pre)
+$1_IN_AUX_1_GAIN : Gain of 1. AUX-SND (0 .. 150 MIDI-dB) 
+
+$1_IN_FADER_GAIN : Main-Gain of fader (0 .. 150 MIDI-dB) 
+
+$1_IN_SPATIALIZATION : 0, 1,... (0==ambisonic, 1==direct)
+
+$1_IN_AMBI_RAD : Radius in m (0..1 works for ambiweight, 1..100 DISTANCE Plugin)
+$1_IN_AMBI_AZM : in degree
+$1_IN_AMBI_ELV : in degree
+
+$1_IN_AMBI_DIRECT : 0, 1 ... (0=break, 1=controlled) Control RAD, AZM, ELV direct or break it for internal control
+                    This is used to hook a algorithm for these values using the central positions
+                    controlled with sname above
+
+$1_IN_AMBI_RAD_INT : not breakable: Radius in m (0..1 works for ambiweight, 1..100 DISTANCE Plugin)
+$1_IN_AMBI_AZM_INT : not breakable: in degree
+$1_IN_AMBI_ELV_INT : not breakable: in degree
+
+
+$1_IN_BUS_1_GAIN : Gain of 1.(1..16) BUS-SND (0 or 150 MIDI-dB)
+
+$1_IN_LFC_GAIN : Gain of subwoofer(0 or 150 MIDI-dB)
+
+
+plugins
+--------------------------------------------------------
+$1_IN_PLUGIN_$2_NAME <pluginname>: auswahl plugins <pluginname> im fx-slot $2 des kanals $1
+$1_IN_PLUGIN_$2_ON: auswahl plugins #plugin im fx-slot $2 des kanals $1
+$1_IN_PLUGIN_$2_<pluginname>_<param>: plugin-parameter fr das plugin <pluginname> im fx-slot $2 im kanal $1
+		pE: 1_IN_PLUGIN_3_COMPANDER_ATT_TIME
+	muss vom plugin selbst gehandelt werden, dafuer gibt es 
+		[receive_pluginparam $1 $2 <pluginname>_<param>]
+		[receive_pluginsetting $1 $2 <pluginname>_<param>]
+		pE: [receive_pluginparam 1 3 COMPANDER_ATT_TIME] empfaengt auf "1_IN_PLUGIN_3_COMPANDER_ATT_TIME"
+
+
+====OUTPUT========================================================================================
+
+Operating Parameter werden im Betrieb staendig nachgeladen und verursachen keine Knackser.
+  (fuer MAIN-OUT-Gain)
+--------------------------------------------------------
+
+$1_OUT_BUS_GAIN:  Direct-Output-Level fuer BUS1(1..16) (0 ... 150 MIDI-dB)
+$1_OUT_LFC_GAIN:  gesamt-lautstaerke fuer subwoofer-kanal 1(1..2)
+$1_OUT_LFC_HIGHCUT_FREQ:  cutoff frequency fuer subwoofer-kanal 1(1..2)
+OUT_AMBI_GAIN:   gesamt-lautstaerke fuer ambisonic-decoder
+
+OUT_MASTER_GAIN: master-gain (alles!)
+
+
+===SUBOUT=========================================================================================
+AMBI_ORDER_WEIGHT :  1 1 1 1 1 ...
+
+bus-routing-matrix:: 
+BUS_ROUTE: matrix 16 52 .... (werte in MIDI-db)
+           element n m gain
+
+$1_OUT_LFC_BUS_DST:  OUT-Destination fuer subwoofer-kanal 1(1..2)
+    (1_OUT .. 52_OUT)
+
+
+Operating Parameter werden im Betrieb staendig nachgeladen und verursachen keine Knackser.
+  (fuer mehrere Module)
+
+
+=== FROM DSP ==============================================================
+
+$1_IN_VU_SRC: 0=input("adc in"), 1=pre, 2=post
+$1_IN_VU_LEVEL: dsp->gui talkback
+
+
+VU_BRIDGE_SRC : <symbol>
+      Nach VU kann folgen:
+        0=IN_ADC   : routet VU-Meter zum Eingang nach Input-Gain;
+        1=IN_PRE  : routet VU-Meter vor dem Fader, nach dem Effekt;
+        2=IN_POST  : routet VU-Meter nach dem Fader;
+        3=AUX_SUM  : routet VU-Meter nach dem Aux-Sum-Fader;
+        4=AMBI_SUM  : routet VU-Meter nach dem Ambi-Gain und Decoder;
+        5=BUS_SUM  : routet VU-Meter nach Main-Out-Gain;
+        6=OUT_DAC  : routet VU-Meter unmittelbar vor dac~;
+      dem VU-Meter-Werte-Paerchen wird noch der Kanal-Index vorgehaengt.
+
+
+===GENERAL==============================================================
+
+DSP: 1/0 audio-engine on/off (pd dsp $1)
+DSP_CPU <mean> <peak>: cputime auf dem dsp
+
+
+===CUE==============================================================
+
+CUE_LOAD: filename (symbol) das geladen werden soll
+CUE_SAVE <filename> (ALL|SETTINGS|PARAMETERS|RRR): filename (symbol) in das parameter (z.b. "SETTINGS") gespeichert werden
+CUE_SAVE <filename> filter <regex>: filename (symbol) in das parameter, auf die der regular expression <regex> zutrifft, gespeicht werden; z.b. "/tmp/test filter ^[1-3]_.*" speichert alle parameter die mit 1_, 2_ oder 3_ beginnen; siehe auch "man 7 regex"
+CUE_RESET: setzt den CUE-speicher jedes parameters auf ""; wenn direkt danach die parameter gespeichert werden, ist das file leer! um "default"-werte zu laden sollte ein eigener "defaults"-CUE existieren!
+
+note: beim laden wird nicht zwischen "parameter" und "setting" unterschieden !
+
+
+===EXTENSIONS==========================================================
+
+---REV----------------------------------------------------------------
+   Settings:
+EXT_REV_ON: 0=off, 1=on
+EXT_REV_SRC: AUX SUM Source eg: 1_AUX
+
+   Parameter:
+EXT_REV_VOL:                MAIN Volume in MIDI-dB
+EXT_REV_EARLY_GAIN:         Early Reflections Output Gain in MIDI-dB
+EXT_REV_EARLY_Q:            Early Reflections Output Filter Quality
+EXT_REV_EARLY_CUTOFF:       Early Reflections Output Filter Frequency in kHz
+EXT_REV_EARLY_DEL_TIME:     a pair of Maximum and Minimum Value of 
+                              Early Reflection Delay Time in ms
+EXT_REV_EARLY_DAMP:         a pair of Maximum and Minimum Value of 
+                              Early Reflection Dampening in techn. dB
+EXT_REV_REVERB_MOD_AMP:     a pair of Maximum and Minimum Value of FM-Modulation-Magnitude
+                              of the Reverberator Delay Network in cents
+EXT_REV_REVERB_MOD_FREQ:    a pair of Maximum and Minimum Value of FM-Modulation-Frequency
+                              of the Reverberator Delay Network in Hz
+EXT_REV_REVERB_DEL_TIME:    a pair of Maximum and Minimum Value of Reverberator Delay Time in ms
+EXT_REV_REVERB_DEC_H_TIME:  Reverberation Decay Time (@ -60 dB) for High Frequency Band in sec.
+EXT_REV_REVERB_DEC_M_TIME:  Reverberation Decay Time (@ -60 dB) for Middle Frequency Band in sec.
+EXT_REV_REVERB_DEC_L_TIME:  Reverberation Decay Time (@ -60 dB) for Low Frequency Band in sec.
+EXT_REV_REVERB_DEC_MH_FREQ: Reverberation Lower Cutoff Frequency of High Band in kHz.
+EXT_REV_REVERB_DEC_LM_FREQ: Reverberation Upper Cutoff Frequency of Low Band in kHz.
+EXT_REV_REVERB_Q:           Reverberation Output Filter Quality
+EXT_REV_REVERB_CUTOFF:      Reverberation Output Filter Frequency in kHz
+EXT_REV_REVERB_GAIN:        Reverberation Output Gain in MIDI-dB
+EXT_REV_ENCODER_$1_AZIMUTH: Azimuth (0 .. 360) of Reverb-Output 1..4
+EXT_REV_ENCODER_$1_ELEVATION: Elevation (-90 .. 90) of Reverb-Output 1..4
+
+obsolete: {
+  EXT_REV_PBANKFILE:  <pbankfile> <preset>, (does not work anymore)
+    list of  pbankfile of 10 presets and index
+  EXT_REV_PARAM: parameterliste... (does not work anymore)
+    (see patch simplerevedit)  }
+
+---REV2----------------------------------------------------------------
+   Settings:
+EXT_REV2_ON: 0=off, 1=on
+EXT_REV2_$1_SRC: AUX SUM Source of Reverb-Input 1 .. 6 eg: 1_AUX
+  (doesnt work yet, it is fix connected to 1_AUX .. 6_AUX)
+
+   Parameter:
+EXT_REV2_VOL:                MAIN Volume in MIDI-dB
+EXT_REV2_EARLY_GAIN:         Early Reflections Output Gain in MIDI-dB
+EXT_REV2_EARLY_Q:            Early Reflections Output Filter Quality
+EXT_REV2_EARLY_CUTOFF:       Early Reflections Output Filter Frequency in kHz
+EXT_REV2_EARLY_DEL_TIME:     a pair of Maximum and Minimum Value of 
+                              Early Reflection Delay Time in ms
+EXT_REV2_EARLY_DAMP:         a pair of Maximum and Minimum Value of 
+                              Early Reflection Dampening in techn. dB
+EXT_REV2_REVERB_MOD_AMP:     a pair of Maximum and Minimum Value of FM-Modulation-Magnitude
+                              of the Reverberator Delay Network in cents
+EXT_REV2_REVERB_MOD_FREQ:    a pair of Maximum and Minimum Value of FM-Modulation-Frequency
+                              of the Reverberator Delay Network in Hz
+EXT_REV2_REVERB_DEL_TIME:    a pair of Maximum and Minimum Value of Reverberator Delay Time in ms
+EXT_REV2_REVERB_DEC_H_TIME:  Reverberation Decay Time (@ -60 dB) for High Frequency Band in sec.
+EXT_REV2_REVERB_DEC_M_TIME:  Reverberation Decay Time (@ -60 dB) for Middle Frequency Band in sec.
+EXT_REV2_REVERB_DEC_L_TIME:  Reverberation Decay Time (@ -60 dB) for Low Frequency Band in sec.
+EXT_REV2_REVERB_DEC_MH_FREQ: Reverberation Lower Cutoff Frequency of High Band in kHz.
+EXT_REV2_REVERB_DEC_LM_FREQ: Reverberation Upper Cutoff Frequency of Low Band in kHz.
+EXT_REV2_REVERB_Q:           Reverberation Output Filter Quality
+EXT_REV2_REVERB_CUTOFF:      Reverberation Output Filter Frequency in kHz
+EXT_REV2_REVERB_GAIN:        Reverberation Output Gain in MIDI-dB
+EXT_REV2_ENCODER_$1_AZIMUTH: Azimuth (0 .. 360) of Early-Reflections-Output-Output 1..6
+EXT_REV2_ENCODER_$1_AZIMUTH: Azimuth (0 .. 360) of Reverberator-Output 7..12
+EXT_REV2_ENCODER_$1_ELEVATION: Elevation (-90 .. 90) of Early-Reflections-Output 1..6
+EXT_REV2_ENCODER_$1_ELEVATION: Elevation (-90 .. 90) of Reverberator-Output 7..12
+
+
+---Room in Room Reverbaration: ----------------------------------------
+
+  Settings:
+EXT_RRR_ON         On/off Switch {0,1}
+$1_EXT_RRR_SRC     AUX SUM Source of RoomInRoomReverb-Input ($1 = 1 .. 6) eg: 17_ADC
+
+   Parameter:
+EXT_RRR_VOL:                MAIN Volume in MIDI-dB
+EXT_RRR_EARLY_GAIN:         Early Reflections Output Gain in MIDI-dB
+EXT_RRR_EARLY_Q:            Early Reflections Output Filter Quality
+EXT_RRR_EARLY_CUTOFF:       Early Reflections Output Filter Frequency in kHz
+EXT_RRR_EARLY_$1_DEL_TIME:  Early Reflection Delay Time of Delay-Tap ($1=1 .. 12) in ms
+EXT_RRR_EARLY_$1_DAMP:      Early Reflection Dampening of Delay-Tap ($1=1 .. 12) in techn. dB
+EXT_RRR_REVERB_MOD_AMP:     a pair of Maximum and Minimum Value of FM-Modulation-Magnitude
+                              of the Reverberator Delay Network in cents
+EXT_RRR_REVERB_MOD_FREQ:    a pair of Maximum and Minimum Value of FM-Modulation-Frequency
+                              of the Reverberator Delay Network in Hz
+EXT_RRR_REVERB_DEL_TIME:    a pair of Maximum and Minimum Value of Reverberator Delay Time in ms
+EXT_RRR_REVERB_DEC_H_TIME:  Reverberation Decay Time (@ -60 dB) for High Frequency Band in sec.
+EXT_RRR_REVERB_DEC_M_TIME:  Reverberation Decay Time (@ -60 dB) for Middle Frequency Band in sec.
+EXT_RRR_REVERB_DEC_L_TIME:  Reverberation Decay Time (@ -60 dB) for Low Frequency Band in sec.
+EXT_RRR_REVERB_DEC_MH_FREQ: Reverberation Lower Cutoff Frequency of High Band in kHz.
+EXT_RRR_REVERB_DEC_LM_FREQ: Reverberation Upper Cutoff Frequency of Low Band in kHz.
+EXT_RRR_REVERB_Q:           Reverberation Output Filter Quality
+EXT_RRR_REVERB_CUTOFF:      Reverberation Output Filter Frequency in kHz
+EXT_RRR_REVERB_GAIN:        Reverberation Output Gain in MIDI-dB
+EXT_RRR_ENCODER_$1_AZIMUTH: Azimuth (0 .. 360) of Early-Reflections-Output-Output 1..12
+EXT_RRR_ENCODER_$1_AZIMUTH: Azimuth (0 .. 360) of Reverberator-Output 13..18
+EXT_RRR_ENCODER_$1_ELEVATION: Elevation (-90 .. 90) of Early-Reflections-Output 1..12
+EXT_RRR_ENCODER_$1_ELEVATION: Elevation (-90 .. 90) of Reverberator-Output 13..18
+EXT_RRR_PARAM_EQ_$1_FREQ: Parametric-EQ-Frequency at Input ($1 = 1 .. 6) of Reverb in Hz
+EXT_RRR_PARAM_EQ_$1_Q:    Parametric-EQ-Quality at Input ($1 = 1 .. 6) of Reverb
+EXT_RRR_PARAM_EQ_$1_GAIN: Parametric-EQ-Gain at Input ($1 = 1 .. 6) of Reverb in techn. dB
+
+
+obsolete {
+  EXT_RRR_PBANKFILE  <pbankfile> <preset>, list of  pbankfile of 10 presets and index  }
+  $1_RRR_IN_AMBI_RAD : 0...1 spread, 1...100 lowpassed
+  $1_RRR_IN_AMBI_AZM : in degree
+  $1_RRR_IN_AMBI_ELV : in degree
+  EXT_RRR_PARAM      send Parameter to DSP }

@@ -1,0 +1,27 @@
+#N canvas 492 79 502 500 10;
+#X text 54 129 The device is tested automatically. If after 1 second
+it is not opened \, then arduino is stopped.;
+#X obj 59 258 arduino-master;
+#X text 51 49 arduino-master \; ------------ \; - on/off \; - devices
+\; - port number \;;
+#X obj 247 356 route analog;
+#X obj 247 377 route 0 1 2 3 4;
+#X floatatom 247 454 5 0 0 0 - - -;
+#X floatatom 264 435 5 0 0 0 - - -;
+#X floatatom 281 416 5 0 0 0 - - -;
+#X floatatom 299 397 5 0 0 0 - - -;
+#X msg 246 232 analogIns 0 1;
+#X msg 259 254 analogIns 1 1;
+#X text 54 159 They are two global messages to send or receive with
+the Arduino: [s toarduino] and [r fromarduino];
+#X text 241 209 Test a analog sensor;
+#X obj 246 285 s TO-ARDUINO;
+#X obj 247 335 r FROM-ARDUINO;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 4 1 6 0;
+#X connect 4 2 7 0;
+#X connect 4 3 8 0;
+#X connect 9 0 13 0;
+#X connect 10 0 13 0;
+#X connect 14 0 3 0;

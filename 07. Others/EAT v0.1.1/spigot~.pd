@@ -1,0 +1,28 @@
+#N canvas 335 291 258 212 10;
+#X obj 133 21 inlet;
+#X obj 133 38 f;
+#X obj 85 55 * -1;
+#X obj 85 72 + 1;
+#X obj 70 90 *~;
+#X obj 118 90 *~;
+#X obj 70 36 inlet~;
+#X obj 70 120 outlet~;
+#X obj 118 120 outlet~;
+#N canvas 185 224 558 260 (subpatch) 0;
+#X obj 61 114 loadbang;
+#X obj 61 174 print EAT;
+#X msg 61 131 ElectroAcousticTools Spigot~ v0.1 for Windows OS \, Authored
+by #200256594 at University of Leeds UK. \, Report bugs to mc07rvt@leeds.ac.uk.
+;
+#X connect 0 0 2 0;
+#X connect 2 0 1 0;
+#X restore 85 16 pd;
+#X connect 0 0 1 0;
+#X connect 1 0 5 1;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 1;
+#X connect 4 0 7 0;
+#X connect 5 0 8 0;
+#X connect 6 0 4 0;
+#X connect 6 0 5 0;

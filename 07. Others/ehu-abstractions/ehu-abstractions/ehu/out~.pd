@@ -1,0 +1,45 @@
+#N canvas 0 0 450 300 10;
+#X obj 34 232 dac~;
+#X obj 105 119 hsl 100 12 0 1 0 0 empty empty empty -2 -6 0 10 -4032
+-1 -1 9900 1;
+#X obj 54 121 *~ 1;
+#X obj 210 119 tgl 12 0 empty empty empty 17 7 0 10 -258113 -1 -1 1
+1;
+#X obj 168 103 nbx 5 14 -1e+037 1e+037 0 0 empty empty empty 0 -8 0
+10 -262144 -1 -1 1 256;
+#X obj 52 53 inlet~;
+#X obj 120 49 inlet;
+#X obj 243 101 loadbang;
+#X obj 108 229 namecanvas \$0-bla;
+#X obj 107 207 s \$0-bla;
+#X obj 107 162 r EHU_gop;
+#X text 221 159 w h of canvas / x y of red window;
+#X text 109 116 vol;
+#X msg 107 183 donecanvasdialog 1 -1 \$1 0 -1 1 1 110 48 100 100;
+#X obj 13 118 *~ 1;
+#X obj 7 55 inlet~;
+#X obj 61 158 *~ 0.5;
+#X obj 15 159 *~ 0.5;
+#X obj 205 52 inlet;
+#X text 128 30 vol;
+#X text 191 30 on/off;
+#X obj 77 260 outlet~;
+#X obj 7 259 outlet~;
+#X connect 1 0 4 0;
+#X connect 2 0 16 0;
+#X connect 3 0 1 0;
+#X connect 4 0 2 1;
+#X connect 4 0 14 1;
+#X connect 5 0 2 0;
+#X connect 6 0 1 0;
+#X connect 7 0 3 0;
+#X connect 10 0 13 0;
+#X connect 13 0 9 0;
+#X connect 14 0 17 0;
+#X connect 15 0 14 0;
+#X connect 16 0 0 1;
+#X connect 16 0 21 0;
+#X connect 17 0 0 0;
+#X connect 17 0 22 0;
+#X connect 18 0 3 0;
+#X coords 0 -1 1 1 125 33 1 100 100;

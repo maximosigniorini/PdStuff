@@ -1,0 +1,66 @@
+#N canvas 791 323 484 318 10;
+#X obj 0 0 cnv 15 180 60 empty empty mpdp_open_video 40 8 0 9 -99865
+-228856 0;
+#X obj 154 3 cnv 15 20 15 empty \$1mfpdp_id \$1 6 8 0 9 -260097 -33289
+0;
+#X obj 306 59 cnv 8 25 15 empty empty file 0 8 0 8 -4034 -1 0;
+#X obj 103 23 tgl 15 0 empty empty Configure 17 7 0 8 -260097 -1 -228856
+0 1;
+#X obj -23 181 symbol \$1;
+#X symbolatom -23 210 0 0 0 0 - - -;
+#X obj -23 145 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X symbolatom 74 210 0 0 0 0 - - -;
+#X obj 74 181 symbol \$2;
+#X obj -39 106 loadbang;
+#X obj 106 233 f \$0;
+#X symbolatom 113 274 0 0 0 0 - - -;
+#X msg 106 324 \; \$1 vis \$2;
+#X obj 106 295 pack symbol float;
+#X obj 106 209 t b f;
+#X obj 244 2 inlet;
+#X obj 2 43 cnv 8 25 15 empty empty VOUT 0 8 0 8 -258113 -1 0;
+#X obj 7 282 s \$1mfpdp_id;
+#X obj 1 1 cnv 8 25 15 empty empty file 0 8 0 8 -4034 -1 0;
+#N canvas 627 365 336 226 \$1-mpdp_open_file_win 0;
+#X obj -139 32 inlet;
+#X obj -201 185 outlet;
+#X obj 49 189 outlet~;
+#X obj -228 -9 mb-pdp_open_qt_video \$1;
+#X connect 0 0 3 0;
+#X connect 3 0 1 0;
+#X connect 3 1 2 0;
+#X restore 233 97 pd \$1-mpdp_open_file_win;
+#X obj 106 252 makesymbol pd-\$1-mpdp_open_file_win;
+#X obj 3 23 bng 15 250 50 0 \$1fpdp_video_start empty Start 15 7 0
+8 -4034 -1 -228856;
+#X obj 53 23 bng 15 250 50 0 \$1fpdp_video_stop empty Stop 15 7 0 8
+-258113 -1 -228856;
+#X obj 44 44 hsl 90 12 0 100 0 0 empty \$1fpdp_bar empty -2 -8 0 10
+-1 -260097 -1 0 1;
+#X obj 154 43 cnv 8 25 15 empty empty AOUT 0 8 0 8 -257985 -1 0;
+#X obj 401 154 cnv 8 25 15 empty empty AOUT 0 8 0 8 -257985 -1 0;
+#X obj 232 150 cnv 8 25 15 empty empty VOUT 0 8 0 8 -258113 -1 0;
+#X obj 29 44 bng 10 250 50 0 empty \$1fpdp_monitor_out_video empty
+17 7 0 10 -128992 -258113 -1;
+#X obj 140 45 bng 10 250 50 0 empty \$1fpdp_monitor_out_audio empty
+17 7 0 10 -128992 -257985 -1;
+#X obj 184 149 outlet;
+#X obj 350 153 outlet~;
+#X connect 3 0 14 0;
+#X connect 4 0 5 0;
+#X connect 5 0 17 0;
+#X connect 6 0 4 0;
+#X connect 6 0 8 0;
+#X connect 8 0 7 0;
+#X connect 9 0 6 0;
+#X connect 10 0 20 0;
+#X connect 13 0 12 0;
+#X connect 14 0 10 0;
+#X connect 14 1 13 1;
+#X connect 15 0 19 0;
+#X connect 19 0 29 0;
+#X connect 19 1 30 0;
+#X connect 20 0 11 0;
+#X connect 20 0 13 0;
+#X coords 0 -1 1 1 180 60 1 0 0;

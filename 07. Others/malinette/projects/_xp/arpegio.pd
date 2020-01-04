@@ -1,0 +1,91 @@
+#N canvas 194 48 822 660 10;
+#X declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/tools -path ../../abstractions/filters -path
+../../abstractions/fx-video -path ../../abstractions/fx-audio -path
+../../abstractions/master;
+#X declare -path abstractions/in -path abstractions/out -path abstractions/tools
+-path abstractions/filters -path abstractions/fx-video -path abstractions/fx-audio
+-path abstractions/master;
+#X obj 7 207 cnv 1 396 1 empty empty FILTERS 2 -6 1 12 -228856 -191407
+0;
+#X obj 7 414 cnv 1 800 1 empty empty OUT 2 -6 1 12 -228856 -191407
+0;
+#X obj 7 35 cnv 1 800 1 empty empty IN 2 -6 1 12 -228856 -191407 0
+;
+#X obj 7 207 cnv 1 800 1 empty empty TOOLS 400 -6 1 12 -228856 -191407
+0;
+#N canvas 362 156 563 434 INIT 0;
+#X obj 101 101 cnv 8 48 8 empty empty INCLUDE 2 4 0 10 -233017 -66577
+0;
+#X obj 102 261 declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/tools -path ../../abstractions/filters -path
+../../abstractions/fx-video -path ../../abstractions/fx-audio -path
+../../abstractions/master;
+#X text 100 240 Use for standalone :;
+#X text 100 140 Use with the main.pd :;
+#X text 97 25 Import paths to find abstractions \; Always use it in
+the examples patchs.;
+#X obj 102 162 declare -path abstractions/in -path abstractions/out
+-path abstractions/tools -path abstractions/filters -path abstractions/fx-video
+-path abstractions/fx-audio -path abstractions/master;
+#X coords 0 -1 1 1 50 10 2 100 100;
+#X restore 756 16 pd INIT;
+#X obj 532 488 audio-out;
+#X obj 497 149 adc~ 1 2 3 4;
+#X obj 619 169 audio-in;
+#X floatatom 441 319 5 0 0 0 - - -;
+#X floatatom 453 213 5 0 0 0 - - -;
+#X obj 507 254 closestnote;
+#X obj 510 389 synth;
+#X obj 231 494 audio-out;
+#X obj 206 260 closestnote;
+#X obj 209 395 synth;
+#X obj 283 91 seq-counter;
+#X obj 141 149 seq-counter2;
+#X floatatom 172 341 5 0 0 0 - - -;
+#X obj 598 437 audio-delay;
+#X obj 598 556 audio-out;
+#X obj 260 329 - 12;
+#X obj 370 389 synth-xylophone;
+#X obj 108 494 audio-out;
+#X obj 86 395 synth;
+#X obj 15 227 synth-drums;
+#X obj 126 -3;
+#X obj 49 123 sel 45 47 50;
+#X obj 52 440 audio-disto;
+#X obj 360 458 audio-pitchshift;
+#X obj 358 544 audio-out;
+#X text 232 133 45 54 1;
+#X connect 7 1 10 0;
+#X connect 7 2 11 2;
+#X connect 9 0 10 0;
+#X connect 10 0 8 0;
+#X connect 10 0 11 0;
+#X connect 11 0 5 0;
+#X connect 11 0 5 1;
+#X connect 11 0 18 0;
+#X connect 13 0 14 0;
+#X connect 13 0 17 0;
+#X connect 13 0 20 0;
+#X connect 13 0 23 0;
+#X connect 14 0 12 0;
+#X connect 14 0 12 1;
+#X connect 14 0 18 0;
+#X connect 14 0 28 0;
+#X connect 16 0 13 0;
+#X connect 16 0 24 2;
+#X connect 16 0 26 0;
+#X connect 18 0 19 0;
+#X connect 18 1 19 1;
+#X connect 20 0 14 0;
+#X connect 21 0 18 0;
+#X connect 21 0 28 0;
+#X connect 23 0 12 0;
+#X connect 24 4 27 0;
+#X connect 26 0 24 0;
+#X connect 26 1 24 0;
+#X connect 26 2 24 1;
+#X connect 27 0 22 0;
+#X connect 27 0 22 1;
+#X connect 28 0 29 0;
+#X connect 28 0 29 1;

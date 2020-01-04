@@ -1,0 +1,13 @@
+#N canvas 0 0 450 300 10;
+#X text 33 184 code modified from arduino-help.pd example by gerda
+strobl and georg holtzman;
+#X floatatom 20 23 5 0 0 0 - - -;
+#X text 100 133 set ANALOG inputs on/off (1 = on and 0 = off);
+#X obj 25 87 ehu/arduino/set_analog;
+#X msg 76 48 0 \, 2 \, 6;
+#X text 26 2 inlet 1 : number of analog pin to enable/disable;
+#X text 137 31 width a list;
+#X text 136 59 which one to enable/disable;
+#X text 135 46 separated by commas;
+#X connect 1 0 3 0;
+#X connect 4 0 3 0;

@@ -1,0 +1,106 @@
+#N canvas 301 41 1183 643 10;
+#X obj 2 -366 cnv 15 700 50 empty empty pixelWW-2-ortho 3 12 0 18 -260080
+-1 0;
+#X text 591 -349 @author Pertuit;
+#X obj 423 -276 gemmanager;
+#X text 591 -337 @version 1;
+#X text 591 -362 @library 2DMovie;
+#X obj 616 -214 s zone1.x;
+#X obj 863 -215 s zone1.y;
+#X floatatom 693 -253 5 0 0 1 x_en_pixelsWW - -;
+#X floatatom 821 -253 5 0 0 1 y_en_pixelsWW - -;
+#X floatatom 578 -97 5 0 0 1 x_en_gem_ORTHO - -;
+#X floatatom 719 -97 5 0 0 1 y_en_gem_ORTHO - -;
+#X text 732 -324 Position en pixels de la fenêtre de travail;
+#X text 22 -66 ARGUMENTS \; aucun;
+#X text 434 -209 Zone carrée bleue 2DMovie;
+#X obj 146 126 loadbang;
+#X obj 407 -239 cnv 15 10 30 empty empty empty 20 12 0 14 -203904 -66577
+0;
+#X obj 436 -234 zone zone1 100 100 70 70;
+#X obj 34 156 world_light;
+#X obj 34 129 gemhead 10;
+#X text 29 180 lumière;
+#X msg 146 151 \; lighting 1 \; rcvtoggle 0;
+#X text 22 -282 DESCRIPTION \; Fonction de conversion d'une position
+(x \, y) mesurée en pixels dans la fenêtre de travail \, en unités
+de l'espace GEM en mode ORTHOGRAPHIQUE.;
+#X obj 657 -147 pixelWW-2-ortho;
+#X obj 502 48 translateXYZ 0 0 0;
+#X msg 546 92 compat 1;
+#X obj 502 211 sphere 0.5 30;
+#X obj 502 126 ortho;
+#X text 548 74 par défaut;
+#X obj 475 -4 cnv 15 10 240 empty empty empty 20 12 0 14 -258113 -66577
+0;
+#X obj 502 7 gemhead;
+#X obj 412 -64 tgl 25 0 empty rcvtoggle Sphère_rouge_ORTHO_1 30 13
+0 10 -258113 -1 -1 1 1;
+#X obj 502 165 color 1 0 0;
+#X text 585 166 ROUGE;
+#X obj 821 48 translateXYZ 0 0 0;
+#X msg 873 105 compat 0;
+#X obj 821 211 sphere 0.5 30;
+#X obj 821 129 ortho;
+#X obj 794 -4 cnv 15 10 240 empty empty empty 20 12 0 14 -257985 -66577
+0;
+#X obj 722 -43 tgl 25 0 empty rcvtoggle Sphère_jaune_ORTHO_0 30 13
+0 10 -257985 -1 -1 0 1;
+#X obj 821 165 color 1 1 0;
+#X floatatom 909 -102 5 0 0 1 x_en_gem_PERSP - -;
+#X floatatom 1050 -102 5 0 0 1 y_en_gem_PERSP - -;
+#X obj 807 -147 pixelWW-2-persp;
+#X obj 873 75 loadbang;
+#X text 904 166 JAUNE;
+#X text 583 242 Sphères en projection ORTHOGRAPHIQUE;
+#X text 22 -222 La souris déplace la zone carrée bleue 2DMovie. En
+cliquant sur l'un des interrupteurs \, la sphère correspondante suit
+le même mouvement.;
+#X obj 821 7 gemhead;
+#X text 196 -360 Conversion d'une position (en pixels) en unités GEM
+(en mode ORTHOGRAPHIQUE);
+#X text 675 -167 conversion;
+#X text 819 -167 conversion;
+#X text 24 -177 Par défaut \, le mode ORTHO utilise l'option "compat
+1". Avec l'option "compat 0" \, la forme est corrigée selon la perspective
+et il faut utiliser le second module de conversion [pixelWW-2-persp].
+;
+#X text 24 -117 Voir aussi : [pixelWW-2-persp] \, [ortho-2-pixelWW]
+et [persp-2-pixelWW].;
+#X text 22 -20 INLETS \; 1- nombre : position selon x (pixels) \; 2-
+nombre : position selon y (pixels);
+#X text 22 39 OUTLETS \; 1- nombre : position selon x (espace GEM ORTHO)
+\; 2- nombre : position selon y (espace GEM ORTHO);
+#X obj 748 -294 WWMouse;
+#X connect 7 0 5 0;
+#X connect 7 0 42 0;
+#X connect 7 0 22 0;
+#X connect 8 0 6 0;
+#X connect 8 0 42 1;
+#X connect 8 0 22 1;
+#X connect 9 0 23 1;
+#X connect 10 0 23 2;
+#X connect 14 0 20 0;
+#X connect 18 0 17 0;
+#X connect 22 0 9 0;
+#X connect 22 1 10 0;
+#X connect 23 0 26 0;
+#X connect 24 0 26 0;
+#X connect 26 0 31 0;
+#X connect 29 0 23 0;
+#X connect 30 0 29 0;
+#X connect 31 0 25 0;
+#X connect 33 0 36 0;
+#X connect 34 0 36 0;
+#X connect 36 0 39 0;
+#X connect 38 0 47 0;
+#X connect 39 0 35 0;
+#X connect 40 0 33 1;
+#X connect 41 0 33 2;
+#X connect 42 0 40 0;
+#X connect 42 1 41 0;
+#X connect 43 0 34 0;
+#X connect 47 0 33 0;
+#X connect 55 0 7 0;
+#X connect 55 1 8 0;
+#X coords 0 643 1 642 65 15 0;

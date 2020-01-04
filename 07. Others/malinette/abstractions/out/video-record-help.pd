@@ -1,0 +1,32 @@
+#N canvas 1 88 676 396 10;
+#X obj 184 253 tgl 15 0 empty empty Record 17 7 0 10 -262144 -1 -1
+0 1;
+#X msg 470 46 create \, 1;
+#X obj 470 127 gemwin;
+#X msg 480 71 0 \, destroy;
+#X text 546 46 <- on;
+#X text 552 72 <- off;
+#X msg 486 102 reset \, dimen 640 480;
+#X obj 147 299 video-record;
+#X msg 304 282 file ../../data/rec.mov;
+#X obj 222 270 bng 15 250 50 0 empty empty Snapshot 17 7 0 10 -262144
+-1 -1;
+#X text 63 317 Open a file >;
+#X msg 307 329 auto \$1;
+#X obj 307 307 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 59 28 video-record \; ------------- \; Record video into a
+file (.mov) \; First choose the file \; Inlets \; 1: video (not 3D)
+\; 2: record (0-1 toggle) \; 3: bang record \; 4: commands (in progress)
+\;;
+#X text 301 263 Save into a file (.mov only);
+#X obj 147 211 ../in/video-in;
+#X connect 0 0 7 1;
+#X connect 1 0 2 0;
+#X connect 3 0 2 0;
+#X connect 6 0 2 0;
+#X connect 8 0 7 3;
+#X connect 9 0 7 2;
+#X connect 11 0 7 3;
+#X connect 12 0 11 0;
+#X connect 15 0 7 0;

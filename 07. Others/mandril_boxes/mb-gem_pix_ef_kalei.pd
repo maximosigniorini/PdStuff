@@ -1,0 +1,166 @@
+#N canvas 1005 390 450 321 10;
+#X obj 33 272 symbol \$1;
+#X obj 135 330 ftos;
+#X obj 104 264 float \$1;
+#X floatatom 104 293 5 0 0 0 - - -;
+#X symbolatom 34 305 0 0 0 0 - - -;
+#X symbolatom 94 343 10 0 0 0 - - -;
+#X obj 43 226 loadbang;
+#X obj 96 380 s \$1gempix_ef_kalei_id;
+#X obj 240 41 inlet;
+#X text 468 41 on/off;
+#X obj 296 633 outlet;
+#X obj 321 97 gate 2;
+#X obj 379 66 + 1;
+#X text 298 41 gemin;
+#X text 344 630 gemout;
+#X floatatom 446 120 5 0 64 1 segments - -;
+#X floatatom 459 166 5 0 0 1 sourceAngle - -;
+#X obj 425 563 pix_kaleidoscope;
+#X floatatom 492 335 5 0 0 1 outputAngle - -;
+#X floatatom 584 532 5 0.1 10 1 sap - -;
+#X floatatom 526 494 5 0 1 1 rlp - -;
+#X obj 504 427 pack;
+#X obj 558 427 t b f;
+#X floatatom 504 388 4 0 100 0 - - -;
+#X floatatom 556 388 4 0 100 0 - - -;
+#X obj 504 407 * 0.01;
+#X obj 556 407 * 0.01;
+#X obj 472 281 pack;
+#X obj 526 281 t b f;
+#X floatatom 472 242 4 0 100 0 - - -;
+#X floatatom 524 242 4 0 100 0 - - -;
+#X obj 472 261 * 0.01;
+#X obj 524 261 * 0.01;
+#X obj 446 92 r \$1gempix_ef_kalei_segments;
+#X obj 461 141 r \$1gempix_ef_kalei_sourceangle;
+#X obj 479 190 r \$1gempix_ef_kalei_x;
+#X obj 521 212 r \$1gempix_ef_kalei_y;
+#X obj 491 307 r \$1gempix_ef_kalei_outputangle;
+#X obj 562 357 r \$1gempix_ef_kalei_cx;
+#X obj 604 379 r \$1gempix_ef_kalei_cy;
+#X obj 529 461 r \$1gempix_ef_kalei_rlp;
+#X obj 587 505 r \$1gempix_ef_kalei_sap;
+#X obj 394 10 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 426 13 r \$1gempix_ef_kalei_on;
+#X obj 0 0 cnv 15 150 155 empty empty empty 2 12 0 14 -191407 -66577
+0;
+#X obj 5 5 tgl 15 0 \$1gempix_ef_kalei_on \$1gempix_ef_kalei_on_init
+kaleidoscope 17 7 0 10 -260097 -1 -1 0 1;
+#X floatatom 8 31 5 0 64 1 segments #1gempix_ef_kalei_segments_init
+#1gempix_ef_kalei_segments;
+#X floatatom 9 49 5 0 0 1 source_angle #1gempix_ef_kalei_sourceangle_init
+#1gempix_ef_kalei_sourceangle;
+#X floatatom 9 68 5 0 100 1 absX #1gempix_ef_kalei_x_init #1gempix_ef_kalei_x
+;
+#X floatatom 75 69 5 0 100 1 absY #1gempix_ef_kalei_y_init #1gempix_ef_kalei_y
+;
+#X floatatom 9 88 5 0 0 1 output_angle #1gempix_ef_kalei_outputangle_init
+#1gempix_ef_kalei_outputangle;
+#X floatatom 9 108 5 0 100 1 cenX #1gempix_ef_kalei_cx_init #1gempix_ef_kalei_cx
+;
+#X floatatom 74 107 5 0 100 1 cenY #1gempix_ef_kalei_cy_init #1gempix_ef_kalei_cy
+;
+#X floatatom 10 131 5 0 100 1 rlp #1gempix_ef_kalei_rlp_init #1gempix_ef_kalei_rlp
+;
+#X floatatom 75 130 5 0 100 1 sap #1gempix_ef_kalei_sap_init #1gempix_ef_kalei_sap
+;
+#X obj 123 5 cnv 15 20 10 empty \$1gempix_ef_kalei_id \$1 5 5 0 10
+-260097 -33289 0;
+#N canvas 981 359 450 300 midi_control 0;
+#X msg 204 135 ef1epdp_aging_on_midi;
+#X msg 365 133 ef1epdp_aging_dust_midi;
+#X floatatom 93 324 5 0 0 0 - - -;
+#X obj 91 369 select 0;
+#X obj 331 261 s midi_var_to_add;
+#X text 442 258 -->global value of mb-midi_control_pad;
+#X msg 160 420 0;
+#X msg 110 426 1;
+#X obj 90 399 alternate;
+#X obj 65 41 r \$1gempix_ef_kalei_midi_on;
+#X obj 285 27 r \$1gempix_ef_kalei_id;
+#X msg 146 104 set \$1gempix_ef_kalei_on_midi;
+#X msg 365 102 set \$1gempix_ef_kalei_r_midi;
+#X msg 558 104 set \$1gempix_ef_kalei_g_midi;
+#X msg 563 144 ef1epdp_aging_on_midi;
+#X obj 93 290 r \$1gempix_ef_kalei_on_midi;
+#X obj 71 452 s $gempix_ef_kalei_on_init;
+#X obj 302 291 r \$1gempix_ef_kalei_r_midi;
+#X obj 280 453 s $gempix_ef_kalei_r_init;
+#X floatatom 295 317 5 0 0 0 - - -;
+#X floatatom 327 415 8 0 0 0 - - -;
+#X obj 312 351 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 309 381 autoscale 0 255;
+#X obj 494 293 r \$1gempix_ef_kalei_r_midi;
+#X obj 475 445 s $gempix_ef_kalei_r_init;
+#X floatatom 522 407 8 0 0 0 - - -;
+#X connect 0 0 4 0;
+#X connect 1 0 13 0;
+#X connect 2 0 3 0;
+#X connect 3 1 8 0;
+#X connect 6 0 16 0;
+#X connect 7 0 16 0;
+#X connect 8 0 7 0;
+#X connect 8 1 6 0;
+#X connect 9 0 11 0;
+#X connect 10 0 11 0;
+#X connect 11 0 0 0;
+#X connect 12 0 1 0;
+#X connect 13 0 14 0;
+#X connect 15 0 2 0;
+#X connect 17 0 19 0;
+#X connect 19 0 21 0;
+#X connect 20 0 18 0;
+#X connect 21 0 22 0;
+#X connect 22 0 20 0;
+#X connect 23 0 25 0;
+#X connect 25 0 24 0;
+#X restore 161 7 pd midi_control;
+#X obj 97 31 bng 15 250 50 0 \$1gempix_ef_kalei_midi_on empty midi
+17 7 0 8 -4160 -1 -1;
+#X connect 0 0 4 0;
+#X connect 1 0 5 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X connect 4 0 5 0;
+#X connect 5 0 7 0;
+#X connect 6 0 2 0;
+#X connect 6 0 0 0;
+#X connect 8 0 11 1;
+#X connect 11 0 10 0;
+#X connect 11 1 17 0;
+#X connect 12 0 11 0;
+#X connect 15 0 17 1;
+#X connect 16 0 17 2;
+#X connect 17 0 10 0;
+#X connect 18 0 17 4;
+#X connect 19 0 17 7;
+#X connect 20 0 17 6;
+#X connect 21 0 17 5;
+#X connect 22 0 21 0;
+#X connect 22 1 21 1;
+#X connect 23 0 25 0;
+#X connect 24 0 26 0;
+#X connect 25 0 21 0;
+#X connect 26 0 22 0;
+#X connect 27 0 17 3;
+#X connect 28 0 27 0;
+#X connect 28 1 27 1;
+#X connect 29 0 31 0;
+#X connect 30 0 32 0;
+#X connect 31 0 27 0;
+#X connect 32 0 28 0;
+#X connect 33 0 15 0;
+#X connect 34 0 16 0;
+#X connect 35 0 29 0;
+#X connect 36 0 30 0;
+#X connect 37 0 18 0;
+#X connect 38 0 23 0;
+#X connect 39 0 24 0;
+#X connect 40 0 20 0;
+#X connect 41 0 19 0;
+#X connect 42 0 12 0;
+#X connect 43 0 42 0;
+#X coords 0 -1 1 1 150 155 1 0 0;

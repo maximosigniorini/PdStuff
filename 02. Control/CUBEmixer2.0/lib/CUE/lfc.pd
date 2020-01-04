@@ -1,0 +1,14 @@
+#N canvas 0 0 433 292 10;
+#X obj 228 158 receive/prepend \$1/OUT/LFC/GAIN;
+#X obj 86 136 receive/prepend \$1/OUT/LFC/HIGHCUT/FREQ;
+#X obj 69 114 receive/prepend \$1/OUT/LFC/BUS/DST;
+#X obj 228 34 inlet params;
+#X obj 228 219 outlet params;
+#X obj 69 217 outlet settings;
+#X obj 69 34 inlet settings;
+#X connect 0 0 4 0;
+#X connect 1 0 5 0;
+#X connect 2 0 5 0;
+#X connect 3 0 0 0;
+#X connect 6 0 2 0;
+#X connect 6 0 1 0;

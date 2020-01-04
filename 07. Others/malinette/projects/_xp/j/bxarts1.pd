@@ -1,0 +1,168 @@
+#N canvas 155 0 800 684 10;
+#X text 7 -29 sequenceurs \; metro \; sliders \; objet "f";
+#X obj 473 69 metro 200;
+#X obj 473 46 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 178 404 f;
+#X obj 193 264 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 12700 1;
+#X obj 218 404 f;
+#X obj 233 264 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 4000 1;
+#X obj 258 404 f;
+#X obj 273 264 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 9300 1;
+#X obj 298 404 f;
+#X obj 313 264 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 3200 1;
+#X obj 201 451 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 4000 1;
+#X floatatom 108 139 5 0 0 0 - - -;
+#X obj 178 216 select 0 1 2 3;
+#X obj 473 129 f;
+#X obj 563 112 + 1;
+#X obj 563 142 % 4;
+#X obj 178 135 random 4;
+#X text 286 137 autre solution :;
+#X obj 251 64 delay 100;
+#X obj 251 19 random 1000;
+#X obj 178 64 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 468 493 \$1 200;
+#X obj 468 526 line;
+#X msg 363 60 stop;
+#N canvas 757 161 608 579 SEQUENCEUR 0;
+#X obj 169 370 f;
+#X obj 104 123 vsl 15 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 2700 1;
+#X obj 209 370 f;
+#X obj 123 123 vsl 15 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 2900 1;
+#X obj 249 370 f;
+#X obj 141 123 vsl 15 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 800 1;
+#X obj 289 370 f;
+#X obj 156 124 vsl 15 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 192 417 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 11824 1;
+#X obj 169 182 select 0 1 2 3;
+#X text 296 147 autre solution :;
+#X obj 166 47 metro 200;
+#X obj 166 25 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 194 115 f;
+#X obj 257 105 + 1;
+#X obj 257 135 % 4;
+#X obj 215 13 inlet;
+#X obj 267 514 outlet;
+#X text 415 234 clic droit \; propriétés \; Tracer \;;
+#X obj 167 125 vsl 15 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X connect 0 0 8 0;
+#X connect 1 0 0 1;
+#X connect 2 0 8 0;
+#X connect 3 0 2 1;
+#X connect 4 0 8 0;
+#X connect 5 0 4 1;
+#X connect 6 0 8 0;
+#X connect 7 0 6 1;
+#X connect 8 0 17 0;
+#X connect 9 0 0 0;
+#X connect 9 1 2 0;
+#X connect 9 2 4 0;
+#X connect 9 3 6 0;
+#X connect 11 0 13 0;
+#X connect 12 0 11 0;
+#X connect 13 0 14 0;
+#X connect 13 0 9 0;
+#X connect 14 0 15 0;
+#X connect 15 0 13 1;
+#X connect 16 0 12 0;
+#X coords 0 -1 1 1 85 60 1 100 100;
+#X restore 445 248 pd SEQUENCEUR;
+#X obj 445 214 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X floatatom 445 324 5 0 0 0 - - -;
+#X obj 610 246 sequenceur2;
+#N canvas 798 160 608 579 SEQUENCEUR 0;
+#X obj 169 370 f;
+#X obj 104 123 vsl 15 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 209 370 f;
+#X obj 123 123 vsl 15 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 249 370 f;
+#X obj 141 123 vsl 15 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 289 370 f;
+#X obj 161 123 vsl 15 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 192 417 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 169 182 select 0 1 2 3;
+#X text 296 147 autre solution :;
+#X obj 166 47 metro 200;
+#X obj 166 25 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 194 115 f;
+#X obj 257 105 + 1;
+#X obj 257 135 % 4;
+#X obj 215 13 inlet;
+#X obj 267 514 outlet;
+#X text 415 234 clic droit \; propriétés \; Tracer \;;
+#X connect 0 0 8 0;
+#X connect 1 0 0 1;
+#X connect 2 0 8 0;
+#X connect 3 0 2 1;
+#X connect 4 0 8 0;
+#X connect 5 0 4 1;
+#X connect 6 0 8 0;
+#X connect 7 0 6 1;
+#X connect 8 0 17 0;
+#X connect 9 0 0 0;
+#X connect 9 1 2 0;
+#X connect 9 2 4 0;
+#X connect 9 3 6 0;
+#X connect 11 0 13 0;
+#X connect 12 0 11 0;
+#X connect 13 0 14 0;
+#X connect 13 0 9 0;
+#X connect 14 0 15 0;
+#X connect 15 0 13 1;
+#X connect 16 0 12 0;
+#X coords 0 -1 1 1 85 60 1 100 100;
+#X restore 445 398 pd SEQUENCEUR;
+#X obj 445 364 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 445 474 5 0 0 0 - - -;
+#X obj 607 399 sequenceur2;
+#X connect 1 0 14 0;
+#X connect 2 0 1 0;
+#X connect 3 0 11 0;
+#X connect 4 0 3 1;
+#X connect 5 0 11 0;
+#X connect 6 0 5 1;
+#X connect 7 0 11 0;
+#X connect 8 0 7 1;
+#X connect 9 0 11 0;
+#X connect 10 0 9 1;
+#X connect 13 0 3 0;
+#X connect 13 1 5 0;
+#X connect 13 2 7 0;
+#X connect 13 3 9 0;
+#X connect 14 0 15 0;
+#X connect 15 0 16 0;
+#X connect 16 0 14 1;
+#X connect 17 0 12 0;
+#X connect 17 0 13 0;
+#X connect 19 0 21 0;
+#X connect 20 0 19 0;
+#X connect 21 0 20 0;
+#X connect 21 0 17 0;
+#X connect 22 0 23 0;
+#X connect 24 0 19 0;
+#X connect 25 0 27 0;
+#X connect 26 0 25 0;
+#X connect 29 0 31 0;
+#X connect 30 0 29 0;

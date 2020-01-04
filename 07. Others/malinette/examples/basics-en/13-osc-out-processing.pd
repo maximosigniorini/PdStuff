@@ -1,0 +1,91 @@
+#N canvas 151 22 800 687 10;
+#X declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/numbers -path ../../abstractions/video -path
+../../abstractions/audio -path ../../abstractions/master;
+#X obj 7 349 cnv 1 470 1 empty empty FX 2 -6 1 12 -228856 -191407 0
+;
+#X obj 7 501 cnv 1 470 1 empty empty OUT 2 -6 1 12 -228856 -191407
+0;
+#X obj 7 193 cnv 1 470 1 empty empty IN 2 -6 1 12 -228856 -191407 0
+;
+#X obj 489 28 cnv 20 300 60 empty empty DESCRIPTION 10 15 0 16 -233017
+-128992 0;
+#X obj 489 92 cnv 20 300 100 empty empty PROCÉDURE 10 15 0 16 -262130
+-128992 0;
+#X obj 489 196 cnv 20 300 150 empty empty empty 10 15 0 16 -233017
+-128992 0;
+#X obj 489 504 cnv 20 300 120 empty empty empty 10 15 0 16 -233017
+-128992 0;
+#X obj 221 377 vsl 15 40 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 221 355 / 80;
+#X obj 221 264 gcanvas 80 80;
+#X obj 271 380 vsl 15 40 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 271 356 / 80;
+#X obj 71 554 osc-out;
+#X msg 71 225 connect;
+#X msg 221 526 /v1 \$1;
+#X floatatom 221 428 5 0 0 0 - - -;
+#X floatatom 271 428 5 0 0 0 - - -;
+#X msg 271 526 /v2 \$1;
+#X floatatom 351 428 5 0 0 0 - - -;
+#X msg 351 526 /v3 \$1;
+#X floatatom 401 428 5 0 0 0 - - -;
+#X obj 351 377 vsl 15 40 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 351 353 / 80;
+#X obj 351 264 gcanvas 80 80;
+#X obj 401 378 vsl 15 40 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 401 354 / 80;
+#X msg 401 526 /v4 \$1;
+#X obj 221 450 fade 70;
+#X obj 271 450 fade 70;
+#X obj 351 450 fade 70;
+#X obj 401 450 fade 70;
+#X obj 489 350 cnv 20 300 150 empty empty empty 10 15 0 16 -233017
+-128992 0;
+#X text 497 52 Send OSC data to another program. We use;
+#X text 497 66 Processing (processing.org) in this example.;
+#X obj 489 4 cnv 20 300 20 empty empty ! 5 10 0 16 -261234 -258113
+0;
+#X text 507 5 First install the "OSC-P5" lib for Processing;
+#X text 492 116 1/ Open the file "./other/to_processing" \; 2/ Clic
+on "Run" to launch it \; 3/ Come back to the Malinette \, clic on connect
+\; 4/ Play with the mouse in the white squares;
+#X text 511 168 to move the circles in Processing.;
+#X text 66 201 #3 - Connection;
+#X text 218 239 #4 - Play with the mouse;
+#X text 492 210 < Connect your computer to the network;
+#X text 497 355 < normalise values between 0 and 1;
+#X text 497 445 < smooth values to smooth the movement;
+#X text 509 541 /v1 \, /v2 \, /v3 \, /v4;
+#X text 497 528 < send four OSC values with these prefixes :;
+#X text 497 275 < get the mouse coordinates inside the squares;
+#X obj 735 33 ../../abstractions/include;
+#X connect 7 0 15 0;
+#X connect 8 0 7 0;
+#X connect 9 0 8 0;
+#X connect 9 1 11 0;
+#X connect 10 0 16 0;
+#X connect 11 0 10 0;
+#X connect 13 0 12 0;
+#X connect 14 0 12 1;
+#X connect 15 0 27 0;
+#X connect 16 0 28 0;
+#X connect 17 0 12 1;
+#X connect 18 0 29 0;
+#X connect 19 0 12 1;
+#X connect 20 0 30 0;
+#X connect 21 0 18 0;
+#X connect 22 0 21 0;
+#X connect 23 0 22 0;
+#X connect 23 1 25 0;
+#X connect 24 0 20 0;
+#X connect 25 0 24 0;
+#X connect 26 0 12 1;
+#X connect 27 0 14 0;
+#X connect 28 0 17 0;
+#X connect 29 0 19 0;
+#X connect 30 0 26 0;

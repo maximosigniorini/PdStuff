@@ -1,0 +1,69 @@
+#N canvas 202 71 1063 616 10;
+#X obj 2 -393 cnv 15 700 50 empty empty pixelWW-2-persp 3 12 0 18 -260080
+-1 0;
+#X text 591 -376 @author Pertuit;
+#X obj 463 -319 gemmanager;
+#X text 591 -364 @version 1;
+#X text 591 -389 @library 2DMovie;
+#X obj 595 22 translateXYZ 0 0 0;
+#X obj 595 121 sphere 0.5 30;
+#X obj 595 69 color 0 1 0;
+#X obj 689 -238 s zone1.x;
+#X obj 913 -241 s zone1.y;
+#X text 679 69 VERT;
+#X obj 595 -29 gemhead;
+#X floatatom 758 -280 5 0 0 1 x_en_pixelsWW - -;
+#X floatatom 886 -280 5 0 0 1 y_en_pixelsWW - -;
+#X obj 595 -118 tgl 25 0 empty rcvtoggle Sphère_verte_PERSP 30 13
+0 10 -4034 -1 -1 0 1;
+#X floatatom 743 -54 5 0 0 1 x_en_gem_PERSP - -;
+#X floatatom 884 -54 5 0 0 1 y_en_gem_PERSP - -;
+#X text 732 -351 Position en pixels de la fenêtre de travail;
+#X text 22 -161 ARGUMENTS \; aucun;
+#X text 474 -252 Zone carrée bleue 2DMovie;
+#X text 564 152 Sphère en mode PERSPECTIVE;
+#X text 564 169 (mode par défaut de GEM);
+#X obj 166 7 loadbang;
+#X obj 447 -282 cnv 15 10 30 empty empty empty 20 12 0 14 -203904 -66577
+0;
+#X obj 476 -277 zone zone1 100 100 70 70;
+#X obj 34 57 world_light;
+#X obj 34 30 gemhead 10;
+#X text 29 81 lumière;
+#X msg 166 32 \; lighting 1 \; rcvtoggle 0;
+#X text 22 -309 DESCRIPTION \; Fonction de conversion d'une position
+(x \, y) mesurée en pixels dans la fenêtre de travail \, en unités
+de l'espace GEM en mode PERSPECTIVE.;
+#X obj 772 -174 pixelWW-2-persp;
+#X text 22 -249 La souris déplace la zone carrée bleue 2DMovie. En
+cliquant sur l'interrupteur vert \, la sphère suit le même mouvement.
+;
+#X obj 563 -104 cnv 15 10 240 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X text 196 -387 Conversion d'une position (en pixels) en unités GEM
+(en mode PERSPECTIVE);
+#X text 878 -176 conversion;
+#X text 23 -212 Voir aussi : [pixelWW-2-ortho] \, [ortho-2-pixelWW]
+et [persp-2-pixelWW].;
+#X text 22 -60 OUTLETS \; 1- nombre : position selon x (espace GEM
+PERSP) \; 2- nombre : position selon y (espace GEM PERSP);
+#X text 22 -116 INLETS \; 1- nombre : position selon x (pixels) \;
+2- nombre : position selon y (pixels);
+#X obj 815 -321 WWMouse;
+#X connect 5 0 7 0;
+#X connect 7 0 6 0;
+#X connect 11 0 5 0;
+#X connect 12 0 8 0;
+#X connect 12 0 30 0;
+#X connect 13 0 9 0;
+#X connect 13 0 30 1;
+#X connect 14 0 11 0;
+#X connect 15 0 5 1;
+#X connect 16 0 5 2;
+#X connect 22 0 28 0;
+#X connect 26 0 25 0;
+#X connect 30 0 15 0;
+#X connect 30 1 16 0;
+#X connect 38 0 12 0;
+#X connect 38 1 13 0;
+#X coords 0 616 1 615 65 15 0;

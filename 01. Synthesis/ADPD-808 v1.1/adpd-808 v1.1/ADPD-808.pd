@@ -1,0 +1,24 @@
+#N canvas 1664 245 792 164 10;
+#X obj 588 1 data/instrument-gui;
+#X obj 591 140 hsl 195 20 0 4 0 0 instru-number instru-number-r <_Slide_Me_>
+45 11 0 11 -1 -4034 -262144 9600 1;
+#X obj 1 1 data/instruments/drum-machine/drum-machine;
+#X obj 2 111 data/mixer;
+#X text 218 213 ADPD-808 by Arif Driessen;
+#X text 217 233 questions: arifd86@gmail.com;
+#N canvas 699 434 450 300 print-stuff 0;
+#X obj 118 174 print ADPD-808;
+#X msg 115 74 /* BY ARIF DRIESSEN */;
+#X msg 131 98 Compressor and Clank Generator includes the great work
+of Hardoff;
+#X msg 136 139 Enjoy your christmas present DMSA people!;
+#X obj 113 36 t b b b;
+#X obj 111 10 loadbang;
+#X connect 1 0 0 0;
+#X connect 2 0 0 0;
+#X connect 3 0 0 0;
+#X connect 4 0 3 0;
+#X connect 4 1 2 0;
+#X connect 4 2 1 0;
+#X connect 5 0 4 0;
+#X restore 406 217 pd print-stuff;

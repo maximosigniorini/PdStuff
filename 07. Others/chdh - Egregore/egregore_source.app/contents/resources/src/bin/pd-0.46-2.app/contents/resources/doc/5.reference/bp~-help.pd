@@ -1,0 +1,40 @@
+#N canvas 531 65 657 420 12;
+#X obj 124 11 bp~;
+#X text 159 11 - BANDPASS FILTER;
+#X floatatom 109 286 5 0 0 0 - - -, f 5;
+#X floatatom 147 192 0 0 0 0 - - -;
+#X floatatom 12 287 5 0 0 0 - - -, f 5;
+#X text 199 264 env~ gives the amplitude of the signal envelop in dB.
+;
+#X floatatom 12 123 0 0 0 0 - - -;
+#X msg 544 67 \; pd dsp 0;
+#X obj 12 146 osc~ 100;
+#X text 57 121 <-- scroll to change input frequency;
+#X msg 101 169 clear;
+#X text 151 168 <-- reinitialize internal state;
+#X msg 544 28 \; pd dsp 1;
+#X text 13 73 The left inlet is the incoming audio signal \, the middle
+control input sets center frequency and the rigth input sets "Q".;
+#X text 179 193 <-- center frequency;
+#X obj 109 236 bp~ 100 10;
+#X text 208 240 Arguments initialize center frequency and Q.;
+#X text 12 311 Compare the amplitude of the original signal on the
+left with the amplitude of the filtered signal on the right.;
+#X floatatom 186 214 0 0 0 0 - - -;
+#X text 218 215 <-- Q;
+#X text 11 35 bp~ passes a sinusoid at the center frequency at unit
+gain (approximately). Other frequencies are attenuated.;
+#X text 21 367 see also:;
+#X obj 106 367 vcf~;
+#X obj 11 261 env~ 8192;
+#X obj 109 261 env~ 8192;
+#X text 398 371 updated for Pd version 0.46;
+#X connect 3 0 15 1;
+#X connect 6 0 8 0;
+#X connect 8 0 15 0;
+#X connect 8 0 23 0;
+#X connect 10 0 15 0;
+#X connect 15 0 24 0;
+#X connect 18 0 15 2;
+#X connect 23 0 4 0;
+#X connect 24 0 2 0;

@@ -1,0 +1,14 @@
+--- g_all_guis.c.~1.5.~	2004-09-15 19:00:22.000000000 +0200
++++ g_all_guis.c	2005-01-01 21:53:35.313609712 +0100
+@@ -402,6 +402,11 @@
+     int pargc, tail_len, nth_arg;
+     t_atom *pargv;
+ 
++	/* tb: fix for empty label { */
++	if (s == gensym(""))
++		s = gensym("empty");
++	/* tb } */
++
+     lab = iemgui_raute2dollar(s);
+     iemgui->x_lab_unexpanded = lab;
+     iemgui->x_lab = lab = canvas_realizedollar(iemgui->x_glist, lab);

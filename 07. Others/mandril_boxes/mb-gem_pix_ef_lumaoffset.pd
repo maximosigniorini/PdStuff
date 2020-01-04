@@ -1,0 +1,127 @@
+#N canvas 650 500 450 321 10;
+#X obj 34 172 symbol \$1;
+#X obj 136 230 ftos;
+#X obj 105 164 float \$1;
+#X floatatom 105 193 5 0 0 0 - - -;
+#X symbolatom 35 205 0 0 0 0 - - -;
+#X symbolatom 95 243 10 0 0 0 - - -;
+#X obj 44 126 loadbang;
+#X obj 246 42 inlet;
+#X text 474 42 on/off;
+#X obj 275 264 outlet;
+#X obj 327 98 gate 2;
+#X obj 385 67 + 1;
+#X text 304 42 gemin;
+#X text 323 261 gemout;
+#X obj 404 183 pix_lumaoffset;
+#X floatatom 539 233 5 0 0 2 offset - -;
+#X floatatom 566 182 5 0 0 2 gap - -;
+#X obj 486 145 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X msg 486 163 smooth \$1;
+#X msg 418 162 fill \$1;
+#X msg 486 163 smooth \$1;
+#X obj 418 144 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X obj 429 78 r \$1gempix_ef_lumaoffset_fill;
+#X obj 495 103 r \$1gempix_ef_lumaoffset_smooth;
+#X obj 568 145 r \$1gempix_ef_lumaoffset_gap;
+#X obj 579 206 r \$1gempix_ef_lumaoffset_offset;
+#X obj 391 10 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 424 11 r \$1gempix_ef_lumaoffset_on;
+#X obj 97 280 s \$1gempix_ef_lumaoffset_id;
+#X obj 0 0 cnv 15 150 75 empty empty empty 2 12 0 14 -191407 -66577
+0;
+#X obj 5 5 tgl 15 0 \$1gempix_ef_lumaoffset_on \$1gempix_ef_lumaoffset_on_init
+lumaoffset 17 7 0 12 -260097 -1 -1 0 1;
+#X obj 7 29 tgl 15 0 \$1gempix_ef_lumaoffset_fill \$1gempix_ef_lumaoffset_fill_init
+fill 17 7 0 10 -262144 -1 -1 0 1;
+#X obj 8 50 tgl 15 0 \$1gempix_ef_lumaoffset_smooth \$1gempix_ef_lumaoffset_smooth_init
+smooth 17 7 0 10 -262144 -1 -1 0 1;
+#X floatatom 71 24 5 0 0 1 offset #1gempix_ef_lumaoffset_offset_init
+#1gempix_ef_lumaoffset_offset;
+#X floatatom 71 42 5 0 0 1 gap #1gempix_ef_lumaoffset_gap_init #1gempix_ef_lumaoffset_gap
+;
+#X obj 108 4 cnv 15 20 10 empty \$1gempix_ef_lumaoffset_id \$1 5 5
+0 10 -260097 -33289 0;
+#N canvas 981 359 450 300 midi_control 0;
+#X msg 204 135 ef1epdp_aging_on_midi;
+#X msg 365 133 ef1epdp_aging_dust_midi;
+#X floatatom 93 324 5 0 0 0 - - -;
+#X obj 91 369 select 0;
+#X obj 331 261 s midi_var_to_add;
+#X text 442 258 -->global value of mb-midi_control_pad;
+#X msg 160 420 0;
+#X msg 110 426 1;
+#X obj 90 399 alternate;
+#X obj 65 41 r \$1gempix_ef_lumaoffset_midi_on;
+#X obj 285 27 r \$1gempix_ef_lumaoffset_id;
+#X msg 146 104 set \$1gempix_ef_lumaoffset_on_midi;
+#X msg 365 102 set \$1gempix_ef_lumaoffset_r_midi;
+#X msg 558 104 set \$1gempix_ef_lumaoffset_g_midi;
+#X msg 563 144 ef1epdp_aging_on_midi;
+#X obj 93 290 r \$1gempix_ef_lumaoffset_on_midi;
+#X obj 71 452 s $gempix_ef_lumaoffset_on_init;
+#X obj 302 291 r \$1gempix_ef_lumaoffset_r_midi;
+#X obj 280 453 s $gempix_ef_lumaoffset_r_init;
+#X floatatom 295 317 5 0 0 0 - - -;
+#X floatatom 327 415 8 0 0 0 - - -;
+#X obj 312 351 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 309 381 autoscale 0 255;
+#X obj 494 293 r \$1gempix_ef_lumaoffset_r_midi;
+#X obj 475 445 s $gempix_ef_lumaoffset_r_init;
+#X floatatom 522 407 8 0 0 0 - - -;
+#X connect 0 0 4 0;
+#X connect 1 0 13 0;
+#X connect 2 0 3 0;
+#X connect 3 1 8 0;
+#X connect 6 0 16 0;
+#X connect 7 0 16 0;
+#X connect 8 0 7 0;
+#X connect 8 1 6 0;
+#X connect 9 0 11 0;
+#X connect 10 0 11 0;
+#X connect 11 0 0 0;
+#X connect 12 0 1 0;
+#X connect 13 0 14 0;
+#X connect 15 0 2 0;
+#X connect 17 0 19 0;
+#X connect 19 0 21 0;
+#X connect 20 0 18 0;
+#X connect 21 0 22 0;
+#X connect 22 0 20 0;
+#X connect 23 0 25 0;
+#X connect 25 0 24 0;
+#X restore 155 3 pd midi_control;
+#X obj 107 58 bng 15 250 50 0 \$1gempix_ef_lumaoffset_midi_on empty
+midi 17 7 0 8 -4160 -1 -1;
+#X connect 0 0 4 0;
+#X connect 1 0 5 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X connect 4 0 5 0;
+#X connect 5 0 28 0;
+#X connect 6 0 2 0;
+#X connect 6 0 0 0;
+#X connect 7 0 10 1;
+#X connect 10 0 9 0;
+#X connect 10 1 14 0;
+#X connect 11 0 10 0;
+#X connect 14 0 9 0;
+#X connect 15 0 14 1;
+#X connect 16 0 14 2;
+#X connect 17 0 18 0;
+#X connect 17 0 20 0;
+#X connect 18 0 14 0;
+#X connect 19 0 14 0;
+#X connect 20 0 14 0;
+#X connect 21 0 19 0;
+#X connect 22 0 21 0;
+#X connect 23 0 17 0;
+#X connect 24 0 16 0;
+#X connect 25 0 15 0;
+#X connect 26 0 11 0;
+#X connect 27 0 26 0;
+#X coords 0 -1 1 1 150 75 2 0 0;

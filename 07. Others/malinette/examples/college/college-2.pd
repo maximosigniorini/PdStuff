@@ -1,0 +1,50 @@
+#N canvas 211 81 813 684 10;
+#X declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/tools -path ../../abstractions/filters -path
+../../abstractions/fx-video -path ../../abstractions/fx-audio -path
+../../abstractions/master;
+#X declare -path abstractions/in -path abstractions/out -path abstractions/tools
+-path abstractions/filters -path abstractions/fx-video -path abstractions/fx-audio
+-path abstractions/master;
+#N canvas 466 138 801 468 INIT 0;
+#X obj 101 101 cnv 8 48 8 empty empty INCLUDE 2 4 0 10 -233017 -66577
+0;
+#X obj 102 261 declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/tools -path ../../abstractions/filters -path
+../../abstractions/fx-video -path ../../abstractions/fx-audio -path
+../../abstractions/master;
+#X text 100 240 Use for standalone :;
+#X text 100 140 Use with the main.pd :;
+#X text 97 25 Import paths to find abstractions \; Always use it in
+the examples patchs.;
+#X obj 102 162 declare -path abstractions/in -path abstractions/out
+-path abstractions/tools -path abstractions/filters -path abstractions/fx-video
+-path abstractions/fx-audio -path abstractions/master;
+#X obj 565 311 savepanel;
+#X obj 565 146 route savetofile;
+#X obj 565 166 unpack s s;
+#X obj 565 125 iemguts/receivecanvas 1;
+#X text 562 96 Get new saved file;
+#X text 562 289 Or inside this abstraction ?;
+#X obj 565 209 s CURRENT-FILE;
+#X obj 622 189 s CURRENT-FOLDER;
+#X connect 7 0 8 0;
+#X connect 8 0 12 0;
+#X connect 8 1 13 0;
+#X connect 9 0 7 0;
+#X coords 0 -1 1 1 50 10 2 100 100;
+#X restore 748 662 pd INIT;
+#X obj 410 7 cnv 15 380 60 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 410 78 cnv 15 380 120 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X text 417 19 DESCRIPTION : Les mouvements de la souris modifie un
+son de synthèse et un objet 3D.;
+#X text 417 79 METHODE \; 1 - Ajouter l'objet IN > mouse \; 2 - Visualiser
+les sorties de cet objet avec des boites nombres : Menu Ajouter > Nombre
+\, puis les connecter \; 3 - Ajouter les objets OUT > synth et OUT
+> audio-out \, les connecter \; 4 - Ajouter un objet [* 127] pour adapter
+les données de la souris avec la synthèse sonore;
+#X text 411 240 [mouse]-[* 360]-[rx \$1<-[3d-transform 1]-[3d-object]
+;
+#X text 411 219 [mouse]-[* 127]-[synth]-[audio-out];

@@ -1,0 +1,495 @@
+#N canvas 0 355 188 176 10;
+#N canvas 556 22 429 533 Help 0;
+#X obj 5 140 cnv 15 430 55 empty empty empty 20 12 0 14 -259090 -66577
+0;
+#X obj 5 71 cnv 15 400 54 empty empty empty 20 12 0 14 -154752 -66577
+0;
+#X text 7 70 Construit sous/Build under;
+#X text 7 95 Voir/Look at:;
+#X text 10 142 - Ce module "ARGOGeneral" doit etre ouvert avant l'ouverture
+d'un autre module ARGO Audio.;
+#X text 10 173 - Ne jamais ouvrir simultanement 2 modules "ARGOGeneral".
+;
+#N canvas 46 110 1169 534 (subpatch) 0;
+#X msg 279 347 \; pd dsp \$1;
+#X obj 147 191 key;
+#X obj 219 290 s \$0-ReceiveAudioOnOff;
+#X obj 219 312 r \$0-SendAudioOnOff;
+#X obj 601 477 s \$0-ReceiveSampleFreq;
+#X obj 193 360 samplerate~;
+#X msg 193 403 label \$1;
+#X obj 193 381 tosymbol;
+#X obj 194 337 b 1;
+#X obj 399 368 select 0 1;
+#X obj 396 285 r pd;
+#X obj 397 308 route dsp;
+#X obj 398 344 f;
+#X obj 268 477 s \$0-ReceiveAudioOnOff;
+#X msg 267 457 set \$1;
+#N canvas 351 55 325 429 dsp 0;
+#X obj 123 116 cputime;
+#X obj 123 95 t b b;
+#X text 54 361 (c) musil@iem.kug.ac.at;
+#X text 96 374 IEM KUG;
+#X text 67 226 CPU-load;
+#X obj 122 46 loadbang;
+#X text 71 385 graz \, austria 2001;
+#X text 71 319 average;
+#X text 181 320 peak;
+#X obj 123 71 metro 500;
+#X obj 123 137 * 0.2;
+#X text 34 21 -dsp-load in %;
+#X text 25 8 measure average- and peak-;
+#X obj 26 226 * 100;
+#X obj 26 271 int;
+#X obj 26 249 + 0.499;
+#X obj 26 294 * 0.01;
+#X obj 26 317 outlet;
+#X obj 215 320 outlet;
+#N canvas 524 162 422 273 1p1zmodif 0;
+#X text 134 89 (c) musil@iem.kug.ac.at;
+#X text 179 99 IEM KUG;
+#X obj 14 195 +;
+#X text 151 108 graz \, austria 2001;
+#X text 135 71 y[n] = a0*x[n] + a1*x[n-1] + b1*y[n-1];
+#X text 18 13 x[n];
+#X text 16 244 y[n];
+#X text 84 111 y[n-1];
+#X text 134 56 <float> control-IIR-filter 1.order;
+#X obj 15 28 inlet;
+#X obj 14 228 outlet;
+#X obj 15 112 * 0.1;
+#X obj 59 156 * 0.9;
+#X text 139 144 a1 = 0;
+#X text 139 155 b1 = 0.9;
+#X text 139 133 a0 = 0.1;
+#X obj 15 50 t f b;
+#X text 135 40 Inspiré de 1p1z;
+#X obj 59 112 f 0;
+#X connect 2 0 10 0;
+#X connect 2 0 18 1;
+#X connect 9 0 16 0;
+#X connect 11 0 2 0;
+#X connect 12 0 2 1;
+#X connect 16 0 11 0;
+#X connect 16 1 18 0;
+#X connect 18 0 12 0;
+#X restore 26 200 pd 1p1zmodif;
+#X text 12 346 Inspiré de 5.reference/iemabs/help-dsp.pd;
+#X connect 0 0 10 0;
+#X connect 1 0 0 0;
+#X connect 1 1 0 1;
+#X connect 5 0 9 0;
+#X connect 9 0 1 0;
+#X connect 10 0 19 0;
+#X connect 10 0 18 0;
+#X connect 13 0 15 0;
+#X connect 14 0 16 0;
+#X connect 15 0 14 0;
+#X connect 16 0 17 0;
+#X connect 19 0 13 0;
+#X restore 60 448 pd dsp;
+#X obj 130 477 s \$0-ReceiveCpuPeak;
+#X obj 427 477 s \$0-ReceiveCanvasSample;
+#X obj -10 476 s \$0-ReceiveCpuMean;
+#X obj 604 14 r \$0-SendFullScreen;
+#X msg 588 224 create;
+#X msg 890 204 destroy;
+#X msg 847 204 reset;
+#X msg 737 211 fullscreen \$1;
+#X msg 948 204 0;
+#X obj 561 291 gemwin;
+#X obj 532 -7 r \$0-SendGEMOnOff;
+#X obj 745 -7 r \$0-SendGEMBorder;
+#X obj 901 174 t b b;
+#X obj 595 88 sel 1;
+#X msg 694 68 set \$1;
+#X msg 694 163 0;
+#X obj 605 36 t b f;
+#X msg 776 36 set \$1;
+#X msg 672 183 1;
+#X obj 745 14 t b f;
+#X msg 554 36 set \$1;
+#X msg 594 68 0;
+#X obj 425 105 r \$0-SendLight;
+#X msg 500 241 lighting \$1;
+#X obj 485 -26 r \$0-SendFrame;
+#X msg 609 204 frame \$1;
+#X msg 499 69 set \$1;
+#X msg 609 183 10;
+#X obj 470 24 change;
+#X obj 469 43 t b f;
+#X obj -47 302 s \$0-ReceiveFullScreen;
+#X obj -39 321 s \$0-ReceiveLight;
+#X obj 500 218 f;
+#X obj 918 120 t b b;
+#X obj 882 147 delay 200;
+#X msg 788 125 dimen 400 300;
+#X msg 793 359 shininess \$1;
+#X obj 792 340 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -6 0 10
+-262144 -1 -1 0 256;
+#X msg 404 206 color \$1 \$1 \$1;
+#X msg 789 284 ambient \$1 \$1 \$1;
+#X msg 792 321 specular \$1 \$1 \$1;
+#X obj 792 304 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -6 0 10
+-262144 -1 -1 0 256;
+#X obj 789 265 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -6 0 10
+-262144 -1 -1 0 256;
+#X obj 392 82 r \$0-SendBackGround;
+#X obj 404 185 / 100;
+#X msg 462 230 1;
+#X obj 540 109 t b b b b b b b b b b b;
+#X obj 405 229 spigot;
+#X obj 415 152 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 182 191 r \$0-SendKeyShortCut;
+#X obj 145 210 spigot;
+#X obj 402 -27 MouseState;
+#X obj 402 -8 sel 0;
+#X obj 470 4 i;
+#X text 403 327 Voir pddp/dsp;
+#X obj 838 17 r \$0-SendScreen2;
+#X obj 838 40 t b f;
+#X obj 737 188 * 2;
+#X obj 867 64 + 1;
+#X obj 574 134 delay 400;
+#X obj 533 158 t b b b b;
+#X text 395 127 delay sinon ne marche pas;
+#X text 395 138 en Pd-0.39.2-extended-RC1;
+#X text -176 221 en Pd-0.38.4-extended;
+#X obj 192 211 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -6 0 10
+-262144 -1 -1 0 256;
+#X obj -161 63 gemkeyname;
+#X obj -142 125 delay 300;
+#X obj -116 149 delay 300;
+#X obj -88 172 delay 300;
+#X obj -59 195 delay 300;
+#X obj -24 255 select 0 1;
+#X obj 532 15 t b f f f;
+#X msg 479 403 color 22 22 0;
+#X text -170 209 delay sinon Pd plante;
+#X obj -13 360 s \$0-ReceiveGEMBorder;
+#X obj -7 378 s \$0-ReceiveScreen2;
+#X obj -3 397 s \$0-ReceiveFrame;
+#X obj 2 416 s \$0-ReceiveBackGround;
+#X msg 725 148 dimen 1024 768;
+#X obj 725 168 spigot;
+#X obj 788 169 spigot;
+#X obj 820 147 == 0;
+#X msg 370 404 color 16 22 16;
+#X msg 579 403 color 22 22 16;
+#X msg 74 277 color 16 22 16;
+#X msg 327 441 color 0 22 30;
+#X msg 270 404 color 0 22 0;
+#X msg -23 277 color 0 22 0;
+#X msg 672 230 border \$1 \, menubar \$1;
+#X obj 147 229 select 65 97 70 102 76 108 71 103 66 98;
+#X obj -165 97 sel a A f F g G l L b B;
+#X obj -34 218 delay 300;
+#X obj -160 367 s \$0-ReceiveGEMOnOff;
+#X obj -25 436 s ReceiveMode;
+#N canvas 343 380 571 227 16ARGOBus 0;
+#X obj 160 49 catch~ ARGOBus7;
+#X obj 162 77 send~ ARGOBus7;
+#X obj 273 49 catch~ ARGOBus8;
+#X obj 274 73 send~ ARGOBus8;
+#X obj -75 -1 catch~ ARGOBus1;
+#X obj -75 28 send~ ARGOBus1;
+#X obj 43 -2 catch~ ARGOBus2;
+#X obj 44 29 send~ ARGOBus2;
+#X obj 159 -3 catch~ ARGOBus3;
+#X obj 159 25 send~ ARGOBus3;
+#X obj 277 -4 catch~ ARGOBus4;
+#X obj 278 27 send~ ARGOBus4;
+#X obj -74 48 catch~ ARGOBus5;
+#X obj -74 77 send~ ARGOBus5;
+#X obj 45 79 send~ ARGOBus6;
+#X obj 43 47 catch~ ARGOBus6;
+#X obj -73 99 catch~ ARGOBus9;
+#X obj -73 129 send~ ARGOBus9;
+#X obj 45 98 catch~ ARGOBus10;
+#X obj 46 130 send~ ARGOBus10;
+#X obj 161 96 catch~ ARGOBus11;
+#X obj 161 125 send~ ARGOBus11;
+#X obj 279 96 catch~ ARGOBus12;
+#X obj 280 127 send~ ARGOBus12;
+#X obj -73 151 catch~ ARGOBus13;
+#X obj -73 180 send~ ARGOBus13;
+#X obj 46 150 catch~ ARGOBus14;
+#X obj 46 182 send~ ARGOBus14;
+#X obj 163 152 catch~ ARGOBus15;
+#X obj 163 180 send~ ARGOBus15;
+#X obj 281 155 catch~ ARGOBus16;
+#X obj 282 179 send~ ARGOBus16;
+#X obj -178 73 catch~ ARGOBus0;
+#X obj -178 102 send~ ARGOBus0;
+#X connect 0 0 1 0;
+#X connect 2 0 3 0;
+#X connect 4 0 5 0;
+#X connect 6 0 7 0;
+#X connect 8 0 9 0;
+#X connect 10 0 11 0;
+#X connect 12 0 13 0;
+#X connect 15 0 14 0;
+#X connect 16 0 17 0;
+#X connect 18 0 19 0;
+#X connect 20 0 21 0;
+#X connect 22 0 23 0;
+#X connect 24 0 25 0;
+#X connect 26 0 27 0;
+#X connect 28 0 29 0;
+#X connect 30 0 31 0;
+#X restore 76 37 pd 16ARGOBus;
+#X obj 53 151 r SendGEM;
+#X connect 1 0 66 0;
+#X connect 1 0 80 0;
+#X connect 3 0 8 0;
+#X connect 3 0 12 0;
+#X connect 3 0 0 0;
+#X connect 5 0 7 0;
+#X connect 6 0 4 0;
+#X connect 7 0 6 0;
+#X connect 8 0 5 0;
+#X connect 9 0 102 0;
+#X connect 9 0 88 0;
+#X connect 9 1 98 0;
+#X connect 9 1 99 0;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 12 0 14 0;
+#X connect 12 0 9 0;
+#X connect 14 0 13 0;
+#X connect 15 0 18 0;
+#X connect 15 1 16 0;
+#X connect 19 0 32 0;
+#X connect 20 0 25 0;
+#X connect 21 0 25 0;
+#X connect 22 0 25 0;
+#X connect 23 0 25 0;
+#X connect 24 0 25 0;
+#X connect 26 0 87 0;
+#X connect 27 0 35 0;
+#X connect 28 0 21 0;
+#X connect 28 1 24 0;
+#X connect 29 0 62 0;
+#X connect 29 1 49 0;
+#X connect 30 0 31 0;
+#X connect 31 0 73 0;
+#X connect 32 0 37 0;
+#X connect 32 1 30 0;
+#X connect 32 1 95 1;
+#X connect 32 1 97 0;
+#X connect 33 0 34 0;
+#X connect 34 0 104 0;
+#X connect 35 0 37 0;
+#X connect 35 1 33 0;
+#X connect 36 0 37 0;
+#X connect 37 0 29 0;
+#X connect 38 0 48 0;
+#X connect 39 0 25 0;
+#X connect 40 0 69 1;
+#X connect 41 0 25 0;
+#X connect 42 0 43 0;
+#X connect 43 0 41 0;
+#X connect 44 0 45 0;
+#X connect 45 0 37 0;
+#X connect 45 1 42 0;
+#X connect 48 0 39 0;
+#X connect 49 0 50 0;
+#X connect 49 1 24 0;
+#X connect 50 0 21 0;
+#X connect 51 0 96 0;
+#X connect 52 0 25 0;
+#X connect 53 0 52 0;
+#X connect 54 0 63 0;
+#X connect 55 0 25 0;
+#X connect 56 0 25 0;
+#X connect 57 0 56 0;
+#X connect 58 0 55 0;
+#X connect 59 0 60 0;
+#X connect 60 0 54 0;
+#X connect 61 0 25 0;
+#X connect 62 4 75 0;
+#X connect 62 5 43 0;
+#X connect 62 6 34 0;
+#X connect 62 7 31 0;
+#X connect 62 8 51 0;
+#X connect 62 8 94 0;
+#X connect 62 9 22 0;
+#X connect 62 10 28 0;
+#X connect 63 0 25 0;
+#X connect 64 0 60 0;
+#X connect 65 0 66 1;
+#X connect 66 0 105 0;
+#X connect 67 0 68 0;
+#X connect 68 0 69 0;
+#X connect 69 0 44 0;
+#X connect 71 0 72 0;
+#X connect 72 0 37 0;
+#X connect 72 1 74 0;
+#X connect 73 0 23 0;
+#X connect 74 0 73 1;
+#X connect 75 0 76 0;
+#X connect 76 0 60 0;
+#X connect 76 1 61 0;
+#X connect 76 2 48 0;
+#X connect 76 3 20 0;
+#X connect 81 1 106 0;
+#X connect 82 0 2 0;
+#X connect 83 0 46 0;
+#X connect 84 0 108 0;
+#X connect 85 0 47 0;
+#X connect 86 0 103 0;
+#X connect 86 1 100 0;
+#X connect 87 0 37 0;
+#X connect 87 1 36 0;
+#X connect 87 2 63 1;
+#X connect 87 3 86 0;
+#X connect 88 0 17 0;
+#X connect 88 0 4 0;
+#X connect 94 0 95 0;
+#X connect 95 0 25 0;
+#X connect 96 0 25 0;
+#X connect 97 0 96 1;
+#X connect 98 0 13 0;
+#X connect 98 0 16 0;
+#X connect 98 0 18 0;
+#X connect 99 0 17 0;
+#X connect 99 0 4 0;
+#X connect 100 0 46 0;
+#X connect 100 0 47 0;
+#X connect 100 0 90 0;
+#X connect 100 0 91 0;
+#X connect 100 0 92 0;
+#X connect 100 0 93 0;
+#X connect 100 0 108 0;
+#X connect 100 0 109 0;
+#X connect 102 0 13 0;
+#X connect 102 0 16 0;
+#X connect 102 0 18 0;
+#X connect 103 0 46 0;
+#X connect 103 0 47 0;
+#X connect 103 0 90 0;
+#X connect 103 0 91 0;
+#X connect 103 0 92 0;
+#X connect 103 0 93 0;
+#X connect 103 0 108 0;
+#X connect 103 0 109 0;
+#X connect 104 0 25 0;
+#X connect 105 0 2 0;
+#X connect 105 1 2 0;
+#X connect 105 2 46 0;
+#X connect 105 3 46 0;
+#X connect 105 4 47 0;
+#X connect 105 5 47 0;
+#X connect 105 6 108 0;
+#X connect 105 7 108 0;
+#X connect 105 8 90 0;
+#X connect 105 9 90 0;
+#X connect 106 0 82 0;
+#X connect 106 1 82 0;
+#X connect 106 2 83 0;
+#X connect 106 3 83 0;
+#X connect 106 4 84 0;
+#X connect 106 5 84 0;
+#X connect 106 6 85 0;
+#X connect 106 7 85 0;
+#X connect 106 8 107 0;
+#X connect 106 9 107 0;
+#X connect 107 0 90 0;
+#X connect 111 0 108 0;
+#X restore 256 26 pd;
+#X text 133 372 f ou F -> FullScreen On/Off;
+#X text 133 399 l ou L -> Light On/Off;
+#X text 11 441 - En "FullScreen" taper Pomme + Tab sous MacOSX...;
+#X text 119 455 taper Alt + Tab sous Windows...;
+#X text 7 332 - Le nom des modules ARGO utilisant GEM commence par
+ARGOGEM;
+#X text 7 359 - Raccourcis clavier a ou A -> Audio et ARGOBus On/Off
+;
+#X obj 6 8 cnv 10 220 52 empty empty http://perso.orange.fr/Paresys/ARGOPd/
+5 44 1 9 -4033 -1 1.04858e+06;
+#X obj 178 15 cnv 10 10 10 empty empty Aide/Help 0 5 1 9 -4033 -1 1.04858e+06
+;
+#X obj 13 8 cnv 20 20 20 empty empty ARGOGeneral 5 12 1 18 -4033 -1
+1.04858e+06;
+#X obj 10 32 cnv 10 10 10 empty empty Gerard 0 5 1 9 -4033 -1 1.04858e+06
+;
+#X obj 47 32 cnv 10 10 10 empty empty Paresys 0 5 1 9 -4033 -1 1.04858e+06
+;
+#X text 133 385 g ou G -> GEM On/Off;
+#X text 8 212 - GEM On ouvre une fenetre 400 x 300 pixels;
+#X text 283 27 <- Clic;
+#X text 11 535 - Screen2 ne fonctionne pas sous Windows avec certaines
+cartes video;
+#X text 10 507 - FullScreen ne fonctionne pas sous Windows avec certaines
+cartes video;
+#X obj 6 232 cnv 15 380 90 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X text 11 230 Citation;
+#X text 10 243 "GEM is the Graphics Environment for Multimedia. It
+was originally written by Mark Danks to generate real-time computer
+graphics \, especially for audio-visual compositions.";
+#X text 10 293 "GEM is a collection of externals which allow the user
+to create OpenGL graphics within Pd";
+#X text 7 83 Pd 0.39.3-extended;
+#X text 7 109 http://puredata.info/downloads;
+#X text 133 413 b ou B -> Border & BarMenu On/Off;
+#X text 10 478 - Screen2 -> en "FullScreen" dirige l'écran GEM sur
+un 2e moniteur;
+#X obj 5 600 cnv 15 400 150 empty empty empty 20 12 0 14 -224896 -66577
+0;
+#X text 30 628 Solution: ne pas utiliser d'accent dans les noms de
+fichier;
+#X text 32 666 Solution: cocher Compatible;
+#X text 31 616 error:GemImageLoad:Unable to find file: C:/Image/Gérard.jpg
+;
+#X text 32 678 Se produit avec certaines cartes video \, de certains
+PC \, sous Windows...;
+#X text 32 706 Inconvenient: Charge CPU => la texture est calculée
+(objet pix_texture) par le processeur de l'ordinateur et pas par la
+carte video);
+#X text 8 603 - Erreur dans la fenêtre Pd:;
+#X text 32 643 GL: énumérant non valide (répété);
+#X text 32 654 OpenGL: invalid enumérant (repeat);
+#X text 11 565 - BarMenu Off ne fonctionne pas sous Pd 0.38.4-extended
+sous MacOSX.;
+#X obj 5 757 cnv 15 400 80 empty empty empty 20 12 0 14 -261682 -66577
+0;
+#X text 8 758 Modif par rapport a ARGOGeneralv043.pd;
+#X text 19 773 - (G)EM On/Off controlable par un autre module ARGO
+;
+#X text 33 789 Nécessaire avec ARGOGEM-RecordSequencev04x.pd;
+#X restore 9 -19 pd Help;
+#X obj 2 -21 cnv 22 185 70 empty empty General 5 12 1 18 -1 -262144
+1.04858e+06;
+#X obj 5 9 tgl 12 1 \$0-SendAudioOnOff \$0-ReceiveAudioOnOff (A)udio
+15 6 1 9 -24198 -1 -24198 1 1;
+#X obj 92 2 nbx 4 12 0 1e+37 0 0 \$0 \$0-ReceiveCpuPeak CPUPeak 40
+6 1 9 -24198 -1 -24198 4 256;
+#X obj 16 30 cnv 11 100 11 empty \$0-ReceiveSampleFreq 44100 2 6 1
+9 -1 -24198 0;
+#X obj 67 30 cnv 11 70 11 empty \$0-ReceiveCanvasSample Samples/sec
+2 6 1 9 -1 -24198 0;
+#X obj 92 15 nbx 4 12 0 1e+37 0 0 \$0 \$0-ReceiveCpuMean CPUMean 40
+6 1 9 -24198 -1 -24198 5.73 256;
+#X obj 2 53 cnv 22 185 85 empty empty GEM 5 12 1 18 -1 -262144 1.04858e+06
+;
+#X obj 4 93 tgl 12 1 \$0-SendFullScreen \$0-ReceiveFullScreen (F)ullScreen
+15 6 1 9 -262144 -1 -262144 0 1;
+#X obj 4 78 tgl 12 1 \$0-SendGEMOnOff \$0-ReceiveGEMOnOff (G)EM 15
+6 1 9 -262144 -1 -262144 0 1;
+#X obj 92 78 tgl 12 1 \$0-SendGEMBorder \$0-ReceiveGEMBorder (B)order&BarMenu
+15 6 1 9 -262144 -1 -262144 1 1;
+#X obj 4 108 tgl 12 1 \$0-SendLight \$0-ReceiveLight (L)ight 15 6 1
+9 -262144 -1 -262144 0 1;
+#X obj 92 63 nbx 2 12 1 30 0 1 \$0-SendFrame \$0-ReceiveFrame Frames/sec
+26 6 1 9 -262144 -1 -262144 10 256;
+#X obj 92 108 nbx 3 12 0 100 0 1 \$0-SendBackGround \$0-ReceiveBackGround
+BackGround 33 6 1 9 -262144 -1 -262144 30 256;
+#X obj 4 141 tgl 12 1 \$0-SendKeyShortCut \$0-ReceiveKeyShortCut KeyShortCut
+15 6 1 9 -262144 -1 -1 1 1;
+#X obj 92 93 tgl 12 1 \$0-SendScreen2 \$0-ReceiveScreen2 Screen2 15
+6 1 9 -262144 -1 -262144 0 1;
+#X obj 93 123 tgl 12 1 SendMode ReceiveMode Compatible 15 6 1 9 -262144
+-1 -262144 0 1;

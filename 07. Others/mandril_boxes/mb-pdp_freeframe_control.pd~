@@ -1,0 +1,640 @@
+#N canvas 4 54 1912 1087 10;
+#X floatatom 441 854 5 0 0 0 - - -;
+#X obj 622 382 hradio 15 1 0 60 empty empty empty 0 -6 0 8 -262144
+-1 -1 6;
+#X obj 1486 161 hsl 128 15 0 1 0 0 empty \$1pdp_freeframe_param3 empty
+-2 -6 0 8 -262144 -1 -1 0 1;
+#X obj 1626 161 hsl 128 15 0 1 0 0 empty \$1pdp_freeframe_param4 empty
+-2 -6 0 8 -262144 -1 -1 0 1;
+#X obj 1766 161 hsl 128 15 0 1 0 0 empty \$1pdp_freeframe_param5 empty
+-2 -6 0 8 -262144 -1 -1 0 1;
+#X msg 1483 181 param 3 \$1;
+#X msg 1623 180 param 4 \$1;
+#X msg 1764 180 param 5 \$1;
+#X text 433 832 Select the plugin;
+#X text 1483 62 Adjust plugin parameters.;
+#X symbolatom 991 985 20 0 0 0 - - -;
+#X text 1144 985 <-- plugin name;
+#X floatatom 1010 963 5 0 0 0 - - -;
+#X text 1058 961 <-- number of parameters;
+#X text 1109 935 <-- parameter name;
+#X text 1136 907 <-- parameter type;
+#X obj 1488 102 hsl 128 15 0 1 0 0 empty \$1pdp_freeframe_param0 empty
+-2 -6 0 8 -262144 -1 -1 0 1;
+#X obj 1626 102 hsl 128 15 0 1 0 0 empty \$1pdp_freeframe_param1 empty
+-2 -6 0 8 -262144 -1 -1 0 1;
+#X obj 1767 102 hsl 128 15 0 1 0 0 empty \$1pdp_freeframe_param2 empty
+-2 -6 0 8 -262144 -1 -1 0 1;
+#X obj 1486 224 hsl 128 15 0 1 0 0 empty \$1pdp_freeframe_param6 empty
+-2 -6 0 8 -262144 -1 -1 0 1;
+#X obj 1627 224 hsl 128 15 0 1 0 0 empty \$1pdp_freeframe_param7 empty
+-2 -6 0 8 -262144 -1 -1 0 1;
+#X obj 1769 224 hsl 128 15 0 1 0 0 empty \$1pdp_freeframe_param8 empty
+-2 -6 0 8 -262144 -1 -1 0 1;
+#X msg 1485 121 param 0 \$1;
+#X msg 1623 121 param 1 \$1;
+#X msg 1764 121 param 2 \$1;
+#X msg 1485 244 param 6 \$1;
+#X msg 1624 243 param 7 \$1;
+#X msg 1766 243 param 8 \$1;
+#N canvas 16 120 996 665 pname 0;
+#X obj 51 119 l2s;
+#X obj 80 119 l2s;
+#X obj 111 119 l2s;
+#X obj 143 119 l2s;
+#X obj 207 120 l2s;
+#X obj 236 120 l2s;
+#X obj 267 120 l2s;
+#X obj 298 119 l2s;
+#X obj 327 119 l2s;
+#X obj 97 51 inlet;
+#X obj 51 154 s ffparam0;
+#X obj 79 178 s ffparam1;
+#X obj 118 205 s ffparam2;
+#X obj 148 227 s ffparam3;
+#X obj 185 157 s ffparam4;
+#X obj 213 181 s ffparam5;
+#X obj 255 206 s ffparam6;
+#X obj 283 230 s ffparam7;
+#X obj 305 155 s ffparam8;
+#X obj 391 53 inlet;
+#X msg 390 79 symbol;
+#X obj 359 118 l2s;
+#X obj 391 118 l2s;
+#X obj 97 79 route 0 1 2 3 4 5 6 7 8 9 10;
+#X obj 357 178 s ffparam9;
+#X obj 414 202 s ffparam10;
+#X connect 0 0 10 0;
+#X connect 1 0 11 0;
+#X connect 2 0 12 0;
+#X connect 3 0 13 0;
+#X connect 4 0 14 0;
+#X connect 5 0 15 0;
+#X connect 6 0 16 0;
+#X connect 7 0 17 0;
+#X connect 8 0 18 0;
+#X connect 9 0 23 0;
+#X connect 19 0 20 0;
+#X connect 20 0 10 0;
+#X connect 20 0 11 0;
+#X connect 20 0 12 0;
+#X connect 20 0 13 0;
+#X connect 20 0 14 0;
+#X connect 20 0 15 0;
+#X connect 20 0 16 0;
+#X connect 20 0 17 0;
+#X connect 20 0 18 0;
+#X connect 20 0 24 0;
+#X connect 20 0 25 0;
+#X connect 21 0 24 0;
+#X connect 22 0 25 0;
+#X connect 23 0 0 0;
+#X connect 23 1 1 0;
+#X connect 23 2 2 0;
+#X connect 23 3 3 0;
+#X connect 23 4 4 0;
+#X connect 23 5 5 0;
+#X connect 23 6 6 0;
+#X connect 23 7 7 0;
+#X connect 23 8 8 0;
+#X connect 23 9 21 0;
+#X connect 23 10 22 0;
+#X restore 1041 935 pd pname;
+#X symbolatom 57 168 18 0 0 0 - ffparam0 -;
+#X symbolatom 1630 72 18 0 0 0 - ffparam1 -;
+#X symbolatom 1765 73 18 0 0 0 - ffparam2 -;
+#X symbolatom 1486 144 18 0 0 0 - ffparam3 -;
+#X symbolatom 1625 143 18 0 0 0 - ffparam4 -;
+#X symbolatom 1764 143 18 0 0 0 - ffparam5 -;
+#X symbolatom 1486 204 18 0 0 0 - ffparam6 -;
+#X symbolatom 1625 203 18 0 0 0 - ffparam7 -;
+#X symbolatom 1764 203 18 0 0 0 - ffparam8 -;
+#X text 1271 897 freeframe host for Pure Data Packet version 0.1;
+#X text 1273 912 by Lluis Gomez i Bigorda (lluis@artefacte.org);
+#X text 1292 925 & Yves Degoyon (ydegoyon@free.fr);
+#X text 1273 968 made at piksel yearly gathering : http://www.piksel.no
+;
+#X obj 1059 907 print type;
+#X text 1273 940 using freeframe specification 1.1 by Georg Seidel
+\, Phillip Promesberger and Martin Bayer;
+#X obj 999 193 pdp_scale 320 240;
+#X obj 1401 718 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X obj 1401 770 pdp_control;
+#X msg 1401 743 thread \$1;
+#X floatatom 1401 831 5 0 0 0 - - -;
+#X obj 1401 802 route pdp_drop;
+#X text 1280 1020 constructor : pdp_freeframe <index>;
+#X text 1281 1035 you can get the index from the list of loaded plugins
+;
+#X text 1280 1048 at startup ( check pd window );
+#X text 917 774 WARNING : sizes of inputs;
+#X text 916 786 _must_ be the same;
+#X msg 356 696 pluginsdir /home/musa/0zpd/FreeFrame1.0-05/plugins_binary
+;
+#X obj 0 0 cnv 15 400 360 empty empty PDP_freeframe_control 80 30 0
+12 -99865 -262144 0;
+#X obj 65 2 bng 15 250 50 0 empty \$1pdp_freeframe_monitor_in1 empty
+17 7 0 10 -128992 -4034 -4034;
+#X obj 0 341 cnv 15 58 18 empty empty VIDEO_OUT 0 10 0 8 -221249 -262144
+0;
+#X obj 59 343 bng 15 250 50 0 empty \$1pdp_freeframe_monitor_out empty
+17 7 0 10 -128992 -258113 -258113;
+#X obj 265 23 cnv 15 40 15 empty \$1pdp_freeframe_id \$1 10 10 0 10
+-260097 -33289 0;
+#N canvas 426 309 610 635 freeframe_default 0;
+#X obj -37 181 symbol \$1;
+#X obj -37 145 bng 15 250 50 0 empty empty click_here_to_see 0 -6 0
+8 -262144 -1 -1;
+#X symbolatom 236 235 0 0 0 0 - - -;
+#X obj 236 206 symbol \$2;
+#X obj 120 248 ftos;
+#X obj 89 182 float \$1;
+#X floatatom 106 215 5 0 0 0 - - -;
+#X symbolatom -6 221 0 0 0 0 - - -;
+#X symbolatom 99 321 10 0 0 0 - - -;
+#X obj -40 22 loadbang;
+#X obj 101 367 s \$1pdp_freeframe_id;
+#X msg 417 156 0;
+#X obj 345 279 s \$1pdp_freeframe_nplugins;
+#X obj 365 232 s \$1pdp_freeframe_inputsize_init;
+#X connect 0 0 7 0;
+#X connect 1 0 0 0;
+#X connect 1 0 3 0;
+#X connect 1 0 5 0;
+#X connect 3 0 2 0;
+#X connect 4 0 8 0;
+#X connect 5 0 6 0;
+#X connect 6 0 4 0;
+#X connect 7 0 8 0;
+#X connect 8 0 10 0;
+#X connect 9 0 1 0;
+#X connect 9 0 11 0;
+#X connect 11 0 12 0;
+#X connect 11 0 13 0;
+#X restore 450 9 pd freeframe_default;
+#X obj 0 1 cnv 15 65 18 empty empty VIDEO_IN_1 0 10 0 8 -4034 -1 0
+;
+#X obj 149 2 cnv 15 65 18 empty empty VIDEO_IN_2 0 10 0 8 -4034 -1
+0;
+#X obj 317 1 cnv 15 65 18 empty empty VIDEO_IN_3 0 10 0 8 -4034 -1
+0;
+#X obj 1061 28 cnv 15 65 20 empty empty VIDEO_IN_1 0 10 0 8 -4034 -1
+0;
+#X obj 214 1 bng 15 250 50 0 empty \$1pdp_freeframe_monitor_in2 empty
+17 7 0 10 -128992 -4034 -4034;
+#X obj 382 2 bng 15 250 50 0 empty \$1pdp_freeframe_monitor_in1 empty
+17 7 0 10 -128992 -4034 -4034;
+#X obj 1003 35 inlet;
+#X obj 353 629 r \$1pdp_freeframe_load_plugins;
+#X obj 7 43 cnv 15 280 50 empty empty empty 20 12 0 14 -191407 -66577
+0;
+#X obj 81 74 bng 15 250 50 0 \$1pdp_freeframe_load_plugins empty load_plugins
+17 7 0 8 -260097 -1 -1;
+#X obj 83 49 hradio 18 1 0 11 empty \$0plugindir /home/musa/0zpd/FreeFrame1.0-05/plugins_binary
+2 8 0 8 -1 -1 -262144 0;
+#X obj 179 615 s \$0plugindir;
+#X msg 185 584 label /home/musa/0zpd/FreeFrame1.0-05/plugins_binary
+;
+#X obj 264 473 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X symbolatom 293 539 30 0 0 0 - - -;
+#X msg 165 539 set label \$1;
+#X text 10 48 PLUGINS_DIR;
+#X obj 193 75 bng 15 250 50 0 \$1pdp_freeframe_chdir empty change_dir
+17 7 0 8 -257985 -1 -1;
+#X obj 265 438 r \$1pdp_freeframe_chdir;
+#X obj 950 860 pdp_freeframe;
+#N canvas 44 274 1038 660 freeframe_num_of_plugins 0;
+#X obj 389 176 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 328 119 bang;
+#X msg 283 128 bang;
+#X obj 283 172 timer;
+#X floatatom 283 194 0 0 0 0 - - -;
+#X floatatom 400 372 0 0 0 0 - - -;
+#X msg 404 304 bang;
+#X obj 400 347 + 1;
+#X obj 343 348 float;
+#X msg 335 295 0;
+#X obj 145 88 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 297 328 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 283 218 < 100;
+#X floatatom 285 246 0 0 0 0 - - -;
+#X obj 359 220 spigot;
+#X obj 353 263 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 415 256 delay 1;
+#X obj 249 290 delay 1;
+#X obj 106 41 inlet;
+#X text 150 42 start counts;
+#X obj 376 48 inlet;
+#X text 419 47 next bang;
+#X obj 532 53 inlet;
+#X obj 373 481 outlet;
+#X text 575 52 bucle delay;
+#X obj 707 53 inlet;
+#X text 756 53 delay betewn bangs;
+#X floatatom 533 104 5 0 0 0 - - -;
+#X floatatom 698 103 5 0 0 0 - - -;
+#X obj 600 478 outlet;
+#X text 653 462 1->is counting;
+#X text 649 480 0->is inactive;
+#X connect 0 0 3 1;
+#X connect 0 0 14 0;
+#X connect 1 0 3 1;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 12 0;
+#X connect 5 0 23 0;
+#X connect 6 0 8 0;
+#X connect 7 0 5 0;
+#X connect 7 0 8 1;
+#X connect 8 0 7 0;
+#X connect 9 0 8 1;
+#X connect 10 0 9 0;
+#X connect 10 0 3 0;
+#X connect 10 0 17 0;
+#X connect 11 0 8 0;
+#X connect 12 0 13 0;
+#X connect 13 0 14 1;
+#X connect 13 0 29 0;
+#X connect 14 0 15 0;
+#X connect 15 0 16 0;
+#X connect 16 0 8 0;
+#X connect 16 0 3 0;
+#X connect 17 0 11 0;
+#X connect 18 0 10 0;
+#X connect 20 0 0 0;
+#X connect 22 0 27 0;
+#X connect 25 0 28 0;
+#X connect 27 0 16 1;
+#X connect 27 0 17 1;
+#X connect 28 0 12 1;
+#X restore 388 798 pd freeframe_num_of_plugins;
+#X obj 335 736 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 278 512 tof/folderpanel;
+#X obj 199 562 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 387 899 s \$1pdp_freeframe_nplugins;
+#X obj 349 763 delay 2;
+#X floatatom 827 60 5 0 0 0 - - -;
+#X obj 827 36 r \$1pdp_freeframe_inputsize;
+#X msg 832 112 dim 320 240;
+#X obj 825 85 select 0 1 2;
+#X msg 850 138 dim 640 480;
+#X msg 867 163 dim 600 800;
+#X msg 886 60 dim 1024 768;
+#X obj 293 98 cnv 15 90 50 empty empty empty 20 12 0 14 -191407 -66577
+0;
+#X obj 298 100 vradio 15 1 0 3 \$1pdp_freeframe_inputsize \$1pdp_freeframe_inputsize_init
+empty 0 -8 0 8 -262144 -1 -1 0;
+#X obj 317 123 hradio 18 1 0 3 empty \$0sizelabel 320x240 2 8 0 8 -1
+-1 -262144 0;
+#X text 313 100 INPUT SIZE;
+#X obj 731 188 s \$0sizelabel;
+#X msg 767 162 label 600x800;
+#X msg 750 137 label 640x480;
+#X msg 732 111 label 320x240;
+#N canvas 4 54 1279 718 freeframe_load_plugin_list 0;
+#X obj 705 547 tof/menubutton 132 22 empty empty 0 #000000 #ffffff
+orange #3a12ff;
+#X msg 793 313 saveitems \$1;
+#X obj 793 295 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 880 300 Set the saving of the menu items in the patch. Off
+by default.;
+#X msg 940 457 set b;
+#X text 989 459 Select an item without outputing it;
+#X msg 959 481 set 2;
+#X text 1110 363 values can be tk colors(red \, blue \, etc) or html
+colors (#ffffff);
+#X text 850 336 colors: background foreground highlight contour;
+#X msg 853 359 colors green red orange purple;
+#X msg 873 384 colors #000000 #ffffff #ff0000 #3a12ff;
+#X text 833 244 Set its size;
+#X msg 754 245 size 102 32;
+#X text 853 266 Set its size;
+#X msg 774 267 size 132 22;
+#X msg 867 418 colors #000000 #ffffff orange #3a12ff;
+#X floatatom 715 155 5 0 0 0 - - -;
+#X text 635 132 Select and output a menu item;
+#X msg 147 107 clear;
+#X text 142 81 Clear menu items;
+#X msg 382 159 add Wave;
+#X msg 372 100 set add \$1 \, bang;
+#X obj 87 51 inlet;
+#X text 137 53 reset and start to add items;
+#X obj 373 49 inlet;
+#X floatatom 693 661 5 0 0 0 - - -;
+#X symbolatom 765 660 10 0 0 0 - - -;
+#X obj 695 616 unpack f s;
+#X obj 710 57 inlet;
+#X text 381 74 elements to add;
+#X obj 642 694 outlet;
+#X obj 766 693 outlet;
+#X obj 958 693 outlet;
+#X text 1019 689 to the external list;
+#X connect 0 0 27 0;
+#X connect 1 0 0 0;
+#X connect 2 0 1 0;
+#X connect 4 0 0 0;
+#X connect 6 0 0 0;
+#X connect 9 0 0 0;
+#X connect 10 0 0 0;
+#X connect 12 0 0 0;
+#X connect 14 0 0 0;
+#X connect 15 0 0 0;
+#X connect 16 0 0 0;
+#X connect 18 0 0 0;
+#X connect 18 0 32 0;
+#X connect 20 0 0 0;
+#X connect 20 0 32 0;
+#X connect 21 0 20 0;
+#X connect 22 0 18 0;
+#X connect 24 0 21 0;
+#X connect 25 0 30 0;
+#X connect 26 0 31 0;
+#X connect 27 0 25 0;
+#X connect 27 1 26 0;
+#X connect 28 0 16 0;
+#X restore 385 1010 pd freeframe_load_plugin_list;
+#X obj 519 935 symbol;
+#X symbolatom 517 962 20 0 0 0 - - -;
+#X obj 605 858 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 558 895 spigot;
+#X text 709 447 Select the plugin;
+#X floatatom 663 449 5 0 0 0 - - -;
+#X symbolatom 462 1050 20 0 0 0 - - -;
+#X floatatom 385 1047 5 0 0 0 - - -;
+#X obj 142 120 tof/menubutton 132 22 empty empty 0 #000000 #ffffff
+orange #3a12ff;
+#X obj 601 1046 s \$1pdp_freeframe_visible_list_in;
+#X obj 402 100 r \$1pdp_freeframe_visible_list_in;
+#X obj 413 145 s \$1pdp_freeframe_visible_list_out;
+#X obj 760 267 r \$1pdp_freeframe_visible_list_out;
+#X floatatom 780 351 5 0 0 0 - - -;
+#X symbolatom 852 350 10 0 0 0 - - -;
+#X obj 782 306 unpack f s;
+#X obj 292 43 cnv 15 90 50 empty empty empty 20 12 0 14 -191407 -66577
+0;
+#X obj 296 46 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 296 62 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 296 75 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 312 45 VIDEO_IN_1;
+#X text 311 59 VIDEO_IN_2;
+#X text 311 74 VIDEO_IN_3;
+#X obj 7 98 cnv 15 280 50 empty empty empty 20 12 0 14 -191407 -66577
+0;
+#X text 12 100 NUM.OF.PLGNS;
+#X obj 26 121 nbx 3 16 -1e+37 1e+37 0 0 empty \$1pdp_freeframe_nplugins
+empty 0 -8 0 10 -1 -262144 -228856 44 256;
+#X obj 99 123 nbx 3 16 0 1e+37 0 0 \$1pdp_freeframe_index_visible_out1
+\$1pdp_freeframe_index_visible_in1 empty 0 -8 0 10 -1 -262144 -228856
+6 256;
+#X text 155 99 PLUGIN NAME;
+#X text 99 99 INDEX;
+#X obj 627 912 spigot;
+#X floatatom 688 923 5 0 0 0 - - -;
+#X obj 518 294 r \$1pdp_freeframe_index_visible_out1;
+#X obj 474 948 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 583 563 s \$1pdp_freeframe_visible_list_in;
+#N canvas 36 230 1038 660 estabilitzador_bangs 0;
+#X obj 347 218 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 194 247 bang;
+#X msg 56 244 bang;
+#X obj 112 295 timer;
+#X floatatom 112 317 0 0 0 0 - - -;
+#X floatatom 114 369 0 0 0 0 - - -;
+#X obj 320 342 spigot;
+#X obj 331 384 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 462 263 delay 1;
+#X obj 106 41 inlet;
+#X text 150 42 start counts;
+#X obj 232 483 outlet;
+#X obj 248 106 onebang 1;
+#X obj 104 143 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 316 74 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 109 183 alternate;
+#X obj 169 218 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 109 218 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 223 80 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X floatatom 48 89 5 0 0 0 - - -;
+#X obj 113 340 > 100;
+#X text 285 467 1->too many bangs;
+#X text 281 485 comment;
+#X connect 0 0 3 1;
+#X connect 0 0 6 0;
+#X connect 1 0 3 1;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 20 0;
+#X connect 5 0 6 1;
+#X connect 5 0 11 0;
+#X connect 6 0 7 0;
+#X connect 8 0 3 0;
+#X connect 9 0 13 0;
+#X connect 13 0 15 0;
+#X connect 14 0 12 1;
+#X connect 15 0 17 0;
+#X connect 15 1 0 0;
+#X connect 16 0 3 1;
+#X connect 17 0 3 0;
+#X connect 18 0 12 0;
+#X connect 19 0 13 0;
+#X connect 20 0 5 0;
+#X restore 481 404 pd estabilitzador_bangs;
+#X obj 486 350 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 549 463 float;
+#X obj 479 437 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 570 509 5 0 0 0 - - -;
+#X obj 754 520 s \$1pdp_freeframe_index_visible_in1;
+#X obj 714 358 + 1;
+#X obj 588 538 - 1;
+#X obj 472 463 delay 10;
+#X obj 1000 1029 cnv 15 58 18 empty empty VIDEO_OUT 0 10 0 8 -221249
+-262144 0;
+#X obj 950 1029 outlet;
+#X obj 21 192 knob 25 25 0 1 0 0 \$1pdp_freeframe_param1 \$1pdp_freeframe_param1_init
+empty 8 -8 192 10 -260097 -260097 -1 0 1;
+#X obj 20 229 knob 25 25 0 1 0 0 \$1pdp_freeframe_param2 \$1pdp_freeframe_param2_init
+empty 8 -8 192 10 -260097 -260097 -1 0 1;
+#X obj 22 160 knob 25 25 0 1 0 0 \$1pdp_freeframe_param0 \$1pdp_freeframe_param0_init
+empty 8 -8 192 10 -260097 -260097 -1 0 1;
+#X obj 23 298 knob 25 25 0 1 0 0 \$1pdp_freeframe_param4 \$1pdp_freeframe_param4_init
+empty 8 -8 192 10 -260097 -260097 -1 0 1;
+#X obj 200 158 knob 25 25 0 1 0 0 \$1pdp_freeframe_param5 \$1pdp_freeframe_param5_init
+empty 8 -8 192 10 -260097 -260097 -1 0 1;
+#X obj 22 264 knob 25 25 0 1 0 0 \$1pdp_freeframe_param3 \$1pdp_freeframe_param3_init
+empty 8 -8 192 10 -260097 -260097 -1 0 1;
+#X obj 202 224 knob 25 25 0 1 0 0 \$1pdp_freeframe_param7 \$1pdp_freeframe_param7_init
+empty 8 -8 192 10 -260097 -260097 -1 0 1;
+#X obj 202 256 knob 25 25 0 1 0 0 \$1pdp_freeframe_param8 \$1pdp_freeframe_param8_init
+empty 8 -8 192 10 -260097 -260097 -1 0 1;
+#X obj 200 191 knob 25 25 0 1 0 0 \$1pdp_freeframe_param6 \$1pdp_freeframe_param6_init
+empty 8 -8 192 10 -260097 -260097 -1 0 1;
+#X symbolatom 55 199 18 0 0 0 - ffparam1 -;
+#X symbolatom 1475 80 18 0 0 0 - ffparam0 -;
+#X symbolatom 58 268 18 0 0 0 - ffparam3 -;
+#X symbolatom 58 305 18 0 0 0 - ffparam4 -;
+#X symbolatom 235 162 18 0 0 0 - ffparam5 -;
+#X symbolatom 235 196 18 0 0 0 - ffparam6 -;
+#X symbolatom 236 229 18 0 0 0 - ffparam7 -;
+#X symbolatom 238 260 18 0 0 0 - ffparam8 -;
+#X symbolatom 56 235 18 0 0 0 - ffparam2 -;
+#X symbolatom 55 166 18 0 0 0 - ffparam0 -;
+#N canvas 4 54 996 665 default 0;
+#X obj 97 86 route 0 1 2 3 4 5 6 7 8;
+#X obj 97 51 inlet;
+#X obj 391 53 inlet;
+#X obj 51 154 s vparam0;
+#X obj 393 114 float 0;
+#X msg 392 88 bang;
+#X obj 79 178 s vparam1;
+#X obj 118 205 s vparam2;
+#X obj 148 227 s vparam3;
+#X obj 184 159 s vparam4;
+#X obj 213 181 s vparam5;
+#X obj 255 206 s vparam6;
+#X obj 283 230 s vparam7;
+#X obj 304 155 s vparam8;
+#X connect 0 0 3 0;
+#X connect 0 1 6 0;
+#X connect 0 2 7 0;
+#X connect 0 3 8 0;
+#X connect 0 4 9 0;
+#X connect 0 5 10 0;
+#X connect 0 6 11 0;
+#X connect 0 7 12 0;
+#X connect 0 8 13 0;
+#X connect 1 0 0 0;
+#X connect 2 0 5 0;
+#X connect 4 0 3 0;
+#X connect 4 0 6 0;
+#X connect 4 0 7 0;
+#X connect 4 0 8 0;
+#X connect 4 0 9 0;
+#X connect 4 0 10 0;
+#X connect 4 0 11 0;
+#X connect 4 0 12 0;
+#X connect 4 0 13 0;
+#X connect 5 0 4 0;
+#X restore 1061 876 pd default;
+#X msg 237 658 set pluginsdir \$1;
+#X connect 0 0 81 1;
+#X connect 1 0 109 0;
+#X connect 2 0 5 0;
+#X connect 3 0 6 0;
+#X connect 4 0 7 0;
+#X connect 5 0 81 0;
+#X connect 6 0 81 0;
+#X connect 7 0 81 0;
+#X connect 10 0 104 1;
+#X connect 12 0 28 1;
+#X connect 12 0 168 1;
+#X connect 16 0 22 0;
+#X connect 17 0 23 0;
+#X connect 18 0 24 0;
+#X connect 19 0 25 0;
+#X connect 20 0 26 0;
+#X connect 21 0 27 0;
+#X connect 22 0 81 0;
+#X connect 23 0 81 0;
+#X connect 24 0 81 0;
+#X connect 25 0 81 0;
+#X connect 26 0 81 0;
+#X connect 27 0 81 0;
+#X connect 44 0 81 0;
+#X connect 45 0 47 0;
+#X connect 46 0 49 0;
+#X connect 47 0 46 0;
+#X connect 49 0 48 0;
+#X connect 55 0 81 0;
+#X connect 68 0 44 0;
+#X connect 69 0 55 0;
+#X connect 69 0 83 0;
+#X connect 74 0 73 0;
+#X connect 75 0 84 0;
+#X connect 77 0 74 0;
+#X connect 77 0 85 0;
+#X connect 80 0 75 0;
+#X connect 81 0 148 0;
+#X connect 81 1 10 0;
+#X connect 81 1 82 1;
+#X connect 81 1 106 0;
+#X connect 81 2 12 0;
+#X connect 81 3 28 0;
+#X connect 81 4 42 0;
+#X connect 81 5 168 0;
+#X connect 82 0 0 0;
+#X connect 82 0 86 0;
+#X connect 82 1 107 1;
+#X connect 82 1 133 1;
+#X connect 83 0 87 0;
+#X connect 83 0 103 0;
+#X connect 84 0 76 0;
+#X connect 84 0 77 0;
+#X connect 84 0 169 0;
+#X connect 85 0 74 0;
+#X connect 87 0 82 0;
+#X connect 88 0 91 0;
+#X connect 89 0 88 0;
+#X connect 90 0 44 0;
+#X connect 91 0 90 0;
+#X connect 91 0 102 0;
+#X connect 91 1 92 0;
+#X connect 91 1 101 0;
+#X connect 91 2 93 0;
+#X connect 91 2 100 0;
+#X connect 92 0 44 0;
+#X connect 93 0 44 0;
+#X connect 100 0 99 0;
+#X connect 101 0 99 0;
+#X connect 102 0 99 0;
+#X connect 103 0 111 0;
+#X connect 103 1 110 0;
+#X connect 103 2 113 0;
+#X connect 104 0 105 0;
+#X connect 105 0 103 1;
+#X connect 106 0 107 0;
+#X connect 107 0 104 0;
+#X connect 109 0 143 0;
+#X connect 109 0 81 1;
+#X connect 112 0 115 0;
+#X connect 114 0 112 0;
+#X connect 116 0 119 0;
+#X connect 119 0 117 0;
+#X connect 119 0 144 0;
+#X connect 119 1 118 0;
+#X connect 134 0 103 2;
+#X connect 135 0 139 0;
+#X connect 135 0 140 1;
+#X connect 136 0 104 0;
+#X connect 138 0 141 0;
+#X connect 139 0 138 0;
+#X connect 140 0 142 0;
+#X connect 141 0 140 0;
+#X connect 141 0 146 0;
+#X connect 142 0 145 0;
+#X connect 144 0 1 0;
+#X connect 145 0 137 0;
+#X connect 146 0 140 0;
+#X connect 169 0 55 0;
+#X coords 0 -1 1 1 400 360 1 0 0;

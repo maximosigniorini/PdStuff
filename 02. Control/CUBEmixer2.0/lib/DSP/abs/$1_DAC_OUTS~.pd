@@ -1,0 +1,4 @@
+#N canvas 0 0 450 300 10;
+#X obj 23 21 inlet~;
+#X obj 25 228 outlet~;
+#X text 86 72 dummy dacs for inclusion with \$1_DAC_OUTS;

@@ -1,0 +1,41 @@
+#N canvas 12 303 669 342 10;
+#X obj 19 192 noteout;
+#X obj 189 151 pgmout;
+#X obj 65 114 * 127;
+#X obj 19 155 makenote 100 450;
+#X obj 104 125 nbx 3 10 -1e+37 1e+37 0 0 empty \$0-vol volume 0 -5
+0 8 -262144 -1 -1 1 256;
+#X obj 138 125 nbx 4 10 -1e+37 1e+37 0 0 empty \$0-dur duration 0 -5
+0 8 -262144 -1 -1 450 256;
+#X obj 183 125 nbx 2 10 -1e+37 1e+37 0 0 empty \$0-prog prog 0 -5 0
+8 -262144 -1 -1 0 256;
+#X obj 210 125 nbx 2 10 -1e+37 1e+37 0 0 empty \$0-channel channel
+0 -5 0 8 -262144 -1 -1 0 256;
+#X obj 19 62 inlet note;
+#X obj 366 -3 initbang;
+#X obj 366 108 s \$0-vol;
+#X obj 408 134 s \$0-dur;
+#X obj 451 160 s \$0-prog;
+#X obj 494 190 s \$0-channel;
+#X obj 378 53 inlet command;
+#X obj 366 81 route vol dur prog channel;
+#X text 109 -18 MIDI OUT \; 1: note (0-1) \; 2: velocity(0-(1) \; 3:
+duration of the note (ms) \; 4: programme \; 5: channel;
+#X msg 366 24 vol 1 \, dur 450 \, prog 0 \, channel 0;
+#X connect 2 0 3 1;
+#X connect 3 0 0 0;
+#X connect 3 1 0 1;
+#X connect 4 0 2 0;
+#X connect 5 0 3 2;
+#X connect 6 0 1 0;
+#X connect 7 0 1 1;
+#X connect 7 0 0 2;
+#X connect 8 0 3 0;
+#X connect 9 0 17 0;
+#X connect 14 0 15 0;
+#X connect 15 0 10 0;
+#X connect 15 1 11 0;
+#X connect 15 2 12 0;
+#X connect 15 3 13 0;
+#X connect 17 0 15 0;
+#X coords 0 -1 1 1 150 40 1 100 100;

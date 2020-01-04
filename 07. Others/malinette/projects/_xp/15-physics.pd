@@ -1,0 +1,33 @@
+#N canvas 228 57 812 645 12;
+#X declare -path ../in -path ../out -path ../tools -path ../filters
+-path ../lib;
+#X obj 7 257 cnv 1 396 1 empty empty FILTERS 2 -6 1 12 -228856 -191407
+0;
+#X obj 7 424 cnv 1 800 1 empty empty OUT 2 -6 1 12 -228856 -191407
+0;
+#X obj 7 85 cnv 1 800 1 empty empty IN 2 -6 1 12 -228856 -191407 0
+;
+#X obj 7 257 cnv 1 800 1 empty empty TOOLS 400 -6 1 12 -228856 -191407
+0;
+#N canvas 390 316 645 287 INIT 0;
+#X obj 103 161 declare -path ../in -path ../out -path ../tools -path
+../filters -path ../lib;
+#X text 103 132 Always use this subpatch in the presets;
+#X obj 101 101 cnv 8 38 8 empty empty INIT 5 4 0 10 -233017 -66577
+0;
+#X coords 0 -1 1 1 40 10 2 100 100;
+#X restore 765 6 pd INIT;
+#X obj 103 101 arduino-analog-in;
+#X obj 103 173 vsl 15 40 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 1125 1;
+#X obj 411 240 physics;
+#X floatatom 134 439 5 0 0 0 - - -;
+#X floatatom 179 440 5 0 0 0 - - -;
+#X floatatom 222 440 5 0 0 0 - - -;
+#X obj 130 479 3d-physics;
+#X msg 307 454 masse 20 \, rigidite 10;
+#X connect 5 0 6 0;
+#X connect 8 0 11 0;
+#X connect 9 0 11 1;
+#X connect 10 0 11 2;
+#X connect 12 0 11 3;

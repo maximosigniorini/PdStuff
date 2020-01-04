@@ -1,0 +1,18 @@
+#N canvas 170 213 188 198 10;
+#X obj 65 75 samplerate~;
+#X floatatom 12 33 5 0 0;
+#X floatatom 13 126 12 0 0;
+#X msg 65 52 bang;
+#X obj 13 101 / 44100;
+#X obj 13 76 * 1000;
+#X obj 13 9 inlet;
+#X obj 14 152 outlet;
+#X text 68 11 samps to ms;
+#X connect 0 0 4 1;
+#X connect 1 0 3 0;
+#X connect 1 0 5 0;
+#X connect 2 0 7 0;
+#X connect 3 0 0 0;
+#X connect 4 0 2 0;
+#X connect 5 0 4 0;
+#X connect 6 0 1 0;

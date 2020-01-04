@@ -1,0 +1,56 @@
+#N canvas 38 229 869 384 10;
+#X obj 2 -35 cnv 15 700 50 empty empty &map 3 12 0 18 -204800 -1 0
+;
+#X text 5 -8 Transposition de valeur.;
+#X text 21 30 Description \; Transpose une valeur d'une échelle donnée
+dans une autre échelle.;
+#X floatatom 449 145 5 0 0 0 - - -;
+#X floatatom 612 84 5 0 0 0 - - -;
+#X floatatom 612 144 5 0 0 0 - - -;
+#X obj 452 80 hsl 128 15 0 1 0 0 empty empty entre_0_et_1 -2 -6 0 10
+-262144 -1 -1 0 1;
+#X floatatom 711 144 5 0 0 0 - - -;
+#X text 21 80 Arguments \; 1 et 2- nombres : valeurs min et max de
+l'échelle initiale \; 3 et 4- nombres : valeurs min et max de l'échelle
+finale;
+#X text 21 131 INLETS \; 1- nombre : nombre à transposer \; 2 et 3-
+nombres : valeurs min et max de l'échelle initiale \; 4 et 5- nombres
+: valeurs min et max de l'échelle finale;
+#X text 21 201 OUTLETS \; 1- nombre : valeur bornée aux valeurs min
+et max \; 2- nombre : valeur sans borne;
+#X floatatom 472 221 5 0 0 0 - - -;
+#X floatatom 472 281 5 0 0 0 - - -;
+#X obj 670 222 tgl 15 0 empty empty 0=linear/1=log 17 7 0 10 -262144
+-1 -1 0 1;
+#X obj 472 252 maxlib/scale -10 10 0 100 0;
+#X text 465 187 Voir aussi :;
+#X msg 591 220 100;
+#X msg 630 220 0;
+#X obj 449 115 &map 0 1 50 100;
+#X obj 612 114 &map -10 10 0 100;
+#X text 21 261 Remarque : [&map] et [maxlib/scale] fonctionnent quelque
+soit la position relative de min et max (ce n'est pas le cas de [split]
+ni de [clip]).;
+#X msg 659 83 10;
+#X msg 698 83 -10;
+#X msg 736 83 100;
+#X msg 775 83 0;
+#X msg 514 220 10;
+#X msg 553 220 -10;
+#X connect 4 0 19 0;
+#X connect 6 0 18 0;
+#X connect 11 0 14 0;
+#X connect 13 0 14 5;
+#X connect 14 0 12 0;
+#X connect 16 0 14 3;
+#X connect 17 0 14 4;
+#X connect 18 0 3 0;
+#X connect 19 0 5 0;
+#X connect 19 1 7 0;
+#X connect 21 0 19 1;
+#X connect 22 0 19 2;
+#X connect 23 0 19 3;
+#X connect 24 0 19 4;
+#X connect 25 0 14 1;
+#X connect 26 0 14 2;
+#X coords 0 384 1 383 65 15 0;

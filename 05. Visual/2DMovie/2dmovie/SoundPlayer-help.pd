@@ -1,0 +1,56 @@
+#N canvas 500 45 720 540 10;
+#X obj 2 -219 cnv 15 700 50 empty empty SoundPlayer 3 12 0 18 -260080
+-1 0;
+#X text 591 -202 @author Pertuit;
+#X text 22 -135 DESCRIPTION;
+#X text 141 -213 Patch de lecture de fichier son.;
+#X text 22 169 Par ex: [soundplayer son.wav];
+#X obj 489 -130 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 489 -77 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 20 54 ARGUMENTS;
+#X text 21 6 Le son chargé doit être placé dans un dossier "sound"
+situé dans le dossier de l'application.;
+#X text 22 260 OUTLETS \; 1- bang : fin de lecture;
+#X text 591 -190 @version 1;
+#X text 591 -215 @library 2DMovie;
+#X text 22 74 1- symbole : le nom du fichier son se trouvant dans le
+dossier "sound" \; 2- booléen : interdit (0 \, par défaut) ou autorise
+(1) le lancement du son avant la fin de la dernière lecture \; 3-
+nombre positif : intensité du son (1 \, par défaut \, équivaut au
+volume initial du fichier son).;
+#X text 22 201 INLETS \; 1- bang : déclencheur de la lecture \; 1-
+booléen : lance (1) ou arrête (0) la lecture.;
+#X obj 489 15 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 531 -41 tgl 15 0 empty empty on/off 17 7 0 10 -262144 -1 -1
+0 1;
+#X obj 489 -40 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 489 -105 soundplayer coucou.aiff;
+#X obj 489 -13 soundplayer croa.wav 1;
+#X obj 489 108 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 531 52 tgl 15 0 empty empty on/off 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 489 53 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 489 80 soundplayer croa.wav 1 0.2;
+#X text 21 -53 On peut changer le volume de sortie (troisième argument)
+ou faire en sorte que le son ne puisse pas être relancé avant la
+lecture précédente. Pour un traitement plus précis \, on utilisera
+le patch [SoundControl].;
+#X text 21 -114 Patch de lecture simple d'un fichier son de format
+WAVE ou AIFF. Le fichier son est chargé à chaque lancement \, c'est
+pourquoi il est plutôt adapté aux sons courts et événementiels.
+;
+#X connect 5 0 17 0;
+#X connect 15 0 18 0;
+#X connect 16 0 18 0;
+#X connect 17 0 6 0;
+#X connect 18 0 14 0;
+#X connect 20 0 22 0;
+#X connect 21 0 22 0;
+#X connect 22 0 19 0;
+#X coords 0 540 1 539 65 15 0;

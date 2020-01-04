@@ -1,0 +1,155 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/abs
+END
+rprint.pd
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/abs/rprint.pd
+END
+receive_setting.pd
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/abs/receive_setting.pd
+END
+spigot38.pd
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/abs/spigot38.pd
+END
+receive_regname.pd
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/abs/receive_regname.pd
+END
+receive_pluginparam.pd
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/abs/receive_pluginparam.pd
+END
+listfilter.pd
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/abs/listfilter.pd
+END
+sr_setting.pd
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/abs/sr_setting.pd
+END
+receive_parameter.pd
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/abs/receive_parameter.pd
+END
+receive_alt.pd
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/abs/receive_alt.pd
+END
+#.pd
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/abs/%23.pd
+END
+sr_pluginparam.pd
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/abs/sr_pluginparam.pd
+END
+sr_parameter.pd
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/abs/sr_parameter.pd
+END
+uglifysymbol.pd
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/abs/uglifysymbol.pd
+END
+send_regname.pd
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/abs/send_regname.pd
+END
+sr_registername.pd
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/abs/sr_registername.pd
+END
+sendreceive.pd
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/abs/sendreceive.pd
+END
+receive_pluginsetting.pd
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/abs/receive_pluginsetting.pd
+END
+beautifysymbol.pd
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/abs/beautifysymbol.pd
+END
+receive_prepend.pd
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/abs/receive_prepend.pd
+END
+sendreceive_nofb.pd
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/abs/sendreceive_nofb.pd
+END
+sr_pluginsetting.pd
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/abs/sr_pluginsetting.pd
+END
+sr_prepend.pd
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/abs/sr_prepend.pd
+END
+sr_plugin.pd
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/abs/sr_plugin.pd
+END
+within.pd
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/abs/within.pd
+END
+sprinkler.pd
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/abs/sprinkler.pd
+END

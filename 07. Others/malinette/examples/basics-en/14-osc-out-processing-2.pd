@@ -1,0 +1,85 @@
+#N canvas 149 79 800 687 10;
+#X declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/numbers -path ../../abstractions/video -path
+../../abstractions/audio -path ../../abstractions/master;
+#X obj 7 279 cnv 1 470 1 empty empty FX 2 -6 1 12 -228856 -191407 0
+;
+#X obj 7 531 cnv 1 470 1 empty empty OUT 2 -6 1 12 -228856 -191407
+0;
+#X obj 7 91 cnv 1 470 1 empty empty IN 2 -6 1 12 -228856 -191407 0
+;
+#X obj 488 28 cnv 20 300 60 empty empty DESCRIPTION 10 15 0 16 -233017
+-128992 0;
+#X obj 488 92 cnv 20 300 100 empty empty PROCÉDURE 10 15 0 16 -262130
+-128992 0;
+#X obj 488 196 cnv 20 300 80 empty empty empty 10 15 0 16 -233017 -128992
+0;
+#X obj 488 534 cnv 20 300 130 empty empty empty 10 15 0 16 -233017
+-128992 0;
+#X obj 143 626 osc-out;
+#X msg 22 609 connect;
+#X obj 488 280 cnv 20 300 250 empty empty empty 10 15 0 16 -233017
+-128992 0;
+#X obj 65 120 seq-sliders;
+#X obj 161 407 inverse;
+#X obj 161 313 map 0 1 20 40;
+#X obj 65 430 fade;
+#X obj 161 428 fade;
+#X text 170 538 pitch;
+#X text 70 539 seq step;
+#X obj 161 335 notescale;
+#X msg 65 560 /v1 \$1;
+#X msg 161 559 /v2 \$1;
+#X obj 161 451 map -127 0 0 1;
+#X obj 65 407 creb/count 8;
+#X obj 65 454 / 8;
+#X obj 323 585 audio-out;
+#X obj 324 542 synth;
+#X obj 401 243 mouse;
+#X text 438 534 volume;
+#X msg 241 558 /v3 \$1;
+#X text 434 258 y;
+#X obj 65 68 loadbang;
+#X msg 65 96 rand 1;
+#X obj 427 442 inverse;
+#X obj 488 5 cnv 20 300 20 empty empty ! 5 10 0 16 -261234 -258113
+0;
+#X text 19 590 Connection;
+#X text 499 53 Send OSC data to another program. We use;
+#X text 499 67 Processing (processing.org) in this example.;
+#X text 509 6 First install the "OSC-P5" lib for Processing;
+#X text 499 445 < normalise values between 0 and 1;
+#X text 494 117 1/ Open the file "./other/to_processing_2" \; 2/ Clic
+on "Run" to launch it \; 3/ Come back to the Malinette \, clic on connect
+\; 4/ Play with the mouse and the sequencer to;
+#X text 513 169 visualise effects in Processing.;
+#X text 503 543 < send three OSC values with these prefixes :;
+#X text 510 556 /v1 \, /v2 \, /v3;
+#X text 502 351 < conversion in musical scale;
+#X text 496 201 < the sequencer send two values : steps and;
+#X text 508 213 pitch;
+#X text 496 239 < the Y position of the mouse change audio;
+#X text 509 253 volume;
+#X obj 732 35 ../../abstractions/include;
+#X connect 8 0 7 0;
+#X connect 10 0 12 0;
+#X connect 10 0 21 0;
+#X connect 11 0 14 0;
+#X connect 12 0 17 0;
+#X connect 13 0 22 0;
+#X connect 14 0 20 0;
+#X connect 17 0 11 0;
+#X connect 17 0 24 0;
+#X connect 18 0 7 1;
+#X connect 19 0 7 1;
+#X connect 20 0 19 0;
+#X connect 21 0 13 0;
+#X connect 22 0 18 0;
+#X connect 24 0 23 0;
+#X connect 24 0 23 1;
+#X connect 25 1 31 0;
+#X connect 27 0 7 1;
+#X connect 29 0 30 0;
+#X connect 30 0 10 0;
+#X connect 31 0 27 0;
+#X connect 31 0 24 2;

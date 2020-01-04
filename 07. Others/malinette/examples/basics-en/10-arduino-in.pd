@@ -1,0 +1,38 @@
+#N canvas 151 22 800 687 10;
+#X declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/numbers -path ../../abstractions/video -path
+../../abstractions/audio -path ../../abstractions/master;
+#X obj 7 279 cnv 1 470 1 empty empty FX 2 -6 1 12 -228856 -191407 0
+;
+#X obj 7 431 cnv 1 470 1 empty empty OUT 2 -6 1 12 -228856 -191407
+0;
+#X obj 7 123 cnv 1 470 1 empty empty IN 2 -6 1 12 -228856 -191407 0
+;
+#X obj 488 28 cnv 20 300 90 empty empty DESCRIPTION 10 15 0 16 -233017
+-128992 0;
+#X obj 488 124 cnv 20 300 150 empty empty empty 10 15 0 16 -233017
+-128992 0;
+#X obj 488 279 cnv 20 300 150 empty empty empty 10 15 0 16 -233017
+-128992 0;
+#X obj 488 434 cnv 20 300 230 empty empty empty 10 15 0 16 -233017
+-128992 0;
+#X obj 223 169 arduino-analog-in;
+#X obj 224 505 audio-out;
+#X obj 223 394 map 0 0.6 20 120;
+#X obj 223 452 synth;
+#X obj 242 295 multimeter;
+#X text 496 55 Reception of sensor value;
+#X text 496 70 plug-in the analog input n°0;
+#X text 496 84 Ex : Photoresistor \, Infrared distance...;
+#X text 496 172 < Analog input window;
+#X text 496 298 < Electric value (Volt and Ohms);
+#X text 496 311 Voltage divider connection needed !;
+#X text 496 391 < Conversion to Midi (0-127);
+#X text 495 460 < Audio synthesis (sinewave);
+#X text 494 538 < Audio output;
+#X obj 738 12 ../../abstractions/include;
+#X connect 7 0 9 0;
+#X connect 7 0 11 0;
+#X connect 9 0 10 0;
+#X connect 10 0 8 0;
+#X connect 10 0 8 1;

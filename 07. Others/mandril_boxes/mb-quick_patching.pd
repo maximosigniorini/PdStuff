@@ -1,0 +1,1281 @@
+#N canvas 155 54 1553 1087 10;
+#X obj 1 0 cnv 15 620 250 empty empty mb-QuickPatching 4 12 0 12 -99865
+-228856 0;
+#X msg 281 -134 clear;
+#X obj 322 -61 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 224 -130 clear;
+#X obj 166 -100 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 211 87 mb-gBrowser B2;
+#X floatatom 188 290 5 0 0 0 - - -;
+#N canvas 643 380 824 619 browsettings1 0;
+#X floatatom 302 226 5 0 0 1 size - -;
+#X msg 238 341 colorRGB 0 255 0;
+#X msg 237 317 colorRGB 0 0 255;
+#X obj 302 248 t b a;
+#X floatatom 238 226 5 0 2 1 font - -;
+#X msg 269 287 text.font \$1 \$2;
+#X msg 238 363 select.colorRGB 125 125 125;
+#X msg 270 140 label Dir;
+#X obj 244 58 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 239 10 inlet;
+#X obj 191 442 outlet;
+#X obj 295 37 loadbang;
+#X obj 238 272 pack 0 7;
+#X msg 152 137 text.font 1 9;
+#X connect 0 0 3 0;
+#X connect 3 0 12 0;
+#X connect 3 1 12 1;
+#X connect 4 0 12 0;
+#X connect 6 0 10 0;
+#X connect 7 0 10 0;
+#X connect 8 0 7 0;
+#X connect 8 0 13 0;
+#X connect 8 0 6 0;
+#X connect 9 0 8 0;
+#X connect 11 0 8 0;
+#X connect 12 0 5 0;
+#X connect 13 0 10 0;
+#X restore 64 -186 pd browsettings1;
+#N canvas 16 120 824 619 browsettings2 0;
+#X floatatom 302 226 5 0 0 1 size - -;
+#X msg 238 341 colorRGB 0 255 0;
+#X msg 237 317 colorRGB 0 0 255;
+#X obj 302 248 t b a;
+#X floatatom 238 226 5 0 2 1 font - -;
+#X msg 238 295 text.font \$1 \$2;
+#X msg 238 363 select.colorRGB 125 125 125;
+#X text 230 184 Clear the browser;
+#X msg 152 137 text.font 1 10;
+#X obj 244 58 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 239 10 inlet;
+#X obj 191 442 outlet;
+#X msg 270 140 label abstractions;
+#X obj 317 39 loadbang;
+#X obj 238 272 pack 0 8;
+#X connect 0 0 3 0;
+#X connect 3 0 14 0;
+#X connect 3 1 14 1;
+#X connect 4 0 14 0;
+#X connect 6 0 11 0;
+#X connect 8 0 11 0;
+#X connect 9 0 12 0;
+#X connect 9 0 8 0;
+#X connect 9 0 6 0;
+#X connect 10 0 9 0;
+#X connect 12 0 11 0;
+#X connect 13 0 9 0;
+#X connect 14 0 5 0;
+#X restore 367 -65 pd browsettings2;
+#X obj 367 -109 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#N canvas 711 255 917 423 filefilter 0;
+#N canvas 40 252 817 587 dirsbrows2 0;
+#X msg 122 117 bang;
+#X obj 162 258 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X text 150 83 list current directory;
+#X obj 181 256 print;
+#X obj 181 235 folder_list;
+#X obj 233 401 sel folder;
+#X obj 184 334 t s s;
+#X msg 155 400 file \$1;
+#X obj 231 365 hcs/file_type;
+#X msg 95 149 symbol /usr/lib/pd/extra/*.pd;
+#X msg 231 434 1;
+#X msg 264 433 0;
+#X obj 175 453 spigot;
+#X obj 322 429 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 359 418 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 174 114 symbol /home/musa/*;
+#X symbolatom 252 287 80 0 0 0 - - -;
+#X obj 256 485 spigot;
+#X msg 247 471 0;
+#X msg 280 470 1;
+#X obj 72 64 inlet;
+#X obj 353 68 inlet;
+#X obj 160 537 outlet;
+#X obj 269 535 outlet;
+#X text 101 539 dirs;
+#X text 323 532 files;
+#X connect 0 0 4 0;
+#X connect 4 0 1 0;
+#X connect 4 0 3 0;
+#X connect 4 0 16 0;
+#X connect 4 0 6 0;
+#X connect 5 0 10 0;
+#X connect 5 0 13 0;
+#X connect 5 0 18 0;
+#X connect 5 1 11 0;
+#X connect 5 1 14 0;
+#X connect 5 1 19 0;
+#X connect 6 0 7 0;
+#X connect 6 1 8 0;
+#X connect 7 0 12 0;
+#X connect 7 0 17 0;
+#X connect 8 0 5 0;
+#X connect 9 0 4 0;
+#X connect 10 0 12 1;
+#X connect 11 0 12 1;
+#X connect 12 0 22 0;
+#X connect 15 0 4 0;
+#X connect 17 0 23 0;
+#X connect 18 0 17 1;
+#X connect 19 0 17 1;
+#X connect 20 0 4 0;
+#X connect 21 0 4 1;
+#X restore 313 172 pd dirsbrows2;
+#X msg 325 150 bang;
+#X obj 309 93 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 190 92 clear;
+#X obj 185 35 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 159 -63 inlet;
+#X obj 195 328 outlet;
+#X obj 329 -68 inlet;
+#X symbolatom 343 49 40 0 0 0 - - -;
+#X obj 320 -25 pack s s;
+#X obj 320 11 makesymbol %s/*.%s;
+#X connect 0 1 6 0;
+#X connect 1 0 0 0;
+#X connect 2 0 0 0;
+#X connect 3 0 6 0;
+#X connect 4 0 3 0;
+#X connect 5 0 4 0;
+#X connect 5 0 9 0;
+#X connect 7 0 9 1;
+#X connect 8 0 0 0;
+#X connect 8 0 2 0;
+#X connect 9 0 10 0;
+#X connect 10 0 8 0;
+#X restore 264 -107 pd filefilter;
+#X msg 316 -166 symbol pd;
+#X obj -137 -290 tof/folderpanel;
+#X obj -137 -314 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text -106 -318 change dir;
+#X text 312 -186 file filer;
+#X symbolatom 258 309 40 0 0 0 - - -;
+#X floatatom 405 283 5 0 0 0 - - -;
+#X obj -137 -342 r \$1mb-qp_change_dir;
+#X obj 14 27 bng 15 250 50 0 \$1mb-qp_change_dir empty Change_dir 17
+7 0 8 -260097 -1 -228856;
+#X obj 324 -214 loadbang;
+#X obj 159 26 bng 15 250 50 0 \$1mb-qp_favorite_on empty LoadFavorites
+17 7 0 8 -260097 -1 -228856;
+#X obj 277 -323 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#N canvas 983 331 665 552 normal_dirs 0;
+#N canvas 20 142 817 587 dirsbrows 0;
+#X msg 122 117 bang;
+#X obj 162 258 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X text 150 83 list current directory;
+#X obj 181 256 print;
+#X obj 181 235 folder_list;
+#X obj 233 401 sel folder;
+#X obj 184 334 t s s;
+#X msg 155 400 file \$1;
+#X obj 231 365 hcs/file_type;
+#X msg 95 149 symbol /usr/lib/pd/extra/*.pd;
+#X msg 231 434 1;
+#X msg 264 433 0;
+#X obj 175 453 spigot;
+#X obj 322 429 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 359 418 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 174 114 symbol /home/musa/*;
+#X symbolatom 252 287 80 0 0 0 - - -;
+#X obj 256 485 spigot;
+#X msg 247 471 0;
+#X msg 280 470 1;
+#X obj 72 64 inlet;
+#X obj 353 68 inlet;
+#X obj 160 537 outlet;
+#X obj 269 535 outlet;
+#X text 101 539 dirs;
+#X text 323 532 files;
+#X connect 0 0 4 0;
+#X connect 4 0 1 0;
+#X connect 4 0 3 0;
+#X connect 4 0 16 0;
+#X connect 4 0 6 0;
+#X connect 5 0 10 0;
+#X connect 5 0 13 0;
+#X connect 5 0 18 0;
+#X connect 5 1 11 0;
+#X connect 5 1 14 0;
+#X connect 5 1 19 0;
+#X connect 6 0 7 0;
+#X connect 6 1 8 0;
+#X connect 7 0 12 0;
+#X connect 7 0 17 0;
+#X connect 8 0 5 0;
+#X connect 9 0 4 0;
+#X connect 10 0 12 1;
+#X connect 11 0 12 1;
+#X connect 12 0 22 0;
+#X connect 15 0 4 0;
+#X connect 17 0 23 0;
+#X connect 18 0 17 1;
+#X connect 19 0 17 1;
+#X connect 20 0 4 0;
+#X connect 21 0 4 1;
+#X restore 320 -91 pd dirsbrows;
+#X msg 353 -201 bang;
+#X msg 352 -164 symbol /home/musa/*;
+#X msg 340 -123 symbol /home/musa/Imatges;
+#X obj 272 -105 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 97 -221 makesymbol %s/*;
+#X symbolatom 100 -196 40 0 0 0 - - -;
+#X msg 134 -123 clear;
+#X obj 140 -146 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 234 -163 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 270 -146 delay 10;
+#X obj 204 75 outlet;
+#X obj 96 -273 inlet;
+#X obj 373 76 outlet;
+#X text 427 75 reset browser;
+#X connect 0 0 11 0;
+#X connect 1 0 0 0;
+#X connect 2 0 0 0;
+#X connect 3 0 0 0;
+#X connect 4 0 13 0;
+#X connect 5 0 6 0;
+#X connect 6 0 0 0;
+#X connect 6 0 9 0;
+#X connect 7 0 11 0;
+#X connect 8 0 7 0;
+#X connect 9 0 10 0;
+#X connect 10 0 0 0;
+#X connect 10 0 4 0;
+#X connect 12 0 5 0;
+#X connect 12 0 8 0;
+#X restore -135 -228 pd normal_dirs;
+#X symbolatom -168 -142 40 0 0 0 - - -;
+#X obj 279 -351 r \$1mb-qp_favorite_on;
+#N canvas 996 506 702 618 favorite_dirs 0;
+#X obj 52 -212 inlet;
+#X obj 116 92 outlet;
+#X obj 77 -119 makesymbol \$1mb-qp_add_favorite;
+#X obj 67 -151 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 81 68 r \$1mb-qp_add_favorite;
+#X obj 365 -212 inlet;
+#X text 96 -212 list favorites;
+#X text 410 -210 add favorite dir;
+#X msg 319 -160 adddollar 1;
+#X msg 409 -109 add symbol /home/musa/0zpd/0mandril/boxes;
+#X obj 368 -121 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 401 -154 set add symbol \$1;
+#X msg 79 -53 \; \$1 symbol /home/musa/0zpd/0mandril \; \$1 symbol
+/usr/lib/pd/extra \; \$1 symbol /home/musa/0zpd/0mandril/boxes \;;
+#X connect 0 0 3 0;
+#X connect 2 0 12 0;
+#X connect 3 0 2 0;
+#X connect 4 0 1 0;
+#X connect 5 0 11 0;
+#X connect 5 0 8 0;
+#X connect 8 0 12 0;
+#X connect 8 0 10 0;
+#X connect 9 0 12 0;
+#X connect 10 0 9 0;
+#X connect 11 0 9 0;
+#X restore 303 -290 pd favorite_dirs;
+#X symbolatom 381 -268 40 0 0 0 - - -;
+#X text 1007 -291 Numeber/Name of capture passed as argument when mb-pdp_capture_video
+is called-> ex. mb-pdp_capture_video 1-> \$0 is 1;
+#X obj 880 -229 symbol \$1;
+#X symbolatom 880 -200 0 0 0 0 - - -;
+#X obj 880 -265 bng 15 250 50 0 empty empty click_here_to_see 0 -6
+0 8 -262144 -1 -1;
+#X symbolatom 977 -200 0 0 0 0 - - -;
+#X obj 977 -229 symbol \$2;
+#X obj 883 -307 loadbang;
+#X obj 881 -161 s \$1mb-qp_id;
+#X obj 317 -262 print aa;
+#X obj 56 -284 tof/folderpanel;
+#X text 87 -312 change dir;
+#X symbolatom 15 -242 40 0 0 0 - - -;
+#X obj 31 -311 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 56 -336 r \$1mb-qp_add_dir;
+#X obj 95 27 bng 15 250 50 0 \$1mb-qp_add_dir empty Add_dir 17 7 0
+8 -260097 -1 -228856;
+#X obj 259 26 bng 15 250 50 0 \$1mb-qp_clear_dir empty clear 17 7 0
+8 -258113 -1 -228856;
+#X obj 186 -192 r \$1mb-qp_clear_dir;
+#X symbolatom 4 342 40 0 0 0 - - -;
+#X obj 0 308 l2s;
+#X msg -88 395 label \$1;
+#X obj -90 415 s \$1mb-qp_curr_dir_label;
+#X obj 433 -355 r \$1mb-qp_new_favorite;
+#X obj -65 482 symbol;
+#X obj -105 514 s \$1mb-qp_new_favorite;
+#X symbolatom 286 405 40 0 0 0 - - -;
+#X obj 291 355 cyclone/tosymbol;
+#X obj 288 379 hcs/split_path;
+#X symbolatom 390 377 40 0 0 0 - - -;
+#X msg 478 437 label \$1;
+#X obj 478 453 s \$1mb-qp_curr_absfile_label;
+#X msg 275 442 label \$1;
+#X obj 275 458 s \$1mb-qp_curr_absfolder_label;
+#N canvas 921 468 938 489 open_abstraction 0;
+#X msg 428 188 \; pd-abstraction.pd menuclose \;;
+#X msg 428 46 \; pd open abstraction.pd /usr/local/lib/pd/doc/7.stuff/additional/pd-msg/2.msg_and_pd
+;
+#X text 428 24 OPEN;
+#X text 427 167 CLOSE;
+#X text 425 224 (you have to put the correct name & a valid path);
+#X text 428 124 Sometimes you can get relative paths (./ \, ../ \,
+etc.) to work \, but usually not. I don't know why...;
+#X text 428 92 You have to put the name of the patch to open and its
+complete path;
+#X obj 45 27 inlet;
+#X msg 320 280 add2 /home/musa/0zpd/0mandril/boxes;
+#X msg 75 277 add2 pd open mb-pdp_freeframe_control.pd;
+#X obj -73 136 symbol;
+#X obj 191 124 symbol;
+#X text 89 27 bang to add;
+#X obj 179 87 r \$1mb-qp_curr_absfolder;
+#X obj -3 90 r \$1mb-qp_curr_absfile;
+#X symbolatom 174 181 40 0 0 0 - - -;
+#X symbolatom -88 178 40 0 0 0 - - -;
+#X msg -44 247 addsemi;
+#X msg 76 332 \; pd open mb-pdp_freeframe_control.pd /home/musa/0zpd/0mandril/boxes
+;
+#X msg -114 251 set;
+#X obj -104 296 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 16 291 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 270 308 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 204 309 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 207 246 set add2 \$1;
+#X msg 65 247 set add2 pd open \$1;
+#X obj 187 53 s \$1mb-qp_command_editmode;
+#X obj 141 49 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X connect 7 0 11 0;
+#X connect 7 0 10 0;
+#X connect 7 0 19 0;
+#X connect 7 0 27 0;
+#X connect 8 0 18 0;
+#X connect 8 0 22 0;
+#X connect 9 0 18 0;
+#X connect 9 0 23 0;
+#X connect 10 0 16 0;
+#X connect 10 0 25 0;
+#X connect 11 0 15 0;
+#X connect 11 0 24 0;
+#X connect 13 0 11 1;
+#X connect 14 0 10 1;
+#X connect 17 0 18 0;
+#X connect 17 0 21 0;
+#X connect 19 0 18 0;
+#X connect 19 0 20 0;
+#X connect 20 0 17 0;
+#X connect 21 0 9 0;
+#X connect 22 0 18 0;
+#X connect 23 0 8 0;
+#X connect 24 0 8 0;
+#X connect 25 0 9 0;
+#X connect 27 0 26 0;
+#X restore 503 602 pd open_abstraction;
+#X obj 231 481 s \$1mb-qp_curr_absfolder;
+#X obj 410 483 s \$1mb-qp_curr_absfile;
+#X obj 503 572 r \$1mb-qp_open_abs;
+#X obj 8 87 mb-gBrowser B1;
+#X obj 501 189 tgl 15 0 \$1mb-qp_open_default \$1mb-qp_open_default_init
+Open_by_default 17 7 0 8 -260097 -1 -228856 0 1;
+#X obj 501 170 tgl 15 0 \$1mb-qp_add_default \$1mb-qp_add_default_init
+Add_by_default 17 7 0 8 -260097 -1 -228856 0 1;
+#X obj 373 542 r \$1mb-qp_open_default;
+#X obj 403 571 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 407 597 spigot;
+#X obj 332 591 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#N canvas 893 546 377 508 add_abstraction 0;
+#X obj 45 27 inlet;
+#X obj -73 136 symbol;
+#X text 89 27 bang to add;
+#X obj -3 90 r \$1mb-qp_curr_absfile;
+#X symbolatom -8 137 0 0 0 0 - - -;
+#X obj -110 108 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -73 163 mtl/splitExtension;
+#X symbolatom 50 164 0 0 0 0 - - -;
+#X symbolatom -72 196 0 0 0 0 - - -;
+#X obj 65 445 outlet;
+#X connect 0 0 1 0;
+#X connect 1 0 4 0;
+#X connect 1 0 6 0;
+#X connect 3 0 1 1;
+#X connect 5 0 1 0;
+#X connect 6 0 8 0;
+#X connect 6 1 7 0;
+#X connect 8 0 9 0;
+#X restore 731 638 pd add_abstraction;
+#X obj 671 578 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 675 604 spigot;
+#X obj 670 544 r \$1mb-qp_add_default;
+#X obj 730 594 r \$1mb-qp_add_abs;
+#X obj 8 47 cnv 15 198 40 empty empty selected_dir 1 8 0 8 -191407
+-1 0;
+#X obj 11 68 hradio 15 1 0 12 empty \$1mb-qp_curr_dir_label /home/musa/0zpd/0mandril/boxes
+0 8 0 8 -1 -1 -260097 0;
+#X obj -94 445 r \$1mb-qp_add_fav_dir;
+#X obj 87 49 bng 15 250 50 0 \$1mb-qp_add_fav_dir empty Add_to_favorites
+17 7 0 8 -257985 -1 -1;
+#X obj 211 46 cnv 15 198 40 empty empty selected_abstr 1 8 0 8 -191407
+-1 0;
+#X obj 215 66 hradio 15 1 0 12 empty \$1mb-qp_curr_absfile_label mb-gem_pix_capture_video.pd
+0 8 0 8 -1 -1 -260097 0;
+#X obj 415 48 cnv 15 198 70 empty empty Destination 1 8 0 10 -260097
+-262144 0;
+#X obj 422 65 hradio 15 1 0 12 empty \$1mb-qp_destination_file_label
+empty 0 8 0 8 -1 -1 -260097 0;
+#X obj 422 83 hradio 15 1 0 12 empty \$1mb-qp_destination_dir_label
+empty 0 8 0 8 -1 -1 -260097 0;
+#X obj 670 426 s \$1mb-qp_destination_file_label;
+#X msg 674 478 label \$1;
+#X obj 675 501 s \$1mb-qp_destination_dir_label;
+#N canvas 209 243 585 428 new_patch 0;
+#X obj 121 -73 inlet;
+#X obj 125 -38 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 118 71 add pd filename new.pd /home/musa/0zpd/0mandril;
+#X msg 67 74 addsemi;
+#X msg 32 74 set;
+#X obj 42 95 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 71 100 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 148 117 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 125 -11 tof/folderpanel;
+#X msg 152 93 add #N canvas;
+#X msg 135 184 \; pd filename new.pd /home/musa/0zpd/0mandril \; #N
+canvas \; #X pop 1 \;;
+#X obj 136 95 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 165 114 add #X pop 1;
+#X obj 177 143 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 206 14 s \$1mb-qp_destination_dir_name;
+#X text 173 -77 new patches are named with "new".;
+#X obj 292 -10 s \$1mb-qp_destination_file_name;
+#X msg 282 -37 symbol new.pd;
+#X msg 110 44 set add pd filename new.pd \$1;
+#X obj 332 150 s \$1mb-qp_command_editmode;
+#X obj 340 129 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 290 110 delay 10;
+#X connect 0 0 1 0;
+#X connect 1 0 8 0;
+#X connect 1 0 17 0;
+#X connect 2 0 10 0;
+#X connect 2 0 7 0;
+#X connect 3 0 10 0;
+#X connect 3 0 6 0;
+#X connect 4 0 10 0;
+#X connect 4 0 5 0;
+#X connect 5 0 3 0;
+#X connect 6 0 2 0;
+#X connect 7 0 9 0;
+#X connect 8 0 18 0;
+#X connect 8 0 4 0;
+#X connect 8 0 14 0;
+#X connect 9 0 10 0;
+#X connect 9 0 11 0;
+#X connect 11 0 12 0;
+#X connect 12 0 10 0;
+#X connect 12 0 13 0;
+#X connect 13 0 10 0;
+#X connect 13 0 21 0;
+#X connect 17 0 16 0;
+#X connect 18 0 2 0;
+#X connect 20 0 19 0;
+#X connect 21 0 20 0;
+#X restore 669 349 pd new_patch;
+#X obj 509 48 bng 15 250 50 0 \$1mb-qp_new_patch_on \$1mb-qp_new_patch_on_init
+New 17 7 0 8 -4034 -1 -1;
+#X obj 551 48 bng 15 250 50 0 \$1mb-qp_new_patch_change_on \$1mb-qp_new_patch_change_on_init
+Open 17 7 0 8 -4034 -1 -1;
+#X obj 674 454 r \$1mb-qp_destination_dir_name;
+#X obj 668 379 r \$1mb-qp_destination_file_name;
+#X obj 668 321 r \$1mb-qp_new_patch_on;
+#N canvas 371 389 1192 686 add_objects 0;
+#X obj 175 329 pack symbol symbol float float;
+#X obj 88 57 inlet;
+#X obj 294 57 inlet;
+#X obj 378 56 inlet;
+#X obj 183 56 inlet;
+#X text 48 24 object to add;
+#X text 144 26 patch destination;
+#X text 290 27 x pos;
+#X text 372 26 y pos;
+#X obj 708 68 inlet;
+#X text 700 37 arguments;
+#X msg 109 458 object mb-gem_pix_capture_video destination Exemple09.pd
+x 0 y 0;
+#X msg 110 428 set object \$1 destination \$2 x \$3 y \$4;
+#X msg 1004 160 msg 10 10 bang;
+#X msg 1004 208 obj 10 40 metro 500;
+#X msg 1004 184 floatatom 100 10 7 50 5000;
+#X msg 1004 280 obj 10 70 random 127;
+#X msg 1004 328 floatatom 10 100 5;
+#X msg 1005 376 text 10 130 That's it !;
+#X msg 1004 232 connect 0 0 2 0;
+#X msg 1004 255 connect 1 0 2 1;
+#X msg 1004 304 connect 2 0 3 0;
+#X msg 1004 352 connect 3 0 4 0;
+#X text 956 110 And then we fill it with the way describe in 1.add_objects.pd
+;
+#X msg 1047 471 menuclose;
+#X text 1051 497 this will kill it !;
+#X msg 924 201 editmode 1;
+#X obj 957 410 s pd-new;
+#X msg 978 42 \; pd-new.pd msg 50 70 hola;
+#X msg 944 111 \; pd-new.pd obj 10 20 mb-gem_pix_control_shapes d;
+#X msg 484 456 object mb-gem_pix_control_shapes destination 0pr0va.pd
+x 0 y 0 arguments a;
+#X obj 304 220 demux;
+#X obj 417 227 demux;
+#X obj 550 327 pack symbol symbol float float symbol;
+#X msg 175 358 \; pd-\$2 obj \$3 \$4 \$1;
+#X msg 550 356 \; pd-\$2 obj \$3 \$4 \$1 \$5;
+#X msg 485 426 set object \$1 destination \$2 x \$3 y \$4 arguments
+\$5;
+#X obj 489 203 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 495 155 r \$1mb-qp_args_enable_on;
+#X floatatom 507 179 5 0 0 0 - - -;
+#X obj 162 227 demux;
+#X connect 0 0 34 0;
+#X connect 0 0 12 0;
+#X connect 1 0 40 0;
+#X connect 2 0 31 0;
+#X connect 3 0 32 0;
+#X connect 4 0 0 1;
+#X connect 4 0 33 1;
+#X connect 9 0 33 4;
+#X connect 12 0 11 0;
+#X connect 13 0 27 0;
+#X connect 14 0 27 0;
+#X connect 15 0 27 0;
+#X connect 16 0 27 0;
+#X connect 17 0 27 0;
+#X connect 18 0 27 0;
+#X connect 19 0 27 0;
+#X connect 20 0 27 0;
+#X connect 21 0 27 0;
+#X connect 22 0 27 0;
+#X connect 24 0 27 0;
+#X connect 26 0 27 0;
+#X connect 31 0 0 2;
+#X connect 31 1 33 2;
+#X connect 32 0 0 3;
+#X connect 32 1 33 3;
+#X connect 33 0 35 0;
+#X connect 33 0 36 0;
+#X connect 36 0 30 0;
+#X connect 37 0 32 1;
+#X connect 37 0 31 1;
+#X connect 37 0 40 1;
+#X connect 38 0 37 0;
+#X connect 38 0 39 0;
+#X connect 40 0 0 0;
+#X connect 40 1 33 0;
+#X restore 940 657 pd add_objects;
+#X obj 669 267 r \$1mb-qp_new_patch_change_on;
+#N canvas 690 358 1154 560 change_new_patch 0;
+#X obj 121 -73 inlet;
+#X obj 120 -47 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -141 157 s \$1mb-qp_destination_dir_name;
+#X obj 120 -26 openpanel;
+#X symbolatom 120 -6 70 0 0 0 - - -;
+#X symbolatom -135 138 40 0 0 0 - - -;
+#X obj 116 25 cyclone/tosymbol;
+#X obj 116 55 hcs/split_path;
+#X symbolatom 302 121 40 0 0 0 - - -;
+#X obj 318 151 s \$1mb-qp_destination_file_name;
+#X msg 421 306 add2 /home/musa/0zpd/0mandril/Examples;
+#X msg 176 303 add2 pd open Exemple09.pd;
+#X msg 57 273 addsemi;
+#X msg 177 358 \; pd open Exemple09.pd /home/musa/0zpd/0mandril/Examples
+;
+#X msg -13 277 set;
+#X obj -3 322 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 117 317 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 371 334 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 305 335 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 308 272 set add2 \$1;
+#X msg 166 273 set add2 pd open \$1;
+#X obj 573 378 s \$1mb-qp_command_editmode;
+#X obj 581 357 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 531 338 delay 10;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 6 0;
+#X connect 6 0 7 0;
+#X connect 7 0 5 0;
+#X connect 7 0 2 0;
+#X connect 7 0 19 0;
+#X connect 7 0 14 0;
+#X connect 7 1 8 0;
+#X connect 7 1 9 0;
+#X connect 7 1 20 0;
+#X connect 10 0 13 0;
+#X connect 10 0 17 0;
+#X connect 11 0 13 0;
+#X connect 11 0 18 0;
+#X connect 12 0 13 0;
+#X connect 12 0 16 0;
+#X connect 14 0 13 0;
+#X connect 14 0 15 0;
+#X connect 15 0 12 0;
+#X connect 16 0 11 0;
+#X connect 17 0 13 0;
+#X connect 17 0 23 0;
+#X connect 18 0 10 0;
+#X connect 19 0 10 0;
+#X connect 20 0 11 0;
+#X connect 22 0 21 0;
+#X connect 23 0 22 0;
+#X restore 670 295 pd change_new_patch;
+#X obj 1017 518 r \$1mb-qp_destination_file_name;
+#X obj 232 2 tgl 12 0 \$1mb-qp_always_top_on \$1mb-qp_always_top_on_init
+Always_on_top 17 7 0 8 -4034 -1 -191407 0 1;
+#N canvas 20 142 904 300 pijades_window 0;
+#X obj 134 217 sys_gui;
+#X symbolatom 249 111 0 0 0 0 - - -;
+#X obj 233 42 loadbang;
+#X obj 134 158 pack float symbol;
+#X obj 69 98 hsl 128 15 0.1 1 1 1 empty empty window_alpha -2 -8 0
+10 -204800 -1 -1 12700 1;
+#X floatatom 66 133 5 0 0 0 - - -;
+#X msg 134 187 wm attributes \$2 -alpha \$1;
+#X obj 439 176 sys_gui;
+#X obj 439 115 pack float symbol;
+#X obj 538 62 loadbang;
+#X msg 439 146 wm attributes \$2 -topmost \$1;
+#X obj 439 40 r \$1mb-qp_always_top_on;
+#X obj 70 32 r \$1mb-qp_window_alfa;
+#X obj 538 87 window_name 2;
+#X obj 233 79 window_name 2;
+#X obj 663 168 sys_gui;
+#X obj 663 107 pack float symbol;
+#X obj 762 54 loadbang;
+#X obj 663 32 r \$1mb-qp_always_top_on;
+#X obj 762 79 window_name 2;
+#X msg 663 138 wm attributes \$2 -toolwindow \$1;
+#X connect 2 0 14 0;
+#X connect 3 0 6 0;
+#X connect 4 0 3 0;
+#X connect 4 0 5 0;
+#X connect 6 0 0 0;
+#X connect 8 0 10 0;
+#X connect 9 0 13 0;
+#X connect 10 0 7 0;
+#X connect 11 0 8 0;
+#X connect 12 0 4 0;
+#X connect 13 0 8 1;
+#X connect 14 0 3 1;
+#X connect 14 0 1 0;
+#X connect 16 0 20 0;
+#X connect 17 0 19 0;
+#X connect 18 0 16 0;
+#X connect 19 0 16 1;
+#X connect 20 0 15 0;
+#X restore 669 -16 pd pijades_window;
+#X obj 335 5 hsl 70 10 0.1 1 1 1 \$1mb-qp_window_alfa empty transparent
+0 6 0 6 -66577 -260097 -260097 6900 1;
+#N canvas 505 291 1192 686 send_command 0;
+#X obj 88 57 inlet;
+#X obj 179 50 inlet;
+#X text 47 26 patch destination;
+#X msg 868 163 msg 10 10 bang;
+#X msg 868 211 obj 10 40 metro 500;
+#X msg 868 187 floatatom 100 10 7 50 5000;
+#X msg 868 283 obj 10 70 random 127;
+#X msg 868 331 floatatom 10 100 5;
+#X msg 869 379 text 10 130 That's it !;
+#X msg 868 235 connect 0 0 2 0;
+#X msg 868 258 connect 1 0 2 1;
+#X msg 868 307 connect 2 0 3 0;
+#X msg 868 355 connect 3 0 4 0;
+#X text 820 113 And then we fill it with the way describe in 1.add_objects.pd
+;
+#X msg 911 474 menuclose;
+#X text 915 500 this will kill it !;
+#X msg 740 232 editmode 1;
+#X obj 821 413 s pd-new;
+#X msg 283 178 menusaveas;
+#X obj 261 116 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 197 347 \; pd-\$2 \$1;
+#X obj 197 318 pack symbol symbol;
+#X text 178 25 saveas;
+#X msg 372 181 menusave;
+#X obj 359 56 inlet;
+#X text 352 29 save;
+#X msg 439 178 menuclose;
+#X obj 422 56 inlet;
+#X obj 493 60 inlet;
+#X msg 516 178 clear;
+#X msg 842 45 \; pd-new.pd msg 50 70 bang;
+#X obj 559 57 inlet;
+#X msg 570 171 editmode 1;
+#X text 425 36 close;
+#X text 495 35 clear;
+#X text 558 33 editmode;
+#X obj 172 109 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X connect 0 0 21 1;
+#X connect 0 0 36 0;
+#X connect 1 0 18 0;
+#X connect 3 0 17 0;
+#X connect 4 0 17 0;
+#X connect 5 0 17 0;
+#X connect 6 0 17 0;
+#X connect 7 0 17 0;
+#X connect 8 0 17 0;
+#X connect 9 0 17 0;
+#X connect 10 0 17 0;
+#X connect 11 0 17 0;
+#X connect 12 0 17 0;
+#X connect 14 0 17 0;
+#X connect 16 0 17 0;
+#X connect 18 0 21 0;
+#X connect 19 0 18 0;
+#X connect 21 0 20 0;
+#X connect 23 0 21 0;
+#X connect 24 0 23 0;
+#X connect 26 0 21 0;
+#X connect 27 0 26 0;
+#X connect 28 0 29 0;
+#X connect 29 0 21 0;
+#X connect 31 0 32 0;
+#X connect 32 0 21 0;
+#X connect 36 0 32 0;
+#X restore 1061 -66 pd send_command;
+#X obj 1057 -214 r \$1mb-qp_destination_file_name;
+#X obj 1096 -191 r \$1mb-qp_command_saveas;
+#X obj 461 100 bng 15 250 50 0 \$1mb-qp_command_saveas \$1mb-qp_command_saveas_init
+save.as 17 7 0 8 -257985 -1 -1;
+#X obj 417 100 bng 15 250 50 0 \$1mb-qp_command_save \$1mb-qp_command_save_init
+save 17 7 0 8 -257985 -1 -1;
+#X obj 1142 -172 r \$1mb-qp_command_save;
+#X obj 568 100 bng 15 250 50 0 \$1mb-qp_command_close \$1mb-qp_command_close_init
+close 17 7 0 7 -258113 -1 -1;
+#X obj 522 100 bng 15 250 50 0 \$1mb-qp_command_clear \$1mb-qp_command_clear_init
+clear 17 7 0 7 -257985 -1 -1;
+#X obj 1161 -145 r \$1mb-qp_command_close;
+#X obj 1173 -118 r \$1mb-qp_command_clear;
+#X obj 663 62 r \$1mb-qp_gcanvas_params;
+#X obj 673 143 s \$1mb-qp_gcanvas_x;
+#X obj 672 128 s \$1mb-qp_gcanvas_y;
+#N canvas 380 319 957 576 gcanvas 0;
+#X text 726 165 click and drag in the grey [gcanvas] to get pixel values
+;
+#N canvas 12 98 441 440 resize 0;
+#X obj 132 192 gcanvas 49 49;
+#X msg 132 172 size 49 49;
+#X obj 37 193 vsl 20 200 200 5 0 0 empty empty Y 0 -8 1 11 -241655
+-1 -1 15308 0;
+#X obj 135 72 hsl 200 20 5 200 0 0 empty empty X -2 -6 1 11 -241655
+-1 -1 4592 0;
+#X obj 20 62 loadbang;
+#X msg 37 85 50;
+#N canvas 530 54 466 316 guts 0;
+#X obj 141 36 inlet;
+#X obj 184 271 outlet;
+#X obj 154 160 pack f f;
+#X obj 175 135 t b f;
+#X obj 154 181 t b a;
+#X obj 208 37 inlet;
+#X text 130 36 Y;
+#X text 253 38 X;
+#X obj 208 76 int;
+#X obj 141 78 int;
+#X msg 184 200 set size \$1 \$2;
+#X connect 0 0 9 0;
+#X connect 2 0 4 0;
+#X connect 3 0 2 0;
+#X connect 3 1 2 1;
+#X connect 4 0 1 0;
+#X connect 4 1 10 0;
+#X connect 5 0 8 0;
+#X connect 8 0 2 0;
+#X connect 9 0 3 0;
+#X connect 10 0 1 0;
+#X restore 132 118 pd guts;
+#X obj 246 274 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 266 275 mouse clicked in box;
+#X connect 0 2 7 0;
+#X connect 1 0 0 0;
+#X connect 2 0 6 0;
+#X connect 3 0 6 1;
+#X connect 4 0 5 0;
+#X connect 5 0 3 0;
+#X connect 5 0 2 0;
+#X connect 6 0 1 0;
+#X restore 572 272 pd resize;
+#X msg 97 347 color grey 0;
+#X msg 717 201 color red 0;
+#X text 772 196 change color of an element;
+#X msg 694 228 line green 25 50 50 50;
+#X text 843 228 draw a line with args: color x y width height;
+#X text 846 248 draw a rectangle with args: color x y width height
+;
+#X msg 717 276 move 2 50 50 50 50;
+#X text 836 275 move an element with args: element# x y width height
+;
+#X text 686 128 delete an element from the canvas;
+#X msg 149 391 reset;
+#X msg 724 316 move 2 50 \$1 50 50;
+#X obj 727 297 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X msg 878 315 size 100 100;
+#X obj 135 465 s \$1mb-qp_gcanvas_params;
+#X obj 132 47 r \$1mb-qp_gcanvas_x;
+#X obj 254 47 r \$1mb-qp_gcanvas_y;
+#X obj 260 139 s \$1mb-qp_x_pos_init;
+#X obj 262 100 s \$1mb-qp_y_pos_init;
+#X floatatom 185 76 5 0 0 0 - - -;
+#X floatatom 161 130 5 0 0 0 - - -;
+#X obj 136 77 * 10;
+#X obj 257 74 * 10;
+#X msg 271 436 rect orange 0 0 20 20;
+#X obj 245 203 r \$1mb-qp_gcanvas_bang;
+#X obj 278 331 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 241 356 reset;
+#X obj 301 319 loadbang;
+#X msg 261 396 delete 1;
+#X obj 114 230 pack f f;
+#X msg 201 265 set move 1 \$1 \$2 20 20;
+#X msg 204 297 move 1 22 37 20 20;
+#X msg 498 33 bang;
+#X floatatom 498 102 5 0 0 0 width - -;
+#X floatatom 555 102 5 0 0 1 height - -;
+#X obj 498 70 screensize;
+#X obj 247 377 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 275 415 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 399 301 oneshot;
+#X connect 2 0 15 0;
+#X connect 11 0 15 0;
+#X connect 13 0 12 0;
+#X connect 16 0 20 0;
+#X connect 16 0 22 0;
+#X connect 16 0 30 0;
+#X connect 17 0 23 0;
+#X connect 17 0 30 1;
+#X connect 22 0 18 0;
+#X connect 22 0 21 0;
+#X connect 23 0 19 0;
+#X connect 24 0 15 0;
+#X connect 25 0 32 0;
+#X connect 25 0 39 0;
+#X connect 26 0 27 0;
+#X connect 26 0 2 0;
+#X connect 27 0 15 0;
+#X connect 27 0 37 0;
+#X connect 28 0 26 0;
+#X connect 29 0 15 0;
+#X connect 29 0 38 0;
+#X connect 30 0 31 0;
+#X connect 31 0 32 0;
+#X connect 32 0 15 0;
+#X connect 33 0 36 0;
+#X connect 36 0 34 0;
+#X connect 36 1 35 0;
+#X connect 37 0 29 0;
+#X connect 38 0 24 0;
+#X connect 39 0 26 0;
+#X restore 740 83 pd gcanvas;
+#X obj 672 107 s \$1mb-qp_gcanvas_bang;
+#X obj 1060 586 r \$1mb-qp_y_pos;
+#X obj 1039 558 r \$1mb-qp_x_pos;
+#X obj 1181 -92 r \$1mb-qp_command_editmode;
+#N canvas 585 307 1174 561 arguments_entry 0;
+#X obj 591 115 entry 70 20 black orange;
+#X text 564 74 [entry 70 20 black orange];
+#X obj -140 383 s \$1mb-qp_arguments_entry_in;
+#X msg -138 167 fontsize 10;
+#X obj -110 122 loadbang;
+#X obj -110 147 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg -139 218 bgcolour grey;
+#X msg -142 192 fgcolour black;
+#X obj 165 59 r \$1mb-qp_arguments_entry_out2;
+#X obj -50 59 r \$1mb-qp_arguments_entry_out1;
+#X symbolatom -225 64 0 0 0 0 - - -;
+#X symbolatom 166 109 10 0 0 0 - - -;
+#X obj 179 171 select return;
+#X obj 84 203 trigger bang bang;
+#X msg 79 261 clear;
+#X obj -126 86 l2s;
+#X obj -302 129 s \$1mb-qp_arguments;
+#X msg -20 94 set \$1;
+#X msg -131 241 size 70 20;
+#X obj 186 240 r \$1mb-qp_arguments_entry_clear;
+#X obj 216 145 r \$1mb-qp_arguments_entry_ok;
+#X connect 3 0 2 0;
+#X connect 4 0 5 0;
+#X connect 5 0 3 0;
+#X connect 5 0 7 0;
+#X connect 5 0 6 0;
+#X connect 5 0 18 0;
+#X connect 6 0 2 0;
+#X connect 7 0 2 0;
+#X connect 8 0 11 0;
+#X connect 9 0 17 0;
+#X connect 9 0 15 0;
+#X connect 11 0 12 0;
+#X connect 12 0 13 0;
+#X connect 13 0 14 0;
+#X connect 13 1 2 0;
+#X connect 14 0 2 0;
+#X connect 15 0 10 0;
+#X connect 15 0 16 0;
+#X connect 17 0 2 0;
+#X connect 18 0 2 0;
+#X connect 19 0 14 0;
+#X connect 20 0 13 0;
+#X restore 774 169 pd arguments_entry;
+#X obj 498 142 entry 70 20 grey black;
+#X obj 683 19 r \$1mb-qp_arguments_entry_in;
+#X obj 494 124 cnv 14 120 40 empty empty empty 2 8 0 10 -260097 -262144
+0;
+#X obj 658 209 s \$1mb-qp_arguments_entry_out1;
+#X obj 659 189 s \$1mb-qp_arguments_entry_out2;
+#X obj 496 125 tgl 14 0 \$1mb-qp_args_enable_on \$1mb-qp_args_enable_on_init
+Arguments 17 7 0 8 -4034 -1 -262144 0 1;
+#X obj 1082 608 r \$1mb-qp_arguments;
+#X obj 568 126 bng 14 250 50 0 \$1mb-qp_arguments_entry_clear \$1mb-qp_arguments_entry_clear_init
+clear 16 7 0 7 -257985 -1 -1;
+#X obj 415 123 cnv 15 75 115 empty empty Position 2 8 0 9 -260097 -262144
+0;
+#X obj 454 219 nbx 3 15 -1e+37 1e+37 0 0 \$1mb-qp_y_pos \$1mb-qp_y_pos_init
+empty 6 25 1 8 -66577 -260097 -260097 0 256;
+#X obj 417 143 gcanvas 70 70;
+#X obj 420 218 nbx 3 15 -1e+37 1e+37 0 0 \$1mb-qp_x_pos \$1mb-qp_x_pos_init
+empty 6 25 1 8 -66577 -260097 -260097 0 256;
+#X obj 568 144 bng 14 250 50 0 \$1mb-qp_arguments_entry_ok \$1mb-qp_arguments_entry_ok_init
+ok 16 7 0 7 -4160 -1 -1;
+#N canvas 448 181 981 584 load_default 0;
+#X obj 44 80 s \$1mb-qp_arguments_entry_in;
+#X obj 53 46 init 0;
+#X obj 46 143 s \$1mb-qp_args_enable_on;
+#X obj 69 204 s \$1mb-qp_x_pos;
+#X obj 90 232 s \$1mb-qp_y_pos;
+#X obj 65 178 init 0;
+#X obj 51 -149 symbol \$1;
+#X symbolatom 51 -120 0 0 0 0 - - -;
+#X obj 51 -185 bng 15 250 50 0 empty empty click_here_to_see 0 -6 0
+8 -262144 -1 -1;
+#X symbolatom 148 -120 0 0 0 0 - - -;
+#X obj 148 -149 symbol \$2;
+#X obj 54 -227 loadbang;
+#X text 208 -223 Argument \$1 is the patch to open and edit;
+#X obj 98 -30 s \$1mb-qp_id;
+#X obj 321 -62 s \$1mb-qp_destination_file_name;
+#X obj 325 -3 s \$1mb-qp_destination_dir_name;
+#X msg 330 -121 symbol;
+#X symbolatom 339 -89 0 0 0 0 - - -;
+#X connect 1 0 0 0;
+#X connect 1 0 2 0;
+#X connect 5 0 3 0;
+#X connect 5 0 4 0;
+#X connect 6 0 7 0;
+#X connect 7 0 13 0;
+#X connect 8 0 6 0;
+#X connect 8 0 10 0;
+#X connect 8 0 16 0;
+#X connect 10 0 9 0;
+#X connect 11 0 8 0;
+#X connect 16 0 17 0;
+#X connect 17 0 14 0;
+#X connect 17 0 15 0;
+#X restore 656 -319 pd load_default;
+#X obj 496 207 cnv 15 120 30 empty empty empty 20 12 0 14 -258113 -66577
+0;
+#X obj 590 212 bng 20 250 50 0 \$1mb-qp_add_abs empty Add -30 9 0 12
+-4160 -1 -228856;
+#X obj 537 215 bng 15 250 50 0 \$1mb-qp_open_abs empty Open -35 7 0
+10 -4034 -1 -228856;
+#X obj 415 3 cnv 15 130 40 empty empty Custom_object 1 8 0 8 -191407
+-1 0;
+#N canvas 466 168 1271 913 custom_entry 0;
+#X obj 591 115 entry 70 20 black orange;
+#X text 564 74 [entry 70 20 black orange];
+#X msg 431 256 fontsize 10;
+#X obj 459 211 loadbang;
+#X obj 459 236 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X symbolatom -107 128 0 0 0 0 - - -;
+#X symbolatom 166 109 10 0 0 0 - - -;
+#X obj 269 167 select return;
+#X obj 182 210 trigger bang bang;
+#X msg 190 280 clear;
+#X obj -128 106 l2s;
+#X msg -128 153 set \$1;
+#X obj -50 59 r \$1mb-qp_custom_entry_out1;
+#X obj 159 56 r \$1mb-qp_custom_entry_out2;
+#X obj 104 236 r \$1mb-qp_custom_entry_clear;
+#X obj 97 159 r \$1mb-qp_custom_entry_ok;
+#X obj 192 359 s \$1mb-qp_custom_entry_in;
+#X msg 430 307 bgcolour black;
+#X msg 440 280 fgcolour white;
+#X msg 438 330 size 90 20;
+#X symbolatom -387 252 0 0 0 0 - - -;
+#X obj -547 178 s \$1mb-qp_custom_object;
+#X obj -193 319 s \$1mb-qp_custom_arguments;
+#X text -434 -94 GEM object;
+#X obj -351 114 unpack s;
+#X obj -214 257 list-delete 0 1;
+#X obj -212 231 s2l;
+#X obj -188 293 l2s;
+#X obj -22 377 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -22 358 packel 2;
+#X obj 205 696 s \$1mb-qp_custom_arguments_on;
+#X obj -376 614 pack symbol symbol float float;
+#X obj -161 606 pack symbol symbol float float symbol;
+#X msg -40 691 \; pd-0pr0va.pd obj 0 0 sdfs sds;
+#X obj -588 490 r \$1mb-qp_destination_file_name;
+#X obj -591 544 r \$1mb-qp_y_pos;
+#X obj -578 518 r \$1mb-qp_x_pos;
+#X obj 87 421 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 73 451 1;
+#X obj -396 325 list length;
+#X msg -13 393 2;
+#X obj -396 345 == 1;
+#X msg -303 707 \; pd-0pr0va.pd obj 0 0 sdfs;
+#X msg -366 654 set \, addsemi \, add2 pd-\$2 obj \$3 \$4 \$1;
+#X msg -70 637 set \, addsemi \, add2 pd-\$2 obj \$3 \$4 \$1 \$5;
+#X msg 363 610 \; pd-\$2 obj \$3 \$4 \$1 \$5;
+#X obj -392 411 select 1 0;
+#X obj -324 442 delay 30;
+#X obj -341 492 delay 30;
+#X connect 2 0 16 0;
+#X connect 3 0 4 0;
+#X connect 4 0 2 0;
+#X connect 4 0 18 0;
+#X connect 4 0 17 0;
+#X connect 4 0 19 0;
+#X connect 5 0 11 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 9 0;
+#X connect 8 1 16 0;
+#X connect 9 0 16 0;
+#X connect 10 0 5 0;
+#X connect 10 0 11 0;
+#X connect 10 0 26 0;
+#X connect 11 0 16 0;
+#X connect 11 0 37 0;
+#X connect 12 0 10 0;
+#X connect 12 0 24 0;
+#X connect 12 0 29 0;
+#X connect 13 0 6 0;
+#X connect 14 0 9 0;
+#X connect 15 0 8 0;
+#X connect 17 0 16 0;
+#X connect 18 0 16 0;
+#X connect 19 0 16 0;
+#X connect 20 0 21 0;
+#X connect 24 0 20 0;
+#X connect 24 0 32 0;
+#X connect 24 0 31 0;
+#X connect 25 0 27 0;
+#X connect 26 0 25 0;
+#X connect 26 0 39 0;
+#X connect 27 0 22 0;
+#X connect 27 0 32 4;
+#X connect 28 0 40 0;
+#X connect 29 0 28 0;
+#X connect 31 0 43 0;
+#X connect 32 0 44 0;
+#X connect 34 0 31 1;
+#X connect 34 0 32 1;
+#X connect 35 0 31 3;
+#X connect 35 0 32 3;
+#X connect 36 0 31 2;
+#X connect 36 0 32 2;
+#X connect 37 0 38 0;
+#X connect 39 0 41 0;
+#X connect 41 0 46 0;
+#X connect 43 0 42 0;
+#X connect 44 0 33 0;
+#X connect 46 0 48 0;
+#X connect 46 1 47 0;
+#X connect 47 0 33 0;
+#X connect 48 0 42 0;
+#X restore 570 -138 pd custom_entry;
+#X obj 417 19 entry 90 20 black white;
+#X obj 519 -121 r \$1mb-qp_custom_entry_in;
+#X obj 515 -89 s \$1mb-qp_custom_entry_out1;
+#X obj 520 -103 s \$1mb-qp_custom_entry_out2;
+#X obj 495 5 bng 14 250 50 0 \$1mb-qp_custom_entry_clear \$1mb-qp_custom_entry_clear_init
+clear 16 7 0 7 -257985 -1 -1;
+#X obj 510 22 bng 14 250 50 0 \$1mb-qp_custom_entry_ok \$1mb-qp_custom_entry_ok_init
+ok 16 7 0 7 -4160 -1 -1;
+#X obj 548 3 cnv 15 65 40 empty empty pd 1 8 0 8 -191407 -1 0;
+#X msg 669 403 label \$1;
+#N canvas 8 76 450 300 todo 0;
+#X text 41 40 -Basic objects (bang \, toggle \, etcc.);
+#X text 42 63 -Cut \, paste \, et...;
+#X text 45 92 -TAG selection like mtlBrowser.;
+#X restore 1166 40 pd todo;
+#N canvas 1123 189 450 403 help 0;
+#X text 42 50 -Add an abstraction from browser. 1-Select dir in the
+left browser and the abstractions (.pd) of this dir will be shown in
+the left browser.;
+#X text 44 112 2-Click on the abstraction \, click on the abstraction
+you want to add and click Add (blue) BANG. The abstraction is then
+added to the patch destination. You can add arguments to the abstraction
+in the checking the toggle of Arguments box BEFORE clicking Add bang.
+;
+#X text 50 196 -Add a custom object 1-Write the object and the arguments
+in the text box (black) of Custom Object. Click Return (or OK) and
+the object will be added to the desination patch. -Pos X Y of the new
+abstractions in the destination patch: BEFORE clicking Add button \,
+click on the Grey square in position section. It is NOT exactly \,
+it is just an aproximation. + info: http://musa.poperbu.net/puredata
+;
+#X restore 1168 61 pd help;
+#X obj 954 35 cnv 15 200 30 empty empty mb-Quick_Patching 20 12 0 10
+-260097 -262144 0;
+#X obj 954 63 cnv 15 200 30 empty empty musa.poperbu.net_2010 20 12
+0 10 -260097 -262144 0;
+#X text 956 106 This patch is tries to improve the pure data patch
+creation. It is inspired in the fantastic help browser of mtl.(Try
+it \, Menu help->5.reference->mtl->1.mtlBrowser).;
+#X connect 1 0 5 1;
+#X connect 2 0 5 1;
+#X connect 3 0 64 1;
+#X connect 4 0 64 1;
+#X connect 5 0 16 0;
+#X connect 5 0 53 0;
+#X connect 5 0 70 0;
+#X connect 5 1 17 0;
+#X connect 7 0 64 1;
+#X connect 8 0 5 1;
+#X connect 9 0 8 0;
+#X connect 9 0 11 0;
+#X connect 10 0 5 1;
+#X connect 10 0 2 0;
+#X connect 11 0 10 1;
+#X connect 12 0 23 0;
+#X connect 13 0 12 0;
+#X connect 18 0 13 0;
+#X connect 20 0 11 0;
+#X connect 22 0 26 0;
+#X connect 23 0 24 0;
+#X connect 23 0 64 1;
+#X connect 23 1 7 0;
+#X connect 25 0 22 0;
+#X connect 26 0 27 0;
+#X connect 26 0 36 0;
+#X connect 26 0 7 0;
+#X connect 26 0 64 1;
+#X connect 29 0 30 0;
+#X connect 30 0 35 0;
+#X connect 31 0 29 0;
+#X connect 31 0 33 0;
+#X connect 33 0 32 0;
+#X connect 34 0 31 0;
+#X connect 37 0 39 0;
+#X connect 37 0 7 0;
+#X connect 37 0 64 1;
+#X connect 40 0 37 0;
+#X connect 41 0 40 0;
+#X connect 44 0 3 0;
+#X connect 44 0 1 0;
+#X connect 46 0 45 0;
+#X connect 46 0 47 0;
+#X connect 46 0 50 1;
+#X connect 47 0 48 0;
+#X connect 49 0 26 1;
+#X connect 50 0 51 0;
+#X connect 53 0 54 0;
+#X connect 54 0 52 0;
+#X connect 54 0 58 0;
+#X connect 54 0 61 0;
+#X connect 54 1 55 0;
+#X connect 54 1 56 0;
+#X connect 54 1 62 0;
+#X connect 56 0 57 0;
+#X connect 58 0 59 0;
+#X connect 63 0 60 0;
+#X connect 64 0 10 0;
+#X connect 64 0 9 0;
+#X connect 64 0 46 0;
+#X connect 64 1 6 0;
+#X connect 67 0 68 0;
+#X connect 68 0 69 1;
+#X connect 69 0 60 0;
+#X connect 70 0 69 0;
+#X connect 70 0 73 0;
+#X connect 71 0 94 0;
+#X connect 72 0 73 1;
+#X connect 73 0 71 0;
+#X connect 74 0 72 0;
+#X connect 75 0 71 0;
+#X connect 78 0 50 0;
+#X connect 86 0 87 0;
+#X connect 91 0 86 0;
+#X connect 92 0 146 0;
+#X connect 93 0 88 0;
+#X connect 95 0 96 0;
+#X connect 97 0 94 1;
+#X connect 102 0 101 0;
+#X connect 103 0 101 1;
+#X connect 106 0 101 2;
+#X connect 109 0 101 3;
+#X connect 110 0 101 4;
+#X connect 111 0 130 0;
+#X connect 116 0 94 3;
+#X connect 117 0 94 2;
+#X connect 118 0 101 5;
+#X connect 120 0 123 0;
+#X connect 120 1 124 0;
+#X connect 121 0 120 0;
+#X connect 126 0 94 4;
+#X connect 130 0 112 0;
+#X connect 130 1 113 0;
+#X connect 130 2 115 0;
+#X connect 139 0 141 0;
+#X connect 139 1 142 0;
+#X connect 140 0 139 0;
+#X connect 146 0 85 0;
+#X coords 0 -1 1 1 620 250 1 0 0;

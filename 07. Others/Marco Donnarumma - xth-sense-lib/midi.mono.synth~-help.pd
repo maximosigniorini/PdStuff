@@ -1,0 +1,17 @@
+#N canvas 659 224 540 294 10;
+#X obj 57 89 midi.mono.synth~;
+#X text 234 95 ARGUMENT;
+#X text 236 165 INLET;
+#X text 235 231 OUTLETS;
+#X text 236 247 Integers triplets;
+#X text 233 55 The name says it all... midi mono synth;
+#X text 235 111 None;
+#X text 236 182 MIDI value;
+#X floatatom 57 54 5 0 127 0 MIDI_note - -;
+#X obj 57 135 dac~;
+#X text 237 196 Velocity;
+#X floatatom 150 55 5 0 0 0 Vel - -;
+#X connect 0 0 9 0;
+#X connect 0 0 9 1;
+#X connect 8 0 0 0;
+#X connect 11 0 0 1;

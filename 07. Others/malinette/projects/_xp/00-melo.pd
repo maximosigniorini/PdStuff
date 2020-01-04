@@ -1,0 +1,76 @@
+#N canvas 268 225 812 625 10;
+#X declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/tools -path ../../abstractions/filters -path
+../../abstractions/fx-video -path ../../abstractions/fx-audio -path
+../../abstractions/master;
+#X declare -path abstractions/in -path .abstractions/out -path abstractions/tools
+-path abstractions/filters -path abstractions/fx-video -path abstractions/fx-audio
+-path abstractions/master;
+#X obj -25 187 cnv 1 396 1 empty empty FILTERS 2 -6 1 12 -228856 -191407
+0;
+#X obj -25 354 cnv 1 800 1 empty empty OUT 2 -6 1 12 -228856 -191407
+0;
+#X obj -25 63 cnv 1 800 1 empty empty IN 2 -6 1 12 -228856 -191407
+0;
+#X obj -25 187 cnv 1 800 1 empty empty TOOLS 400 -6 1 12 -228856 -191407
+0;
+#X obj 67 43 seq-sliders;
+#X obj 67 312 synth;
+#X obj 66 219 gamme;
+#X obj 70 461 audio-out;
+#X obj 67 354 audio-attackdecay;
+#X obj 262 53 seq-sliders;
+#X obj 264 315 synth;
+#X obj 261 229 gamme;
+#X obj 265 471 audio-out;
+#X obj 262 364 audio-attackdecay;
+#X obj 261 209 map 0 1 20 50;
+#X obj 405 392 audio-freeze;
+#X obj 393 485 audio-out;
+#X obj 617 282 audio-pitchshift;
+#X obj 578 437 audio-out;
+#X obj 499 193 audio-cutoff;
+#X msg 594 106 cutoff \$1;
+#X obj 66 199 map 0 1 35 50;
+#N canvas 364 155 563 434 INIT 0;
+#X obj 101 101 cnv 8 48 8 empty empty INCLUDE 2 4 0 10 -233017 -66577
+0;
+#X obj 102 261 declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/tools -path ../../abstractions/filters -path
+../../abstractions/fx-video -path ../../abstractions/fx-audio -path
+../../abstractions/master;
+#X obj 102 162 declare -path abstractions/in -path .abstractions/out
+-path abstractions/tools -path abstractions/filters -path abstractions/fx-video
+-path abstractions/fx-audio -path abstractions/master;
+#X text 100 240 Use for standalone :;
+#X text 100 140 Use with the main.pd :;
+#X text 97 25 Import paths to find abstractions \; Always use it in
+the examples patchs.;
+#X coords 0 -1 1 1 50 10 2 100 100;
+#X restore 723 27 pd INIT;
+#X connect 4 0 21 0;
+#X connect 5 0 8 0;
+#X connect 5 0 17 0;
+#X connect 5 0 19 0;
+#X connect 6 0 5 0;
+#X connect 6 0 8 1;
+#X connect 8 0 7 0;
+#X connect 8 0 7 1;
+#X connect 8 0 15 0;
+#X connect 9 0 14 0;
+#X connect 10 0 13 0;
+#X connect 11 0 10 0;
+#X connect 11 0 13 1;
+#X connect 11 0 20 0;
+#X connect 13 0 12 0;
+#X connect 13 0 12 1;
+#X connect 13 0 15 0;
+#X connect 14 0 11 0;
+#X connect 15 0 16 0;
+#X connect 15 0 16 1;
+#X connect 17 0 18 0;
+#X connect 17 0 18 1;
+#X connect 19 0 18 0;
+#X connect 19 0 18 1;
+#X connect 20 0 19 1;
+#X connect 21 0 6 0;

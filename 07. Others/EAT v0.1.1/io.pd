@@ -1,0 +1,6 @@
+#N canvas 0 22 174 126 10;
+#X obj -3 0 inlet;
+#X obj -3 17 outlet;
+#X obj 41 17 cnv 13 15 13 empty empty io 3 8 1 12 -1 -204800 0;
+#X connect 0 0 1 0;
+#X coords 0 -1 1 1 17 17 2 40 15;

@@ -1,0 +1,25 @@
+#N canvas 81 202 591 449 10;
+#X msg 379 221 0 \, destroy;
+#X msg 366 190 create \, 1;
+#X obj 366 266 gemwin;
+#X text 363 165 Gem window;
+#X text 449 189 <- on;
+#X text 451 222 <- off;
+#X obj 46 151 ../in/video-in;
+#X obj 46 339 ../out/video-screen;
+#X obj 88 205 bng 15 250 50 0 empty empty Record_a_pitcure 17 7 0 10
+-261234 -1 -1;
+#X obj 134 247 hsl 128 15 5 500 0 0 empty empty Speed -2 -8 0 10 -262144
+-1 -1 0 1;
+#X text 35 13 video-stopmotion \; ----------------- \; Record single
+pictures (snapshot) to make an animation \; Inlets \; 1: video (not
+3D objects) \; 2: record (bang) \; 3: speed in msec (float) \; 4: not
+yet implemented... \;;
+#X obj 46 270 video-stopmotion;
+#X connect 0 0 2 0;
+#X connect 1 0 2 0;
+#X connect 6 0 11 0;
+#X connect 8 0 11 1;
+#X connect 9 0 11 2;
+#X connect 11 0 7 0;
+#X coords 0 0 1 1 150 50 0;

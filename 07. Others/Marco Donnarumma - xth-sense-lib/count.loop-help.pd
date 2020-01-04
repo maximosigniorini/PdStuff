@@ -1,0 +1,15 @@
+#N canvas 893 402 450 300 10;
+#X obj 43 33 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X floatatom 43 126 5 0 0 0 - - -;
+#X obj 43 90 count.loop 100 50;
+#X text 192 74 Time to reach target value;
+#X text 194 128 INLET;
+#X text 194 194 OUTLET;
+#X text 194 145 Target value (start counting);
+#X text 191 58 ARGUMENTS;
+#X text 194 210 Integers ramp;
+#X text 188 18 Generate integer ramp \, and start again.;
+#X text 192 90 Target value;
+#X connect 0 0 2 0;
+#X connect 2 0 1 0;

@@ -1,0 +1,21 @@
+#N canvas 6 59 475 444 10;
+#X obj 48 194 gem-master;
+#X obj 213 221 gemhead;
+#X obj 281 219 gemhead;
+#X obj 281 242 translateXYZ -1 -1 0;
+#X obj 281 264 sphere;
+#X obj 213 249 square;
+#X text 51 49 gem-master \; ------------ \; - gem output \; - sizes
+\; - lighting \; - "esc" key;
+#X text 222 58 TODO : buffer 1;
+#X obj 51 386 s GEM-MASTER;
+#X msg 51 365 onoff \$1;
+#X obj 51 347 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 74 346 <- a global message;
+#X text 49 139 The "ESC" key is used to destroy the window.;
+#X connect 1 0 5 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 9 0 8 0;
+#X connect 10 0 9 0;

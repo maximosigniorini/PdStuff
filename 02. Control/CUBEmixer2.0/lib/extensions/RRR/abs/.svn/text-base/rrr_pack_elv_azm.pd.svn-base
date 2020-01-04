@@ -1,0 +1,15 @@
+#N canvas 1556 37 450 300 10;
+#X obj 65 194 t b f;
+#X obj 107 171 t b f;
+#X obj 65 258 outlet;
+#X obj 65 220 pack \$1 0 0;
+#X text 69 34 \$1: rev-output#;
+#X obj 65 128 receive_parameter /EXT/RRR/OUT/\$1/POS/ELV;
+#X obj 107 150 receive_parameter /EXT/RRR/OUT/\$1/POS/AZM;
+#X connect 0 0 3 0;
+#X connect 0 1 3 1;
+#X connect 1 0 3 0;
+#X connect 1 1 3 2;
+#X connect 3 0 2 0;
+#X connect 5 0 0 0;
+#X connect 6 0 1 0;

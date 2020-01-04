@@ -1,0 +1,60 @@
+#N canvas 245 94 811 658 10;
+#X declare -path ../in -path ../out -path ../tools -path ../filters
+-path ../lib;
+#X obj -25 187 cnv 1 396 1 empty empty FILTERS 2 -6 1 12 -228856 -191407
+0;
+#N canvas 400 311 645 287 INIT 0;
+#X obj 240 100 bng 10 250 50 0 empty empty SAVE-AS -45 6 0 9 -260097
+-1 -1;
+#X obj 103 200 namecanvas \$0-patch-name;
+#X obj 100 160 s \$0-patch-name;
+#X msg 100 131 menusaveas;
+#X obj 220 130 savepanel;
+#X obj 220 157 s UPDATE_PATCH;
+#X obj 50 33 declare -path ../in -path ../out -path ../tools -path
+../filters -path ../lib;
+#X text 50 4 Always use this subpatch in the presets;
+#X obj 101 101 cnv 8 80 8 empty empty INIT 5 5 0 10 -233017 -66577
+0;
+#X connect 0 0 3 0;
+#X connect 0 0 4 0;
+#X connect 3 0 2 0;
+#X connect 4 0 5 0;
+#X coords 0 -1 1 1 150 10 2 100 100;
+#X restore 625 -2 pd INIT;
+#X obj -25 354 cnv 1 800 1 empty empty OUT 2 -6 1 12 -228856 -191407
+0;
+#X obj -25 63 cnv 1 800 1 empty empty IN 2 -6 1 12 -228856 -191407
+0;
+#X obj -25 187 cnv 1 800 1 empty empty TOOLS 400 -6 1 12 -228856 -191407
+0;
+#X obj 36 50 seq-sliders;
+#X obj 36 222 gamme;
+#X obj 36 309 synth;
+#X obj 35 479 audio-out;
+#X obj 292 284 audio-freeze;
+#X obj 308 363 audio-out;
+#X obj 35 418 audio-attackdecay;
+#X obj 550 375 audio-pitchshift;
+#X obj 549 446 audio-out;
+#X obj 293 442 audio-delay;
+#X obj 292 549 audio-out;
+#X floatatom 155 328 5 0 0 0 - - -;
+#X obj 36 198 map 0 1 20 55;
+#X connect 5 0 17 0;
+#X connect 6 0 7 0;
+#X connect 6 0 11 1;
+#X connect 7 0 9 0;
+#X connect 7 0 11 0;
+#X connect 9 0 10 0;
+#X connect 9 0 10 1;
+#X connect 9 0 12 0;
+#X connect 9 0 14 0;
+#X connect 11 0 8 0;
+#X connect 11 0 8 1;
+#X connect 12 0 13 0;
+#X connect 12 0 13 1;
+#X connect 14 0 15 0;
+#X connect 14 1 15 1;
+#X connect 16 0 7 2;
+#X connect 17 0 6 0;

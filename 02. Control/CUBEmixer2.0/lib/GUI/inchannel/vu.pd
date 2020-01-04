@@ -1,0 +1,19 @@
+#N canvas 0 0 769 300 10;
+#X obj 100 100 cnv 15 59 165 empty empty empty 4 8 0 8 -233017 -66577
+0;
+#X obj 104 138 vu 15 120 \$1GUI_input_vu_togui empty -1 -8 0 8 -66577
+-1 1 0;
+#X obj 103 116 hradio 15 1 0 3 \$1GUI_input_vuselect_fromgui \$1GUI_input_vuselect_togui
+InPrePost 0 -6 0 8 -262144 -1 -1 0;
+#X obj 511 280 s \$1GUI_input_vu_togui;
+#X obj 212 253 gui_sr_offset \$1GUI_input_vuselect /IN/%d/VU/SRC;
+#X msg 511 230 set /IN/\$1/VU/LEVEL;
+#X obj 511 253 iem_r /IN/0/VU/LEVEL;
+#X obj 212 126 t f f;
+#X obj 212 110 r \$1GUI_inchannel_selected;
+#X connect 5 0 6 0;
+#X connect 6 0 3 0;
+#X connect 7 0 4 0;
+#X connect 7 1 5 0;
+#X connect 8 0 7 0;
+#X coords 0 -1 1 1 59 165 2 100 100;

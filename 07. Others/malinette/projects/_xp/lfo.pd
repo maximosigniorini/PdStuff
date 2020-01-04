@@ -1,0 +1,77 @@
+#N canvas 215 0 814 660 10;
+#X declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/tools -path ../../abstractions/filters -path
+../../abstractions/fx-video -path ../../abstractions/fx-audio -path
+../../abstractions/master;
+#X declare -path abstractions/in -path abstractions/out -path abstractions/tools
+-path abstractions/filters -path abstractions/fx-video -path abstractions/fx-audio
+-path abstractions/master;
+#X obj 7 207 cnv 1 396 1 empty empty FILTERS 2 -6 1 12 -228856 -191407
+0;
+#X obj 7 414 cnv 1 800 1 empty empty OUT 2 -6 1 12 -228856 -191407
+0;
+#X obj 7 35 cnv 1 800 1 empty empty IN 2 -6 1 12 -228856 -191407 0
+;
+#X obj 7 207 cnv 1 800 1 empty empty TOOLS 400 -6 1 12 -228856 -191407
+0;
+#N canvas 362 156 563 434 INIT 0;
+#X obj 101 101 cnv 8 48 8 empty empty INCLUDE 2 4 0 10 -233017 -66577
+0;
+#X obj 102 261 declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/tools -path ../../abstractions/filters -path
+../../abstractions/fx-video -path ../../abstractions/fx-audio -path
+../../abstractions/master;
+#X text 100 240 Use for standalone :;
+#X text 100 140 Use with the main.pd :;
+#X text 97 25 Import paths to find abstractions \; Always use it in
+the examples patchs.;
+#X obj 102 162 declare -path abstractions/in -path abstractions/out
+-path abstractions/tools -path abstractions/filters -path abstractions/fx-video
+-path abstractions/fx-audio -path abstractions/master;
+#X coords 0 -1 1 1 50 10 2 100 100;
+#X restore 756 16 pd INIT;
+#X obj 96 474 arduino-out;
+#X text 287 492 < port 13 en digital;
+#X text 288 551 < faire bouger le slider de heut en bas;
+#X text 464 439 SERVO \; marron = GND \; rouge = 5V \; orange = sorties
+PWM~ (9) \;;
+#X text 287 516 < port 9 en servo;
+#X obj 362 291 seq-sliders;
+#X obj 220 109 arduino-analog-in;
+#X obj 44 110 oscilloscope;
+#X text 150 24 Précautions : quand on branche \, éteindre Arduino
+!;
+#X text 105 587 broches digital in et arduino-out partagé !!;
+#X text 152 41 si erreurs : éteindre tout \, débrancher/rebrancher
+la carte et réappuyer sur l'interrupteur Arduino + les configurations
+;
+#X text 42 89 tools > oscilloscope;
+#X floatatom 163 203 5 0 0 0 - - -;
+#X obj 220 169 map 0.1 1 100 300;
+#X text 144 258 time \$1;
+#X floatatom 220 230 5 0 0 0 - - -;
+#X text 278 262 <- message;
+#X obj 536 330 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 536 105 5 0 0 0 - - -;
+#X msg 536 127 size \$1;
+#X msg 574 237 size 20;
+#X msg 583 267 size 100;
+#X msg 606 127 size 99;
+#X msg 220 261 time \$1;
+#X msg 447 138 100 200;
+#X msg 379 258 time 1000;
+#X obj 43 337 synth-fm;
+#X connect 10 0 5 8;
+#X connect 11 0 12 0;
+#X connect 11 0 17 0;
+#X connect 11 0 18 0;
+#X connect 18 0 20 0;
+#X connect 20 0 28 0;
+#X connect 23 0 24 0;
+#X connect 24 0 22 0;
+#X connect 25 0 22 0;
+#X connect 26 0 22 0;
+#X connect 28 0 10 0;
+#X connect 29 0 28 0;
+#X connect 30 0 10 0;

@@ -1,0 +1,55 @@
+#N canvas 405 167 660 402 10;
+#X declare -lib ggee;
+#X declare -lib ggee;
+#X text 22 179 play/pause;
+#X obj 25 202 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 42 348 dac~;
+#X text 267 174 INLETS;
+#X text 35 12 GPL by www.ixi-audio.net;
+#X text 268 276 OUTLETS;
+#X text 267 295 1 left sound channel;
+#X text 268 312 2 right sound channel;
+#X text 88 49 path to sound;
+#X obj 851 509 moses 1;
+#X obj 861 519 moses 1;
+#X text 276 56 plays both MONO and STEREO wav files;
+#X obj 107 220 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 121 218 loop;
+#X obj 81 305 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X text 268 228 3 loop on/off;
+#X text 276 34 SIMPLE SAMPLE PLAYER;
+#X obj 100 287 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 121 242 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 146 242 reset;
+#X text 267 243 4 reset;
+#X text 268 332 3 current position in sound 0-1;
+#X floatatom 51 201 5 0 0 0 - - -;
+#X text 86 201 pitch;
+#X text 268 352 4 bangs on loop or end point (if not looped);
+#X obj 48 260 splayer~;
+#X text 270 96 ARGUMENTS;
+#X text 269 115 name of file to load (must be near the patch you are
+working on);
+#X text 267 197 1 toogle to play/pause \, number to pitch;
+#X text 268 213 2 path of sound file to load;
+#X obj 103 167 ehu/abs_path;
+#X msg 90 67 ../sounds/whistle_mono.wav;
+#X msg 91 89 ../sounds/whistle2.wav;
+#X msg 103 143 sounds/whistle2.wav;
+#X connect 1 0 25 0;
+#X connect 12 0 25 2;
+#X connect 18 0 25 3;
+#X connect 22 0 25 0;
+#X connect 25 0 2 0;
+#X connect 25 1 2 1;
+#X connect 25 2 14 0;
+#X connect 25 3 17 0;
+#X connect 30 0 25 1;
+#X connect 31 0 25 1;
+#X connect 32 0 25 1;
+#X connect 33 0 30 0;

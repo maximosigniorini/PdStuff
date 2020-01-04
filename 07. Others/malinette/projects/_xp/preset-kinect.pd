@@ -1,0 +1,25 @@
+#N canvas 252 25 932 696 10;
+#X declare -path ../in -path ../out -path ../tools -path ../filters
+;
+#X obj -5 32 cnv 5 800 5 empty empty INPUT 2 15 1 15 -260097 -191407
+0;
+#N canvas 0 0 450 300 INIT 0;
+#X obj 43 106 declare -path ../in -path ../out -path ../tools -path
+../filters;
+#X restore 749 12 pd INIT;
+#X obj -5 211 cnv 5 800 5 empty empty FILTERS 2 15 1 15 -260097 -191407
+0;
+#X obj -5 458 cnv 5 800 5 empty empty OUT 2 15 1 15 -260097 -191407
+0;
+#X obj 482 316 recorder-qlist;
+#X obj 579 183 seq-randomizer;
+#X obj 100 50 kinect;
+#X obj 149 336 kinect-skeleton;
+#X obj 713 517 route r_hand;
+#X obj 702 545 unpack f f f f;
+#X floatatom 727 604 5 0 0 0 - - -;
+#X floatatom 771 625 5 0 0 0 - - -;
+#X connect 6 0 7 0;
+#X connect 8 0 9 0;
+#X connect 9 1 10 0;
+#X connect 9 2 11 0;

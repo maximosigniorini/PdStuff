@@ -1,0 +1,6 @@
+#N canvas 1788 85 450 300 10;
+#X obj 23 21 inlet~;
+#X obj 25 228 outlet~;
+#X obj 27 113 catch_out_2_dac~ 1 \$0;
+#X obj 27 133 catch_out_2_dac~ 2 \$0;
+#X text 86 72 stereo dacs for inclusion with \$1_DAC_OUTS;

@@ -1,0 +1,251 @@
+#N canvas 160 169 1067 580 10;
+#X obj 697 82 cnv 15 55 20 empty empty GEM_IN 0 10 0 12 -4034 -1 0
+;
+#X obj 580 437 outlet;
+#X obj 630 435 cnv 15 55 20 empty empty GEM_OUT 0 10 0 12 -221249 -262144
+0;
+#X obj 0 0 cnv 15 370 260 empty empty GEM_PIX_effects 70 12 0 14 -99865
+-262144 0;
+#N canvas 776 172 1065 969 gempix_effects_default_settings 0;
+#X obj 42 42 loadbang;
+#X obj 52 209 symbol \$1;
+#X symbolatom 52 238 0 0 0 0 - - -;
+#X obj 58 122 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X symbolatom 149 238 0 0 0 0 - - -;
+#X obj 149 209 symbol \$2;
+#X obj -12 209 float \$1;
+#X floatatom -8 241 5 0 0 0 - - -;
+#X obj 1114 384 s \$1gempix_acrotate_reset_init;
+#X obj 1170 498 s \$1gempix_acrotate_on_init;
+#X msg 1182 445 0;
+#X obj 299 180 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 210 28 r \$1gempix_effects_reset;
+#X obj 52 284 s \$1gempix_effects_id;
+#X obj 300 254 s \$1gempix_effects_all_off;
+#X msg 319 221 0;
+#X obj 551 32 r \$1gempix_effects_all_off;
+#X obj 589 138 s \$1gempix_ef_bitmask_on;
+#X obj 519 63 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X msg 520 99 0;
+#X obj 590 165 s \$1gempix_ef_halftone_on;
+#X obj 589 193 s \$1gempix_ef_rds_on;
+#X obj 590 220 s \$1gempix_ef_roll_on;
+#X obj 592 246 s \$1gempix_ef_invert_on;
+#X obj 593 273 s \$1gempix_ef_scanline_on;
+#X obj 592 301 s \$1gempix_ef_threshold_on;
+#X obj 593 329 s \$1gempix_ef_thresholdb_on;
+#X obj 593 354 s \$1gempix_ef_metaimage_on;
+#X obj 809 139 s \$1gempix_ef_refraction_on;
+#X obj 813 172 s \$1gempix_ef_convolve_on;
+#X obj 811 202 s \$1gempix_ef_gain_on;
+#X obj 811 232 s \$1gempix_ef_lumaoffset_on;
+#X obj 812 264 s \$1gempix_ef_tiir_on;
+#X obj 810 292 s \$1gempix_ef_biquad_on;
+#X obj 812 317 s \$1gempix_ef_kalei_on;
+#X obj 812 344 s \$1gempix_ef_rtx_on;
+#X obj 814 373 s \$1gempix_ef_background_on;
+#X obj 814 402 s \$1gempix_ef_grey_on;
+#X obj 814 427 s \$1gempix_ef_normalize_on;
+#X obj 751 66 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X msg 752 102 0;
+#X connect 0 0 3 0;
+#X connect 0 0 11 0;
+#X connect 1 0 2 0;
+#X connect 2 0 13 0;
+#X connect 3 0 1 0;
+#X connect 3 0 5 0;
+#X connect 3 0 6 0;
+#X connect 5 0 4 0;
+#X connect 6 0 7 0;
+#X connect 10 0 9 0;
+#X connect 11 0 15 0;
+#X connect 12 0 11 0;
+#X connect 15 0 14 0;
+#X connect 16 0 18 0;
+#X connect 16 0 39 0;
+#X connect 18 0 19 0;
+#X connect 19 0 17 0;
+#X connect 19 0 20 0;
+#X connect 19 0 21 0;
+#X connect 19 0 22 0;
+#X connect 19 0 23 0;
+#X connect 19 0 24 0;
+#X connect 19 0 25 0;
+#X connect 19 0 26 0;
+#X connect 19 0 27 0;
+#X connect 39 0 40 0;
+#X connect 40 0 28 0;
+#X connect 40 0 29 0;
+#X connect 40 0 30 0;
+#X connect 40 0 31 0;
+#X connect 40 0 32 0;
+#X connect 40 0 33 0;
+#X connect 40 0 34 0;
+#X connect 40 0 35 0;
+#X connect 40 0 36 0;
+#X connect 40 0 37 0;
+#X connect 40 0 38 0;
+#X restore 642 28 pd gempix_effects_default_settings;
+#X obj 16 71 cnv 15 330 160 empty empty empty 2 12 0 14 -128992 -66577
+0;
+#X obj 1 1 cnv 15 55 20 empty empty GEM_IN 0 10 0 9 -4034 -1 0;
+#X obj 279 2 cnv 15 40 20 empty \$1gempix_effects_id \$1 10 10 0 14
+-260097 -33289 0;
+#X obj 2 241 cnv 15 55 20 empty empty GEM_OUT 0 10 0 9 -221249 -262144
+0;
+#X text 142 296 CREATES/DESTROYS CONFIGURATION WINDOW;
+#X obj 7 46 bng 15 250 50 0 \$1gempix_effects_disable_all_init empty
+Disable_all_effects 17 7 0 8 -258113 -191407 -191407;
+#X obj 153 27 tgl 15 0 \$1gempix_bypass \$1gempix_bypass_init Bypass
+22 8 0 8 -257985 -1 -228856 0 1;
+#X obj 152 46 tgl 15 0 \$1gempix_effects_monitor_on_init empty Monitor_leds
+17 7 0 8 -228856 -1 -228856 0 1;
+#X obj 253 48 bng 15 250 50 0 \$1gempix_effects_apply_settings_init
+empty Apply_settings 17 7 0 8 -260097 -1 -228856;
+#X obj 252 28 bng 15 250 50 0 \$1gempix_effects_load_defaults_init
+empty Load_Defaults 17 7 0 8 -228856 -1 -228856;
+#X obj 7 27 tgl 15 0 \$1gempix_effects_configure_on empty ConfigureEffects
+17 7 0 8 -260097 -1 -228856 0 1;
+#X obj 20 78 tgl 15 0 \$1gempix_ef_bitmask_on \$1gempix_ef_bitmask_on_init
+Bitmask 17 7 0 10 -260097 -1 -228856 0 1;
+#X obj 21 98 tgl 15 0 \$1gempix_ef_halftone_on \$1gempix_ef_halftone_on_init
+Halftone 17 7 0 10 -260097 -1 -228856 0 1;
+#X obj 21 117 tgl 15 0 \$1gempix_ef_rds_on \$1gempix_ef_rds_on_init
+rds 17 7 0 10 -260097 -1 -228856 0 1;
+#X obj 21 137 tgl 15 0 \$1gempix_ef_roll_on \$1gempix_ef_roll_on_init
+roll 17 7 0 10 -260097 -1 -228856 0 1;
+#X obj 21 156 tgl 15 0 \$1gempix_ef_invert_on \$1gempix_ef_invert_on_init
+invert 17 7 0 10 -260097 -1 -228856 0 1;
+#X obj 21 176 tgl 15 0 \$1gempix_ef_scanline_on \$1gempix_ef_scanline_on_init
+scanline 17 7 0 10 -260097 -1 -228856 0 1;
+#X obj 21 195 tgl 15 0 \$1gempix_ef_threshold_on \$1gempix_ef_threshold_on_init
+Threshold 17 7 0 10 -260097 -1 -228856 0 1;
+#X obj 127 79 tgl 15 0 \$1gempix_ef_metaimage_on \$1gempix_ef_metaimage_on_init
+metaimage 17 7 0 10 -260097 -1 -228856 0 1;
+#X obj 21 214 tgl 15 0 \$1gempix_ef_thresholdb_on \$1gempix_ef_thresholdb_on_init
+ThresholdB 17 7 0 10 -260097 -1 -228856 0 1;
+#X obj 127 98 tgl 15 0 \$1gempix_ef_refraction_on \$1gempix_ef_refraction_on_init
+refraction 17 7 0 10 -260097 -1 -228856 0 1;
+#X obj 127 119 tgl 15 0 \$1gempix_ef_convolve_on \$1gempix_ef_convolve_on_init
+convolve 17 7 0 10 -260097 -1 -228856 0 1;
+#X obj 127 139 tgl 15 0 \$1gempix_ef_gain_on \$1gempix_ef_gain_on_init
+gain 17 7 0 10 -260097 -1 -228856 0 1;
+#X obj 127 177 tgl 15 0 \$1gempix_ef_tiir_on \$1gempix_ef_tiir_on_init
+tIIR 17 7 0 10 -260097 -1 -228856 0 1;
+#X obj 127 195 tgl 15 0 \$1gempix_ef_biquad_on \$1gempix_ef_biquad_on_init
+biquad 17 7 0 10 -260097 -1 -228856 0 1;
+#X obj 127 157 tgl 15 0 \$1gempix_ef_lumaoffset_on \$1gempix_ef_lumaoffset_on_init
+lumaoffset 17 7 0 10 -260097 -1 -228856 0 1;
+#X obj 127 214 tgl 15 0 \$1gempix_ef_kalei_on \$1gempix_ef_kalei_on_init
+kaleidoscope 17 7 0 10 -260097 -1 -228856 0 1;
+#X obj 242 78 tgl 15 0 \$1gempix_ef_rtx_on \$1gempix_ef_rtx_on_init
+rtx 17 7 0 10 -260097 -1 -228856 0 1;
+#X obj 242 98 tgl 15 0 \$1gempix_ef_background_on \$1gempix_ef_background_on_init
+background 17 7 0 10 -260097 -1 -228856 0 1;
+#X obj 242 117 tgl 15 0 \$1gempix_ef_grey_on \$1gempix_ef_grey_on_init
+grey 17 7 0 10 -260097 -1 -228856 0 1;
+#X obj 243 137 tgl 15 0 \$1gempix_ef_normalize_on \$1gempix_ef_normalize_on_init
+normalize 17 7 0 10 -260097 -1 -228856 0 1;
+#X obj 649 81 inlet;
+#X obj 659 380 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 655 352 spigot;
+#X obj 701 403 s \$1epdp_monitor_out;
+#X obj 703 320 r \$1epdp_monitor_on;
+#X obj 541 132 r \$1gempix_bypass;
+#X obj 605 219 gate 2;
+#X obj 585 183 + 1;
+#X obj 926 193 pix_add;
+#X obj 920 227 pix_mask;
+#X obj 918 302 text2d;
+#X obj 913 262 text3d;
+#X obj 921 132 newWave 30 10;
+#X obj 923 161 imageVert;
+#X text 927 96 TODO;
+#N canvas 594 86 657 689 \$1-gempix_effects_core 1;
+#X obj -122 -349 cnv 15 650 680 empty empty GEM_PIX_Control_Configuration
+170 12 0 14 -99865 -262144 0;
+#X obj 459 -344 cnv 15 40 20 empty \$1epdp_id \$1 10 10 0 14 -260097
+-33289 0;
+#X obj -122 -348 cnv 15 55 20 empty empty GEM_IN 0 10 0 9 -4034 -1
+0;
+#X obj -122 310 cnv 15 55 20 empty empty GEM_OUT 0 10 0 9 -221249 -262144
+0;
+#X obj -12 -345 bng 15 250 50 0 empty \$1gempix_effects_monitor_in
+empty 17 7 0 10 -128992 -4034 -4034;
+#X obj -14 -314 tgl 15 0 \$1gempix_effects_configure_on empty Close_this_window
+17 7 0 10 -260097 -1 -228856 0 1;
+#X obj -112 -270 mb-gem_pix_ef_bitmask \$1;
+#X obj -112 -190 mb-gem_pix_ef_halftone \$1;
+#X obj -112 -110 mb-gem_pix_ef_rds \$1;
+#X obj -112 -31 mb-gem_pix_ef_roll \$1;
+#X obj -112 49 mb-gem_pix_ef_invert \$1;
+#X obj -112 128 mb-gem_pix_ef_scanline \$1;
+#X obj -112 210 mb-gem_pix_ef_threshold \$1;
+#X obj 43 -270 mb-gem_pix_ef_thresholdb \$1;
+#X obj 43 -190 mb-gem_pix_ef_metaimage \$1;
+#X obj 43 -110 mb-gem_pix_ef_refraction \$1;
+#X obj 43 -31 mb-gem_pix_ef_convolve \$1;
+#X obj 43 49 mb-gem_pix_ef_gain \$1;
+#X obj 43 128 mb-gem_pix_ef_lumaoffset \$1;
+#X obj 43 209 mb-gem_pix_ef_tiir \$1;
+#X obj 197 -270 mb-gem_pix_ef_biquad \$1;
+#X obj 197 -190 mb-gem_pix_ef_rtx \$1;
+#X obj 197 -110 mb-gem_pix_ef_background \$1;
+#X obj 197 -31 mb-gem_pix_ef_grey \$1;
+#X obj 197 49 mb-gem_pix_ef_normalize \$1;
+#X obj 197 129 mb-gem_pix_ef_kalei \$1;
+#X obj -65 -344 inlet;
+#X obj -66 315 outlet;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 9 0;
+#X connect 9 0 10 0;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 12 0 13 0;
+#X connect 13 0 14 0;
+#X connect 14 0 15 0;
+#X connect 15 0 16 0;
+#X connect 16 0 17 0;
+#X connect 17 0 18 0;
+#X connect 18 0 19 0;
+#X connect 19 0 20 0;
+#X connect 20 0 21 0;
+#X connect 21 0 22 0;
+#X connect 22 0 23 0;
+#X connect 23 0 24 0;
+#X connect 24 0 25 0;
+#X connect 25 0 27 0;
+#X connect 26 0 6 0;
+#X restore 580 284 pd \$1-gempix_effects_core;
+#X obj 180 452 f \$0;
+#X symbolatom 187 493 0 0 0 0 - - -;
+#X msg 180 543 \; \$1 vis \$2;
+#X obj 180 514 pack symbol float;
+#X obj 180 428 t b f;
+#X obj 173 388 r \$1gempix_effects_configure_on;
+#X obj 180 471 makesymbol pd-\$1-gempix_effects_core;
+#X connect 36 0 42 1;
+#X connect 37 0 39 0;
+#X connect 38 0 37 0;
+#X connect 40 0 38 1;
+#X connect 41 0 43 0;
+#X connect 42 0 38 0;
+#X connect 42 0 51 0;
+#X connect 42 1 38 0;
+#X connect 42 1 1 0;
+#X connect 43 0 42 0;
+#X connect 51 0 1 0;
+#X connect 52 0 58 0;
+#X connect 55 0 54 0;
+#X connect 56 0 52 0;
+#X connect 56 1 55 1;
+#X connect 57 0 56 0;
+#X connect 58 0 53 0;
+#X connect 58 0 55 0;
+#X coords 0 -1 1 1 370 260 1 0 0;

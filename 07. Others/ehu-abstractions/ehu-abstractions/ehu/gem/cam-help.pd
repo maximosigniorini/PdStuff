@@ -1,0 +1,48 @@
+#N canvas 397 50 566 503 10;
+#X obj 8 45 cnv 15 330 360 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X msg 105 102 enumerate;
+#X msg 105 124 dialog;
+#X text 400 1 cam patch help;
+#X obj 24 266 cnv 15 180 100 empty empty empty 20 12 0 14 -191407 -66577
+0;
+#X floatatom 64 279 5 0 255 2 contrast - -;
+#X floatatom 123 279 5 0 0 0 - - -;
+#X obj 30 300 pix_contrast;
+#X text 164 101 list cameras;
+#X obj 142 171 cnv 15 370 80 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X text 152 194 outlets are : 1 data send;
+#X obj 13 0 bng 35 250 50 0 empty empty click_me 40 10 0 10 -258079
+-1 -1;
+#X text 140 29 open graphics window;
+#X msg 105 146 driver 0;
+#X obj 13 74 hradio 15 1 0 4 empty empty empty 0 -6 0 10 -262144 -1
+-1 0;
+#X msg 13 92 device \$1;
+#X text 36 48 ** only one camera object can be used at a time **;
+#X text 48 329 effects : - last outlet sends the video info out - last
+inlet takes the data back in when filter toogle is ON;
+#X text 78 75 open camera N;
+#X msg 282 299 quality 1;
+#X msg 283 268 mode 1;
+#X text 329 268 if you get render errors try mode 1;
+#X obj 126 11 ehu/gem/win 640 460;
+#X obj 30 198 ehu/gem/cam 0;
+#X text 148 176 init arguments are : cam device number;
+#X text 148 217 inlets are : 1 render/camera on off \, 2 set camera
+;
+#X obj 30 383 ehu/gem/texture 320 230 400 300;
+#X connect 1 0 23 0;
+#X connect 2 0 23 0;
+#X connect 5 0 7 1;
+#X connect 6 0 7 2;
+#X connect 7 0 26 0;
+#X connect 11 0 14 0;
+#X connect 11 0 22 0;
+#X connect 13 0 23 0;
+#X connect 14 0 15 0;
+#X connect 15 0 23 0;
+#X connect 19 0 26 1;
+#X connect 20 0 26 1;
+#X connect 23 0 7 0;

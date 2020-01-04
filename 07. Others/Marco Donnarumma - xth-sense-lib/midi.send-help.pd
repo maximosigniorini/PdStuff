@@ -1,0 +1,12 @@
+#N canvas 171 276 597 312 10;
+#X obj 52 68 midi.send;
+#X text 219 135 1_ receives a lists (including the object arguments)
+;
+#X text 220 156 2_ parse the list: take out the argument and transform
+the list into a symbol;
+#X text 221 191 3_ store the symbol;
+#X text 220 60 This object is used in the Xth Sense software \; It's
+an internal dynamic sender for data mapping \; that can be used to
+send MIDI to Pd or other software \; on your computer.;
+#X text 221 214 4_ when prompted \, it feed the symbol to [ctlout]
+;

@@ -1,0 +1,9 @@
+#N canvas 0 22 545 123 10;
+#X obj 33 48 *~;
+#X obj 33 14 inlet~;
+#X obj 33 65 outlet~;
+#X obj 48 31 r EAT_Matrixmix.Mix.\$1.Send.\$2.\$3;
+#X text 256 46 Gain control in EAT_Matrixmix.;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;
+#X connect 3 0 0 1;

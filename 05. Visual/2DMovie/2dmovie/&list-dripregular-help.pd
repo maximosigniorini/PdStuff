@@ -1,0 +1,28 @@
+#N canvas 344 63 779 302 10;
+#X obj 2 -117 cnv 15 700 50 empty empty &list-dripregular 3 12 0 18
+-204800 -1 0;
+#X text 5 -90 Enumère les valeurs d'une liste selon un tempo régulier
+;
+#X msg 457 -27 10 20 30 40 50;
+#X msg 650 -1 500;
+#X msg 606 -1 1000;
+#X obj 604 70 bng 15 250 50 0 empty empty fin 17 7 0 10 -262144 -1
+-1;
+#X obj 487 70 print;
+#X msg 490 -1 list a b c d e;
+#X text 21 13 Arguments \; 1- nombre : tempo de l'envoi (en ms);
+#X text 21 54 INLETS \; 1- liste : valeurs à énumérer \; 2- nombre
+: tempo de l'envoi (en ms);
+#X text 21 108 OUTLETS \; 1- anything : valeurs énumérées \; 2-
+bang : fin d'énumération;
+#X obj 487 32 &list-dripregular 500;
+#X text 21 -52 Description \; Enumère les valeurs d'une liste (nombres
+ou symboles) selon un tempo régulier. Complète le module [list-dripslow]
+par une temporisation.;
+#X connect 2 0 11 0;
+#X connect 3 0 11 1;
+#X connect 4 0 11 1;
+#X connect 7 0 11 0;
+#X connect 11 0 6 0;
+#X connect 11 1 5 0;
+#X coords 0 302 1 301 65 15 0;

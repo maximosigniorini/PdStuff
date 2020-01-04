@@ -1,0 +1,10 @@
+#N canvas 149 79 800 687 10;
+#X declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/numbers -path ../../abstractions/video -path
+../../abstractions/audio -path ../../abstractions/master;
+#X obj 7 524 cnv 1 786 1 empty empty OUT 2 10 1 12 -228856 -191407
+0;
+#X obj 7 163 cnv 1 786 1 empty empty IN 2 -6 1 12 -228856 -191407 0
+;
+#X obj 743 27 ../../abstractions/include;
+#X text 717 7 Don't delete;

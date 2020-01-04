@@ -1,0 +1,15 @@
+#N canvas 459 84 485 446 10;
+#X obj 341 35 ehu/in~;
+#X obj 342 146 ehu/plot;
+#X obj 341 5 ehu/dsp;
+#X obj 72 252 tgl 50 0 empty empty empty 17 7 0 10 -4034 -1 -1 0 1
+;
+#X obj 72 222 ehu/signal_sensor 60 100 500;
+#X text 15 5 ehu/signal_sensor abstraction help;
+#X text 12 41 detects signal/silence state;
+#X text 12 96 inlets: audio signal \, threshold \, attack time \, decay
+time;
+#X text 14 139 arguments: threshold \, attack time \, decay time;
+#X connect 0 0 1 0;
+#X connect 0 0 4 0;
+#X connect 4 0 3 0;

@@ -1,0 +1,26 @@
+#N canvas 473 81 410 596 10;
+#X text 163 222 move slowly towards that value;
+#X floatatom 169 186 5 0 0 0 - - -;
+#X obj 21 341 unauthorized/grid grid1 200 0 199 200 0 199 1 1 1 10
+10 177 352;
+#X obj 23 -39 unauthorized/grid grid1 200 0 199 200 0 199 1 1 1 10
+10 -27 -112;
+#X text 212 186 num of steps;
+#X obj 23 207 ehu/elastic_follow 150;
+#X obj 44 275 pack i i;
+#X floatatom 40 169 5 0 0 0 - - -;
+#X floatatom 222 168 5 0 0 0 - - -;
+#X floatatom 167 248 5 0 0 0 - - -;
+#X floatatom 48 249 5 0 0 0 - - -;
+#X msg 34 307 goto \$1 \$2;
+#X connect 1 0 5 2;
+#X connect 3 0 5 0;
+#X connect 3 0 7 0;
+#X connect 3 1 5 1;
+#X connect 3 1 8 0;
+#X connect 5 0 6 0;
+#X connect 5 0 10 0;
+#X connect 5 1 6 1;
+#X connect 5 1 9 0;
+#X connect 6 0 11 0;
+#X connect 11 0 2 0;

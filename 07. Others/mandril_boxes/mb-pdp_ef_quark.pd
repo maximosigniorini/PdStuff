@@ -1,0 +1,129 @@
+#N canvas 12 111 751 356 10;
+#X obj 34 172 symbol \$1;
+#X obj 136 230 ftos;
+#X obj 105 164 float \$1;
+#X floatatom 105 193 5 0 0 0 - - -;
+#X symbolatom 35 205 0 0 0 0 - - -;
+#X symbolatom 95 243 10 0 0 0 - - -;
+#X obj 44 126 loadbang;
+#X obj 97 280 s \$1pdp_quark_id;
+#X obj 250 46 inlet;
+#X text 308 46 video;
+#X obj 279 268 outlet;
+#X obj 283 98 pdp_spigot;
+#X text 327 265 video;
+#X obj 354 177 pdp_quark;
+#X floatatom 432 145 5 0 0 0 - - -;
+#X text 478 144 Number of frames;
+#X floatatom 444 165 5 0 0 0 - - -;
+#X text 490 165 Tolerance;
+#X obj 506 95 r \$1epdp_quark_nframes;
+#X obj 546 198 r \$1epdp_quark_tolerance;
+#X obj 0 0 cnv 15 150 75 empty empty empty 2 12 0 14 -191407 -66577
+0;
+#X obj 7 5 tgl 15 0 \$1epdp_quark_on \$1epdp_quark_on_init Quark 17
+7 0 10 -260097 -1 -1 0 1;
+#X obj 80 28 nbx 5 14 0 1e+37 0 0 \$1epdp_quark_nframes \$1epdp_quark_nframes_init
+N.Frames -55 5 0 8 -262144 -1 -1 7.87402 256;
+#X obj 80 47 nbx 5 14 0 1e+37 0 0 \$1epdp_quark_tolerance \$1epdp_quark_tolerance_init
+Tolerance -60 5 0 8 -262144 -1 -1 0 256;
+#X obj 101 5 cnv 15 20 10 empty \$1pdp_quark_id \$1 5 5 0 10 -260097
+-33289 0;
+#X text 461 28 on/off;
+#X obj 391 4 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 422 5 r \$1epdp_quark_on;
+#X obj 3 57 bng 15 250 50 0 \$1epdp_quark_midi_on empty midi 17 7 0
+8 -4160 -1 -1;
+#N canvas 12 98 738 592 midi_control 1;
+#X msg 156 161 ef1epdp_quark_on_midi;
+#X msg 317 159 ef1epdp_quark_nframes_midi;
+#X text 53 25 MIDI;
+#X obj 90 134 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 213 182 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 340 182 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 265 259 s midi_var_to_add;
+#X msg 156 127 set \$1epdp_quark_on_midi;
+#X obj 108 324 r \$1epdp_quark_on_midi;
+#X obj 89 482 s \$1epdp_quark_on_init;
+#X obj 100 26 r \$1epdp_quark_midi_on;
+#X msg 317 128 set \$1epdp_quark_nframes_midi;
+#X obj 269 322 r \$1epdp_quark_nframes_midi;
+#X msg 516 155 ef1epdp_quark_tolerance_midi;
+#X obj 539 178 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 516 124 set \$1epdp_quark_tolerance_midi;
+#X obj 272 482 s \$1epdp_quark_nframes_init;
+#X obj 452 321 r \$1epdp_quark_tolerance_midi;
+#X obj 455 481 s \$1epdp_quark_tolerance_init;
+#X obj 166 69 r \$1pdp_quark_id;
+#X text 379 255 -->global value of mb-midi_control_pad;
+#X obj 118 375 select 0;
+#X msg 175 426 0;
+#X msg 125 432 1;
+#X obj 105 405 alternate;
+#X floatatom 295 368 5 0 0 0 - - -;
+#X floatatom 321 437 8 0 0 0 - - -;
+#X obj 314 392 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 500 1;
+#X floatatom 490 365 5 0 0 0 - - -;
+#X floatatom 516 434 8 0 0 0 - - -;
+#X obj 509 389 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 316 409 autoscale 0 200;
+#X obj 511 406 autoscale 0 200;
+#X connect 0 0 4 0;
+#X connect 0 0 6 0;
+#X connect 1 0 5 0;
+#X connect 1 0 6 0;
+#X connect 3 0 0 0;
+#X connect 4 0 1 0;
+#X connect 5 0 13 0;
+#X connect 7 0 0 0;
+#X connect 8 0 21 0;
+#X connect 10 0 3 0;
+#X connect 11 0 1 0;
+#X connect 12 0 25 0;
+#X connect 13 0 14 0;
+#X connect 13 0 6 0;
+#X connect 15 0 13 0;
+#X connect 17 0 28 0;
+#X connect 19 0 7 0;
+#X connect 19 0 11 0;
+#X connect 19 0 15 0;
+#X connect 21 1 24 0;
+#X connect 22 0 9 0;
+#X connect 23 0 9 0;
+#X connect 24 0 23 0;
+#X connect 24 1 22 0;
+#X connect 25 0 27 0;
+#X connect 26 0 16 0;
+#X connect 27 0 31 0;
+#X connect 28 0 30 0;
+#X connect 29 0 18 0;
+#X connect 30 0 32 0;
+#X connect 31 0 26 0;
+#X connect 32 0 29 0;
+#X restore 165 10 pd midi_control;
+#X connect 0 0 4 0;
+#X connect 1 0 5 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X connect 4 0 5 0;
+#X connect 5 0 7 0;
+#X connect 6 0 2 0;
+#X connect 6 0 0 0;
+#X connect 8 0 11 0;
+#X connect 11 0 10 0;
+#X connect 11 1 13 0;
+#X connect 13 0 10 0;
+#X connect 14 0 13 1;
+#X connect 16 0 13 2;
+#X connect 18 0 14 0;
+#X connect 19 0 16 0;
+#X connect 26 0 11 1;
+#X connect 27 0 26 0;
+#X coords 0 -1 1 1 150 75 1 0 0;

@@ -1,0 +1,48 @@
+#N canvas 151 22 800 687 10;
+#X declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/numbers -path ../../abstractions/video -path
+../../abstractions/audio -path ../../abstractions/master;
+#X obj 7 279 cnv 1 470 1 empty empty FX 2 -6 1 12 -228856 -191407 0
+;
+#X obj 7 431 cnv 1 470 1 empty empty OUT 2 -6 1 12 -228856 -191407
+0;
+#X obj 7 123 cnv 1 470 1 empty empty IN 2 -6 1 12 -228856 -191407 0
+;
+#X obj 245 145 mouse;
+#X obj 245 514 audio-out;
+#X text 349 445 volume;
+#X floatatom 245 197 5 0 0 0 X - -;
+#X obj 245 343 notescale;
+#X obj 245 465 synth 2;
+#X text 288 445 waveform;
+#X obj 488 29 cnv 20 300 90 empty empty DESCRIPTION 10 15 0 16 -233017
+-128992 0;
+#X obj 488 124 cnv 20 300 150 empty empty empty 10 15 0 16 -233017
+-128992 0;
+#X obj 488 279 cnv 20 300 150 empty empty empty 10 15 0 16 -233017
+-128992 0;
+#X obj 488 434 cnv 20 300 230 empty empty empty 10 15 0 16 -233017
+-128992 0;
+#X text 496 55 The coordinates of the mouse are used to;
+#X text 496 70 control the pitch of an audio synthetiser.;
+#X text 496 141 < X coordinates of the mouse;
+#X text 495 155 (0 on the left and 1 on the right of the screen);
+#X text 496 308 < conversion in MIDI notes (0-127);
+#X text 496 354 < conversion in musical scale;
+#X text 208 446 pitch;
+#X text 495 479 < sound synthesis;
+#X text 495 548 < audio output;
+#X text 503 560 (two channels \, left and right);
+#X obj 488 4 cnv 20 300 20 empty empty ! 5 10 0 16 -261234 -258113
+0;
+#X text 509 4 Never delete this >;
+#X obj 734 9 ../../abstractions/include;
+#X text 270 159 y;
+#X text 297 159 clic;
+#X obj 245 308 map 0 1 0 127;
+#X connect 3 0 6 0;
+#X connect 6 0 29 0;
+#X connect 7 0 8 0;
+#X connect 8 0 4 0;
+#X connect 8 0 4 1;
+#X connect 29 0 7 0;

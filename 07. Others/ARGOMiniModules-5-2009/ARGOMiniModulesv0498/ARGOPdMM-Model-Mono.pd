@@ -1,0 +1,176 @@
+#N canvas 366 158 437 478 10;
+#X obj -41 360 active;
+#N canvas 424 161 167 191 clic 0;
+#X obj 23 17 MouseState;
+#X obj 23 82 &;
+#X obj 23 100 == 0;
+#X obj 23 136 s \$0-SendClic;
+#X obj 48 51 t b f;
+#X obj 23 118 metro 200;
+#X obj 94 17 inlet;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 5 0;
+#X connect 4 0 1 0;
+#X connect 4 1 1 1;
+#X connect 5 0 3 0;
+#X connect 6 0 4 0;
+#X restore -41 381 pd clic;
+#N canvas 608 166 249 182 ARGOnOff 0;
+#X obj 100 100 tgl 18 1 \$0-SendOnOff \$0-ReceiveOnOff On/Off 20 9
+0 12 -4033 -1 -1 0 1;
+#X obj 99 39 loadbang;
+#X msg 99 62 \; pd dsp 1;
+#X obj 100 129 outlet;
+#X connect 0 0 3 0;
+#X connect 1 0 2 0;
+#X coords 0 -1 1 1 65 18 2 100 100;
+#X restore -43 405 pd ARGOnOff;
+#X obj -43 430 switch~;
+#X obj 88 336 dac~ 1 2;
+#N canvas 347 177 505 320 ARGO 0;
+#X obj 101 101 cnv 12 164 15 empty ColorAmpli empty 20 12 0 14 -261299
+-1 1.04858e+06;
+#X obj 207 104 cnv 10 20 10 empty ColorAmpli Record 1 5 1 14 -261299
+-1 1.04858e+06;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 68 54 inlet~;
+#X msg 132 33 color 13 13 13;
+#X msg 136 58 color 12 12 12;
+#X obj 370 24 sel 0 1;
+#X msg 388 187 start;
+#X msg 289 193 stop;
+#X msg 388 114 open \$1;
+#X obj 389 48 savepanel;
+#X obj 388 142 b 1;
+#X obj 388 165 delay 1000;
+#X obj 403 93 print Record;
+#X obj 403 72 unsymbol;
+#X obj 403 210 b 1;
+#X obj 290 295 float;
+#X obj 335 295 + 1;
+#X obj 289 254 metro 1000;
+#X msg 335 275 -1;
+#X obj 344 227 b 1;
+#X obj 115 101 tgl 15 0 \$0-A \$0-B empty 0 0 1 9 -33289 -33289 -33289
+0 1;
+#X obj 130 101 nbx 4 15 0 9999 0 0 \$0-A ColorTime sec 50 7 1 12 -208064
+-1 -1 0 256;
+#X obj 163 292 writesf~ 1;
+#X text 17 7 Enregistre un fichier audio wav à 1 canal (mono);
+#X text 87 80 Input;
+#X connect 3 0 23 0;
+#X connect 4 0 21 0;
+#X connect 5 0 21 0;
+#X connect 6 0 5 0;
+#X connect 6 0 8 0;
+#X connect 6 1 10 0;
+#X connect 7 0 15 0;
+#X connect 7 0 20 0;
+#X connect 7 0 23 0;
+#X connect 8 0 18 0;
+#X connect 8 0 23 0;
+#X connect 9 0 11 0;
+#X connect 9 0 23 0;
+#X connect 10 0 14 0;
+#X connect 10 0 9 0;
+#X connect 11 0 12 0;
+#X connect 11 0 19 0;
+#X connect 12 0 7 0;
+#X connect 12 0 19 0;
+#X connect 14 0 13 0;
+#X connect 15 0 4 0;
+#X connect 16 0 17 0;
+#X connect 17 0 16 1;
+#X connect 17 0 22 0;
+#X connect 18 0 16 0;
+#X connect 19 0 17 0;
+#X connect 20 0 18 0;
+#X connect 21 0 6 0;
+#X coords 0 -1 1 1 166 17 1 100 100;
+#X restore 185 335 pd ARGO;
+#X obj -46 7 cnv 15 15 15 empty empty ARGOMiniModules 0 8 1 14 -262144
+-66577 0;
+#X obj -46 25 cnv 15 15 15 empty empty Model-Mono 0 8 1 14 -262144
+-66577 0;
+#X obj 96 10 adc~ 1;
+#X text 123 75 2 File Menu -> New;
+#X text 135 107 4 File Menu -> Save as... -> xxx.pd;
+#X text 130 91 3 Past in the New Window;
+#X text 116 58 1 Copy the content of this Window Model-Mono;
+#X text 127 158 <- Insert MiniModules;
+#N canvas 172 173 382 310 ARGO 0;
+#X text 12 234 peakamp~;
+#X text 11 247 cyclone library;
+#X text 12 262 http://suita.chopin.edu.pl/~czaja/miXed/externs/cyclone.html
+;
+#X text 12 275 pas de help \, dans Pd-extended. Voir doc Max/MSP MSP46ReferenceManual.pdf
+;
+#X obj 101 101 cnv 30 32 129 empty empty empty 20 12 0 14 -261299 -66577
+0;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 102 108 vu 8 120 \$0-B empty 0 0 1 9 -262144 -1 1 0;
+#X obj 75 30 env~;
+#X obj 115 4 inlet~;
+#X obj 74 53 - 100;
+#X obj 114 53 env~;
+#X obj 113 76 - 100;
+#X obj 115 31 peakamp~ 1000;
+#X connect 7 0 9 0;
+#X connect 8 0 7 0;
+#X connect 8 0 12 0;
+#X connect 9 0 6 0;
+#X connect 10 0 11 0;
+#X connect 11 0 6 1;
+#X connect 12 0 10 0;
+#X coords 0 -1 1 1 34 131 2 100 100;
+#X restore 147 335 pd ARGO;
+#N canvas 350 62 312 366 ARGO 0;
+#X obj 101 101 cnv 20 104 34 empty ColorAmpli empty 20 12 0 14 -261299
+-1 1.04858e+06;
+#X obj 85 257 outlet~;
+#X obj 134 104 cnv 10 20 10 empty ColorAmpli Ampli 1 5 1 14 -261299
+-1 1.04858e+06;
+#X obj 89 -82 inlet~;
+#X obj 85 228 *~;
+#X obj 103 118 hsl 101 12 0 1.25 0 1 \$0-A ColorAmpli 0dB 0 7 1 9 -261299
+-1 -1 8000 0;
+#X obj 100 161 pow~ 10000;
+#X obj 100 195 /~ 10000;
+#X msg 213 61 label \$1;
+#X obj 212 38 tosymbol;
+#X obj 213 -61 * 80;
+#X obj 213 -39 - 80;
+#X obj 212 3 sprintf %ddB;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 101 131 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X text 221 20 -> -80dB..20dB;
+#X text 218 -16 -> -80 .. 20;
+#X text 104 139 -> 0..1.2;
+#X text 109 177 -> 1..100000;
+#X text 109 211 -> 0.0001..10 = -80dB..20dB;
+#X connect 3 0 4 0;
+#X connect 4 0 1 0;
+#X connect 5 0 10 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 7 0 4 1;
+#X connect 8 0 5 0;
+#X connect 9 0 8 0;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 12 0 9 0;
+#X coords 0 -1 1 1 106 36 1 100 100;
+#X restore 147 285 pd ARGO;
+#X text 255 300 <- General level;
+#X connect 0 0 1 0;
+#X connect 2 0 3 0;
+#X connect 8 0 15 0;
+#X connect 15 0 5 0;
+#X connect 15 0 14 0;
+#X connect 15 0 4 1;
+#X connect 15 0 4 0;

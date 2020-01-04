@@ -1,0 +1,30 @@
+#N canvas 99 275 783 540 10;
+#X declare -path ../../lib/Pix_openni;
+#X obj -78 210 kinect;
+#X floatatom -75 320 5 0 0 0 x - -;
+#X floatatom -30 320 5 0 0 0 y - -;
+#X floatatom 20 322 5 0 0 0 z - -;
+#X obj -241 338 route l_foot;
+#X text -208 226 classic camera >>;
+#X text -280 244 infrared camera depth view >>;
+#X text 76 243 << display skeleton;
+#X obj -241 362 unpack f f f f;
+#X floatatom -241 392 5 0 0 0 x - -;
+#X floatatom -196 393 5 0 0 0 y - -;
+#X floatatom -150 393 5 0 0 0 z - -;
+#X obj 100 104 declare -path ../../lib/Pix_openni;
+#X text -314 30 kinect \; ------ \; Works with xbox kinect device (infrared
+camera coupled with a normal camera) able to track skeleton from a
+body for instance. \; !! You need to install OPEN NI / NITE to use
+this. \; \; Outlets \; 1: total data from seleton to route (ex : route
+l_hand) \; 2 \, 3 \, 4 : x y z data from left hand \; 5 \, 6 \, 7 :
+x y z data from head \; 8 \, 9 \, 10: x y z data from right hand \;
+;
+#X connect 0 0 4 0;
+#X connect 0 1 1 0;
+#X connect 0 2 2 0;
+#X connect 0 3 3 0;
+#X connect 4 0 8 0;
+#X connect 8 0 9 0;
+#X connect 8 1 10 0;
+#X connect 8 2 11 0;

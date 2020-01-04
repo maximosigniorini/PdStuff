@@ -1,0 +1,9 @@
+#N canvas 10 22 200 200 10;
+#N canvas 20 22 420 300 META 0;
+#X text 10 10 META this is a prototype of a libdir meta file;
+#X text 10 110 VERSION 2.5.2;
+#X text 10 90 LICENSE MIT License;
+#X text 10 30 NAME FFTease;
+#X text 10 70 DESCRIPTION a set of live spectral sound processors;
+#X text 10 50 AUTHOR Eric Lyon and Christopher Penrose;
+#X restore 10 10 pd META;

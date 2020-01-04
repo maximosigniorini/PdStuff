@@ -1,0 +1,209 @@
+#N canvas 155 0 800 684 10;
+#X declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/tools -path ../../abstractions/filters -path
+../../abstractions/fx-video -path ../../abstractions/fx-audio -path
+../../abstractions/master;
+#X declare -path abstractions/in -path abstractions/out -path abstractions/tools
+-path abstractions/filters -path abstractions/fx-video -path abstractions/fx-audio
+-path abstractions/master;
+#N canvas 468 137 801 468 INIT 0;
+#X obj 101 101 cnv 8 48 8 empty empty INCLUDE 2 4 0 10 -233017 -66577
+0;
+#X obj 102 261 declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/tools -path ../../abstractions/filters -path
+../../abstractions/fx-video -path ../../abstractions/fx-audio -path
+../../abstractions/master;
+#X text 100 240 Use for standalone :;
+#X text 100 140 Use with the main.pd :;
+#X text 97 25 Import paths to find abstractions \; Always use it in
+the examples patchs.;
+#X obj 102 162 declare -path abstractions/in -path abstractions/out
+-path abstractions/tools -path abstractions/filters -path abstractions/fx-video
+-path abstractions/fx-audio -path abstractions/master;
+#X obj 565 311 savepanel;
+#X obj 565 146 route savetofile;
+#X obj 565 166 unpack s s;
+#X obj 565 125 iemguts/receivecanvas 1;
+#X text 562 96 Get new saved file;
+#X text 562 289 Or inside this abstraction ?;
+#X obj 565 209 s CURRENT-FILE;
+#X obj 622 189 s CURRENT-FOLDER;
+#X connect 7 0 8 0;
+#X connect 8 0 12 0;
+#X connect 8 1 13 0;
+#X connect 9 0 7 0;
+#X coords 0 -1 1 1 50 10 2 100 100;
+#X restore 711 18 pd INIT;
+#X text 597 13 ! Do not delete >;
+#X obj 7 242 cnv 1 786 1 empty empty FX 2 -6 1 12 -228856 -191407 0
+;
+#X obj 7 431 cnv 1 786 1 empty empty OUT 2 -6 1 12 -228856 -191407
+0;
+#X obj 7 53 cnv 1 786 1 empty empty IN 2 -6 1 12 -228856 -191407 0
+;
+#X obj 297 93 audio-in;
+#X obj 299 492 audio-out;
+#X floatatom 354 128 5 0 0 0 - - -;
+#X obj 455 333 loadbang;
+#X obj 197 297 loadbang;
+#X msg 164 259 rec;
+#X obj 164 237 delay 2000;
+#X obj 164 218 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 703 222 rec;
+#X obj 705 178 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 704 199 delay 1000;
+#N canvas 528 354 450 300 CHOICE_ 0;
+#X floatatom 195 54 5 0 0 0 - - -;
+#X obj 188 100 > 0.8;
+#X obj 188 122 change;
+#X obj 188 142 sel 1;
+#X obj 189 185 t b b;
+#X msg 247 164 0;
+#X obj 254 210 delay 2000;
+#X msg 247 250 1;
+#X obj 189 162 spigot 1;
+#X obj 244 232 delay 1000;
+#X obj 192 78 spigot;
+#X obj 171 101 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 172 18 inlet env;
+#X obj 177 272 outlet;
+#X obj 327 276 outlet;
+#X connect 0 0 10 0;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 8 0;
+#X connect 4 0 13 0;
+#X connect 4 1 5 0;
+#X connect 4 1 6 0;
+#X connect 5 0 8 1;
+#X connect 6 0 9 0;
+#X connect 6 0 14 0;
+#X connect 7 0 8 1;
+#X connect 8 0 4 0;
+#X connect 9 0 7 0;
+#X connect 10 0 1 0;
+#X connect 11 0 10 1;
+#X connect 12 0 0 0;
+#X coords 0 -1 1 1 90 17 1 100 100;
+#X restore 380 204 pd CHOICE_;
+#X obj 581 492 audio-out;
+#X obj 685 350 loadbang;
+#X floatatom 379 174 5 0 0 0 - - -;
+#X msg 380 258 rec;
+#X obj 380 238 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 463 239 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 463 259 play;
+#X floatatom 702 311 10 0 0 0 - - -;
+#X obj 297 419 audio-cutoff;
+#X msg 618 198 play;
+#X obj 251 196 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 255 262 phase 0;
+#X obj 322 257 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 334 291 phase 0.01;
+#X obj 580 421 audio-cutoff;
+#X obj 88 543 audio-out;
+#X obj 112 426 audio-cutoff;
+#X obj 445 491 audio-out;
+#X obj 440 422 audio-cutoff;
+#X obj 231 495 audio-out;
+#X msg 654 324 phase 0.1;
+#X obj 36 419 audio-out;
+#X obj 37 346 audio-cutoff;
+#X obj 86 79 seq-randomizer;
+#X floatatom 86 134 5 0 0 0 - - -;
+#X msg 86 205 start \$1;
+#X obj 192 57 seq-randomizer;
+#X floatatom 192 106 5 0 0 0 - - -;
+#X obj 192 127 * 400;
+#X obj 38 280 audio-sampler;
+#X obj 580 249 audio-sampler;
+#X obj 296 322 audio-sampler;
+#X msg 210 615 mode 3 \, cutoff 45 \, reso 1;
+#X obj 625 348 * 127;
+#X msg 629 388 cutoff \$1;
+#X msg 187 348 auto 1;
+#X msg 454 354 auto 1 \, rec-time 1000;
+#X msg 685 371 auto 1 \, rec-time 2000;
+#X msg 197 318 auto 1 \, rec-time 1000;
+#X obj 111 498 audio-disto 8;
+#X obj 538 78 between 0.5 0.8;
+#X obj 578 104 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 572 124 random 100;
+#X obj 648 139 / 100;
+#X msg 573 164 speed \$1;
+#X connect 5 0 46 0;
+#X connect 5 0 47 0;
+#X connect 5 0 48 0;
+#X connect 5 1 7 0;
+#X connect 5 2 19 0;
+#X connect 8 0 53 0;
+#X connect 9 0 55 0;
+#X connect 10 0 46 1;
+#X connect 11 0 10 0;
+#X connect 12 0 11 0;
+#X connect 13 0 47 1;
+#X connect 14 0 15 0;
+#X connect 15 0 13 0;
+#X connect 16 0 21 0;
+#X connect 16 1 22 0;
+#X connect 18 0 54 0;
+#X connect 19 0 16 0;
+#X connect 20 0 48 1;
+#X connect 21 0 20 0;
+#X connect 22 0 23 0;
+#X connect 23 0 48 1;
+#X connect 25 0 6 1;
+#X connect 25 0 6 0;
+#X connect 26 0 47 1;
+#X connect 26 0 48 1;
+#X connect 27 0 10 0;
+#X connect 27 0 26 0;
+#X connect 28 0 46 1;
+#X connect 29 0 30 0;
+#X connect 29 0 28 0;
+#X connect 30 0 48 1;
+#X connect 31 0 17 1;
+#X connect 31 0 17 0;
+#X connect 33 0 56 0;
+#X connect 35 0 34 1;
+#X connect 37 0 47 1;
+#X connect 39 0 38 1;
+#X connect 39 0 38 0;
+#X connect 40 0 41 0;
+#X connect 41 0 42 0;
+#X connect 41 0 57 0;
+#X connect 42 0 46 1;
+#X connect 42 0 47 1;
+#X connect 43 0 44 0;
+#X connect 44 0 45 0;
+#X connect 45 0 40 1;
+#X connect 46 0 39 0;
+#X connect 47 0 31 0;
+#X connect 47 1 24 0;
+#X connect 48 0 25 0;
+#X connect 48 0 33 0;
+#X connect 48 0 35 0;
+#X connect 48 0 36 0;
+#X connect 48 0 36 1;
+#X connect 48 1 50 0;
+#X connect 49 0 33 1;
+#X connect 51 0 31 1;
+#X connect 52 0 46 1;
+#X connect 53 0 48 1;
+#X connect 54 0 47 1;
+#X connect 55 0 46 1;
+#X connect 56 0 32 1;
+#X connect 56 0 32 0;
+#X connect 57 0 58 0;
+#X connect 58 0 59 0;
+#X connect 59 0 60 0;
+#X connect 60 0 61 0;
+#X connect 61 0 47 1;

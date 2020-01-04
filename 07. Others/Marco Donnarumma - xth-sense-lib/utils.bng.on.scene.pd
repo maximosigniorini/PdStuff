@@ -1,0 +1,8 @@
+#N canvas 807 417 450 300 10;
+#X obj 72 38 r SCENE.LOAD;
+#X obj 72 99 sel \$1;
+#X obj 72 132 del \$2;
+#X obj 72 157 outlet;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;

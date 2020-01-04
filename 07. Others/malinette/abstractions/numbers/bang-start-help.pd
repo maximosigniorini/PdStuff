@@ -1,0 +1,18 @@
+#N canvas 179 258 549 282 10;
+#X obj 38 162 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 38 218 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 38 105 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 174 76 < 0ms;
+#X text 172 135 < 2000ms = 2s;
+#X text 172 191 < 5000ms = 5s;
+#X obj 38 77 bang-start;
+#X obj 38 134 bang-start 2000;
+#X obj 38 191 bang-start 5000;
+#X text 36 5 Bang-start \; ---------- \; Loadbang and initbang with
+a delay \; it send a bang after the delay specified;
+#X connect 6 0 2 0;
+#X connect 7 0 0 0;
+#X connect 8 0 1 0;

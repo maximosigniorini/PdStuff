@@ -1,0 +1,72 @@
+#N canvas 284 79 549 680 10;
+#X floatatom 36 138 5 0 0 0 - - -;
+#X floatatom 36 212 0 0 0 0 - - -;
+#X text 23 77 [autoscale] scales a stream of numbers based on an output
+range set as arguments \, and an input range which is set dynamically.
+;
+#X floatatom 160 212 0 0 0 0 - - -;
+#X floatatom 307 212 0 0 0 0 - - -;
+#X obj 223 133 hsl 128 15 0 127 0 0 empty empty empty -2 -6 0 8 -262144
+-1 -1 0 1;
+#X floatatom 120 460 5 0 0 0 - - -;
+#X obj 145 524 hsl 128 15 0 1 0 0 empty empty empty -2 -6 0 8 -262144
+-1 -1 0 1;
+#X msg 170 458 reset;
+#X text 23 237 If you use [autoscale] with no arguments \, then the
+output range defaults to 0-1.;
+#X msg 223 458 bang;
+#X text 24 267 You can also set the output min and max using the 2nd
+and 3rd inlets:;
+#X obj 279 458 tgl 15 1 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X text 24 405 The [reset( message or banging the 4th inlet resets
+the stored max and min to zero. 0 disables the auto-tracking \, 1 re-enables
+it:;
+#X floatatom 91 603 5 0 0 0 - - -;
+#X obj 140 692 hsl 128 15 0 1 0 0 empty empty empty -2 -6 0 8 -262144
+-1 -1 0 1;
+#X obj 310 630 tgl 15 1 empty empty empty 0 -6 0 8 -262144 -1 -1 1
+1;
+#X msg 137 601 save;
+#X msg 157 628 load -5 18;
+#X msg 333 629 bang;
+#X floatatom 168 384 7 0 0 0 - - -;
+#X obj 145 295 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 160 172 autoscale -0.01 0.01;
+#X obj 168 345 autoscale;
+#X obj 142 490 autoscale;
+#X obj 36 172 autoscale;
+#X obj 137 654 autoscale 0 1 ______________;
+#X obj 241 314 nbx 3 16 -1e+37 1e+37 0 1 empty empty max 40 8 0 10
+-228856 -1 -1 19 256;
+#X obj 181 314 nbx 3 16 -1e+37 1e+37 0 1 empty empty min 40 8 0 10
+-228856 -1 -1 0 256;
+#X text 26 543 The dump message allows "autoscale" to output the min
+and max of the input data. this allow user to save this data in order
+to load the same callibration with a loadbang :;
+#X obj 307 172 autoscale -4095 4095;
+#X text 25 13 Autoscale \; ---------- \; Automap useful for sensor
+calibration \; (from mapping library);
+#X connect 0 0 25 0;
+#X connect 5 0 22 0;
+#X connect 5 0 30 0;
+#X connect 6 0 24 0;
+#X connect 8 0 24 0;
+#X connect 10 0 24 3;
+#X connect 12 0 24 3;
+#X connect 14 0 26 0;
+#X connect 16 0 26 3;
+#X connect 17 0 26 0;
+#X connect 18 0 26 0;
+#X connect 19 0 26 3;
+#X connect 21 0 23 0;
+#X connect 22 0 3 0;
+#X connect 23 0 20 0;
+#X connect 24 0 7 0;
+#X connect 25 0 1 0;
+#X connect 26 0 15 0;
+#X connect 26 3 18 0;
+#X connect 27 0 23 2;
+#X connect 28 0 23 1;
+#X connect 30 0 4 0;

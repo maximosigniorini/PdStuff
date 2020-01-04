@@ -1,0 +1,69 @@
+#N canvas 151 22 800 687 10;
+#X declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/numbers -path ../../abstractions/video -path
+../../abstractions/audio -path ../../abstractions/master;
+#X obj 7 279 cnv 1 470 1 empty empty FX 2 -6 1 12 -228856 -191407 0
+;
+#X obj 7 431 cnv 1 470 1 empty empty OUT 2 -6 1 12 -228856 -191407
+0;
+#X obj 7 123 cnv 1 470 1 empty empty IN 2 -6 1 12 -228856 -191407 0
+;
+#X obj 488 28 cnv 20 300 90 empty empty DESCRIPTION 10 15 0 16 -233017
+-128992 0;
+#X obj 488 124 cnv 20 300 150 empty empty empty 10 15 0 16 -233017
+-128992 0;
+#X obj 488 279 cnv 20 300 150 empty empty empty 10 15 0 16 -233017
+-128992 0;
+#X obj 488 434 cnv 20 300 230 empty empty empty 10 15 0 16 -233017
+-128992 0;
+#X text 496 52 On analyse le flux de la caméra vidéo pour;
+#X text 496 67 pour récupérer les positions X et Y d'une zone;
+#X text 496 134 < caméra vidéo;
+#N canvas 839 125 450 300 OPEN_GEM 0;
+#X obj 214 87 loadbang;
+#X obj 214 108 delay 300;
+#X msg 214 128 \; GEM-MASTER on;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X restore 488 7 pd OPEN_GEM;
+#X obj 231 133 video-in;
+#X obj 231 167 video-red-blob;
+#X obj 285 208 vsl 15 45 0 1 0 0 empty empty X 5 30 0 10 -262144 -1
+-128992 1536 1;
+#X obj 339 208 vsl 15 45 0 1 0 0 empty empty Y 5 30 0 10 -262144 -1
+-128992 1459 1;
+#X floatatom 285 259 5 0 0 0 - - -;
+#X floatatom 339 259 5 0 0 0 - - -;
+#X obj 366 313 map 0 1 -4 4;
+#X obj 285 312 map 0 1 -4 4;
+#X obj 172 362 3d-transform 1;
+#X msg 285 337 tx \$1;
+#X msg 366 337 ty \$1;
+#X obj 366 289 average 5;
+#X obj 285 289 average 5;
+#X obj 149 218 video-screen;
+#X text 496 82 de couleur rouge. Ces données sont utilisées;
+#X text 495 472 < cube;
+#X text 496 172 < analyse de la couleur rouge;
+#X text 495 318 < calibrage en -4 et 4 pour être dans les;
+#X text 496 386 < translations de l'objet en X et Y;
+#X text 508 332 dans les dimensions de l'écran GEM;
+#X text 496 96 pour déplacer un modèle 3D.;
+#X text 495 291 < moyenne pour rendre le déplacement fluide;
+#X obj 172 465 3d-object 5;
+#X obj 737 11 ../../abstractions/include;
+#X connect 11 0 12 0;
+#X connect 12 0 24 0;
+#X connect 12 1 13 0;
+#X connect 12 2 14 0;
+#X connect 13 0 15 0;
+#X connect 14 0 16 0;
+#X connect 15 0 23 0;
+#X connect 16 0 22 0;
+#X connect 17 0 21 0;
+#X connect 18 0 20 0;
+#X connect 19 0 33 0;
+#X connect 20 0 19 1;
+#X connect 21 0 19 1;
+#X connect 22 0 17 0;
+#X connect 23 0 18 0;

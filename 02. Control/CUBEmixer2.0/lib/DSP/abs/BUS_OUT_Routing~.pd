@@ -1,0 +1,11 @@
+#N canvas 0 0 450 300 10;
+#X obj 41 44 inlet~;
+#X text 96 44 /BUS/OUT;
+#X obj 56 144 pp set;
+#X text 144 174 default ist /BUS/Number;
+#X obj 39 186 throw~ \$1_OUT;
+#X obj 56 122 receive_parameter \$1_OUT/BUS/DST;
+#X text 137 90 1.arg: <float> n_out (eg. 1 for 1_/_OUTBUST_DEST);
+#X connect 0 0 4 0;
+#X connect 2 0 4 0;
+#X connect 5 0 2 0;

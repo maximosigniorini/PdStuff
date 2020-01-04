@@ -1,0 +1,20 @@
+#N canvas 648 79 236 222 10;
+#X obj 10 48 * -1;
+#X obj 10 65 + 1;
+#X obj 10 31 inlet;
+#X obj 10 82 outlet;
+#X obj 10 12 cnv 11 26 13 empty empty FLIP 1 8 1 12 -1 -204800 0;
+#N canvas 0 22 450 300 abstraction_ident_messages 0;
+#X obj 51 90 loadbang;
+#X obj 51 150 print EAT;
+#X msg 51 107 ElectroAcousticTools Flip Abstraction. \, Authored by
+#200256594 at University of Leeds UK. \, Report bugs to mc07rvt@leeds.ac.uk.
+;
+#X connect 0 0 2 0;
+#X connect 2 0 1 0;
+#X restore 10 103 pd abstraction_ident_messages;
+#X text 8 123 Flips 0-1 to 1-0.;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 2 0 0 0;
+#X coords 0 -1 1 1 26 17 2 10 10;

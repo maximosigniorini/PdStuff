@@ -1,0 +1,348 @@
+#N canvas 72 270 1126 504 10;
+#X floatatom 416 201 4 0 0 0 - - -;
+#N canvas 441 514 686 382 IN~OUT 0;
+#X obj 23 29 noise~;
+#X obj 183 110 s~ IN;
+#X obj 183 80 adc~ 1;
+#X obj 23 130 s~ OUT~;
+#X obj 64 162 out_calibrate 1;
+#X obj 181 162 out_calibrate 2;
+#X obj 64 179 out_calibrate 3;
+#X obj 181 179 out_calibrate 4;
+#X obj 64 196 out_calibrate 5;
+#X obj 181 196 out_calibrate 6;
+#X obj 64 213 out_calibrate 7;
+#X obj 181 213 out_calibrate 8;
+#X obj 64 236 out_calibrate 9;
+#X obj 181 236 out_calibrate 10;
+#X obj 64 253 out_calibrate 11;
+#X obj 181 253 out_calibrate 12;
+#X obj 64 270 out_calibrate 13;
+#X obj 181 270 out_calibrate 14;
+#X obj 64 287 out_calibrate 15;
+#X obj 181 287 out_calibrate 16;
+#X obj 64 307 out_calibrate 17;
+#X obj 181 307 out_calibrate 18;
+#X obj 64 324 out_calibrate 19;
+#X obj 181 324 out_calibrate 20;
+#X obj 64 341 out_calibrate 21;
+#X obj 181 341 out_calibrate 22;
+#X obj 64 358 out_calibrate 23;
+#X obj 181 358 out_calibrate 24;
+#X obj 23 86 *~ 0;
+#X obj 42 47 r outgain;
+#X obj 42 66 min 1;
+#X obj 23 109 quantize~;
+#X msg 115 35 16bit;
+#X obj 115 17 loadbang;
+#X msg 182 34 8bit;
+#X connect 0 0 28 0;
+#X connect 2 0 1 0;
+#X connect 28 0 31 0;
+#X connect 29 0 30 0;
+#X connect 30 0 28 1;
+#X connect 31 0 3 0;
+#X connect 32 0 31 0;
+#X connect 33 0 32 0;
+#X connect 34 0 31 0;
+#X restore 602 422 pd IN~OUT;
+#X msg 416 156 START;
+#X obj 76 239 r~ IN;
+#X obj 76 258 env~;
+#X floatatom 76 278 4 0 0 0 - - -;
+#X obj 229 176 s outgain;
+#X floatatom 229 135 4 0 0 0 - - -;
+#X obj 229 155 dbtorms;
+#X msg 456 291 bang;
+#X obj 456 312 s t_scope;
+#X obj 592 301 s calibrate_activate;
+#X floatatom 592 280 4 0 0 0 - - -;
+#X floatatom 592 340 4 0 0 0 - - -;
+#X obj 592 319 r calibrate_activate;
+#N canvas 371 204 295 230 samp2m 0;
+#X obj 136 39 inlet;
+#X obj 173 74 samplerate~;
+#X obj 173 55 loadbang;
+#X obj 161 114 r soundspeed;
+#X obj 136 94 / 44100;
+#X obj 136 132 * 340;
+#X obj 136 207 outlet;
+#X obj 136 153 * 100;
+#X obj 136 171 i;
+#X obj 136 189 * 0.01;
+#X connect 0 0 4 0;
+#X connect 1 0 4 1;
+#X connect 2 0 1 0;
+#X connect 3 0 5 1;
+#X connect 4 0 5 0;
+#X connect 5 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 9 0;
+#X connect 9 0 6 0;
+#X restore 223 424 pd samp2m;
+#X text 631 340 current speaker;
+#X floatatom 223 442 4 0 0 0 - - -;
+#X obj 416 136 del 10000;
+#X msg 416 116 bang;
+#N canvas 520 287 520 236 save 0;
+#X obj 79 22 inlet;
+#X msg 79 165 \; scope write \$1;
+#X obj 79 144 makefilename spk%d.dat;
+#X msg 118 118 1;
+#X floatatom 151 119 4 0 0 0 - - -;
+#X obj 79 100 f 99;
+#X obj 350 212 table scope 16386;
+#X obj 341 120 spigot;
+#X obj 341 54 r finished_spk;
+#X obj 79 44 route bang auto;
+#X msg 378 96 1;
+#X obj 378 75 route on;
+#X msg 408 96 0;
+#X msg 350 178 \; scope const 0;
+#X connect 0 0 9 0;
+#X connect 2 0 1 0;
+#X connect 3 0 2 0;
+#X connect 4 0 2 0;
+#X connect 5 0 2 0;
+#X connect 7 0 2 0;
+#X connect 8 0 7 0;
+#X connect 9 0 5 0;
+#X connect 9 1 11 0;
+#X connect 9 2 5 0;
+#X connect 10 0 7 1;
+#X connect 11 0 10 0;
+#X connect 11 1 12 0;
+#X connect 12 0 7 1;
+#X restore 225 314 pd save raumimpulsantwort;
+#X text 214 465 dist[m];
+#X text 468 120 the room;
+#X obj 223 402 unpack;
+#X obj 289 424 rmstodb;
+#X floatatom 289 443 4 0 0 0 - - -;
+#X obj 223 382 r values;
+#X text 288 465 amp[dB];
+#N canvas 197 83 368 287 write 0;
+#X obj 54 48 route write writeas...;
+#X obj 128 75 bang;
+#X obj 54 185 s writecalibrat;
+#X obj 54 99 bang;
+#X obj 54 24 inlet;
+#X obj 54 122 t b b;
+#X obj 158 161 s cal_file;
+#X obj 128 97 savepanel;
+#X obj 128 118 t b s;
+#X obj 158 141 symbol compensation.mtx;
+#X connect 0 0 3 0;
+#X connect 0 1 1 0;
+#X connect 1 0 7 0;
+#X connect 3 0 5 0;
+#X connect 4 0 0 0;
+#X connect 5 0 2 0;
+#X connect 5 1 9 0;
+#X connect 7 0 8 0;
+#X connect 8 0 2 0;
+#X connect 8 1 9 0;
+#X connect 9 0 6 0;
+#X restore 634 155 pd write;
+#X msg 634 120 write;
+#X msg 681 120 writeas...;
+#N canvas 115 91 378 142 printer 0;
+#X obj 25 22 r values;
+#X obj 25 40 print VALUES;
+#X obj 24 58 r calibrate;
+#X obj 24 76 print CALIBRAT;
+#X obj 237 24 r delay;
+#X obj 237 66 print PEAK;
+#X connect 0 0 1 0;
+#X connect 2 0 3 0;
+#X connect 4 0 5 0;
+#X restore 602 442 pd printer;
+#X text 462 109 10sec to leave;
+#X msg 516 154 STOP;
+#X text 453 201 actual speaker;
+#X text 628 281 activate speaker;
+#X msg 263 287 auto on;
+#X msg 320 287 auto off;
+#X msg 225 286 bang;
+#N canvas 356 98 600 400 getlatency 0;
+#X text 56 67 if the latency of your soundcard is too high \, you might
+get problems when trying to measure the delay of the speakers (due
+to buffer-restrictions);
+#X text 56 115 there are 2 solutions to this:;
+#X text 78 134 1 pray that your latency is small;
+#X text 57 192 because i am sending hard clicks to the output of your
+soundcard \, which might damage your ears \, headphones \, speakers...
+you have to run the "LATENCY"-patch on your own.;
+#X text 78 150 2 measure the latency with the "LATENCY"-patch that
+can be found in this directory;
+#X restore 49 158 pd getlatency;
+#X obj 416 176 calibrator_main;
+#N canvas 156 72 1251 835 readme 0;
+#X text 60 70 this is the calibration-patch !!;
+#X text 62 86 you will need this for calibrating your audio-setup.
+;
+#X text 159 22 CALIBRATOR HOW-TO:;
+#X text 26 138 before you start:;
+#X text 81 157 you should have set up a functioning pure-data.;
+#X text 80 172 i suppose \, that you are using a multi-channel soundcard
+(like the RME-Hammerfall);
+#X text 43 476 the latency is stored in a file called "latenz.samples"
+;
+#N canvas 542 226 490 215 latenz.samples 0;
+#X text 33 24 the file "latenz.samples" consists of only one integer
+number \, defining the latency of your soundcard \, when you connect
+the outlet of that card to its inlet.;
+#X text 44 146 read more about this in the patch itself.;
+#X text 43 96 the "LATENCY.pd" is not within the CALIBRATOR patch \,
+because it might damage your ears and speakers.;
+#X restore 203 531 pd latenz.samples;
+#X text 45 493 you probably really should have such a file \, for if
+your systems latency is too high \, your measurement might give unreliable
+data !!;
+#X text 650 42 the actual measurement:;
+#X text 679 55 measuring your audio-system is (hopefully) made easy
+with this patch:;
+#X text 693 207 distortion will also distort your measurement;
+#X text 691 108 1.) adjust the output level as needed by your system.
+remember that a level of 100dB equals the maximum digital output of
+any soundcard. since you might use audio-hardware (like limiters) after
+your D/A-conversion \, it might be a good idea \, to adjust the level
+\, so the signal is not distorted by this (meaning: you should create
+an audio-signal that is below the limiter-treshold).;
+#X text 691 236 2.) after you have done so \, you can start the actual
+measuring-process. this is done via the button;
+#X msg 1024 252 START;
+#X text 49 582 if you haven't yet done so \, connect your soundcard
+the sound-reproduction system. set up a mono-microphone somewhere in
+the middle of the auditory and connect it to your soundcard \, so that
+the microphone channel is present at the soundcard-channel 1 in the
+lower-left corner of the calibrator-patch you can see a level-display
+\, so you can make sure that everything is working fine.;
+#X text 50 684 you should really use a high quality microphone with
+a spheric characteristic ("omnidirectional") to make a good measurement.
+;
+#X text 50 735 in most of the cases \, the microphone should be placed
+in the center of the listening area. but of course you might want to
+calibrate your system with respect to an arbitrary point in the auditory.
+;
+#X text 691 275 the measuring will start immediatly. one speaker after
+the other will play back white noise. the soundfield is recorded by
+the microphone and then analysed \, with respect to the overall amplitude
+and the delay of the speaker with respect to the calibration-position.
+;
+#X text 693 346 these measurement-values are calculated into pairs
+of delay- (in samples) and amplification-factors \, that have to be
+applied on the matching speakers \, so that all speakers will be equally
+loud and in phase in the calibration-position.;
+#X text 695 417 since the measurement should take place at the highest
+possible volume \, it is normally not a good idea to stay in the room
+while the measurement commences. even more so \, because the presence
+of "loud" objects (like people) might distort the measurement. therefore
+there is another button that starts the measuring after a pause of
+10 seconds. normally this is enough to leave the room.;
+#X text 693 553 3.) after the measurement is finished (and everything
+is quiet again) \, the calibration-values should be stored in a file
+\, so they can be used by other pd-patches;
+#X text 695 596 this can be done with the buttons;
+#X msg 936 599 write;
+#X msg 988 599 writeas...;
+#X text 697 619 the default filename will be "compensation.mtx";
+#X text 695 652 4.) even after saving the values to a file \, they
+are not automatically applied to other patches that would like to use
+them. this is \, because it might prove dangerous to overwrite an existing
+calibration;
+#X text 695 709 to apply the calibration \, the file "calibration.mtx"
+has to be stored into a directory that is searched by pd. you can copy
+the file manually to such a directory or use the button in the "pd
+apply"-subpatch. the file is then saved in the directory where all
+the standard routines for calibrated-ouput "[main-out~]" are living.
+;
+#X msg 1099 736 apply;
+#N canvas 527 253 600 727 how 0;
+#X text 31 46 the measurement consists of 2 parts:;
+#X text 58 92 1.) speaker-amplitude;
+#X text 77 112 this is simply a measurement of the amplitude of the
+microphone-signal. for stability reasons \, this is averaged about
+15 seconds.;
+#X text 78 166 since we are only interested in the relative amplitude
+of one speaker with respect to the others \, it is of no importance
+to get the real "loudness" each speaker produces;
+#X text 61 233 2.) speaker-delay;
+#X text 84 254 this is a bit more complex. to measure the delay of
+the speakers we compare the original generated noise with the microphone-recorded.
+;
+#X text 85 296 by doing a so called "cross-correlation" we gather information
+\, of what the has happened to the signal in the time-domain between
+being send to the output of the soundcard and returning to its input
+;
+#X text 82 360 from this "room-impulse-response" we can read the time
+it takes for the signal to get back into the PC.;
+#X text 95 400 cross-correlation is very stable with respect to sounds
+that exist in the room but are not generated by the noise-generator.
+;
+#X text 93 445 unluckily \, we only can take measurements in frames
+of 16000 samples. while this is no problem for normal room-dimensions
+\, it prooves problematic when a) the latency of the soundcard is too
+big (because then the measured point would be outside our frame and
+coud not be measured) and b) the room is too reverberant (because long
+reverberations appear somehow shifted in our measurement --> "circular
+cross-correlation");
+#X text 91 603 ad b) this problem seems to be of a theoretic nature
+\, since we are only trying to find the first peak within this room-impulse-response
+(which should match the direct sound of the speaker reaching the microphone).
+i \, personally \, have never encountered problems with the circular
+cross-correlation (that is \, the "direct" peak was always clearly
+distinguishable from the rest);
+#X text 92 557 ad a) to reduce the effect of the latency of the soundcard
+\, you should measure it first. it will then be compensated (see above)
+;
+#X restore 820 523 pd how does it work;
+#X text 42 420 0.) after you have checked your speaker-setting \, you
+maybe want to test the latency of your PC+soundcard. there is a "LATENCY.pd"
+file around somewhere in this directory \, which you can use.;
+#X text 82 201 first of all you should set up your speakers in a proper
+way.;
+#X restore 768 20 pd readme;
+#X text 215 93 1 set the ouput level;
+#X text 413 92 2 start measurement;
+#X text 632 91 3 save measurement;
+#X text 808 90 4 apply calibration;
+#X text 661 20 what is this ?;
+#X text 273 16 CALIBRATOR patch;
+#X text 273 26 ================;
+#X text 46 93 0 run "LATENCY";
+#X text 809 125 copy the matrix to CUBEmixer/lib/DSP/presets/compensation.mtx
+;
+#X obj 76 325 vsl 15 128 0 100 0 0 empty empty empty 0 -8 0 8 -262144
+-1 -1 4859 1;
+#X obj 97 324 > 99;
+#X obj 96 374 bng 30 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 96 346 sel 1;
+#X text 96 404 CLIP;
+#X connect 2 0 40 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 51 0;
+#X connect 5 0 52 0;
+#X connect 7 0 8 0;
+#X connect 8 0 6 0;
+#X connect 9 0 10 0;
+#X connect 12 0 11 0;
+#X connect 14 0 13 0;
+#X connect 15 0 17 0;
+#X connect 18 0 2 0;
+#X connect 19 0 18 0;
+#X connect 23 0 15 0;
+#X connect 23 1 24 0;
+#X connect 24 0 25 0;
+#X connect 26 0 23 0;
+#X connect 29 0 28 0;
+#X connect 30 0 28 0;
+#X connect 33 0 40 1;
+#X connect 36 0 20 0;
+#X connect 37 0 20 0;
+#X connect 38 0 20 0;
+#X connect 40 0 0 0;
+#X connect 52 0 54 0;
+#X connect 54 0 53 0;

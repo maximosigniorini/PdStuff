@@ -1,0 +1,20 @@
+#N canvas 0 0 681 545 10;
+#X obj 101 101 cnv 15 248 88 empty empty empty 20 12 0 14 -64 -66577
+0;
+#X obj 103 103 cnv 20 244 84 empty empty empty 20 12 0 14 -237184 -66577
+0;
+#X obj 173 144 cnv 16 16 16 empty empty powered 0 8 0 14 -237184 -33289
+0;
+#X obj 253 144 cnv 15 16 16 empty empty by 0 8 0 14 -237184 -33289
+0;
+#X obj 196 164 cnv 16 16 16 empty empty iem 0 8 0 24 -237184 -33289
+0;
+#X obj 146 113 cnv 16 16 16 empty empty CUBEmixer 0 8 0 24 -237184
+-33289 0;
+#X msg 95 422 tot destroy .^.m;
+#X obj 95 448 tot .parent;
+#X msg 110 382 tot destroy .^.m \, tot bind .^.c <Control-Key> "";
+#X text 111 367 this would even disable the control-keys!;
+#X connect 6 0 7 0;
+#X connect 7 3 6 0;
+#X coords 0 -1 1 1 250 90 2 100 100;

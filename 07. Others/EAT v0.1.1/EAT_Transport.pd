@@ -1,0 +1,20 @@
+#N canvas 993 106 291 102 10;
+#X obj 2 0 EATi_transportguts;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X obj 136 155 sys_gui;
+#X obj 136 94 pack float symbol;
+#X msg 136 125 wm attributes \$2 -topmost \$1;
+#X obj 136 43 loadbang;
+#X obj 136 60 t b b;
+#X obj 136 77 1;
+#X obj 235 77 window_name 1;
+#X connect 1 0 2 0;
+#X connect 2 0 0 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 4 1 6 0;
+#X connect 5 0 1 0;
+#X connect 6 0 1 1;
+#X restore 252 77 pd;
+#X obj 176 76 cnv 15 100 18 empty empty empty 20 12 0 14 -262144 -66577
+0;

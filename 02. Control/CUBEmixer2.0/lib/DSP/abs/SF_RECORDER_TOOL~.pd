@@ -1,0 +1,16 @@
+#N canvas 0 0 454 304 10;
+#X obj 42 27 inlet~;
+#X obj 45 254 outlet~;
+#X obj 44 109 r~ 0_OUT;
+#X obj 131 191 writesf~ 1;
+#X obj 131 111 r~ 1_OUT;
+#X obj 219 190 writesf~ 1;
+#X obj 301 190 writesf~ 1;
+#X obj 384 190 writesf~ 1;
+#X obj 384 110 r~ 4_OUT;
+#X obj 301 110 r~ 3_OUT;
+#X obj 219 110 r~ 2_OUT;
+#X connect 4 0 3 0;
+#X connect 8 0 7 0;
+#X connect 9 0 6 0;
+#X connect 10 0 5 0;

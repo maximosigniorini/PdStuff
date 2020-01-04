@@ -1,0 +1,207 @@
+#N canvas 127 545 774 596 10;
+#X obj 394 22 inlet;
+#X obj 443 22 cnv 15 55 20 empty empty GEM_IN 0 10 0 12 -4034 -1 0
+;
+#X obj 349 256 outlet;
+#X obj 400 257 cnv 15 55 20 empty empty GEM_OUT 0 10 0 12 -221249 -262144
+0;
+#X obj 72 32 cnv 15 240 210 empty empty gempix_transform2 45 12 0 12
+-99865 -262144 0;
+#X obj 73 33 cnv 15 40 15 empty empty GEM_IN 0 8 0 8 -4034 -1 0;
+#X obj 2 193 cnv 15 40 15 empty empty GEM_OUT 0 8 0 8 -258113 -262144
+0;
+#X obj 190 190 cnv 15 30 15 empty \$1gempix_trans2_id \$1 10 10 0 10
+-260097 -33289 0;
+#X obj 119 190 bng 15 250 50 0 \$1gempix_trans_reset \$1gempix_trans_reset_init
+reset 17 7 0 10 -257985 -1 -228856;
+#X obj 258 86 tgl 15 0 \$1gempix_transxyz_on \$1gempix_transxyz_on_init
+empty 17 7 0 10 -260097 -1 -1 0 1;
+#X obj 266 9 tgl 15 0 \$1gempix_scale_on \$1gempix_scale_on_init empty
+17 7 0 10 -260097 -1 -1 0 1;
+#X obj 328 32 nbx 3 15 0 100 0 0 empty \$1gempix_scale_val empty 8
+-6 0 8 -33289 -260097 -260097 1 256;
+#X obj 264 33 hsl 60 15 0 20 0 0 \$1gempix_scale_val \$1gempix_scale_val_init
+scale 3 8 0 8 -66577 -260097 -260097 295 1;
+#X obj 273 87 hsl 50 15 -20 20 0 0 \$1gempix_transxyz_x \$1gempix_transxyz_x_init
+transX 3 8 0 8 -66577 -260097 -260097 0 1;
+#X obj 326 87 nbx 2 15 -20 20 0 0 empty \$1gempix_transxyz_x empty
+8 -6 0 8 -33289 -260097 -260097 0 256;
+#X obj 273 103 hsl 50 15 -20 20 0 0 \$1gempix_transxyz_y \$1gempix_transxyz_y_init
+transY 3 8 0 8 -66577 -260097 -260097 0 1;
+#X obj 326 103 nbx 2 15 -20 20 0 0 empty \$1gempix_transxyz_y empty
+8 -6 0 8 -33289 -260097 -260097 0 256;
+#X obj 273 119 hsl 50 15 -20 20 0 0 \$1gempix_transxyz_z \$1gempix_transxyz_z_init
+transX 3 8 0 8 -66577 -260097 -260097 0 1;
+#X obj 326 119 nbx 2 15 -20 20 0 0 empty \$1gempix_transxyz_z empty
+8 -6 0 8 -33289 -260097 -260097 0 256;
+#X obj 58 191 tgl 15 0 \$1gempix_transform2_on \$1gempix_transform2_on_init
+Enable 17 7 0 8 -4034 -1 -228856 0 1;
+#X obj 399 114 demux;
+#X obj 481 80 r \$1gempix_transform2_on;
+#N canvas 297 244 877 700 gempix_trans2_core 0;
+#X obj 79 -199 inlet;
+#X obj 132 -203 cnv 15 55 20 empty empty GEM_IN 0 10 0 12 -4034 -1
+0;
+#X obj 166 133 translateXYZ;
+#X obj -51 89 + 1;
+#X obj 95 115 gate 2;
+#X obj 101 388 outlet;
+#X obj 204 324 scale;
+#X obj 0 220 + 1;
+#X obj 95 251 gate 2;
+#X obj -92 183 r \$1gempix_scale_on;
+#X obj 242 262 r \$1gempix_scale_val;
+#X floatatom 256 294 5 0 0 0 - - -;
+#X msg 305 297 1 1 1;
+#X obj -94 45 r \$1gempix_trans2xyz_on;
+#X obj 272 63 r \$1gem_trans2_x_pos;
+#X obj 283 86 r \$1gem_trans2_y_pos;
+#X connect 0 0 4 1;
+#X connect 2 0 8 1;
+#X connect 3 0 4 0;
+#X connect 4 0 8 1;
+#X connect 4 1 2 0;
+#X connect 6 0 5 0;
+#X connect 7 0 8 0;
+#X connect 8 0 5 0;
+#X connect 8 1 6 0;
+#X connect 9 0 7 0;
+#X connect 10 0 11 0;
+#X connect 11 0 6 1;
+#X connect 12 0 6 2;
+#X connect 13 0 3 0;
+#X connect 14 0 2 1;
+#X connect 15 0 2 2;
+#X restore 473 179 pd gempix_trans2_core;
+#N canvas 499 165 1065 969 gempix_trans2_default_settings 0;
+#X obj 42 42 loadbang;
+#X obj 52 209 symbol \$1;
+#X symbolatom 52 238 0 0 0 0 - - -;
+#X obj 58 122 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X symbolatom 149 238 0 0 0 0 - - -;
+#X obj 149 209 symbol \$2;
+#X obj -12 209 float \$1;
+#X floatatom -8 241 5 0 0 0 - - -;
+#X obj 731 212 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 657 438 0;
+#X msg 737 340 0;
+#X msg 697 339 0;
+#X msg 658 340 0;
+#X obj 290 253 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 279 289 0;
+#X obj 270 330 s \$1gempix_scale_on_init;
+#X msg 450 290 1;
+#X obj 441 331 s \$1gempix_scale_val_init;
+#X obj 299 180 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 210 28 r \$1gempix_trans2_reset;
+#X obj 52 284 s \$1gempix_trans2_id;
+#X obj 648 479 s \$1gempix_trans2xyz_on_init;
+#X obj 659 372 s \$1gem_trans2_x_init;
+#X obj 699 394 s \$1gem_trans2_y_init;
+#X msg 789 269 rect red 0 0 40 40;
+#X obj 820 329 s \$1gem_trans2_gcanvas_params;
+#X connect 0 0 3 0;
+#X connect 0 0 18 0;
+#X connect 1 0 2 0;
+#X connect 2 0 20 0;
+#X connect 3 0 1 0;
+#X connect 3 0 5 0;
+#X connect 3 0 6 0;
+#X connect 5 0 4 0;
+#X connect 6 0 7 0;
+#X connect 8 0 12 0;
+#X connect 8 0 11 0;
+#X connect 8 0 10 0;
+#X connect 8 0 9 0;
+#X connect 8 0 24 0;
+#X connect 9 0 21 0;
+#X connect 11 0 23 0;
+#X connect 12 0 22 0;
+#X connect 13 0 14 0;
+#X connect 13 0 16 0;
+#X connect 14 0 15 0;
+#X connect 16 0 17 0;
+#X connect 18 0 8 0;
+#X connect 18 0 13 0;
+#X connect 19 0 18 0;
+#X connect 24 0 25 0;
+#X restore 128 224 pd gempix_trans2_default_settings;
+#N canvas 993 336 781 701 gscreen 0;
+#X msg 159 401 reset;
+#X floatatom 195 86 5 0 0 0 - - -;
+#X floatatom 171 140 5 0 0 0 - - -;
+#X obj 146 87 * 10;
+#X obj 267 84 * 10;
+#X obj 288 341 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 251 366 reset;
+#X obj 311 329 loadbang;
+#X msg 271 406 delete 1;
+#X obj 124 240 pack f f;
+#X obj 257 387 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 285 425 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 409 311 oneshot;
+#X obj 264 57 r \$1gem_trans2_gcanvas_y;
+#X obj 272 110 s \$1gem_trans2_y_pos_init;
+#X obj 270 149 s \$1gem_trans2_x_pos_init;
+#X obj 255 213 r \$1gem_trans2_gcanvas_bang;
+#X msg 107 357 color black 0;
+#X obj 145 475 s \$1gem_trans2_gcanvas_params;
+#X msg 8 436 size 160 120;
+#X obj 106 49 r \$1gem_trans2_gcanvas_x;
+#X msg 281 446 rect red 0 0 40 40;
+#X msg 211 275 set move 1 \$1 \$2 40 40;
+#X msg 214 307 move 1 131 60 40 40;
+#X connect 0 0 18 0;
+#X connect 3 0 2 0;
+#X connect 3 0 15 0;
+#X connect 4 0 14 0;
+#X connect 5 0 6 0;
+#X connect 5 0 17 0;
+#X connect 6 0 10 0;
+#X connect 6 0 18 0;
+#X connect 7 0 5 0;
+#X connect 8 0 11 0;
+#X connect 8 0 18 0;
+#X connect 9 0 22 0;
+#X connect 10 0 8 0;
+#X connect 11 0 21 0;
+#X connect 12 0 5 0;
+#X connect 13 0 4 0;
+#X connect 13 0 9 1;
+#X connect 16 0 23 0;
+#X connect 16 0 12 0;
+#X connect 17 0 18 0;
+#X connect 19 0 18 0;
+#X connect 20 0 1 0;
+#X connect 20 0 3 0;
+#X connect 20 0 9 0;
+#X connect 21 0 18 0;
+#X connect 22 0 23 0;
+#X connect 23 0 18 0;
+#X restore 475 344 pd gscreen;
+#X obj 15 49 gcanvas 160 120;
+#X obj 245 461 s \$1gem_trans2_gcanvas_y;
+#X obj 248 440 s \$1gem_trans2_gcanvas_bang;
+#X obj 247 476 s \$1gem_trans2_gcanvas_x;
+#X obj 94 290 r \$1gem_trans2_gcanvas_params;
+#X obj 134 29 nbx 4 15 -1e+37 1e+37 0 0 \$1gem_trans2_y_pos \$1gem_trans2_y_pos_init
+empty 6 25 1 8 -66577 -260097 -260097 600 256;
+#X obj 95 29 nbx 4 15 -1e+37 1e+37 0 0 \$1gem_trans2_x_pos \$1gem_trans2_x_pos_init
+empty 6 25 1 8 -66577 -260097 -260097 1310 256;
+#X connect 0 0 20 0;
+#X connect 20 0 2 0;
+#X connect 20 1 22 0;
+#X connect 21 0 20 1;
+#X connect 22 0 2 0;
+#X connect 25 0 28 0;
+#X connect 25 1 26 0;
+#X connect 25 2 27 0;
+#X connect 29 0 25 0;
+#X coords 0 -1 1 1 240 210 1 0 0;

@@ -1,0 +1,79 @@
+--- pd-0.37-4/src/s_midi.c	2004-02-29 23:03:14.000000000 +0100
++++ pd-0.37-4.patched/src/s_midi.c	2005-07-18 14:59:14.452617968 +0200
+@@ -448,8 +448,10 @@
+ 
+ /******************** dialog window and device listing ********************/
+ 
+-#ifdef USEAPI_OSS
+-void midi_oss_init( void);
++#ifndef USEAPI_ALSA
++ #ifdef USEAPI_OSS
++  void midi_oss_init( void);
++ #endif
+ #endif
+ 
+     /* last requested parameters */
+@@ -486,9 +488,12 @@
+ void sys_open_midi(int nmidiindev, int *midiindev,
+     int nmidioutdev, int *midioutdev)
+ {
++#ifndef USEAPI_ALSA
+ #ifdef USEAPI_OSS
+     midi_oss_init();
+ #endif
++#endif
++
+     sys_do_open_midi(nmidiindev, midiindev, nmidioutdev, midioutdev);
+     sys_save_midi_params(nmidiindev, midiindev,
+     	nmidioutdev, midioutdev);
+@@ -591,16 +596,29 @@
+     midioutdev2 = (noutdev > 1 && midioutdev[1]>=0 ? midioutdev[1]+1 : 0);  
+     midioutdev3 = (noutdev > 2 && midioutdev[2]>=0 ? midioutdev[2]+1 : 0);  
+     midioutdev4 = (noutdev > 3 && midioutdev[3]>=0 ? midioutdev[3]+1 : 0);  
+-
++#ifndef USEAPI_ALSA
+     sprintf(buf,
+ "pdtk_midi_dialog %%s \
+ %s %d %d %d %d %s %d %d %d %d \
+-%d\n",
++%d 0\n",
++        indevliststring,
++        midiindev1, midiindev2, midiindev3, midiindev4,
++        outdevliststring,
++        midioutdev1, midioutdev2, midioutdev3, midioutdev4,
++        (flongform != 0));
++#endif
++#ifdef USEAPI_ALSA
++     sprintf(buf,
++	      "pdtk_midi_dialog %%s \
++	       %s %d %d %d %d %s %d %d %d %d \
++	       -%d\n",
++	       +%d 1\n",
+ 	indevliststring,
+ 	midiindev1, midiindev2, midiindev3, midiindev4, 
+ 	outdevliststring,
+ 	midioutdev1, midioutdev2, midioutdev3, midioutdev4,
+ 	(flongform != 0));
++#endif
+     gfxstub_deleteforkey(0);
+     gfxstub_new(&glob_pdobject, glob_midi_properties, buf);
+ }
+@@ -612,6 +630,7 @@
+     int nmidioutdev, midioutdev[MAXMIDIOUTDEV];
+     int i, nindev, noutdev;
+     int newmidiindev[4], newmidioutdev[4];
++    int alsadevin, alsadevout;
+ 
+     for (i = 0; i < 4; i++)
+     {
+@@ -637,5 +656,10 @@
+     }
+ 
+     sys_close_midi();
++#ifndef USEAPI_ALSA
+     sys_open_midi(nindev, newmidiindev, noutdev, newmidioutdev);
++#endif
++#ifdef USEAPI_ALSA
++    sys_open_midi(alsadevin, newmidiindev, alsadevout, newmidioutdev, 1);
++#endif
+ }

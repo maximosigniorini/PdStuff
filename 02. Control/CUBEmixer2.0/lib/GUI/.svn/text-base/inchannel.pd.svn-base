@@ -1,0 +1,19 @@
+#N canvas 1495 210 502 493 10;
+#X obj 1 1 cnv 15 425 458 empty empty empty 20 12 0 14 -83187 -66577
+0;
+#X obj 150 7 cnv 15 265 90 empty empty empty 20 40 0 80 -233017 -66577
+0;
+#X obj 5 105 cnv 15 75 347 empty empty empty 20 12 0 14 -195568 -66577
+0;
+#X obj 156 13 iem_image PICS/IEM.gif 0 0 empty empty;
+#X obj 87 104 inchannel/eq \$0;
+#X obj 87 283 inchannel/auxes \$0;
+#X obj 301 7 inchannel/input \$0;
+#X obj 5 7 inchannel/selector \$0;
+#X obj 252 283 inchannel/spat \$0;
+#X obj 252 104 inchannel/plugins \$0;
+#X obj 13 112 inchannel/vu \$0;
+#X obj 5 309 inchannel/fader \$0;
+#X obj 5 283 inchannel/mutesolo \$0;
+#X obj 265 59 inchannel/locker \$0;
+#X coords 0 0 1 1 427 460 1 0 0;

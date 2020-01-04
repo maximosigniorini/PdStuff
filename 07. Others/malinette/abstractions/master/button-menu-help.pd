@@ -1,0 +1,24 @@
+#N canvas 1 113 697 411 10;
+#X symbolatom 57 354 20 0 0 0 - - -;
+#X obj 57 329 r MENU-EXAMPLES;
+#X symbolatom 185 354 20 0 0 0 - - -;
+#X obj 185 330 r MENU-IN;
+#X text 51 29 [button-menu ../../examples/basics orange];
+#X text 317 131 colors : orange \, grey \, white \, black \, blue \,
+green;
+#X symbolatom 54 207 20 0 0 0 - - -;
+#X text 316 30 button-menu \; ----------- \; List files from a folder
+and fill a buttton with them \; Arguments \; \$1: folder (symbol) \;
+\$2: color (symbol) \; \$3: size (int) \;;
+#X text 50 131 [button-menu ../out blue];
+#X obj 319 282 button-menu-2 ../filters;
+#X text 49 238 [button-menu ../in grey 100];
+#X text 315 261 [button-menu-2 ../in];
+#X text 316 199 button-menu-2 \; ------------- It is the same abstraction
+with a size of 97 pixels \, to avoid the message "Save changes ?";
+#X obj 54 56 button-menu ../../examples/basics orange;
+#X obj 54 151 button-menu ../out blue;
+#X obj 56 257 button-menu ../in grey 90;
+#X connect 1 0 0 0;
+#X connect 3 0 2 0;
+#X connect 14 0 6 0;

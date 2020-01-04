@@ -1,0 +1,17 @@
+#N canvas 37 438 356 323 10;
+#X declare -lib iem_bin_ambi;
+#X declare -lib iem_spec2;
+#X obj 46 204 TESTTONE/DSP;
+#X obj 45 25 inlet~;
+#X obj 195 26 inlet~;
+#X text 135 6 after inchannels;
+#X text 210 49 after MASTER;
+#X obj 44 119 SFPLAYER16/DSP 16;
+#X obj 43 72 SFPO/DSP;
+#X obj 109 72 BIN/DSP;
+#X obj 44 152 REV/DSP;
+#X obj 111 151 REV2/DSP;
+#X obj 43 172 RRR/DSP;
+#X obj 45 243 OGGCAST/DSP;
+#X connect 1 0 6 0;
+#X connect 1 0 7 0;

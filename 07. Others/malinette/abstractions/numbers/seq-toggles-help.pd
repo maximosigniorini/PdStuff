@@ -1,0 +1,38 @@
+#N canvas 14 170 642 476 10;
+#X obj 45 152 tgl 15 0 empty empty on/off 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 197 135 patterns;
+#X obj 198 155 loadbang;
+#X obj 45 408 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 131 158 5 0 0 2 time - -;
+#X msg 198 179 seq 1 0 0 0 1 0 0 0;
+#X msg 208 204 seq 1 1 0 1 1 1 0 0;
+#X msg 45 174 onoff \$1;
+#X msg 131 177 time \$1;
+#X msg 361 187 onoff 0;
+#X obj 438 234 seq-counter 100;
+#X obj 361 210 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 438 190 loadbang;
+#X text 357 167 or manually;
+#X text 436 171 ... when you use another counter;
+#X obj 438 289 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 45 331 seq-toggles 120;
+#X msg 438 211 0;
+#X text 42 44 seq-toggles \; ----------- \; 8 steps sequencer (0-1
+integer) \; Argument \; \$1 : metro time \;;
+#X connect 0 0 7 0;
+#X connect 2 0 5 0;
+#X connect 4 0 8 0;
+#X connect 5 0 16 0;
+#X connect 6 0 16 0;
+#X connect 7 0 16 0;
+#X connect 8 0 16 0;
+#X connect 9 0 16 0;
+#X connect 10 0 15 0;
+#X connect 11 0 16 0;
+#X connect 12 0 17 0;
+#X connect 16 0 3 0;
+#X connect 17 0 10 0;

@@ -1,0 +1,56 @@
+#N canvas 0 209 999 68 16;
+#X obj -81 48 cnv 3 1 1 empty empty CLOSE 1 0 1 20 -262144 -258113
+0;
+#N canvas 403 442 704 127 (subpatch) 0;
+#X obj -1 52 gemwin;
+#X msg 27 35 create;
+#X msg 434 35 dimen 1014 209;
+#X obj -1 107 pix_draw;
+#X obj -1 73 gemhead;
+#X msg 609 35 reset;
+#X msg -1 35 1;
+#X msg 192 35 topmost 1;
+#X obj -1 18 t b b b b;
+#X msg 649 35 destroy;
+#X msg 256 35 title EAT_Audiofile_GUI_Help;
+#X obj -1 1 loadbang;
+#X msg 72 35 border 0;
+#X msg 129 35 menubar 0;
+#X msg 528 35 offset 0 300;
+#X obj -1 90 pix_image EAT_lowpass-help-image.jpg;
+#X connect 1 0 0 0;
+#X connect 2 0 0 0;
+#X connect 4 0 15 0;
+#X connect 5 0 0 0;
+#X connect 6 0 0 0;
+#X connect 7 0 0 0;
+#X connect 8 0 6 0;
+#X connect 8 1 1 0;
+#X connect 8 2 7 0;
+#X connect 8 2 10 0;
+#X connect 8 2 2 0;
+#X connect 8 2 12 0;
+#X connect 8 2 13 0;
+#X connect 8 2 14 0;
+#X connect 8 3 5 0;
+#X connect 8 3 9 0;
+#X connect 9 0 0 0;
+#X connect 10 0 0 0;
+#X connect 11 0 8 0;
+#X connect 12 0 0 0;
+#X connect 13 0 0 0;
+#X connect 14 0 0 0;
+#X connect 15 0 3 0;
+#X restore -385 -3 pd;
+#X obj -13 48 cnv 3 1 1 empty empty THIS 10 0 1 20 -262144 -258113
+0;
+#X obj 43 48 cnv 3 1 1 empty empty WINDOW 10 0 1 20 -262144 -258113
+0;
+#X obj 140 48 cnv 3 1 1 empty empty TO 10 0 1 20 -262144 -258113 0
+;
+#X obj 178 48 cnv 3 1 1 empty empty CLOSE 10 0 1 20 -262144 -258113
+0;
+#X obj 255 48 cnv 3 1 1 empty empty HELP 10 0 1 20 -262144 -258113
+0;
+#X obj -96 1 pddplink EAT_lowpass-help-text.txt -text Click HERE for
+information about EAT_Lowpass;

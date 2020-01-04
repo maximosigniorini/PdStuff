@@ -1,0 +1,15 @@
+#N canvas 0 22 1350 174 10;
+#X obj 142 1 EATi_PRESETMIX EAT_Matrixmix Mix \$1 \$2 2;
+#X obj 1 1 EATi_PRESETMIX EAT_Matrixmix Mix \$1 \$2 1;
+#X obj 283 1 EATi_PRESETMIX EAT_Matrixmix Mix \$1 \$2 3;
+#X obj 424 1 EATi_PRESETMIX EAT_Matrixmix Mix \$1 \$2 4;
+#X obj 565 1 EATi_PRESETMIX EAT_Matrixmix Mix \$1 \$2 5;
+#X obj 706 1 EATi_PRESETMIX EAT_Matrixmix Mix \$1 \$2 6;
+#X obj 847 1 EATi_PRESETMIX EAT_Matrixmix Mix \$1 \$2 7;
+#X obj 988 1 EATi_PRESETMIX EAT_Matrixmix Mix \$1 \$2 8;
+#X obj 1129 1 EATi_PRESETMIX EAT_Matrixmix Mix \$1 \$2 9;
+#X obj 1270 1 EATi_PRESETMIX EAT_Matrixmix Mix \$1 \$2 10;
+#X obj 1411 1 EATi_PRESETMIX EAT_Matrixmix Mix \$1 \$2 11;
+#X obj 1552 1 EATi_PRESETMIX EAT_Matrixmix Mix \$1 \$2 12;
+#X obj 1693 1 EATi_PRESETMIX EAT_Matrixmix Mix \$1 \$2 13;
+#X coords 0 -1 1 1 1834 83 2 0 0;

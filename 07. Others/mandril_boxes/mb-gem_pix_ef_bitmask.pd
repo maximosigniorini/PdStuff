@@ -1,0 +1,180 @@
+#N canvas 436 378 450 321 10;
+#X obj 34 172 symbol \$1;
+#X obj 136 230 ftos;
+#X obj 105 164 float \$1;
+#X floatatom 105 193 5 0 0 0 - - -;
+#X symbolatom 35 205 0 0 0 0 - - -;
+#X symbolatom 95 243 10 0 0 0 - - -;
+#X obj 44 126 loadbang;
+#X obj 97 280 s \$1gempix_ef_bitmask_id;
+#X obj 261 39 inlet;
+#X text 489 39 on/off;
+#X obj 290 261 outlet;
+#X obj 342 95 gate 2;
+#X obj 400 64 + 1;
+#X obj 392 197 pix_bitmask;
+#X floatatom 433 160 5 0 255 2 single - -;
+#X obj 466 81 r \$1gempix_ef_bitmask_val;
+#X obj 564 121 r \$1gempix_ef_bitmask_r;
+#X obj 585 147 r \$1gempix_ef_bitmask_g;
+#X obj 627 172 r \$1gempix_ef_bitmask_b;
+#X floatatom 548 196 5 0 0 0 - - -;
+#X floatatom 583 197 5 0 0 0 - - -;
+#X floatatom 618 198 5 0 0 0 - - -;
+#X obj 546 218 pack 0 0 0;
+#X obj 634 218 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 546 237 \$1 \$2 \$3;
+#X text 319 39 gemin;
+#X text 338 258 gemout;
+#X obj 412 -1 r \$1gempix_ef_bitmask_on;
+#X obj 400 34 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 0 0 cnv 15 150 75 empty empty empty 2 12 0 12 -191407 -66577
+0;
+#X obj 5 5 tgl 15 0 \$1gempix_ef_bitmask_on \$1gempix_ef_bitmask_on_init
+Bitmask 17 7 0 10 -260097 -1 -1 0 1;
+#X obj 121 6 cnv 15 20 10 empty \$1gempix_ef_bitmask_id \$1 5 5 0 10
+-260097 -33289 0;
+#N canvas 761 260 1042 525 midi_control 1;
+#X msg 194 125 ef1epdp_aging_on_midi;
+#X msg 355 123 ef1epdp_aging_dust_midi;
+#X floatatom 83 314 5 0 0 0 - - -;
+#X obj 81 359 select 0;
+#X obj 321 251 s midi_var_to_add;
+#X text 432 248 -->global value of mb-midi_control_pad;
+#X msg 150 410 0;
+#X msg 100 416 1;
+#X obj 80 389 alternate;
+#X obj 55 31 r \$1gempix_ef_bitmask_midi_on;
+#X obj 275 17 r \$1gempix_ef_bitmask_id;
+#X msg 136 94 set \$1gempix_ef_bitmask_on_midi;
+#X msg 355 92 set \$1gempix_ef_bitmask_r_midi;
+#X msg 548 94 set \$1gempix_ef_bitmask_g_midi;
+#X msg 744 92 set \$1gempix_ef_bitmask_b_midi;
+#X msg 943 93 set \$1gempix_ef_bitmask_val_midi;
+#X msg 553 134 ef1epdp_aging_on_midi;
+#X msg 714 132 ef1epdp_aging_dust_midi;
+#X msg 901 144 ef1epdp_aging_on_midi;
+#X obj 83 280 r \$1gempix_ef_bitmask_on_midi;
+#X obj 61 442 s $gempix_ef_bitmask_on_init;
+#X obj 292 281 r \$1gempix_ef_bitmask_r_midi;
+#X obj 270 443 s $gempix_ef_bitmask_r_init;
+#X floatatom 285 307 5 0 0 0 - - -;
+#X floatatom 317 405 8 0 0 0 - - -;
+#X obj 302 341 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 299 371 autoscale 0 255;
+#X floatatom 464 309 5 0 0 0 - - -;
+#X floatatom 496 407 8 0 0 0 - - -;
+#X obj 481 343 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 478 373 autoscale 0 255;
+#X floatatom 655 314 5 0 0 0 - - -;
+#X floatatom 687 412 8 0 0 0 - - -;
+#X obj 672 348 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 669 378 autoscale 0 255;
+#X floatatom 838 315 5 0 0 0 - - -;
+#X floatatom 870 413 8 0 0 0 - - -;
+#X obj 855 349 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 852 379 autoscale 0 255;
+#X obj 471 283 r \$1gempix_ef_bitmask_g_midi;
+#X obj 449 445 s $gempix_ef_bitmask_g_init;
+#X obj 662 288 r \$1gempix_ef_bitmask_b_midi;
+#X obj 640 450 s $gempix_ef_bitmask_b_init;
+#X obj 845 289 r \$1gempix_ef_bitmask_val_midi;
+#X obj 823 451 s $gempix_ef_bitmask_val_init;
+#X connect 0 0 4 0;
+#X connect 0 0 1 0;
+#X connect 1 0 4 0;
+#X connect 1 0 13 0;
+#X connect 2 0 3 0;
+#X connect 3 1 8 0;
+#X connect 6 0 20 0;
+#X connect 7 0 20 0;
+#X connect 8 0 7 0;
+#X connect 8 1 6 0;
+#X connect 9 0 11 0;
+#X connect 10 0 11 0;
+#X connect 10 0 12 0;
+#X connect 10 0 13 0;
+#X connect 10 0 14 0;
+#X connect 10 0 15 0;
+#X connect 11 0 0 0;
+#X connect 12 0 1 0;
+#X connect 13 0 16 0;
+#X connect 14 0 17 0;
+#X connect 15 0 18 0;
+#X connect 16 0 17 0;
+#X connect 17 0 18 0;
+#X connect 19 0 2 0;
+#X connect 21 0 23 0;
+#X connect 23 0 25 0;
+#X connect 24 0 22 0;
+#X connect 25 0 26 0;
+#X connect 26 0 24 0;
+#X connect 27 0 29 0;
+#X connect 28 0 40 0;
+#X connect 29 0 30 0;
+#X connect 30 0 28 0;
+#X connect 31 0 33 0;
+#X connect 32 0 42 0;
+#X connect 33 0 34 0;
+#X connect 34 0 32 0;
+#X connect 35 0 37 0;
+#X connect 36 0 44 0;
+#X connect 37 0 38 0;
+#X connect 38 0 36 0;
+#X connect 39 0 27 0;
+#X connect 41 0 31 0;
+#X connect 43 0 35 0;
+#X restore 176 13 pd midi_control;
+#X obj 83 3 bng 15 250 50 0 \$1gempix_ef_bitmask_midi_on empty midi
+17 7 0 7 -4160 -1 -1;
+#X obj 5 26 hsl 60 15 0 255 0 0 \$1gempix_ef_bitmask_r_init empty empty
+3 8 0 8 -258113 -1 -1 0 1;
+#X obj 68 26 nbx 3 15 0 255 0 0 \$1gempix_ef_bitmask_r \$1gempix_ef_bitmask_r_init
+empty 8 -6 0 8 -258113 -1 -1 0 256;
+#X obj 5 41 hsl 60 15 0 255 0 0 \$1gempix_ef_bitmask_g_init empty empty
+3 8 0 8 -4034 -228856 -228856 0 1;
+#X obj 68 41 nbx 3 15 0 255 0 0 \$1gempix_ef_bitmask_g \$1gempix_ef_bitmask_g_init
+empty 8 -6 0 8 -4034 -1 -1 0 256;
+#X obj 5 56 hsl 60 15 0 255 0 0 \$1gempix_ef_bitmask_b_init empty empty
+3 8 0 8 -4160 -228856 -228856 0 1;
+#X obj 68 56 nbx 3 15 0 255 0 0 \$1gempix_ef_bitmask_b \$1gempix_ef_bitmask_b_init
+empty 8 -6 0 8 -4160 -228856 -228856 0 256;
+#X obj 118 50 nbx 3 15 0 255 0 0 \$1gempix_ef_bitmask_val \$1gempix_ef_bitmask_val_init
+empty 8 -6 0 8 -66577 -228856 -228856 52.3077 256;
+#X obj 102 29 vsl 15 40 0 255 0 0 \$1gempix_ef_bitmask_val_init empty
+empty 0 -9 0 10 -66577 -228856 -228856 800 1;
+#X connect 0 0 4 0;
+#X connect 1 0 5 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X connect 4 0 5 0;
+#X connect 5 0 7 0;
+#X connect 6 0 2 0;
+#X connect 6 0 0 0;
+#X connect 8 0 11 1;
+#X connect 11 0 10 0;
+#X connect 11 1 13 0;
+#X connect 12 0 11 0;
+#X connect 13 0 10 0;
+#X connect 14 0 13 1;
+#X connect 15 0 14 0;
+#X connect 16 0 19 0;
+#X connect 17 0 20 0;
+#X connect 18 0 21 0;
+#X connect 19 0 22 0;
+#X connect 20 0 22 1;
+#X connect 20 0 23 0;
+#X connect 21 0 22 2;
+#X connect 21 0 23 0;
+#X connect 22 0 24 0;
+#X connect 23 0 22 0;
+#X connect 24 0 13 2;
+#X connect 27 0 28 0;
+#X connect 28 0 12 0;
+#X coords 0 -1 1 1 150 75 1 0 0;

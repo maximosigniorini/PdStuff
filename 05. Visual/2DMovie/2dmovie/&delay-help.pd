@@ -1,0 +1,31 @@
+#N canvas 405 182 727 305 10;
+#X obj 2 -115 cnv 15 700 50 empty empty &delay 3 12 0 18 -204800 -1
+0;
+#X obj 409 60 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 5 -87 Déclencheur retardé;
+#X text 21 17 Arguments \; 1- nombre : durée du retard (en ms);
+#X text 21 117 OUTLETS \; 1- bang;
+#X obj 550 -5 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 550 60 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 409 -6 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 409 26 &delay 1000;
+#X obj 550 27 delay 1000;
+#X floatatom 472 -7 5 0 0 0 - - -;
+#X floatatom 607 -7 5 0 0 0 - - -;
+#X text 21 -49 Description \; Complète le module [delay] en envoyant
+un bang uniquement si un 1 lui est envoyé pendant la durée du retard
+(non interrompu par un 0).;
+#X text 21 61 INLETS \; 1- boolean or bang : déclencheur \; 2- nombre
+: durée du retard (en ms);
+#X text 541 -31 à comparer avec :;
+#X connect 5 0 9 0;
+#X connect 7 0 8 0;
+#X connect 8 0 1 0;
+#X connect 9 0 6 0;
+#X connect 10 0 8 1;
+#X connect 11 0 9 1;
+#X coords 0 305 1 304 65 15 0;

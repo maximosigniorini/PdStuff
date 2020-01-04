@@ -1,0 +1,59 @@
+#N canvas 606 419 900 722 10;
+#X obj 532 182 cnv 15 55 20 empty empty GEM_OUT 0 10 0 12 -221249 -262144
+0;
+#X obj 476 185 outlet;
+#X obj 641 74 hsl 128 15 0 1 0 1 empty empty empty -2 -6 0 8 -262144
+-1 -1 11920 1;
+#X floatatom 638 99 5 0 0 0 - - -;
+#X msg 695 98 0.7 0.7;
+#X obj 607 4 cnv 15 55 20 empty empty GEM_IN_2 0 10 0 12 -4034 -1 0
+;
+#X obj 443 29 inlet;
+#X obj 601 32 inlet;
+#X obj 669 36 r \$1gp_mixer_bar;
+#X obj 263 176 r \$1gp_mixer_reset;
+#X obj 268 230 s \$1gp_mixer_bar_init;
+#X msg 268 199 0;
+#X obj 482 135 pix_mix;
+#X obj 72 147 loadbang;
+#X obj 82 314 symbol \$1;
+#X symbolatom 82 343 0 0 0 0 - - -;
+#X obj 88 227 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X symbolatom 179 343 0 0 0 0 - - -;
+#X obj 179 314 symbol \$2;
+#X obj 18 314 float \$1;
+#X floatatom 22 346 5 0 0 0 - - -;
+#X obj 82 389 s \$1gp_mixer_id;
+#X obj 411 275 cnv 8 35 15 empty empty GemIN 0 8 0 8 -4034 -1 0;
+#X obj 0 0 cnv 15 200 60 empty empty mgempix_mixer 45 8 0 9 -99865
+-262144 0;
+#X obj 1 1 cnv 8 40 15 empty empty GemIN1 0 8 0 8 -4034 -1 0;
+#X obj 160 0 cnv 8 40 15 empty empty GemIN2 0 8 0 8 -4034 -1 0;
+#X obj 482 29 cnv 8 40 15 empty empty GemIN1 0 8 0 8 -4034 -1 0;
+#X obj 133 40 cnv 10 20 15 empty \$1gp_mixer_id \$1 0 8 0 8 -260097
+-33289 0;
+#X obj 10 21 hsl 180 15 0 1 0 1 \$1gp_mixer_bar \$1gp_mixer_bar_init
+empty -2 -6 0 9 -1 -257985 -1 16800 1;
+#X obj 0 42 cnv 8 40 15 empty empty GemOUT 0 8 0 8 -258113 -262144
+0;
+#X obj 46 42 bng 15 250 50 0 \$1gp_mixer_reset empty reset 17 7 0 8
+-257985 -1 -1;
+#X connect 2 0 3 0;
+#X connect 3 0 12 2;
+#X connect 4 0 12 2;
+#X connect 6 0 12 0;
+#X connect 7 0 12 1;
+#X connect 8 0 2 0;
+#X connect 9 0 11 0;
+#X connect 11 0 10 0;
+#X connect 12 0 1 0;
+#X connect 13 0 16 0;
+#X connect 14 0 15 0;
+#X connect 15 0 21 0;
+#X connect 16 0 14 0;
+#X connect 16 0 18 0;
+#X connect 16 0 19 0;
+#X connect 18 0 17 0;
+#X connect 19 0 20 0;
+#X coords 0 -1 1 1 200 60 2 0 0;

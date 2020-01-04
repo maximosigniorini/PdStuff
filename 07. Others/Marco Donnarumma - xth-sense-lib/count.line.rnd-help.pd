@@ -1,0 +1,21 @@
+#N canvas 122 285 652 296 10;
+#X obj 49 118 count.line.rnd 20 30 50 10;
+#X obj 49 30 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 49 53 metro 100;
+#X obj 71 81 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 49 157 5 0 0 0 - - -;
+#X text 267 33 Generate four floats ramps and randomly switch among
+them.;
+#X text 266 143 INLET;
+#X text 266 209 OUTLET;
+#X text 264 73 ARGUMENTS;
+#X text 265 88 Four target values (won't work with less/more than 4
+arguments);
+#X text 266 160 Bang (start counting);
+#X text 266 224 Floats ramp;
+#X connect 0 0 4 0;
+#X connect 1 0 2 0;
+#X connect 2 0 0 0;
+#X connect 3 0 0 0;

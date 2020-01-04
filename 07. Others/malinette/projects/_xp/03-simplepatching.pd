@@ -1,0 +1,71 @@
+#N canvas 215 0 816 660 10;
+#X declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/tools -path ../../abstractions/filters -path
+../../abstractions/fx-video -path ../../abstractions/fx-audio -path
+../../abstractions/master;
+#X declare -path abstractions/in -path abstractions/out -path abstractions/tools
+-path abstractions/filters -path abstractions/fx-video -path abstractions/fx-audio
+-path abstractions/master;
+#X obj 15 217 cnv 1 396 1 empty empty FILTERS 2 -6 1 12 -228856 -191407
+0;
+#X obj 15 354 cnv 1 800 1 empty empty OUT 2 -6 1 12 -228856 -191407
+0;
+#X obj 15 63 cnv 1 800 1 empty empty IN 2 -6 1 12 -228856 -191407 0
+;
+#X obj 15 217 cnv 1 800 1 empty empty TOOLS 400 -6 1 12 -228856 -191407
+0;
+#X msg 509 224 obj 100 150 mouse;
+#X msg 509 353 obj 100 420 synth;
+#X msg 509 405 obj 100 470 audio-out;
+#X obj 359 72 loadbang;
+#X text 273 141 START HERE >>;
+#X text 357 21 Cet exemple montre un simple exemple pour la malinette
+patché automatiquement grace au message obj \, connect...;
+#X msg 509 275 connect 21 0 22 0;
+#X msg 509 379 connect 22 0 24 0;
+#X msg 509 431 connect 24 0 25 0;
+#X msg 359 94 0;
+#X msg 509 249 obj 100 250 map 0 1 0 127;
+#X msg 509 327 connect 21 0 23 0;
+#X msg 509 301 obj 200 200 oscilloscope;
+#X obj 509 476 s pd-examples/basics/03-simplepatching.pd;
+#X obj 359 171 sel 0 1 2 3 4 5 6 7 8 9;
+#X obj 359 116 seq-counter 500 1 10;
+#N canvas 360 157 563 434 INIT 0;
+#X obj 101 101 cnv 8 48 8 empty empty INCLUDE 2 4 0 10 -233017 -66577
+0;
+#X obj 102 261 declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/tools -path ../../abstractions/filters -path
+../../abstractions/fx-video -path ../../abstractions/fx-audio -path
+../../abstractions/master;
+#X text 100 240 Use for standalone :;
+#X text 100 140 Use with the main.pd :;
+#X text 97 25 Import paths to find abstractions \; Always use it in
+the examples patchs.;
+#X obj 102 162 declare -path abstractions/in -path abstractions/out
+-path abstractions/tools -path abstractions/filters -path abstractions/fx-video
+-path abstractions/fx-audio -path abstractions/master;
+#X coords 0 -1 1 1 50 10 2 100 100;
+#X restore 715 45 pd INIT;
+#X connect 4 0 17 0;
+#X connect 5 0 17 0;
+#X connect 6 0 17 0;
+#X connect 7 0 13 0;
+#X connect 10 0 17 0;
+#X connect 11 0 17 0;
+#X connect 12 0 17 0;
+#X connect 13 0 19 0;
+#X connect 14 0 17 0;
+#X connect 15 0 17 0;
+#X connect 16 0 17 0;
+#X connect 18 0 4 0;
+#X connect 18 1 14 0;
+#X connect 18 2 10 0;
+#X connect 18 3 16 0;
+#X connect 18 4 15 0;
+#X connect 18 5 5 0;
+#X connect 18 6 11 0;
+#X connect 18 7 6 0;
+#X connect 18 8 12 0;
+#X connect 18 9 13 0;
+#X connect 19 0 18 0;

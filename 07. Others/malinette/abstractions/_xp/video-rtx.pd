@@ -1,0 +1,31 @@
+#N canvas 4 125 450 300 10;
+#X obj 106 233 pix_rtx;
+#X msg 164 172 set;
+#X msg 106 173 mode \$1;
+#X obj 106 116 tgl 10 0 empty empty mode 12 7 0 8 -262144 -1 -1 0 1
+;
+#X obj -23 50 inlet video;
+#X obj 106 253 outlet video;
+#X obj 141 116 bng 10 250 50 0 empty empty set 12 7 0 9 -262144 -1
+-1;
+#X obj 106 49 inlet;
+#X obj 141 50 inlet;
+#X obj -56 160 gate 2;
+#X obj 173 104 tgl 8 0 empty empty empty 17 7 0 10 -257985 -1 -1 0
+1;
+#X obj -56 112 + 1;
+#X obj 173 6 initbang;
+#X connect 0 0 5 0;
+#X connect 1 0 0 0;
+#X connect 2 0 0 0;
+#X connect 3 0 2 0;
+#X connect 4 0 9 1;
+#X connect 6 0 1 0;
+#X connect 7 0 3 0;
+#X connect 8 0 6 0;
+#X connect 9 0 5 0;
+#X connect 9 1 0 0;
+#X connect 10 0 11 0;
+#X connect 11 0 9 0;
+#X connect 12 0 10 0;
+#X coords 0 -1 1 1 85 30 1 100 100;

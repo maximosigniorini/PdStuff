@@ -1,0 +1,25 @@
+#N canvas 5 85 466 305 10;
+#X obj 318 173 oscilloscope;
+#X obj 299 20 loadbang;
+#X obj 299 42 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 299 82 random 100;
+#X obj 299 103 / 100;
+#X text 297 242 0-1;
+#X obj 299 62 metro 500;
+#X obj 299 193 vsl 15 45 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 1804 1;
+#X text 133 207 test with random values ->;
+#X obj 299 146 line;
+#X msg 299 125 \$1 150;
+#X text 237 42 on/off ->;
+#X text 25 36 oscilloscope \; ------------ \; See data values in time
+\; Argument \; \$1:tempo (msec);
+#X connect 1 0 2 0;
+#X connect 2 0 6 0;
+#X connect 3 0 4 0;
+#X connect 4 0 10 0;
+#X connect 6 0 3 0;
+#X connect 7 0 0 0;
+#X connect 9 0 7 0;
+#X connect 10 0 9 0;

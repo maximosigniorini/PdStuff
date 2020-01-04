@@ -1,0 +1,119 @@
+#N canvas 521 291 1369 728 10;
+#X obj 0 0 cnv 15 180 50 empty empty mpdp_out_select 35 8 0 9 -99865
+-262144 0;
+#X obj 156 2 cnv 15 20 13 empty \$1pdp_out_select_id \$1 6 8 0 9 -260097
+-33289 0;
+#X obj 384 -45 inlet;
+#X obj 106 153 loadbang;
+#X obj 100 272 symbol \$1;
+#X symbolatom 100 301 0 0 0 0 - - -;
+#X obj 106 185 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X symbolatom 197 301 0 0 0 0 - - -;
+#X obj 197 272 symbol \$2;
+#X obj 36 272 float \$1;
+#X floatatom 40 304 5 0 0 0 - - -;
+#X obj 351 -72 cnv 8 65 15 empty empty VIDEO_IN_1 0 8 0 8 -4034 -1
+0;
+#X obj 392 150 pdp_spigot;
+#X obj 668 152 pdp_spigot;
+#X obj 908 148 pdp_spigot;
+#X obj 1111 156 pdp_spigot;
+#X obj 7 18 tgl 15 0 \$1pdp_out_select_out1_on \$1pdp_out_select_out1_on_init
+empty 17 7 0 10 -1 -257985 -4034 0 1;
+#X floatatom 516 1 5 0 0 0 - - -;
+#X obj 428 -22 r \$1pdp_out_select_out1_on;
+#X obj 428 123 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 720 131 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 956 123 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 1150 128 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X floatatom 793 17 5 0 0 0 - - -;
+#X obj 705 -6 r \$1pdp_out_select_out2_on;
+#X obj 54 17 tgl 15 0 \$1pdp_out_select_out2_on \$1pdp_out_select_out2_on_init
+empty 17 7 0 10 -1 -257985 -1 0 1;
+#X floatatom 1013 14 5 0 0 0 - - -;
+#X floatatom 1233 24 5 0 0 0 - - -;
+#X obj 925 -9 r \$1pdp_out_select_out3_on;
+#X obj 1145 1 r \$1pdp_out_select_out4_on;
+#X obj 108 18 tgl 15 0 \$1pdp_out_select_out3_on \$1pdp_out_select_out3_on_init
+empty 17 7 0 10 -1 -257985 -1 0 1;
+#X obj 160 16 tgl 15 0 \$1pdp_out_select_out4_on \$1pdp_out_select_out4_on_init
+empty 17 7 0 10 -1 -257985 -1 0 1;
+#X obj 378 345 r \$1pdp_out_select_extern;
+#X obj 375 455 s \$1pdp_out_select_out1_on_init;
+#X obj 789 456 s \$1pdp_out_select_out3_on_init;
+#X obj 586 454 s \$1pdp_out_select_out2_on_init;
+#X obj 995 457 s \$1pdp_out_select_out4_on_init;
+#X text 559 346 ->for external control (ex.midi);
+#X msg 374 422 1;
+#X msg 583 422 1;
+#X msg 786 423 1;
+#X msg 991 425 1;
+#X obj 376 390 select 1 2 3 4;
+#X floatatom 328 355 5 0 0 0 - - -;
+#X obj 0 0 cnv 8 25 15 empty empty Vout1 0 8 0 8 -4034 -1 0;
+#X obj 100 347 s \$1pdp_out_select_id;
+#X obj 386 257 outlet;
+#X obj 646 251 outlet;
+#X obj 880 255 outlet;
+#X obj 1006 254 outlet;
+#X obj 144 33 cnv 8 33 15 empty empty VOUT4 0 8 0 8 -258113 -262144
+0;
+#X obj 44 34 cnv 8 33 15 empty empty VOUT2 0 8 0 8 -258113 -262144
+0;
+#X obj 2 34 cnv 8 33 15 empty empty VOUT1 0 8 0 8 -258113 -262144 0
+;
+#X obj 434 260 cnv 8 33 15 empty empty VOUT1 0 8 0 8 -258113 -262144
+0;
+#X obj 694 250 cnv 8 33 15 empty empty VOUT2 0 8 0 8 -258113 -262144
+0;
+#X obj 99 34 cnv 8 33 15 empty empty VOUT3 0 8 0 8 -258113 -262144
+0;
+#X obj 921 253 cnv 8 33 15 empty empty VOUT3 0 8 0 8 -258113 -262144
+0;
+#X obj 1059 255 cnv 8 33 15 empty empty VOUT4 0 8 0 8 -258113 -262144
+0;
+#X obj 294 88 gate;
+#X connect 2 0 12 0;
+#X connect 2 0 13 0;
+#X connect 2 0 14 0;
+#X connect 2 0 15 0;
+#X connect 3 0 6 0;
+#X connect 4 0 5 0;
+#X connect 5 0 45 0;
+#X connect 6 0 4 0;
+#X connect 6 0 8 0;
+#X connect 6 0 9 0;
+#X connect 8 0 7 0;
+#X connect 9 0 10 0;
+#X connect 12 1 46 0;
+#X connect 13 1 47 0;
+#X connect 14 1 48 0;
+#X connect 15 1 49 0;
+#X connect 18 0 17 0;
+#X connect 18 0 19 0;
+#X connect 19 0 12 1;
+#X connect 20 0 13 1;
+#X connect 21 0 14 1;
+#X connect 22 0 15 1;
+#X connect 24 0 23 0;
+#X connect 24 0 20 0;
+#X connect 28 0 26 0;
+#X connect 28 0 21 0;
+#X connect 29 0 27 0;
+#X connect 29 0 22 0;
+#X connect 32 0 42 0;
+#X connect 38 0 33 0;
+#X connect 39 0 35 0;
+#X connect 40 0 34 0;
+#X connect 41 0 36 0;
+#X connect 42 0 38 0;
+#X connect 42 1 39 0;
+#X connect 42 2 40 0;
+#X connect 42 3 41 0;
+#X connect 43 0 42 0;
+#X coords 0 -1 1 1 180 50 1 0 0;

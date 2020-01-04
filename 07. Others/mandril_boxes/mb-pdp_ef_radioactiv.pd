@@ -1,0 +1,153 @@
+#N canvas 275 665 833 342 10;
+#X obj 34 172 symbol \$1;
+#X obj 136 230 ftos;
+#X obj 105 164 float \$1;
+#X floatatom 105 193 5 0 0 0 - - -;
+#X symbolatom 35 205 0 0 0 0 - - -;
+#X symbolatom 95 243 10 0 0 0 - - -;
+#X obj 44 126 loadbang;
+#X obj 97 280 s \$1pdp_radioactiv_id;
+#X obj 256 44 inlet;
+#X text 314 44 video;
+#X text 484 44 on/off;
+#X obj 285 266 outlet;
+#X obj 289 96 pdp_spigot;
+#X text 333 263 video;
+#X floatatom 469 136 5 0 0 0 - - -;
+#X obj 363 184 pdp_radioactiv;
+#X obj 436 108 hdl 15 1 0 4 empty empty empty 0 -6 0 8 -262144 -1 -1
+0;
+#X text 507 109 Mode;
+#X floatatom 504 158 5 0 0 0 - - -;
+#X obj 556 111 r \$1epdp_radioactiv_mode;
+#X obj 563 140 r \$1epdp_radioactiv_snaptime;
+#X obj 565 168 r \$1epdp_radioactiv_snapinterval;
+#X obj 385 13 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 415 14 r \$1epdp_radioactiv_on;
+#X obj 0 0 cnv 15 150 75 empty empty empty 2 12 0 14 -191407 -66577
+0;
+#X obj 7 5 tgl 15 0 \$1epdp_radioactiv_on \$1epdp_radioactiv_on_init
+Radioactiv 17 7 0 10 -260097 -1 -1 0 1;
+#X obj 87 40 nbx 5 14 0 1e+37 0 0 \$1epdp_radioactiv_snaptime \$1epdp_radioactiv_snaptime_init
+Snap_Time -55 5 0 8 -262144 -1 -1 0 256;
+#X obj 88 56 nbx 5 14 0 1e+37 0 0 \$1epdp_radioactiv_snapinterval \$1epdp_radioactiv_snapinterval_init
+Snap_Interval -78 5 0 8 -262144 -1 -1 0 256;
+#X obj 85 20 hradio 15 1 0 4 \$1epdp_radioactiv_mode \$1epdp_radioactiv_mode_init
+Mode -30 8 0 8 -262144 -1 -1 3;
+#X obj 109 3 cnv 15 20 10 empty \$1pdp_radioactiv_id \$1 5 5 0 10 -260097
+-33289 0;
+#X obj 6 23 bng 15 250 50 0 \$1epdp_radioactiv_midi_on empty midi 17
+7 0 8 -4160 -1 -1;
+#N canvas 8 76 1062 533 midi_control 1;
+#X msg 127 154 ef1epdp_radioactiv_on_midi;
+#X msg 288 152 ef1epdp_radioactiv_mode_midi;
+#X text 22 26 MIDI;
+#X obj 61 127 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 184 175 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 311 175 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 309 342 5 0 0 0 - - -;
+#X obj 236 252 s midi_var_to_add;
+#X msg 127 120 set \$1epdp_radioactiv_on_midi;
+#X obj 79 317 r \$1epdp_radioactiv_on_midi;
+#X obj 60 475 s \$1epdp_radioactiv_on_init;
+#X obj 61 57 r \$1epdp_radioactiv_midi_on;
+#X floatatom 335 411 5 0 0 0 - - -;
+#X msg 288 121 set \$1epdp_radioactiv_mode_midi;
+#X obj 313 304 r \$1epdp_radioactiv_mode_midi;
+#X obj 316 464 s \$1epdp_radioactiv_mode_init;
+#X obj 333 378 / 32;
+#X msg 490 152 ef1epdp_radioactiv_snaptime_midi;
+#X obj 513 175 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 490 121 set \$1epdp_radioactiv_snaptime_midi;
+#X msg 716 152 ef1epdp_radioactiv_snapinterval_midi;
+#X obj 739 175 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 716 121 set \$1epdp_radioactiv_snapinterval_midi;
+#X obj 523 305 r \$1epdp_radioactiv_snaptime_midi;
+#X obj 758 308 r \$1epdp_radioactiv_snapinterval_midi;
+#X obj 522 464 s \$1epdp_radioactiv_snaptime_midi;
+#X obj 757 467 s \$1epdp_radioactiv_snapinterval_midi;
+#X text 360 241 -->global value of mb-midi_control_pad;
+#X obj 448 44 r \$1pdp_radioactiv_id;
+#X obj 95 370 select 0;
+#X msg 152 421 0;
+#X msg 102 427 1;
+#X obj 82 400 alternate;
+#X floatatom 519 351 5 0 0 0 - - -;
+#X floatatom 545 420 8 0 0 0 - - -;
+#X obj 600 354 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 615 391 autoscale 0 30;
+#X floatatom 794 348 5 0 0 0 - - -;
+#X floatatom 820 417 8 0 0 0 - - -;
+#X obj 875 351 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 890 388 autoscale 0 30;
+#X connect 0 0 4 0;
+#X connect 0 0 7 0;
+#X connect 1 0 5 0;
+#X connect 1 0 7 0;
+#X connect 3 0 0 0;
+#X connect 4 0 1 0;
+#X connect 5 0 17 0;
+#X connect 6 0 16 0;
+#X connect 8 0 0 0;
+#X connect 9 0 29 0;
+#X connect 11 0 3 0;
+#X connect 12 0 15 0;
+#X connect 13 0 1 0;
+#X connect 14 0 6 0;
+#X connect 16 0 12 0;
+#X connect 17 0 18 0;
+#X connect 17 0 7 0;
+#X connect 18 0 20 0;
+#X connect 19 0 17 0;
+#X connect 20 0 21 0;
+#X connect 20 0 7 0;
+#X connect 22 0 20 0;
+#X connect 23 0 33 0;
+#X connect 24 0 37 0;
+#X connect 28 0 8 0;
+#X connect 28 0 13 0;
+#X connect 28 0 19 0;
+#X connect 28 0 22 0;
+#X connect 29 1 32 0;
+#X connect 30 0 10 0;
+#X connect 31 0 10 0;
+#X connect 32 0 31 0;
+#X connect 32 1 30 0;
+#X connect 33 0 35 0;
+#X connect 34 0 25 0;
+#X connect 35 0 36 0;
+#X connect 36 0 34 0;
+#X connect 37 0 39 0;
+#X connect 38 0 26 0;
+#X connect 39 0 40 0;
+#X connect 40 0 38 0;
+#X restore 172 16 pd midi_control;
+#X connect 0 0 4 0;
+#X connect 1 0 5 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X connect 4 0 5 0;
+#X connect 5 0 7 0;
+#X connect 6 0 2 0;
+#X connect 6 0 0 0;
+#X connect 8 0 12 0;
+#X connect 12 0 11 0;
+#X connect 12 1 15 0;
+#X connect 14 0 15 2;
+#X connect 15 0 11 0;
+#X connect 16 0 15 1;
+#X connect 18 0 15 3;
+#X connect 19 0 16 0;
+#X connect 20 0 14 0;
+#X connect 21 0 18 0;
+#X connect 22 0 12 1;
+#X connect 23 0 22 0;
+#X coords 0 -1 1 1 150 75 1 0 0;

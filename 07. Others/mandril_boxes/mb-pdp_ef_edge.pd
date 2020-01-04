@@ -1,0 +1,75 @@
+#N canvas 8 79 658 404 10;
+#X obj 34 172 symbol \$1;
+#X obj 136 230 ftos;
+#X obj 105 164 float \$1;
+#X floatatom 105 193 5 0 0 0 - - -;
+#X symbolatom 35 205 0 0 0 0 - - -;
+#X symbolatom 95 243 10 0 0 0 - - -;
+#X obj 44 126 loadbang;
+#X obj 97 280 s \$1pdp_edge_id;
+#X obj 259 52 inlet;
+#X text 317 52 video;
+#X text 487 52 on/off;
+#X obj 288 274 outlet;
+#X obj 292 104 pdp_spigot;
+#X text 336 271 video;
+#X obj 370 186 pdp_edge;
+#X obj 0 0 cnv 15 150 75 empty empty empty 2 12 0 14 -191407 -66577
+0;
+#X obj 7 5 tgl 15 0 \$1epdp_edge_on \$1epdp_edge_on_init Edge 17 7
+0 10 -260097 -1 -1 0 1;
+#X obj 117 9 cnv 15 20 10 empty \$1pdp_edge_id \$1 5 5 0 10 -260097
+-33289 0;
+#X obj 387 56 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 396 26 r \$1epdp_edge_on;
+#X obj 3 57 bng 15 250 50 0 \$1epdp_edge_midi_on empty midi 17 7 0
+8 -4160 -1 -1;
+#N canvas 8 76 651 462 midi-control 0;
+#X msg -606 169 ef1epdp_edge_on_midi;
+#X text -785 81 MIDI;
+#X obj -682 132 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -549 190 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom -420 105 5 0 0 0 - - -;
+#X obj -531 281 s midi_var_to_add;
+#X obj -700 71 r \$1epdp_edge_midi_on;
+#X msg -606 135 set \$1epdp_edge_on_midi;
+#X obj -423 75 r \$1epdp_edge_on_midi;
+#X obj -442 233 s \$1epdp_edge_on_init;
+#X obj -565 74 r \$1pdp_edge_id;
+#X text -426 280 -->global value of mb-midi_control_pad;
+#X obj -426 136 select 0;
+#X msg -369 187 0;
+#X msg -419 193 1;
+#X obj -439 166 alternate;
+#X connect 0 0 3 0;
+#X connect 0 0 5 0;
+#X connect 2 0 0 0;
+#X connect 4 0 12 0;
+#X connect 6 0 2 0;
+#X connect 7 0 0 0;
+#X connect 8 0 4 0;
+#X connect 10 0 7 0;
+#X connect 12 1 15 0;
+#X connect 13 0 9 0;
+#X connect 14 0 9 0;
+#X connect 15 0 14 0;
+#X connect 15 1 13 0;
+#X restore 188 10 pd midi-control;
+#X connect 0 0 4 0;
+#X connect 1 0 5 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X connect 4 0 5 0;
+#X connect 5 0 7 0;
+#X connect 6 0 2 0;
+#X connect 6 0 0 0;
+#X connect 8 0 12 0;
+#X connect 12 0 11 0;
+#X connect 12 1 14 0;
+#X connect 14 0 11 0;
+#X connect 18 0 12 1;
+#X connect 19 0 18 0;
+#X coords 0 -1 1 1 150 75 1 0 0;

@@ -1,0 +1,374 @@
+#N canvas 15 107 518 613 10;
+#X obj 11 13 cnv 13 1 1 empty \$0-t1 ✓ 1 8 1 4 -1 -1 0;
+#X obj 11 13 cnv 13 13 15 empty \$0-x1 ✘ 1 9 1 14 -1 -258699 0;
+#X obj 43 13 cnv 15 1 1 empty \$0-t2 ✓ 1 8 1 4 -1 -1 0;
+#X obj 43 13 cnv 15 15 15 empty \$0-x2 ✘ 3 9 1 14 -1 -258699 0;
+#X obj 81 13 cnv 15 1 1 empty \$0-t3 ✓ 1 8 1 4 -1 -1 0;
+#X obj 81 13 cnv 15 15 15 empty \$0-x3 ✘ 3 9 1 14 -1 -258699 0;
+#X obj 119 13 cnv 15 1 1 empty \$0-t4 ✓ 1 8 1 4 -1 -1 0;
+#X obj 119 13 cnv 15 15 15 empty \$0-x4 ✘ 3 9 1 14 -1 -258699 0;
+#X obj 157 13 cnv 15 1 1 empty \$0-t5 ✓ 1 8 1 4 -1 -1 0;
+#X obj 157 13 cnv 15 15 15 empty \$0-x5 ✘ 3 9 1 14 -1 -258699 0;
+#X obj 195 13 cnv 15 1 1 empty \$0-t6 ✓ 1 8 1 4 -1 -1 0;
+#X obj 195 13 cnv 15 15 15 empty \$0-x6 ✘ 3 9 1 14 -1 -258699 0;
+#X obj 233 13 cnv 15 1 1 empty \$0-t7 ✓ 1 8 1 4 -1 -1 0;
+#X obj 233 13 cnv 15 15 15 empty \$0-x7 ✘ 3 9 1 14 -1 -258699 0;
+#X obj 271 13 cnv 15 1 1 empty \$0-t8 ✓ 1 8 1 4 -1 -1 0;
+#X obj 271 13 cnv 15 15 15 empty \$0-x8 ✘ 3 9 1 14 -1 -258699 0;
+#X obj 308 13 cnv 15 1 1 empty \$0-t9 ✓ 1 8 1 4 -1 -1 0;
+#X obj 308 13 cnv 15 15 15 empty \$0-x9 ✘ 3 9 1 14 -1 -258699 0;
+#X obj 346 13 cnv 15 1 1 empty \$0-t10 ✓ 1 8 1 4 -1 -1 0;
+#X obj 346 13 cnv 15 15 15 empty \$0-x10 ✘ 3 9 1 14 -1 -258699 0
+;
+#X obj 422 13 cnv 15 1 1 empty \$0-t12 ✓ 1 8 1 4 -1 -1 0;
+#X obj 422 13 cnv 15 15 15 empty \$0-x12 ✘ 3 9 1 14 -1 -258699 0
+;
+#X obj 460 13 cnv 15 1 1 empty \$0-t13 ✓ 1 8 1 4 -1 -1 0;
+#X obj 460 13 cnv 15 15 15 empty \$0-x13 ✘ 3 9 1 14 -1 -258699 0
+;
+#X obj 97 13 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0;
+#X obj 135 13 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 173 13 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 211 13 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 249 13 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 286 13 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 324 13 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 362 13 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 384 13 cnv 15 1 1 empty \$0-t11 ✓ 1 8 1 4 -1 -1 0;
+#X obj 384 13 cnv 15 15 15 empty \$0-x11 ✘ 3 9 1 14 -1 -258699 0
+;
+#X obj 400 13 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 438 13 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 476 13 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 498 13 cnv 10 11 15 empty empty i 7 9 2 14 -1 -228856 0;
+#X obj 25 13 cnv 15 17 15 empty empty empty 4 9 1 11 -1 -204800 0;
+#X obj 59 13 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0;
+#X obj 11 75 cnv 13 1 1 empty \$0-t1 ✓ 1 8 1 4 -1 -1 0;
+#X obj 11 75 cnv 13 13 15 empty \$0-x1 ✘ 1 9 1 14 -1 -258699 0;
+#X obj 43 75 cnv 15 1 1 empty \$0-t2 ✓ 1 8 1 4 -1 -1 0;
+#X obj 43 75 cnv 15 15 15 empty \$0-x2 ✘ 3 9 1 14 -1 -258699 0;
+#X obj 81 75 cnv 15 1 1 empty \$0-t3 ✓ 1 8 1 4 -1 -1 0;
+#X obj 81 75 cnv 15 15 15 empty \$0-x3 ✘ 3 9 1 14 -1 -258699 0;
+#X obj 119 75 cnv 15 1 1 empty \$0-t4 ✓ 1 8 1 4 -1 -1 0;
+#X obj 119 75 cnv 15 15 15 empty \$0-x4 ✘ 3 9 1 14 -1 -258699 0;
+#X obj 157 75 cnv 15 1 1 empty \$0-t5 ✓ 1 8 1 4 -1 -1 0;
+#X obj 157 75 cnv 15 15 15 empty \$0-x5 ✘ 3 9 1 14 -1 -258699 0;
+#X obj 195 75 cnv 15 1 1 empty \$0-t6 ✓ 1 8 1 4 -1 -1 0;
+#X obj 195 75 cnv 15 15 15 empty \$0-x6 ✘ 3 9 1 14 -1 -258699 0;
+#X obj 233 75 cnv 15 1 1 empty \$0-t7 ✓ 1 8 1 4 -1 -1 0;
+#X obj 233 75 cnv 15 15 15 empty \$0-x7 ✘ 3 9 1 14 -1 -258699 0;
+#X obj 271 75 cnv 15 1 1 empty \$0-t8 ✓ 1 8 1 4 -1 -1 0;
+#X obj 271 75 cnv 15 15 15 empty \$0-x8 ✘ 3 9 1 14 -1 -258699 0;
+#X obj 308 75 cnv 15 1 1 empty \$0-t9 ✓ 1 8 1 4 -1 -1 0;
+#X obj 308 75 cnv 15 15 15 empty \$0-x9 ✘ 3 9 1 14 -1 -258699 0;
+#X obj 346 75 cnv 15 1 1 empty \$0-t10 ✓ 1 8 1 4 -1 -1 0;
+#X obj 346 75 cnv 15 15 15 empty \$0-x10 ✘ 3 9 1 14 -1 -258699 0
+;
+#X obj 422 75 cnv 15 1 1 empty \$0-t12 ✓ 1 8 1 4 -1 -1 0;
+#X obj 422 75 cnv 15 15 15 empty \$0-x12 ✘ 3 9 1 14 -1 -258699 0
+;
+#X obj 460 75 cnv 15 1 1 empty \$0-t13 ✓ 1 8 1 4 -1 -1 0;
+#X obj 460 75 cnv 15 15 15 empty \$0-x13 ✘ 3 9 1 14 -1 -258699 0
+;
+#X obj 97 75 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0;
+#X obj 135 75 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 173 75 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 211 75 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 249 75 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 286 75 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 324 75 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 362 75 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 384 75 cnv 15 1 1 empty \$0-t11 ✓ 1 8 1 4 -1 -1 0;
+#X obj 384 75 cnv 15 15 15 empty \$0-x11 ✘ 3 9 1 14 -1 -258699 0
+;
+#X obj 400 75 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 438 75 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 476 75 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 498 75 cnv 10 11 15 empty empty i 7 9 2 14 -1 -228856 0;
+#X obj 25 75 cnv 15 17 15 empty empty empty 4 9 1 11 -1 -204800 0;
+#X obj 59 75 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0;
+#X obj 11 31 cnv 15 15 15 empty empty E 4 9 1 11 -1 -204800 0;
+#X obj 29 31 cnv 15 15 15 empty empty A 4 9 1 11 -1 -204800 0;
+#X obj 47 31 cnv 15 15 15 empty empty T 4 9 1 11 -1 -204800 0;
+#X obj 445 31 cnv 15 64 15 empty empty REVERB 17 9 1 11 -1 -204800
+0;
+#X obj 27 31 cnv 1 1 15 empty empty empty 20 12 0 14 -66577 -66577
+0;
+#X obj 45 31 cnv 1 1 15 empty empty empty 20 12 0 14 -66577 -66577
+0;
+#X obj 63 31 cnv 1 1 15 empty empty empty 20 12 0 14 -66577 -66577
+0;
+#X obj 384 31 cnv 15 60 15 empty \$0-uniqueid \$1 1 9 1 11 -1 -128992
+0;
+#X obj 11 29 cnv 1 498 1 empty empty empty 4 9 1 11 -66577 -204800
+0;
+#X obj 11 47 cnv 1 498 1 empty empty empty 4 9 1 11 -66577 -204800
+0;
+#X obj 11 73 cnv 1 498 1 empty empty empty 4 9 1 11 -66577 -204800
+0;
+#X obj 11 49 cnv 11 27 11 empty empty Mix 2 6 1 10 -1 -204800 0;
+#X obj 114 49 cnv 11 33 11 empty empty Room 1 6 1 10 -1 -204800 0;
+#X obj 223 49 cnv 11 49 11 empty empty Damping 1 6 1 10 -1 -204800
+0;
+#X obj 385 49 cnv 11 36 11 empty empty Bypass 3 6 1 10 -1 -204800 0
+;
+#X obj 11 61 cnv 11 27 11 empty empty (0–1) 2 6 1 10 -1 -128992 0
+;
+#X obj 223 61 cnv 11 49 11 empty empty empty 2 6 1 10 -1 -128992 0
+;
+#X obj 65 31 cnv 15 15 15 empty \$0-chdisplay \$2 6 9 1 11 -1 -128992
+0;
+#X obj 293 98 inlet~;
+#X obj 304 115 inlet~;
+#X obj 315 132 inlet~;
+#X obj 326 149 inlet~;
+#X obj 337 166 inlet~;
+#X obj 348 183 inlet~;
+#X obj 359 200 inlet~;
+#X obj 370 217 inlet~;
+#X obj 381 234 inlet~;
+#X obj 392 251 inlet~;
+#X obj 403 268 inlet~;
+#X obj 414 285 inlet~;
+#X obj 426 302 inlet~;
+#X obj 293 592 outlet~;
+#X obj 304 575 outlet~;
+#X obj 315 558 outlet~;
+#X obj 326 541 outlet~;
+#X obj 337 524 outlet~;
+#X obj 348 507 outlet~;
+#X obj 359 490 outlet~;
+#X obj 370 473 outlet~;
+#X obj 381 456 outlet~;
+#X obj 392 439 outlet~;
+#X obj 403 422 outlet~;
+#X obj 414 405 outlet~;
+#X obj 426 388 outlet~;
+#X obj 436 336 inlet;
+#X obj 436 353 outlet;
+#X obj 42 49 hsl 61 11 0 1 0 0 EAT_Reverb.Mix.\$1.Send.all EAT_Reverb.Mix.\$1.all
+empty -2 -8 0 10 -204800 -1 -1 0 1;
+#X obj 39 61 cnv 11 66 11 empty EAT_Reverb.MixNum.\$1.all 1 2 6 1 10
+-1 -128992 0;
+#X obj 151 49 hsl 61 11 0 1 0 0 EAT_Reverb.Roomsize.\$1.Send.all EAT_Reverb.Roomsize.\$1.all
+empty -2 -8 0 10 -204800 -1 -1 0 1;
+#X obj 148 61 cnv 11 25 11 empty EAT_Delay.TimeNum.\$1.all Small 0
+6 1 10 -1 -128992 0;
+#X obj 276 49 hsl 61 11 0 2 0 0 EAT_Reverb.Damping.\$1.Send.all EAT_Reverb.Damping.\$1.all
+empty -2 -8 0 10 -204800 -1 -1 0 1;
+#X obj 273 61 cnv 11 20 11 empty empty Low 0 6 1 10 -1 -128992 0;
+#X obj 486 49 bng 23 500 50 0 \$0-help empty HELP 1 12 1 9 -1 -204800
+-204800;
+#X obj 426 49 bng 23 500 50 0 \$0-advanced empty ADV 5 12 1 9 -1 -204800
+-204800;
+#X obj 108 49 cnv 1 1 23 empty empty empty 20 12 0 14 -66577 -66577
+0;
+#X obj 110 49 cnv 1 1 23 empty empty empty 20 12 0 14 -162280 -66577
+0;
+#X obj 106 49 cnv 1 1 23 empty empty empty 20 12 0 14 -1 -66577 0;
+#X obj 112 49 cnv 1 1 23 empty empty empty 20 12 0 14 -1 -66577 0;
+#X obj 217 49 cnv 1 1 23 empty empty empty 20 12 0 14 -66577 -66577
+0;
+#X obj 219 49 cnv 1 1 23 empty empty empty 20 12 0 14 -162280 -66577
+0;
+#X obj 215 49 cnv 1 1 23 empty empty empty 20 12 0 14 -1 -66577 0;
+#X obj 221 49 cnv 1 1 23 empty empty empty 20 12 0 14 -1 -66577 0;
+#X obj 385 61 cnv 6 13 11 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 456 49 bng 23 500 50 0 \$0-midi empty MIDI 4 12 1 9 -1 -204800
+-204800;
+#X obj 10 98 r \$0-advanced;
+#X obj 81 31 cnv 15 43 15 empty empty Channel 1 9 1 11 -1 -128992 0
+;
+#X obj 125 31 cnv 15 258 15 empty empty Processing 1 9 1 11 -1 -128992
+0;
+#X obj 10 115 float \$0;
+#X obj 10 185 EATi_demultiplex_channels \$0 \$2;
+#N canvas 516 121 450 300 display 0;
+#N canvas 0 22 450 300 Mix 0;
+#X obj 59 178 prepend label;
+#X obj 59 161 list2symbol;
+#X obj 59 127 int;
+#X obj 59 93 * 1000;
+#X obj 59 144 / 1000;
+#X obj 59 110 + 0.4;
+#X obj 59 76 r EAT_Reverb.Mix.\$1.Send.all;
+#X obj 59 195 s EAT_Reverb.MixNum.\$1.all;
+#X connect 0 0 7 0;
+#X connect 1 0 0 0;
+#X connect 2 0 4 0;
+#X connect 3 0 5 0;
+#X connect 4 0 1 0;
+#X connect 5 0 2 0;
+#X connect 6 0 3 0;
+#X restore 35 11 pd Mix;
+#N canvas 0 22 124 147 Channel 0;
+#X obj 14 1 loadbang;
+#X obj 14 18 float \$2;
+#X obj 14 35 < 10;
+#X obj 14 52 sel 1;
+#X msg 14 86 label_pos \$1 \$2;
+#X msg 14 69 6 9;
+#X obj 14 103 s \$0-chdisplay;
+#X msg 41 69 2 9;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 5 0;
+#X connect 3 1 7 0;
+#X connect 4 0 6 0;
+#X connect 5 0 4 0;
+#X connect 7 0 4 0;
+#X restore 35 31 pd Channel Display;
+#X restore 10 225 pd display;
+#N canvas 633 236 427 360 midicc 0;
+#X obj -3 2 EATi_MIDICCMONO EAT_Reverb Mix \$1 all 0 127 0 1;
+#X obj 138 2 EATi_MIDICCMONO EAT_Reverb Roomsize \$1 all 0 127 0 1
+;
+#X obj 279 2 EATi_MIDICCMONO EAT_Reverb Damping \$1 all 0 127 0 2;
+#X obj -3 180 EATi_MIDICCMONO EAT_Reverb Freeze \$1 all 0 1 0 1;
+#X obj 138 180 EATi_MIDICCMONO EAT_Reverb Bypass \$1 all 0 1 0 1;
+#X restore 10 205 pd midicc;
+#N canvas 597 157 131 195 \$0_midi 0;
+#X obj 30 -35 cnv 15 25 15 empty empty MIDI 2 9 1 11 -1 -204800 0;
+#X obj 56 -35 cnv 15 68 15 empty empty CONTROL 2 9 1 11 -1 -204800
+0;
+#X obj -1 -38 cnv 1 2 147 empty empty empty 2 8 1 11 -66577 -204800
+0;
+#X obj 2 -38 cnv 1 124 2 empty empty empty 2 8 1 11 -66577 -204800
+0;
+#X obj 125 -38 cnv 2 2 147 empty empty empty 2 8 1 11 -66577 -204800
+0;
+#X obj 2 -35 cnv 15 27 15 empty empty empty 2 9 1 11 -1 -204800 0;
+#X obj 30 -19 cnv 15 94 15 empty empty EAT_Reverb 2 9 1 11 -1 -204800
+0;
+#X obj 2 -19 cnv 15 27 15 empty empty empty 2 9 1 11 -1 -204800 0;
+#X obj 30 -3 cnv 15 94 15 empty empty ID_\$1 2 9 1 11 -1 -204800 0
+;
+#X obj 2 -3 cnv 15 27 15 empty empty empty 2 9 1 11 -1 -204800 0;
+#X obj 30 13 cnv 15 94 15 empty empty All_Channels 2 9 1 11 -1 -204800
+0;
+#X obj 2 13 cnv 15 27 15 empty empty empty 2 9 1 11 -1 -204800 0;
+#X obj 13 126 pddplink eat_transport.pd -text GLOBAL TRANSPORT;
+#X obj 11 139 pddplink eat_transport.pd -text WITH MIDI PRESETS;
+#X obj -1 110 cnv 1 128 2 empty empty empty 2 8 1 11 -66577 -204800
+0;
+#X obj 8 113 pddplink eat_transport.pd -text CLICK HERE TO OPEN;
+#X obj 2 29 EATi_MIDILC EAT_Reverb Mix \$1 all;
+#X obj 2 45 EATi_MIDILC EAT_Reverb Roomsize \$1 all;
+#X obj 2 61 EATi_MIDILC EAT_Reverb Damping \$1 all;
+#X obj 2 77 EATi_MIDILC EAT_Reverb Freeze \$1 all;
+#X obj 2 93 EATi_MIDILC EAT_Reverb Bypass \$1 all;
+#X restore 10 312 pd \$0_midi;
+#X obj 10 262 float \$0;
+#X obj 10 245 r \$0-midi;
+#X msg 10 279 \; pd-\$1_midi vis 1;
+#X obj 10 349 getdir 1;
+#X obj 10 366 s parentfilepath;
+#X obj 10 332 r getparentfilepath;
+#N canvas 361 173 450 300 help_link 0;
+#X obj 114 88 r \$0-help;
+#X obj 114 105 getdir;
+#X text 114 54 Opens help file.;
+#X msg 114 122 \; pd open EAT_Reverb~-help.pd \$1;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X restore 10 386 pd help_link;
+#X obj 410 61 cnv 6 11 11 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 345 49 cnv 11 35 11 empty empty Freeze 3 6 1 10 -1 -204800 0
+;
+#X obj 345 61 cnv 6 13 11 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 341 49 cnv 1 1 23 empty empty empty 20 12 0 14 -66577 -66577
+0;
+#X obj 343 49 cnv 1 1 23 empty empty empty 20 12 0 14 -162280 -66577
+0;
+#X obj 339 49 cnv 1 1 23 empty empty empty 20 12 0 14 -1 -66577 0;
+#X obj 370 61 cnv 6 10 11 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 114 61 cnv 11 33 11 empty empty Size 0 6 1 10 -1 -204800 0;
+#X obj 381 49 cnv 1 1 23 empty empty empty 20 12 0 14 -66577 -66577
+0;
+#X obj 383 49 cnv 1 1 23 empty empty empty 20 12 0 14 -162280 -66577
+0;
+#X obj 424 49 cnv 1 1 23 empty empty empty 20 12 0 14 -162280 -66577
+0;
+#X obj 422 49 cnv 1 1 23 empty empty empty 20 12 0 14 -1 -66577 0;
+#X obj 452 49 cnv 1 1 23 empty empty empty 20 12 0 14 -66577 -66577
+0;
+#X obj 454 49 cnv 1 1 23 empty empty empty 20 12 0 14 -162280 -66577
+0;
+#X obj 450 49 cnv 1 1 23 empty empty empty 20 12 0 14 -1 -66577 0;
+#X obj 482 49 cnv 1 1 23 empty empty empty 20 12 0 14 -66577 -66577
+0;
+#X obj 484 49 cnv 1 1 23 empty empty empty 20 12 0 14 -162280 -66577
+0;
+#X obj 480 49 cnv 1 1 23 empty empty empty 20 12 0 14 -1 -66577 0;
+#X obj 174 61 cnv 11 40 11 empty EAT_Delay.TimeNum.\$1.all Large 15
+6 1 10 -1 -128992 0;
+#X obj 294 61 cnv 11 44 11 empty empty High 24 6 1 10 -1 -128992 0
+;
+#N canvas 645 298 526 203 \$0_EAT_Reverb_Advanced 0;
+#X obj 8 10 EAT_Reverb-advanced \$1 \$0 \$2;
+#X restore 10 165 pd \$0_EAT_Reverb_Advanced;
+#X msg 10 132 \; pd-\$1_EAT_Reverb_Advanced vis 1;
+#X obj 358 61 tgl 11 0 EAT_Reverb.Freeze.\$1.Send.all EAT_Reverb.Freeze.\$1.all
+empty 17 7 0 10 -204800 -1 -1 0 1;
+#X obj 399 61 tgl 11 0 EAT_Reverb.Bypass.\$1.Send.all EAT_Reverb.Bypass.\$1.all
+empty 17 7 0 10 -204800 -1 -1 0 1;
+#X obj 293 319 EATi_dynwrapper~ EATi_Reverb~ \$1 \$2;
+#X connect 98 0 183 0;
+#X connect 99 0 183 1;
+#X connect 100 0 183 2;
+#X connect 101 0 183 3;
+#X connect 102 0 183 4;
+#X connect 103 0 183 5;
+#X connect 104 0 183 6;
+#X connect 105 0 183 7;
+#X connect 106 0 183 8;
+#X connect 107 0 183 9;
+#X connect 108 0 183 10;
+#X connect 109 0 183 11;
+#X connect 110 0 183 12;
+#X connect 124 0 125 0;
+#X connect 144 0 147 0;
+#X connect 147 0 180 0;
+#X connect 152 0 154 0;
+#X connect 153 0 152 0;
+#X connect 155 0 156 0;
+#X connect 157 0 155 0;
+#X connect 183 0 111 0;
+#X connect 183 1 112 0;
+#X connect 183 2 113 0;
+#X connect 183 3 114 0;
+#X connect 183 4 115 0;
+#X connect 183 5 116 0;
+#X connect 183 6 117 0;
+#X connect 183 7 118 0;
+#X connect 183 8 119 0;
+#X connect 183 9 120 0;
+#X connect 183 10 121 0;
+#X connect 183 11 122 0;
+#X connect 183 12 123 0;
+#X coords 0 -1 1 1 500 83 1 10 10;

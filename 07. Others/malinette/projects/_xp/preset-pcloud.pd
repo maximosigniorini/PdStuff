@@ -1,0 +1,19 @@
+#N canvas 252 25 932 696 10;
+#X declare -path ../in -path ../out -path ../tools -path ../filters
+;
+#X obj -5 32 cnv 5 800 5 empty empty INPUT 2 15 1 15 -260097 -191407
+0;
+#N canvas 0 0 450 300 INIT 0;
+#X obj 43 106 declare -path ../in -path ../out -path ../tools -path
+../filters;
+#X restore 749 12 pd INIT;
+#X obj -5 211 cnv 5 800 5 empty empty FILTERS 2 15 1 15 -260097 -191407
+0;
+#X obj -5 458 cnv 5 800 5 empty empty OUT 2 15 1 15 -260097 -191407
+0;
+#X obj 330 300 pointcloud;
+#X obj 445 50 kinect-depthimage;
+#X obj 250 113 video-in;
+#X obj 516 186 seq-counter 1 360;
+#X connect 5 0 4 0;
+#X connect 7 0 4 1;

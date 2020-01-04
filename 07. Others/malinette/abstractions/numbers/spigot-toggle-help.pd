@@ -1,0 +1,21 @@
+#N canvas 183 256 549 282 10;
+#X obj 75 172 spigot-toggle;
+#X msg 151 155 1;
+#X msg 150 133 0;
+#X floatatom 75 226 5 0 0 0 - - -;
+#X obj 75 86 loadbang;
+#X obj 75 127 random 100;
+#X obj 75 107 metro 100;
+#X obj 58 92 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X text 213 20 Spigot-toggle \; ------------- \; Switch a spigot \;
+Switch ON the data pass through \, OFF data don't pass through... inlets
+\; 1 : data flow \; 2 : control 1=on \, 0=off \; \; *can be useful
+to compact your patch interface...;
+#X connect 0 0 3 0;
+#X connect 1 0 0 1;
+#X connect 2 0 0 1;
+#X connect 4 0 6 0;
+#X connect 5 0 0 0;
+#X connect 6 0 5 0;
+#X connect 7 0 6 0;

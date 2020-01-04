@@ -1,0 +1,67 @@
+#N canvas 376 56 910 546 10;
+#X obj 2 -163 cnv 15 700 50 empty empty hitTestCircle 3 12 0 18 -260080
+-1 0;
+#X text 591 -146 @author Pertuit;
+#X text 22 -79 DESCRIPTION;
+#X text 21 68 ARGUMENTS;
+#X text 22 183 INLETS \; aucun;
+#X obj 503 -71 gemmanager;
+#X obj 685 -71 loadbang;
+#X obj 476 157 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 661 182 tgl 15 0 empty empty droite 17 7 0 10 -262144 -1 -1
+0 1;
+#X obj 690 163 tgl 15 0 empty empty haut 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 718 145 tgl 15 0 empty empty gauche 17 7 0 10 -262144 -1 -1
+0 1;
+#X obj 747 128 tgl 15 0 empty empty bas 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 476 184 select 1;
+#X text 171 -157 Patch pour tester les collisions entre deux objets
+graphiques.;
+#X text 22 347 Voir aussi [HitTestObject];
+#X text 21 -58 Patch pour tester les collisions entre deux objets graphiques.
+On teste la distance entre les objets représentés par une surface
+circulaire. On évalue la distance \, l'angle d'incidence et le côté
+selon lequel la collision se fait.;
+#X text 23 149 Par ex: [hittestcircle zone1 personnage 20];
+#X text 22 227 OUTLETS \; 1- booléen : collision (1) ou non (0) \;
+2- nombre : la distance en pixels \; 3- nombre : l'angle d'incidence
+en degrés \; 4- booléen : collision à droite (1) ou non (0) \; 5-
+booléen : collision en haut (1) ou non (0) \; 6- booléen : collision
+à gauche (1) ou non (0) \; 7- booléen : collision en bas (1) ou non
+(0);
+#X floatatom 536 141 5 0 0 1 distance - -;
+#X floatatom 589 165 5 0 0 1 angle - -;
+#X text 21 14 Ce patch convient pour les images carrées ou de forme
+concentrique. Pour les autres formes \, on utilisera plutôt [HitTestObject].
+;
+#X msg 526 214 1 1 1;
+#X msg 467 214 1 0 0;
+#X text 22 89 1- symbole : nom du premier élément graphique \; 2-
+symbole : nom du second élément graphique \; 3- nombre : distance
+tolérée sans déclenchement (en pixels \, par défaut 0);
+#X text 591 -134 @version 1;
+#X text 591 -159 @library 2DMovie;
+#X msg 685 -43 \; guepe1.x 320 \; guepe1.y 200 \; guepe2.x 500 \; guepe2.y
+200 \; guepe2.mouseMode 2;
+#X text 680 45 drag&drop de guepe2;
+#X obj 468 4 simpleImage guepe2 wasp.png;
+#X obj 468 -26 simpleImage guepe1 wasp.png;
+#X obj 490 247 s guepe2.color;
+#X obj 532 102 hitTestCircle guepe1 guepe2 80;
+#X connect 6 0 26 0;
+#X connect 7 0 12 0;
+#X connect 12 0 22 0;
+#X connect 12 1 21 0;
+#X connect 21 0 30 0;
+#X connect 22 0 30 0;
+#X connect 31 0 7 0;
+#X connect 31 1 18 0;
+#X connect 31 2 19 0;
+#X connect 31 3 8 0;
+#X connect 31 4 9 0;
+#X connect 31 5 10 0;
+#X connect 31 6 11 0;
+#X coords 0 546 1 545 65 15 0;

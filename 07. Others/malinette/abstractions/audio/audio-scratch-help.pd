@@ -1,0 +1,16 @@
+#N canvas 136 92 445 398 10;
+#X obj 57 102 noise~;
+#X obj 57 124 *~ 0.5;
+#X obj 56 199 audio-scratch;
+#X floatatom 200 135 5 0 0 0 - - -;
+#X text 57 36 audio-scratch \; ------------- \; Sampler/player with
+scratch \;;
+#X text 65 158 audio to record;
+#X obj 56 327 dac~;
+#X obj 56 293 *~ 0.5;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 7 0;
+#X connect 3 0 2 1;
+#X connect 7 0 6 0;
+#X connect 7 0 6 1;

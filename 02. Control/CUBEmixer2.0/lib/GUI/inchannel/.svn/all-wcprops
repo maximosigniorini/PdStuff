@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/GUI/inchannel
+END
+plugin.pd
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/GUI/inchannel/plugin.pd
+END
+input.pd
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/GUI/inchannel/input.pd
+END
+locker.pd
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/GUI/inchannel/locker.pd
+END
+selector.pd
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/GUI/inchannel/selector.pd
+END
+fader.pd
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/GUI/inchannel/fader.pd
+END
+plugins.pd
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/GUI/inchannel/plugins.pd
+END
+auxe.pd
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/GUI/inchannel/auxe.pd
+END
+auxes.pd
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/GUI/inchannel/auxes.pd
+END
+eq.pd
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/GUI/inchannel/eq.pd
+END
+mutesolo.pd
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/GUI/inchannel/mutesolo.pd
+END
+spat.pd
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/GUI/inchannel/spat.pd
+END
+vu.pd
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/GUI/inchannel/vu.pd
+END

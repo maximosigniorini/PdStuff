@@ -1,0 +1,6 @@
+#N canvas 91 37 1280 694 10;
+#X obj 228 80 mygop_abstraccion;
+#X obj 8 2 mygop_control;
+#X obj 8 70 s pd-mygop_abstraccion.pd;
+#X connect 1 0 2 0;
+#X coords 0 694 1 693 72 50 0;

@@ -1,0 +1,82 @@
+#N canvas 249 378 692 563 10;
+#X obj 231 427 camera;
+#X obj 28 256 gemhead;
+#X obj 214 352 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X obj 237 333 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X obj 286 378 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X obj 312 356 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X msg 286 394 left \$1;
+#X msg 312 372 right \$1;
+#X obj 127 390 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X obj 153 368 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X msg 153 384 up \$1;
+#X msg 127 406 down \$1;
+#X msg 249 188 reset;
+#X msg 237 350 forward \$1;
+#X msg 214 368 reverse \$1;
+#X msg 118 522 speed \$1;
+#X floatatom 118 504 5 0 0 0 - - -;
+#X floatatom 147 153 5 0 0 0 - - -;
+#X msg 103 271 lookX \$1;
+#X msg 167 269 lookY \$1;
+#X msg 234 270 lookZ \$1;
+#X floatatom 112 117 5 0 0 0 x - -;
+#X floatatom 112 153 5 0 0 0 z - -;
+#X floatatom 112 135 5 0 0 0 y - -;
+#X msg 316 269 distance \$1;
+#X obj 33 309 spigot;
+#X obj 147 123 tgl 10 0 empty empty on/off 12 5 0 6 -262144 -1 -1 0
+1;
+#X obj 148 139 bng 8 250 50 0 empty empty reset 11 6 0 6 -232576 -1
+-1;
+#X msg 33 115 0;
+#X obj 603 56 initbang;
+#X msg 604 82 4;
+#X obj 112 60 inlet x;
+#X obj 167 61 inlet y;
+#X obj 221 61 inlet z;
+#X obj 278 62 inlet depth;
+#X connect 1 0 25 0;
+#X connect 2 0 14 0;
+#X connect 3 0 13 0;
+#X connect 4 0 6 0;
+#X connect 5 0 7 0;
+#X connect 6 0 0 0;
+#X connect 7 0 0 0;
+#X connect 8 0 11 0;
+#X connect 9 0 10 0;
+#X connect 10 0 0 0;
+#X connect 11 0 0 0;
+#X connect 12 0 0 0;
+#X connect 13 0 0 0;
+#X connect 14 0 0 0;
+#X connect 15 0 0 0;
+#X connect 16 0 15 0;
+#X connect 17 0 24 0;
+#X connect 18 0 0 0;
+#X connect 19 0 0 0;
+#X connect 20 0 0 0;
+#X connect 21 0 18 0;
+#X connect 22 0 20 0;
+#X connect 23 0 19 0;
+#X connect 24 0 0 0;
+#X connect 25 0 0 0;
+#X connect 26 0 25 1;
+#X connect 27 0 12 0;
+#X connect 27 0 28 0;
+#X connect 28 0 21 0;
+#X connect 28 0 23 0;
+#X connect 28 0 22 0;
+#X connect 29 0 30 0;
+#X connect 30 0 17 0;
+#X connect 31 0 21 0;
+#X connect 32 0 23 0;
+#X connect 33 0 22 0;
+#X connect 34 0 17 0;
+#X coords 0 -1 1 1 85 75 1 100 100;

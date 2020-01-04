@@ -1,0 +1,13 @@
+diff -Naur pd-0.38-2.org/src/d_mayer_fft.c pd-0.38-2/src/d_mayer_fft.c
+--- pd-0.38-2.org/src/d_mayer_fft.c	2005-02-18 12:19:37.000000000 +0100
++++ pd-0.38-2/src/d_mayer_fft.c	2005-02-18 12:25:26.000000000 +0100
+@@ -54,6 +54,9 @@
+ #pragma warning( disable : 4101 )  /* unused local variables */
+ #endif
+ 
++/* the following is needed only to declare pd_fft() as exportable in MSW */
++#include "m_pd.h"
++
+ #define REAL float
+ #define GOOD_TRIG
+ 

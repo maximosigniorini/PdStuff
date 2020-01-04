@@ -1,0 +1,48 @@
+#N canvas 241 58 573 736 10;
+#X obj 43 170 r \$1_fromgui;
+#X obj 43 212 s \$1_togui;
+#X text 45 20 a settable [sendreceive] for interaction with GUI;
+#X text 41 339 example::;
+#X obj 186 118 loadbang;
+#X text 62 457 the index of the channel (e.g. 1) can be set via the
+inlet.;
+#X text 60 419 values received on "1_BUS1_GAIN" are forwarded to "bus1_gain_togui"
+;
+#X obj 139 170 makefilename \$2;
+#X text 60 390 will receive values on "bus1_gain_fromgui" and forward
+it to "1_BUS1_GAIN";
+#X text 93 358 [gui_sr bus1_gain %d_BUS1_GAIN];
+#X obj 139 39 inlet master_sr;
+#X obj 377 345 iem_s;
+#X obj 312 179 t b s;
+#X obj 312 152 symbol;
+#X msg 407 214 set \$1;
+#X msg 377 324 set \$1;
+#X obj 312 108 inlet sendonce2set;
+#X text 66 496 if you send a symbol to the 2nd inlet \, the current
+value will be sent with a prepended "set"-message to the receiver given
+;
+#X obj 312 296 route bang;
+#X msg 312 319 set;
+#X obj 43 192 sendreceive \$2;
+#X msg 186 139 0;
+#X obj 312 272 symbol \$3;
+#X obj 370 250 symbol \$3;
+#X connect 0 0 20 0;
+#X connect 4 0 21 0;
+#X connect 7 0 20 1;
+#X connect 10 0 7 0;
+#X connect 12 0 22 0;
+#X connect 12 1 14 0;
+#X connect 13 0 12 0;
+#X connect 14 0 11 1;
+#X connect 15 0 11 0;
+#X connect 16 0 13 0;
+#X connect 18 0 19 0;
+#X connect 18 1 15 0;
+#X connect 19 0 11 0;
+#X connect 20 0 1 0;
+#X connect 20 0 23 0;
+#X connect 21 0 7 0;
+#X connect 22 0 18 0;
+#X connect 23 0 22 1;

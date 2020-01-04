@@ -1,0 +1,21 @@
+#N canvas 415 342 562 336 10;
+#X obj 104 196 cnv 15 220 100 empty empty empty 20 12 0 14 -233017
+-66577 0;
+#X obj 400 70 ehu/plot;
+#X obj 15 181 ehu/dsp;
+#X text 23 5 ehu/recorder~;
+#X text 9 38 records the incoming signal into a stereo sound file.
+;
+#X obj 122 119 osc~ 300;
+#X obj 35 122 tgl 40 0 empty empty empty 17 7 0 10 -258113 -1 -1 0
+1;
+#X text 10 59 inlets : left~ \, right~ \, on/off \, path+filename \,
+bits(16 \, 24 \, 32) \, rate;
+#X obj 121 245 ehu/recorder~ file.wav 2 44100;
+#X msg 224 169 file.wav;
+#X connect 5 0 1 0;
+#X connect 5 0 8 0;
+#X connect 5 0 8 1;
+#X connect 6 0 2 0;
+#X connect 6 0 8 2;
+#X connect 9 0 8 3;

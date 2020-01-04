@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/GUI/inchannel/helper
+END
+plugin.pd
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/GUI/inchannel/helper/plugin.pd
+END
+inputselector.pd
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/GUI/inchannel/helper/inputselector.pd
+END
+aux_popup_sr.pd
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/GUI/inchannel/helper/aux_popup_sr.pd
+END
+auxiliary.pd
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/GUI/inchannel/helper/auxiliary.pd
+END

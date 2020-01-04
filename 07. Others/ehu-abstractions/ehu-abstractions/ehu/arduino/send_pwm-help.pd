@@ -1,0 +1,9 @@
+#N canvas 37 389 450 300 10;
+#X text 49 231 code modified from arduino-help.pd example by gerda
+strobl and georg holtzman;
+#X text 44 52 inlets are :;
+#X text 44 63 value \, pin to control (9 \, 10 \, 11) \, bang to disable
+;
+#X text 47 15 control analog PWM outputs;
+#X text 259 116 send Analog Output PWM;
+#X obj 34 104 ehu/arduino/send_pwm;

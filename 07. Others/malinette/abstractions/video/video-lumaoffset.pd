@@ -1,0 +1,46 @@
+#N canvas 6 175 753 485 10;
+#X obj 104 241 pix_lumaoffset;
+#X obj 104 134 tgl 10 0 empty empty smooth 12 6 0 8 -262144 -1 -1 0
+1;
+#X msg 113 183 smooth \$1;
+#X msg 104 205 fill \$1;
+#X obj 104 121 tgl 10 0 empty empty fill 12 6 0 8 -262144 -1 -1 0 1
+;
+#X obj 28 57 inlet video;
+#X obj 104 313 outlet video;
+#X obj 104 278 pix_texture;
+#X obj 199 133 nbx 4 10 -1e+37 1e+37 0 0 empty empty gap 0 -8 0 9 -262144
+-1 -1 1 256;
+#X obj 154 133 nbx 4 10 -1e+37 1e+37 0 0 empty empty offset 0 -8 0
+9 -262144 -1 -1 30 256;
+#X obj 299 35 inlet command;
+#X obj 299 80 route fill smooth offset gap;
+#X obj 394 35 initbang;
+#X msg 394 58 fill 0 \, smooth 0 \, offset 30 \, gap 1;
+#X obj 8 162 gate 2;
+#X obj 237 106 tgl 8 0 empty empty empty 17 7 0 10 -257985 -1 -1 0
+1;
+#X obj 8 114 + 1;
+#X obj 237 8 initbang;
+#X connect 0 0 7 0;
+#X connect 1 0 2 0;
+#X connect 2 0 0 0;
+#X connect 3 0 0 0;
+#X connect 4 0 3 0;
+#X connect 5 0 14 1;
+#X connect 7 0 6 0;
+#X connect 8 0 0 2;
+#X connect 9 0 0 1;
+#X connect 10 0 11 0;
+#X connect 11 0 4 0;
+#X connect 11 1 1 0;
+#X connect 11 2 9 0;
+#X connect 11 3 8 0;
+#X connect 12 0 13 0;
+#X connect 13 0 11 0;
+#X connect 14 0 7 0;
+#X connect 14 1 0 0;
+#X connect 15 0 16 0;
+#X connect 16 0 14 0;
+#X connect 17 0 15 0;
+#X coords 0 -1 1 1 150 50 1 100 100;

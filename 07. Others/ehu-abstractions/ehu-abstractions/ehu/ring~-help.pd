@@ -1,0 +1,28 @@
+#N canvas 376 236 547 354 10;
+#X obj 289 44 cnv 15 200 130 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 319 -6 osc~ 330;
+#X obj 422 79 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 348 69 5 0 0 0 - - -, f 5;
+#X obj 318 184 ehu/out~;
+#X text 13 21 controls amplitude of a signal;
+#X text 15 82 Outlets: audioA \, audioB;
+#X text 8 53 Inlets : audioA \, audioB \, volume \, on/off;
+#X obj 319 108 ehu/ring~;
+#X obj 334 20 osc~ 630;
+#X obj 389 79 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 389 48 hsl 60 12 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X text 15 -11 ehu/ring~ abstraction help;
+#X obj 37 184 ehu/tremolo~;
+#X text 14 158 *** BETTER USE EHU/TREMOLO~ ***;
+#X connect 1 0 8 0;
+#X connect 2 0 8 5;
+#X connect 3 0 8 2;
+#X connect 8 0 4 0;
+#X connect 8 1 4 1;
+#X connect 9 0 8 1;
+#X connect 10 0 8 4;
+#X connect 11 0 8 3;

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/NET/UDP_OSC
+END
+sendOSC.pd
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/NET/UDP_OSC/sendOSC.pd
+END
+autonet.pd
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/NET/UDP_OSC/autonet.pd
+END
+dumpOSC.pd
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/NET/UDP_OSC/dumpOSC.pd
+END

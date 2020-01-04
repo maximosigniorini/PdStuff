@@ -1,0 +1,19 @@
+#N canvas 1 136 357 410 10;
+#X obj 72 302 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X floatatom 162 193 5 0 0 2 speed - -;
+#X msg 185 236 wave \$1;
+#X obj 185 219 hradio 15 1 0 2 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X msg 185 259 reset;
+#X obj 69 220 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 69 265 oscillator;
+#X text 61 39 oscillator \; ------------ \; Simple oscillation of numbers
+\; Arguments \; \$1:speed (ms) \; \$2:wave(int) \;;
+#X connect 1 0 6 1;
+#X connect 2 0 6 1;
+#X connect 3 0 2 0;
+#X connect 4 0 6 1;
+#X connect 5 0 6 0;
+#X connect 6 0 0 0;

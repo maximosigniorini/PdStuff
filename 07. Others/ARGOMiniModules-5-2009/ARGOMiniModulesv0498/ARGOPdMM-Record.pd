@@ -1,0 +1,601 @@
+#N canvas 366 158 387 260 10;
+#N canvas 196 101 386 417 ARGO 0;
+#X obj 239 65 inlet~;
+#X text 87 83 Left input;
+#X text 210 83 Right input;
+#X text -48 9 Stereo wav file format recorder;
+#X text -48 24 Enregistreur de fichier audio wav à 2 canaux (stereo)
+;
+#X obj 83 64 inlet~;
+#X obj 133 130 sel 0 1;
+#X msg 136 319 start;
+#X msg 99 318 stop;
+#X msg 179 198 open \$1;
+#X obj 179 177 savepanel;
+#X obj 179 266 delay 1000;
+#X obj 177 379 float;
+#X obj 223 378 + 1;
+#X obj 155 357 metro 1000;
+#X msg 223 358 -1;
+#X text 271 100 3 5 2009;
+#X msg -45 339 0;
+#X msg -14 339 1;
+#X obj 152 153 t b b;
+#X obj 113 153 t b b;
+#X obj 179 288 t b b b b;
+#N canvas 317 143 290 366 CouleurRecord 0;
+#X obj 122 -19 +;
+#X obj 122 37 +;
+#X obj 61 -75 * -65536;
+#X obj 117 -75 * -256;
+#X obj 163 -77 * -1;
+#X obj 122 68 - 1;
+#X obj 115 -202 inlet;
+#X text 77 -97 R;
+#X text 123 -99 G;
+#X text 172 -98 B;
+#X obj 122 123 outlet;
+#X text 170 -169 Rouge;
+#X msg 134 -121 255;
+#X msg 167 -121 0;
+#X obj 115 -178 sel 0 1;
+#X msg 122 96 color \$1 -1;
+#X text 56 -170 Rose;
+#X msg 73 -121 200;
+#X msg 40 -121 252;
+#X obj 134 -148 t b b b;
+#X msg 198 -121 0;
+#X msg 104 -121 200;
+#X obj 40 -148 t b b b;
+#X connect 0 0 1 1;
+#X connect 1 0 5 0;
+#X connect 2 0 1 0;
+#X connect 3 0 0 0;
+#X connect 4 0 0 1;
+#X connect 5 0 15 0;
+#X connect 6 0 14 0;
+#X connect 12 0 2 0;
+#X connect 13 0 3 0;
+#X connect 14 0 22 0;
+#X connect 14 1 19 0;
+#X connect 15 0 10 0;
+#X connect 17 0 3 0;
+#X connect 18 0 2 0;
+#X connect 19 0 12 0;
+#X connect 19 1 13 0;
+#X connect 19 2 20 0;
+#X connect 20 0 4 0;
+#X connect 21 0 4 0;
+#X connect 22 0 18 0;
+#X connect 22 1 17 0;
+#X connect 22 2 21 0;
+#X restore -45 364 pd CouleurRecord;
+#X msg 138 178 set 0;
+#X msg 198 243 set 1;
+#X obj 179 220 t b b b;
+#X obj 101 101 cnv 12 164 15 empty \$0-CanvasRecordStereo Record 107
+8 1 14 -261299 -1 1.04858e+06;
+#X obj 255 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 130 101 nbx 4 15 0 9999 0 0 \$0-A ColorTime sec 50 7 1 12 -208064
+-1 -1 0 256;
+#X obj 115 101 tgl 15 0 \$0-A \$0-B empty 19 9 1 12 -262144 -258113
+-1 0 1;
+#X obj 91 388 writesf~ 2;
+#X obj -57 388 s \$0-CanvasRecordStereo;
+#X text -48 39 L'extension .wav est ajoutée au nom du fichier automatiquement
+;
+#X obj 278 20 cnv 15 41 30 empty empty empty 20 12 0 14 -24198 -66577
+0;
+#N canvas 350 196 381 103 ? 0;
+#X obj 5 49 cnv 15 370 38 empty empty empty 20 12 0 14 -224896 -66577
+0;
+#X text 6 65 Voir/Look at: http://puredata.info/downloads;
+#X obj 4 12 cnv 18 370 30 empty empty ARGOPdMiniModules 1 10 1 14 -4033
+-1 1.04858e+06;
+#X obj 7 31 cnv 10 10 10 empty empty Gerard 0 5 1 9 -4033 -1 1.04858e+06
+;
+#X obj 38 31 cnv 10 10 10 empty empty Paresys 0 5 1 9 -4033 -1 1.04858e+06
+;
+#X obj 175 20 cnv 10 10 10 empty empty http://pagesperso-orange.fr/Paresys/ARGOPd/
+0 5 1 9 -4033 -1 1.04858e+06;
+#X text 6 51 Construit sous / Build under Pd 0.40.3-extended;
+#X obj 175 31 cnv 10 10 10 empty empty http://gerard.paresys.free.fr/ARGOPd/
+0 5 1 9 -4033 -1 1.04858e+06;
+#X restore 284 27 pd ?;
+#X connect 0 0 31 1;
+#X connect 5 0 31 0;
+#X connect 6 0 20 0;
+#X connect 6 1 19 0;
+#X connect 7 0 31 0;
+#X connect 8 0 14 0;
+#X connect 8 0 31 0;
+#X connect 9 0 25 0;
+#X connect 9 0 31 0;
+#X connect 10 0 9 0;
+#X connect 11 0 21 0;
+#X connect 12 0 13 0;
+#X connect 13 0 12 1;
+#X connect 13 0 29 0;
+#X connect 14 0 12 0;
+#X connect 15 0 13 0;
+#X connect 17 0 22 0;
+#X connect 18 0 22 0;
+#X connect 19 0 23 0;
+#X connect 19 1 10 0;
+#X connect 20 0 17 0;
+#X connect 20 1 8 0;
+#X connect 21 0 18 0;
+#X connect 21 1 7 0;
+#X connect 21 2 14 0;
+#X connect 21 3 15 0;
+#X connect 22 0 32 0;
+#X connect 23 0 30 0;
+#X connect 24 0 30 0;
+#X connect 25 0 11 0;
+#X connect 25 1 24 0;
+#X connect 25 2 15 0;
+#X connect 30 0 6 0;
+#X coords 0 -1 1 1 166 17 1 100 100;
+#X restore 23 74 pd ARGO;
+#N canvas 202 155 392 416 ARGO 0;
+#X obj 101 101 cnv 12 164 15 empty \$0-CanvasRecordMono Record 107
+8 1 14 -261299 -1 1.04858e+06;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 80 62 inlet~;
+#X obj 133 130 sel 0 1;
+#X msg 136 319 start;
+#X msg 99 318 stop;
+#X msg 179 198 open \$1;
+#X obj 179 177 savepanel;
+#X obj 179 266 delay 1000;
+#X obj 177 379 float;
+#X obj 223 378 + 1;
+#X obj 155 357 metro 1000;
+#X msg 223 358 -1;
+#X obj 130 101 nbx 4 15 0 9999 0 0 \$0-A ColorTime sec 50 7 1 12 -208064
+-1 -1 0 256;
+#X obj 91 388 writesf~ 1;
+#X text 87 80 Input;
+#X text -35 24 Enregistreur de fichier audio wav à 1 canal (mono);
+#X text -35 9 Mono wav file format recorder;
+#X text 271 100 3 5 2009;
+#X msg -45 339 0;
+#X msg -14 339 1;
+#X obj 115 101 tgl 15 0 \$0-A \$0-B empty 19 9 1 12 -262144 -258113
+-1 0 1;
+#X obj 152 153 t b b;
+#X obj 113 153 t b b;
+#X obj 179 288 t b b b b;
+#N canvas 317 143 290 366 CouleurRecord 0;
+#X obj 122 -19 +;
+#X obj 122 37 +;
+#X obj 61 -75 * -65536;
+#X obj 117 -75 * -256;
+#X obj 163 -77 * -1;
+#X obj 122 68 - 1;
+#X obj 115 -202 inlet;
+#X text 77 -97 R;
+#X text 123 -99 G;
+#X text 172 -98 B;
+#X obj 122 123 outlet;
+#X text 170 -169 Rouge;
+#X msg 134 -121 255;
+#X msg 167 -121 0;
+#X obj 115 -178 sel 0 1;
+#X msg 122 96 color \$1 -1;
+#X text 56 -170 Rose;
+#X msg 73 -121 200;
+#X msg 40 -121 252;
+#X obj 134 -148 t b b b;
+#X msg 198 -121 0;
+#X msg 104 -121 200;
+#X obj 40 -148 t b b b;
+#X connect 0 0 1 1;
+#X connect 1 0 5 0;
+#X connect 2 0 1 0;
+#X connect 3 0 0 0;
+#X connect 4 0 0 1;
+#X connect 5 0 15 0;
+#X connect 6 0 14 0;
+#X connect 12 0 2 0;
+#X connect 13 0 3 0;
+#X connect 14 0 22 0;
+#X connect 14 1 19 0;
+#X connect 15 0 10 0;
+#X connect 17 0 3 0;
+#X connect 18 0 2 0;
+#X connect 19 0 12 0;
+#X connect 19 1 13 0;
+#X connect 19 2 20 0;
+#X connect 20 0 4 0;
+#X connect 21 0 4 0;
+#X connect 22 0 18 0;
+#X connect 22 1 17 0;
+#X connect 22 2 21 0;
+#X restore -45 364 pd CouleurRecord;
+#X obj -45 388 s \$0-CanvasRecordMono;
+#X msg 138 178 set 0;
+#X msg 198 243 set 1;
+#X obj 179 220 t b b b;
+#X text -37 39 L'extension .wav est ajoutée au nom du fichier automatiquement
+;
+#X obj 281 14 cnv 15 41 30 empty empty empty 20 12 0 14 -24198 -66577
+0;
+#N canvas 350 196 381 103 ? 0;
+#X obj 5 49 cnv 15 370 38 empty empty empty 20 12 0 14 -224896 -66577
+0;
+#X text 6 65 Voir/Look at: http://puredata.info/downloads;
+#X obj 4 12 cnv 18 370 30 empty empty ARGOPdMiniModules 1 10 1 14 -4033
+-1 1.04858e+06;
+#X obj 7 31 cnv 10 10 10 empty empty Gerard 0 5 1 9 -4033 -1 1.04858e+06
+;
+#X obj 38 31 cnv 10 10 10 empty empty Paresys 0 5 1 9 -4033 -1 1.04858e+06
+;
+#X obj 175 20 cnv 10 10 10 empty empty http://pagesperso-orange.fr/Paresys/ARGOPd/
+0 5 1 9 -4033 -1 1.04858e+06;
+#X text 6 51 Construit sous / Build under Pd 0.40.3-extended;
+#X obj 175 31 cnv 10 10 10 empty empty http://gerard.paresys.free.fr/ARGOPd/
+0 5 1 9 -4033 -1 1.04858e+06;
+#X restore 287 21 pd ?;
+#X connect 2 0 14 0;
+#X connect 3 0 23 0;
+#X connect 3 1 22 0;
+#X connect 4 0 14 0;
+#X connect 5 0 11 0;
+#X connect 5 0 14 0;
+#X connect 6 0 14 0;
+#X connect 6 0 29 0;
+#X connect 7 0 6 0;
+#X connect 8 0 24 0;
+#X connect 9 0 10 0;
+#X connect 10 0 9 1;
+#X connect 10 0 13 0;
+#X connect 11 0 9 0;
+#X connect 12 0 10 0;
+#X connect 19 0 25 0;
+#X connect 20 0 25 0;
+#X connect 21 0 3 0;
+#X connect 22 0 27 0;
+#X connect 22 1 7 0;
+#X connect 23 0 19 0;
+#X connect 23 1 5 0;
+#X connect 24 0 20 0;
+#X connect 24 1 4 0;
+#X connect 24 2 11 0;
+#X connect 24 3 12 0;
+#X connect 25 0 26 0;
+#X connect 27 0 21 0;
+#X connect 28 0 21 0;
+#X connect 29 0 8 0;
+#X connect 29 1 28 0;
+#X connect 29 2 12 0;
+#X coords 0 -1 1 1 166 17 1 100 100;
+#X restore 23 44 pd ARGO;
+#X text 199 43 <- Mono;
+#X text 199 72 <- Stereo;
+#N canvas 279 97 386 417 ARGO 0;
+#X obj 135 64 inlet~;
+#X obj 83 64 inlet~;
+#X obj 133 130 sel 0 1;
+#X msg 136 319 start;
+#X msg 99 318 stop;
+#X msg 179 198 open \$1;
+#X obj 179 177 savepanel;
+#X obj 179 266 delay 1000;
+#X obj 177 379 float;
+#X obj 223 378 + 1;
+#X obj 155 357 metro 1000;
+#X msg 223 358 -1;
+#X text 269 102 3 5 2009;
+#X msg -45 339 0;
+#X msg -14 339 1;
+#X obj 152 153 t b b;
+#X obj 113 153 t b b;
+#X obj 179 288 t b b b b;
+#N canvas 317 143 290 366 CouleurRecord 0;
+#X obj 122 -19 +;
+#X obj 122 37 +;
+#X obj 61 -75 * -65536;
+#X obj 117 -75 * -256;
+#X obj 163 -77 * -1;
+#X obj 122 68 - 1;
+#X obj 115 -202 inlet;
+#X text 77 -97 R;
+#X text 123 -99 G;
+#X text 172 -98 B;
+#X obj 122 123 outlet;
+#X text 170 -169 Rouge;
+#X msg 134 -121 255;
+#X msg 167 -121 0;
+#X obj 115 -178 sel 0 1;
+#X msg 122 96 color \$1 -1;
+#X text 56 -170 Rose;
+#X msg 73 -121 200;
+#X msg 40 -121 252;
+#X obj 134 -148 t b b b;
+#X msg 198 -121 0;
+#X msg 104 -121 200;
+#X obj 40 -148 t b b b;
+#X connect 0 0 1 1;
+#X connect 1 0 5 0;
+#X connect 2 0 1 0;
+#X connect 3 0 0 0;
+#X connect 4 0 0 1;
+#X connect 5 0 15 0;
+#X connect 6 0 14 0;
+#X connect 12 0 2 0;
+#X connect 13 0 3 0;
+#X connect 14 0 22 0;
+#X connect 14 1 19 0;
+#X connect 15 0 10 0;
+#X connect 17 0 3 0;
+#X connect 18 0 2 0;
+#X connect 19 0 12 0;
+#X connect 19 1 13 0;
+#X connect 19 2 20 0;
+#X connect 20 0 4 0;
+#X connect 21 0 4 0;
+#X connect 22 0 18 0;
+#X connect 22 1 17 0;
+#X connect 22 2 21 0;
+#X restore -45 364 pd CouleurRecord;
+#X msg 138 178 set 0;
+#X msg 198 243 set 1;
+#X obj 179 220 t b b b;
+#X obj 101 101 cnv 12 164 20 empty \$0-CanvasRecord4Tracks Record 107
+13 1 14 -261299 -1 1.04858e+06;
+#X obj 255 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 130 106 nbx 4 15 0 9999 0 0 \$0-A ColorTime sec 50 7 1 12 -208064
+-1 -1 0 256;
+#X obj 115 106 tgl 15 0 \$0-A \$0-B empty 19 9 1 12 -262144 -258113
+-1 0 1;
+#X obj 91 388 writesf~ 4;
+#X obj 186 64 inlet~;
+#X obj 238 65 inlet~;
+#X obj 150 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 204 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X text -37 9 4 tracks wav file format recorder;
+#X text -37 24 Enregistreur de fichier audio wav à 4 pistes;
+#X text -37 39 L'extension .wav est ajoutée au nom du fichier automatiquement
+;
+#X text 90 83 Input;
+#X text 139 83 Input;
+#X text 190 83 Input;
+#X text 244 83 Input;
+#X obj -61 388 s \$0-CanvasRecord4Tracks;
+#X obj 263 19 cnv 15 41 30 empty empty empty 20 12 0 14 -24198 -66577
+0;
+#N canvas 350 196 381 103 ? 0;
+#X obj 5 49 cnv 15 370 38 empty empty empty 20 12 0 14 -224896 -66577
+0;
+#X text 6 65 Voir/Look at: http://puredata.info/downloads;
+#X obj 4 12 cnv 18 370 30 empty empty ARGOPdMiniModules 1 10 1 14 -4033
+-1 1.04858e+06;
+#X obj 7 31 cnv 10 10 10 empty empty Gerard 0 5 1 9 -4033 -1 1.04858e+06
+;
+#X obj 38 31 cnv 10 10 10 empty empty Paresys 0 5 1 9 -4033 -1 1.04858e+06
+;
+#X obj 175 20 cnv 10 10 10 empty empty http://pagesperso-orange.fr/Paresys/ARGOPd/
+0 5 1 9 -4033 -1 1.04858e+06;
+#X text 6 51 Construit sous / Build under Pd 0.40.3-extended;
+#X obj 175 31 cnv 10 10 10 empty empty http://gerard.paresys.free.fr/ARGOPd/
+0 5 1 9 -4033 -1 1.04858e+06;
+#X restore 269 26 pd ?;
+#X connect 0 0 27 1;
+#X connect 1 0 27 0;
+#X connect 2 0 16 0;
+#X connect 2 1 15 0;
+#X connect 3 0 27 0;
+#X connect 4 0 10 0;
+#X connect 4 0 27 0;
+#X connect 5 0 21 0;
+#X connect 5 0 27 0;
+#X connect 6 0 5 0;
+#X connect 7 0 17 0;
+#X connect 8 0 9 0;
+#X connect 9 0 8 1;
+#X connect 9 0 25 0;
+#X connect 10 0 8 0;
+#X connect 11 0 9 0;
+#X connect 13 0 18 0;
+#X connect 14 0 18 0;
+#X connect 15 0 19 0;
+#X connect 15 1 6 0;
+#X connect 16 0 13 0;
+#X connect 16 1 4 0;
+#X connect 17 0 14 0;
+#X connect 17 1 3 0;
+#X connect 17 2 10 0;
+#X connect 17 3 11 0;
+#X connect 18 0 39 0;
+#X connect 19 0 26 0;
+#X connect 20 0 26 0;
+#X connect 21 0 7 0;
+#X connect 21 1 20 0;
+#X connect 21 2 11 0;
+#X connect 26 0 2 0;
+#X connect 28 0 27 2;
+#X connect 29 0 27 3;
+#X coords 0 -1 1 1 166 22 1 100 100;
+#X restore 23 103 pd ARGO;
+#X text 199 104 <- 4 tracks;
+#X obj 9 175 cnv 15 360 60 empty empty empty 20 12 0 14 -258113 -66577
+0;
+#X text 14 175 ATTENTION: Ne pas placer 2 MiniModules "Record" identiques
+dans le même patch.;
+#X text 14 201 WARNING: Do not place 2 identical "Record" MiniModules
+in the same patch.;
+#N canvas 279 97 424 417 ARGO 0;
+#X obj 45 65 inlet~;
+#X obj 2 65 inlet~;
+#X obj 133 130 sel 0 1;
+#X msg 136 319 start;
+#X msg 99 318 stop;
+#X msg 179 198 open \$1;
+#X obj 179 177 savepanel;
+#X obj 179 266 delay 1000;
+#X obj 177 379 float;
+#X obj 223 378 + 1;
+#X obj 155 357 metro 1000;
+#X msg 223 358 -1;
+#X text 269 102 3 5 2009;
+#X msg -45 339 0;
+#X msg -14 339 1;
+#X obj 152 153 t b b;
+#X obj 113 153 t b b;
+#X obj 179 288 t b b b b;
+#N canvas 317 143 290 366 CouleurRecord 0;
+#X obj 122 -19 +;
+#X obj 122 37 +;
+#X obj 61 -75 * -65536;
+#X obj 117 -75 * -256;
+#X obj 163 -77 * -1;
+#X obj 122 68 - 1;
+#X obj 115 -202 inlet;
+#X text 77 -97 R;
+#X text 123 -99 G;
+#X text 172 -98 B;
+#X obj 122 123 outlet;
+#X text 170 -169 Rouge;
+#X msg 134 -121 255;
+#X msg 167 -121 0;
+#X obj 115 -178 sel 0 1;
+#X msg 122 96 color \$1 -1;
+#X text 56 -170 Rose;
+#X msg 73 -121 200;
+#X msg 40 -121 252;
+#X obj 134 -148 t b b b;
+#X msg 198 -121 0;
+#X msg 104 -121 200;
+#X obj 40 -148 t b b b;
+#X connect 0 0 1 1;
+#X connect 1 0 5 0;
+#X connect 2 0 1 0;
+#X connect 3 0 0 0;
+#X connect 4 0 0 1;
+#X connect 5 0 15 0;
+#X connect 6 0 14 0;
+#X connect 12 0 2 0;
+#X connect 13 0 3 0;
+#X connect 14 0 22 0;
+#X connect 14 1 19 0;
+#X connect 15 0 10 0;
+#X connect 17 0 3 0;
+#X connect 18 0 2 0;
+#X connect 19 0 12 0;
+#X connect 19 1 13 0;
+#X connect 19 2 20 0;
+#X connect 20 0 4 0;
+#X connect 21 0 4 0;
+#X connect 22 0 18 0;
+#X connect 22 1 17 0;
+#X connect 22 2 21 0;
+#X restore -45 364 pd CouleurRecord;
+#X msg 138 178 set 0;
+#X msg 198 243 set 1;
+#X obj 179 220 t b b b;
+#X obj 101 101 cnv 12 164 20 empty \$0-CanvasRecord8Tracks Record 107
+13 1 14 -261299 -1 1.04858e+06;
+#X obj 255 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 130 106 nbx 4 15 0 9999 0 0 \$0-A ColorTime sec 50 7 1 12 -208064
+-1 -1 0 256;
+#X obj 115 106 tgl 15 0 \$0-A \$0-B empty 19 9 1 12 -262144 -258113
+-1 0 1;
+#X obj 89 65 inlet~;
+#X obj 133 65 inlet~;
+#X obj 144 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 189 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X text -41 35 L'extension .wav est ajoutée au nom du fichier automatiquement
+;
+#X obj 91 388 writesf~ 8;
+#X obj 219 65 inlet~;
+#X obj 176 65 inlet~;
+#X obj 263 65 inlet~;
+#X obj 307 65 inlet~;
+#X text -41 5 8 tracks wav file format recorder;
+#X text -41 20 Enregistreur de fichier audio wav à 8 pistes;
+#X obj 122 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 167 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 211 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 233 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj -62 389 s \$0-CanvasRecord8Tracks;
+#X obj 281 14 cnv 15 41 30 empty empty empty 20 12 0 14 -24198 -66577
+0;
+#N canvas 350 196 381 103 ? 0;
+#X obj 5 49 cnv 15 370 38 empty empty empty 20 12 0 14 -224896 -66577
+0;
+#X text 6 65 Voir/Look at: http://puredata.info/downloads;
+#X obj 4 12 cnv 18 370 30 empty empty ARGOPdMiniModules 1 10 1 14 -4033
+-1 1.04858e+06;
+#X obj 7 31 cnv 10 10 10 empty empty Gerard 0 5 1 9 -4033 -1 1.04858e+06
+;
+#X obj 38 31 cnv 10 10 10 empty empty Paresys 0 5 1 9 -4033 -1 1.04858e+06
+;
+#X obj 175 20 cnv 10 10 10 empty empty http://pagesperso-orange.fr/Paresys/ARGOPd/
+0 5 1 9 -4033 -1 1.04858e+06;
+#X text 6 51 Construit sous / Build under Pd 0.40.3-extended;
+#X obj 175 31 cnv 10 10 10 empty empty http://gerard.paresys.free.fr/ARGOPd/
+0 5 1 9 -4033 -1 1.04858e+06;
+#X restore 287 21 pd ?;
+#X connect 0 0 32 1;
+#X connect 1 0 32 0;
+#X connect 2 0 16 0;
+#X connect 2 1 15 0;
+#X connect 3 0 32 0;
+#X connect 4 0 10 0;
+#X connect 4 0 32 0;
+#X connect 5 0 21 0;
+#X connect 5 0 32 0;
+#X connect 6 0 5 0;
+#X connect 7 0 17 0;
+#X connect 8 0 9 0;
+#X connect 9 0 8 1;
+#X connect 9 0 25 0;
+#X connect 10 0 8 0;
+#X connect 11 0 9 0;
+#X connect 13 0 18 0;
+#X connect 14 0 18 0;
+#X connect 15 0 19 0;
+#X connect 15 1 6 0;
+#X connect 16 0 13 0;
+#X connect 16 1 4 0;
+#X connect 17 0 14 0;
+#X connect 17 1 3 0;
+#X connect 17 2 10 0;
+#X connect 17 3 11 0;
+#X connect 18 0 43 0;
+#X connect 19 0 26 0;
+#X connect 20 0 26 0;
+#X connect 21 0 7 0;
+#X connect 21 1 20 0;
+#X connect 21 2 11 0;
+#X connect 26 0 2 0;
+#X connect 27 0 32 2;
+#X connect 28 0 32 3;
+#X connect 33 0 32 5;
+#X connect 34 0 32 4;
+#X connect 35 0 32 6;
+#X connect 36 0 32 7;
+#X coords 0 -1 1 1 166 22 1 100 100;
+#X restore 22 136 pd ARGO;
+#X text 198 137 <- 8 tracks;
+#X text 22 20 Enregistreur de fichier au format .wav;
+#X text 22 8 .wav file format recorder;

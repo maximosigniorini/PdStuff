@@ -1,0 +1,102 @@
+#N canvas 490 352 1176 549 10;
+#N canvas 1 89 450 300 (subpatch) 0;
+#X array array2 100 float 3;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0;
+#X coords 0 1 99 -1 200 140 1;
+#X restore 680 26 graph;
+#X msg 83 418 memset 0 1 1 1 1 1;
+#X text 215 414 write a list (or a float) to the shared memory : 1st
+value is index \, other are data to store;
+#X msg 52 343 memset 0 array1;
+#N canvas 0 50 450 300 (subpatch) 0;
+#X array array1 100 float 3;
+#A 0 -0.235714 -0.25 -0.264285 -0.278571 -0.292857 -0.292857 -0.25
+-0.235714 -0.192857 -0.164286 -0.121429 -0.1 -0.0785717 -0.0500004
+-0.021429 -4.76837e-07 0.021428 0.0428566 0.0642851 0.0857136 0.107142
+0.121428 0.135714 0.149999 0.164285 0.182142 0.199999 0.217856 0.235713
+0.249999 0.264285 0.27857 0.292856 0.307142 0.321427 0.335713 0.349999
+0.357142 0.364284 0.371427 0.37857 0.383332 0.388094 0.392856 0.40238
+0.411903 0.421427 0.421427 0.421427 0.435713 0.435713 0.435713 0.407142
+0.37857 0.335713 0.307142 0.235713 0.214285 0.192856 0.164285 0.0928565
+0.0499994 -0.00714332 -0.0642861 -0.121429 -0.135714 -0.135714 -0.135714
+-0.107143 -0.1 -0.0928574 -0.0785717 -0.0642861 -0.0642861 -0.0357147
+-0.021429 -0.00714332 0.00714236 0.021428 0.0357137 0.0642851 0.0785708
+0.107142 0.121428 0.135714 0.149999 0.149999 0.164285 0.178571 0.192856
+0.207142 0.221428 0.235713 0.235713 0.249999 0.264285 0.264285 0.27857
+0.292856 0.292856;
+#X coords 0 1 99 -1 200 140 1;
+#X restore 475 26 graph;
+#X text 166 343 set shared memory from index 0 with array1;
+#X msg 68 365 memset 0 array1 50;
+#X text 196 365 set shared memory from index 0 with array1 from index
+50;
+#X obj 36 505 shmem 1214 250;
+#X text 162 505 1st argument : Identifiant of the memory segment;
+#X text 21 15 shmem - shared memory manipulation;
+#X text 22 37 The shmem object allow to use shared memory in Pd. It
+is useful for example to exchange array between two instances of Pd.
+Every shmem object can read and write to a shared memory segment that
+is identified by its Id.;
+#X text 21 95 When you create a shmem object \, it checks its Id. If
+the id is not used \, it allows a new segment \, otherwise it address
+the exisiting segment.;
+#X floatatom 614 418 5 0 0 0 - - -;
+#X obj 598 471 shmem 1214 250;
+#X text 685 443 read one float of the table send value to the outlet
+;
+#X msg 598 352 memdump 0 array2;
+#X text 567 274 READING MEMORY;
+#X floatatom 598 495 5 0 0 0 - - -;
+#X text 718 352 dump shared memory from index 0 to array2;
+#X text 21 146 Work only on Linux / and Unix.;
+#X text 162 521 2nd argument : size of the segment (number of float)
+;
+#X msg 614 443 memread \$1;
+#X msg 106 475 memclear;
+#X text 169 477 reset memory to 0;
+#X text 475 168 array1 and array 2 are size 100;
+#X msg 99 448 memset 50 5 5 5 1 1 0.1 0.2 0.3 0.4 0.5 0.6 0.7;
+#X text 21 272 WRITING INTO MEMORY;
+#X msg 608 374 memdump 0 array2 50;
+#X text 728 374 dump shared memory from index 0 to array2 from index
+50;
+#X text 768 394 dump shared memory from index 0 to array2 from index
+50 to index 60 (50 + 10);
+#X msg 46 321 memset array1 array1 array1;
+#X msg 36 301 memset array1;
+#X text 149 300 set array in to shared memory;
+#X text 223 321 set diferent array in to shared memory;
+#X msg 568 301 memdump array2;
+#X msg 584 322 memdump array2 array2 array2;
+#X text 698 298 dump shared memory in an array;
+#X text 769 322 dump shared memory in many array;
+#X msg 78 391 memset 50 array1 0 25;
+#X text 219 388 set shared memory from index 50 with array1 from index
+0 to 25;
+#X msg 53 197 memset array_name [array_name];
+#X msg 71 237 memset src_offset list_of_float;
+#X msg 571 198 memdump array_name [array_name];
+#X msg 61 217 memset src_offset src_array_name [dest_offset [size]]
+;
+#X msg 583 221 memdump src_offset dest_array_name [dest_offset [size]]
+;
+#X msg 618 394 memdump 50 array2 0 10;
+#X connect 1 0 8 0;
+#X connect 3 0 8 0;
+#X connect 6 0 8 0;
+#X connect 13 0 22 0;
+#X connect 14 0 18 0;
+#X connect 16 0 14 0;
+#X connect 22 0 14 0;
+#X connect 23 0 8 0;
+#X connect 26 0 8 0;
+#X connect 28 0 14 0;
+#X connect 31 0 8 0;
+#X connect 32 0 8 0;
+#X connect 35 0 14 0;
+#X connect 36 0 14 0;
+#X connect 39 0 8 0;
+#X connect 46 0 14 0;

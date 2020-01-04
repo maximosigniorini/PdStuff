@@ -1,0 +1,123 @@
+#N canvas 819 214 393 502 10;
+#X obj 111 -2 inchan/code \$0 \$1;
+#X obj 21 21 cnv 15 66 459 empty \$0-background empty 20 12 0 14 -62784
+-262144 0;
+#X obj 21 21 cnv 10 66 459 empty empty empty 5 12 0 14 -195568 -66577
+0;
+#X obj 23 62 nbx 3 14 -100 50 0 0 \$0GUIinchan_aux1_gain_fromgui \$0GUIinchan_aux1_gain_togui
+aux1 0 -4 0 8 -228992 -1 -1 -100 256;
+#X obj 20 379 cnv 2 35 2 empty empty empty 20 12 0 14 -1 -66577 0;
+#X obj 23 333 vsl 30 131 0 130 0 0 \$0GUIinchan_fader \$0GUIinchan_fader
+-inf 1 140 0 8 -228992 -1 -1 0 1;
+#X obj 58 355 vsl 8 109 0 108 0 0 \$0GUIinchan_subfader_fromgui \$0GUIinchan_subfader_togui
+empty 0 -8 0 8 -245568 -1 -1 0 1;
+#X obj 32 21 hradio 15 1 0 3 \$0GUIinchan_select \$0GUIinchan_select
+empty 0 -6 0 8 -262144 -1 -1 1;
+#X obj 55 62 nbx 3 14 -100 50 0 0 \$0GUIinchan_aux2_gain_fromgui \$0GUIinchan_aux2_gain_togui
+aux2 0 -4 0 8 -228992 -1 -1 -100 256;
+#X obj 55 85 nbx 3 14 -100 50 0 0 \$0GUIinchan_aux4_gain_fromgui \$0GUIinchan_aux4_gain_togui
+aux4 0 -4 0 8 -228992 -1 -1 -100 256;
+#X obj 23 85 nbx 3 14 -100 50 0 0 \$0GUIinchan_aux3_gain_fromgui \$0GUIinchan_aux3_gain_togui
+aux3 0 -4 0 8 -228992 -1 -1 -100 256;
+#X obj 22 103 cnv 20 64 88 empty empty EQ 40 8 0 12 -233017 -66577
+0;
+#N canvas 500 0 450 300 code 0;
+#X obj 106 253 outlet;
+#X obj 106 52 inlet;
+#X obj 106 93 select 0 1;
+#X msg 106 123 31;
+#X msg 138 122 -1;
+#X text 179 18 change the FRONT-color of the nbx's;
+#X obj 106 73 f;
+#X obj 224 257 outlet;
+#X msg 106 219 color \$2 \$1 \$1;
+#X obj 106 192 pack 0 0;
+#X obj 207 140 colorschemes/gain;
+#X obj 277 185 colorschemes/freq;
+#X msg 224 235 color \$2 \$1 \$1;
+#X obj 224 212 pack 0 0;
+#X msg 207 78 bang;
+#X obj 245 78 loadbang;
+#X obj 458 262 outlet;
+#X msg 457 241 color \$2 \$1 \$1;
+#X obj 459 218 pack 0 0;
+#X obj 106 167 t f f f;
+#X obj 207 112 t b b b;
+#X connect 1 0 6 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 3 0 19 0;
+#X connect 4 0 19 0;
+#X connect 6 0 2 0;
+#X connect 8 0 0 0;
+#X connect 9 0 8 0;
+#X connect 10 0 9 1;
+#X connect 11 0 13 1;
+#X connect 12 0 7 0;
+#X connect 13 0 12 0;
+#X connect 14 0 20 0;
+#X connect 15 0 20 0;
+#X connect 17 0 16 0;
+#X connect 18 0 17 0;
+#X connect 19 0 9 0;
+#X connect 19 1 13 0;
+#X connect 19 2 18 0;
+#X connect 20 0 3 0;
+#X connect 20 1 10 0;
+#X connect 20 2 11 0;
+#X restore 94 138 pd code;
+#X obj 65 171 tgl 15 0 \$0GUIinchan_eq_lowcut_tgl_fromgui \$0GUIinchan_eq_lowcut_tgl_togui
+L 6 8 0 8 -262144 -166441 -166441 0 1;
+#X obj 64 126 tgl 15 0 \$0GUIinchan_eq_hicut_tgl_fromgui \$0GUIinchan_eq_hicut_tgl_togui
+H 6 8 0 8 -262144 -166441 -166441 0 1;
+#X obj 20 171 nbx 3 12 -100 20 0 0 \$0GUIinchan_eq_low_gain_fromgui
+\$0GUIinchan_eq_low_gain_togui empty 0 -6 0 8 -228992 -166441 -166441
+0 256;
+#X obj 20 157 nbx 3 12 -100 20 0 0 \$0GUIinchan_eq_mid2_gain_fromgui
+\$0GUIinchan_eq_mid2_gain_togui empty 0 -6 0 8 -228992 -166441 -166441
+0 256;
+#X obj 50 157 nbx 4 12 100 9999 1 0 \$0GUIinchan_eq_mid2_freq_fromgui
+\$0GUIinchan_eq_mid2_freq_togui empty 0 -6 0 8 -187584 -166441 -166441
+440 256;
+#X obj 20 143 nbx 3 12 -100 20 0 0 \$0GUIinchan_eq_mid1_gain_fromgui
+\$0GUIinchan_eq_mid1_gain_togui empty 0 -6 0 8 -228992 -166441 -166441
+0 256;
+#X obj 20 129 nbx 3 12 -100 20 0 0 \$0GUIinchan_eq_hi_gain_fromgui
+\$0GUIinchan_eq_hi_gain_togui empty 0 -6 0 8 -228992 -166441 -166441
+0 256;
+#X obj 50 143 nbx 4 12 100 9999 1 0 \$0GUIinchan_eq_mid1_freq_fromgui
+\$0GUIinchan_eq_mid1_freq_togui empty 0 -6 0 8 -187584 -166441 -166441
+1200 256;
+#X obj 26 105 tgl 20 0 \$0GUIinchan_eq_tgl_fromgui \$0GUIinchan_eq_tgl_togui
+empty 0 -6 0 8 -262144 -1 -1 0 1;
+#X obj 21 21 cnv 15 67 15 empty \$0GUIinchan_name ch:01 3 9 0 14 -83187
+-195568 0;
+#X obj 21 39 cnv 15 66 15 empty \$0GUIinchan_inputselectname empty
+15 8 0 8 -233017 -66577 0;
+#X obj 22 193 tgl 15 0 \$0GUIinchan_plugin1_tgl_fromgui \$0GUIinchan_plugin1_tgl_togui
+plugin1 20 7 0 8 -262144 -1 -1 0 1;
+#X obj 22 210 tgl 15 0 \$0GUIinchan_plugin2_tgl_fromgui \$0GUIinchan_plugin2_tgl_togui
+plugin2 20 7 0 8 -262144 -1 -1 0 1;
+#X obj 61 331 cnv 19 19 19 empty empty empty 20 12 0 14 -66577 -66577
+0;
+#X obj 64 333 cnv 15 15 15 empty \$0GUIinchan_level empty 20 12 0 14
+-66577 -1 0;
+#X obj 72 388 cnv 15 15 15 empty empty empty 20 12 0 14 -258699 -1
+0;
+#X obj 74 390 tgl 11 0 \$0GUIinchan_mute_fromgui \$0GUIinchan_mute_togui
+on 1 5 0 8 -262144 -262144 -1 0 1;
+#X obj 72 418 cnv 15 15 15 empty empty empty 20 12 0 14 -24198 -1 0
+;
+#X obj 74 420 tgl 11 0 \$0GUIinchan_solo_fromgui \$0GUIinchan_solo_togui
+S 2 5 0 12 -262144 -262144 -1 0 1;
+#X obj 20 227 inchan/spat \$0 \$1;
+#X connect 12 0 15 0;
+#X connect 12 0 16 0;
+#X connect 12 0 18 0;
+#X connect 12 0 19 0;
+#X connect 12 1 20 0;
+#X connect 12 1 17 0;
+#X connect 12 2 14 0;
+#X connect 12 2 13 0;
+#X connect 21 0 12 0;
+#X coords 0 0 1 1 68 460 1 20 20;

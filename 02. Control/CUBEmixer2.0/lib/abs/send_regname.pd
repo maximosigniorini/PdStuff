@@ -1,0 +1,30 @@
+#N canvas 434 202 548 476 10;
+#X obj 101 151 inlet;
+#X obj 131 324 iem_s \$1;
+#X obj 296 129 inlet;
+#X msg 296 204 set \$1;
+#X obj 296 159 symbol;
+#X text 101 131 message in;
+#X text 294 113 <symbol> send/receive-name in;
+#X text 206 334 1.arg: <symbol> send- / receive- name;
+#X text 159 412 (c) IOhannes m zmoelnig \, IEM 2005;
+#X text 201 430 published under the Gnu GPL;
+#X text 16 12 [send_regname];
+#X text 105 34 like a normal [send] \, but the sendname can be queried
+via a "bang" to sendreceive_getName \; the current sendname will be
+sent to "sendreceive_setName";
+#X obj 131 238 t a a;
+#X obj 231 300 s GLOBAL_NETSEND;
+#X obj 296 182 t s s;
+#X obj 231 277 list prepend \$1;
+#X msg 366 207 list \$1;
+#X connect 0 0 12 0;
+#X connect 2 0 4 0;
+#X connect 3 0 1 1;
+#X connect 4 0 14 0;
+#X connect 12 0 1 0;
+#X connect 12 1 15 0;
+#X connect 14 0 3 0;
+#X connect 14 1 16 0;
+#X connect 15 0 13 0;
+#X connect 16 0 15 1;

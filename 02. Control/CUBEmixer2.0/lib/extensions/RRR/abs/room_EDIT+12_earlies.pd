@@ -1,0 +1,612 @@
+#N canvas 1327 66 1222 426 10;
+#N canvas 1144 0 1249 881 EDIT_early_reverb 0;
+#X obj 10 238 cnv 8 1 1 empty empty early_echo 0 4 0 9 -262144 -1 0
+;
+#X obj 10 248 cnv 8 1 1 empty empty delay_time 0 4 0 9 -262144 -1 0
+;
+#X obj 312 248 cnv 8 1 1 empty empty ms 0 4 0 9 -262144 -1 0;
+#X floatatom 273 244 5 0.1 1000 0 - #0early_delay_6_togui #0early_delay_6_fromgui
+;
+#X obj 571 248 cnv 8 1 1 empty empty ms 0 4 0 9 -262144 -1 0;
+#X floatatom 532 244 5 0.1 1000 0 - #0early_delay_12_togui #0early_delay_12_fromgui
+;
+#X obj 10 269 cnv 8 1 1 empty empty early_echo 0 4 0 9 -262144 -1 0
+;
+#X obj 10 279 cnv 8 1 1 empty empty damping 0 4 0 9 -262144 -1 0;
+#X obj 312 268 cnv 8 1 1 empty empty dB 0 4 0 9 -262144 -1 0;
+#X floatatom 273 264 5 -100 0 0 - #0early_damp_6_togui #0early_damp_6_fromgui
+;
+#X obj 571 268 cnv 8 1 1 empty empty dB 0 4 0 9 -262144 -1 0;
+#X floatatom 532 264 5 -100 0 0 - #0early_damp_12_togui #0early_damp_12_fromgui
+;
+#X floatatom 233 244 5 0.1 1000 0 - #0early_delay_5_togui #0early_delay_5_fromgui
+;
+#X floatatom 492 244 5 0.1 1000 0 - #0early_delay_11_togui #0early_delay_11_fromgui
+;
+#X floatatom 233 264 5 -100 0 0 - #0early_damp_5_togui #0early_damp_5_fromgui
+;
+#X floatatom 492 264 5 -100 0 0 - #0early_damp_11_togui #0early_damp_11_fromgui
+;
+#X floatatom 193 244 5 0.1 1000 0 - #0early_delay_4_togui #0early_delay_4_fromgui
+;
+#X floatatom 452 244 5 0.1 1000 0 - #0early_delay_10_togui #0early_delay_10_fromgui
+;
+#X floatatom 193 264 5 -100 0 0 - #0early_damp_4_togui #0early_damp_4_fromgui
+;
+#X floatatom 452 264 5 -100 0 0 - #0early_damp_10_togui #0early_damp_10_fromgui
+;
+#X floatatom 153 244 5 0.1 1000 0 - #0early_delay_3_togui #0early_delay_3_fromgui
+;
+#X floatatom 412 244 5 0.1 1000 0 - #0early_delay_9_togui #0early_delay_9_fromgui
+;
+#X floatatom 153 264 5 -100 0 0 - #0early_damp_3_togui #0early_damp_3_fromgui
+;
+#X floatatom 412 264 5 -100 0 0 - #0early_damp_9_togui #0early_damp_9_fromgui
+;
+#X floatatom 113 244 5 0.1 1000 0 - #0early_delay_2_togui #0early_delay_2_fromgui
+;
+#X floatatom 372 244 5 0.1 1000 0 - #0early_delay_8_togui #0early_delay_8_fromgui
+;
+#X floatatom 113 264 5 -100 0 0 - #0early_damp_2_togui #0early_damp_2_fromgui
+;
+#X floatatom 372 264 5 -100 0 0 - #0early_damp_8_togui #0early_damp_8_fromgui
+;
+#X floatatom 73 244 5 0.1 1000 0 - #0early_delay_1_togui #0early_delay_1_fromgui
+;
+#X floatatom 332 244 5 0.1 1000 0 - #0early_delay_7_togui #0early_delay_7_fromgui
+;
+#X floatatom 73 264 5 -100 0 0 - #0early_damp_1_togui #0early_damp_1_fromgui
+;
+#X floatatom 332 264 5 -100 0 0 - #0early_damp_7_togui #0early_damp_7_fromgui
+;
+#X obj 244 234 cnv 8 1 1 empty empty 5 0 4 0 9 -262144 -1 0;
+#X obj 287 234 cnv 8 1 1 empty empty 6 0 4 0 9 -262144 -1 0;
+#X obj 87 234 cnv 8 1 1 empty empty 1 0 4 0 9 -262144 -1 0;
+#X obj 347 234 cnv 8 1 1 empty empty 7 0 4 0 9 -262144 -1 0;
+#X obj 387 234 cnv 8 1 1 empty empty 8 0 4 0 9 -262144 -1 0;
+#X obj 547 234 cnv 8 1 1 empty empty 12 0 4 0 9 -262144 -1 0;
+#X obj 507 234 cnv 8 1 1 empty empty 11 0 4 0 9 -262144 -1 0;
+#X obj 467 234 cnv 8 1 1 empty empty 10 0 4 0 9 -262144 -1 0;
+#X obj 427 234 cnv 8 1 1 empty empty 9 0 4 0 9 -262144 -1 0;
+#X obj 14 80 vsl 15 121 0 120 0 0 \$0early_gain_fromgui \$0early_gain_togui
+empty 0 -8 0 8 -6177 -1 -1 6900 1;
+#X obj 14 308 fadtodb;
+#X obj 14 330 - 100;
+#X floatatom 14 207 4 0 0 0 - - -;
+#X obj 64 80 vsl 15 121 0.16 16 1 0 \$0early_cutoff_fromgui \$0early_cutoff_togui
+empty 0 -8 0 8 -14404 -1 -1 9338 1;
+#X floatatom 64 207 4 0 0 0 - - -;
+#X obj 15 51 cnv 8 1 1 empty empty early 0 4 0 9 -262144 -1 0;
+#X obj 15 59 cnv 8 1 1 empty empty echoes 0 4 0 9 -262144 -1 0;
+#X obj 15 67 cnv 8 1 1 empty empty gain 0 4 0 9 -262144 -1 0;
+#X obj 46 211 cnv 8 1 1 empty empty dB 0 4 0 9 -262144 -1 0;
+#X obj 96 211 cnv 8 1 1 empty empty kHz 0 4 0 9 -262144 -1 0;
+#X obj 65 51 cnv 8 1 1 empty empty early 0 4 0 9 -262144 -1 0;
+#X obj 65 59 cnv 8 1 1 empty empty cutoff 0 4 0 9 -262144 -1 0;
+#X obj 65 67 cnv 8 1 1 empty empty freq 0 4 0 9 -262144 -1 0;
+#X obj 114 80 vsl 15 121 0 120 0 0 \$0rev_gain_fromgui \$0rev_gain_togui
+empty 0 -8 0 8 -11118 -1 -1 8400 1;
+#X obj 114 305 fadtodb;
+#X obj 114 325 - 100;
+#X floatatom 114 207 4 0 0 0 - - -;
+#X obj 115 59 cnv 8 1 1 empty empty reverb 0 4 0 9 -262144 -1 0;
+#X obj 115 67 cnv 8 1 1 empty empty gain 0 4 0 9 -262144 -1 0;
+#X obj 146 211 cnv 8 1 1 empty empty dB 0 4 0 9 -262144 -1 0;
+#X obj 164 80 vsl 15 121 0.16 16 1 0 \$0rev_cutoff_fromgui \$0rev_cutoff_togui
+empty 0 -8 0 8 -15044 -1 -1 8038 1;
+#X floatatom 164 207 4 0 0 0 - - -;
+#X obj 196 211 cnv 8 1 1 empty empty kHz 0 4 0 9 -262144 -1 0;
+#X obj 165 51 cnv 8 1 1 empty empty reverb 0 4 0 9 -262144 -1 0;
+#X obj 165 59 cnv 8 1 1 empty empty cutoff 0 4 0 9 -262144 -1 0;
+#X obj 165 67 cnv 8 1 1 empty empty freq 0 4 0 9 -262144 -1 0;
+#X obj 214 80 vsl 15 121 0.1 60 1 0 \$0rev_dec_l_time_fromgui \$0rev_dec_l_time_togui
+empty 0 -8 0 8 -200880 -1 -1 6900 1;
+#X floatatom 214 207 4 0 0 0 - - -;
+#X obj 246 211 cnv 8 1 1 empty empty sec 0 4 0 9 -262144 -1 0;
+#X obj 215 43 cnv 8 1 1 empty empty reverb 0 4 0 9 -262144 -1 0;
+#X obj 215 51 cnv 8 1 1 empty empty low 0 4 0 9 -262144 -1 0;
+#X obj 215 59 cnv 8 1 1 empty empty decay 0 4 0 9 -262144 -1 0;
+#X obj 215 67 cnv 8 1 1 empty empty time 0 4 0 9 -262144 -1 0;
+#X obj 314 80 vsl 15 121 0.1 60 1 0 \$0rev_dec_m_time_fromgui \$0rev_dec_m_time_togui
+empty 0 -8 0 8 -250685 -1 -1 6393 1;
+#X floatatom 314 207 4 0 0 0 - - -;
+#X obj 346 211 cnv 8 1 1 empty empty sec 0 4 0 9 -262144 -1 0;
+#X obj 315 43 cnv 8 1 1 empty empty reverb 0 4 0 9 -262144 -1 0;
+#X obj 315 51 cnv 8 1 1 empty empty mid 0 4 0 9 -262144 -1 0;
+#X obj 315 59 cnv 8 1 1 empty empty decay 0 4 0 9 -262144 -1 0;
+#X obj 315 67 cnv 8 1 1 empty empty time 0 4 0 9 -262144 -1 0;
+#X obj 414 80 vsl 15 121 0.1 60 1 0 \$0rev_dec_h_time_fromgui \$0rev_dec_h_time_togui
+empty 0 -8 0 8 -255806 -1 -1 5601 1;
+#X floatatom 414 207 4 0 0 0 - - -;
+#X obj 446 211 cnv 8 1 1 empty empty sec 0 4 0 9 -262144 -1 0;
+#X obj 416 43 cnv 8 1 1 empty empty reverb 0 4 0 9 -262144 -1 0;
+#X obj 416 51 cnv 8 1 1 empty empty high 0 4 0 9 -262144 -1 0;
+#X obj 416 59 cnv 8 1 1 empty empty decay 0 4 0 9 -262144 -1 0;
+#X obj 416 67 cnv 8 1 1 empty empty time 0 4 0 9 -262144 -1 0;
+#X obj 264 80 vsl 15 121 0.05 1 1 0 \$0rev_dec_lm_freq_fromgui \$0rev_dec_lm_freq_togui
+empty 0 -8 0 8 -24198 -1 -1 6444 1;
+#X floatatom 264 207 4 0 0 0 - - -;
+#X obj 296 211 cnv 8 1 1 empty empty kHz 0 4 0 9 -262144 -1 0;
+#X obj 264 43 cnv 8 1 1 empty empty reverb 0 4 0 9 -262144 -1 0;
+#X obj 264 51 cnv 8 1 1 empty empty low_mid 0 4 0 9 -262144 -1 0;
+#X obj 264 59 cnv 8 1 1 empty empty decay 0 4 0 9 -262144 -1 0;
+#X obj 264 67 cnv 8 1 1 empty empty freq 0 4 0 9 -262144 -1 0;
+#X obj 364 80 vsl 15 121 1 16 1 0 \$0rev_dec_mh_freq_fromgui \$0rev_dec_mh_freq_togui
+empty 0 -8 0 8 -110363 -1 -1 5400 1;
+#X floatatom 364 207 4 0 0 0 - - -;
+#X obj 396 211 cnv 8 1 1 empty empty kHz 0 4 0 9 -262144 -1 0;
+#X obj 363 43 cnv 8 1 1 empty empty reverb 0 4 0 9 -262144 -1 0;
+#X obj 363 51 cnv 8 1 1 empty empty mid_high 0 4 0 9 -262144 -1 0;
+#X obj 363 59 cnv 8 1 1 empty empty decay 0 4 0 9 -262144 -1 0;
+#X obj 363 67 cnv 8 1 1 empty empty freq 0 4 0 9 -262144 -1 0;
+#X obj 532 169 cnv 8 1 1 empty empty delay 0 4 0 9 -262144 -1 0;
+#X floatatom 82 147 4 0.1 2 0 - #0early_q_togui #0early_q_fromgui;
+#X obj 83 136 cnv 8 1 1 empty empty Q 0 4 0 9 -262144 -1 0;
+#X floatatom 182 147 4 0.1 2 0 - #0rev_q_togui #0rev_q_fromgui;
+#X obj 183 136 cnv 8 1 1 empty empty Q 0 4 0 9 -262144 -1 0;
+#X obj 31 78 vfad_scale -1;
+#X obj 131 78 vfad_scale -1;
+#X obj 493 107 cnv 8 1 1 empty empty reverb 0 4 0 9 -262144 -1 0;
+#X obj 493 116 cnv 8 1 1 empty empty modulation 0 4 0 9 -262144 -1
+0;
+#X obj 534 130 cnv 8 1 1 empty empty Hz 0 4 0 9 -262144 -1 0;
+#X floatatom 495 126 5 0.01 10 0 - - -;
+#X obj 471 129 cnv 8 1 1 empty empty max: 0 4 0 9 -262144 -1 0;
+#X obj 534 146 cnv 8 1 1 empty empty Hz 0 4 0 9 -262144 -1 0;
+#X floatatom 495 142 5 0.01 10 0 - - -;
+#X obj 472 146 cnv 8 1 1 empty empty min: 0 4 0 9 -262144 -1 0;
+#X obj 556 116 cnv 8 1 1 empty empty freq 0 4 0 9 -262144 -1 0;
+#X obj 493 170 cnv 8 1 1 empty empty reverb 0 4 0 9 -262144 -1 0;
+#X obj 494 179 cnv 8 1 1 empty empty modulation 0 4 0 9 -262144 -1
+0;
+#X floatatom 495 190 5 0 20 0 - - -;
+#X obj 471 193 cnv 8 1 1 empty empty max: 0 4 0 9 -262144 -1 0;
+#X obj 534 210 cnv 8 1 1 empty empty cents 0 4 0 9 -262144 -1 0;
+#X floatatom 495 206 5 0 20 0 - - -;
+#X obj 471 209 cnv 8 1 1 empty empty min: 0 4 0 9 -262144 -1 0;
+#X obj 556 179 cnv 8 1 1 empty empty ampl 0 4 0 9 -262144 -1 0;
+#X obj 532 107 cnv 8 1 1 empty empty delay 0 4 0 9 -262144 -1 0;
+#X obj 493 42 cnv 8 1 1 empty empty reverb 0 4 0 9 -262144 -1 0;
+#X obj 493 51 cnv 8 1 1 empty empty delay_time 0 4 0 9 -262144 -1 0
+;
+#X obj 534 66 cnv 8 1 1 empty empty ms 0 4 0 9 -262144 -1 0;
+#X floatatom 495 62 5 0.1 1000 0 - - -;
+#X obj 470 66 cnv 8 1 1 empty empty max: 0 4 0 9 -262144 -1 0;
+#X obj 534 82 cnv 8 1 1 empty empty ms 0 4 0 9 -262144 -1 0;
+#X floatatom 495 78 5 0.1 1000 0 - - -;
+#X obj 470 82 cnv 8 1 1 empty empty min: 0 4 0 9 -262144 -1 0;
+#X obj 655 65 set_maxmin \$0rev_del_time;
+#X obj 655 82 get_maxmin \$0rev_del_time;
+#X obj 655 142 set_maxmin \$0rev_mod_amp;
+#X obj 655 159 get_maxmin \$0rev_mod_amp;
+#X obj 655 104 set_maxmin \$0rev_mod_freq;
+#X obj 655 121 get_maxmin \$0rev_mod_freq;
+#X obj 22 807 + 100;
+#X obj 22 829 dbtofad;
+#X obj 120 744 + 100;
+#X obj 120 766 dbtofad;
+#X obj 22 850 s \$0early_gain_togui;
+#X obj 77 829 s \$0early_cutoff_togui;
+#X obj 92 809 s \$0early_q_togui;
+#X obj 120 788 s \$0rev_gain_togui;
+#X obj 174 767 s \$0rev_cutoff_togui;
+#X obj 184 745 s \$0rev_q_togui;
+#X obj 254 858 s \$0rev_dec_l_time_togui;
+#X obj 281 838 s \$0rev_dec_lm_freq_togui;
+#X obj 309 819 s \$0rev_dec_m_time_togui;
+#X obj 336 799 s \$0rev_dec_mh_freq_togui;
+#X obj 364 778 s \$0rev_dec_h_time_togui;
+#X obj 641 12 inlet;
+#X obj 30 353 loadbang;
+#X obj 127 234 cnv 8 1 1 empty empty 2 0 4 0 9 -262144 -1 0;
+#X obj 207 234 cnv 8 1 1 empty empty 4 0 4 0 9 -262144 -1 0;
+#X obj 167 234 cnv 8 1 1 empty empty 3 0 4 0 9 -262144 -1 0;
+#X obj 686 539 gui_sr \$0rev_dec_l_time /EXT/RRR/REVERB/DECAY/L_TIME
+;
+#X obj 686 558 gui_sr \$0rev_dec_lm_freq /EXT/RRR/REVERB/DECAY/LM_FREQ
+;
+#X obj 686 577 gui_sr \$0rev_dec_m_time /EXT/RRR/REVERB/DECAY/M_TIME
+;
+#X obj 686 596 gui_sr \$0rev_dec_mh_freq /EXT/RRR/REVERB/DECAY/MH_FREQ
+;
+#X obj 686 615 gui_sr \$0rev_dec_h_time /EXT/RRR/REVERB/DECAY/H_TIME
+;
+#X obj 683 639 gui_sr \$0rev_mod_freq /EXT/RRR/REVERB/MOD/FREQ;
+#X obj 683 658 gui_sr \$0rev_mod_amp /EXT/RRR/REVERB/MOD/AMP;
+#X obj 682 684 gui_sr \$0rev_del_time /EXT/RRR/REVERB/DEL_TIME;
+#X obj 696 703 gui_sr_fader \$0rev_gain /EXT/RRR/REVERB/GAIN;
+#X obj 710 722 gui_sr \$0rev_cutoff /EXT/RRR/REVERB/CUTOFF;
+#X obj 780 743 gui_sr \$0rev_q /EXT/RRR/REVERB/Q;
+#X obj 699 773 gui_sr_fader \$0early_gain /EXT/RRR/EARLY/GAIN;
+#X obj 700 792 gui_sr \$0early_cutoff /EXT/RRR/EARLY/CUTOFF;
+#X obj 700 813 gui_sr \$0early_q /EXT/RRR/EARLY/Q;
+#X obj 30 437 unpack 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+#X msg 30 375 -3 5.76041 0.4 0 3.49773 0.4 3.95765 0.249818 3.02037
+3.4822 1.98017 60 73.45 57.47 71.54 45 78.97 66.43 93.3 88.23 99.85
+120.4 144.5 -1 -1.97 -2.89 -3.75 -4.56 -5.32 -6.03 -9 -7.33 -11.9 -8
+-7 130 50 0.79 0.19 0.84 0.32;
+#X obj 207 721 s \$0early_delay_1_togui;
+#X obj 217 701 s \$0early_delay_2_togui;
+#X obj 227 681 s \$0early_delay_3_togui;
+#X obj 237 661 s \$0early_delay_4_togui;
+#X obj 247 641 s \$0early_delay_5_togui;
+#X obj 257 621 s \$0early_delay_6_togui;
+#X obj 267 601 s \$0early_delay_7_togui;
+#X obj 277 581 s \$0early_delay_8_togui;
+#X obj 287 561 s \$0early_delay_9_togui;
+#X obj 297 541 s \$0early_delay_10_togui;
+#X obj 307 521 s \$0early_delay_11_togui;
+#X obj 317 501 s \$0early_delay_12_togui;
+#X obj 387 721 s \$0early_damp_1_togui;
+#X obj 397 701 s \$0early_damp_2_togui;
+#X obj 407 681 s \$0early_damp_3_togui;
+#X obj 417 661 s \$0early_damp_4_togui;
+#X obj 427 641 s \$0early_damp_5_togui;
+#X obj 437 621 s \$0early_damp_6_togui;
+#X obj 447 601 s \$0early_damp_7_togui;
+#X obj 457 581 s \$0early_damp_8_togui;
+#X obj 467 561 s \$0early_damp_9_togui;
+#X obj 477 541 s \$0early_damp_10_togui;
+#X obj 487 521 s \$0early_damp_11_togui;
+#X obj 497 501 s \$0early_damp_12_togui;
+#X obj 853 22 gui_sr \$0early_delay_1 /EXT/RRR/EARLY/1/DEL_TIME;
+#X obj 776 280 gui_sr \$0early_damp_1 /EXT/RRR/EARLY/1/DAMP;
+#X obj 853 42 gui_sr \$0early_delay_2 /EXT/RRR/EARLY/2/DEL_TIME;
+#X obj 853 62 gui_sr \$0early_delay_3 /EXT/RRR/EARLY/3/DEL_TIME;
+#X obj 853 82 gui_sr \$0early_delay_4 /EXT/RRR/EARLY/4/DEL_TIME;
+#X obj 853 102 gui_sr \$0early_delay_5 /EXT/RRR/EARLY/5/DEL_TIME;
+#X obj 853 122 gui_sr \$0early_delay_6 /EXT/RRR/EARLY/6/DEL_TIME;
+#X obj 853 152 gui_sr \$0early_delay_7 /EXT/RRR/EARLY/7/DEL_TIME;
+#X obj 853 172 gui_sr \$0early_delay_8 /EXT/RRR/EARLY/8/DEL_TIME;
+#X obj 853 192 gui_sr \$0early_delay_9 /EXT/RRR/EARLY/9/DEL_TIME;
+#X obj 853 212 gui_sr \$0early_delay_10 /EXT/RRR/EARLY/10/DEL_TIME
+;
+#X obj 853 232 gui_sr \$0early_delay_11 /EXT/RRR/EARLY/11/DEL_TIME
+;
+#X obj 853 252 gui_sr \$0early_delay_12 /EXT/RRR/EARLY/12/DEL_TIME
+;
+#X obj 776 510 gui_sr \$0early_damp_12 /EXT/RRR/EARLY/12/DAMP;
+#X obj 776 490 gui_sr \$0early_damp_11 /EXT/RRR/EARLY/11/DAMP;
+#X obj 776 470 gui_sr \$0early_damp_10 /EXT/RRR/EARLY/10/DAMP;
+#X obj 776 450 gui_sr \$0early_damp_9 /EXT/RRR/EARLY/9/DAMP;
+#X obj 776 430 gui_sr \$0early_damp_8 /EXT/RRR/EARLY/8/DAMP;
+#X obj 776 410 gui_sr \$0early_damp_7 /EXT/RRR/EARLY/7/DAMP;
+#X obj 776 381 gui_sr \$0early_damp_6 /EXT/RRR/EARLY/6/DAMP;
+#X obj 776 360 gui_sr \$0early_damp_5 /EXT/RRR/EARLY/5/DAMP;
+#X obj 770 341 gui_sr \$0early_damp_4 /EXT/RRR/EARLY/4/DAMP;
+#X obj 776 320 gui_sr \$0early_damp_3 /EXT/RRR/EARLY/3/DAMP;
+#X obj 776 300 gui_sr \$0early_damp_2 /EXT/RRR/EARLY/2/DAMP;
+#X msg 1151 460 -8.5 4.94068 0.4 -12 3.63457 0.4 3.37274 0.249841 1.77234
+3.73213 1.16196 28 -1 45.45 -1.97711 36.479 -2.89454 47.54 -3.75595
+21 -4.56475 51.974 -5.32416 31.435 -6.03719 59.301 -9 54.238 -7.33528
+66.858 -11.9255 79.413 -8 99.57 -7 86 29 0.79 0.19 2.67 1.91;
+#X msg 1149 304 -45 4.94068 0.4 -10 3.63457 0.4 6.39438 0.249841 3.73822
+3.73213 2.72653 60 -1 73.45 -1.97711 57.479 -2.89454 71.54 -3.75595
+45 -4.56475 78.974 -5.32416 66.435 -6.03719 93.301 -9 88.238 -7.33528
+99.858 -11.9255 120.413 -8 144.57 -7 94 37 0.79 0.19 2.67 1.91;
+#X msg 1147 377 -9.5 4.94068 0.4 -18.6667 3.63457 0.4 14.2255 0.249841
+8.31637 3.73213 4.64646 82 -1 102.45 -1.97711 79.479 -2.89454 100.54
+-3.75595 63 -4.56475 109.974 -5.32416 91.435 -6.03719 135.301 -9 122.238
+-7.33528 141.858 -11.9255 172.413 -8 201.57 -7 140 61 0.79 0.19 2.67
+1.91;
+#X obj 226 346 del 10000;
+#X obj 656 215 route recall;
+#X obj 655 244 sel 0 1 2;
+#X connect 41 0 42 0;
+#X connect 42 0 43 0;
+#X connect 43 0 44 0;
+#X connect 45 0 46 0;
+#X connect 55 0 56 0;
+#X connect 56 0 57 0;
+#X connect 57 0 58 0;
+#X connect 62 0 63 0;
+#X connect 68 0 69 0;
+#X connect 75 0 76 0;
+#X connect 82 0 83 0;
+#X connect 89 0 90 0;
+#X connect 96 0 97 0;
+#X connect 113 0 141 0;
+#X connect 116 0 141 1;
+#X connect 121 0 139 0;
+#X connect 124 0 139 1;
+#X connect 131 0 137 0;
+#X connect 134 0 137 1;
+#X connect 136 0 131 0;
+#X connect 136 1 134 0;
+#X connect 138 0 121 0;
+#X connect 138 1 124 0;
+#X connect 140 0 113 0;
+#X connect 140 1 116 0;
+#X connect 142 0 143 0;
+#X connect 143 0 146 0;
+#X connect 144 0 145 0;
+#X connect 145 0 149 0;
+#X connect 157 0 230 0;
+#X connect 158 0 229 0;
+#X connect 176 0 142 0;
+#X connect 176 1 147 0;
+#X connect 176 2 148 0;
+#X connect 176 3 144 0;
+#X connect 176 4 150 0;
+#X connect 176 5 151 0;
+#X connect 176 6 152 0;
+#X connect 176 7 153 0;
+#X connect 176 8 154 0;
+#X connect 176 9 155 0;
+#X connect 176 10 156 0;
+#X connect 176 11 178 0;
+#X connect 176 12 179 0;
+#X connect 176 13 180 0;
+#X connect 176 14 181 0;
+#X connect 176 15 182 0;
+#X connect 176 16 183 0;
+#X connect 176 17 184 0;
+#X connect 176 18 185 0;
+#X connect 176 19 186 0;
+#X connect 176 20 187 0;
+#X connect 176 21 188 0;
+#X connect 176 22 189 0;
+#X connect 176 23 190 0;
+#X connect 176 24 191 0;
+#X connect 176 25 192 0;
+#X connect 176 26 193 0;
+#X connect 176 27 194 0;
+#X connect 176 28 195 0;
+#X connect 176 29 196 0;
+#X connect 176 30 197 0;
+#X connect 176 31 198 0;
+#X connect 176 32 199 0;
+#X connect 176 33 200 0;
+#X connect 176 34 201 0;
+#X connect 176 35 131 0;
+#X connect 176 36 134 0;
+#X connect 176 37 113 0;
+#X connect 176 38 116 0;
+#X connect 176 39 121 0;
+#X connect 176 40 124 0;
+#X connect 177 0 176 0;
+#X connect 226 0 176 0;
+#X connect 227 0 176 0;
+#X connect 228 0 176 0;
+#X connect 229 0 177 0;
+#X connect 230 0 231 0;
+#X connect 231 0 227 0;
+#X connect 231 1 228 0;
+#X connect 231 2 226 0;
+#X coords 0 0 1 1 600 270 1 0 30;
+#X restore -34 100 pd EDIT_early_reverb;
+#X obj -34 535 outlet;
+#X obj 98 431 namecanvas \$0-EDIT;
+#X obj 237 430 inlet;
+#X obj 267 472 symbol \$0-EDIT;
+#X obj 237 451 t f b;
+#X obj 220 497 pack f s;
+#X msg 220 519 \; \$2 vis \$1;
+#N canvas 64 301 806 303 inputs 0;
+#X obj 466 0 gui_sr_beautify-uglify \$0_SRC_1 /EXT/RRR/IN/1/SRC;
+#X obj 40 129 popup 45 20 #ffffff SRC none;
+#X obj 202 -16 loadbang;
+#X obj 174 29 t a;
+#X obj 49 -7 DSPnamesGUI IN;
+#X obj 467 20 gui_sr_beautify-uglify \$0_SRC_2 /EXT/RRR/IN/2/SRC;
+#X obj 467 81 gui_sr_beautify-uglify \$0_SRC_5 /EXT/RRR/IN/5/SRC;
+#X obj 467 101 gui_sr_beautify-uglify \$0_SRC_6 /EXT/RRR/IN/6/SRC;
+#X obj 466 41 gui_sr_beautify-uglify \$0_SRC_3 /EXT/RRR/IN/3/SRC;
+#X obj 466 60 gui_sr_beautify-uglify \$0_SRC_4 /EXT/RRR/IN/4/SRC;
+#X obj 103 129 popup 45 20 #ffffff SRC none;
+#X obj 162 129 popup 45 20 #ffffff SRC none;
+#X obj 218 130 popup 45 20 #ffffff SRC none;
+#X obj 281 130 popup 45 20 #ffffff SRC none;
+#X obj 340 130 popup 45 20 #ffffff SRC none;
+#X msg 159 10 options none \, name SRC;
+#X obj 39 197 s \$0_SRC_1_fromgui;
+#X obj 103 221 s \$0_SRC_2_fromgui;
+#X obj 217 198 s \$0_SRC_4_fromgui;
+#X obj 282 222 s \$0_SRC_5_fromgui;
+#X obj 340 252 s \$0_SRC_6_fromgui;
+#X obj 157 251 s \$0_SRC_3_fromgui;
+#X obj 42 41 r \$0_SRC_1_togui;
+#X obj 163 78 r \$0_SRC_3_togui;
+#X obj 220 42 r \$0_SRC_4_togui;
+#X obj 282 61 r \$0_SRC_5_togui;
+#X obj 341 79 r \$0_SRC_6_togui;
+#X obj 104 60 r \$0_SRC_2_togui;
+#X obj 479 139 gui_sr \$0_VU_1 /EXT/RRR/IN/1/VU/LEVEL;
+#X msg 363 -3 options;
+#X obj 481 162 gui_sr \$0_VU_2 /EXT/RRR/IN/2/VU/LEVEL;
+#X obj 480 183 gui_sr \$0_VU_3 /EXT/RRR/IN/3/VU/LEVEL;
+#X obj 480 205 gui_sr \$0_VU_4 /EXT/RRR/IN/4/VU/LEVEL;
+#X obj 482 226 gui_sr \$0_VU_5 /EXT/RRR/IN/5/VU/LEVEL;
+#X obj 481 247 gui_sr \$0_VU_6 /EXT/RRR/IN/6/VU/LEVEL;
+#X obj 11 101 cnv 15 398 88 empty empty empty 20 12 0 14 -249661 -66577
+0;
+#X obj 40 168 nbx 5 14 -1e+37 1e+37 0 0 empty \$0_VU_1_togui 1 10 -6
+0 10 -24198 -1 -1 -199.9 256;
+#X text 10 134 SRC;
+#X text 13 167 VU;
+#X obj 101 168 nbx 5 14 -1e+37 1e+37 0 0 empty \$0_VU_2_togui 2 10
+-6 0 10 -24198 -1 -1 -199.9 256;
+#X obj 162 168 nbx 5 14 -1e+37 1e+37 0 0 empty \$0_VU_3_togui 3 10
+-6 0 10 -24198 -1 -1 -199.9 256;
+#X obj 224 168 nbx 5 14 -1e+37 1e+37 0 0 empty \$0_VU_4_togui 4 10
+-6 0 10 -24198 -1 -1 -199.9 256;
+#X obj 281 168 nbx 5 14 -1e+37 1e+37 0 0 empty \$0_VU_5_togui 5 10
+-6 0 10 -24198 -1 -1 -199.9 256;
+#X obj 340 168 nbx 5 14 -1e+37 1e+37 0 0 empty \$0_VU_6_togui 6 10
+-6 0 10 -24198 -1 -1 -199.9 256;
+#X connect 1 0 16 0;
+#X connect 2 0 15 0;
+#X connect 3 0 1 0;
+#X connect 3 0 10 0;
+#X connect 3 0 11 0;
+#X connect 3 0 12 0;
+#X connect 3 0 13 0;
+#X connect 3 0 14 0;
+#X connect 4 0 3 0;
+#X connect 10 0 17 0;
+#X connect 11 0 21 0;
+#X connect 12 0 18 0;
+#X connect 13 0 19 0;
+#X connect 14 0 20 0;
+#X connect 15 0 3 0;
+#X connect 22 0 1 0;
+#X connect 23 0 11 0;
+#X connect 24 0 12 0;
+#X connect 25 0 13 0;
+#X connect 26 0 14 0;
+#X connect 27 0 10 0;
+#X connect 29 0 3 0;
+#X coords 0 -1 1 1 400 90 1 10 100;
+#X restore -34 9 pd inputs;
+#X text 410 27 ROOM;
+#X text 443 31 in;
+#X text 410 37 ROOM;
+#X text 410 48 REVERBERATION;
+#X text 515 38 Thomas Musil;
+#X text 514 26 IEM;
+#X obj 629 519 s \$0_preset;
+#N canvas 796 48 497 857 radiuses 0;
+#X obj 208 68 r GUI_NET_initialized;
+#X obj 207 87 del 1000;
+#X obj 206 113 t b b;
+#X obj 142 24 gui_sr_clip \$0_jitter /EXT/RRR/AMBI/JITTER 0 100;
+#X msg 27 90 \; /EXT/RRR/OUT/1/POS/RAD 1 \; /EXT/RRR/OUT/2/POS/RAD
+1 \; /EXT/RRR/OUT/3/POS/RAD 1 \; /EXT/RRR/OUT/4/POS/RAD 1 \; /EXT/RRR/OUT/5/POS/RAD
+1 \; /EXT/RRR/OUT/6/POS/RAD 1 \; /EXT/RRR/OUT/7/POS/RAD 1 \; /EXT/RRR/OUT/8/POS/RAD
+1 \; /EXT/RRR/OUT/9/POS/RAD 1 \; /EXT/RRR/OUT/10/POS/RAD 1 \; /EXT/RRR/OUT/11/POS/RAD
+1 \; /EXT/RRR/OUT/12/POS/RAD 1 \; /EXT/RRR/OUT/13/POS/RAD 1 \; /EXT/RRR/OUT/14/POS/RAD
+1 \; /EXT/RRR/OUT/15/POS/RAD 1 \; /EXT/RRR/OUT/16/POS/RAD 1 \; /EXT/RRR/OUT/17/POS/RAD
+1 \; /EXT/RRR/OUT/18/POS/RAD 1 \; /EXT/RRR/AMBI/JITTER 1;
+#X obj 11 11 cnv 15 108 38 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 15 24 nbx 5 14 0 100 0 0 \$0_jitter_fromgui \$0_jitter_togui
+jitter 60 6 0 10 -241291 -1 -1 0 256;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X coords 0 -1 1 1 110 40 1 10 10;
+#X restore 738 10 pd radiuses;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X obj 190 62 inlet;
+#X obj 203 109 outlet;
+#X connect 0 0 1 0;
+#X restore 871 82 pd;
+#X obj 848 10 sphere;
+#N canvas 209 156 859 591 parametric_EQ 0;
+#X obj 80 50 cnv 8 1 1 empty empty center_freq 0 4 0 9 -262144 -1 0
+;
+#X obj 148 63 cnv 8 1 1 empty empty Hz 0 4 0 9 -262144 -1 0;
+#X floatatom 79 59 9 10 20000 0 - #0param_EQ_1_freq_togui #0param_EQ_1_freq_fromgui
+;
+#X obj 34 245 loadbang;
+#X floatatom 167 59 5 0.1 100 0 - #0param_EQ_1_Q_togui #0param_EQ_1_Q_fromgui
+;
+#X obj 8 62 cnv 8 1 1 empty empty param_EQ_1: 0 4 0 9 -262144 -1 0
+;
+#X obj 180 50 cnv 8 1 1 empty empty Q 0 4 0 9 -262144 -1 0;
+#X floatatom 217 59 5 -20 0 0 - #0param_EQ_1_gain_togui #0param_EQ_1_gain_fromgui
+;
+#X obj 224 50 cnv 8 1 1 empty empty gain 0 4 0 9 -262144 -1 0;
+#X obj 258 63 cnv 8 1 1 empty empty dB 0 4 0 9 -262144 -1 0;
+#X obj 148 83 cnv 8 1 1 empty empty Hz 0 4 0 9 -262144 -1 0;
+#X floatatom 79 79 9 10 20000 0 - #0param_EQ_2_freq_togui #0param_EQ_2_freq_fromgui
+;
+#X floatatom 167 79 5 0.1 100 0 - #0param_EQ_2_Q_togui #0param_EQ_2_Q_fromgui
+;
+#X obj 8 82 cnv 8 1 1 empty empty param_EQ_2: 0 4 0 9 -262144 -1 0
+;
+#X floatatom 217 79 5 -20 0 0 - #0param_EQ_2_gain_togui #0param_EQ_2_gain_fromgui
+;
+#X obj 258 83 cnv 8 1 1 empty empty dB 0 4 0 9 -262144 -1 0;
+#X obj 148 103 cnv 8 1 1 empty empty Hz 0 4 0 9 -262144 -1 0;
+#X floatatom 79 99 9 10 20000 0 - #0param_EQ_3_freq_togui #0param_EQ_3_freq_fromgui
+;
+#X floatatom 167 99 5 0.1 100 0 - #0param_EQ_3_Q_togui #0param_EQ_3_Q_fromgui
+;
+#X obj 8 102 cnv 8 1 1 empty empty param_EQ_3: 0 4 0 9 -262144 -1 0
+;
+#X floatatom 217 99 5 -20 0 0 - #0param_EQ_3_gain_togui #0param_EQ_3_gain_fromgui
+;
+#X obj 258 103 cnv 8 1 1 empty empty dB 0 4 0 9 -262144 -1 0;
+#X obj 148 123 cnv 8 1 1 empty empty Hz 0 4 0 9 -262144 -1 0;
+#X floatatom 79 119 9 10 20000 0 - #0param_EQ_4_freq_togui #0param_EQ_4_freq_fromgui
+;
+#X floatatom 167 119 5 0.1 100 0 - #0param_EQ_4_Q_togui #0param_EQ_4_Q_fromgui
+;
+#X obj 8 122 cnv 8 1 1 empty empty param_EQ_4: 0 4 0 9 -262144 -1 0
+;
+#X floatatom 217 119 5 -20 0 0 - #0param_EQ_4_gain_togui #0param_EQ_4_gain_fromgui
+;
+#X obj 258 123 cnv 8 1 1 empty empty dB 0 4 0 9 -262144 -1 0;
+#X obj 148 143 cnv 8 1 1 empty empty Hz 0 4 0 9 -262144 -1 0;
+#X floatatom 79 139 9 10 20000 0 - #0param_EQ_5_freq_togui #0param_EQ_5_freq_fromgui
+;
+#X floatatom 167 139 5 0.1 100 0 - #0param_EQ_5_Q_togui #0param_EQ_5_Q_fromgui
+;
+#X obj 8 142 cnv 8 1 1 empty empty param_EQ_5: 0 4 0 9 -262144 -1 0
+;
+#X floatatom 217 139 5 -20 0 0 - #0param_EQ_5_gain_togui #0param_EQ_5_gain_fromgui
+;
+#X obj 258 143 cnv 8 1 1 empty empty dB 0 4 0 9 -262144 -1 0;
+#X obj 501 212 gui_sr \$0param_EQ_1_freq /EXT/RRR/EQ/1/FREQ;
+#X obj 501 232 gui_sr \$0param_EQ_2_freq /EXT/RRR/EQ/2/FREQ;
+#X obj 501 252 gui_sr \$0param_EQ_3_freq /EXT/RRR/EQ/3/FREQ;
+#X obj 501 272 gui_sr \$0param_EQ_4_freq /EXT/RRR/EQ/4/FREQ;
+#X obj 501 292 gui_sr \$0param_EQ_5_freq /EXT/RRR/EQ/5/FREQ;
+#X obj 501 332 gui_sr \$0param_EQ_1_Q /EXT/RRR/EQ/1/Q;
+#X obj 501 352 gui_sr \$0param_EQ_2_Q /EXT/RRR/EQ/2/Q;
+#X obj 501 372 gui_sr \$0param_EQ_3_Q /EXT/RRR/EQ/3/Q;
+#X obj 501 392 gui_sr \$0param_EQ_4_Q /EXT/RRR/EQ/4/Q;
+#X obj 501 412 gui_sr \$0param_EQ_5_Q /EXT/RRR/EQ/5/Q;
+#X obj 501 452 gui_sr \$0param_EQ_1_gain /EXT/RRR/EQ/1/GAIN;
+#X obj 501 532 gui_sr \$0param_EQ_5_gain /EXT/RRR/EQ/5/GAIN;
+#X obj 501 512 gui_sr \$0param_EQ_4_gain /EXT/RRR/EQ/4/GAIN;
+#X obj 501 492 gui_sr \$0param_EQ_3_gain /EXT/RRR/EQ/3/GAIN;
+#X obj 501 472 gui_sr \$0param_EQ_2_gain /EXT/RRR/EQ/2/GAIN;
+#X msg 34 267 1220 705 330 47 33 2 2 2 2 2 -4 -4 -4 -6 -6;
+#X obj 34 292 unpack 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+#X obj 34 395 s \$0param_EQ_1_freq_togui;
+#X obj 105 500 s \$0param_EQ_1_Q_togui;
+#X obj 220 395 s \$0param_EQ_1_gain_togui;
+#X obj 54 375 s \$0param_EQ_2_freq_togui;
+#X obj 74 355 s \$0param_EQ_3_freq_togui;
+#X obj 94 335 s \$0param_EQ_4_freq_togui;
+#X obj 114 315 s \$0param_EQ_5_freq_togui;
+#X obj 240 375 s \$0param_EQ_2_gain_togui;
+#X obj 260 355 s \$0param_EQ_3_gain_togui;
+#X obj 280 335 s \$0param_EQ_4_gain_togui;
+#X obj 300 315 s \$0param_EQ_5_gain_togui;
+#X obj 125 480 s \$0param_EQ_2_Q_togui;
+#X obj 145 460 s \$0param_EQ_3_Q_togui;
+#X obj 165 440 s \$0param_EQ_4_Q_togui;
+#X obj 185 420 s \$0param_EQ_5_Q_togui;
+#X connect 3 0 49 0;
+#X connect 49 0 50 0;
+#X connect 50 0 51 0;
+#X connect 50 1 54 0;
+#X connect 50 2 55 0;
+#X connect 50 3 56 0;
+#X connect 50 4 57 0;
+#X connect 50 5 52 0;
+#X connect 50 6 62 0;
+#X connect 50 7 63 0;
+#X connect 50 8 64 0;
+#X connect 50 9 65 0;
+#X connect 50 10 53 0;
+#X connect 50 11 58 0;
+#X connect 50 12 59 0;
+#X connect 50 13 60 0;
+#X connect 50 14 61 0;
+#X coords 0 -1 1 1 280 130 1 0 30;
+#X restore 567 240 pd parametric_EQ;
+#X obj -34 7 cnv 15 180 25 empty empty !_FEEDBACK_! 0 12 0 24 -258699
+-66577 0;
+#X text 514 50 adapted by Winfried Ritsch;
+#X text 603 30 V 1 \, 2006;
+#X connect 3 0 5 0;
+#X connect 4 0 6 1;
+#X connect 5 0 6 0;
+#X connect 5 1 4 0;
+#X connect 6 0 7 0;
+#X connect 18 0 17 0;
+#X coords 0 0 1 1 720 280 0;

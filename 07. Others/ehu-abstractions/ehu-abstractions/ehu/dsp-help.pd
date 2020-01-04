@@ -1,0 +1,10 @@
+#N canvas 431 239 450 300 10;
+#X obj 218 72 cnv 15 200 120 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 235 96 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 17 10 ehu/dsp abstraction help;
+#X text 13 41 toggles pure data DSP on/off;
+#X obj 240 126 ehu/dsp;
+#X text 18 78 Inlets : on/off;
+#X connect 1 0 4 0;

@@ -1,0 +1,20 @@
+#N canvas 310 278 724 298 10;
+#X obj 2 -121 cnv 15 700 50 empty empty &testnum 3 12 0 18 -204800
+-1 0;
+#X floatatom 450 -3 5 0 0 0 - - -;
+#X obj 450 29 &testnum 10 20;
+#X obj 450 63 print;
+#X text 4 -94 Teste si un nombre est situé entre deux valeurs;
+#X text 21 84 OUTLETS \; 1- booléen;
+#X text 21 -6 Arguments \; 1 et 2- nombres : valeurs min et max;
+#X text 21 33 INLETS \; 1- nombre : valeur à tester \; 2 et 3- nombres
+: valeurs min et max;
+#X text 21 -56 Description \; Teste si un nombre est situé entre deux
+valeurs min et max (valeurs incluses).;
+#X floatatom 493 -3 5 0 0 0 - - -;
+#X floatatom 540 -3 5 0 0 0 - - -;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 9 0 2 1;
+#X connect 10 0 2 2;
+#X coords 0 298 1 297 65 15 0;

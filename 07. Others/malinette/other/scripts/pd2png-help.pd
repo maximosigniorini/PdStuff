@@ -1,0 +1,28 @@
+#N canvas 29 97 591 450 10;
+#X obj 41 327 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 43 206 bng 15 250 50 0 empty empty Go 17 7 0 10 -262144 -1 -1
+;
+#X obj 39 131 cnv 15 400 15 empty empty ! 5 8 0 14 -261234 -258113
+0;
+#X text 237 329 <- patch folder;
+#X text 168 359 <- pictures folder;
+#X obj 39 149 cnv 15 400 15 empty empty ! 5 8 0 14 -261234 -258113
+0;
+#X text 62 146 Create a pictures folder;
+#X text 36 18 pd2png \; ------ \; Take screenshots of Pd files \; Arguments
+\; \$1: patchs folder \; \$2: pictures folder \;;
+#X text 275 41 TO DO \; - avoid first error with close patch \; - find
+a way to take screenshot with imagemagick \; (parse sizes and positions
+of patchs) \;;
+#X obj 41 385 pd2png;
+#X text 391 408 jeromeabel.net/05.2013/GNUGPL3;
+#X text 62 129 I use "scrot" program on Linux \, you will need to install
+it.;
+#X obj 43 228 pd2png ../../examples/basics png;
+#X msg 80 360 png ./png;
+#X msg 74 331 pd ../../examples/basics;
+#X connect 0 0 9 0;
+#X connect 1 0 12 0;
+#X connect 13 0 9 1;
+#X connect 14 0 9 1;

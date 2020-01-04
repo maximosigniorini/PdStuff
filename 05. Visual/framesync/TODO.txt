@@ -1,0 +1,5 @@
+
+- convert fps handling to use a name that includes the parent-most patch
+
+- make fps accept a symbol arg to set the value/send/receive name for
+  the given FPS setting

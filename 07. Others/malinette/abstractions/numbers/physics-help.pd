@@ -1,0 +1,34 @@
+#N canvas 250 80 502 492 10;
+#X obj 121 351 vsl 15 128 0 127 0 0 empty empty empty 0 -8 0 8 -262144
+-1 -1 0 0;
+#X obj 121 159 vsl 15 128 0 127 0 0 empty empty empty 0 -8 0 8 -262144
+-1 -1 0 0;
+#X text 62 236 Try >>>;
+#X msg 202 355 setK 300 \, setD 300 \, setD2 5;
+#X text 269 99 default :;
+#X text 184 204 1st inlet : data \; 2nd inlet : command \, you can
+choose the preset \; or you can send a pmpd message to the objet.;
+#X floatatom 172 283 5 0 0 0 - - -;
+#X obj 121 96 tgl 15 0 empty \$0-onoff-in empty 17 7 0 10 -257985 -1
+-1 0 1;
+#X obj 121 137 random 127;
+#X obj 121 116 metro 700;
+#X text 252 262 << choose preset;
+#X text 185 305 << or choose with arguments;
+#X obj 121 305 physics 0;
+#X text 332 60 4 :elastic tight \; 3 :super loose elastic \; 2 :follow
+and slowdown \; 1 :elastic loose \; 0 :superelastic \;;
+#X obj 172 263 hradio 15 1 0 5 empty empty empty 0 -6 0 8 -262144 -1
+-1 0;
+#X text 372 355 << or pmpd message;
+#X text 36 60 You can choose different preset with arguments :;
+#X text 36 -1 Physics \; ------- \; Simulate physic caracteristics
+like elasticity and gravity \; (from pmpd library);
+#X connect 1 0 12 0;
+#X connect 3 0 12 1;
+#X connect 6 0 12 1;
+#X connect 7 0 9 0;
+#X connect 8 0 1 0;
+#X connect 9 0 8 0;
+#X connect 12 0 0 0;
+#X connect 14 0 6 0;

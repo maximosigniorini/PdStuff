@@ -1,0 +1,45 @@
+#N canvas 153 101 642 626 24;
+#X obj 111 32 keyname;
+#X symbolatom 221 78 10 0 0 0 - - -;
+#X obj 122 116 symbol;
+#X obj 71 79 sel 1;
+#X text 68 2 MAKEY MAKEY interface puredata;
+#X obj 122 159 sel Left Up Down Right Space;
+#X text 425 186 ici sortie du reste;
+#X obj 117 211 cnv 15 300 100 empty empty MakeyMakey 200 12 0 14 -261234
+-258113 0;
+#X obj 122 253 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 158 228 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 158 278 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 195 253 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 268 251 bng 15 250 50 0 empty empty Space 17 7 0 10 -261234
+-1 -1;
+#X obj 122 529 osc~;
+#X obj 121 569 output~;
+#X msg 85 434 440;
+#X msg 161 433 300;
+#X msg 228 432 100;
+#X msg 299 432 20;
+#X connect 0 0 3 0;
+#X connect 0 1 1 0;
+#X connect 0 1 2 1;
+#X connect 2 0 5 0;
+#X connect 3 0 2 0;
+#X connect 5 0 8 0;
+#X connect 5 1 9 0;
+#X connect 5 2 10 0;
+#X connect 5 3 11 0;
+#X connect 5 4 12 0;
+#X connect 8 0 15 0;
+#X connect 10 0 16 0;
+#X connect 11 0 18 0;
+#X connect 13 0 14 0;
+#X connect 13 0 14 1;
+#X connect 15 0 13 0;
+#X connect 16 0 13 0;
+#X connect 17 0 13 0;
+#X connect 18 0 13 0;

@@ -1,0 +1,21 @@
+#N canvas 52 243 453 291 10;
+#X obj 17 121 route list;
+#X obj 17 145 unpack 0 s;
+#X obj 18 171 uglifysymbol;
+#X obj 18 217 beautifysymbol;
+#X msg 18 239 set \$1;
+#X text 12 17 a settable [sendreceive] for interaction with GUI;
+#X text 15 73 2.arg: global send/receivename;
+#X text 16 55 1.arg: locale send/receive name without _togui and _fromgui
+;
+#X text 12 32 which beautify and uglify symbols;
+#X obj 17 100 r \$1_fromgui;
+#X obj 18 261 s \$1_togui;
+#X obj 18 194 sendreceive \$2;
+#X connect 0 0 1 0;
+#X connect 1 1 2 0;
+#X connect 2 0 11 0;
+#X connect 3 0 4 0;
+#X connect 4 0 10 0;
+#X connect 9 0 0 0;
+#X connect 11 0 3 0;

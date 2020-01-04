@@ -1,0 +1,24 @@
+#N canvas 44 219 651 281 10;
+#X declare -lib ggee;
+#X declare -lib ggee;
+#X obj 31 9 bng 30 250 50 0 empty empty start_all 17 7 0 10 -258113
+-1 -1;
+#X obj 31 50 ehu/gem/win 640 480;
+#X obj 31 180 ehu/gem/texture 320 240 640 480;
+#X obj 31 74 ehu/dsp;
+#X obj 236 180 ehu/out~;
+#X text 269 11 Because the way PD GEM deals with video the sound chanel
+of the videos do not get played when we play a video file. To solve
+this the ehu/ehu/video abstraction looks for a WAV sound file located
+next to the video file we are importing. This file should contain the
+sound chanel of the video (export it from your video editor). The sound
+file must be named the same as the video but with .WAV extension. For
+instance: whistle.mp4 and whistle.wav Please beware that playing around
+with pitch might cause the sound to fail in sync with the video.;
+#X obj 31 114 ehu/gem/video videos/whistle.mp4 30;
+#X connect 0 0 1 0;
+#X connect 0 0 3 0;
+#X connect 0 0 6 1;
+#X connect 6 0 2 0;
+#X connect 6 6 4 0;
+#X connect 6 7 4 1;

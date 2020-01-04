@@ -1,0 +1,165 @@
+#N canvas 470 302 779 576 10;
+#X obj 2 -113 cnv 15 700 50 empty empty SimpleImage 3 12 0 18 -260080
+-1 0;
+#X text 591 -96 @author Pertuit;
+#X text 22 -29 DESCRIPTION;
+#X text 21 114 ARGUMENTS;
+#X text 22 317 INLETS \; aucun;
+#X text 22 361 OUTLETS \; aucun;
+#X obj 503 -21 gemmanager;
+#X text 141 -107 Patch pour l'affichage d'une image.;
+#X text 21 78 Le point d'ancrage de l'image est son centre.;
+#X text 21 -8 Le patch SimpleImage charge une simple image pouvant
+être utilisée soit comme fond d'écran \, soit comme image animée.
+;
+#X text 22 195 - mode 0 (par défaut) \, pour une image placée devant
+et dimentionnée à sa taille réelle.;
+#X text 23 282 Par ex: [simpleimage personnage image.png];
+#X text 22 226 - mode 1 \, pour un fond d'écran qui occupe toute la
+fenêtre et est placé sur une couche inférieure (afin que les autres
+images apparaissent devant).;
+#X obj 508 189 loadbang;
+#X msg 508 217 \; oiseau.x 250 \; oiseau.y 200;
+#N canvas 343 347 1133 689 variables-et-fonctions 0;
+#X floatatom 57 400 5 0 0 0 - - -;
+#X floatatom 57 277 5 0 0 0 - - -;
+#X obj 54 164 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 137 275 5 0 0 0 - - -;
+#X floatatom 57 337 5 0 0 0 - - -;
+#X msg 679 173 1 1 1;
+#X msg 56 222 1;
+#X msg 117 221 0;
+#X msg 87 221 0.5;
+#X msg 595 174 0.8 0.2 0.2;
+#X obj 594 49 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 593 514 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 594 571 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 597 241 5 0 0 0 - - -;
+#X floatatom 594 109 5 0 0 0 - - -;
+#X text 164 359 scaleX - Echelle horizontale de l'image. La valeur
+1 correspond à la taille initiale de l'image.;
+#X text 164 245 alpha - Transparence de l'image (0 à 1).;
+#X text 165 421 scaleY - Echelle verticale de l'image. La valeur 1
+correspond à la taille initiale de l'image.;
+#X text 712 130 rotation - Rotation de l'image par rapport au centre.
+L'angle de rotation est en degré.;
+#X text 180 181 visible - Variable de visibilité de l'image : visible
+(1) ou invisible (0).;
+#X text 711 61 reverse - Inverse le sens de l'image : normal (0 \,
+valeur par défaut) ou retourné (1). L'image retournée est une inversion
+gauche/droite.;
+#X obj 54 187 s oiseau.visible;
+#X obj 56 244 s oiseau.alpha;
+#X obj 57 304 s oiseau.x;
+#X obj 137 304 s oiseau.y;
+#X obj 57 366 s oiseau.scaleX;
+#X obj 57 427 s oiseau.scaleY;
+#X obj 594 75 s oiseau.reverse;
+#X obj 594 137 s oiseau.rotation;
+#X obj 595 198 s oiseau.color;
+#X obj 597 270 s oiseau.layer;
+#X obj 597 430 s oiseau.mouseMode;
+#X obj 593 485 r oiseau.mouseOver;
+#X obj 594 541 r oiseau.mouseClic;
+#X obj 53 44 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X text 170 49 mode - Mode d'affichage de l'image : image à taille
+réelle (0 \, par défaut) ou image qui occupe toute la fenêtre comme
+fond d'écran (1).;
+#X obj 53 70 s oiseau.mode;
+#X obj 59 499 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 58 553 5 0 0 0 - - -;
+#X floatatom 170 553 5 0 0 0 - - -;
+#X obj 59 525 getImageSize oiseau;
+#X text 59 472 FONCTIONS;
+#X floatatom 164 642 5 0 0 0 - - -;
+#X floatatom 59 642 5 0 0 0 - - -;
+#X obj 59 583 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 59 611 getPosition oiseau;
+#X text 724 409 mouseMode - Activation de la souris : non actif (0
+\, par défaut) \, souris active (1) ou souris active avec drag&drop
+de l'image (2).;
+#X msg 597 401 0;
+#X msg 627 401 1;
+#X msg 657 401 2;
+#X text 724 472 mouseOver - teste le survol du clip par la souris :
+1 (sur le clip) ou 0 (en dehors du clip). Il faut que "mouseMode" soit
+à 1 ou 2 (souris active).;
+#X text 724 526 mouseClic - teste le clic sur le clip : 1 (clic sur
+le clip) ou 0 (en dehors). Il faut que "mouseMode" soit à 1 ou 2 (souris
+active).;
+#X text 725 238 layer - Numéro de la couche d'affichage dans la chaîne
+d'affichage gem. Par défaut \, les images de type fond d'écran (mode
+1) sont placées sur la couche 50 \, tandis que les images de plus
+petite taille (mode 0) sont situées sur la couche 60 (elles apparaîtront
+devant).;
+#X text 714 192 color - Réglage des couleurs appliquées à l'image
+: liste des 3 couleurs RVB (0 à 1).;
+#X text 52 16 VARIABLES;
+#X text 195 517 getImageSize - Retourne la valeur de la taille de l'image
+(en pixels) dans la fenêtre de travail.;
+#X text 195 604 getPosition - Retourne la valeur de la position en
+x et y de l'image dans la fenêtre de travail.;
+#X floatatom 597 326 5 0 0 0 - - -;
+#X obj 597 355 s oiseau.depthZ;
+#X text 724 321 depthZ - Profondeur selon z du plan de projection de
+l'image. Par défaut \, le plan de projection est le plan XY pour z=0.
+Cette variable est utile pour le positionnement des images planes 2DMovie
+par rapport aux formes 3D gem.;
+#X text 214 295 x \, y - Position de l'image sur l'axe horizontal ou
+vertical (en pixels).;
+#X msg 53 105 clear;
+#X obj 53 132 s oiseau.load;
+#X text 179 125 load - Vide ou charge l'image. Le message "clear" libère
+la mémoire allouée.;
+#X msg 103 105 bird.png;
+#X connect 0 0 26 0;
+#X connect 1 0 23 0;
+#X connect 2 0 21 0;
+#X connect 3 0 24 0;
+#X connect 4 0 25 0;
+#X connect 5 0 29 0;
+#X connect 6 0 22 0;
+#X connect 7 0 22 0;
+#X connect 8 0 22 0;
+#X connect 9 0 29 0;
+#X connect 10 0 27 0;
+#X connect 13 0 30 0;
+#X connect 14 0 28 0;
+#X connect 32 0 11 0;
+#X connect 33 0 12 0;
+#X connect 34 0 36 0;
+#X connect 37 0 40 0;
+#X connect 40 0 38 0;
+#X connect 40 1 39 0;
+#X connect 44 0 45 0;
+#X connect 45 0 43 0;
+#X connect 45 1 42 0;
+#X connect 47 0 31 0;
+#X connect 48 0 31 0;
+#X connect 49 0 31 0;
+#X connect 57 0 58 0;
+#X connect 61 0 62 0;
+#X connect 64 0 62 0;
+#X restore 26 433 pd variables-et-fonctions;
+#X text 591 -84 @version 1;
+#X text 23 403 On utilise des liaisons sans fil pour communiquer.;
+#X text 21 29 Les images chargées doivent être de type TIFF \, PNG
+ou JPG et placées dans un dossier "data" situé dans le dossier de
+l'application.;
+#X text 22 135 1- symbole : le nom de la variable SimpleImage \; 2-
+symbole : le nom du fichier d'image se trouvant dans le dossier "data"
+\; 3- booléen : son mode d'utilisation (0 ou 1);
+#X text 591 -109 @library 2DMovie;
+#X text 488 26 "q" pour quitter);
+#X text 488 12 (cliquez sur "f" pour le plein écran \,;
+#X obj 503 75 simpleimage mer sea.jpg 1;
+#X obj 503 125 simpleimage oiseau bird.png;
+#X connect 13 0 14 0;
+#X coords 0 576 1 575 65 15 0;

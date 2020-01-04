@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs_gen
+END
+The_MIXER~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs_gen/The_MIXER~.pd
+END
+ADC-IN-Distribute~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs_gen/ADC-IN-Distribute~.pd
+END
+IN-MIX-CH~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs_gen/IN-MIX-CH~.pd
+END
+AUX-SUM-Distribute~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs_gen/AUX-SUM-Distribute~.pd
+END
+AUX-RET-CH~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs_gen/AUX-RET-CH~.pd
+END
+DAC_Routing_Compensation~.pd
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/abs_gen/DAC_Routing_Compensation~.pd
+END

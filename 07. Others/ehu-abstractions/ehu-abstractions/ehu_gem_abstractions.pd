@@ -1,0 +1,26 @@
+#N canvas 461 50 539 714 10;
+#X obj 24 51 ehu/gem/mouse;
+#X obj 25 17 ehu/gem/win 800 600;
+#X obj 14 637 ehu/gem/track;
+#X text 186 15 controls the GEM graphics window;
+#X text 111 49 reports the mouse coordinates and click down/up events
+for all mouse buttons;
+#X obj 28 139 ehu/gem/cam 0;
+#X text 125 658 basic track of movement from a video stream (ehu/gem/cam
+or ehu/gem/video);
+#X text 232 576 draws a text;
+#X text 193 206 opens and controls still image (TIFF \, JPG \, PNG)
+;
+#X text 248 86 opens and controls a video file;
+#X text 166 156 controls a video camera device;
+#X text 206 295 renders the output of a cam \, image \, video object
+;
+#X text 200 396 draws a rectangle;
+#X text 179 486 draws a circle;
+#X text 212 316 into a circle or a rectangle;
+#X obj 13 271 ehu/gem/texture;
+#X obj 16 203 ehu/gem/picture;
+#X obj 20 80 ehu/gem/video;
+#X obj 14 374 ehu/gem/rect;
+#X obj 14 459 ehu/gem/circle;
+#X obj 14 548 ehu/gem/text;

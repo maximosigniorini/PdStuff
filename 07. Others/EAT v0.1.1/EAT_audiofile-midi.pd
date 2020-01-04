@@ -1,0 +1,146 @@
+#N canvas 399 85 916 667 10;
+#X obj 265 193 ctlin;
+#X obj 278 242 spigot;
+#X obj 278 259 bng 8 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 132 300 ==;
+#X obj 201 266 prepend set;
+#X msg 168 283 65;
+#X obj 132 317 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 99 332 spigot;
+#X obj 99 277 ctlin;
+#X obj 99 444 spigot;
+#X text 283 210 MIDI LEARN;
+#X text 79 261 MIDI CONTROL;
+#X msg 486 465 1;
+#X msg 309 465 0;
+#X obj 282 409 t b b;
+#X obj 262 429 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 262 482 spigot;
+#X obj 262 499 * -1;
+#X obj 262 516 + 1;
+#X obj 168 50 r midirequest;
+#X obj 168 587 s midisave;
+#X obj 459 84 io;
+#X obj 168 67 t b b;
+#X obj 168 84 io;
+#X obj 168 533 pack;
+#X obj 168 553 prepend;
+#X obj 201 104 list-splat 1;
+#X obj 319 121 prepend set;
+#X msg 201 155 65 0;
+#X obj 201 138 sel s;
+#X obj 201 172 unpack;
+#X obj 197 499 s \$0-spig;
+#X obj 282 392 r \$0-spig;
+#X obj 442 189 io;
+#X obj 442 372 io;
+#X obj 262 389 io;
+#X obj 228 121 r \$0-uniqueid;
+#X obj 168 13 inlet;
+#X obj 168 30 s \$0-midilearn;
+#X obj 319 138 io;
+#X obj 37 11 cnv 15 24 15 empty empty MIDI 1 9 1 11 -1 -204800 0;
+#X obj 326 12 loadbang;
+#X obj 201 87 r midiload.\$1;
+#X obj 168 570 prepend \$1;
+#X obj 207 536 r \$0-uniqueid;
+#X text 6 153 Argument 1: Abstraction \; Argument 2: Parameter \; Argument
+3: \$1 \; Argument 4: Input Min \; Argument 5: Input Max \; Argument
+6: Output Min \; Argument 7: Output Max;
+#X obj 326 29 symbol \$3;
+#X obj 326 46 s \$0-uniqueid;
+#X obj 11 123 cnv 15 34 15 empty empty Output 1 9 1 11 -1 -204800 0
+;
+#X obj 62 11 cnv 15 19 15 empty empty CC 3 9 1 11 -1 -204800 0;
+#X obj 82 11 cnv 15 40 15 empty empty LEARN 3 9 1 11 -1 -204800 0;
+#X obj 46 123 cnv 15 27 15 empty empty Max: 3 9 1 11 -1 -204800 0;
+#X obj 74 123 cnv 15 75 15 empty empty \$7 3 9 1 11 -1 -204800 0;
+#X obj 11 107 cnv 15 38 15 empty empty Output 5 9 1 11 -1 -204800 0
+;
+#X obj 50 107 cnv 15 23 15 empty empty Min: 3 9 1 11 -1 -204800 0;
+#X obj 74 107 cnv 15 75 15 empty empty \$6 3 9 1 11 -1 -204800 0;
+#X obj 11 91 cnv 15 34 15 empty empty Input 10 9 1 11 -1 -204800 0
+;
+#X obj 46 91 cnv 15 27 15 empty empty Max: 3 9 1 11 -1 -204800 0;
+#X obj 74 91 cnv 15 75 15 empty empty \$5 3 9 1 11 -1 -204800 0;
+#X obj 50 75 cnv 15 23 15 empty empty Min: 3 9 1 11 -1 -204800 0;
+#X obj 74 75 cnv 15 75 15 empty empty \$4 3 9 1 11 -1 -204800 0;
+#X obj 11 75 cnv 15 38 15 empty empty Input 14 9 1 11 -1 -204800 0
+;
+#X obj 11 59 cnv 15 62 15 empty empty Instance: 17 9 1 11 -1 -204800
+0;
+#X obj 74 59 cnv 15 75 15 empty empty \$3 3 9 1 11 -1 -204800 0;
+#X obj 11 43 cnv 15 62 15 empty empty Parameter: 8 9 1 11 -1 -204800
+0;
+#X obj 74 43 cnv 15 75 15 empty empty \$2 3 9 1 11 -1 -204800 0;
+#X obj 11 27 cnv 15 62 15 empty empty Abstraction: 4 9 1 11 -1 -204800
+0;
+#X obj 74 27 cnv 15 75 15 empty empty \$1 3 9 1 11 -1 -204800 0;
+#X obj 11 11 cnv 15 25 15 empty empty empty 1 9 1 11 -1 -204800 0;
+#X obj 123 11 cnv 15 26 15 empty empty empty 1 9 1 11 -1 -204800 0
+;
+#X obj 311 225 r \$1.\$2.\$3.midilearns;
+#X obj 278 267 s \$1.\$2.\$3.midilearnr;
+#X obj 459 412 t f b;
+#X obj 188 369 r \$1.\$2.\$3.midiccs;
+#X obj 349 440 s \$1.\$2.\$3.midiccr;
+#X obj 99 461 outlet;
+#X connect 0 1 1 0;
+#X connect 0 1 3 0;
+#X connect 0 1 5 0;
+#X connect 1 0 2 0;
+#X connect 1 0 4 0;
+#X connect 2 0 71 0;
+#X connect 3 0 6 0;
+#X connect 4 0 5 0;
+#X connect 5 0 3 1;
+#X connect 5 0 24 0;
+#X connect 6 0 7 1;
+#X connect 7 0 9 0;
+#X connect 8 0 7 0;
+#X connect 9 0 75 0;
+#X connect 12 0 16 1;
+#X connect 13 0 16 1;
+#X connect 14 0 15 0;
+#X connect 14 1 13 0;
+#X connect 15 0 9 1;
+#X connect 15 0 16 0;
+#X connect 16 0 17 0;
+#X connect 16 0 31 0;
+#X connect 17 0 18 0;
+#X connect 18 0 24 1;
+#X connect 19 0 22 0;
+#X connect 21 0 72 0;
+#X connect 22 0 23 0;
+#X connect 22 1 21 0;
+#X connect 23 0 5 0;
+#X connect 24 0 25 0;
+#X connect 25 0 43 0;
+#X connect 26 0 29 0;
+#X connect 26 1 27 0;
+#X connect 27 0 39 0;
+#X connect 28 0 30 0;
+#X connect 29 0 28 0;
+#X connect 30 0 4 0;
+#X connect 30 1 33 0;
+#X connect 32 0 14 0;
+#X connect 33 0 34 0;
+#X connect 34 0 35 0;
+#X connect 35 0 15 0;
+#X connect 36 0 29 1;
+#X connect 37 0 38 0;
+#X connect 39 0 28 0;
+#X connect 41 0 46 0;
+#X connect 42 0 26 0;
+#X connect 43 0 20 0;
+#X connect 44 0 25 1;
+#X connect 46 0 47 0;
+#X connect 70 0 1 1;
+#X connect 72 0 15 0;
+#X connect 72 0 74 0;
+#X connect 72 1 12 0;
+#X connect 73 0 15 0;
+#X coords 0 -1 1 1 140 129 2 10 10;

@@ -1,0 +1,220 @@
+#N canvas 123 317 790 508 10;
+#X obj 447 8 inlet;
+#X obj 496 8 cnv 15 55 20 empty empty GEM_IN 0 10 0 12 -4034 -1 0;
+#X obj 448 189 outlet;
+#X obj 502 187 cnv 15 55 20 empty empty GEM_OUT 0 10 0 12 -221249 -262144
+0;
+#X obj 0 -1 cnv 15 200 180 empty empty gempix_text 45 12 0 12 -99865
+-262144 0;
+#X obj 437 310 cnv 15 40 15 empty empty GEM_IN 0 8 0 8 -4034 -1 0;
+#X obj 4 45 cnv 15 190 25 empty empty Font 2 10 0 10 -128992 -228856
+0;
+#X obj 8 27 tgl 15 0 \$1gempix_text_on \$1gempix_text_on_init Enable
+17 7 0 10 -4034 -1 -228856 0 1;
+#X obj 129 27 tgl 15 0 \$1gempix_text_2d3d \$1gempix_text_2d3d_init
+2d/3d 17 7 0 10 -260097 -1 -228856 0 1;
+#X obj 77 27 bng 15 250 50 0 \$1gempix_text_reset \$1gempix_text_reset_init
+reset 17 7 0 8 -257985 -1 -228856;
+#X obj 1 164 cnv 15 40 15 empty empty GEM_OUT 0 8 0 8 -258113 -262144
+0;
+#X obj 160 5 cnv 15 30 15 empty \$1gempix_text_id \$1 4 8 0 10 -260097
+-33289 0;
+#X obj 448 136 spigot;
+#N canvas 427 571 1105 392 gempix_text_default_settings 0;
+#X obj 16 40 loadbang;
+#X obj 381 114 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 26 207 symbol \$1;
+#X symbolatom 26 236 0 0 0 0 - - -;
+#X obj 32 120 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X symbolatom 123 236 0 0 0 0 - - -;
+#X obj 123 207 symbol \$2;
+#X obj -38 207 float \$1;
+#X floatatom -34 239 5 0 0 0 - - -;
+#X msg 457 185 1;
+#X obj 547 56 r \$1gempix_text_reset;
+#X obj 26 282 s \$1gempix_text_id;
+#X obj 241 252 s \$1gempix_text_on_init;
+#X obj 460 221 s \$1gempix_text_size_init;
+#X msg 344 192 0;
+#X connect 0 0 4 0;
+#X connect 0 0 1 0;
+#X connect 1 0 9 0;
+#X connect 1 0 14 0;
+#X connect 2 0 3 0;
+#X connect 3 0 11 0;
+#X connect 4 0 2 0;
+#X connect 4 0 6 0;
+#X connect 4 0 7 0;
+#X connect 6 0 5 0;
+#X connect 7 0 8 0;
+#X connect 9 0 13 0;
+#X connect 10 0 1 0;
+#X connect 14 0 12 0;
+#X restore 571 12 pd gempix_text_default_settings;
+#X obj 481 102 r \$1gempix_text_on;
+#N canvas -563 437 1040 547 gempix_text_core 0;
+#X obj 50 22 inlet;
+#X obj 94 22 cnv 15 55 20 empty empty GEM_IN 0 10 0 12 -4034 -1 0;
+#X obj 215 511 outlet;
+#X floatatom 735 314 5 0 100 1 size - -;
+#X msg 351 184 font \$1;
+#X obj 343 29 openpanel;
+#X obj 343 12 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 343 -9 r \$1gempix_text_change_font;
+#X msg 424 134 label \$1;
+#X obj 425 166 s \$1gem_pix_text_font_label;
+#X obj 419 110 hcs/split_path;
+#X obj 344 49 s \$1gem_pix_text_font;
+#X obj 347 82 r \$1gem_pix_text_font;
+#X obj 735 294 r \$1gempix_text_size;
+#X obj 646 -14 r \$1gempix_text_hjust;
+#X obj 646 24 select 0 1 2 3;
+#X obj 827 26 select 0 1 2 3;
+#X msg 710 168 add2 base;
+#X msg 832 170 add2 base;
+#X obj 827 -12 r \$1gempix_text_vjust;
+#X msg 614 180 set justify;
+#X obj 617 90 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 705 235 justify base base;
+#X msg 648 48 set add2 base;
+#X msg 647 72 set add2 left;
+#X msg 647 97 set add2 center;
+#X msg 647 123 set add2 right;
+#X obj 684 184 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 827 54 set add2 base;
+#X msg 827 80 set add2 top;
+#X msg 829 104 set add2 middle;
+#X msg 827 124 set add2 bottom;
+#X obj 773 175 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 863 193 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 463 376 text3d;
+#X connect 5 0 11 0;
+#X connect 6 0 5 0;
+#X connect 7 0 6 0;
+#X connect 8 0 9 0;
+#X connect 10 1 8 0;
+#X connect 12 0 10 0;
+#X connect 12 0 4 0;
+#X connect 13 0 3 0;
+#X connect 14 0 15 0;
+#X connect 14 0 21 0;
+#X connect 15 0 23 0;
+#X connect 15 1 24 0;
+#X connect 15 2 25 0;
+#X connect 15 3 26 0;
+#X connect 16 0 28 0;
+#X connect 16 1 29 0;
+#X connect 16 2 30 0;
+#X connect 16 3 31 0;
+#X connect 17 0 22 0;
+#X connect 17 0 32 0;
+#X connect 18 0 22 0;
+#X connect 18 0 33 0;
+#X connect 19 0 16 0;
+#X connect 19 0 21 0;
+#X connect 20 0 22 0;
+#X connect 20 0 27 0;
+#X connect 21 0 20 0;
+#X connect 23 0 17 0;
+#X connect 24 0 17 0;
+#X connect 25 0 17 0;
+#X connect 26 0 17 0;
+#X connect 27 0 17 0;
+#X connect 28 0 18 0;
+#X connect 29 0 18 0;
+#X connect 30 0 18 0;
+#X connect 31 0 18 0;
+#X connect 32 0 18 0;
+#X connect 33 0 22 0;
+#X restore 447 71 pd gempix_text_core;
+#X obj 45 49 hradio 15 1 0 8 empty \$1gem_pix_text_font_label VeraSe.ttf
+0 8 0 8 -1 -1 -260097 0;
+#X obj 172 49 bng 15 250 50 0 \$1gempix_text_change_font \$1gempix_text_change_font_init
+empty 17 7 0 8 -257985 -1 -1;
+#X obj 4 73 cnv 15 190 25 empty empty Size 2 12 0 10 -128992 -228856
+0;
+#X obj 48 78 hsl 110 15 0 100 0 0 \$1gempix_text_size_init empty empty
+3 8 0 8 -66577 -260097 -260097 0 1;
+#X obj 160 78 nbx 3 15 0 1080 0 0 \$1gempix_text_size \$1gempix_text_size_init
+empty 8 -6 0 8 -33289 -260097 -260097 1 256;
+#X obj 4 102 cnv 15 90 25 empty empty HJust 2 12 0 8 -128992 -228856
+0;
+#X obj 39 108 hradio 12 1 0 4 \$1gempix_text_hjust \$1gempix_text_hjust_init
+empty 0 -8 0 10 -262144 -1 -1 0;
+#X obj 103 102 cnv 15 90 25 empty empty VJust 2 12 0 8 -128992 -228856
+0;
+#X obj 138 108 hradio 12 1 0 4 \$1gempix_text_vjust \$1gempix_text_vjust_init
+empty 0 -8 0 10 -262144 -1 -1 0;
+#X obj 66 162 bng 14 250 50 0 \$1gempix_textbox_clear \$1gempix_textbox_clear_init
+clear 16 7 0 7 -257985 -1 -1;
+#X obj 138 164 bng 14 250 50 0 \$1gempix_textbox_ok \$1gempix_textbox_ok_init
+ok 16 7 0 7 -4160 -1 -1;
+#X obj 33 344 s \$1gempix_textbox_out1;
+#X obj 203 339 s \$1gempix_textbox_out2;
+#X obj 38 220 r \$1gempix_textbox_in;
+#X obj 235 273 cnv 15 190 25 empty empty Text 2 12 0 10 -128992 -228856
+0;
+#N canvas 649 423 774 467 textbox 0;
+#X msg 193 -91 fontsize 10;
+#X obj 221 -136 loadbang;
+#X obj 221 -111 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X symbolatom -345 -219 0 0 0 0 - - -;
+#X symbolatom -72 -238 10 0 0 0 - - -;
+#X obj 31 -180 select return;
+#X obj -56 -137 trigger bang bang;
+#X msg -48 -67 clear;
+#X obj -366 -241 l2s;
+#X msg -366 -194 set \$1;
+#X msg 192 -40 bgcolour black;
+#X msg 202 -67 fgcolour white;
+#X msg 200 -17 size 90 20;
+#X obj -288 -288 r \$1gempix_textbox_out1;
+#X obj -79 -291 r \$1gempix_textbox_out2;
+#X obj -141 -188 r \$1gempix_textbox_ok;
+#X obj -134 -111 r \$1gempix_textbox_clear;
+#X obj -46 12 s \$1gempix_textbox_in;
+#X obj -359 0 outlet;
+#X msg -356 -127 text \$1;
+#X obj 166 -231 entry 70 20 black orange;
+#X text 139 -272 [entry 70 20 black orange];
+#X connect 0 0 17 0;
+#X connect 1 0 2 0;
+#X connect 2 0 0 0;
+#X connect 2 0 11 0;
+#X connect 2 0 10 0;
+#X connect 2 0 12 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 6 1 17 0;
+#X connect 7 0 17 0;
+#X connect 8 0 3 0;
+#X connect 8 0 9 0;
+#X connect 8 0 19 0;
+#X connect 9 0 17 0;
+#X connect 10 0 17 0;
+#X connect 11 0 17 0;
+#X connect 12 0 17 0;
+#X connect 13 0 8 0;
+#X connect 14 0 4 0;
+#X connect 15 0 6 0;
+#X connect 16 0 7 0;
+#X connect 19 0 18 0;
+#X restore 355 30 pd textbox;
+#X obj 39 134 entry 90 20 black white;
+#X connect 0 0 15 0;
+#X connect 12 0 2 0;
+#X connect 14 0 12 1;
+#X connect 15 0 12 0;
+#X connect 29 0 32 0;
+#X connect 32 0 27 0;
+#X connect 32 1 28 0;
+#X coords 0 -1 1 1 200 180 2 0 0;

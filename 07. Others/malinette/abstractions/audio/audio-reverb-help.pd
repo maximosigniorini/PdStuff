@@ -1,0 +1,11 @@
+#N canvas 3 99 607 305 10;
+#X obj 64 142 osc~ 440;
+#X obj 63 239 dac~;
+#X obj 63 168 audio-reverb;
+#X msg 206 87 level 100 \, liveness 60 \, crossover 3000 \, damping
+20 \, on 1;
+#X text 60 37 audio-reverb \; ------------ \; Reverberation.;
+#X connect 0 0 2 0;
+#X connect 2 0 1 0;
+#X connect 2 1 1 1;
+#X connect 3 0 2 1;

@@ -1,0 +1,21 @@
+#N canvas 192 84 607 381 10;
+#X obj 104 196 cnv 15 220 100 empty empty empty 20 12 0 14 -233017
+-66577 0;
+#X obj 399 189 ehu/plot;
+#X obj 15 181 ehu/dsp;
+#X text 9 38 records the incoming signal into a stereo sound file.
+;
+#X obj 122 119 osc~ 300;
+#X obj 35 122 tgl 40 0 empty empty empty 17 7 0 10 -258113 -1 -1 0
+1;
+#X obj 121 245 ehu/rec~;
+#X text 9 69 inlets : on/off;
+#X text 23 5 ehu/rec~;
+#X text 163 57 Records into audio (wav) files. The files are named
+after the date and current time and they are located near the patch
+you are working in;
+#X connect 4 0 1 0;
+#X connect 4 0 6 0;
+#X connect 4 0 6 1;
+#X connect 5 0 2 0;
+#X connect 5 0 6 2;

@@ -1,0 +1,7 @@
+#N canvas 792 267 450 300 10;
+#X obj 87 218 outlet;
+#X obj 84 128 inlet;
+#X obj 84 149 s \$1_fromgui;
+#X obj 87 198 r \$1_togui;
+#X connect 1 0 2 0;
+#X connect 3 0 0 0;

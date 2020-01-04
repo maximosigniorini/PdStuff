@@ -1,0 +1,304 @@
+#N canvas 1065 175 255 250 10;
+#X obj 2 1 cnv 15 63 198 empty empty AMBI 1 12 0 14 -233017 -66577
+0;
+#X obj 5 99 cnv 2 38 2 empty empty empty 20 12 0 14 -33289 -66577 0
+;
+#X obj 45 5 bng 15 250 50 0 \$0GUIambi_showsettings \$0GUIambi_showsettings
+set 0 20 0 8 -62784 -1 -1;
+#X obj 10 54 vsl 30 131 0 130 0 0 \$0GUIambiout_fader \$0GUIambiout_fader
+-inf 1 140 0 8 -228992 -1 -1 0 1;
+#N canvas 1352 10 803 573 code 0;
+#X obj 52 141 route float;
+#X obj 131 403 - 100;
+#X msg 52 464 label \$1;
+#X msg 52 442 symbol -inf;
+#X obj 52 248 max 0;
+#X obj 52 269 select 0 100;
+#X obj 91 382 makefilename %03d;
+#X msg 91 361 0;
+#X obj 131 422 makefilename %+03d;
+#X obj 52 208 t f f;
+#X obj 52 185 fadtodb;
+#X obj 143 290 dbtofad;
+#X obj 52 120 r \$0GUIambiout_fader;
+#X obj 52 487 s \$0GUIambiout_fader;
+#X obj 455 416 r \$0GUIambi_showsettings;
+#X msg 455 485 \; \$1-ambisonic.settings vis 1;
+#X obj 455 461 makefilename pd-%d;
+#X obj 455 436 i \$0;
+#N canvas 441 183 436 661 weights 0;
+#X obj 37 346 t b l b;
+#X obj 59 416 spigot 1;
+#X msg 24 394 1;
+#X msg 106 395 0;
+#X obj 59 436 mtx_rmstodb;
+#X obj 37 326 mtx_dbtorms;
+#X obj 59 372 sendreceive /OUT/AMBI/SPEAKER/ORDER_WEIGHT;
+#N canvas 0 0 612 382 scalar2list 0;
+#X obj 157 41 inlet;
+#X obj 157 357 outlet;
+#X obj 157 107 OUT/ambisonic/helper/sr_weight \$0GUI 0;
+#X obj 157 288 f;
+#X obj 157 263 del 0;
+#X obj 264 235 t b f;
+#X obj 237 215 t b f;
+#X obj 210 235 t b f;
+#X obj 183 205 t b f;
+#X obj 157 235 t b f;
+#X obj 157 82 unpack 0 0 0 0 0;
+#X obj 183 127 OUT/ambisonic/helper/sr_weight \$0GUI 1;
+#X obj 210 147 OUT/ambisonic/helper/sr_weight \$0GUI 2;
+#X obj 237 167 OUT/ambisonic/helper/sr_weight \$0GUI 3;
+#X obj 264 187 OUT/ambisonic/helper/sr_weight \$0GUI 4;
+#X obj 157 336 pack 1 1 1 1 1;
+#X connect 0 0 10 0;
+#X connect 2 0 9 0;
+#X connect 3 0 15 0;
+#X connect 4 0 3 0;
+#X connect 5 0 4 0;
+#X connect 5 1 15 4;
+#X connect 6 0 4 0;
+#X connect 6 1 15 3;
+#X connect 7 0 4 0;
+#X connect 7 1 15 2;
+#X connect 8 0 4 0;
+#X connect 8 1 15 1;
+#X connect 9 0 4 0;
+#X connect 9 1 3 1;
+#X connect 10 0 2 0;
+#X connect 10 1 11 0;
+#X connect 10 2 12 0;
+#X connect 10 3 13 0;
+#X connect 10 4 14 0;
+#X connect 11 0 8 0;
+#X connect 12 0 7 0;
+#X connect 13 0 6 0;
+#X connect 14 0 5 0;
+#X connect 15 0 1 0;
+#X restore 37 305 pd scalar2list;
+#X connect 0 0 2 0;
+#X connect 0 1 6 0;
+#X connect 0 2 3 0;
+#X connect 1 0 4 0;
+#X connect 2 0 1 1;
+#X connect 3 0 1 1;
+#X connect 4 0 7 0;
+#X connect 5 0 0 0;
+#X connect 6 0 1 0;
+#X connect 7 0 5 0;
+#X restore 51 65 pd weights;
+#X obj 450 211 s OUT_AMBI_ROT_Z;
+#X msg 450 189 0;
+#X obj 450 142 loadbang;
+#N canvas 1392 443 450 300 rotation 0;
+#X obj 126 169 r \$0GUI_ambisonic_rotZ_fromgui;
+#X obj 126 244 s \$0GUI_ambisonic_rotZ_label;
+#X obj 126 191 makefilename %03d°;
+#X obj 41 38 gui_sr_wrap \$0GUI_ambisonic_rotZ /OUT/AMBI/SPEAKER/ROT/Z
+-180 180;
+#X msg 126 219 label rot:\$1;
+#X obj 86 86 loadbang;
+#X msg 86 106 0;
+#X obj 86 126 s /OUT/AMBI/SPEAKER/ROT/Z;
+#X connect 0 0 2 0;
+#X connect 2 0 4 0;
+#X connect 4 0 1 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X restore 49 35 pd rotation;
+#X msg 488 189 1 1 1 1 1;
+#X obj 220 31 r \$0_24_fromgui;
+#X obj 220 75 s \$0_24_togui;
+#X obj 219 100 r \$0_BIN_fromgui;
+#X obj 219 144 s \$0_BIN_togui;
+#X obj 152 171 r \$0_mirrorweight_fromgui;
+#X obj 152 215 s \$0_mirrorweight_togui;
+#X obj 140 236 s \$0_mirrorweight_nbx_togui;
+#X obj 450 164 t b b b;
+#X msg 563 188 1;
+#X obj 152 192 sendreceive /OUT/AMBI/SPEAKER/MIRROR_WEIGHT;
+#X obj 406 268 sendreceive /OUT/AMBI/BIN/MIRROR_WEIGHT;
+#X obj 488 232 s /OUT/AMBI/SPEAKER/ORDER_WEIGHT;
+#X floatatom 230 296 5 0 0 0 - - -;
+#X floatatom 8 173 5 0 0 0 - - -;
+#X obj 143 269 sendreceive /OUT/AMBI/SPEAKER/GAIN;
+#X obj 219 121 sendreceive /OUT/AMBI/BIN/ON;
+#X obj 220 53 sendreceive /OUT/AMBI/SPEAKER/ON;
+#N canvas 0 0 450 300 replicate 0;
+#X obj 129 141 sendreceive /OUT/AMBI/BIN/ORDER_WEIGHT;
+#X obj 129 120 r /OUT/AMBI/SPEAKER/ORDER_WEIGHT;
+#X obj 129 163 r /OUT/AMBI/SPEAKER/MIRROR_WEIGHT;
+#X obj 129 184 sendreceive /OUT/AMBI/BIN/MIRROR_WEIGHT;
+#X obj 129 231 sendreceive /OUT/AMBI/BIN/GAIN;
+#X obj 129 210 r /OUT/AMBI/SPEAKER/GAIN;
+#X text 70 25 the gui changes these settings for /AMBI/SPEAKER \, but
+we also want them to be applied to /AMBI/BIN;
+#X connect 1 0 0 0;
+#X connect 2 0 3 0;
+#X connect 5 0 4 0;
+#X restore 456 367 pd replicate speakers->binaural;
+#X connect 0 0 10 0;
+#X connect 1 0 8 0;
+#X connect 2 0 13 0;
+#X connect 3 0 2 0;
+#X connect 4 0 5 0;
+#X connect 5 0 3 0;
+#X connect 5 1 7 0;
+#X connect 5 2 1 0;
+#X connect 6 0 2 0;
+#X connect 7 0 6 0;
+#X connect 8 0 2 0;
+#X connect 9 0 4 0;
+#X connect 9 1 38 0;
+#X connect 10 0 9 0;
+#X connect 11 0 13 0;
+#X connect 12 0 0 0;
+#X connect 14 0 17 0;
+#X connect 16 0 15 0;
+#X connect 17 0 16 0;
+#X connect 20 0 19 0;
+#X connect 20 0 27 0;
+#X connect 21 0 31 0;
+#X connect 23 0 35 0;
+#X connect 24 0 40 0;
+#X connect 26 0 39 0;
+#X connect 28 0 33 0;
+#X connect 28 0 34 0;
+#X connect 31 0 20 0;
+#X connect 31 1 23 0;
+#X connect 31 2 32 0;
+#X connect 32 0 25 0;
+#X connect 33 0 29 0;
+#X connect 33 0 30 0;
+#X connect 38 0 11 0;
+#X connect 38 0 36 0;
+#X connect 39 0 27 0;
+#X connect 40 0 25 0;
+#X restore 78 9 pd code;
+#N canvas 2109 66 361 621 \$0-ambisonic.settings 0;
+#X obj 58 10 cnv 15 185 190 empty empty weights 10 12 0 14 -195568
+-66577 0;
+#X obj 60 199 nbx 5 14 -100 22 0 0 \$0GUI_0_ambiweight_nbx_fromgui
+\$0GUI_0_ambiweight_nbx_togui empty 0 -6 0 10 -245568 -1 -1 0 256;
+#X obj 96 179 nbx 5 14 -100 22 0 0 \$0GUI_1_ambiweight_nbx_fromgui
+\$0GUI_1_ambiweight_nbx_togui empty 0 -6 0 10 -245568 -1 -1 0 256;
+#X obj 132 199 nbx 5 14 -100 22 0 0 \$0GUI_2_ambiweight_nbx_fromgui
+\$0GUI_2_ambiweight_nbx_togui empty 0 -6 0 10 -245568 -1 -1 0 256;
+#X obj 168 179 nbx 5 14 -100 22 0 0 \$0GUI_3_ambiweight_nbx_fromgui
+\$0GUI_3_ambiweight_nbx_togui empty 0 -6 0 10 -245568 -1 -1 0 256;
+#X obj 204 199 nbx 6 14 -100 22 0 0 \$0GUI_4_ambiweight_nbx_fromgui
+\$0GUI_4_ambiweight_nbx_togui empty 0 -6 0 10 -245568 -1 -1 0 256;
+#X obj 10 10 cnv 15 44 190 empty empty gain 1 12 0 14 -195568 -66577
+0;
+#X obj 14 92 cnv 2 22 2 empty empty empty 20 12 0 14 -99865 -66577
+0;
+#X obj 61 89 cnv 2 174 2 empty empty empty 20 12 0 14 -99865 -66577
+0;
+#X obj 70 46 vsl 15 128 0 127 0 0 \$0GUI_0_ambiweight_fromgui \$0GUI_0_ambiweight_togui
+0 5 -8 0 8 -245568 -1 -1 8400 1;
+#X obj 106 46 vsl 15 128 0 127 0 0 \$0GUI_1_ambiweight_fromgui \$0GUI_1_ambiweight_togui
+1 5 -8 0 8 -245568 -1 -1 8400 1;
+#X obj 142 46 vsl 15 128 0 127 0 0 \$0GUI_2_ambiweight_fromgui \$0GUI_2_ambiweight_togui
+2 5 -8 0 8 -245568 -1 -1 8400 1;
+#X obj 178 46 vsl 15 128 0 127 0 0 \$0GUI_3_ambiweight_fromgui \$0GUI_3_ambiweight_togui
+3 5 -8 0 8 -245568 -1 -1 8400 1;
+#X obj 214 46 vsl 15 128 0 127 0 0 \$0GUI_4_ambiweight_fromgui \$0GUI_4_ambiweight_togui
+4 5 -8 0 8 -245568 -1 -1 8400 1;
+#X obj 38 54 vfad_scale -1;
+#X obj 8 226 ambisonic/sphere;
+#X obj 17 46 vsl 15 131 0 130 0 0 \$0GUIambiout_fader \$0GUIambiout_fader
+-inf 1 140 0 8 -228992 -1 -1 0 1;
+#N canvas 1911 538 450 300 BIN 0;
+#X obj 11 11 cnv 15 98 188 empty empty BIN 0 12 0 14 -195568 -66577
+0;
+#X obj 48 115 popup 60 20 #ffffff OUT OUT 01 OUT 02 OUT 03 OUT 04 OUT 05
+OUT 06 OUT 07 OUT 08 OUT 09 OUT 10 OUT 11 OUT 12 OUT 13 OUT 14 OUT 15
+OUT 16 OUT 17 OUT 18 OUT 19 OUT 20 OUT 21 OUT 22 OUT 23 OUT 24 OUT 25
+OUT 26 OUT 27 OUT 28 OUT 29 OUT 30 OUT 31 OUT 32 OUT 33 OUT 34 OUT 35
+OUT 36 OUT 37 OUT 38 OUT 39 OUT 40 OUT 41 OUT 42 OUT 43 OUT 44 OUT 45
+OUT 46 OUT 47 OUT 48 OUT 49 OUT 50 OUT 51 OUT 52 OUT 53 OUT 54 OUT 55
+OUT 56 OUT 57 OUT 58 OUT 59 OUT 60 OUT 61 OUT 62 OUT 63 OUT 64;
+#X obj 48 155 popup 60 20 #ffffff OUT OUT 01 OUT 02 OUT 03 OUT 04 OUT 05
+OUT 06 OUT 07 OUT 08 OUT 09 OUT 10 OUT 11 OUT 12 OUT 13 OUT 14 OUT 15
+OUT 16 OUT 17 OUT 18 OUT 19 OUT 20 OUT 21 OUT 22 OUT 23 OUT 24 OUT 25
+OUT 26 OUT 27 OUT 28 OUT 29 OUT 30 OUT 31 OUT 32 OUT 33 OUT 34 OUT 35
+OUT 36 OUT 37 OUT 38 OUT 39 OUT 40 OUT 41 OUT 42 OUT 43 OUT 44 OUT 45
+OUT 46 OUT 47 OUT 48 OUT 49 OUT 50 OUT 51 OUT 52 OUT 53 OUT 54 OUT 55
+OUT 56 OUT 57 OUT 58 OUT 59 OUT 60 OUT 61 OUT 62 OUT 63 OUT 64;
+#X text 77 97 Left;
+#X text 69 138 Right;
+#N canvas 1437 411 551 231 outrouting_1 0;
+#X obj 11 47 route bang;
+#X obj 11 181 outlet;
+#X obj 11 12 inlet;
+#X obj 113 119 t a;
+#X obj 113 98 DSPnamesGUI OUT;
+#X obj 205 44 unpack 0 s;
+#X obj 270 68 uglifysymbol;
+#X obj 270 112 beautifysymbol;
+#X msg 270 133 name \$1;
+#X msg 10 74 options \, size 60 20 \, name ---;
+#X obj 270 90 sendreceive_nofb /OUT/AMBI/BIN/OUT/1;
+#X connect 0 0 9 0;
+#X connect 0 1 5 0;
+#X connect 2 0 0 0;
+#X connect 3 0 1 0;
+#X connect 4 0 3 0;
+#X connect 5 1 6 0;
+#X connect 6 0 10 0;
+#X connect 7 0 8 0;
+#X connect 8 0 1 0;
+#X connect 9 0 1 0;
+#X connect 10 0 7 0;
+#X restore 119 111 pd outrouting_1;
+#N canvas 1437 411 551 231 outrouting_2 0;
+#X obj 11 47 route bang;
+#X obj 11 181 outlet;
+#X obj 11 12 inlet;
+#X obj 117 117 t a;
+#X obj 205 44 unpack 0 s;
+#X obj 270 68 uglifysymbol;
+#X obj 270 112 beautifysymbol;
+#X msg 270 133 name \$1;
+#X msg 13 70 options \, size 60 20 \, name ---;
+#X obj 117 95 DSPnamesGUI OUT;
+#X obj 270 90 sendreceive_nofb /OUT/AMBI/BIN/OUT/2;
+#X connect 0 0 8 0;
+#X connect 0 1 4 0;
+#X connect 2 0 0 0;
+#X connect 3 0 1 0;
+#X connect 4 1 5 0;
+#X connect 5 0 10 0;
+#X connect 6 0 7 0;
+#X connect 7 0 1 0;
+#X connect 8 0 1 0;
+#X connect 9 0 3 0;
+#X connect 10 0 6 0;
+#X restore 119 151 pd outrouting_2;
+#X obj 20 47 vsl 15 128 0 100 0 0 \$0_mirrorweight_fromgui \$0_mirrorweight_togui
+mirror -5 -8 0 8 -245568 -1 -1 0 1;
+#X obj 11 180 nbx 3 14 0 100 0 0 \$0_mirrorweight_nbx_fromgui \$0_mirrorweight_nbx_togui
+empty 0 -6 0 10 -245568 -1 -1 0 256;
+#X obj 15 89 cnv 2 25 2 empty empty empty 20 12 0 14 -99865 -66577
+0;
+#X text 54 84 -OUTS -;
+#X connect 1 0 5 0;
+#X connect 2 0 6 0;
+#X connect 5 0 1 0;
+#X connect 6 0 2 0;
+#X coords 0 -1 1 1 100 190 1 10 10;
+#X restore 248 10 pd BIN;
+#X obj 8 569 cnv 15 340 25 empty \$0GUI_ambisonic_rotZ_label rot:000°
+20 12 0 14 -195568 -66577 0;
+#X obj 232 571 cnv 2 2 21 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 133 574 hsl 201 15 181 -181 0 0 \$0GUI_ambisonic_rotZ_fromgui
+\$0GUI_ambisonic_rotZ_togui empty -2 -8 0 10 -262144 -1 -1 10000 1
+;
+#X restore 1 205 pd \$0-ambisonic.settings;
+#X obj 44 61 vfad_scale -1;
+#X obj 3 31 tgl 15 0 \$0_24_fromgui \$0_24_togui 24 3 -6 0 8 -262144
+-1 -1 1 1;
+#X obj 26 31 tgl 15 0 \$0_BIN_fromgui \$0_BIN_togui BIN 0 -6 0 8 -262144
+-1 -1 0 1;
+#X coords 0 -1 1 1 65 200 1 0 0;

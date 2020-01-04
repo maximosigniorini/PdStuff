@@ -1,0 +1,19 @@
+#N canvas 820 408 581 373 10;
+#X obj 17 151 print;
+#X text 207 22 Only reports a change in the incoming symbol.;
+#X obj 17 127 flow.schange;
+#X text 205 265 Original by Chris McCormick 2008;
+#X text 203 66 ARGUMENT;
+#X text 205 136 INLET;
+#X text 204 202 OUTLETS;
+#X text 204 82 None;
+#X text 205 153 Symbol;
+#X text 204 218 Output a symbol only if different from the previous
+one;
+#X msg 17 80 dog;
+#X msg 73 80 cat;
+#X msg 124 80 mouse;
+#X connect 2 0 0 0;
+#X connect 10 0 2 0;
+#X connect 11 0 2 0;
+#X connect 12 0 2 0;

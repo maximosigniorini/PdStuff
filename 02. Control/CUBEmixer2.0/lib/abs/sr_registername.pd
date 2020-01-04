@@ -1,0 +1,12 @@
+#N canvas 0 0 450 300 10;
+#X obj 128 86 r sendreceive_getName;
+#X obj 128 176 s sendreceive_setName;
+#X obj 128 108 route bang;
+#X obj 128 131 t b;
+#X obj 128 157 symbol \$1;
+#X obj 186 37 inlet;
+#X connect 0 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 1 0;
+#X connect 5 0 4 1;

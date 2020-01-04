@@ -1,0 +1,298 @@
+#N canvas 367 96 530 539 10;
+#N canvas 608 166 249 182 ARGOnOff 0;
+#X obj 100 100 tgl 18 1 \$0-SendOnOff \$0-ReceiveOnOff On/Off 20 9
+0 12 -4033 -1 -1 0 1;
+#X obj 99 39 loadbang;
+#X msg 99 62 \; pd dsp 1;
+#X obj 100 129 outlet;
+#X connect 0 0 3 0;
+#X connect 1 0 2 0;
+#X coords 0 -1 1 1 65 18 2 100 100;
+#X restore 207 0 pd ARGOnOff;
+#X obj 207 25 switch~;
+#X obj -3 -80 cnv 15 15 15 empty empty ExMM51c-PDP-Video-ieee-Record-raw-MacOSX.pd
+0 8 1 14 -262144 -1 0;
+#X text 23 -51 en USB \, Firewire..;
+#X text 11 -64 1 Connecter une camera a l'ordinateur;
+#X text 11 -34 2 Lancer Pd-0.40.3-extended;
+#X text 11 -17 3 Ouvrir ce patch;
+#X text 11 -1 4 On -------------------------->;
+#X text 20 181 - Sous MacOSX l'application X11 \, une fenêtre xterm
+et une fenêtre pdp s'ouvrent...;
+#X text 18 387 - Fermer le patch;
+#X text 18 401 - Quitter PureData;
+#X text 18 416 - Relancer PureData;
+#X text 18 430 - Reouvrir ce patch;
+#X text 350 42 - Changer;
+#X text 350 55 - Sauver le patch;
+#X text 350 68 - Re-ouvrir le patch;
+#X text 3 372 (message pdp_ieee1394: grabber initialization failed)
+;
+#X text 11 82 5 Clic Capture On ---->;
+#X text 11 135 6 Clic PDPWindow On -->;
+#X text 56 156 ... attendre;
+#X text 327 28 ATTENTION pour changer Quality:;
+#X text 3 358 ATTENTION si l'image n'apparait pas:;
+#X text 11 223 7 Clic Record On ---------->;
+#X text 11 247 ...;
+#X text 11 276 8 Clic Record Off;
+#X text 11 292 9 Clic PDPWindow Off;
+#X text 5 308 10 Clic Capture Off;
+#X text 5 324 11 Clic Off de ce patch;
+#X text 4 339 12 Fermer ce patch;
+#N canvas 242 78 539 398 ARGO 0;
+#X obj 101 101 cnv 10 186 53 \$0-A \$0-B empty 20 12 0 14 -128992 -1
+1.04858e+06;
+#X obj 184 104 cnv 10 20 10 empty ColorGEM PDP-Video-ieee 1 5 1 14
+-128992 -1 1.04858e+06;
+#X obj 181 137 tgl 12 1 \$0-A \$0-B Capture 15 7 1 9 -262144 -1 -1
+0 1;
+#X obj 303 121 cnv 15 60 30 empty empty empty 20 12 0 14 -24198 -66577
+0;
+#N canvas 532 109 425 393 Help 0;
+#X obj 12 59 cnv 15 400 310 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X text 15 58 Citation;
+#X text 24 73 pdp_ieee1394 : fire wire capture object for OSX;
+#X text 24 102 inspired by pix_video from Gem;
+#X text 24 116 written by Yves Degoyon (ydegoyon@free.fr);
+#X text 25 89 Constructor : pdp_ieee1394 <width> <height>;
+#X text 57 28 Philips SPC900NC;
+#X text 58 40 Logitech;
+#X text 15 0 Contrairement a son nom l'objet pdp_ieee1394 fonctionne
+sous MacOSX avec certaines webcam USB;
+#X restore 310 128 pd Help;
+#X obj 138 11 r \$0-SendOnOff;
+#X obj 138 34 t f f;
+#X obj 191 36 cnv 15 340 30 empty empty empty 20 12 0 14 -258113 -66577
+0;
+#X text 194 41 Ne fonctionne pas sous Windows;
+#X msg 172 264 stop;
+#X msg 253 290 open;
+#X msg 153 291 close;
+#X msg 291 291 reset;
+#X msg 81 291 quality \$1;
+#X obj 172 216 sel 0;
+#X obj 101 101 vradio 12 1 1 4 \$0-A ColorGEM Normal_Quality 14 7 1
+9 -262144 -1 -1 2;
+#X obj 115 116 cnv 10 20 10 empty empty High_Quality 0 4 1 9 -128992
+-1 0;
+#X obj 115 128 cnv 10 20 10 empty empty Fast_Quality 0 4 1 9 -128992
+-1 0;
+#X obj 115 140 cnv 5 20 5 empty empty All_data 0 4 1 9 -128992 -1 0
+;
+#X msg 131 78 0;
+#X obj 214 241 t b b b b;
+#X obj 153 241 t b b b;
+#X obj 101 150 cnv 4 10 4 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 93 371 outlet;
+#X obj 197 330 pdp_ieee1394;
+#X obj 172 193 int;
+#X obj 138 57 sel 0 1;
+#X obj 182 160 change;
+#X obj 181 119 bng 12 250 50 0 \$0-A ColorGEM Reset 16 7 1 9 -262144
+-1 -1;
+#X obj 196 290 metro 70;
+#X text 233 162 "Set Quality before starting capture";
+#X text 305 97 17 2 2009;
+#X msg 270 210 open /dev/video0/;
+#X obj 221 128 cnv 10 20 10 empty ColorGEM (MacOSX) 1 5 1 14 -128992
+-1 1.04858e+06;
+#X connect 2 0 27 0;
+#X connect 5 0 6 0;
+#X connect 6 0 26 0;
+#X connect 9 0 29 0;
+#X connect 10 0 24 0;
+#X connect 11 0 24 0;
+#X connect 12 0 24 0;
+#X connect 13 0 24 0;
+#X connect 14 0 21 0;
+#X connect 14 1 20 0;
+#X connect 15 0 13 0;
+#X connect 19 0 2 0;
+#X connect 20 0 29 0;
+#X connect 20 1 32 0;
+#X connect 20 2 15 0;
+#X connect 21 0 11 0;
+#X connect 21 1 9 0;
+#X connect 24 0 23 0;
+#X connect 25 0 14 0;
+#X connect 26 0 19 0;
+#X connect 26 1 25 0;
+#X connect 27 0 25 0;
+#X connect 28 0 12 0;
+#X connect 29 0 24 0;
+#X connect 32 0 24 0;
+#X coords 0 -1 1 1 188 55 1 100 100;
+#X restore 155 49 pd ARGO;
+#N canvas 320 164 399 343 ARGO 0;
+#X obj 101 101 cnv 10 150 41 \$0-A \$0-B empty 20 12 0 14 -128992 -1
+1.04858e+06;
+#X obj 170 104 cnv 10 20 10 empty ColorGEM PDP-Out-glx 1 5 1 14 -128992
+-1 1.04858e+06;
+#X obj 139 55 key;
+#X obj 276 129 cnv 15 60 30 empty empty empty 20 12 0 14 -24198 -66577
+0;
+#N canvas 583 196 410 312 Help 0;
+#X obj 6 7 cnv 15 400 160 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X text 27 6 Citation;
+#X text 15 23 pdp_glx ouputs video in a window using the openGL extension
+on an X11 window system. if a pdp message is received and a window
+is not open \, one is created automaticly.;
+#X text 5 175 Fonctionne sous MacOSX + PD 0.41.4-extended;
+#X text 5 188 Fonctionne sous Linux Ubuntu 8.04 + PD 0.41.4-extended
+;
+#X restore 283 136 pd Help;
+#X obj 20 20 cnv 15 340 30 empty empty empty 20 12 0 14 -258113 -66577
+0;
+#X text 24 26 Ne fonctionne pas sous Windows;
+#X obj 91 316 pdp_glx;
+#X msg 217 286 fullscreen;
+#X msg 14 285 interpol \$1;
+#X msg 139 286 dim 400 300;
+#X obj 101 130 tgl 12 1 \$0-A \$0-B (F)ullScreen 15 7 1 9 -262144 -1
+-1 0 1;
+#X obj 167 262 sel 0;
+#X obj 140 76 select 32 70 102;
+#X obj 101 118 tgl 12 1 \$0-A \$0-B Interpol 15 7 1 9 -262144 -1 -1
+0 1;
+#X msg 342 286 create;
+#X msg 288 285 destroy;
+#X obj 101 106 tgl 12 1 \$0-A \$0-B PDPWindow 15 7 1 9 -262144 -1 -1
+1 1;
+#X obj 167 239 int;
+#X obj 175 205 t b b;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 91 78 inlet;
+#X obj 91 285 spigot;
+#X msg 203 234 0;
+#X obj 222 205 t b b b;
+#X msg 237 234 1;
+#X obj 187 155 int;
+#X obj 13 54 r \$0-SendOnOff;
+#X obj 187 178 sel 0 1;
+#X obj 13 100 sel 0 1;
+#X text 255 96 17 2 2009;
+#X connect 2 0 13 0;
+#X connect 8 0 7 0;
+#X connect 9 0 7 0;
+#X connect 10 0 7 0;
+#X connect 11 0 18 0;
+#X connect 12 0 10 0;
+#X connect 12 1 8 0;
+#X connect 13 1 11 0;
+#X connect 13 2 11 0;
+#X connect 14 0 9 0;
+#X connect 15 0 7 0;
+#X connect 16 0 7 0;
+#X connect 17 0 26 0;
+#X connect 18 0 12 0;
+#X connect 19 0 16 0;
+#X connect 19 1 23 0;
+#X connect 21 0 22 0;
+#X connect 22 0 7 0;
+#X connect 23 0 22 1;
+#X connect 24 0 25 0;
+#X connect 24 1 18 0;
+#X connect 24 2 15 0;
+#X connect 25 0 22 1;
+#X connect 26 0 28 0;
+#X connect 27 0 29 0;
+#X connect 28 0 19 0;
+#X connect 28 1 24 0;
+#X connect 29 0 19 0;
+#X connect 29 1 26 0;
+#X coords 0 -1 1 1 152 43 1 100 100;
+#X restore 155 135 pd ARGO;
+#N canvas 292 146 556 449 ARGO 0;
+#X obj 101 101 cnv 10 150 41 \$0-A \$0-B empty 20 12 0 14 -128992 -1
+1.04858e+06;
+#X obj 141 109 cnv 10 20 10 empty ColorPDP PDP-Record-raw 1 5 1 14
+-128992 -1 1.04858e+06;
+#X obj 276 129 cnv 15 60 30 empty empty empty 20 12 0 14 -24198 -66577
+0;
+#N canvas 589 157 418 337 Help 0;
+#X obj 6 7 cnv 15 400 310 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X text 9 6 Citation;
+#X text 13 105 Voir:;
+#X text 26 120 http://zwizwa.be/darcs/pdp-12/doc/misc/rawout.txt;
+#X text 15 25 pdp_rawout;
+#X text 14 44 Send a video stream through [pdp_convert bitmap/i420/*]
+then stream it to disk using [pdp_rawout /tmp/video.i420] while you
+are performing. You can convert it to divx avi using ffmpegfffff;
+#X text 24 134 Some observations * pdp is a real time performance tool
+* ffmpeg and mencoder are very nice pieces of software that solve the
+video encoding problem * encoding video is cpu intensive * large harddisks
+are cheap For these reason \, I decide to not implement container/codec
+recording in pdp. Using [pdp_rawout] and [pdp_rawout~] it is possible
+to dump video and audio streams directly to harddisk using the minimal
+amount of cpu time. There they can be picked up later by tools like
+mencoder and ffmpeg.;
+#X restore 283 136 pd Help;
+#X obj 40 39 cnv 15 340 30 empty empty empty 20 12 0 14 -258113 -66577
+0;
+#X text 45 41 Ne fonctionne pas sous Windows;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 91 78 inlet;
+#X obj 168 271 delay 1000;
+#X msg 238 271 open \$1;
+#X obj 212 224 list2symbol;
+#X obj 212 202 savepanel;
+#X obj 195 397 print MM---;
+#X obj 211 247 t b s b;
+#X obj 56 425 print done;
+#X msg 87 298 close;
+#X msg 116 375 open;
+#X obj 116 351 spigot;
+#X obj 150 325 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X msg 168 295 1;
+#X obj 101 269 t b b;
+#X msg 134 297 0;
+#X obj 44 224 pdp_convert bitmap/i420/*;
+#X text 303 241 pdp_convert image/YCrCb/*;
+#X text 303 229 pdp_convert image/*/*;
+#X text 303 215 pdp_convert convert between packet types;
+#X text 303 253 pdp_convert image/grey/*;
+#X text 303 264 pdp_convert bitmap/yv12/*;
+#X text 303 299 pdp_convert texture/*/*;
+#X text 303 276 pdp_convert texture/*/*;
+#X text 303 288 pdp_convert bitmap/*/*;
+#X text 201 83 5 3 2009;
+#X obj 56 400 pdp_rawout;
+#X obj 101 122 tgl 15 0 \$0-A \$0-B Record 19 9 1 12 -262144 -258113
+-1 0 1;
+#X obj 158 152 sel 0 1;
+#X connect 7 0 22 0;
+#X connect 8 0 19 0;
+#X connect 9 0 12 0;
+#X connect 9 0 32 0;
+#X connect 10 0 13 0;
+#X connect 11 0 10 0;
+#X connect 13 0 8 0;
+#X connect 13 1 9 0;
+#X connect 15 0 12 0;
+#X connect 15 0 32 0;
+#X connect 16 0 32 0;
+#X connect 17 0 16 0;
+#X connect 18 0 17 1;
+#X connect 19 0 18 0;
+#X connect 20 0 15 0;
+#X connect 20 1 21 0;
+#X connect 21 0 18 0;
+#X connect 22 0 32 0;
+#X connect 32 0 14 0;
+#X connect 32 0 17 0;
+#X connect 33 0 34 0;
+#X connect 34 0 20 0;
+#X connect 34 1 11 0;
+#X coords 0 -1 1 1 152 43 1 100 100;
+#X restore 184 202 pd ARGO;
+#X connect 0 0 1 0;
+#X connect 29 0 30 0;
+#X connect 29 0 31 0;

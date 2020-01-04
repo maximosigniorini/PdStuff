@@ -1,0 +1,61 @@
+#N canvas 151 22 800 687 10;
+#X declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/numbers -path ../../abstractions/video -path
+../../abstractions/audio -path ../../abstractions/master;
+#X obj 7 279 cnv 1 470 1 empty empty FX 2 -6 1 12 -228856 -191407 0
+;
+#X obj 7 431 cnv 1 470 1 empty empty OUT 2 -6 1 12 -228856 -191407
+0;
+#X obj 7 123 cnv 1 470 1 empty empty IN 2 -6 1 12 -228856 -191407 0
+;
+#X obj 488 28 cnv 20 300 90 empty empty DESCRIPTION 10 15 0 16 -233017
+-128992 0;
+#X obj 488 124 cnv 20 300 150 empty empty empty 10 15 0 16 -233017
+-128992 0;
+#X obj 488 279 cnv 20 300 150 empty empty empty 10 15 0 16 -233017
+-128992 0;
+#X obj 488 434 cnv 20 300 230 empty empty empty 10 15 0 16 -233017
+-128992 0;
+#N canvas 619 138 429 190 OPEN_VIDEO 0;
+#X obj 46 65 loadbang;
+#X msg 46 119 \; GEM-MASTER on;
+#X obj 46 89 delay 500;
+#X text 44 33 Démarrer la vidéo à l'ouverture du patch avec 500ms
+de retard;
+#X connect 0 0 2 0;
+#X connect 2 0 1 0;
+#X restore 488 5 pd OPEN_VIDEO;
+#X obj 56 142 video-in;
+#X obj 423 323 loadbang;
+#X obj 179 312 loadbang;
+#X obj 292 474 3d-object 5 2;
+#X msg 405 284 ry \$1;
+#X floatatom 169 250 5 0 0 0 - - -;
+#X obj 56 351 3d-transform;
+#X obj 56 474 3d-object 0 1.4;
+#X msg 423 345 tx 1.5;
+#X obj 292 362 3d-transform 1;
+#X msg 169 284 rx \$1;
+#X obj 169 198 seq-counter 50 1 360;
+#X msg 179 333 translate 1.8 1 1.5 \, ry 40;
+#X text 509 378 et en Y pour le modèle 3D;
+#X text 497 58 La caméra vidéo est affichée sur un cube en;
+#X text 497 73 rotation. Un modèle 3D (.obj) tourne lui;
+#X text 497 88 aussi \, à côté.;
+#X text 496 146 < caméra vidéo;
+#X text 496 203 < séquenceur qui boucle de 0 à 360;
+#X text 497 365 < rotations en X pour le cube;
+#X text 498 479 < affichages des objets 3D;
+#X obj 738 11 ../../abstractions/include;
+#X connect 8 0 14 0;
+#X connect 9 0 16 0;
+#X connect 10 0 20 0;
+#X connect 12 0 17 1;
+#X connect 13 0 12 0;
+#X connect 13 0 18 0;
+#X connect 14 0 15 0;
+#X connect 16 0 17 1;
+#X connect 17 0 11 0;
+#X connect 18 0 14 1;
+#X connect 19 0 13 0;
+#X connect 20 0 14 1;

@@ -1,0 +1,14 @@
+#N canvas 313 369 313 230 10;
+#X obj 15 110 sel xxxxx;
+#X obj 14 12 inlet;
+#X obj 66 157 outlet;
+#X obj 14 63 t a a;
+#X obj 14 37 list;
+#X obj 66 135 list trim;
+#X text 88 25 Original by Chris McCormick 2008;
+#X connect 0 1 5 0;
+#X connect 1 0 4 0;
+#X connect 3 0 0 1;
+#X connect 3 1 0 0;
+#X connect 4 0 3 0;
+#X connect 5 0 2 0;

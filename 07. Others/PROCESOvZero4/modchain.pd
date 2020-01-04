@@ -1,0 +1,65 @@
+#N canvas 0 54 1024 546 10;
+#X obj 103 103 cnv 15 102 96 empty empty empty 20 12 0 14 -3707 -66577
+0;
+#X obj 105 105 cnv 12 98 12 empty empty modCHAIN 2 7 1 9 -66577 -3707
+0;
+#X obj 105 122 vsl 15 64 0 0.5 0 0 empty empty empty 0 -9 0 10 -66577
+-4032 -1 0 1;
+#X obj 123 122 vsl 15 64 10 1000 0 0 empty empty empty 0 -9 0 10 -66577
+-4032 -1 0 1;
+#X obj 178 191 cnv 4 24 6 empty empty amp 2 4 1 9 -3707 -1 0;
+#X obj 172 122 vsl 30 64 0 127 0 0 empty empty empty 0 -9 0 10 -66577
+-4032 -1 0 1;
+#X obj 154 122 vsl 15 64 0 1 0 0 empty empty empty 0 -9 0 10 -66577
+-4032 -1 0 1;
+#X obj 108 190 cnv 8 8 8 empty empty lvl 0 5 1 9 -3707 -1 0;
+#X obj 123 190 cnv 8 8 8 empty empty time 0 5 1 9 -3707 -1 0;
+#X obj 157 190 cnv 8 8 8 empty empty trh 0 5 1 9 -3707 -1 0;
+#X obj 283 194 *~;
+#X obj 372 194 line~;
+#X obj 141 146 bng 10 250 50 0 empty empty empty 17 7 0 10 -66577 -3707
+-1;
+#X obj 330 263 *~;
+#X obj 562 223 line~;
+#X msg 562 202 \$1 20;
+#X obj 422 -2 loadbang;
+#X msg 752 31 0;
+#X obj 581 31 threshold~ 0.8 50 0.7 50;
+#X obj 372 109 f;
+#X obj 402 109 f;
+#X obj 372 131 pack f 1 f;
+#X msg 372 153 \$1 \, \$2 \$3;
+#X msg 596 7 set \$1 50 \$1 50;
+#X obj 562 181 / 127;
+#X obj 330 285 outlet~;
+#X msg 422 19 127;
+#X msg 376 21 1;
+#X obj 272 -4 inlet~;
+#X obj 580 -19 inlet~ chain;
+#X connect 2 0 19 1;
+#X connect 3 0 20 1;
+#X connect 5 0 24 0;
+#X connect 6 0 23 0;
+#X connect 10 0 13 0;
+#X connect 11 0 10 1;
+#X connect 12 0 19 0;
+#X connect 12 0 20 0;
+#X connect 13 0 25 0;
+#X connect 14 0 13 1;
+#X connect 15 0 14 0;
+#X connect 16 0 26 0;
+#X connect 16 0 27 0;
+#X connect 17 0 18 1;
+#X connect 18 0 12 0;
+#X connect 18 1 17 0;
+#X connect 19 0 21 0;
+#X connect 20 0 21 2;
+#X connect 21 0 22 0;
+#X connect 22 0 11 0;
+#X connect 23 0 18 0;
+#X connect 24 0 15 0;
+#X connect 26 0 5 0;
+#X connect 27 0 6 0;
+#X connect 28 0 10 0;
+#X connect 29 0 18 0;
+#X coords 0 -1 1 1 107 102 2 100 100;

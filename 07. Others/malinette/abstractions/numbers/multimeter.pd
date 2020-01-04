@@ -1,0 +1,31 @@
+#N canvas 383 134 572 439 10;
+#X obj 73 214 * 5;
+#X text 130 244 10000 = 10kohm resistance;
+#X obj 73 142 inlet;
+#X text 33 216 Vin >;
+#X obj 73 324 nbx 5 12 -1e+37 1e+37 0 0 \$0-volt \$0-volt-in Vout 0
+-4 0 9 -228856 -99865 -99865 5 256;
+#X obj 124 324 nbx 7 12 -1e+37 1e+37 0 0 \$0-ohm \$0-ohm-in Ohms 0
+-4 0 9 -228856 -128992 -128992 0 256;
+#X obj 73 391 outlet;
+#X obj 124 391 outlet;
+#X msg 351 307 5V;
+#X msg 455 307 GND;
+#X msg 401 307 A0;
+#X msg 376 265 stuff;
+#X msg 428 263 10k resistor;
+#X text 388 323 arduino;
+#X obj 124 263 expr 10000 * ((5 / $f1) - 1);
+#X text 350 180 /// FORMULA \; r = rknown * ((Vin / Vout) - 1 );
+#X text 353 236 /// THE CIRCUIT;
+#X connect 0 0 4 0;
+#X connect 0 0 14 0;
+#X connect 2 0 0 0;
+#X connect 4 0 6 0;
+#X connect 5 0 7 0;
+#X connect 11 0 10 0;
+#X connect 11 0 8 0;
+#X connect 12 0 10 0;
+#X connect 12 0 9 0;
+#X connect 14 0 5 0;
+#X coords 0 -1 1 1 122 40 1 70 300;

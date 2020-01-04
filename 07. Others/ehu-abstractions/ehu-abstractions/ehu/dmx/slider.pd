@@ -1,0 +1,47 @@
+#N canvas 817 269 540 386 10;
+#X obj 106 118 hsl 100 12 0 255 0 0 empty empty empty -2 -6 0 10 -4032
+-1 -1 9900 1;
+#X obj 210 118 tgl 12 0 empty empty empty 17 7 0 10 -258113 -1 -1 1
+1;
+#X obj 210 102 nbx 3 14 0 255 0 0 empty empty empty 0 -8 0 10 -262144
+-1 -1 135 256;
+#X obj 348 23 loadbang;
+#X msg 348 46 1;
+#X obj 197 324 namecanvas \$0-bla;
+#X obj 196 302 s \$0-bla;
+#X obj 196 257 r EHU_gop;
+#X text 203 235 GOP;
+#X msg 196 278 donecanvasdialog 1 -1 \$1 0 -1 1 1 126 35 100 100;
+#X obj 169 22 inlet;
+#X obj 49 33 r DMXall;
+#X obj 165 211 outlet;
+#X obj 67 175 t f b;
+#X obj 94 202 \$1;
+#X obj 67 288 i;
+#X obj 94 229 + 4;
+#X obj 94 256 s DMXindex;
+#X obj 67 323 s DMXvalue;
+#X obj 210 78 i;
+#X msg 210 174 255;
+#X msg 255 172 0;
+#X obj 210 144 select 1;
+#X connect 0 0 19 0;
+#X connect 1 0 22 0;
+#X connect 2 0 12 0;
+#X connect 2 0 13 0;
+#X connect 3 0 4 0;
+#X connect 7 0 9 0;
+#X connect 9 0 6 0;
+#X connect 10 0 19 0;
+#X connect 11 0 19 0;
+#X connect 13 0 15 0;
+#X connect 13 1 14 0;
+#X connect 14 0 16 0;
+#X connect 15 0 18 0;
+#X connect 16 0 17 0;
+#X connect 19 0 2 0;
+#X connect 20 0 0 0;
+#X connect 21 0 0 0;
+#X connect 22 0 20 0;
+#X connect 22 1 21 0;
+#X coords 0 -1 1 1 149 33 1 100 100;

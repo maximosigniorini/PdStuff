@@ -1,0 +1,35 @@
+#N canvas 255 131 811 599 10;
+#X declare -path ../in -path ../out -path ../tools -path ../filters
+;
+#X obj -5 9 cnv 5 800 5 empty empty IN 2 15 1 14 -260097 -191407 0
+;
+#X obj -5 159 cnv 5 800 5 empty empty FILTERS 2 15 1 14 -260097 -191407
+0;
+#X obj -5 320 cnv 5 800 5 empty empty OUT 2 15 1 14 -260097 -191407
+0;
+#N canvas 392 313 645 287 INIT 0;
+#X obj 50 33 declare -path ../in -path ../out -path ../tools -path
+../filters;
+#X obj 100 100 bng 10 250 50 0 empty empty Save-as 13 5 0 9 -260097
+-1 -1;
+#X obj 103 199 namecanvas \$0-patch-name;
+#X obj 100 160 s \$0-patch-name;
+#X msg 100 131 menusaveas;
+#X obj 220 130 savepanel;
+#X obj 220 157 s UPDATE_PATCH;
+#X connect 1 0 4 0;
+#X connect 1 0 5 0;
+#X connect 4 0 3 0;
+#X connect 5 0 6 0;
+#X coords 0 -1 1 1 150 10 2 100 100;
+#X restore 645 -2 pd INIT;
+#X obj 227 191 loopstation;
+#X obj 226 356 audio-bus;
+#X obj 98 103 synth-theremin;
+#X obj 98 52 seq-randomizer 1000;
+#X obj 98 78 rampe 1000;
+#X connect 4 0 5 0;
+#X connect 4 0 5 1;
+#X connect 6 0 4 0;
+#X connect 7 0 8 0;
+#X connect 8 0 6 0;

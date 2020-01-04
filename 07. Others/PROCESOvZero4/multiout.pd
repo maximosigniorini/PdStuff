@@ -1,0 +1,18 @@
+#N canvas 0 87 888 378 10;
+#X obj 12 148 inlet~ audio-in;
+#X obj 6 264 outlet~ audio-outA;
+#X obj 120 265 outlet~ audio-outB;
+#X obj 236 265 outlet~ audio-outC;
+#X obj 350 266 outlet~ audio-outD;
+#X obj 103 103 cnv 10 244 24 empty empty empty 20 12 0 14 -1 -66577
+0;
+#X obj 104 103 cnv 10 10 10 empty empty in 0 5 1 9 -1 -3707 0;
+#X obj 104 116 cnv 10 10 10 empty empty outA 0 7 1 9 -1 -3707 0;
+#X obj 325 116 cnv 10 10 10 empty empty outD 0 7 1 9 -1 -3707 0;
+#X obj 175 116 cnv 10 10 10 empty empty outB 0 7 1 9 -1 -3707 0;
+#X obj 255 116 cnv 10 10 10 empty empty outC 0 7 1 9 -1 -3707 0;
+#X connect 0 0 1 0;
+#X connect 0 0 2 0;
+#X connect 0 0 3 0;
+#X connect 0 0 4 0;
+#X coords 0 -1 1 1 250 30 1 100 100;

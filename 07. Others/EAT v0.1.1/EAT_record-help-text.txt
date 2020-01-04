@@ -1,0 +1,22 @@
+ElectroAcousticTools
+
+EAT_Record~
+
+This module is a recorder of audio files of 1-13 channels.
+
+Creation Arguments
+
+EAT_Record~ ID_tag n-channels
+
+e.g. EAT_Record~ Thomas 12
+
+Parameter
+
+File Format: Choose format of recorded file.
+Bit Rate: Choose bit rate of recorded file.
+Sample Rate: Choose sample rate of recorded file.
+Name: Choose a name for the recorded file.
+Rec: Start to record the file.
+Stop: Stop the recording of the file.
+MIDI: Access MIDI learn and MIDI control on/off for parameter control.
+HELP: Access help files.

@@ -1,0 +1,16 @@
+#N canvas 4 81 519 300 10;
+#X floatatom 40 239 8 0 0 0 - - -;
+#X floatatom 157 154 5 0 0 2 max - -;
+#X floatatom 98 154 5 0 0 2 time - -;
+#X obj 40 149 tgl 15 0 empty empty on/off 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 103 241 random float;
+#X text 32 32 seq-randomizer \; -------------- \; A sequencer ouput
+random numbers \; Arguments \; \$1: metro time msec (float) \; \$2:
+max (integer) \;;
+#X text 213 188 <- random a float every 250 msec from 0 to 3;
+#X obj 40 182 seq-randomizer 250 3;
+#X connect 1 0 7 2;
+#X connect 2 0 7 1;
+#X connect 3 0 7 0;
+#X connect 7 0 0 0;

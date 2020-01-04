@@ -1,0 +1,52 @@
+#N canvas 210 368 435 298 10;
+#X obj 37 24 gemmouse;
+#X obj 2 146 outlet;
+#X obj 14 249 outlet;
+#X obj 98 64 tgl 14 0 empty empty empty 0 -6 0 10 -260097 -1 -1 0 1
+;
+#X obj 115 64 tgl 14 0 empty empty empty 0 -6 0 10 -260097 -1 -1 0
+1;
+#X obj 132 64 tgl 14 0 empty empty empty 0 -6 0 10 -260097 -1 -1 0
+1;
+#X obj 66 99 route 0 1;
+#X obj 137 101 route 0 1;
+#X obj 209 104 route 0 1;
+#X obj 94 157 outlet;
+#X obj 50 154 outlet;
+#X obj 180 161 outlet;
+#X obj 135 159 outlet;
+#X obj 275 144 outlet;
+#X obj 234 163 outlet;
+#X text 66 196 -window height to reverse values;
+#X obj 298 97 unpack f f;
+#X obj 298 4 loadbang;
+#X obj 42 197 - 0;
+#X obj 248 19 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144 -1
+-1;
+#X obj 42 218 abs;
+#X obj 298 25 delay 2000;
+#X obj 298 49 s EHU_win_get;
+#X obj 298 77 r EHU_win;
+#X text 187 1 get window size;
+#X connect 0 0 1 0;
+#X connect 0 1 18 0;
+#X connect 0 2 3 0;
+#X connect 0 3 4 0;
+#X connect 0 4 5 0;
+#X connect 3 0 6 0;
+#X connect 4 0 7 0;
+#X connect 5 0 8 0;
+#X connect 6 0 9 0;
+#X connect 6 1 10 0;
+#X connect 7 0 11 0;
+#X connect 7 1 12 0;
+#X connect 8 0 13 0;
+#X connect 8 1 14 0;
+#X connect 16 1 18 1;
+#X connect 17 0 21 0;
+#X connect 18 0 20 0;
+#X connect 19 0 22 0;
+#X connect 20 0 2 0;
+#X connect 21 0 22 0;
+#X connect 23 0 16 0;
+#X coords 0 -1 1 1 80 17 1 0 0;

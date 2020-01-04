@@ -1,0 +1,62 @@
+#N canvas 4 125 601 450 10;
+#X text 226 21 copied from ARGO abstractions;
+#X obj 87 13 inlet~;
+#X obj 143 10 inlet~;
+#X obj 89 296 outlet~;
+#X obj 188 295 outlet~;
+#X obj 110 126 hsl 100 12 0 1 0 1 \$0-A ColorForm Brill 0 7 1 8 -260097
+-1 -1 4900 0;
+#X obj 110 114 hsl 100 12 0 1 0 1 \$0-A ColorForm Size 0 7 1 8 -260097
+-1 -1 1700 0;
+#X obj 110 150 hsl 100 12 0 1 0 1 \$0-A ColorAmpli Dir 0 7 1 8 -33289
+-260097 -260097 7900 0;
+#X obj 110 138 hsl 100 12 0 1 0 1 \$0-A ColorAmpli Stereo 0 7 1 8 -33289
+-260097 -260097 3600 0;
+#X obj 89 264 freeverb~;
+#X msg -120 188 roomsize \$1;
+#X msg -41 188 damping \$1;
+#X msg 31 188 width \$1;
+#X msg 100 187 wet \$1;
+#X msg 149 227 dry \$1;
+#X obj 148 187 - 1;
+#X obj 148 207 * -1;
+#X obj -120 145 * 1.1;
+#X obj -40 144 * -2.3;
+#X obj -40 165 + 2.3;
+#X msg 190 186 freeze \$1;
+#X obj 177 101 tgl 12 1 \$0-A \$0-B f 14 7 1 8 -260097 -1 -1 0 1;
+#X text 141 62 11 1 2010;
+#X msg 307 219 bypass \$1;
+#X obj 199 101 tgl 12 1 empty empty empty 14 7 1 8 -4034 -1 -1 0 1
+;
+#X obj 29 65 spigot~;
+#X obj 83 65 spigot~;
+#X connect 1 0 25 0;
+#X connect 2 0 26 0;
+#X connect 5 0 18 0;
+#X connect 6 0 17 0;
+#X connect 7 0 15 0;
+#X connect 7 0 13 0;
+#X connect 8 0 12 0;
+#X connect 9 0 3 0;
+#X connect 9 1 4 0;
+#X connect 10 0 9 0;
+#X connect 11 0 9 0;
+#X connect 12 0 9 0;
+#X connect 13 0 9 0;
+#X connect 14 0 9 0;
+#X connect 15 0 16 0;
+#X connect 16 0 14 0;
+#X connect 17 0 10 0;
+#X connect 18 0 19 0;
+#X connect 19 0 11 0;
+#X connect 20 0 9 0;
+#X connect 21 0 20 0;
+#X connect 23 0 9 0;
+#X connect 24 0 26 1;
+#X connect 24 0 25 1;
+#X connect 25 0 3 0;
+#X connect 25 1 9 0;
+#X connect 26 0 4 0;
+#X connect 26 1 9 1;
+#X coords 0 -1 1 1 120 65 1 100 100;

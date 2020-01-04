@@ -1,0 +1,123 @@
+#N canvas 67 13 747 664 10;
+#X obj 106 340 popup 124 25 grey90 huhu one two three four five six
+seven eight nine ten eleven twelve thirteen i14 i15 i16 i17 i18 i19
+i20 i21 i22 i23 i24 i25 i26 i27 i28 i29 i30 append-one append-two append-three
+append-one append-two append-three append-one append-two append-three
+append-one append-two append-three append-one append-two append-three
+append-one append-two append-three append-one append-two append-three
+append-one append-two append-three append-one append-two append-three
+append-one append-two append-three append-one append-two append-three
+append-one append-two append-three append-one append-two append-three
+append-one append-two append-three append-one append-two append-three
+append-one append-two append-three append-one append-two append-three
+append-one append-two append-three append-one append-two append-three
+append-one append-two append-three;
+#X obj 152 399 print index;
+#X msg 30 98 name popup;
+#X obj 239 399 print symbol;
+#X floatatom 163 292 5 0 0 0 - - -;
+#X text 14 43 Left outlet sends out a bang on load \, used to set default
+value. Using a loadbang to send a float will result in a crash.;
+#X msg 107 225 options;
+#X msg 100 176 options one two three four five six seven eight nine
+ten eleven twelve thirteen i14 i15 i16 i17 i18 i19 i20 i21 i22 i23
+i24 i25 i26 i27 i28 i29 i30;
+#X msg 118 251 append append-one append-two append-three;
+#X obj 106 372 route bang;
+#X msg 33 338 10;
+#X text 187 372 Choose 10 as the default value on load \, does send
+output.;
+#X msg 53 123 bgcolour #047992;
+#X msg 83 150 bgcolour grey90;
+#X symbolatom 223 315 10 0 0 0 - - -;
+#X text 209 289 Select by index;
+#X text 302 314 Select by symbol name;
+#X text 13 11 popup \, a popup menu for PD. Copyright Ben Bogart 2004
+\, 2005 Released under the GPL.;
+#X obj 225 81 loadbang;
+#X obj 477 248 until;
+#X msg 479 225 10;
+#X obj 477 276 i;
+#X obj 504 274 + 1;
+#X msg 475 333 append \$1;
+#X obj 477 305 makefilename ch%d;
+#X obj 45 409 print bang;
+#X msg 199 139 4;
+#X obj 225 110 t b b;
+#X msg 253 139 options nicki hannes \, name huhu;
+#N canvas 0 0 450 300 sub 0;
+#X obj 227 100 popup 124 25 #ffffff popup nicki hannes;
+#X obj 226 54 inlet;
+#X obj 218 221 outlet;
+#X obj 233 173 pack 0 s;
+#X obj 217 85 cnv 15 140 60 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X connect 0 0 3 0;
+#X connect 1 0 0 0;
+#X connect 3 0 2 0;
+#X restore 532 71 pd sub;
+#X floatatom 529 40 5 0 0 0 - - -;
+#X obj 542 135 print sub;
+#X msg 330 94 options nicki hannes;
+#X msg 456 30 name popup;
+#X msg 329 114 options one two sri;
+#X msg 489 8 name bib;
+#X msg 29 294 disable \$1;
+#X obj 29 270 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0 1
+;
+#X msg 534 171 disable \$1;
+#X obj 516 151 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X msg 351 422 set seven;
+#X msg 550 105 set nicki;
+#X msg 458 414 column_break_height \$1;
+#X floatatom 456 394 5 1 100 0 - - -;
+#X msg 649 377 size \$1 \$2;
+#X obj 648 348 pack 0 0;
+#X obj 673 320 t b f;
+#X floatatom 637 267 5 0 0 0 - - -;
+#X floatatom 683 266 5 0 0 0 - - -;
+#X text 631 244 witdh;
+#X text 691 244 height;
+#X connect 0 0 9 0;
+#X connect 2 0 0 0;
+#X connect 4 0 0 0;
+#X connect 6 0 0 0;
+#X connect 7 0 0 0;
+#X connect 8 0 0 0;
+#X connect 9 0 10 0;
+#X connect 9 0 25 0;
+#X connect 9 1 1 0;
+#X connect 12 0 0 0;
+#X connect 13 0 0 0;
+#X connect 19 0 21 0;
+#X connect 20 0 19 0;
+#X connect 21 0 22 0;
+#X connect 21 0 24 0;
+#X connect 22 0 21 1;
+#X connect 23 0 0 0;
+#X connect 24 0 23 0;
+#X connect 26 0 0 0;
+#X connect 27 0 26 0;
+#X connect 27 1 28 0;
+#X connect 28 0 0 0;
+#X connect 29 0 31 0;
+#X connect 30 0 29 0;
+#X connect 32 0 29 0;
+#X connect 33 0 29 0;
+#X connect 34 0 29 0;
+#X connect 35 0 29 0;
+#X connect 36 0 0 0;
+#X connect 37 0 36 0;
+#X connect 38 0 29 0;
+#X connect 39 0 38 0;
+#X connect 40 0 0 0;
+#X connect 41 0 29 0;
+#X connect 42 0 0 0;
+#X connect 43 0 42 0;
+#X connect 44 0 0 0;
+#X connect 45 0 44 0;
+#X connect 46 0 45 0;
+#X connect 46 1 45 1;
+#X connect 47 0 45 0;
+#X connect 48 0 46 0;

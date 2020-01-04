@@ -1,0 +1,24 @@
+#N canvas 3 85 530 389 10;
+#X obj 336 173 ehu/autodel~;
+#X obj 315 318 ehu/out~;
+#X obj 137 53 ehu/dsp;
+#X obj 301 100 ehu/splayer~;
+#X obj 288 58 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X msg 320 54 ../sounds/whistle2.wav;
+#X obj 156 14 loadbang;
+#X obj 302 25 t b b;
+#X text 5 139 INLETS feedback \, speed \, depth \, dry/wet reset;
+#X text 11 106 mono delay controled by phasor~;
+#X text 9 313 GuitarExtended \, Pierre Massat \, 2012;
+#X text 12 293 adapted from;
+#X connect 0 0 1 0;
+#X connect 0 0 1 1;
+#X connect 3 0 0 0;
+#X connect 3 1 0 0;
+#X connect 4 0 3 0;
+#X connect 5 0 3 1;
+#X connect 6 0 2 0;
+#X connect 6 0 7 0;
+#X connect 7 0 4 0;
+#X connect 7 1 5 0;

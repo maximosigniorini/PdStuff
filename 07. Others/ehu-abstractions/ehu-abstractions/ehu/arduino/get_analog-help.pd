@@ -1,0 +1,8 @@
+#N canvas 41 448 450 300 10;
+#X text 49 231 code modified from arduino-help.pd example by gerda
+strobl and georg holtzman;
+#X text 41 31 outputs data arriving at ANALOG inputs;
+#X text 330 114 get Analog Input;
+#X obj 34 97 ehu/arduino/get_analog;
+#X text 31 73 the inlet is bang to activate receiving data in all pins
+;

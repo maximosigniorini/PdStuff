@@ -1,0 +1,52 @@
+#N canvas 43 118 370 52 10;
+#X obj 147 16 namecanvas \$0-gui;
+#N canvas 1546 181 752 532 viscode 0;
+#X msg 253 391 vis 1;
+#X obj 253 415 s \$0-gui;
+#X obj 195 34 loadbang;
+#X msg 267 36 bang;
+#X obj 196 155 s \$0-name;
+#X msg 196 128 label \$1;
+#X obj 267 126 makefilename channel:%02d;
+#X msg 267 148 label \$1;
+#X obj 267 175 s \$0-channel;
+#X msg 354 176 label \$1;
+#X obj 354 154 makefilename slot:%02d;
+#X obj 354 203 s \$0-slot;
+#X obj 196 94 symbol \$3;
+#X obj 267 94 i \$1;
+#X obj 302 94 i \$2;
+#X obj 195 64 t b b b b;
+#X obj 253 362 t b;
+#X text 194 476 0/1;
+#X obj 36 450 r \$0on_fromgui;
+#X obj 36 492 s \$0on_togui;
+#X obj 36 471 sr_plugin \$1 \$2 ON;
+#X obj 253 339 r /IN/\$1/PLUGIN/\$2/\$3/EDIT;
+#X connect 0 0 1 0;
+#X connect 2 0 15 0;
+#X connect 3 0 15 0;
+#X connect 5 0 4 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 9 0 11 0;
+#X connect 10 0 9 0;
+#X connect 12 0 5 0;
+#X connect 13 0 6 0;
+#X connect 14 0 10 0;
+#X connect 15 0 12 0;
+#X connect 15 1 13 0;
+#X connect 15 2 14 0;
+#X connect 16 0 0 0;
+#X connect 18 0 20 0;
+#X connect 20 0 19 0;
+#X connect 21 0 16 0;
+#X restore 71 16 pd viscode;
+#X obj 25 14 cnv 15 250 20 empty \$0-name DISTANCE 25 10 0 16 -233017
+-66577 0;
+#X obj 24 14 tgl 20 0 \$0on_fromgui \$0on_togui empty 0 -6 0 8 -262144
+-1 -1 0 1;
+#X obj 155 14 cnv 15 100 20 empty \$0-channel channel:01 0 10 0 16
+-233017 -62784 0;
+#X obj 265 14 cnv 15 70 20 empty \$0-slot slot:01 0 10 0 16 -233017
+-62784 0;

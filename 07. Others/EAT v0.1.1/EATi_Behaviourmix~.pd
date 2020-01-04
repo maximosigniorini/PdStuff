@@ -1,0 +1,17 @@
+#N canvas 159 22 753 127 10;
+#X obj 33 82 *~;
+#X obj 33 14 inlet~;
+#X obj 33 99 outlet~;
+#X obj 48 31 r EAT_\$1.Mix.\$2.Send.\$3.\$4;
+#X obj 48 65 line;
+#X msg 48 48 \$1 20;
+#X obj 86 99 s EAT_\$1.Mix.\$2.\$3.\$4;
+#X obj 86 82 init 0;
+#X text 354 39 Line of gain controls for matrix mixer in mexican wave
+module.;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;
+#X connect 3 0 5 0;
+#X connect 4 0 0 1;
+#X connect 5 0 4 0;
+#X connect 7 0 6 0;

@@ -1,0 +1,13 @@
+#N canvas 128 113 418 386 10;
+#X text 195 64 1.arg: <float> n_aux;
+#X text 195 73 2.arg: <float> n_bus;
+#X obj 51 43 inlet~;
+#X obj 51 264 outlet~;
+#X obj 50 80 AUX-CH~ 1 16;
+#X obj 50 100 AUX-CH~ 2 16;
+#X obj 50 120 AUX-CH~ 3 16;
+#X obj 50 140 AUX-CH~ 4 16;
+#X obj 50 160 AUX-CH~ 5 16;
+#X obj 50 180 AUX-CH~ 6 16;
+#X obj 50 200 AUX-CH~ 7 16;
+#X obj 50 220 AUX-CH~ 8 16;

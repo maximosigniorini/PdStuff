@@ -1,0 +1,25 @@
+bloscabs
+========
+
+A set of band-limited waveform oscillator abstractions. Currently
+there are:
+ 
+ * band-limited saw
+ * band-limited square
+ * band-limited triangle
+
+The band-limiting is achieved by the use of precomputed band-limited
+wavetables. The wavetables are calculated at instantiation time of
+such an abstraction. Those oscillators are very cheap in terms of CPU,
+but require a certain amount of memory for storing the wavetables.
+
+
+Known Issues
+============
+
+In order to save memory, many instances of the same abstraction use
+the same set of wavetables. However, when the instance holding the
+wavetables is deleted, the remaining instances don't work anymore due
+to the lack of wavetables. Until Pd comes with some implementation of 
+an [endbang], it's not easy to overcome that problem.
+

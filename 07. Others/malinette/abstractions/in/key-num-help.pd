@@ -1,0 +1,7 @@
+#N canvas 1 80 450 300 10;
+#X obj 116 151 key-num;
+#X obj 116 242 print key_0;
+#X obj 163 213 print key_3;
+#X text 111 46 key-num \; -------- \; Get 10 numerical keys.;
+#X connect 0 0 1 0;
+#X connect 0 3 2 0;

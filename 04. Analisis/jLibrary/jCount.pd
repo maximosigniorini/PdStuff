@@ -1,0 +1,76 @@
+#N canvas 526 201 560 422 10;
+#X obj 236 13 inlet;
+#X obj 236 295 until;
+#X obj 236 323 f;
+#X obj 266 323 + 1;
+#X obj 236 99 t f b;
+#X obj 236 64 f \$1;
+#X obj 353 13 inlet;
+#X obj 236 365 outlet;
+#X obj 469 60 loadbang;
+#X obj 469 82 f \$2;
+#X obj 469 104 sel 0;
+#X obj 304 129 f 0;
+#X obj 433 13 inlet;
+#N canvas 201 226 540 186 checkEndGreaterThanStart 0;
+#X obj 17 20 inlet;
+#X obj 17 42 t f f;
+#X obj 17 104 spigot;
+#X obj 87 20 inlet;
+#X obj 87 42 t f f;
+#X obj 51 73 >;
+#X obj 17 126 outlet;
+#X obj 87 126 outlet;
+#X obj 155 89 sel 0;
+#X msg 164 120 count start less than end (or start and end not initialised)
+;
+#X obj 164 142 canvaserror;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 1 1 5 0;
+#X connect 2 0 6 0;
+#X connect 3 0 4 0;
+#X connect 4 0 7 0;
+#X connect 4 1 5 1;
+#X connect 5 0 2 1;
+#X connect 5 0 8 0;
+#X connect 8 0 9 0;
+#X connect 9 0 10 0;
+#X restore 236 165 pd checkEndGreaterThanStart;
+#X text 268 65 end;
+#X text 333 130 start;
+#X obj 236 227 -;
+#X obj 389 194 t f f;
+#X text 262 238 calculate count amount;
+#X obj 236 249 + 1;
+#X obj 353 35 jErrFloat;
+#X obj 434 35 jErrfloat;
+#X text 5 4 Count up to a number with optional starting number (otherwise
+start at zero) \; \; \$1 Ending number \; \$2 Starting number \; \;
+in1 Float to count to that number from zero or bang to count \; in2
+Change ending number \; in3 Change starting number \; \; out1 Output
+count \; \; Requires: \; jLibrary [jErrFloat] \; Will work without:
+\; iemguts [canvaserror] \; \; TO DO \; - Implement downward counting
+\; \; John Flynn, f 35;
+#X connect 0 0 5 0;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 2 0 7 0;
+#X connect 3 0 2 1;
+#X connect 4 0 13 0;
+#X connect 4 1 11 0;
+#X connect 5 0 4 0;
+#X connect 6 0 20 0;
+#X connect 8 0 9 0;
+#X connect 9 0 10 0;
+#X connect 10 1 11 1;
+#X connect 11 0 13 1;
+#X connect 12 0 21 0;
+#X connect 13 0 16 0;
+#X connect 13 1 17 0;
+#X connect 16 0 19 0;
+#X connect 17 0 16 1;
+#X connect 17 1 2 1;
+#X connect 19 0 1 0;
+#X connect 20 0 5 1;
+#X connect 21 0 11 1;

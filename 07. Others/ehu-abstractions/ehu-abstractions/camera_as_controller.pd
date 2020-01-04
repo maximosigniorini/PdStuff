@@ -1,0 +1,42 @@
+#N canvas 104 129 405 488 10;
+#X declare -lib ggee;
+#X obj 26 112 cnv 15 180 80 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 28 16 cnv 15 150 90 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 234 39 bng 35 250 50 0 empty empty click_me 40 10 0 10 -258079
+-1 -1;
+#X text 279 56 open video window;
+#X text 66 28 open camera 0;
+#X obj 61 229 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144 -1
+-1;
+#X obj 212 229 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144
+-1 -1;
+#X text 150 -16 Different image depending on value of X;
+#X obj 99 212 moses 400;
+#X text 162 209 > 400;
+#X text 53 211 < 400;
+#X obj 240 84 ehu/gem/win 800 600;
+#X obj 54 117 ehu/gem/track;
+#X text 259 323 image to display;
+#X obj 36 374 ehu/gem/texture 400 300 800 600;
+#X text 234 395 texture;
+#X text 235 412 renderer;
+#X obj 54 48 ehu/gem/cam 0;
+#X floatatom 112 194 5 0 0 0 - - -;
+#X obj 195 286 ehu/abs_path;
+#X obj 37 310 ehu/gem/picture picts/imagen1.jpg;
+#X msg 212 247 picts/imagen1_320x240.jpg;
+#X msg 61 247 picts/imagen1.jpg;
+#X connect 2 0 11 0;
+#X connect 5 0 22 0;
+#X connect 6 0 21 0;
+#X connect 8 0 5 0;
+#X connect 8 1 6 0;
+#X connect 12 1 8 0;
+#X connect 12 1 18 0;
+#X connect 17 0 12 0;
+#X connect 19 0 20 1;
+#X connect 20 0 14 0;
+#X connect 21 0 19 0;
+#X connect 22 0 19 0;

@@ -1,0 +1,32 @@
+#N canvas 300 298 450 290 10;
+#X obj 53 50 inlet;
+#X obj 64 212 outlet;
+#X obj 100 101 bng 15 250 50 0 \$0-key empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 219 113 color \$1;
+#X obj 249 164 s \$0-keycolor;
+#X obj 219 26 r \$0-key;
+#X msg 226 65 184;
+#X obj 275 70 pipe 200;
+#X obj 100 115 bng 15 250 50 0 \$0-key empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 179 81 5 0 0 0 - - -;
+#X msg 273 91 10;
+#X obj 100 130 bng 15 250 50 0 \$0-key empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 100 100 cnv 15 15 45 empty \$0-keycolor empty 20 12 0 14 -233017
+-262144 0;
+#X connect 0 0 2 0;
+#X connect 0 0 8 0;
+#X connect 0 0 11 0;
+#X connect 2 0 1 0;
+#X connect 3 0 4 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 6 0 3 0;
+#X connect 7 0 10 0;
+#X connect 8 0 1 0;
+#X connect 9 0 3 0;
+#X connect 10 0 3 0;
+#X connect 11 0 1 0;
+#X coords 0 -1 1 1 15 45 2 100 100;

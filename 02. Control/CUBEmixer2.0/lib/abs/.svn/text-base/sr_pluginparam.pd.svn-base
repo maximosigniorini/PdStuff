@@ -1,0 +1,11 @@
+#N canvas 222 173 544 343 10;
+#X text 33 98 parameters are stored when a parameter-CUEpoint is stored.
+;
+#X obj 56 234 inlet;
+#X obj 56 275 outlet;
+#X text 29 19 [sr_pluginparam <channel#> <slot#> <paramname>];
+#X text 34 60 send/receive parameters <paramname> for plugin in fx-flot
+<slot#> of channel <channel#>;
+#X obj 56 255 sr_parameter /IN/\$1/PLUGIN/\$2/\$3;
+#X connect 1 0 5 0;
+#X connect 5 0 2 0;

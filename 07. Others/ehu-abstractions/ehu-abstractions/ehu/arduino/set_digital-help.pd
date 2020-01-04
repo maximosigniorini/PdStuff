@@ -1,0 +1,4 @@
+#N canvas 0 0 450 300 10;
+#X text 46 59 (0=input \, 1=output);
+#X text 46 43 set input/output mode of digital pins;
+#X obj 14 101 ehu/arduino/set_digital;

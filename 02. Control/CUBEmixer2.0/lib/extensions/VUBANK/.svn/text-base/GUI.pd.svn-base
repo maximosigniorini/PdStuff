@@ -1,0 +1,49 @@
+#N canvas 1495 256 734 335 10;
+#N canvas 308 112 389 176 \$0-INPUT-METERS 0;
+#X obj 31 42 vu 15 120 /IN/1/VU/LEVEL empty -1 -8 0 8 -66577 -1 0 0
+;
+#X obj 51 42 vu 15 120 /IN/2/VU/LEVEL empty -1 -8 0 8 -66577 -1 0 0
+;
+#X obj 71 42 vu 15 120 /IN/3/VU/LEVEL empty -1 -8 0 8 -66577 -1 0 0
+;
+#X obj 91 42 vu 15 120 /IN/4/VU/LEVEL empty -1 -8 0 8 -66577 -1 0 0
+;
+#X obj 111 42 vu 15 120 /IN/5/VU/LEVEL empty -1 -8 0 8 -66577 -1 0
+0;
+#X obj 131 42 vu 15 120 /IN/6/VU/LEVEL empty -1 -8 0 8 -66577 -1 0
+0;
+#X obj 151 42 vu 15 120 /IN/7/VU/LEVEL empty -1 -8 0 8 -66577 -1 0
+0;
+#X obj 171 42 vu 15 120 /IN/8/VU/LEVEL empty -1 -8 0 8 -66577 -1 0
+0;
+#X obj 204 43 vu 15 120 /IN/9/VU/LEVEL empty -1 -8 0 8 -66577 -1 0
+0;
+#X obj 224 43 vu 15 120 /IN/10/VU/LEVEL empty -1 -8 0 8 -66577 -1 0
+0;
+#X obj 244 43 vu 15 120 /IN/11/VU/LEVEL empty -1 -8 0 8 -66577 -1 0
+0;
+#X obj 264 43 vu 15 120 /IN/12/VU/LEVEL empty -1 -8 0 8 -66577 -1 0
+0;
+#X obj 284 43 vu 15 120 /IN/13/VU/LEVEL empty -1 -8 0 8 -66577 -1 0
+0;
+#X obj 304 43 vu 15 120 /IN/14/VU/LEVEL empty -1 -8 0 8 -66577 -1 0
+0;
+#X obj 324 43 vu 15 120 /IN/15/VU/LEVEL empty -1 -8 0 8 -66577 -1 0
+0;
+#X obj 344 43 vu 15 120 /IN/16/VU/LEVEL empty -1 -8 0 8 -66577 -1 0
+0;
+#X obj 15 40 vfad_scale -1;
+#X obj 363 40 vfad_scale -1;
+#X obj 189 40 vfad_scale -1;
+#X text 119 16 INPUT VU-METER BRIDGE;
+#X restore 302 163 pd \$0-INPUT-METERS;
+#X obj 101 101 cnv 15 63 198 empty empty METERS 2 10 0 12 -228992 -66577
+0;
+#X obj 106 153 bng 30 250 50 0 \$0sINPUT \$0rINPUT INPUT 0 -6 0 8 -62784
+-1 -1;
+#X obj 302 85 r \$0sINPUT;
+#X obj 302 125 s pd-\$0-INPUT-METERS;
+#X msg 302 105 vis 1;
+#X connect 3 0 5 0;
+#X connect 5 0 4 0;
+#X coords 0 -1 1 1 65 200 2 100 100;

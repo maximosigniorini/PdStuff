@@ -1,0 +1,165 @@
+#N canvas 250 341 583 325 10;
+#N canvas 630 311 450 300 defaultsettinglp 1;
+#X obj 28 68 symbol \$1;
+#X symbolatom 28 94 0 0 0 0 - - -;
+#X obj 28 42 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 29 19 loadbang;
+#X obj 28 121 s \$1pdplp_id;
+#X obj 139 123 s \$1pdplp_size_init2;
+#X msg 138 84 25;
+#X obj 136 51 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X connect 0 0 1 0;
+#X connect 1 0 4 0;
+#X connect 2 0 0 0;
+#X connect 2 0 7 0;
+#X connect 3 0 2 0;
+#X connect 6 0 5 0;
+#X connect 7 0 6 0;
+#X restore 44 136 pd defaultsettinglp;
+#N canvas 587 64 1143 665 loop_core 0;
+#X obj 83 360 metro 40;
+#X obj 274 439 pdp_loop 25;
+#X msg 171 90 record;
+#X floatatom 134 333 5 0 0 0 - - -;
+#X msg 90 333 stop;
+#X floatatom 528 403 5 0 0 0 - - -;
+#X floatatom 555 338 5 0 0 0 - - -;
+#X msg 830 519 store \$1;
+#X floatatom 830 493 5 0 0 0 - - -;
+#X msg 226 101 stop;
+#X text 886 185 set playback position;
+#X text 629 342 hot;
+#X text 567 400 cold;
+#X text 247 80 stop recording;
+#X text 179 54 start recording at position 0;
+#X text 854 475 store a single packet at an arbitrary position;
+#X text 40 236 loop playback;
+#X text 394 439 creation arg: loop size;
+#X msg 283 144 record 10 2;
+#X text 251 164 start recording at position 10 \, recording 2 packets
+;
+#X msg 494 79 loop \$1;
+#X obj 494 58 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0 1
+;
+#X text 516 54 looping on/off;
+#X msg 855 187 0;
+#X msg 666 143 size \$1;
+#X floatatom 663 77 5 0 0 0 - - -;
+#X msg 73 456 collectgarbage;
+#X obj 73 487 pdp_control;
+#X msg 58 429 thread 1;
+#X obj 12 309 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 29 14 inlet;
+#X obj 180 609 outlet;
+#X text 70 16 video;
+#X text 27 306 start;
+#X text 94 313 stop;
+#X obj 13 219 r \$1pdplp_pl_start;
+#X obj 101 284 r \$1pdplp_pl_stop;
+#X obj 168 4 r \$1pdplp_rec_start;
+#X obj 226 60 r \$1pdplp_rec_stop;
+#X obj 494 26 r \$1pdplp_loop_on;
+#X obj 791 428 r \$1pdplp_store;
+#X obj 859 166 r \$1pdplp_pl_position_reset;
+#X obj 666 55 int;
+#X obj 341 500 s \$1pdplp_current;
+#X obj 855 205 s \$1pdplp_pl_position_init2;
+#X obj 662 29 r \$1pdplp_size_init;
+#X obj 664 100 s \$1pdplp_size2_init;
+#X obj 829 471 int;
+#X obj 863 240 r \$1pdplp_pl_position_init;
+#X obj 588 296 r \$1pdplp_pl_position;
+#X obj 666 124 r \$1pdplp_size;
+#X obj 931 265 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 8000 1;
+#X obj 876 312 autoscale 0 300;
+#X obj 934 283 r \$1pdplp_size;
+#X floatatom 850 343 5 0 0 0 - - -;
+#X obj 877 372 s \$1pdplp_pl_position2_init;
+#X obj 899 342 int;
+#X obj 165 25 select 0 1;
+#X obj 13 252 select 0 1;
+#X obj 858 448 r \$1pdplp_pl_position;
+#X obj 869 272 - 1;
+#X connect 0 0 1 0;
+#X connect 1 0 31 0;
+#X connect 1 1 43 0;
+#X connect 2 0 1 0;
+#X connect 3 0 0 1;
+#X connect 4 0 0 0;
+#X connect 5 0 1 1;
+#X connect 6 0 1 0;
+#X connect 7 0 1 0;
+#X connect 8 0 7 0;
+#X connect 9 0 1 0;
+#X connect 18 0 1 0;
+#X connect 20 0 1 0;
+#X connect 21 0 20 0;
+#X connect 23 0 44 0;
+#X connect 24 0 1 0;
+#X connect 25 0 46 0;
+#X connect 26 0 27 0;
+#X connect 28 0 27 0;
+#X connect 29 0 0 0;
+#X connect 30 0 1 0;
+#X connect 35 0 58 0;
+#X connect 36 0 4 0;
+#X connect 37 0 57 0;
+#X connect 38 0 9 0;
+#X connect 39 0 21 0;
+#X connect 40 0 47 0;
+#X connect 41 0 23 0;
+#X connect 42 0 25 0;
+#X connect 45 0 42 0;
+#X connect 47 0 8 0;
+#X connect 48 0 60 0;
+#X connect 49 0 6 0;
+#X connect 50 0 24 0;
+#X connect 51 0 52 0;
+#X connect 52 0 56 0;
+#X connect 53 0 52 2;
+#X connect 56 0 54 0;
+#X connect 56 0 55 0;
+#X connect 57 0 9 0;
+#X connect 57 1 2 0;
+#X connect 58 0 4 0;
+#X connect 58 1 29 0;
+#X connect 59 0 47 1;
+#X connect 60 0 52 0;
+#X restore 270 99 pd loop_core;
+#X obj 266 33 inlet;
+#X obj 270 159 outlet;
+#X obj 0 0 cnv 15 200 80 empty empty pdp_loop 24 8 0 9 -99865 -228856
+0;
+#X obj 179 1 cnv 15 20 15 empty \$1pdplp_id \$1 6 8 0 9 -260097 -33289
+0;
+#X obj 1 64 cnv 8 25 15 empty empty VOUT 0 8 0 8 -258113 -1 0;
+#X obj 306 35 cnv 8 20 15 empty empty VIN 0 8 0 8 -4034 -1 0;
+#X obj 1 0 cnv 8 20 15 empty empty VIN 0 8 0 8 -4034 -1 0;
+#X obj 132 2 tgl 14 0 \$1pdplp_loop_on \$1pdplp_loop_on_init loop 17
+7 0 8 -260097 -1 -228856 0 1;
+#X obj 8 22 hsl 80 15 0 100 0 0 \$1pdplp_size_init \$1pdplp_size_init2
+buffer_size 3 8 0 8 -66577 -260097 -260097 1975 1;
+#X obj 90 22 nbx 4 15 0 150 0 0 \$1pdplp_size \$1pdplp_size2_init empty
+8 -6 0 8 -33289 -260097 -260097 25 256;
+#X obj 313 161 cnv 8 25 15 empty empty VOUT 0 8 0 8 -258113 -1 0;
+#X obj 158 64 nbx 4 15 0 150 0 0 empty \$1pdplp_current current_pos.
+-75 6 0 8 -260097 -33289 -228856 12 256;
+#X obj 8 42 hsl 80 15 0 127 0 0 \$1pdplp_pl_position_init \$1pdplp_pl_position_init2
+position 3 8 0 8 -66577 -260097 -260097 3900 1;
+#X obj 90 42 nbx 4 15 0 150 0 0 \$1pdplp_pl_position \$1pdplp_pl_position2_init
+empty 8 -6 0 8 -33289 -260097 -260097 12 256;
+#X obj 132 43 bng 14 250 50 0 \$1pdplp_pl_position_reset \$1pdplp_pl_position_reset_init
+empty 17 7 0 8 -257985 -1 -228856;
+#X obj 84 2 tgl 14 0 \$1pdplp_pl_start \$1pdplp_pl_start_init play
+17 7 0 8 -4034 -1 -228856 0 1;
+#X obj 131 22 tgl 14 0 \$1pdplp_rec_start \$1pdplp_rec_start_init rec
+17 7 0 8 -258113 -1 -228856 0 1;
+#X obj 150 43 bng 14 250 50 0 \$1pdplp_store \$1pdplp_store_init store
+17 7 0 8 -258113 -1 -228856;
+#X connect 1 0 3 0;
+#X connect 2 0 1 0;
+#X coords 0 -1 1 1 200 80 1 0 0;

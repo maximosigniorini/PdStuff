@@ -1,0 +1,19 @@
+#N canvas 0 97 651 439 10;
+#X obj 202 98 delwrite~ \$0sd 50;
+#X obj 199 151 vd~ \$0sd 50;
+#X obj 71 42 inlet~ left;
+#X obj 85 201 outlet~ left;
+#X obj 196 204 outlet~ right;
+#X obj 193 40 loadbang;
+#X msg 193 62 30;
+#X obj 102 103 cnv 10 81 44 empty empty in 2 5 1 9 -3707 -1 0;
+#X obj 102 137 cnv 10 10 10 empty empty outL 2 7 1 9 -3707 -1 0;
+#X obj 160 137 cnv 10 10 10 empty empty outR 2 7 1 9 -3707 -1 0;
+#X obj 103 119 cnv 12 78 12 empty empty modEXPAN 14 7 1 9 -66577 -3707
+0;
+#X connect 1 0 4 0;
+#X connect 2 0 3 0;
+#X connect 2 0 0 0;
+#X connect 5 0 6 0;
+#X connect 6 0 1 0;
+#X coords 0 -1 1 1 85 50 1 100 100;

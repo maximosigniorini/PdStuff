@@ -1,0 +1,20 @@
+#N canvas 1 49 564 364 10;
+#X obj 207 119 ehu/fuzz~;
+#X obj 200 265 ehu/out~;
+#X obj 28 17 ehu/dsp;
+#X obj 202 45 splayer~;
+#X msg 220 25 ../sounds/whistle2.wav;
+#X obj 202 27 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 47 227 ehu/plot;
+#X text 310 119 fuzz;
+#X text 311 138 inlets: audio \, audio \, amp \, dry/wet;
+#X text 269 342 GuitarExtended \, Pierre Massat \, 2012;
+#X text 272 322 adapted from;
+#X connect 0 0 1 0;
+#X connect 0 0 6 0;
+#X connect 0 1 1 1;
+#X connect 3 0 0 0;
+#X connect 3 1 0 1;
+#X connect 4 0 3 1;
+#X connect 5 0 3 0;

@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/tools/calibrator
+END
+calibrate.sh
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/tools/calibrator/calibrate.sh
+END
+out_calibrate.pd
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/tools/calibrator/out_calibrate.pd
+END
+getdelay.pd
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/tools/calibrator/getdelay.pd
+END
+latenz.samples
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/tools/calibrator/latenz.samples
+END
+LATENCY.pd
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/tools/calibrator/LATENCY.pd
+END
+getlatency.pd
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/tools/calibrator/getlatency.pd
+END
+getvalues.pd
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/tools/calibrator/getvalues.pd
+END
+CALIBRATOR.pd
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/tools/calibrator/CALIBRATOR.pd
+END
+getamplitude.pd
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/tools/calibrator/getamplitude.pd
+END
+get1of.pd
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/tools/calibrator/get1of.pd
+END
+calibrator_main.pd
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/tools/calibrator/calibrator_main.pd
+END
+invert-ampdel.pd
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/tools/calibrator/invert-ampdel.pd
+END
+list_avg.pd
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/tools/calibrator/list_avg.pd
+END
+correlator.pd
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/tools/calibrator/correlator.pd
+END

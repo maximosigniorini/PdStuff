@@ -1,0 +1,26 @@
+#N canvas 118 149 472 497 10;
+#X obj 72 326 dac~;
+#X msg 368 203 \; pd dsp 1;
+#X obj 368 180 loadbang;
+#X obj 57 258 synth-vowel;
+#X obj 57 102 vsl 15 128 0 127 0 0 empty empty pitch 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 83 184 tgl 15 0 empty empty random 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 138 101 vsl 15 128 20 2000 0 0 empty empty random_time 0 -9
+0 10 -262144 -1 -1 0 1;
+#X obj 184 209 hradio 15 1 0 5 empty empty vowels(a_i_o_ai_e) 0 -8
+0 10 -262144 -1 -1 0;
+#X floatatom 183 227 5 0 5 0 - - -;
+#X text 53 18 synth-vowel \; ----------- \; Vocal synthesis with vowels
+(a-i-o-ai-e) \;;
+#X obj 56 355 oscilloscope~;
+#X connect 2 0 1 0;
+#X connect 3 0 0 0;
+#X connect 3 0 0 1;
+#X connect 3 0 10 0;
+#X connect 4 0 3 0;
+#X connect 5 0 3 1;
+#X connect 6 0 3 2;
+#X connect 7 0 8 0;
+#X connect 8 0 3 3;

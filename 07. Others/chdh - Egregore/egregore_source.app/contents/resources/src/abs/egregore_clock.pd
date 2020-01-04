@@ -1,0 +1,36 @@
+#N canvas 916 338 382 358 10;
+#X obj 0 15 bng 22 250 50 0 empty empty empty 0 -6 0 8 -262144 -1 -1
+;
+#N canvas 0 22 168 254 time_________ 0;
+#X obj 18 18 inlet;
+#X obj 18 102 timer;
+#X obj 53 79 metro 1000;
+#X obj 18 207 outlet;
+#X obj 18 126 / 1000;
+#X obj 58 156 % 60;
+#X obj 18 156 / 60;
+#X obj 18 180 i;
+#X obj 58 182 outlet;
+#X obj 53 49 r lb4;
+#X connect 0 0 1 0;
+#X connect 1 0 4 0;
+#X connect 2 0 1 1;
+#X connect 4 0 5 0;
+#X connect 4 0 6 0;
+#X connect 5 0 8 0;
+#X connect 6 0 7 0;
+#X connect 7 0 3 0;
+#X connect 9 0 2 0;
+#X restore 54 -55 pd time_________;
+#X obj 20 62 r reset;
+#X obj 20 93 r reset_clk;
+#X obj 24 15 nbx 3 22 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 16
+-262144 -1 -1 5 256;
+#X obj 81 15 nbx 3 22 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 16
+-262144 -1 -1 24 256;
+#X connect 0 0 1 0;
+#X connect 1 0 4 0;
+#X connect 1 1 5 0;
+#X connect 2 0 1 0;
+#X connect 3 0 1 0;
+#X coords 0 0 1 1 180 37 1 0 0;

@@ -1,0 +1,39 @@
+#N canvas 1 130 548 435 10;
+#X obj 72 192 hsl 128 15 0 1 0 0 empty empty 0-1 -2 -8 0 10 -262144
+-1 -1 3580 1;
+#X obj 72 340 hsl 128 15 0 1 0 0 empty empty 0-1 -2 -8 0 10 -262144
+-1 -1 8652 1;
+#X msg 297 219 type \$1;
+#X obj 297 136 vradio 15 1 0 5 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X msg 302 283 x \$1;
+#X obj 305 262 hsl 50 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X floatatom 361 261 5 0 0 0 - - -;
+#X obj 304 313 hsl 50 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X floatatom 360 312 5 0 0 0 - - -;
+#X obj 304 359 hsl 50 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X floatatom 360 358 5 0 0 0 - - -;
+#X msg 301 380 x2 \$1;
+#X msg 301 334 y \$1;
+#X obj 69 219 mapcurve;
+#X obj 69 128 seq-counter;
+#X text 62 16 mapcurve \; -------- \; Modify the data curve \; This
+object allow to make a interpretation of data between 0-1 \, and use
+logarithmic multiplier or other. You can also draw in the graph.;
+#X connect 0 0 13 0;
+#X connect 2 0 13 1;
+#X connect 3 0 2 0;
+#X connect 4 0 13 1;
+#X connect 5 0 6 0;
+#X connect 5 0 4 0;
+#X connect 7 0 8 0;
+#X connect 7 0 12 0;
+#X connect 9 0 10 0;
+#X connect 9 0 11 0;
+#X connect 11 0 13 1;
+#X connect 12 0 13 1;
+#X connect 13 0 1 0;
+#X connect 14 0 0 0;

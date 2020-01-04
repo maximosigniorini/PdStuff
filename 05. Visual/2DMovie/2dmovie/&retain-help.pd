@@ -1,0 +1,27 @@
+#N canvas 405 182 727 305 10;
+#X obj 2 -115 cnv 15 700 50 empty empty &retain 3 12 0 18 -204800 -1
+0;
+#X text 21 32 Arguments \; 1- nombre : durée du retard (en ms);
+#X floatatom 518 3 5 0 0 0 - - -;
+#X floatatom 665 3 5 0 0 0 - - -;
+#X text 5 -87 Retient le flux pendant un temps donné;
+#X obj 590 37 speedlim 1000;
+#X obj 590 79 print;
+#X obj 449 36 &retain 1000;
+#X obj 449 79 print;
+#X text 21 -49 Description \; Complète le module [speedlim] en envoyant
+la première valeur reçue \, puis celle qui lui parvient APRES le
+temps fixé (tandis que [speedlim] envoie la dernière valeur reçue
+pendant ce temps).;
+#X text 21 76 INLETS \; 1- anything : toute valeur \; 2- nombre : durée
+du retard (en ms);
+#X text 21 132 OUTLETS \; 1- anything;
+#X msg 449 -21 1 \, a \, 2 \, b \, 3 \, c;
+#X msg 590 -21 1 \, a \, 2 \, b \, 3 \, c;
+#X connect 2 0 7 1;
+#X connect 3 0 5 1;
+#X connect 5 0 6 0;
+#X connect 7 0 8 0;
+#X connect 12 0 7 0;
+#X connect 13 0 5 0;
+#X coords 0 305 1 304 65 15 0;

@@ -1,0 +1,81 @@
+
+
+h1, h2, h3, h4, h5, h6, p, blockquote, form, label, ul, ol, dl, fieldset, address {
+    margin-bottom: 1em;
+}
+
+html { 
+	background:  #000; 
+	color: 	     #CCC;
+	font-family: Times, Times New Roman, serif;
+	font-size:   10pt;
+} 
+
+body { 
+	width:935px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:0px;
+	padding-top:40px;
+	background-color:#000;
+	color:#CCC;
+	font-size:11px;
+	font-family:"Andale Mono","Lucida Console",Monaco,sans-serif;
+} 
+img {
+	margin:0px;
+	padding:0px;
+}
+a:link {
+	text-decoration:underline;
+	color:#FFF;
+}
+a:visited {
+	text-decoration:underline;
+	color:#FFF;
+}
+a:hover {
+	text-decoration:underline;
+	color:#F00;
+}
+a:active {
+	text-decoration:underline;
+	color:#F00;
+}
+h1 {
+	font-size:24px;
+	text-align:center;
+	color:##FFF;
+}
+h2 {
+	margin-top:1em;
+	font-size:14px;
+	color:#EEE;
+	text-align:  left;
+	font-weight: bold;
+	width:100%;
+}
+h3 {
+	font-size:12px;
+	color:#EEE;
+}
+
+hr {
+	width:100%;
+	height:1px;
+	color:#333;
+	background-color:#333;
+	border:0;
+	padding:0;
+	margin:1em 0 0 0;
+}
+pre { 
+    font-size:   11px;
+	text-align:  left;
+	margin:0;
+	padding:0;
+}
+
+b {
+	color:#EEE;
+}

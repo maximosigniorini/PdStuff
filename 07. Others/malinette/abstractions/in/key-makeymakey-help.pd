@@ -1,0 +1,10 @@
+#N canvas 575 407 500 286 10;
+#X obj 105 125 key-makeymakey;
+#X obj 105 235 print arrowup;
+#X obj 136 198 print arrowleft;
+#X text 102 5 key-makeymakey \; -------------- \; Keys from MakeyMakey
+(arrows space click wasd) \; Which are the makeymakey defaults keys.
+\; note : Qwerty and azerty keyboard difference make the wasd becoming
+ZQSD instead of WASD;
+#X connect 0 0 1 0;
+#X connect 0 2 2 0;

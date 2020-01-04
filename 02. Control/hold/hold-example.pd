@@ -1,0 +1,27 @@
+#N canvas 228 52 602 366 10;
+#X obj 128 160 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 51 10 symbol ribbit;
+#X msg 113 35 symbol croak;
+#X obj 99 267 route bang;
+#X obj 93 324 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X symbolatom 163 325 10 0 0 0 - - -;
+#X obj 41 50 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 173 299 5 0 0 0 - - -;
+#X msg 81 54 4;
+#X msg 128 71 5;
+#X obj 95 193 hold 0;
+#X obj 338 314 spigot;
+#X text 144 157 pass or hold;
+#X connect 0 0 10 1;
+#X connect 1 0 10 0;
+#X connect 2 0 10 0;
+#X connect 3 0 4 0;
+#X connect 3 1 5 0;
+#X connect 3 1 7 0;
+#X connect 6 0 10 0;
+#X connect 8 0 10 0;
+#X connect 9 0 10 0;
+#X connect 10 0 3 0;

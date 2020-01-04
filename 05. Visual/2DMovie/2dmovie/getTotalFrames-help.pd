@@ -1,0 +1,25 @@
+#N canvas 388 36 864 361 10;
+#X obj 2 -328 cnv 15 700 50 empty empty getTotalFrames 3 12 0 18 -260080
+-1 0;
+#X text 591 -311 @author Pertuit;
+#X obj 664 -266 loadbang;
+#X floatatom 471 -103 5 0 0 0 - - -;
+#X obj 471 -162 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 22 -147 INLETS \; 1- bang : déclencheur;
+#X text 591 -299 @version 1;
+#X text 591 -324 @library 2DMovie;
+#X text 22 -188 ARGUMENTS \; 1- symbole : le nom de la vidéo;
+#X obj 463 -210 videoclip bougie candle.m4v;
+#X text 171 -322 Fonction retournant le nombre d'images d'une vidéo
+chargée;
+#X text 22 -244 DESCRIPTION \; Fonction retournant le nombre d'images
+(Frames) d'une vidéo chargée.;
+#X text 22 -103 OUTLETS \; 1- nombre : nombre d'images;
+#X obj 471 -134 getTotalFrames bougie;
+#X obj 462 -252 gemmanager;
+#X msg 664 -238 \; color 0 0 0 \; bougie.x 320 \; bougie.y 200;
+#X connect 2 0 15 0;
+#X connect 4 0 13 0;
+#X connect 13 0 3 0;
+#X coords 0 361 1 360 65 15 0;

@@ -1,0 +1,23 @@
+ElectroAcousticTools
+
+EAT_Delay~
+
+This module is a multi-monophonic modules, which creates 1-13 channels of DSP.
+
+Creation Arguments
+
+EAT_Delay~ ID_tag n-channels
+
+e.g. EAT_Delay~ Mooney 13
+
+Parameter
+
+Mix: Mix between dry (0) and wet (1) signal.
+Time: Length of basic delay.
+Feedback: Length of delay feedback.
+High Cut: Cutoff frequency of one-pole low pass filter.
+Low Cut: Cutoff frequency of one-pole high pass filter.
+Mute: Mute wet delay signal.
+ADV: Access to parameter and MIDI control over individual channels.
+MIDI: Access MIDI learn and MIDI control on/off for parameter control.
+HELP: Access help files.

@@ -1,0 +1,21 @@
+#N canvas 542 61 450 300 10;
+#X obj 31 14 ehu/gem/win 800 600;
+#X floatatom 217 147 5 0 0 0 - - -;
+#X msg 297 103 aupa!;
+#X floatatom 181 152 5 0 0 0 - - -;
+#X floatatom 141 149 5 0 0 0 - - -;
+#X floatatom 105 154 5 0 0 0 - - -;
+#X obj 30 140 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 295 77 5 0 0 0 - - -;
+#X text 26 124 render on/off;
+#X msg 54 78 font path/to/verdana.ttf;
+#X obj 53 181 ehu/gem/text 250 200 200 45 hello_world;
+#X connect 1 0 10 4;
+#X connect 2 0 10 5;
+#X connect 3 0 10 3;
+#X connect 4 0 10 2;
+#X connect 5 0 10 1;
+#X connect 6 0 10 0;
+#X connect 7 0 10 5;
+#X connect 9 0 10 0;

@@ -1,0 +1,13 @@
+#N canvas 424 222 597 364 10;
+#X obj -15 39 gen.sine.mod~;
+#X obj -16 292 dac~;
+#X obj -15 147 mix.ch.stereo~;
+#X text 216 90 I/O;
+#X text 215 107 None > Stereo;
+#X text 214 51 A GUI sinewave generator with ring modulation and distortion.
+;
+#X connect 0 0 2 0;
+#X connect 0 1 2 1;
+#X connect 2 0 1 0;
+#X connect 2 1 1 1;
+#X coords 982 0 981 1 83 10 0;

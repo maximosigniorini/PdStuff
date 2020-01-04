@@ -1,0 +1,18 @@
+#N canvas 436 236 450 300 10;
+#X text 212 38 ARGUMENT;
+#X text 213 54 Time to reach target value;
+#X text 214 174 OUTLET;
+#X msg 47 42 1;
+#X floatatom 47 123 5 0 0 0 - - -;
+#X floatatom 132 43 5 0 0 0 - - -;
+#X text 214 125 Target value (start counting);
+#X text 214 190 Floats ramp;
+#X msg 88 42 0;
+#X obj 47 80 count.line 700;
+#X text 213 72 (default 200ms);
+#X text 214 139 Time to reach the target value;
+#X text 214 108 INLETS;
+#X connect 3 0 9 0;
+#X connect 5 0 9 0;
+#X connect 8 0 9 0;
+#X connect 9 0 4 0;

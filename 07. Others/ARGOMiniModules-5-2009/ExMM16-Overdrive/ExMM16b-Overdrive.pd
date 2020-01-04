@@ -1,0 +1,507 @@
+#N canvas 318 27 371 544 10;
+#X obj 61 19 active;
+#N canvas 424 161 167 191 clic 0;
+#X obj 23 17 MouseState;
+#X obj 23 82 &;
+#X obj 23 100 == 0;
+#X obj 23 136 s \$0-SendClic;
+#X obj 48 51 t b f;
+#X obj 23 118 metro 200;
+#X obj 94 17 inlet;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 5 0;
+#X connect 4 0 1 0;
+#X connect 4 1 1 1;
+#X connect 5 0 3 0;
+#X connect 6 0 4 0;
+#X restore 61 40 pd clic;
+#X obj -169 339 dac~ 1 2;
+#N canvas 350 62 312 366 ARGO 0;
+#X obj 101 101 cnv 20 104 34 empty ColorAmpli empty 20 12 0 14 -261299
+-1 1.04858e+06;
+#X obj 4 253 outlet~;
+#X obj 134 104 cnv 10 20 10 empty ColorAmpli Ampli 1 5 1 14 -261299
+-1 1.04858e+06;
+#X obj 12 -86 inlet~;
+#X obj 61 -85 inlet~;
+#X obj 6 194 *~;
+#X obj 103 118 hsl 101 12 0 1.25 0 1 \$0-A ColorAmpli -80dB 0 7 1 9
+-261299 -1 -1 0 0;
+#X msg 144 60 set \$1;
+#X obj 61 -39 +~;
+#X obj 145 2 snapshot~;
+#X obj 144 38 change;
+#X obj 145 -84 r \$0-SendClic;
+#X obj 23 113 pow~ 10000;
+#X obj 22 161 /~ 10000;
+#X msg 213 61 label \$1;
+#X obj 212 38 tosymbol;
+#X obj 213 -61 * 80;
+#X obj 213 -39 - 80;
+#X obj 212 3 sprintf %ddB;
+#X obj 195 101 cnv 4 10 4 empty empty empty 20 12 0 14 -258113 -66577
+0;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 101 131 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X text 221 20 -> -80dB..20dB;
+#X text 218 -16 -> -80 .. 20;
+#X text 31 95 -> 0..1.2;
+#X text 32 143 -> 1..100000;
+#X text 31 177 -> 0.0001..10 = -80dB..20dB;
+#X connect 3 0 5 0;
+#X connect 4 0 8 0;
+#X connect 5 0 1 0;
+#X connect 6 0 16 0;
+#X connect 6 0 8 1;
+#X connect 7 0 6 0;
+#X connect 8 0 9 0;
+#X connect 8 0 12 0;
+#X connect 9 0 10 0;
+#X connect 10 0 7 0;
+#X connect 11 0 9 0;
+#X connect 12 0 13 0;
+#X connect 13 0 5 1;
+#X connect 14 0 6 0;
+#X connect 15 0 14 0;
+#X connect 16 0 17 0;
+#X connect 17 0 18 0;
+#X connect 18 0 15 0;
+#X coords 0 -1 1 1 106 36 1 100 100;
+#X restore -145 74 pd ARGO;
+#N canvas 608 166 249 182 ARGOnOff 0;
+#X obj 100 100 tgl 18 1 \$0-SendOnOff \$0-ReceiveOnOff On/Off 20 9
+0 12 -4033 -1 -1 1 1;
+#X obj 99 39 loadbang;
+#X msg 99 62 \; pd dsp 1;
+#X obj 100 129 outlet;
+#X connect 0 0 3 0;
+#X connect 1 0 2 0;
+#X coords 0 -1 1 1 65 18 2 100 100;
+#X restore 59 64 pd ARGOnOff;
+#X obj 59 89 switch~;
+#N canvas 585 156 393 346 ARGO 0;
+#X obj 40 -36 inlet~;
+#X obj 101 101 cnv 12 198 18 empty empty empty 20 12 0 14 -262144 -1
+1.04858e+06;
+#X obj 254 105 cnv 10 44 10 empty empty Scope 1 5 1 14 -262144 -1 1.04858e+06
+;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X msg 186 31 frgb 255 0 0;
+#X text 64 254 Voir examples:cyclone:pink-test.pd;
+#X text 64 265 Voir examples:cyclone:scope-...;
+#X obj 128 103 nbx 4 12 1 2000 0 1 empty ColorTime ms/div 40 7 1 9
+-208064 -1 -1 60 256;
+#X msg -19 30 range -1 1;
+#X obj 101 120 Scope~ 198 129 120 3 176 -1 1 0 0 0 0 255 0 0 255 255
+255 0;
+#X text 64 276 Voir MSP46ReferenceManual.pdf;
+#X obj 217 103 tgl 12 1 \$0-A \$0-B Sync 15 6 1 9 -262144 -1 -1 0 1
+;
+#X msg 142 6 delay 0 \, triglevel 0 \, trigger 0;
+#X obj 140 -41 sel 0 1;
+#X msg 183 55 brgb 255 255 255;
+#X msg 62 14 bufsize 176;
+#X obj 94 63 * 2;
+#X msg 159 -19 delay 1 \, triglevel 0.1 \, trigger 1;
+#X obj 41 -8 clip~ -1 1;
+#X connect 0 0 18 0;
+#X connect 4 0 9 0;
+#X connect 7 0 16 0;
+#X connect 8 0 9 0;
+#X connect 11 0 13 0;
+#X connect 12 0 9 0;
+#X connect 13 0 12 0;
+#X connect 13 1 17 0;
+#X connect 14 0 9 0;
+#X connect 15 0 9 0;
+#X connect 16 0 9 0;
+#X connect 17 0 9 0;
+#X connect 18 0 9 0;
+#X coords 0 -1 1 1 200 150 2 100 100;
+#X restore -94 125 pd ARGO;
+#N canvas 350 62 312 366 ARGO 0;
+#X obj 101 101 cnv 20 104 34 empty ColorAmpli empty 20 12 0 14 -261299
+-1 1.04858e+06;
+#X obj 4 253 outlet~;
+#X obj 134 104 cnv 10 20 10 empty ColorAmpli Ampli 1 5 1 14 -261299
+-1 1.04858e+06;
+#X obj 12 -86 inlet~;
+#X obj 61 -85 inlet~;
+#X obj 6 194 *~;
+#X obj 103 118 hsl 101 12 0 1.25 0 1 \$0-A ColorAmpli -80dB 0 7 1 9
+-261299 -1 -1 0 0;
+#X msg 144 60 set \$1;
+#X obj 61 -39 +~;
+#X obj 145 2 snapshot~;
+#X obj 144 38 change;
+#X obj 145 -84 r \$0-SendClic;
+#X obj 23 113 pow~ 10000;
+#X obj 22 161 /~ 10000;
+#X msg 213 61 label \$1;
+#X obj 212 38 tosymbol;
+#X obj 213 -61 * 80;
+#X obj 213 -39 - 80;
+#X obj 212 3 sprintf %ddB;
+#X obj 195 101 cnv 4 10 4 empty empty empty 20 12 0 14 -258113 -66577
+0;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 101 131 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X text 221 20 -> -80dB..20dB;
+#X text 218 -16 -> -80 .. 20;
+#X text 31 95 -> 0..1.2;
+#X text 32 143 -> 1..100000;
+#X text 31 177 -> 0.0001..10 = -80dB..20dB;
+#X connect 3 0 5 0;
+#X connect 4 0 8 0;
+#X connect 5 0 1 0;
+#X connect 6 0 16 0;
+#X connect 6 0 8 1;
+#X connect 7 0 6 0;
+#X connect 8 0 9 0;
+#X connect 8 0 12 0;
+#X connect 9 0 10 0;
+#X connect 10 0 7 0;
+#X connect 11 0 9 0;
+#X connect 12 0 13 0;
+#X connect 13 0 5 1;
+#X connect 14 0 6 0;
+#X connect 15 0 14 0;
+#X connect 16 0 17 0;
+#X connect 17 0 18 0;
+#X connect 18 0 15 0;
+#X coords 0 -1 1 1 106 36 1 100 100;
+#X restore -145 1 pd ARGO;
+#N canvas 148 112 547 429 ARGO 0;
+#X obj 368 103 cnv 10 20 10 empty empty Play 1 5 1 14 -262144 -1 1.04858e+06
+;
+#X obj 101 131 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 216 399 outlet~;
+#X obj 261 7 openpanel;
+#X msg 212 301 1;
+#X msg 141 275 0;
+#X msg 289 53 set \$1;
+#X msg 242 326 open \$1;
+#X obj 191 233 t b b;
+#X msg 124 394 set 0;
+#X obj 179 138 sel 1 0;
+#X floatatom 230 180 5 0 0 0 - - -;
+#X msg 230 157 set \$1;
+#X obj 204 210 sel 1;
+#X msg 173 334 set 1;
+#X obj 48 5 key;
+#X obj 49 28 select 32;
+#X obj -11 6 loadbang;
+#X obj 243 353 readsf~ 2;
+#X obj 274 272 list2symbol;
+#X obj 242 301 symbol;
+#X obj 262 27 t b s;
+#X text 369 281 avec espace;
+#X text 351 269 -> pour les noms de fichier;
+#X obj 151 101 tgl 12 1 \$0-SendPlay \$0-ReceivePlay Play(Space) 14
+6 1 9 -262144 -1 -1 0 1;
+#X obj 100 114 bng 16 250 50 0 \$0-SendOpen \$0-ReceiveOpen empty 0
+0 1 9 -262144 -1 -1;
+#X obj 311 101 bng 12 250 50 0 \$0-SendStop \$0-ReceiveStop Stop 14
+6 1 9 -262144 -1 -1;
+#X obj 249 101 tgl 12 1 \$0-SendLoop \$0-ReceiveLoop Loop 15 6 1 9
+-262144 -1 -1 0 1;
+#X symbolatom 117 114 46 0 0 0 - - -;
+#X obj 276 401 outlet~;
+#X obj 389 131 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X msg 8 147 set \$1;
+#X obj -7 196 list2symbol;
+#X obj -11 40 t b b;
+#X obj 139 101 bng 12 250 50 0 \$0-A \$0-B empty 14 6 1 9 -262144 -1
+-1;
+#X obj 139 101 bng 12 250 50 0 \$0-A \$0-B empty 14 6 1 9 -262144 -1
+-1;
+#X obj 174 277 delay 5;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 113 5 inlet~;
+#X obj 113 28 threshold~ 0.5 5 0.49 5;
+#X msg -7 172 cym2.aiff;
+#X connect 3 0 21 0;
+#X connect 4 0 18 0;
+#X connect 5 0 18 0;
+#X connect 6 0 28 0;
+#X connect 7 0 18 0;
+#X connect 8 0 36 0;
+#X connect 8 1 20 0;
+#X connect 9 0 24 0;
+#X connect 10 0 8 0;
+#X connect 10 1 9 0;
+#X connect 10 1 5 0;
+#X connect 11 0 13 0;
+#X connect 12 0 11 0;
+#X connect 13 0 8 0;
+#X connect 14 0 24 0;
+#X connect 14 0 35 0;
+#X connect 15 0 16 0;
+#X connect 16 0 24 0;
+#X connect 17 0 33 0;
+#X connect 18 0 2 0;
+#X connect 18 1 29 0;
+#X connect 18 2 11 0;
+#X connect 18 2 9 0;
+#X connect 19 0 20 1;
+#X connect 20 0 7 0;
+#X connect 21 0 28 0;
+#X connect 21 1 6 0;
+#X connect 24 0 10 0;
+#X connect 25 0 3 0;
+#X connect 26 0 5 0;
+#X connect 26 0 9 0;
+#X connect 27 0 12 0;
+#X connect 28 0 19 0;
+#X connect 28 0 31 0;
+#X connect 31 0 40 0;
+#X connect 32 0 6 0;
+#X connect 33 0 28 0;
+#X connect 33 1 40 0;
+#X connect 34 0 24 0;
+#X connect 36 0 4 0;
+#X connect 36 0 14 0;
+#X connect 38 0 39 0;
+#X connect 39 0 34 0;
+#X connect 40 0 32 0;
+#X coords 0 -1 1 1 300 36 2 100 100;
+#X restore -162 -149 pd ARGO;
+#N canvas 522 170 272 270 ARGO 0;
+#X obj 101 197 cnv 4 10 4 empty empty empty 0 0 0 9 -1 -66577 0;
+#X obj 31 39 cnv 10 20 10 empty empty Preset 1 5 1 14 -262144 -1 1.04858e+06
+;
+#X obj 216 197 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 83 233 outlet~;
+#X obj 83 208 sig~;
+#X obj 151 233 outlet~;
+#X obj 150 210 sig~;
+#X obj 207 233 outlet~;
+#X obj 207 210 sig~;
+#X obj 112 100 nbx 5 12 -99 99 0 1 \$0-A \$0-B empty 0 0 1 9 -262144
+-1 -1 1 256;
+#X obj 100 100 vradio 12 1 1 8 \$0-A \$0-B empty 0 0 0 10 -262144 -1
+-1 7;
+#X obj 112 112 nbx 5 12 -99 99 0 1 \$0-A \$0-B empty 0 0 1 9 -262144
+-1 -1 1 256;
+#X obj 112 124 nbx 5 12 -99 99 0 1 \$0-A \$0-B empty 0 0 1 9 -262144
+-1 -1 1 256;
+#X obj 112 136 nbx 5 12 -99 99 0 1 \$0-A \$0-B empty 0 0 1 9 -262144
+-1 -1 1 256;
+#X obj 112 148 nbx 5 12 -99 99 0 1 \$0-A \$0-B empty 0 0 1 9 -262144
+-1 -1 1 256;
+#X obj 112 160 nbx 5 12 -99 99 0 1 \$0-A \$0-B empty 0 0 1 9 -262144
+-1 -1 1 256;
+#X obj 112 172 nbx 5 12 -99 99 0 1 \$0-A \$0-B empty 0 0 1 9 -262144
+-1 -1 1 256;
+#X obj 112 184 nbx 5 12 -99 99 0 1 \$0-A \$0-B empty 0 0 1 9 -262144
+-1 -1 0 256;
+#X obj 148 100 nbx 5 12 -99 99 0 1 \$0-A \$0-B empty 0 0 1 9 -262144
+-1 -1 0.05 256;
+#X obj 148 112 nbx 5 12 -99 99 0 1 \$0-A \$0-B empty 0 0 1 9 -262144
+-1 -1 1 256;
+#X obj 148 124 nbx 5 12 -99 99 0 1 \$0-A \$0-B empty 0 0 1 9 -262144
+-1 -1 5 256;
+#X obj 148 136 nbx 5 12 -99 99 0 1 \$0-A \$0-B empty 0 0 1 9 -262144
+-1 -1 10 256;
+#X obj 148 148 nbx 5 12 -99 99 0 1 \$0-A \$0-B empty 0 0 1 9 -262144
+-1 -1 20 256;
+#X obj 148 160 nbx 5 12 -99 99 0 1 \$0-A \$0-B empty 0 0 1 9 -262144
+-1 -1 40 256;
+#X obj 148 172 nbx 5 12 -99 99 0 1 \$0-A \$0-B empty 0 0 1 9 -262144
+-1 -1 99 256;
+#X obj 148 184 nbx 5 12 -99 99 0 1 \$0-A \$0-B empty 0 0 1 9 -262144
+-1 -1 0 256;
+#X obj 184 100 nbx 5 12 -99 99 0 1 \$0-A \$0-B empty 0 0 1 9 -262144
+-1 -1 1.16 256;
+#X obj 184 112 nbx 5 12 -99 99 0 1 \$0-A \$0-B empty 0 0 1 9 -262144
+-1 -1 1 256;
+#X obj 184 124 nbx 5 12 -99 99 0 1 \$0-A \$0-B empty 0 0 1 9 -262144
+-1 -1 0.98 256;
+#X obj 184 136 nbx 5 12 -99 99 0 1 \$0-A \$0-B empty 0 0 1 9 -262144
+-1 -1 0.99 256;
+#X obj 184 148 nbx 5 12 -99 99 0 1 \$0-A \$0-B empty 0 0 1 9 -262144
+-1 -1 0.98 256;
+#X obj 184 160 nbx 5 12 -99 99 0 1 \$0-A \$0-B empty 0 0 1 9 -262144
+-1 -1 0.99 256;
+#X obj 184 172 nbx 5 12 -99 99 0 1 \$0-A \$0-B empty 0 0 1 9 -262144
+-1 -1 0.99 256;
+#X obj 184 184 nbx 5 12 -99 99 0 1 \$0-A \$0-B empty 0 0 1 9 -262144
+-1 -1 0 256;
+#X obj 83 63 sel 0 1 2 3 4 5 6 7;
+#X obj 161 197 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X connect 4 0 3 0;
+#X connect 6 0 5 0;
+#X connect 8 0 7 0;
+#X connect 9 0 4 0;
+#X connect 10 0 34 0;
+#X connect 11 0 4 0;
+#X connect 12 0 4 0;
+#X connect 13 0 4 0;
+#X connect 14 0 4 0;
+#X connect 15 0 4 0;
+#X connect 16 0 4 0;
+#X connect 17 0 4 0;
+#X connect 18 0 6 0;
+#X connect 19 0 6 0;
+#X connect 20 0 6 0;
+#X connect 21 0 6 0;
+#X connect 22 0 6 0;
+#X connect 23 0 6 0;
+#X connect 24 0 6 0;
+#X connect 25 0 6 0;
+#X connect 26 0 8 0;
+#X connect 27 0 8 0;
+#X connect 28 0 8 0;
+#X connect 29 0 8 0;
+#X connect 30 0 8 0;
+#X connect 31 0 8 0;
+#X connect 32 0 8 0;
+#X connect 33 0 8 0;
+#X connect 34 0 9 0;
+#X connect 34 0 18 0;
+#X connect 34 0 26 0;
+#X connect 34 1 19 0;
+#X connect 34 1 27 0;
+#X connect 34 1 11 0;
+#X connect 34 2 12 0;
+#X connect 34 2 20 0;
+#X connect 34 2 28 0;
+#X connect 34 3 13 0;
+#X connect 34 3 21 0;
+#X connect 34 3 29 0;
+#X connect 34 4 14 0;
+#X connect 34 4 22 0;
+#X connect 34 4 30 0;
+#X connect 34 5 15 0;
+#X connect 34 5 23 0;
+#X connect 34 5 31 0;
+#X connect 34 6 16 0;
+#X connect 34 6 24 0;
+#X connect 34 6 32 0;
+#X connect 34 7 17 0;
+#X connect 34 7 25 0;
+#X connect 34 7 33 0;
+#X coords 0 -1 1 1 127 102 2 100 100;
+#X restore -46 -108 pd ARGO;
+#N canvas 59 127 610 498 ARGO 0;
+#X obj 101 101 cnv 12 113 15 empty ColorAmpli empty 20 12 0 14 -261299
+-1 1.04858e+06;
+#X obj 151 106 cnv 8 8 10 empty ColorAmpli Overdrive 1 5 1 14 -261299
+-1 1.04858e+06;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 101 112 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 84 66 inlet~;
+#X obj 113 102 nbx 4 12 0 99 0 1 \$0-A ColorAmpli empty 0 0 1 9 -261299
+-1 -1 0 256;
+#X obj 84 234 outlet~;
+#X obj 85 210 overdrive~;
+#X text 8 -13 overdrive~ (library cyclone);
+#X text 8 4 Simulate an analog amplifier being overdriven by applying
+a non-linear transfer function to the incoming signal.;
+#X obj 10 257 comment 300 11 helvetica ? 0 0 0 0 If the "drive" is
+1 \, the signal is unchanged. Increasing the "drive" increases the
+amount of distortion. If the "drive" is less than 1 \, then it causes
+a different kind of distortion. If the "drive" is less than 0 \, VERY
+LOUD distortion can result \, so be careful!;
+#X obj 10 315 comment 300 11 helvetica ? 0 0 0 0 overdrive~ simulates
+the distortion caused when an analog amplifier is fed a signal that
+is too high for the inputs. This is generally known as "overdriving"
+the amplifier \, and it causes a characteristic distortion that is
+often used to generate a "fat" sound.;
+#X obj 113 185 clip 0 99;
+#X obj 189 66 inlet~;
+#X obj 234 98 snapshot~;
+#X obj 234 123 change;
+#X obj 234 67 r \$0-SendClic;
+#X obj 204 101 cnv 4 10 4 empty empty empty 20 12 0 14 -258113 -66577
+0;
+#X obj 113 160 +;
+#X obj 113 133 t b f;
+#X msg 21 101 set \$1;
+#X connect 4 0 7 0;
+#X connect 5 0 19 0;
+#X connect 7 0 6 0;
+#X connect 12 0 7 0;
+#X connect 13 0 14 0;
+#X connect 14 0 15 0;
+#X connect 15 0 18 0;
+#X connect 16 0 14 0;
+#X connect 18 0 12 0;
+#X connect 18 0 20 0;
+#X connect 19 0 18 0;
+#X connect 19 1 18 1;
+#X connect 20 0 5 0;
+#X coords 0 -1 1 1 115 17 1 100 100;
+#X restore -145 46 pd ARGO;
+#X obj -217 -175 cnv 15 15 15 empty empty ExMM16b-Overdrive 0 8 1 14
+-262144 -66577 0;
+#X text -99 -100 Click ->;
+#X text -216 -153 Click ->;
+#X text -210 -142 Play;
+#X text 82 -99 (normal);
+#X text 82 -25 (silence);
+#N canvas 350 62 312 366 ARGO 0;
+#X obj 101 101 cnv 20 104 34 empty ColorAmpli empty 20 12 0 14 -261299
+-1 1.04858e+06;
+#X obj 85 257 outlet~;
+#X obj 134 104 cnv 10 20 10 empty ColorAmpli Ampli 1 5 1 14 -261299
+-1 1.04858e+06;
+#X obj 89 -82 inlet~;
+#X obj 85 228 *~;
+#X obj 103 118 hsl 101 12 0 1.25 0 1 \$0-A ColorAmpli -12dB 0 7 1 9
+-261299 -1 -1 6800 0;
+#X obj 100 161 pow~ 10000;
+#X obj 100 195 /~ 10000;
+#X msg 213 61 label \$1;
+#X obj 212 38 tosymbol;
+#X obj 213 -61 * 80;
+#X obj 213 -39 - 80;
+#X obj 212 3 sprintf %ddB;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 101 131 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X text 221 20 -> -80dB..20dB;
+#X text 218 -16 -> -80 .. 20;
+#X text 104 139 -> 0..1.2;
+#X text 109 177 -> 1..100000;
+#X text 109 211 -> 0.0001..10 = -80dB..20dB;
+#X connect 3 0 4 0;
+#X connect 4 0 1 0;
+#X connect 5 0 10 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 7 0 4 1;
+#X connect 8 0 5 0;
+#X connect 9 0 8 0;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 12 0 9 0;
+#X coords 0 -1 1 1 106 36 1 100 100;
+#X restore -146 286 pd ARGO;
+#X text -38 301 <- General level;
+#X connect 0 0 1 0;
+#X connect 3 0 6 0;
+#X connect 3 0 17 0;
+#X connect 4 0 5 0;
+#X connect 7 0 10 0;
+#X connect 8 0 7 0;
+#X connect 9 0 7 1;
+#X connect 9 1 10 1;
+#X connect 9 2 3 1;
+#X connect 10 0 3 0;
+#X connect 17 0 2 0;
+#X connect 17 0 2 1;

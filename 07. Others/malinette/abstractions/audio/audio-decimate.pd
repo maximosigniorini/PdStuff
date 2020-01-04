@@ -1,0 +1,24 @@
+#N canvas 1 211 318 278 10;
+#X obj 58 58 inlet~;
+#X obj 58 263 outlet~;
+#X obj 102 117 nbx 5 14 0 1 0 0 empty empty ratio(0-1) 0 22 0 8 -262144
+-1 -1 0.5 256;
+#X obj 155 117 nbx 3 14 0 32 0 0 empty empty bit(0-32) 0 22 0 8 -262144
+-1 -1 8 256;
+#X obj 102 56 inlet;
+#X obj 155 55 inlet;
+#X obj 57 162 sigpack/decimate~;
+#X msg 228 53 0.5;
+#X msg 267 53 8;
+#X obj 228 23 initbang;
+#X connect 0 0 6 0;
+#X connect 2 0 6 1;
+#X connect 3 0 6 2;
+#X connect 4 0 2 0;
+#X connect 5 0 3 0;
+#X connect 6 0 1 0;
+#X connect 7 0 2 0;
+#X connect 8 0 3 0;
+#X connect 9 0 7 0;
+#X connect 9 0 8 0;
+#X coords 0 -1 1 1 100 45 1 100 100;

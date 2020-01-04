@@ -1,0 +1,18 @@
+#N canvas 1 49 611 303 10;
+#X obj 52 125 list;
+#X obj 52 146 hcs/split_path;
+#X obj 52 185 outlet;
+#X obj 52 55 inlet;
+#X obj 52 79 t b b;
+#X text 260 145 want to copy this >;
+#X obj 84 100 hcs/folder_list;
+#X obj 408 146 ggee/getdir 1;
+#X obj 410 172 ggee/getdir 2;
+#X text 124 24 it does not work because I need the path of the patch
+this abstraction lives in. not the path of the abstraction itself;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 3 0 4 0;
+#X connect 4 0 0 0;
+#X connect 4 1 6 0;
+#X connect 6 0 0 1;

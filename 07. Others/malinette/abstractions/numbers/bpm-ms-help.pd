@@ -1,0 +1,17 @@
+#N canvas 252 248 493 363 10;
+#X floatatom 121 172 5 0 0 0 - - -;
+#X floatatom 121 238 5 0 0 0 - - -;
+#X obj 94 282 metro;
+#X obj 94 316 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 94 253 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 121 203 bpm-ms;
+#X text 59 54 bpm-ms \; ------ \; Conversion BPM (Beat per minute)
+/ Ms (Milliseconds) \; and the opposite. \; Useful to control a metro
+for music;
+#X connect 0 0 5 0;
+#X connect 1 0 2 1;
+#X connect 2 0 3 0;
+#X connect 4 0 2 0;
+#X connect 5 0 1 0;

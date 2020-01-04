@@ -1,0 +1,21 @@
+#N canvas 299 416 700 295 8;
+#X obj 20 14 ehu/gem/cam 0;
+#X obj 113 159 print frames;
+#X obj 153 20 ehu/gem/win 600 400;
+#X obj 52 85 ehu/in~;
+#X obj 153 46 ehu/dsp;
+#X obj 20 183 ehu/gem/texture 300 200 600 400;
+#X obj 270 147 ehu/plot;
+#X text 322 65 INLETS: video \, audio left channel \, audio right channel
+\, toggle ON/OFF;
+#X text 322 101 OUTLETS: video \, frame being captured;
+#X obj 20 132 ehu/gem/rec;
+#X text 326 16 Records video (mov) and audio (wav) from the video and
+sound input. The files are named after the date and current time and
+they are located near the patch you are working in;
+#X connect 0 0 9 0;
+#X connect 3 0 9 1;
+#X connect 3 1 6 0;
+#X connect 3 1 9 2;
+#X connect 9 0 5 0;
+#X connect 9 1 1 0;

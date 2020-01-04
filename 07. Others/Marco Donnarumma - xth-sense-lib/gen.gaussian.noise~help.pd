@@ -1,0 +1,11 @@
+#N canvas 687 255 423 267 10;
+#X obj 44 56 gen.gaussian.noise~;
+#X obj 46 191 dac~;
+#X floatatom 72 88 5 0 0 1 Volume - -;
+#X obj 72 114 utils.zipper~;
+#X obj 45 144 *~;
+#X text 210 54 Gaussian noise generator;
+#X connect 0 0 4 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 1;
+#X connect 4 0 1 0;

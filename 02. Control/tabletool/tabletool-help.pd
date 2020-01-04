@@ -1,0 +1,420 @@
+#N canvas 364 156 778 471 10;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array table-1 32 float 1;
+#A 0 -0.571432 -0.500003 -0.400002 -0.400002 -0.428574 -0.54286 -0.54286
+-0.171429 -0.0571427 -0.0571427 -0.114286 -0.242858 -0.300001 -0.300001
+-0.300001 -0.285716 -0.257144 -0.0857143 0.571433 0.585718 0.585718
+0.571433 0.514289 0.34286 0.142859 0.0285721 0.0285721 0.600004 0.728576
+0.78572 0.78572 0.728576;
+#X coords 0 1 31 -1 200 140 1 0 0;
+#X restore 52 54 graph;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array table-2 32 float 1;
+#A 0 0.71429 0.628575 0.600004 0.571432 0.528575 0.485717 0.428574
+0.404764 0.380955 0.357145 0.32143 0.285716 0.228573 0.192858 0.157144
+0.0857147 0.0714289 0.0428573 0.0142857 -0.0428575 -0.078572 -0.114287
+-0.185716 -0.242859 -0.285716 -0.328574 -0.385717 -0.414288 -0.485717
+-0.542861 -0.585718 -0.685719;
+#X coords 0 1 31 -1 200 140 1;
+#X restore 262 54 graph;
+#X obj 648 234 print;
+#X obj 532 158 r ttool;
+#X obj 532 206 tabletool table-1;
+#N canvas 267 40 1117 744 searching 0;
+#X obj 76 365 s ttool;
+#X msg 76 45 equals 0;
+#X text 223 103 Search for the number of values that are greater than
+a particular value \, and get the indices. If no values in the table
+are greater \, -1 shows up at the left outlet. Otherwise \, the number
+of greater values shows up at the left outlet \, and a list of their
+indices is spat out the right.;
+#X text 173 23 Search for the number of occurrences of a particular
+value \, and get the indices. If the requested value is not present
+in the table \, -1 shows up at the left outlet. Otherwise \, the number
+of occurrences shows up at the left outlet \, and a list of their indices
+is spat out the right.;
+#X obj 87 582 s ttool;
+#X msg 117 492 max;
+#X msg 87 461 min;
+#X text 125 460 Minimum value in table.;
+#X msg 147 521 nearest 0.5;
+#X text 244 515 Nearest value in table. The value itself appears at
+the left outlet \, and its index at the right.;
+#X msg 127 125 greater 0.3;
+#X text 263 203 Search for the number of values that are less than
+a particular value \, and get the indices. If no values in the table
+are lesser \, -1 shows up at the left outlet. Otherwise \, the number
+of lesser values shows up at the left outlet \, and a list of their
+indices is spat out the right.;
+#X msg 166 225 less -0.1;
+#X text 155 491 Maximum value in table.;
+#X msg 343 381 choose;
+#X obj 343 422 s ttool;
+#X text 400 375 Randomly select a value from the table. The index of
+the chosen value is reported at the right outlet.;
+#X msg 176 295 between -0.5 0.5;
+#X text 305 289 Look for the number of values between two bounds (non-inclusive)
+;
+#X obj 690 107 r info;
+#X obj 690 128 nbx 6 36 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 36
+-262144 -1 -1 0 256;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array peaks 64 float 1;
+#A 0 0.428581 0.428581 0.428581 0.428581 0.785732 1.92862 2.92864 4.5001
+5.57156 5.50013 5.21441 2.71435 2.14291 1.14288 0.928593 0.928593 1.14288
+2.07148 3.64294 4.92868 2.85721 1.35717 0.714302 0.714302 0.714302
+0.928593 5.57156 6.71444 7.07159 7.14302 7.42874 7.5716 7.5716 7.5716
+7.5716 7.5716 7.5716 7.35731 6.92873 6.35729 5.50013 1.35717 1.07145
+0.928593 0.714302 0.714302 0.642872 0.500011 0.500011 0.714302 1.00002
+1.07145 1.28574 1.92862 5.4287 5.4287 4.28581 3.14293 1.71432 1.28574
+0.857162 0.714302 0.571442 0.428581;
+#X coords 0 10 63 0 200 140 1;
+#X restore 843 560 graph;
+#X msg 235 601 peaks 2 4;
+#X obj 235 642 tabletool peaks;
+#X obj 235 664 pack f f;
+#X obj 235 685 print;
+#X text 367 609 Search for peaks. This is especially useful for spectral
+plots. Specify the min and max values for peak searching. A peak is
+reported when values cross the max \, then fall below the min. For
+each peak \, the peak value within that measurement period appears
+at the left outlet \, and its index at the right.;
+#X obj 905 329 tabletool peaks;
+#X obj 905 351 pack f f;
+#X obj 905 372 print;
+#X msg 905 288 change;
+#X text 799 199 Search for any changes in the table.;
+#X text 799 213 If any value has changed since the last;
+#X text 799 255 repeatedly with a metro to update;
+#X text 799 269 constantly.;
+#X text 799 241 and its index out the right outlet. Bang;
+#X text 799 227 time \, it is sent out the left outlet \,;
+#X connect 1 0 0 0;
+#X connect 5 0 4 0;
+#X connect 6 0 4 0;
+#X connect 8 0 4 0;
+#X connect 10 0 0 0;
+#X connect 12 0 0 0;
+#X connect 14 0 15 0;
+#X connect 17 0 0 0;
+#X connect 19 0 20 0;
+#X connect 22 0 23 0;
+#X connect 23 0 24 0;
+#X connect 23 1 24 1;
+#X connect 24 0 25 0;
+#X connect 27 0 28 0;
+#X connect 27 1 28 1;
+#X connect 28 0 29 0;
+#X connect 30 0 27 0;
+#X restore 199 330 pd searching;
+#N canvas 365 146 977 641 request-info 0;
+#X obj 253 601 s ttool;
+#X msg 33 65 set table-1;
+#X msg 73 86 set table-2;
+#X msg 253 40 dump;
+#X msg 449 486 restore;
+#X msg 439 461 store;
+#X msg 460 510 wipe;
+#X msg 407 263 std;
+#X msg 353 190 mean;
+#X msg 377 226 geomean;
+#X msg 324 153 sum;
+#X text 297 39 Dump all values to a list at the right outlet.;
+#X text 335 116 Ask for the length of the table.;
+#X msg 103 108 set tables-1-2;
+#X text 31 43 Specify the active table.;
+#X text 510 485 Restore the stored values after you've messsed them
+up.;
+#X text 503 510 Wipe all memory.;
+#X text 437 395 Store the table values to internal memory. Note that
+if you store a table \, then set to a different active table \, the
+internal memory will still contain the former table's values. Hit store
+again to update memory after setting to the new table.;
+#X text 358 152 Sum all values.;
+#X text 392 189 Take the arithmetic mean.;
+#X text 443 263 Calculate standard deviation.;
+#X obj 486 308 r info;
+#X obj 486 329 nbx 6 36 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 36
+-262144 -1 -1 0 256;
+#X msg 293 117 size;
+#X text 441 225 Take the geometric mean. You will get NANs on negative
+data.;
+#X text 397 74 Dump values in a certain range to a list at the right
+outlet.;
+#X msg 273 80 dump_range 17 29;
+#X connect 1 0 0 0;
+#X connect 2 0 0 0;
+#X connect 3 0 0 0;
+#X connect 4 0 0 0;
+#X connect 5 0 0 0;
+#X connect 6 0 0 0;
+#X connect 7 0 0 0;
+#X connect 8 0 0 0;
+#X connect 9 0 0 0;
+#X connect 10 0 0 0;
+#X connect 13 0 0 0;
+#X connect 21 0 22 0;
+#X connect 23 0 0 0;
+#X connect 26 0 0 0;
+#X restore 199 310 pd request-info;
+#X obj 532 280 nbx 6 24 -1e+37 1e+37 0 0 info empty empty 0 -8 0 24
+-262144 -1 -1 0 256;
+#N canvas 310 85 843 631 multi-table-math 0;
+#X msg 24 152 dot table-2;
+#X msg 74 172 euclid table-2;
+#X msg 124 192 taxi table-2;
+#X text 22 65 Dot product;
+#X text 22 85 Euclidean distance;
+#X text 22 105 Taxicab distance;
+#X text 22 125 Pearson correlation;
+#X msg 164 212 corr table-2;
+#X obj 24 273 s ttool;
+#X text 295 385 Add value pairs by index.;
+#X text 335 405 Subtract value pairs by index.;
+#X text 345 425 Multiply value pairs by index.;
+#X text 338 445 Divide value pairs by index.;
+#X text 23 17 These four functions operate between the active table
+and the table passed with the message.;
+#X text 188 320 These functions perform arithmetic on the active table
+and a table passed with the message. Results are sent out the right
+outlet as a list.;
+#X msg 190 386 add table-2;
+#X msg 200 406 subtract table-2;
+#X msg 210 426 multiply table-2;
+#X msg 220 446 divide table-2;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array multi-math 32 float 0;
+#X coords 0 1 31 -1 200 140 1;
+#X restore 605 399 graph;
+#X obj 190 487 tabletool table-1;
+#X obj 306 512 list prepend 0;
+#X obj 306 533 s multi-math;
+#X obj 352 120 r info;
+#X obj 352 141 nbx 6 36 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 36
+-262144 -1 -1 0 256;
+#X connect 0 0 8 0;
+#X connect 1 0 8 0;
+#X connect 2 0 8 0;
+#X connect 7 0 8 0;
+#X connect 15 0 20 0;
+#X connect 16 0 20 0;
+#X connect 17 0 20 0;
+#X connect 18 0 20 0;
+#X connect 20 1 21 0;
+#X connect 21 0 22 0;
+#X connect 23 0 24 0;
+#X restore 329 330 pd multi-table-math;
+#N canvas 126 79 1227 491 manipulations-1 0;
+#X msg 18 37 offset 1;
+#X msg 112 177 shift -5;
+#X msg 98 157 shift 5;
+#X msg 31 57 offset -0.1;
+#X text 88 36 Add a positive or negative offset to all values.;
+#X text 187 161 Shift elements by index forward or back. The overflow
+wraps around to the beginning or end appropriately.;
+#X msg 58 97 scale 0.5;
+#X msg 71 117 scale 2;
+#X text 136 97 Multiply all values by a scalar;
+#X text 116 309 Copy another table to the currently set table.;
+#X text 129 380 Copy part of another table to the currently set table.
+First argument is the starting index for writing to the target table.
+The remaining arguments are the table to copy from \, and the start
+and end indices of the desired range.;
+#X msg 672 314 normalize_sum;
+#X msg 632 254 normalize -1 1;
+#X text 778 307 Normalize so that all values are between 0 and 1 \,
+and the sum == 1;
+#X text 744 253 Normalize to a range with a specified minimum and maximum.
+;
+#X msg 18 310 copy table-2;
+#X msg 632 99 const 0.77 7 17;
+#X text 631 79 Write a constant to a range of the table.;
+#X msg 682 170 insert 7 0.77;
+#X msg 122 211 shift0 5;
+#X text 195 211 Like shift \, but fill excess with zeros.;
+#X msg 662 139 remove 7;
+#X text 732 123 Remove the value at a certain index \, and send it
+out the left outlet. This shifts remaining elements left and writes
+a zero to the end.;
+#X text 791 166 Starting at a certain index \, insert a value. Remaining
+values are shifted right \, and the last value is shifted off of the
+table and sent out the left outlet.;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array table-3 64 float 1;
+#A 0 -0.455717 -0.0985715 -0.0842855 -0.0700001 -0.0557141 -0.0557141
+-0.0557141 -0.155715 -0.184287 -0.184287 -0.170001 -0.155715 -0.112858
+-0.0842855 -0.0557141 -0.0271425 0.00142922 0.00857224 0.015715 0.015715
+0.00142922 -0.0128567 -0.0271425 -0.0271425 -0.0271425 0.0442866 0.0680961
+0.0919062 0.115716 0.172859 0.187145 0.201431 0.201431 0.201431 0.201431
+0.201431 0.144287 0.087144 0.0300008 0.0300008 0.0300008 0.0300008
+0.0300008 0.0300008 0.0442866 0.0442866 0.0585727 0.065715 0.072858
+0.115716 0.158573 0.187145 0.215716 0.234764 0.253812 0.27286 0.294288
+0.315717 0.330003 0.330003 0.330003 0.330003 0.330003 0.330003;
+#X coords 0 1 63 -1 100 70 1;
+#X restore 400 72 graph;
+#X obj 18 262 tabletool table-3;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array copy 32 float 0;
+#X coords 0 1 31 -1 100 70 1;
+#X restore 460 292 graph;
+#X obj 18 408 tabletool copy;
+#X obj 632 202 tabletool copy;
+#X obj 632 355 tabletool copy;
+#X msg 49 360 copy_range 25 table-2 0 3;
+#X connect 0 0 25 0;
+#X connect 1 0 25 0;
+#X connect 2 0 25 0;
+#X connect 3 0 25 0;
+#X connect 6 0 25 0;
+#X connect 7 0 25 0;
+#X connect 11 0 29 0;
+#X connect 12 0 29 0;
+#X connect 15 0 27 0;
+#X connect 16 0 28 0;
+#X connect 18 0 28 0;
+#X connect 19 0 25 0;
+#X connect 21 0 28 0;
+#X connect 30 0 27 0;
+#X restore 52 310 pd manipulations-1;
+#N canvas 111 42 1221 654 manipulations-2 0;
+#X msg 54 75 lace table-2;
+#X msg 94 115 concatenate table-2;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array tables-1-2 64 float 0;
+#X coords 0 1 63 -1 100 70 1;
+#X restore 330 155 graph;
+#X obj 54 156 tabletool table-1;
+#X obj 170 180 list prepend 0;
+#X obj 170 201 s tables-1-2;
+#X text 246 114 Or concatenate the active table with another table.
+;
+#X text 159 68 Lace the active table with another table \, sending
+the results out the right outlet as a list.;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array manip 64 float 1;
+#A 0 0.456786 -0.257493 0.913924 0.18536 -0.514633 0.599641 -0.286064
+-0.114637 0.642498 0.342501 -0.343206 0.0425043 0.713926 0.213931 0.285359
+0.685355 -0.628917 -0.686059 -0.314635 0.971066 0.57107 -0.714631 0.485357
+-0.600346 -0.486062 0.356787 -0.9432 -0.45749 0.471071 0.771068 -0.000352383
+0.171074 0.82821 -0.143208 -0.657488 0.428215 0.513928 0.256788 0.371072
+-0.0860658 -0.357491 0.82821 0.399643 0.199646 -0.443205 0.0282187
+-0.0289235 -0.743202 0.142503 0.285359 -0.0574946 0.31393 0.113932
+-0.238445 -0.20035 0.228217 -0.428919 -0.371777 0.742497 -0.128922
+-0.543204 0.885353 -0.219398 0.0567899;
+#X coords 0 1 63 -1 100 70 1;
+#X restore 489 339 graph;
+#X msg 178 487 smooth;
+#X msg 155 392 reverse;
+#X msg 178 431 invert;
+#X msg 76 291 sort;
+#X msg 54 263 scramble;
+#X text 124 262 Shuffle table elements in a random order.;
+#X text 221 391 Reverse the order of all elements.;
+#X text 121 286 Sort values from low to high and reorder. For high
+to low ordering \, use "sort" \, then "reverse".;
+#X text 235 430 Flip all values. Low becomes high and vice versa.;
+#X text 176 505 Smooth out hand-drawn curves by averaging with neighboring
+values.;
+#X msg 146 360 sort_range 7 15;
+#X text 265 359 Sort only a specific range.;
+#X msg 100 325 swap 0 31;
+#X text 178 324 Swap a pair of values at certain indices.;
+#X obj 54 503 tabletool manip;
+#X msg 178 459 abs;
+#X text 212 459 Absolute value;
+#X msg 662 400 differentiate;
+#X text 661 136 If table size == N \, this creates a list of N values
+where term_i = tablevalue_i + tablevalue_i-1 ... tablevalue_0. This
+is useful when you have a table full of inter onset values and want
+the total duration at any given point.;
+#X text 661 368 This creates a list of N values where term_i = tablevalue_i
+- tablevalue_i-1.;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array int-diff 32 float 0;
+#X coords 0 1 31 -1 100 70 1;
+#X restore 662 274 graph;
+#X obj 662 421 tabletool table-1;
+#X obj 811 400 list prepend 0;
+#X obj 811 421 s int-diff;
+#X obj 662 217 tabletool table-1;
+#X obj 811 196 list prepend 0;
+#X obj 811 217 s int-diff;
+#X msg 662 196 integrate;
+#X connect 0 0 3 0;
+#X connect 1 0 3 0;
+#X connect 3 1 4 0;
+#X connect 4 0 5 0;
+#X connect 9 0 23 0;
+#X connect 10 0 23 0;
+#X connect 11 0 23 0;
+#X connect 12 0 23 0;
+#X connect 13 0 23 0;
+#X connect 19 0 23 0;
+#X connect 21 0 23 0;
+#X connect 24 0 23 0;
+#X connect 26 0 30 0;
+#X connect 30 1 31 0;
+#X connect 31 0 32 0;
+#X connect 33 1 34 0;
+#X connect 34 0 35 0;
+#X connect 36 0 33 0;
+#X restore 52 330 pd manipulations-2;
+#N canvas 165 22 913 727 filling 0;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array fill 1024 float 0;
+#X coords 0 1 1023 -1 200 140 1;
+#X restore 609 90 graph;
+#X msg 57 51 blackman;
+#X msg 67 71 cosine;
+#X msg 77 91 hamming;
+#X msg 87 111 hann;
+#X obj 57 152 tabletool fill;
+#X text 155 60 Write common windowing functions to an array. Windows
+are calculated based on the current array size \, so resize beforehand
+if you want a certain resolution.;
+#X obj 57 262 tabletool fill;
+#X msg 57 222 randFill -0.75 0.7;
+#X text 208 223 Fill an array with random numbers in a certain range.
+;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array series 64 float 0;
+#X coords 0 1 63 -1 200 140 1;
+#X restore 609 340 graph;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array walk 64 float 0;
+#X coords 0 1 63 -1 200 140 1;
+#X restore 609 540 graph;
+#X msg 57 372 series -1 1 1;
+#X msg 97 433 series -0.75 1 \$1;
+#X floatatom 97 410 5 0 0 0 - - -;
+#X text 138 409 Shift drag to try different exponents.;
+#X msg 57 582 random_walk -0.4 0.1 -1 1;
+#X text 55 546 Generate a random walk. Arguments: starting value \,
+step value \, lower limit \, upper limit.;
+#X obj 57 474 tabletool series;
+#X obj 57 614 tabletool walk;
+#X text 55 328 Generate a series of values between two points. Final
+argument is the exponent of the curve. An exponent of 1 will give a
+straight line.;
+#X connect 1 0 5 0;
+#X connect 2 0 5 0;
+#X connect 3 0 5 0;
+#X connect 4 0 5 0;
+#X connect 8 0 7 0;
+#X connect 12 0 18 0;
+#X connect 13 0 18 0;
+#X connect 14 0 13 0;
+#X connect 16 0 19 0;
+#X restore 329 310 pd filling;
+#X text 50 226 [tabletool] manipulates \, searches \, and provides
+information about tables. When the response to a request is a single
+number \, it shows up at the left outlet. When the response is a list
+\, it is sent out the right outlet. Some methods produce output at
+both outlets as value/index pairs.;
+#X obj 1 1 cnv 10 400 10 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 1 1 cnv 10 10 400 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X connect 3 0 4 0;
+#X connect 4 0 7 0;
+#X connect 4 1 2 0;

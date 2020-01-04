@@ -1,0 +1,85 @@
+#N canvas 178 73 719 504 10;
+#X obj 241 80 osc~;
+#X obj 242 146 *~;
+#X obj 242 197 clip~ -1 1;
+#X obj 125 339 *~;
+#X obj 299 122 hsl 128 15 1 20 1 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 244 52 hsl 128 15 0.5 25 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X text 292 81 <-- Sine wave (between -1 and 1);
+#X text 281 146 <-- Multipled by a positive number X;
+#X text 303 160 (between -X and X);
+#X text 313 197 <-- Trim at -1 and 1;
+#X text 336 225 a square wave as X increases);
+#X text 336 211 (the sine wave tends to become;
+#X text 382 296 <-- Normalize between 0 and 1;
+#X text 240 37 Frequency of the oscillator;
+#X text 294 107 Number X (between 1 and 20 \, log);
+#X text 276 378 Patch by Pierre Massat \, GuitarExtended \, 2012;
+#X text 273 392 (based on a suggestion by "mod" \, Pure Data forum
+\, 2011);
+#X obj 242 280 *~;
+#X obj 242 309 +~;
+#X obj 322 263 hsl 128 15 0 0.5 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X floatatom 319 282 5 0 0 0 - - -, f 5;
+#X obj 305 309 expr 1-$f1;
+#X floatatom 305 331 5 0 0 0 - - -, f 5;
+#X text 405 308 and adjust depth;
+#X text 408 37 ("Rate");
+#X text 533 107 ("Shape");
+#X text 316 246 "Depth";
+#X obj 123 54 inlet~;
+#X obj 181 54 inlet~;
+#X obj 182 344 *~;
+#X obj 107 114 hsl 80 12 0.5 25 0 0 empty empty empty 4 10 0 8 -225271
+-258699 -1 200 1;
+#X text 123 112 freq;
+#X obj 107 129 hsl 80 12 1 20 1 0 empty empty empty 4 10 0 8 -225271
+-258699 -1 7900 1;
+#X text 123 127 shape;
+#X obj 107 144 hsl 80 12 0.005 0.5 0 0 empty empty empty 4 10 0 8 -225271
+-258699 -1 0 1;
+#X text 122 142 depth;
+#X text 277 436 grap on parent and abstraction by enrike hurtado 2016
+;
+#X obj 276 11 inlet;
+#X obj 338 7 inlet;
+#X obj 408 10 inlet;
+#X obj 192 102 bng 15 250 50 0 empty empty empty 0 -6 0 10 -258113
+-1 -1;
+#X msg 197 170 0;
+#X obj 124 385 outlet~;
+#X obj 183 385 outlet~;
+#X obj 131 218 loadbang;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 17 0;
+#X connect 3 0 42 0;
+#X connect 4 0 1 1;
+#X connect 5 0 0 0;
+#X connect 17 0 18 0;
+#X connect 18 0 3 1;
+#X connect 18 0 29 1;
+#X connect 19 0 20 0;
+#X connect 19 0 17 1;
+#X connect 19 0 21 0;
+#X connect 21 0 18 1;
+#X connect 21 0 22 0;
+#X connect 27 0 3 0;
+#X connect 28 0 29 0;
+#X connect 29 0 43 0;
+#X connect 30 0 0 0;
+#X connect 32 0 1 1;
+#X connect 34 0 17 1;
+#X connect 34 0 21 0;
+#X connect 37 0 30 0;
+#X connect 38 0 32 0;
+#X connect 39 0 34 0;
+#X connect 40 0 41 0;
+#X connect 41 0 34 0;
+#X connect 41 0 32 0;
+#X connect 41 0 30 0;
+#X connect 44 0 41 0;
+#X coords 0 -1 1 1 110 59 1 100 100;

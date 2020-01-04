@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/tools/ambidecalc
+END
+MAIN.pd
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/tools/ambidecalc/MAIN.pd
+END
+calculate.sh
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/tools/ambidecalc/calculate.sh
+END
+speakerlayout.txt
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/tools/ambidecalc/speakerlayout.txt
+END
+start.sh
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/tools/ambidecalc/start.sh
+END
+README.txt
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/tools/ambidecalc/README.txt
+END

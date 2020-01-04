@@ -1,0 +1,15 @@
+#N canvas 0 0 422 303 10;
+#X obj 228 34 inlet params;
+#X obj 247 269 outlet params;
+#X obj 65 267 outlet settings;
+#X obj 65 34 inlet settings;
+#X obj 123 131 receive \$1;
+#X obj 123 150 relay matrix;
+#X obj 65 183 mtx \$2 \$3;
+#X obj 65 222 pp \$1;
+#X connect 3 0 6 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 1;
+#X connect 5 1 6 0;
+#X connect 6 0 7 0;
+#X connect 7 0 2 0;

@@ -1,0 +1,141 @@
+IN_SELECT			/IN/SELECT	(1 - N) ch-number of exclusive SELECT;  0: all channels in prev. ON-state
+IN_SOLO				/IN/SOLO	(1 - N) ch-number of exclusive ON;     0: all channels in prev. ON-state
+$1_IN_ADJ_GAIN			/IN/$1/ADJ/GAIN	adjust the INPUT-Level (0 ... 150 MIDI-dB)
+$1_IN_AMBI_AZM			/IN/$1/AMBI/AZM	in degree
+$1_IN_AMBI_AZM_INT		/IN/$1/AMBI/AZM/INT	not breakable: in degree
+$1_IN_AMBI_ELV			/IN/$1/AMBI/ELV	in degree
+$1_IN_AMBI_ELV_INT		/IN/$1/AMBI/ELV/INT	not breakable: in degree
+$1_IN_AMBI_RAD			/IN/$1/AMBI/RAD	Radius in m (0..1 works for ambiweight, 1..100 DISTANCE Plugin)
+$1_IN_AMBI_RAD_INT		/IN/$1/AMBI/RAD/INT	not breakable: Radius in m (0..1 works for ambiweight, 1..100 DISTANCE Plugin)
+$1_IN_AMBI_DIRECT		/IN/$1/AMBI/DIRECT	0, 1 ... (0=break, 1=controlled) Control RAD, AZM, ELV direct or break it for internal control (This is used to hook in an algorithm for these values using the central positions controlled with sname) above
+$1_IN_AUX_1_DST			/IN/$1/AUX/$2/DST	selected Destination of 1. AUX-SND (1_AUX ... 8_AUX) (--> audio-engine: [throw~ 1_AUX_SND])
+$1_IN_AUX_1_GAIN		/IN/$1/AUX/$2/GAIN	Gain of 1. AUX-SND (0 .. 150 MIDI-dB) 
+$1_IN_AUX_1_PRE			/IN/$1/AUX/$2/PRE	Pre-Fader or Post-Fader of 1. AUX-SND (0 or 1) (default=0=post; 1=pre)
+$1_IN_BUS_1_GAIN		/IN/$1/BUS/$2/GAIN	Gain of 1.(1..16) BUS-SND (0 or 150 MIDI-dB)
+$1_IN_DEL			/IN/$1/DEL	Delay (0 ... 1000 ms)
+$1_IN_HIGHCUT_FREQ		/IN/$1/EQ/HIGHCUT/FREQ	
+$1_IN_HIGHCUT_ON		/IN/$1/EQ/HIGHCUT/ON	
+$1_IN_EQ_HIGH_GAIN		/IN/$1/EQ/HIGH/GAIN	
+$1_IN_EQ_HIGH_TRANS_FREQ	/IN/$1/EQ/HIGH/TRANS/FREQ	
+$1_IN_LOWCUT_FREQ		/IN/$1/EQ/LOWCUT/FREQ	in Hz
+$1_IN_LOWCUT_ON			/IN/$1/EQ/LOWCUT/ON	positive logik (1=on, 0=off)
+$1_IN_EQ_LOW_GAIN		/IN/$1/EQ/LOW/GAIN	
+$1_IN_EQ_LOW_TRANS_FREQ		/IN/$1/EQ/LOW/TRANS/FREQ	
+$1_IN_EQ_MID1_FREQ		/IN/$1/EQ/MID1/FREQ	(> MID2_FREQ)
+$1_IN_EQ_MID1_GAIN		/IN/$1/EQ/MID1/GAIN	
+$1_IN_EQ_MID1_Q			/IN/$1/EQ/MID1/Q	
+$1_IN_EQ_MID2_FREQ		/IN/$1/EQ/MID2/FREQ	
+$1_IN_EQ_MID2_GAIN		/IN/$1/EQ/MID2/GAIN	
+$1_IN_EQ_MID2_Q			/IN/$1/EQ/MID2/Q	
+$1_IN_EQ_ON			/IN/$1/EQ/ON
+$1_IN_FADER_GAIN		/IN/$1/FADER/GAIN	Main-Gain of fader (0 .. 150 MIDI-dB) 
+$1_IN_INV			/IN/$1/INV	Signal-Inverter (+1 or -1)
+$1_IN_LFC_GAIN			/IN/$1/LFC/GAIN	Gain of subwoofer(0 or 150 MIDI-dB)
+$1_IN_ON			/IN/$1/ON	on/off (!mute)
+$1_IN_PLUGIN_$2_NAME		/IN/$1/PLUGIN/$2	<pluginname>: auswahl plugins <pluginname> im fx-slot $2 des kanals $1
+$1_IN_PLUGIN_$2_ON		/IN/$1/PLUGIN/$2/ON	auswahl plugins #plugin im fx-slot $2 des kanals $1
+$1_IN_PLUGIN_$2_<pname>_<param>	/IN/$1/PLUGIN/$2/<pname>/<param>	plugin-parameter fr das plugin <pluginname> im fx-slot $2 im kanal $1; pE: 1_IN_PLUGIN_3_COMPANDER_ATT_TIME muss vom plugin selbst gehandelt werden, dafuer gibt es [receive_pluginparam $1 $2 <pluginname>/<param>] [receive_pluginsetting $1 $2 <pluginname>/<param>] pE: [receive_pluginparam 1 3 COMPANDER/ATT/TIME] empfaengt auf "/IN/1/PLUGIN/3/COMPANDER/ATT/TIME"
+
+	/IN/$1/PLUGIN/$2/COMPANDER/ATT/TIME	
+	/IN/$1/PLUGIN/$2/COMPANDER/CHARACTERISTIC	
+	/IN/$1/PLUGIN/$2/COMPANDER/DEL/TIME	
+	/IN/$1/PLUGIN/$2/COMPANDER/OUT/GAIN	
+	/IN/$1/PLUGIN/$2/COMPANDER/PEAK/RATIO	
+	/IN/$1/PLUGIN/$2/COMPANDER/REL/TIME	
+	/IN/$1/PLUGIN/$2/NAME	
+	/IN/$1/PLUGIN/$2/ON	
+$1_IN_SPATIALIZATION	/IN/$1/SPATIALIZATION	0, 1,... (0==ambisonic, 1==direct)
+$1_IN_SRC	/IN/$1/SRC	selected INPUT or AUX-RET (1_ADC ... 52_ADC, 1_AUX ... 8_AUX)
+$1_IN_VU_LEVEL	/IN/$1/VU/LEVEL	dsp->gui talkback
+$1_IN_VU_SRC	/IN/$1/VU/SRC	0=input("adc in"), 1=pre, 2=post
+
+VU_BRIDGE_SRC	/VU_BRIDGE/SRC	(0=IN_ADC, 1=IN_PRE, 2=IN_POST, 3=AUX_SUM, 4=AMBI_SUM, 5=BUS_SUM, 6=OUT_DAC)
+      
+		
+	/AUX/$1/SUM/GAIN	
+		
+
+AMBI_ORDER_WEIGHT	/AMBI/ORDER_WEIGHT	1 1 1 1 1 ...
+BUS_ROUTE	/BUS/ROUTE	'matrix 16 52 ....' (werte in MIDI-db); 'element <n> <m> gain'
+		
+$1_OUT_BUS_GAIN	/OUT/BUS/$1/GAIN	Direct-Output-Level fuer BUS1(1..16) (0 ... 150 MIDI-dB)
+$1_OUT_LFC_BUS_DST	/OUT/LFC/$1/DST	OUT-Destination fuer subwoofer-kanal 1(1..2) (1_OUT .. 52_OUT)
+$1_OUT_LFC_GAIN	/OUT/LFC/$1/GAIN	gesamt-lautstaerke fuer subwoofer-kanal 1(1..2)
+$1_OUT_LFC_HIGHCUT_FREQ	/OUT/LFC/$1/HIGHCUT/FREQ	cutoff frequency fuer subwoofer-kanal 1(1..2)
+		
+OUT_AMBI_24		/OUT/AMBI/SPEAKER/ON
+AMBI_MIRROR_WEIGHT	/OUT/AMBI/SPEAKER/MIRROR_WEIGHT	
+OUT_AMBI_BIN		/OUT/AMBI/BIN/ON
+OUT_AMBI_GAIN	/OUT/AMBI/GAIN	gesamt-lautstaerke fuer ambisonic-decoder
+	/OUT/AMBI/ROT/Z	
+	/OUT/MASTER/COMPENSATION/FILE	
+	/OUT/MASTER/COMPENSATION/ON	
+OUT_MASTER_GAIN	/OUT/MASTER/GAIN	master-gain (alles!)
+		
+CUE_LOAD		/CUE/LOAD	'<filename>' (symbol) das geladen werden soll
+CUE_RESET		/CUE/RESET	setzt den CUE-speicher jedes parameters auf ""; wenn direkt danach die parameter gespeichert werden, ist das file leer! um "default"-werte zu laden sollte ein eigener "defaults"-CUE existieren!
+CUE_SAVE		/CUE/SAVE	'<filename> (ALL|SETTINGS|PARAMETERS|RRR)': filename (symbol) in das parameter (z.b. "SETTINGS") gespeichert werden; '<filename> REGEX <regex>': filename (symbol) in das parameter, auf die der regular expression <regex> zutrifft, gespeicht werden; z.b. "/tmp/test REGEX ^[1-3]_.*" speichert alle parameter die mit 1_, 2_ oder 3_ beginnen; siehe auch "man 7 regex"
+		
+DSP			/DSP		1/0 audio-engine on/off (pd dsp $1)
+DSP_CPU			/CPU/DSP	<mean> <peak>: cputime auf dem dsp
+DSP_DO_QUIT		/QUIT
+DSP_REALLY_QUIT		
+	/DSP/getLabels	
+	/DSP/setLabel	
+		
+	/MIDI/ACONNECTOR	
+		
+	/EXT/BIN/OUT/1	
+	/EXT/BIN/OUT/2	
+		
+	/EXT/REV/EARLY/CUTOFF	
+	/EXT/REV/EARLY/DAMP	
+	/EXT/REV/EARLY/EARLY	
+	/EXT/REV/EARLY/GAIN	
+	/EXT/REV/EARLY/Q	
+	/EXT/REV/ON	
+	/EXT/REV/PARAM	
+	/EXT/REV/PBANKFILE	
+	/EXT/REV/PRESET	
+	/EXT/REV/REVERB/CUTOFF	
+	/EXT/REV/REVERB/DEC/H/TIME	
+	/EXT/REV/REVERB/DEC/LM/FREQ	
+	/EXT/REV/REVERB/DEC/L/TIME	
+	/EXT/REV/REVERB/DEC/MH/FREQ	
+	/EXT/REV/REVERB/DEC/M/TIME	
+	/EXT/REV/REVERB/DEL/TIME	
+	/EXT/REV/REVERB/GAIN	
+	/EXT/REV/REVERB/MOD/AMP	
+	/EXT/REV/REVERB/MOD/FREQ	
+	/EXT/REV/REVERB/Q	
+	/EXT/REV/SRC	
+	/EXT/REV/VOL	
+		
+	/EXT/RRR/AMBI/JITTER	
+	/EXT/RRR/ON	
+	/EXT/RRR/PARAM	
+	/EXT/RRR/PBANKFILE	
+	/EXT/RRR/PRESET	
+	/EXT/RRR/VOL	
+	/EXT/RRR/IN/$1/SRC	
+	/EXT/RRR/IN/$1/SRC/VU/LEVEL	
+	/EXT/RRR/IN/$1/AMBI/AZM	
+	/EXT/RRR/IN/$1/AMBI/ELV	
+		
+	/EXT/SFPO/FILENAME	
+	/EXT/SFPO/OUT	
+	/EXT/SFPO/OUT/25	
+	/EXT/SFPO/OUT/26	
+	/EXT/SFPO/PLAY	
+	/EXT/SFPO/VOL	
+		
+	/EXT/SFPLAY/$1/CTRL	
+	/EXT/SFPLAY/$1/FILE	
+	/EXT/SFPLAY/$1/LENGTH	
+	/EXT/SFPLAY/$1/POS	
+
+	/EXT/TESTTONE/PULSE	
+	/EXT/TESTTONE/PULSE/LENGTH	
+	/EXT/TESTTONE/PULSE/PERIOD	
+	/EXT/TESTTONE/SINE	
+	/EXT/TESTTONE/SRC	

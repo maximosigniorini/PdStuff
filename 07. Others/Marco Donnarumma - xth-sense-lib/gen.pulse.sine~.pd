@@ -1,0 +1,66 @@
+#N canvas 575 404 779 392 10;
+#X obj 100 117 cnv 15 156 18 empty empty empty 20 12 0 14 -1 -66577
+0;
+#X obj 100 137 cnv 15 156 18 empty empty empty 20 12 0 6 -1 -66577
+0;
+#X obj 100 100 cnv 15 156 15 empty empty Pulse.sine 5 8 0 8 -1 -162280
+0;
+#N canvas 1103 428 450 300 dsp 0;
+#X floatatom 34 21 5 0 0 0 - - -;
+#X obj 124 156 *~;
+#X obj 34 47 osc~ 44;
+#X obj 139 98 inlet~;
+#X obj 33 206 outlet~;
+#X obj 33 95 demux~;
+#X obj 33 156 *~ 1;
+#X obj 73 21 r \$0-freq;
+#X obj 50 70 r \$0-pulse;
+#X connect 0 0 2 0;
+#X connect 1 0 4 0;
+#X connect 2 0 5 0;
+#X connect 3 0 1 1;
+#X connect 5 0 6 0;
+#X connect 5 1 1 0;
+#X connect 6 0 4 0;
+#X connect 7 0 2 0;
+#X connect 8 0 5 0;
+#X restore 21 65 pd dsp;
+#X obj 103 139 tgl 15 0 empty empty pulse/wave 18 7 0 8 -66577 -228856
+-228856 1 1;
+#X obj 21 93 outlet~;
+#X obj 9 257 xsssad \$1/gen.sin.frq;
+#X obj 36 281 xsssad \$1/gen.sin.pls;
+#X obj 100 18 r \$1/gen.sin.frq;
+#X obj 171 41 r \$1/gen.sin.pls;
+#X obj 288 288 s \$0-pulse;
+#X obj 289 265 s \$0-freq;
+#X obj 216 335 outlet freq;
+#X obj 357 14 inlet freq;
+#X obj 20 28 r~ \$0-ead;
+#X obj 100 119 gui.slider freq 500 5;
+#X obj 100 157 cnv 15 156 18 empty empty empty 20 12 0 6 -1 -66577
+0;
+#X obj 191 137 gui.ead~;
+#X obj 436 15 inlet bng.pulse;
+#X obj 292 217 s~ \$0-ead;
+#X obj 396 207 xsssad \$1/gen.sin.atk;
+#X obj 393 230 xsssad \$1/gen.sin.decay;
+#X connect 3 0 5 0;
+#X connect 4 0 10 0;
+#X connect 4 0 7 1;
+#X connect 6 0 15 0;
+#X connect 7 0 4 0;
+#X connect 8 0 15 0;
+#X connect 9 0 4 0;
+#X connect 13 0 15 0;
+#X connect 14 0 3 0;
+#X connect 15 0 12 0;
+#X connect 15 0 11 0;
+#X connect 15 1 6 1;
+#X connect 17 0 19 0;
+#X connect 17 1 20 1;
+#X connect 17 2 21 1;
+#X connect 18 0 17 0;
+#X connect 20 0 17 1;
+#X connect 21 0 17 2;
+#X coords 0 -1 1 1 156 76 2 100 100;

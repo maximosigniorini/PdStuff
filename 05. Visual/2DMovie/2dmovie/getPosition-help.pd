@@ -1,0 +1,30 @@
+#N canvas 388 36 864 361 10;
+#X obj 2 -328 cnv 15 700 50 empty empty getPosition 3 12 0 18 -260080
+-1 0;
+#X text 591 -311 @author Pertuit;
+#X obj 463 -254 gemmanager;
+#X obj 664 -266 loadbang;
+#X obj 463 -218 simpleimage oiseau bird.png;
+#X floatatom 576 -103 5 0 0 0 - - -;
+#X floatatom 471 -103 5 0 0 0 - - -;
+#X obj 471 -162 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 161 -322 Fonction retournant la position en x et y d'une image
+;
+#X text 22 -77 OUTLETS \; 1- nombre : position en x \; 2- nombre :
+position en y;
+#X obj 471 -134 getPosition oiseau;
+#X text 22 -121 INLETS \; 1- bang : déclencheur;
+#X text 22 -162 ARGUMENTS \; 1- symbole : le nom de l'image;
+#X text 591 -299 @version 1;
+#X text 591 -324 @library 2DMovie;
+#X text 22 -244 DESCRIPTION \; Fonction retournant la position en x
+et y \, dans la fenêtre de travail \, d'une image (ou d'un objet graphique)
+chargée par les images de la bibliothèque "2DMovie" (MovieClip \,
+SimpleImage \, SimpleButton \, etc.).;
+#X msg 664 -238 \; oiseau.x 250 \; oiseau.y 200;
+#X connect 3 0 16 0;
+#X connect 7 0 10 0;
+#X connect 10 0 6 0;
+#X connect 10 1 5 0;
+#X coords 0 361 1 360 65 15 0;

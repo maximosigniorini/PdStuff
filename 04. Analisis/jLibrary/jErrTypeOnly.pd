@@ -1,0 +1,29 @@
+#N canvas 434 412 976 304 10;
+#X obj 267 18 inlet;
+#X obj 267 40 route \$1;
+#X obj 267 252 outlet;
+#X obj 534 16 loadbang;
+#X obj 534 38 symbol \$1;
+#X obj 352 155 canvaserror;
+#X obj 297 71 t b;
+#X obj 297 93 symbol \$1;
+#X msg 297 116 Expected \$1 at inlet;
+#X obj 534 68 select bang float symbol list anything;
+#X obj 630 159 canvaserror;
+#X msg 630 119 Argument 1 must be 'bang' 'float' 'symbol' 'list' or
+'anything';
+#X text 6 4 Allow only messages of a certain type through (throw error
+on receiving wrong type) \; \; \$1 type i.e. 'bang' \, 'float' \, 'symbol'
+\, 'list' or 'anything' \; \; in1 any messages \; out1 messages of
+\$1 type only \; \; Requires: \; iemguts [canvaserror] \; \; John Flynn
+, f 32;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 1 1 6 0;
+#X connect 3 0 4 0;
+#X connect 4 0 9 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 5 0;
+#X connect 9 5 11 0;
+#X connect 11 0 10 0;

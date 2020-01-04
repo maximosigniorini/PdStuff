@@ -1,0 +1,15 @@
+#N canvas 553 0 450 428 10;
+#X obj 99 174 + 100;
+#X obj 99 195 dbtorms;
+#X obj 99 122 receive_parameter /EXT/RRR/EARLY/\$1/DAMP;
+#X obj 99 217 t b f;
+#X obj 99 237 pack \$1 0;
+#X obj 99 261 outlet;
+#X obj 99 149 t f;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 2 0 6 0;
+#X connect 3 0 4 0;
+#X connect 3 1 4 1;
+#X connect 4 0 5 0;
+#X connect 6 0 0 0;

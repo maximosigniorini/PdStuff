@@ -1,0 +1,35 @@
+ACHTUNG: bitte in diesem file nichts editieren!
+ACHTUNG: statt dessen das file BUGS.txt editieren!
+ACHTUNG:
+ACHTUNG: (dieses file ist nur ein view auf BUGS.txt)
+
+==============================================================================
+=                                   TODO                                     =
+==============================================================================
+pd/DSP:
+  - der SFPLAYER ist gemutet und kann nicht aufgedreht werden
+pd/DSP/ambisonic:
+  - Distanzregler wird leiser wenn Entfernung 0..1
+    Bitte irgendwie linearisieren
+  - ambisonic-orientation funktioniert nicht (nicht implementiert!)
+  - ambisonic gewichtung pro kanal (?)
+    (bei r<1 werden die gewichte ja schon verändert!)
+pd/GUI:
+  - ambisonic/direct werden nicht korrekt initialisiert
+  - bus zuordnung in channel-detail-view und inchan wird nicht immer korrekt upgedated
+  - VU-Bank
+  - zoom-funktion für die BUS-Matrix
+pd/MIDI:
+  - MIDI in/out sollte schaltbar sein (z.b. keine positionsdaten 
+    an midi-out schicken)
+  - Konzept für MIDI-anbindung von extensions/plugins
+pd/NET:
+  - OSC anbindung (lt. wini existiert irgendwo als studierenden-projekt)
+pd/plugins:
+pd/extensions:
+pd/CUE:
+  - beim Laden der Settings ist die Bus-Zuordnung nur in der Detailansicht 
+    der Channels sichtbar, jedoch nicht oben bei den Channels. Erst beim 
+    Laden der Parameter ist die Bus-Zuordnung auch oben sichtbar.
+    (tutner, 25.04.06)
+hardware/bc{f,r}2000:

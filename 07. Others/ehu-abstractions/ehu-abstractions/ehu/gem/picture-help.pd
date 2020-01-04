@@ -1,0 +1,29 @@
+#N canvas 260 62 730 323 10;
+#X obj 6 74 cnv 15 380 90 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 19 209 pix_contrast;
+#X floatatom 59 179 5 0 10 2 contrast - -, f 5;
+#X floatatom 100 191 5 0 0 2 saturation - -, f 5;
+#X obj 28 3 bng 35 250 50 0 empty empty click_me 40 10 0 10 -258079
+-1 -1;
+#X text 221 6 static image patch help;
+#X obj 302 111 cnv 15 380 115 empty empty empty 20 12 0 14 -233017
+-66577 0;
+#X text 305 115 init arguments are : filename \, xloc \, yloc \, width
+\, height;
+#X text 306 130 outlets are : image data send outlet;
+#X text 483 75 file with alpha chanel;
+#X obj 28 43 ehu/gem/win 640 450;
+#X text 301 185 ** Note : for transparency use TIFF image with alpha
+chanel;
+#X text 305 158 inlets are : 1 render on off \, 2 import this file
+;
+#X obj 19 107 ehu/gem/picture ../../picts/imagen1.jpg;
+#X obj 19 230 ehu/gem/texture 200 200 240 200;
+#X msg 289 78 picts/alpha.tif;
+#X connect 1 0 14 0;
+#X connect 2 0 1 1;
+#X connect 3 0 1 2;
+#X connect 4 0 10 0;
+#X connect 13 0 1 0;
+#X connect 15 0 13 1;

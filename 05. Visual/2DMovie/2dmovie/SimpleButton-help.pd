@@ -1,0 +1,186 @@
+#N canvas 313 145 887 689 10;
+#X obj 2 -27 cnv 15 700 50 empty empty SimpleButton 3 12 0 18 -260080
+-1 0;
+#X text 591 -10 @author Pertuit;
+#X text 22 41 DESCRIPTION;
+#X text 21 229 ARGUMENTS;
+#X text 22 500 INLETS \; aucun;
+#X text 22 539 OUTLETS \; aucun;
+#X obj 503 65 gemmanager;
+#N canvas 35 437 1152 636 variables-et-fonctions 0;
+#X floatatom 57 342 5 0 0 0 - - -;
+#X floatatom 57 217 5 0 0 0 - - -;
+#X obj 54 101 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 147 215 5 0 0 0 - - -;
+#X floatatom 57 279 5 0 0 0 - - -;
+#X msg 699 99 1 1 1;
+#X msg 56 159 1;
+#X msg 117 158 0;
+#X msg 87 158 0.5;
+#X msg 615 100 0.8 0.2 0.2;
+#X obj 613 438 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 614 495 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 617 167 5 0 0 0 - - -;
+#X floatatom 614 35 5 0 0 0 - - -;
+#X text 742 56 rotation - Rotation de l'image par rapport au centre.
+L'angle de rotation est en degré.;
+#X obj 59 441 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 58 495 5 0 0 0 - - -;
+#X floatatom 176 495 5 0 0 0 - - -;
+#X text 52 6 VARIABLES;
+#X text 59 414 FONCTIONS;
+#X floatatom 170 584 5 0 0 0 - - -;
+#X floatatom 59 584 5 0 0 0 - - -;
+#X obj 59 525 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 617 329 0;
+#X msg 647 329 1;
+#X msg 677 329 2;
+#X text 744 396 mouseOver - teste le survol du clip par la souris :
+1 (sur le clip) ou 0 (en dehors du clip). Il faut que "mouseMode" soit
+à 1 ou 2 (souris active).;
+#X text 744 450 mouseClic - teste le clic sur le clip : 1 (clic sur
+le clip) ou 0 (en dehors). Il faut que "mouseMode" soit à 1 ou 2 (souris
+active).;
+#X obj 54 124 s bouton1.visible;
+#X text 180 120 visible - Variable de visibilité du bouton : visible
+(1) ou invisible (0).;
+#X obj 56 181 s bouton1.alpha;
+#X text 164 182 alpha - Transparence du bouton (0 à 1).;
+#X obj 57 244 s bouton1.x;
+#X obj 147 244 s bouton1.y;
+#X obj 57 308 s bouton1.scaleX;
+#X obj 57 369 s bouton1.scaleY;
+#X obj 59 467 getImageSize bouton1;
+#X obj 59 553 getPosition bouton1;
+#X obj 614 63 s bouton1.rotation;
+#X text 174 300 scaleX - Echelle horizontale du bouton. La valeur 1
+correspond à la taille initiale du bouton.;
+#X text 175 362 scaleY - Echelle verticale du bouton. La valeur 1 correspond
+à la taille initiale du bouton.;
+#X obj 615 125 s bouton1.color;
+#X text 743 167 layer - Numéro de la couche d'affichage dans la chaîne
+d'affichage gem. Par défaut \, les SimpleButton sont placés sur la
+couche 60 de façon à apparaître devant les images utilisées comme
+fond d'écran (couche 50). On peut jouer sur cette variable pour passer
+devant ou derrière des images.;
+#X obj 617 196 s bouton1.layer;
+#X obj 617 358 s bouton1.mouseMode;
+#X obj 613 409 r bouton1.mouseOver;
+#X obj 614 465 r bouton1.mouseClic;
+#X text 744 341 mouseMode - Activation de la souris : souris active
+(1 \, par défaut) \, souris active avec drag&drop du bouton (2) ou
+non actif (0).;
+#X text 734 118 color - Réglage des couleurs appliquées à l'image
+: liste des 3 couleurs RVB (0 à 1).;
+#X text 200 459 getImageSize - Retourne la valeur de la taille du bouton
+(en pixels) dans la fenêtre de travail.;
+#X text 197 546 getPosition - Retourne la valeur de la position en
+x et y du bouton dans la fenêtre de travail.;
+#X floatatom 617 255 5 0 0 0 - - -;
+#X text 744 250 depthZ - Profondeur selon z du plan de projection de
+l'image. Par défaut \, le plan de projection est le plan XY pour z=0.
+Cette variable est utile pour le positionnement des images planes 2DMovie
+par rapport aux formes 3D gem.;
+#X obj 617 284 s bouton1.depthZ;
+#X text 234 243 x \, y - Position du bouton sur l'axe horizontal ou
+vertical (en pixels).;
+#X obj 54 67 s bouton1.load;
+#X msg 54 38 clear;
+#X msg 104 38 wasp.png;
+#X text 180 50 load - Vide ou charge les images du bouton. On peut
+charger une \, deux ou trois images (liste sans virgule). Le message
+"clear" libère la mémoire allouée.;
+#X connect 0 0 35 0;
+#X connect 1 0 32 0;
+#X connect 2 0 28 0;
+#X connect 3 0 33 0;
+#X connect 4 0 34 0;
+#X connect 5 0 41 0;
+#X connect 6 0 30 0;
+#X connect 7 0 30 0;
+#X connect 8 0 30 0;
+#X connect 9 0 41 0;
+#X connect 12 0 43 0;
+#X connect 13 0 38 0;
+#X connect 15 0 36 0;
+#X connect 22 0 37 0;
+#X connect 23 0 44 0;
+#X connect 24 0 44 0;
+#X connect 25 0 44 0;
+#X connect 36 0 16 0;
+#X connect 36 1 17 0;
+#X connect 37 0 21 0;
+#X connect 37 1 20 0;
+#X connect 45 0 10 0;
+#X connect 46 0 11 0;
+#X connect 51 0 53 0;
+#X connect 56 0 55 0;
+#X connect 57 0 55 0;
+#X restore 26 611 pd variables-et-fonctions;
+#X text 591 2 @version 1;
+#X text 23 581 On utilise des liaisons sans fil pour communiquer.;
+#X text 161 -21 Patch pour l'affichage d'un bouton d'images.;
+#X text 21 148 Le point d'ancrage du bouton est son centre.;
+#X obj 718 43 loadbang;
+#X text 21 99 Les images chargées doivent être de type TIFF \, PNG
+ou JPG et placées dans un dossier "data" situé dans le dossier de
+l'application.;
+#X text 21 62 Le patch SimpleButton affiche un bouton contenant des
+images.;
+#X text 21 170 Pour créer un bouton contenant des images animées
+\, on utilisera plutôt [MovieClip]. Pour une zone sensible transparente
+placée sur une image \, on utilisera [Zone].;
+#X text 22 251 1 : le nom de la variable SimpleButton \; 2 à 4 : les
+noms des fichiers d'image se trouvant dans le dossier "data";
+#X text 23 335 Par ex: [simplebutton bouton image.png];
+#X text 23 395 Par ex: [simplebutton bouton image1.png image2.png]
+;
+#X text 22 415 - si trois noms d'image sont saisis \, l'image au repos
+est la première. L'image au survol est la seconde. L'image au clic
+est la troisième.;
+#X text 23 455 Par ex: [simplebutton bouton image1.png image2.png image3.png]
+;
+#X msg 718 73 \; bouton1.x 100 \; bouton1.y 200 \; bouton2.x 300 \;
+bouton2.y 200 \; bouton3.x 500 \; bouton3.y 200;
+#X obj 458 374 tgl 30 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 588 374 tgl 30 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 718 374 tgl 30 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 22 295 - si un seul nom d'image est saisi \, c'est l'image
+au repos. L'image au survol est cette même image grisée. L'image
+au clic est cette image de taille réduite.;
+#X text 22 355 - si deux noms d'image sont saisis \, l'image au repos
+est la première image. L'image au survol est la seconde. L'image au
+clic est l'image 2 de taille réduite.;
+#X text 591 -23 @library 2DMovie;
+#X obj 458 442 r bouton1.mouseClic;
+#X obj 588 442 r bouton2.mouseClic;
+#X obj 718 442 r bouton3.mouseClic;
+#X obj 458 474 tgl 30 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 588 474 tgl 30 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 718 474 tgl 30 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 458 342 r bouton1.mouseOver;
+#X obj 588 342 r bouton2.mouseOver;
+#X obj 718 342 r bouton3.mouseOver;
+#X obj 458 160 Simplebutton bouton1 wasp.png;
+#X obj 458 206 Simplebutton bouton2 btlarge1.png btlarge2.png;
+#X obj 458 252 Simplebutton bouton3 button1.png button2.png button3.png
+;
+#X connect 12 0 21 0;
+#X connect 28 0 31 0;
+#X connect 29 0 32 0;
+#X connect 30 0 33 0;
+#X connect 34 0 22 0;
+#X connect 35 0 23 0;
+#X connect 36 0 24 0;
+#X coords 0 689 1 688 65 15 0;

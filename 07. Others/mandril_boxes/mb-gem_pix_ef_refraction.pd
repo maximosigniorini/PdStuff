@@ -1,0 +1,127 @@
+#N canvas 771 524 450 321 10;
+#X obj 34 172 symbol \$1;
+#X obj 136 230 ftos;
+#X obj 105 164 float \$1;
+#X floatatom 105 193 5 0 0 0 - - -;
+#X symbolatom 35 205 0 0 0 0 - - -;
+#X symbolatom 95 243 10 0 0 0 - - -;
+#X obj 44 126 loadbang;
+#X obj 97 280 s \$1gempix_ef_refraction_id;
+#X obj 284 24 inlet;
+#X text 512 24 on/off;
+#X obj 313 246 outlet;
+#X obj 365 80 gate 2;
+#X obj 423 49 + 1;
+#X text 342 24 gemin;
+#X text 361 243 gemout;
+#X floatatom 460 140 3 0.01 16 1 - - -;
+#X msg 460 158 refract \$1;
+#X msg 540 158 mag \$1;
+#X floatatom 460 100 3 0 0 1 - - -;
+#X floatatom 540 100 3 0 0 1 - - -;
+#X msg 460 118 width \$1;
+#X msg 540 118 height \$1;
+#X obj 447 189 pix_refraction;
+#X obj 540 139 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X obj 540 76 r \$1gempix_ef_refraction_y;
+#X obj 471 58 r \$1gempix_ef_refraction_x;
+#X obj 569 139 r \$1gempix_ef_refraction_mag;
+#X obj 553 185 r \$1gempix_ef_refraction_refrect;
+#X obj 433 -10 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 467 -13 r \$1gempix_ef_refraction_on;
+#X obj 0 0 cnv 15 150 75 empty empty empty 2 12 0 14 -191407 -66577
+0;
+#X obj 5 5 tgl 15 0 \$1gempix_ef_refraction_on \$1gempix_ef_refraction_on_init
+refraction 17 7 0 10 -260097 -1 -1 0 1;
+#X floatatom 43 27 4 0 0 1 Y #1gempix_ef_refraction_y_init #1gempix_ef_refraction_y
+;
+#X floatatom 7 27 4 0 0 1 X #1gempix_ef_refraction_x_init #1gempix_ef_refraction_x
+;
+#X floatatom 7 50 3 0.01 16 1 refrect #1gempix_ef_refraction_refrect_init
+#1gempix_ef_refraction_refrect;
+#X obj 80 49 tgl 15 0 \$1gempix_ef_refraction_mag \$1gempix_ef_refraction_mag_init
+mag 17 7 0 10 -262144 -1 -1 0 1;
+#X obj 122 8 cnv 15 20 10 empty \$1gempix_ef_refraction_id \$1 5 5
+0 10 -260097 -33289 0;
+#N canvas 981 359 450 300 midi_control 0;
+#X msg 204 135 ef1epdp_aging_on_midi;
+#X msg 365 133 ef1epdp_aging_dust_midi;
+#X floatatom 93 324 5 0 0 0 - - -;
+#X obj 91 369 select 0;
+#X obj 331 261 s midi_var_to_add;
+#X text 442 258 -->global value of mb-midi_control_pad;
+#X msg 160 420 0;
+#X msg 110 426 1;
+#X obj 90 399 alternate;
+#X obj 65 41 r \$1gempix_ef_refraction_midi_on;
+#X obj 285 27 r \$1gempix_ef_refraction_id;
+#X msg 146 104 set \$1gempix_ef_refraction_on_midi;
+#X msg 365 102 set \$1gempix_ef_refraction_r_midi;
+#X msg 558 104 set \$1gempix_ef_refraction_g_midi;
+#X msg 563 144 ef1epdp_aging_on_midi;
+#X obj 93 290 r \$1gempix_ef_refraction_on_midi;
+#X obj 71 452 s $gempix_ef_refraction_on_init;
+#X obj 302 291 r \$1gempix_ef_refraction_r_midi;
+#X obj 280 453 s $gempix_ef_refraction_r_init;
+#X floatatom 295 317 5 0 0 0 - - -;
+#X floatatom 327 415 8 0 0 0 - - -;
+#X obj 312 351 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 309 381 autoscale 0 255;
+#X obj 494 293 r \$1gempix_ef_refraction_r_midi;
+#X obj 475 445 s $gempix_ef_refraction_r_init;
+#X floatatom 522 407 8 0 0 0 - - -;
+#X connect 0 0 4 0;
+#X connect 1 0 13 0;
+#X connect 2 0 3 0;
+#X connect 3 1 8 0;
+#X connect 6 0 16 0;
+#X connect 7 0 16 0;
+#X connect 8 0 7 0;
+#X connect 8 1 6 0;
+#X connect 9 0 11 0;
+#X connect 10 0 11 0;
+#X connect 11 0 0 0;
+#X connect 12 0 1 0;
+#X connect 13 0 14 0;
+#X connect 15 0 2 0;
+#X connect 17 0 19 0;
+#X connect 19 0 21 0;
+#X connect 20 0 18 0;
+#X connect 21 0 22 0;
+#X connect 22 0 20 0;
+#X connect 23 0 25 0;
+#X connect 25 0 24 0;
+#X restore 188 -4 pd midi_control;
+#X obj 99 26 bng 15 250 50 0 \$1gempix_ef_refraction_midi_on empty
+midi 17 7 0 8 -4160 -1 -1;
+#X connect 0 0 4 0;
+#X connect 1 0 5 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X connect 4 0 5 0;
+#X connect 5 0 7 0;
+#X connect 6 0 2 0;
+#X connect 6 0 0 0;
+#X connect 8 0 11 1;
+#X connect 11 0 10 0;
+#X connect 11 1 22 0;
+#X connect 12 0 11 0;
+#X connect 15 0 16 0;
+#X connect 16 0 22 0;
+#X connect 17 0 22 0;
+#X connect 18 0 20 0;
+#X connect 19 0 21 0;
+#X connect 20 0 22 0;
+#X connect 21 0 22 0;
+#X connect 22 0 10 0;
+#X connect 23 0 17 0;
+#X connect 24 0 19 0;
+#X connect 25 0 18 0;
+#X connect 26 0 23 0;
+#X connect 27 0 15 0;
+#X connect 28 0 12 0;
+#X connect 29 0 28 0;
+#X coords 0 -1 1 1 150 75 2 0 0;

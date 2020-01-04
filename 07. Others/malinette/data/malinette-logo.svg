@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="51.275002"
+   height="61.991001"
+   id="svg3838"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="malinette-logo-soft-orange.svg"
+   inkscape:export-filename="/media/data/code/malinette/dev/malinette-logo-soft-orange.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs3840" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="3.959798"
+     inkscape:cx="-30.522063"
+     inkscape:cy="35.523918"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1366"
+     inkscape:window-height="719"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata3843">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-371.06093,-228.27568)">
+    <g
+       id="g25"
+       transform="translate(-110.05007,165.94868)"
+       style="fill:#ff6500;fill-opacity:1"
+       inkscape:export-filename="/media/data/code/malinette/dev/path3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <g
+         id="g27"
+         style="fill:#ff6500;fill-opacity:1">
+        <path
+           d="m 532.386,80.443 -0.087,30.672 -22.667,13.173 0.089,-30.673 22.665,-13.172"
+           id="path29"
+           inkscape:connector-curvature="0"
+           style="fill:#ff6500;fill-opacity:1" />
+      </g>
+    </g>
+    <g
+       id="g31"
+       transform="translate(-110.05007,165.94868)"
+       style="fill:#ff6500;fill-opacity:1"
+       inkscape:export-filename="/media/data/code/malinette/dev/path3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <g
+         id="g33"
+         style="fill:#ff6500;fill-opacity:1">
+        <path
+           d="m 481.2,80.412 22.864,13.202 -0.088,30.704 -22.865,-13.202 0.089,-30.704"
+           id="path35"
+           inkscape:connector-curvature="0"
+           style="fill:#ff6500;fill-opacity:1" />
+      </g>
+    </g>
+    <g
+       id="g37"
+       transform="translate(-110.05007,165.94868)"
+       style="fill:#ff6500;fill-opacity:1"
+       inkscape:export-filename="/media/data/code/malinette/dev/path3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <g
+         id="g39"
+         style="fill:#ff6500;fill-opacity:1">
+        <path
+           d="M 506.721,62.327 529.586,75.53 506.893,88.715 484.028,75.514 506.721,62.327"
+           id="path41"
+           inkscape:connector-curvature="0"
+           style="fill:#ff6500;fill-opacity:1" />
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,17 @@
+#N canvas 542 52 341 310 10;
+#X obj 69 193 outlet;
+#X text 29 -77 Déclencheur retardé.;
+#X obj 190 -33 inlet time;
+#X obj 58 -33 inlet boolean;
+#X obj 146 97 delay \$1;
+#X obj 69 148 spigot;
+#X obj 100 39 select 1;
+#X obj 58 2 t f f;
+#X connect 2 0 4 1;
+#X connect 3 0 7 0;
+#X connect 4 0 5 0;
+#X connect 5 0 0 0;
+#X connect 6 0 4 0;
+#X connect 7 0 5 1;
+#X connect 7 1 6 0;
+#X coords 0 310 1 309 65 15 0;

@@ -1,0 +1,21 @@
+#N canvas 376 62 563 374 10;
+#X declare -lib pduino;
+#X obj 13 7 bng 30 250 50 0 empty empty empty 17 7 0 10 -250685 -1
+-1;
+#X obj 408 113 autoscale 0 100;
+#X msg 44 223 5;
+#X obj 13 65 ehu/gem/win 640 480;
+#X obj 45 157 ehu/arduino/control 2;
+#X obj 44 244 ehu/arduino/set_analog;
+#X obj 213 39 ehu/arduino/get_analog;
+#X obj 305 247 ehu/gem/texture 320 240 640 480;
+#X obj 305 157 ehu/gem/video videos/whistle.mp4;
+#X connect 0 0 2 0;
+#X connect 0 0 3 0;
+#X connect 0 0 4 0;
+#X connect 0 0 6 0;
+#X connect 1 0 8 5;
+#X connect 2 0 5 0;
+#X connect 6 5 1 0;
+#X connect 8 0 7 0;
+#X connect 8 1 1 2;

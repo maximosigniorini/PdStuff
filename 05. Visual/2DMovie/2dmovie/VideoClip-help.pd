@@ -1,0 +1,217 @@
+#N canvas 417 51 1094 553 10;
+#X obj 2 -136 cnv 15 700 50 empty empty VideoClip 3 12 0 18 -260080
+-1 0;
+#X text 591 -119 @author Pertuit;
+#X text 22 -52 DESCRIPTION;
+#X text 21 120 ARGUMENTS;
+#X text 22 203 INLETS \; aucun;
+#X text 22 247 OUTLETS \; aucun;
+#X obj 682 -30 loadbang;
+#X obj 463 -44 gemmanager;
+#X obj 464 128 select 1;
+#N canvas 579 100 1126 763 variables-et-fonctions 0;
+#X floatatom 67 316 5 0 0 0 - - -;
+#X floatatom 67 203 5 0 0 0 - - -;
+#X obj 64 96 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X floatatom 594 352 5 0 0 0 - - -;
+#X floatatom 145 201 5 0 0 0 - - -;
+#X floatatom 67 259 5 0 0 0 - - -;
+#X obj 594 139 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 592 90 1;
+#X msg 623 90 0;
+#X floatatom 665 223 5 0 150 0 - - -;
+#X msg 673 35 1 1 1;
+#X msg 66 150 1;
+#X msg 127 149 0;
+#X msg 97 149 0.5;
+#X msg 589 36 0.8 0.2 0.2;
+#X floatatom 593 323 5 0 0 0 - - -;
+#X obj 66 369 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 593 634 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 594 688 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 597 417 5 0 0 0 - - -;
+#X floatatom 66 421 5 0 0 0 - - -;
+#X text 72 5 VARIABLES;
+#X text 62 487 FONCTIONS;
+#X floatatom 170 640 5 0 0 0 - - -;
+#X floatatom 65 640 5 0 0 0 - - -;
+#X obj 65 594 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 66 519 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 66 566 5 0 0 0 - - -;
+#X floatatom 177 566 5 0 0 0 - - -;
+#X text 724 555 mouseMode - Activation de la souris : non actif (0
+\, par défaut) \, souris active (1) ou souris active avec drag&drop
+du clip (2).;
+#X msg 597 546 0;
+#X msg 627 546 1;
+#X msg 657 546 2;
+#X obj 64 119 s bougie.visible;
+#X obj 66 173 s bougie.alpha;
+#X obj 67 227 s bougie.x;
+#X obj 145 227 s bougie.y;
+#X obj 67 285 s bougie.scaleX;
+#X obj 67 340 s bougie.scaleY;
+#X obj 66 392 s bougie.reverse;
+#X obj 66 445 s bougie.rotation;
+#X obj 65 616 getPosition bougie;
+#X obj 589 61 s bougie.color;
+#X obj 592 113 s bougie.play;
+#X obj 594 162 s bougie.loop;
+#X text 190 115 visible - Variable de visibilité de l'image de la
+vidéo : visible (1) ou invisible (0).;
+#X text 174 174 alpha - Transparence de l'image de la vidéo (0 à
+1).;
+#X text 174 279 scaleX - Echelle horizontale de l'image de la vidéo.
+La valeur 1 correspond à la taille initiale de l'image.;
+#X text 175 335 scaleY - Echelle verticale de l'image de la vidéo.
+La valeur 1 correspond à la taille initiale de l'image.;
+#X text 183 379 reverse - Inverse le sens de l'image de la vidéo :
+normal (0 \, valeur par défaut) ou retourné (1). L'image retournée
+est une inversion gauche/droite.;
+#X text 184 438 rotation - Rotation de l'image de la vidéo par rapport
+au centre. L'angle de rotation est en degré.;
+#X text 708 55 color - Réglage des couleurs appliquées à l'image
+de la vidéo : liste des 3 couleurs RVB (0 à 1).;
+#X text 701 154 loop - Type de lecture de la vidéo : en boucle (1
+\, valeur par défaut) ou une seule fois (0).;
+#X text 698 105 play - Lancement de la vidéo (1 \, valeur par défaut)
+ou arrêt de la vidéo (0).;
+#X obj 593 247 s bougie.fromTo;
+#X obj 593 296 r bougie.currentFrame;
+#X obj 66 542 getImageSize bougie;
+#X floatatom 65 713 5 0 0 0 - - -;
+#X obj 65 667 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 65 689 getTotalFrames bougie;
+#X text 201 684 getTotalFrames - Retourne le nombre total d'images
+de la vidéo.;
+#X msg 593 197 0 30;
+#X obj 594 378 s bougie.ips;
+#X msg 599 220 140 145;
+#X obj 597 443 s bougie.layer;
+#X text 701 370 ips - Nombre d'images par seconde pour le défilement
+des images de la vidéo. Par défaut \, il est de 25 ips (∼40 ms).
+;
+#X text 734 291 currentFrame - Retourne le numéro de l'image (Frame)
+de la vidéo en cours de lecture. La première image porte l'indice
+"0". Pour positionner la vidéo sur une image \, on utilisera la variable
+"fromTo".;
+#X text 723 403 layer - Numéro de la couche d'affichage dans la chaîne
+d'affichage gem. Par défaut \, les VideoClip sont placés sur la couche
+60 de façon à apparaître devant les images utilisées comme fond
+d'écran (couche 50). On peut jouer sur cette variable pour passer
+devant ou derrière des images.;
+#X obj 597 573 s bougie.mouseMode;
+#X obj 593 605 r bougie.mouseOver;
+#X obj 594 658 r bougie.mouseClic;
+#X text 724 605 mouseOver - teste le survol de la vidéo par la souris
+: 1 (sur la vidéo) ou 0 (en dehors). Il faut que "mouseMode" soit
+à 1 ou 2 (souris active).;
+#X text 724 656 mouseClic - teste le clic sur la vidéo : 1 (clic sur
+la vidéo) ou 0 (en dehors). Il faut que "mouseMode" soit à 1 ou 2
+(souris active).;
+#X text 733 187 fromTo - Permet de lire la vidéo d'une image (Frame)
+jusqu'à une autre image (en boucle \, si "loop" vaut 1). Si un seul
+chiffre est envoyé \, la vidéo est lue de cette image jusqu'à la
+fin de la vidéo. Si deux chiffres sont envoyés \, la lecture se fait
+entre ces deux images. La première image porte l'indice "0". En arrêtant
+la vidéo ("play" à 0) \, on peut faire défiler manuellement les
+images.;
+#X text 201 611 getPosition - Retourne la valeur de la position en
+x et y de la vidéo dans la fenêtre de travail.;
+#X text 204 536 getImageSize - Retourne la valeur de la taille de l'image
+de la vidéo (en pixels) dans la fenêtre de travail.;
+#X floatatom 597 485 5 0 0 0 - - -;
+#X text 724 480 depthZ - Profondeur selon z du plan de projection de
+l'image. Par défaut \, le plan de projection est le plan XY pour z=0.
+Cette variable est utile pour le positionnement des images planes 2DMovie
+par rapport aux formes 3D gem.;
+#X obj 597 514 s bougie.depthZ;
+#X text 224 226 x \, y - Position de la vidéo sur l'axe horizontal
+ou vertical (en pixels).;
+#X msg 64 39 clear;
+#X obj 64 66 s bougie.load;
+#X msg 114 39 candle.m4v;
+#X text 190 59 load - Vide ou charge la vidéo Le message "clear" libère
+la mémoire allouée.;
+#X connect 0 0 38 0;
+#X connect 1 0 35 0;
+#X connect 2 0 33 0;
+#X connect 3 0 62 0;
+#X connect 4 0 36 0;
+#X connect 5 0 37 0;
+#X connect 6 0 44 0;
+#X connect 7 0 43 0;
+#X connect 8 0 43 0;
+#X connect 9 0 54 0;
+#X connect 10 0 42 0;
+#X connect 11 0 34 0;
+#X connect 12 0 34 0;
+#X connect 13 0 34 0;
+#X connect 14 0 42 0;
+#X connect 16 0 39 0;
+#X connect 19 0 64 0;
+#X connect 20 0 40 0;
+#X connect 25 0 41 0;
+#X connect 26 0 56 0;
+#X connect 30 0 68 0;
+#X connect 31 0 68 0;
+#X connect 32 0 68 0;
+#X connect 41 0 24 0;
+#X connect 41 1 23 0;
+#X connect 55 0 15 0;
+#X connect 56 0 27 0;
+#X connect 56 1 28 0;
+#X connect 58 0 59 0;
+#X connect 59 0 57 0;
+#X connect 61 0 54 0;
+#X connect 63 0 54 0;
+#X connect 69 0 17 0;
+#X connect 70 0 18 0;
+#X connect 76 0 78 0;
+#X connect 80 0 81 0;
+#X connect 82 0 81 0;
+#X restore 26 324 pd variables-et-fonctions;
+#X text 591 -107 @version 1;
+#X text 23 294 On utilise des liaisons sans fil pour communiquer.;
+#X text 591 -132 @library 2DMovie;
+#X text 141 -130 Patch de lecture de vidéo.;
+#X text 22 137 1- symbole : le nom de la variable VideoClip \; 2- symbole
+: le nom de la vidéo.;
+#X text 23 168 Par ex: [videoclip scene video.mov];
+#X text 21 28 La vidéo doit être de format mov ou m4v (Mac ou PC
+avec QuickTime) ou avi (PC) \, cela dépend du système d'exploitation...
+Elle doit être placée dans un dossier "data" situé dans le dossier
+de l'application.;
+#X text 21 87 Le point d'ancrage des images de la vidéo est son centre.
+;
+#X obj 464 91 r bougie.mouseOver;
+#X obj 464 230 s bougie.fromTo;
+#X msg 522 188 0 133;
+#X msg 452 187 134 150;
+#X msg 682 7 \; color 0 0 0 \; bougie.x 320 \; bougie.y 200 \; bougie.fromTo
+0 133 \; bougie.mouseMode 1;
+#X obj 522 162 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 21 -31 Le patch VideoClip construit une chaîne de rendu graphique
+GEM contenant une vidéo. La lecture peut être linéaire ou se faire
+en boucle \, à partir d'une image (Frame) jusqu'à une autre image
+de la vidéo.;
+#X text 413 257 (le survol de la bougie avec la souris fait vaciller
+la flamme);
+#X obj 461 5 videoclip bougie candle.m4v;
+#X connect 6 0 22 0;
+#X connect 8 0 21 0;
+#X connect 8 1 23 0;
+#X connect 18 0 8 0;
+#X connect 20 0 19 0;
+#X connect 21 0 19 0;
+#X connect 23 0 20 0;
+#X coords 0 553 1 552 65 15 0;

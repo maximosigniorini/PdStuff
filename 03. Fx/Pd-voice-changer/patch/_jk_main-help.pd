@@ -1,0 +1,43 @@
+#N canvas 1061 185 554 618 10;
+#X obj -12 570 cnv 15 552 21 empty \$0-pddp.cnv.footer empty 20 12
+0 14 -228856 -66577 0;
+#X obj -12 -25 cnv 15 552 40 empty \$0-pddp.cnv.header Voice_Changer
+3 12 0 18 -66577 -4034 0;
+#X obj -12 178 cnv 3 550 3 empty \$0-pddp.cnv.inlets inlets 8 12 0
+13 -228856 -1 0;
+#X obj -12 253 cnv 3 550 3 empty \$0-pddp.cnv.outlets outlets 8 12
+0 13 -228856 -1 0;
+#X obj -12 333 cnv 3 550 3 empty \$0-pddp.cnv.argument arguments 8
+12 0 13 -228856 -1 0;
+#X obj -12 377 cnv 3 550 3 empty \$0-pddp.cnv.more_info more_info 8
+12 0 13 -228856 -1 0;
+#X obj 66 187 cnv 17 3 30 empty \$0-pddp.cnv.let.0 0 5 9 0 16 -228856
+-162280 0;
+#X obj 66 225 cnv 17 3 17 empty \$0-pddp.cnv.let.1 1 5 9 0 16 -228856
+-162280 0;
+#X text 86 381 Click below for individual help patches:;
+#X obj 33 68 pddplink http://dehumaniser.com/;
+#X text 85 186 adc~;
+#X text 34 42 Voice Changer is live audio processing application inspired
+by Dehumaniser Software from Krotos Ltd.;
+#X text 146 186 - at the moment the only input is the microphone.;
+#X obj 66 262 cnv 17 3 30 empty \$0-pddp.cnv.let.0 0 5 9 0 16 -228856
+-162280 0;
+#X obj 66 300 cnv 17 3 17 empty \$0-pddp.cnv.let.1 1 5 9 0 16 -228856
+-162280 0;
+#X text 146 217 - in the future the next stage would be reading \,
+editing and saving audio files.;
+#X text 66 353 1) --;
+#X text 156 353 - this patch accepts no arguments.;
+#X text 85 261 dac~;
+#X text 146 260 - at the moment the only output is the dac.;
+#X text 146 292 - in the future the next stage would be interacting
+with DAW using MIDI and OSC.;
+#X obj 86 396 pddp/pddplink jk_3d_viewport.pd;
+#X obj 86 412 pddp/pddplink jk_theme.pd;
+#X obj 86 428 pddp/pddplink jk_audio_input~.pd;
+#X obj 86 444 pddp/pddplink jk_audio_output~.pd;
+#X obj 86 460 pddp/pddplink jk_pitch_shifter~.pd;
+#X obj 86 476 pddp/pddplink jk_ssb_modulation~.pd;
+#X obj 86 493 pddp/pddplink jk_combfilter~.pd;
+#X obj 86 509 pddp/pddplink jk_reverb~.pd;

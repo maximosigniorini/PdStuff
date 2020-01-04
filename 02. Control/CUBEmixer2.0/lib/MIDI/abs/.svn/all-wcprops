@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/MIDI/abs
+END
+sr_ctlio.pd
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/MIDI/abs/sr_ctlio.pd
+END
+sr_ctlio_deg360.pd
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/MIDI/abs/sr_ctlio_deg360.pd
+END
+sr_ctlio_deg90.pd
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/MIDI/abs/sr_ctlio_deg90.pd
+END
+MIDIsr.pd
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/MIDI/abs/MIDIsr.pd
+END
+dbtomidi.pd
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/MIDI/abs/dbtomidi.pd
+END
+miditodb.pd
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/MIDI/abs/miditodb.pd
+END

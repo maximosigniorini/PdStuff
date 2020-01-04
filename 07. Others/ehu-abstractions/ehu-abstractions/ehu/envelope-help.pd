@@ -1,0 +1,36 @@
+#N canvas 119 240 569 332 10;
+#X obj 39 254 ehu/out~;
+#X obj 209 4 bng 25 250 50 0 empty empty empty 17 7 0 10 -258113 -1
+-1;
+#X obj 419 234 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 346 250 bangs when done;
+#X text 368 24 reset;
+#X text 276 8 duration in ms;
+#X floatatom 279 23 5 0 0 0 - - -;
+#X obj 349 25 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 207 -14 bang to activate;
+#X obj 46 21 ehu/dsp;
+#X obj 24 -5 loadbang;
+#X obj 56 228 *~;
+#X obj 55 195 noise~;
+#X obj 13 49 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
+;
+#X obj 12 73 metro 1000;
+#X obj 209 44 ehu/envelope 300;
+#X text 420 -3 list;
+#X msg 415 17 0 7 1 5 0.4 10 0.2 50;
+#X connect 1 0 15 0;
+#X connect 6 0 15 1;
+#X connect 7 0 15 2;
+#X connect 10 0 9 0;
+#X connect 10 0 13 0;
+#X connect 11 0 0 0;
+#X connect 11 0 0 1;
+#X connect 12 0 11 0;
+#X connect 13 0 14 0;
+#X connect 14 0 1 0;
+#X connect 15 0 11 1;
+#X connect 15 1 2 0;
+#X connect 17 0 15 3;

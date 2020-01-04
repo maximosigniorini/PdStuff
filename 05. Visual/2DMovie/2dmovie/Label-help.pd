@@ -1,0 +1,148 @@
+#N canvas 421 39 785 531 10;
+#X obj 2 -158 cnv 15 700 50 empty empty Label 3 12 0 18 -260080 -1
+0;
+#X text 591 -141 @author Pertuit;
+#X text 22 -74 DESCRIPTION;
+#X text 21 128 ARGUMENTS;
+#X text 22 220 INLETS \; aucun;
+#X text 22 264 OUTLETS \; aucun;
+#X obj 503 -66 gemmanager;
+#X obj 493 99 loadbang;
+#N canvas 94 22 1135 597 variables-et-fonctions 0;
+#X floatatom 77 388 5 0 0 0 - - -;
+#X obj 74 272 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 77 448 5 0 0 0 - - -;
+#X floatatom 77 511 5 0 0 0 - - -;
+#X msg 76 333 1;
+#X msg 137 332 0;
+#X msg 107 332 0.5;
+#X msg 585 264 0.8 0.2 0.2;
+#X obj 585 25 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 587 331 5 0 0 0 - - -;
+#X text 72 6 VARIABLES;
+#X obj 74 298 s texte1.visible;
+#X obj 76 355 s texte1.alpha;
+#X obj 77 415 s texte1.x;
+#X obj 77 477 s texte1.y;
+#X obj 77 540 s texte1.size;
+#X text 200 294 visible - Variable de visibilité du texte : visible
+(1) ou invisible (0).;
+#X text 184 356 alpha - Transparence du texte (0 à 1).;
+#X text 164 414 x - Position du texte sur l'axe horizontal (en pixels).
+;
+#X text 165 476 y - Position du texte sur l'axe vertical (en pixels).
+;
+#X obj 75 237 s texte1.refPoint;
+#X msg 75 182 left base;
+#X msg 85 205 center middle;
+#X text 197 190 refPoint - Définit la position du point de référence
+de la chaîne de caractère. Deux variables sont nécessaires : la
+position horizontale ("center" \, par défaut \, "left" \, "right"
+ou "base") et la position verticale ("middle" \, par défaut \, "top"
+\, "bottom" ou "base").;
+#X msg 669 263 0 0 1;
+#X obj 585 286 s texte1.color;
+#X text 582 486 VARIABLE DE GEM;
+#X obj 588 550 s antialias;
+#X msg 588 516 0;
+#X msg 619 516 4;
+#X obj 585 51 s texte1.reverseX;
+#X obj 585 78 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 585 104 s texte1.reverseY;
+#X text 702 44 reverseX - Inverse le sens du texte selon X : normal
+(0 \, valeur par défaut) ou retourné (1).;
+#X text 702 97 reverseY - Inverse le sens du texte selon Y : normal
+(0 \, valeur par défaut) ou retourné (1).;
+#X floatatom 585 144 5 0 0 0 - - -;
+#X obj 585 172 s texte1.rotateX;
+#X floatatom 585 194 5 0 0 0 - - -;
+#X floatatom 705 144 5 0 0 0 - - -;
+#X obj 705 172 s texte1.rotateY;
+#X obj 585 222 s texte1.rotateZ;
+#X text 705 216 rotateX/Y/Z - Rotation du texte selon les trois axes.
+L'angle de rotation est en degré.;
+#X obj 587 360 s texte1.layer;
+#X obj 74 74 s texte1.font;
+#X msg 137 42 vera.ttf;
+#X msg 74 42 cour.ttf;
+#X text 705 335 layer - Numéro de la couche d'affichage dans la chaîne
+d'affichage gem. Par défaut \, les Labels sont placés sur la couche
+60 de façon à apparaître devant les images utilisées comme fond
+d'écran (couche 50). On peut jouer sur cette variable pour passer
+devant ou derrière des images.;
+#X text 182 75 font - Police truetype (vera.ttf \, par défaut).;
+#X text 176 538 size - Taille de la police (10 par défaut).;
+#X text 704 281 color - Réglage des couleurs du texte : liste des
+3 couleurs RVB (0 à 1);
+#X text 676 525 antialias - anticrénelage pour le lissage des polices
+(0 à 8). La valeur 4 est suffisante (valeur par défaut des labels).
+Cette variable GEM s'applique à tous les textes et nécessite la réactualisation
+de l'affichage.;
+#X obj 74 143 s texte1.text;
+#X msg 74 111 Quelle poésie !;
+#X msg 181 111 Le ciel est bleu;
+#X text 182 138 text - chaîne de caractère (sans guillemet \, sans
+virgule ni point virgule).;
+#X floatatom 587 411 5 0 0 0 - - -;
+#X obj 587 440 s texte1.depthZ;
+#X text 704 423 depthZ - Profondeur selon z du plan de projection du
+texte. Par défaut \, le plan de projection est le plan XY pour z=0.
+Cette variable est utile pour le positionnement des images planes 2DMovie
+par rapport aux formes 3D gem.;
+#X connect 0 0 13 0;
+#X connect 1 0 11 0;
+#X connect 2 0 14 0;
+#X connect 3 0 15 0;
+#X connect 4 0 12 0;
+#X connect 5 0 12 0;
+#X connect 6 0 12 0;
+#X connect 7 0 25 0;
+#X connect 8 0 30 0;
+#X connect 9 0 42 0;
+#X connect 21 0 20 0;
+#X connect 22 0 20 0;
+#X connect 24 0 25 0;
+#X connect 28 0 27 0;
+#X connect 29 0 27 0;
+#X connect 31 0 32 0;
+#X connect 35 0 36 0;
+#X connect 37 0 40 0;
+#X connect 38 0 39 0;
+#X connect 44 0 43 0;
+#X connect 45 0 43 0;
+#X connect 52 0 51 0;
+#X connect 53 0 51 0;
+#X connect 55 0 56 0;
+#X restore 26 336 pd variables-et-fonctions;
+#X text 141 -152 Patch pour l'affichage d'une chaîne de caractère.
+;
+#X text 21 -53 Le patch Label affiche une chaîne de caractère.;
+#X text 23 185 Par ex: [label texte1 Mon texte];
+#X text 21 -2 Par défaut \, le point d'ancrage du texte est son milieu
+\, la police est vera.ttf et l'antialiasing est réglé à 4 (variable
+GEM).;
+#X text 22 149 1- symbole : le nom de la variable Label \; 2- liste
+: la chaîne de caractère (sans guillemet);
+#X text 591 -129 @version 1;
+#X text 23 306 On utilise des liaisons sans fil pour communiquer.;
+#X text 21 -35 Les polices truetype (ttf) doivent être placées dans
+un répertoire "font" situé dans le dossier de l'application.;
+#X text 591 -154 @library 2DMovie;
+#X obj 451 -4 label texte1 Le ciel est bleu;
+#X text 21 80 Attention \, les signes de ponctuation " \, " et " \;
+;
+#X text 21 93 sont à bannir.;
+#X text 306 80 ";
+#X text 21 45 Les Labels ne sont pas sensibles à la souris. Pour les
+rendre sensible \, il faut les associer à des Zones.;
+#X msg 493 127 \; texte1.x 320 \; texte1.y 150 \; texte1.size 6 \;
+texte1.color 0 0 1 \; texte2.x 320 \; texte2.y 200 \; texte2.size 8
+\; texte2.color 0 0.7 0.4 \; texte3.x 320 \; texte3.y 250 \; texte3.size
+10 \; texte3.color 0.6 0.5 0.3;
+#X obj 452 42 label texte3 Laisse un peu la fenêtre ouverte.;
+#X obj 452 19 label texte2 la mer est verte;
+#X connect 7 0 23 0;
+#X coords 0 531 1 530 65 15 0;

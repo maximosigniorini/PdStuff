@@ -1,0 +1,5 @@
+#N canvas 1606 95 295 93 10;
+#X obj 12 52 outlet~;
+#X obj 12 -3 DSP_label AMBI_OUT \$1;
+#X obj 13 19 catch~ \$1_BUS;
+#X connect 2 0 0 0;

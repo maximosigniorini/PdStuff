@@ -1,0 +1,18 @@
+#N canvas 594 132 412 265 10;
+#X declare -lib ggee;
+#X obj 219 3 bng 35 250 50 0 empty empty click_me 40 10 0 10 -258079
+-1 -1;
+#X obj 15 86 nbx 5 25 -1e+37 1e+37 0 0 empty empty x_position 0 -10
+0 10 -4032 -1 -1 0 256;
+#X obj 93 86 nbx 5 25 -1e+37 1e+37 0 0 empty empty y_position 0 -10
+0 10 -4032 -1 -1 0 256;
+#X obj 15 43 ehu/gem/mouse ----;
+#X obj 219 49 ehu/gem/win 640 450;
+#X obj 169 163 ehu/gem/texture 320 225 100 75;
+#X obj 169 84 ehu/gem/picture picts/imagen1.jpg;
+#X connect 0 0 4 0;
+#X connect 1 0 5 2;
+#X connect 2 0 5 3;
+#X connect 3 0 1 0;
+#X connect 3 1 2 0;
+#X connect 6 0 5 0;

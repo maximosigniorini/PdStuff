@@ -1,0 +1,28 @@
+#N canvas 402 49 406 237 10;
+#X floatatom 35 208 5 0 0 0 - - -, f 5;
+#X text 188 112 max;
+#X text 34 111 step;
+#X floatatom 189 132 5 0 0 0 - - -, f 5;
+#X text 74 111 increment;
+#X obj 35 131 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 145 133 5 0 0 0 - - -, f 5;
+#X text 273 113 reset to num;
+#X msg 276 129 3;
+#X text 34 8 counter (only positive increments);
+#X obj 122 208 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 34 28 INLETS 1 bang to step 2 (int >0) increment step 3 (int)
+min 4 (int) max 5 (int) reset to value;
+#X text 33 82 ARGS 1 (int) start value 2 (int) max value;
+#X text 145 112 min;
+#X floatatom 76 133 5 0 0 0 - - -, f 5;
+#X obj 35 179 ehu/counter 3 7;
+#X text 34 62 OUTLETS 1 (int) count 2 bang on max;
+#X connect 3 0 15 3;
+#X connect 5 0 15 0;
+#X connect 6 0 15 2;
+#X connect 8 0 15 4;
+#X connect 14 0 15 1;
+#X connect 15 0 0 0;
+#X connect 15 1 10 0;

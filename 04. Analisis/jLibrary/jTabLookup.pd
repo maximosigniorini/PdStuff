@@ -1,0 +1,147 @@
+#N canvas 74 72 1228 608 10;
+#X obj 576 253 jCount;
+#X obj 576 285 t f f;
+#X obj 618 452 outlet;
+#X obj 658 504 inlet;
+#X text 601 471 cross connect processing object(s) here, f 25;
+#X obj 628 537 tabwrite \$0-array;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array \$0-array 1 float 0;
+#X coords 0 1 1 0 140 140 1 0 0;
+#X restore 1029 50 graph;
+#X msg 850 220 \; \$2-array resize \$1;
+#X obj 850 200 pack f \$0;
+#X obj 823 29 loadbang;
+#X obj 823 51 f \$3;
+#X obj 576 218 - 1;
+#X text 816 452 e.g For [0:99] desired lookup \, actual lookup indices
+are [1:100] with index 0 and index 101 calculated and filled \, allowing
+proper tabread4 interpolation. Total actual array size 102 (indexed
+[0:101]).;
+#X obj 570 353 m_scale 1 \$3 \$1 \$2;
+#X obj 370 435 tabread4 \$0-array;
+#X obj 370 10 inlet;
+#X obj 370 537 outlet;
+#X obj 823 127 + 2;
+#X text 486 375 ...then reverse scaling;
+#X text 600 219 [0:arrSize-1];
+#X obj 370 375 m_scale \$1 \$2 1 \$3;
+#X obj 576 191 f;
+#X obj 823 178 t f f;
+#X obj 629 160 t b f;
+#X text 688 353 apply scaling for tabwrite [1:arrSize] range...;
+#X obj 370 32 route bang;
+#X text 855 53 arrSize;
+#X text 848 102 tabread4 indices = arrSize+2 \; tabread4 requires range
+1:size (rather than 0:size-1), f 23;
+#N canvas 584 111 289 247 errLookupRangeCannotBeZero 0;
+#X obj 37 37 inlet;
+#X obj 94 168 canvaserror;
+#X obj 37 59 pack \$2 \$1;
+#X obj 67 81 sel 0;
+#X msg 94 149 lookup range cannot be zero;
+#X obj 45 217 outlet;
+#X connect 0 0 2 0;
+#X connect 2 0 3 0;
+#X connect 2 0 5 0;
+#X connect 3 0 4 0;
+#X connect 4 0 1 0;
+#X restore 638 51 pd errLookupRangeCannotBeZero;
+#N canvas 0 22 281 303 errNoTabSizeLessThan1 0;
+#X obj 37 37 inlet;
+#X obj 37 59 moses 1;
+#X obj 25 133 canvaserror;
+#X obj 123 222 outlet;
+#X msg 25 114 table size cannot be less than 1;
+#X connect 0 0 1 0;
+#X connect 1 0 4 0;
+#X connect 1 1 3 0;
+#X connect 4 0 2 0;
+#X restore 823 74 pd errNoTabSizeLessThan1;
+#N canvas 734 487 561 338 errInlet1NotBetween\$1And\$2 0;
+#X obj 166 30 inlet;
+#X obj 166 52 f;
+#X obj 264 81 t f f;
+#X text 192 53 floats only;
+#X obj 264 103 clip \$1 \$2;
+#X obj 264 125 -;
+#X obj 264 147 != 0;
+#X obj 264 169 sel 1;
+#X obj 308 266 canvaserror;
+#X msg 308 244 floats only between \$1 and \$2;
+#X obj 42 231 spigot;
+#X obj 264 194 pack \$1 \$2;
+#X obj 166 74 t f f;
+#X text 347 124 error if input values do not equal clipped input values
+, f 21;
+#X obj 114 206 != 1;
+#X obj 42 253 outlet;
+#X connect 0 0 1 0;
+#X connect 1 0 12 0;
+#X connect 2 0 4 0;
+#X connect 2 1 5 1;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 6 0 14 0;
+#X connect 7 0 11 0;
+#X connect 9 0 8 0;
+#X connect 10 0 15 0;
+#X connect 11 0 9 0;
+#X connect 12 0 10 0;
+#X connect 12 1 2 0;
+#X connect 14 0 10 1;
+#X restore 370 133 pd errInlet1NotBetween\$1And\$2;
+#N canvas 0 22 369 517 errBangOnlyIfTabSizeGood 0;
+#X obj 34 418 outlet;
+#X obj 34 15 inlet;
+#X obj 34 288 spigot;
+#X obj 67 264 t f f;
+#X obj 34 37 t b;
+#X text 60 40 bang only;
+#X obj 256 43 inlet;
+#X text 105 263 only allow bang of value if value comes in from inlet2
+, f 18;
+#X obj 113 418 outlet;
+#X connect 1 0 4 0;
+#X connect 2 0 0 0;
+#X connect 3 0 2 1;
+#X connect 3 1 8 0;
+#X connect 4 0 2 0;
+#X connect 6 0 3 0;
+#X restore 576 133 pd errBangOnlyIfTabSizeGood;
+#X text 5 0 Fill a table with values processed by cross-connected object(s).
+\; \; Lookup table by index via tabread4 4 point interpolation \; \;
+\$1 lower lookup bound (float) \; \$2 upper lookup bound (float!=\$1)
+\; \$1 lookup table size \; \; in1 lookup index (\$1:\$2) or bang to
+(re)fill table \; in2 from output of processing object(s) \; \; out1
+tabread4 lookup values \; out2 to input of processing object(s) \;
+\; Requires: \; rj [m_scale] \; Will work without: \; iemguts [canvaserror]
+\; \; TO DO \; - bang error should take into account full invariant
+(not just positive table size). \; - if not initialised properly \,
+any inputs should give an error. \; John Flynn, f 52;
+#X connect 0 0 1 0;
+#X connect 1 0 13 0;
+#X connect 1 1 5 1;
+#X connect 3 0 5 0;
+#X connect 8 0 7 0;
+#X connect 9 0 10 0;
+#X connect 9 0 28 0;
+#X connect 10 0 29 0;
+#X connect 11 0 0 0;
+#X connect 13 0 2 0;
+#X connect 14 0 16 0;
+#X connect 15 0 25 0;
+#X connect 17 0 22 0;
+#X connect 20 0 14 0;
+#X connect 21 0 11 0;
+#X connect 22 0 31 1;
+#X connect 22 1 8 0;
+#X connect 23 0 21 0;
+#X connect 23 1 21 1;
+#X connect 25 0 31 0;
+#X connect 25 1 30 0;
+#X connect 29 0 17 0;
+#X connect 30 0 20 0;
+#X connect 31 0 21 0;
+#X connect 31 1 23 0;

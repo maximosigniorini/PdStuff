@@ -1,0 +1,328 @@
+#N canvas 215 0 814 660 10;
+#X declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/tools -path ../../abstractions/filters -path
+../../abstractions/fx-video -path ../../abstractions/fx-audio -path
+../../abstractions/master;
+#X declare -path abstractions/in -path abstractions/out -path abstractions/tools
+-path abstractions/filters -path abstractions/fx-video -path abstractions/fx-audio
+-path abstractions/master;
+#X obj 7 207 cnv 1 396 1 empty empty FILTERS 2 -6 1 12 -228856 -191407
+0;
+#X obj 7 414 cnv 1 800 1 empty empty OUT 2 -6 1 12 -228856 -191407
+0;
+#X obj 7 35 cnv 1 800 1 empty empty IN 2 -6 1 12 -228856 -191407 0
+;
+#X obj 7 207 cnv 1 800 1 empty empty TOOLS 400 -6 1 12 -228856 -191407
+0;
+#N canvas 362 156 563 434 INIT 0;
+#X obj 101 101 cnv 8 48 8 empty empty INCLUDE 2 4 0 10 -233017 -66577
+0;
+#X obj 102 261 declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/tools -path ../../abstractions/filters -path
+../../abstractions/fx-video -path ../../abstractions/fx-audio -path
+../../abstractions/master;
+#X text 100 240 Use for standalone :;
+#X text 100 140 Use with the main.pd :;
+#X text 97 25 Import paths to find abstractions \; Always use it in
+the examples patchs.;
+#X obj 102 162 declare -path abstractions/in -path abstractions/out
+-path abstractions/tools -path abstractions/filters -path abstractions/fx-video
+-path abstractions/fx-audio -path abstractions/master;
+#X coords 0 -1 1 1 50 10 2 100 100;
+#X restore 756 16 pd INIT;
+#N canvas 253 601 450 300 seq32 0;
+#X obj 199 171 vsl 10 30 0 1 0 0 empty empty empty 0 -9 0 10 -191407
+-1 -1 0 1;
+#X obj 209 171 vsl 10 30 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 219 171 vsl 10 30 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 229 171 vsl 10 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 646 169 f;
+#X obj 674 169 + 1;
+#X obj 646 143 metro;
+#X floatatom 693 118 5 0 0 0 - - -;
+#X obj 605 107 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 199 131 sel 0 1 2 3;
+#X obj 646 192 % 4;
+#N canvas 545 381 450 300 spigot 0;
+#X obj 65 119 spigot;
+#X obj 100 100 tgl 10 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 86 63 loadbang;
+#X obj 76 32 inlet;
+#X obj 67 161 outlet;
+#X connect 0 0 4 0;
+#X connect 1 0 0 1;
+#X connect 2 0 1 0;
+#X connect 3 0 0 0;
+#X coords 0 -1 1 1 10 10 2 100 100;
+#X restore 199 159 pd spigot;
+#N canvas 545 381 450 300 spigot 0;
+#X obj 65 119 spigot;
+#X obj 100 100 tgl 10 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 86 63 loadbang;
+#X obj 76 32 inlet;
+#X obj 67 161 outlet;
+#X connect 0 0 4 0;
+#X connect 1 0 0 1;
+#X connect 2 0 1 0;
+#X connect 3 0 0 0;
+#X coords 0 -1 1 1 10 10 2 100 100;
+#X restore 209 159 pd spigot;
+#N canvas 545 381 450 300 spigot 0;
+#X obj 65 119 spigot;
+#X obj 100 100 tgl 10 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 86 63 loadbang;
+#X obj 76 32 inlet;
+#X obj 67 161 outlet;
+#X connect 0 0 4 0;
+#X connect 1 0 0 1;
+#X connect 2 0 1 0;
+#X connect 3 0 0 0;
+#X coords 0 -1 1 1 10 10 2 100 100;
+#X restore 219 159 pd spigot;
+#N canvas 545 381 450 300 spigot 0;
+#X obj 65 119 spigot;
+#X obj 100 100 tgl 10 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 86 63 loadbang;
+#X obj 76 32 inlet;
+#X obj 67 161 outlet;
+#X connect 0 0 4 0;
+#X connect 1 0 0 1;
+#X connect 2 0 1 0;
+#X connect 3 0 0 0;
+#X coords 0 -1 1 1 10 10 2 100 100;
+#X restore 229 159 pd spigot;
+#X obj 713 180 sel 0;
+#X obj 713 201 f;
+#X obj 741 201 + 1;
+#X obj 713 224 % 8;
+#X text 742 222 modul;
+#X obj 676 350 pack f f;
+#X obj 676 386 route 0 1 2 3 4 5 7;
+#X obj 646 286 t b f;
+#X obj 199 88 inlet;
+#X obj 199 233 outlet;
+#N canvas 340 306 450 300 seq 0;
+#X obj 100 112 vsl 10 30 0 1 0 0 empty empty empty 0 -9 0 10 -191407
+-1 -1 0 1;
+#X obj 110 112 vsl 10 30 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 120 112 vsl 10 30 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 130 112 vsl 10 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 100 72 sel 0 1 2 3;
+#N canvas 545 381 450 300 spigot 0;
+#X obj 65 119 spigot;
+#X obj 100 100 tgl 10 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 86 63 loadbang;
+#X obj 76 32 inlet;
+#X obj 67 161 outlet;
+#X connect 0 0 4 0;
+#X connect 1 0 0 1;
+#X connect 2 0 1 0;
+#X connect 3 0 0 0;
+#X coords 0 -1 1 1 10 10 2 100 100;
+#X restore 100 100 pd spigot;
+#N canvas 545 381 450 300 spigot 0;
+#X obj 65 119 spigot;
+#X obj 100 100 tgl 10 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 86 63 loadbang;
+#X obj 76 32 inlet;
+#X obj 67 161 outlet;
+#X connect 0 0 4 0;
+#X connect 1 0 0 1;
+#X connect 2 0 1 0;
+#X connect 3 0 0 0;
+#X coords 0 -1 1 1 10 10 2 100 100;
+#X restore 110 100 pd spigot;
+#N canvas 545 381 450 300 spigot 0;
+#X obj 65 119 spigot;
+#X obj 100 100 tgl 10 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 86 63 loadbang;
+#X obj 76 32 inlet;
+#X obj 67 161 outlet;
+#X connect 0 0 4 0;
+#X connect 1 0 0 1;
+#X connect 2 0 1 0;
+#X connect 3 0 0 0;
+#X coords 0 -1 1 1 10 10 2 100 100;
+#X restore 120 100 pd spigot;
+#N canvas 545 381 450 300 spigot 0;
+#X obj 65 119 spigot;
+#X obj 100 100 tgl 10 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 86 63 loadbang;
+#X obj 76 32 inlet;
+#X obj 67 161 outlet;
+#X connect 0 0 4 0;
+#X connect 1 0 0 1;
+#X connect 2 0 1 0;
+#X connect 3 0 0 0;
+#X coords 0 -1 1 1 10 10 2 100 100;
+#X restore 130 100 pd spigot;
+#X obj 100 29 inlet;
+#X obj 100 174 outlet;
+#X connect 0 0 10 0;
+#X connect 1 0 10 0;
+#X connect 2 0 10 0;
+#X connect 3 0 10 0;
+#X connect 4 0 5 0;
+#X connect 4 1 6 0;
+#X connect 4 2 7 0;
+#X connect 4 3 8 0;
+#X connect 5 0 0 0;
+#X connect 6 0 1 0;
+#X connect 7 0 2 0;
+#X connect 8 0 3 0;
+#X connect 9 0 4 0;
+#X coords 0 -1 1 1 40 45 1 100 100;
+#X restore 676 431 pd seq;
+#N canvas 340 306 450 300 seq 0;
+#X obj 100 112 vsl 10 30 0 1 0 0 empty empty empty 0 -9 0 10 -191407
+-1 -1 0 1;
+#X obj 110 112 vsl 10 30 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 120 112 vsl 10 30 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 130 112 vsl 10 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 100 72 sel 0 1 2 3;
+#N canvas 545 381 450 300 spigot 0;
+#X obj 65 119 spigot;
+#X obj 100 100 tgl 10 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 86 63 loadbang;
+#X obj 76 32 inlet;
+#X obj 67 161 outlet;
+#X connect 0 0 4 0;
+#X connect 1 0 0 1;
+#X connect 2 0 1 0;
+#X connect 3 0 0 0;
+#X coords 0 -1 1 1 10 10 2 100 100;
+#X restore 100 100 pd spigot;
+#N canvas 545 381 450 300 spigot 0;
+#X obj 65 119 spigot;
+#X obj 100 100 tgl 10 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 86 63 loadbang;
+#X obj 76 32 inlet;
+#X obj 67 161 outlet;
+#X connect 0 0 4 0;
+#X connect 1 0 0 1;
+#X connect 2 0 1 0;
+#X connect 3 0 0 0;
+#X coords 0 -1 1 1 10 10 2 100 100;
+#X restore 110 100 pd spigot;
+#N canvas 545 381 450 300 spigot 0;
+#X obj 65 119 spigot;
+#X obj 100 100 tgl 10 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 86 63 loadbang;
+#X obj 76 32 inlet;
+#X obj 67 161 outlet;
+#X connect 0 0 4 0;
+#X connect 1 0 0 1;
+#X connect 2 0 1 0;
+#X connect 3 0 0 0;
+#X coords 0 -1 1 1 10 10 2 100 100;
+#X restore 120 100 pd spigot;
+#N canvas 545 381 450 300 spigot 0;
+#X obj 65 119 spigot;
+#X obj 100 100 tgl 10 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 86 63 loadbang;
+#X obj 76 32 inlet;
+#X obj 67 161 outlet;
+#X connect 0 0 4 0;
+#X connect 1 0 0 1;
+#X connect 2 0 1 0;
+#X connect 3 0 0 0;
+#X coords 0 -1 1 1 10 10 2 100 100;
+#X restore 130 100 pd spigot;
+#X obj 100 29 inlet;
+#X obj 100 174 outlet;
+#X connect 0 0 10 0;
+#X connect 1 0 10 0;
+#X connect 2 0 10 0;
+#X connect 3 0 10 0;
+#X connect 4 0 5 0;
+#X connect 4 1 6 0;
+#X connect 4 2 7 0;
+#X connect 4 3 8 0;
+#X connect 5 0 0 0;
+#X connect 6 0 1 0;
+#X connect 7 0 2 0;
+#X connect 8 0 3 0;
+#X connect 9 0 4 0;
+#X coords 0 -1 1 1 40 45 1 100 100;
+#X restore 716 431 pd seq;
+#X floatatom 675 529 5 0 0 0 - - -;
+#X connect 0 0 24 0;
+#X connect 1 0 24 0;
+#X connect 2 0 24 0;
+#X connect 3 0 24 0;
+#X connect 4 0 5 0;
+#X connect 4 0 10 0;
+#X connect 5 0 4 1;
+#X connect 6 0 4 0;
+#X connect 7 0 6 1;
+#X connect 8 0 6 0;
+#X connect 9 0 11 0;
+#X connect 9 1 12 0;
+#X connect 9 2 13 0;
+#X connect 9 3 14 0;
+#X connect 10 0 15 0;
+#X connect 10 0 22 0;
+#X connect 11 0 0 0;
+#X connect 12 0 1 0;
+#X connect 13 0 2 0;
+#X connect 14 0 3 0;
+#X connect 15 0 16 0;
+#X connect 16 0 17 0;
+#X connect 16 0 18 0;
+#X connect 17 0 16 1;
+#X connect 18 0 20 0;
+#X connect 20 0 21 0;
+#X connect 21 0 25 0;
+#X connect 21 1 26 0;
+#X connect 22 0 20 0;
+#X connect 22 1 20 1;
+#X connect 23 0 9 0;
+#X connect 25 0 27 0;
+#X connect 26 0 27 0;
+#X restore 753 33 pd seq32;
+#X obj 295 88 mouse;
+#X obj 295 165 map 0 1 20 60;
+#X text 396 90 x y clic;
+#X text 389 163 regle de trois convertir une valeur entre 0 et 1 entre
+20 et 60;
+#X obj 295 282 gamme;
+#X obj 295 397 synth;
+#X obj 294 461 audio-out;
+#X text 414 313 on force la valeur a etre dans une gamme musicale !
+pas de fausse note !;
+#X text 414 401 synthe a forme d'onde simple;
+#X text 359 489 sortie audio;
+#X obj 90 326 video-scratch;
+#X obj 90 423 video-screen;
+#X text 2 299 lecteur video : control timeline entre 0 et 1;
+#X text 13 476 un ecran video : un rectangle dans gem;
+#X text 7 552 <<< ps : il faut allumer gem/screen !;
+#X connect 6 0 7 0;
+#X connect 6 0 16 0;
+#X connect 7 0 10 0;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 11 0 12 1;
+#X connect 16 0 17 0;

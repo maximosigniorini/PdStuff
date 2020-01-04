@@ -1,0 +1,66 @@
+#N canvas 151 22 800 687 10;
+#X declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/numbers -path ../../abstractions/video -path
+../../abstractions/audio -path ../../abstractions/master;
+#X obj 7 279 cnv 1 470 1 empty empty FX 2 -6 1 12 -228856 -191407 0
+;
+#X obj 7 431 cnv 1 470 1 empty empty OUT 2 -6 1 12 -228856 -191407
+0;
+#X obj 7 123 cnv 1 470 1 empty empty IN 2 -6 1 12 -228856 -191407 0
+;
+#X obj 488 28 cnv 20 300 90 empty empty DESCRIPTION 10 15 0 16 -233017
+-128992 0;
+#X obj 488 124 cnv 20 300 150 empty empty empty 10 15 0 16 -233017
+-128992 0;
+#X obj 488 279 cnv 20 300 150 empty empty empty 10 15 0 16 -233017
+-128992 0;
+#X obj 488 434 cnv 20 300 230 empty empty empty 10 15 0 16 -233017
+-128992 0;
+#X text 496 59 En appuyant sur les touches du clavier 1 \, 2 \, 3;
+#X text 496 74 et 4 \, on déclenche des sons de percussions et;
+#X text 496 89 on fait tourner une cube de façon aléatoire.;
+#N canvas 621 137 429 190 OPEN_VIDEO 0;
+#X obj 46 65 loadbang;
+#X msg 46 119 \; GEM-MASTER on;
+#X obj 46 89 delay 500;
+#X text 44 33 Démarrer la vidéo à l'ouverture du patch avec 500ms
+de retard;
+#X connect 0 0 2 0;
+#X connect 2 0 1 0;
+#X restore 488 5 pd OPEN_VIDEO;
+#X obj 53 149 key-num;
+#X obj 233 591 audio-out;
+#X obj 268 454 3d-object;
+#X msg 270 326 rx \$1;
+#X msg 336 326 ry \$1;
+#X msg 403 326 rz \$1;
+#X obj 268 361 3d-transform 1;
+#X obj 53 503 synth-drums;
+#X obj 270 297 random 360;
+#X obj 336 297 random 360;
+#X obj 403 297 random 360;
+#X text 495 139 < les touches du clavier numérique envoient;
+#X text 508 153 une impulsion (bang);
+#X text 492 295 < un nombre aléatoire est généré entre 0 et 360
+;
+#X text 493 369 < rotation du cube en degrés;
+#X text 495 456 < génération du cube en 3D;
+#X text 495 520 < génération des sons de percussions;
+#X text 495 590 < sorties audio;
+#X obj 737 11 ../../abstractions/include;
+#X connect 11 0 18 0;
+#X connect 11 0 19 0;
+#X connect 11 1 18 1;
+#X connect 11 1 20 0;
+#X connect 11 2 18 2;
+#X connect 11 2 21 0;
+#X connect 11 3 18 3;
+#X connect 14 0 17 1;
+#X connect 15 0 17 1;
+#X connect 16 0 17 1;
+#X connect 17 0 13 0;
+#X connect 18 4 12 0;
+#X connect 18 4 12 1;
+#X connect 19 0 14 0;
+#X connect 20 0 15 0;
+#X connect 21 0 16 0;

@@ -1,0 +1,200 @@
+#N canvas 531 478 749 409 10;
+#X obj 587 100 resources/output~;
+#X obj 130 122 vsl 15 24 0 1 0 0 empty empty empty 19 4 0 10 -262144
+-1 -1 2300 1;
+#X obj 102 122 knob 24 24 0 127 0 0 empty empty empty 0 -8 32 8 -262144
+-1 -1 1159 1;
+#X obj 180 122 vsl 15 24 0 1 0 0 empty empty empty 19 4 0 10 -262144
+-1 -1 1600 1;
+#X obj 152 122 knob 24 24 0 127 0 0 empty empty empty 0 -8 32 8 -262144
+-1 -1 1159 1;
+#N canvas 0 22 450 300 kick-control 0;
+#X obj 41 109 r~ kick;
+#X obj 81 177 resources/cross-fade~;
+#X obj 69 206 *~;
+#X obj 156 207 *~;
+#X obj 70 147 *~ 1;
+#X obj 175 105 inlet vol;
+#X obj 93 98 inlet pan;
+#X obj 71 242 outlet~;
+#X obj 152 244 outlet~;
+#X connect 0 0 4 0;
+#X connect 1 0 2 1;
+#X connect 1 1 3 1;
+#X connect 2 0 7 0;
+#X connect 3 0 8 0;
+#X connect 4 0 2 0;
+#X connect 4 0 3 0;
+#X connect 5 0 4 1;
+#X connect 6 0 1 0;
+#X restore 505 166 pd kick-control;
+#N canvas 0 22 450 300 snare-control 0;
+#X obj 81 177 resources/cross-fade~;
+#X obj 69 206 *~;
+#X obj 156 207 *~;
+#X obj 70 147 *~ 1;
+#X obj 175 105 inlet vol;
+#X obj 93 98 inlet pan;
+#X obj 42 110 r~ snare;
+#X obj 81 252 outlet~;
+#X obj 162 254 outlet~;
+#X connect 0 0 1 1;
+#X connect 0 1 2 1;
+#X connect 1 0 7 0;
+#X connect 2 0 8 0;
+#X connect 3 0 1 0;
+#X connect 3 0 2 0;
+#X connect 4 0 3 1;
+#X connect 5 0 0 0;
+#X connect 6 0 3 0;
+#X restore 498 192 pd snare-control;
+#X obj 231 122 vsl 15 24 0 1 0 0 empty empty empty 19 4 0 10 -262144
+-1 -1 900 1;
+#X obj 203 122 knob 24 24 0 127 0 0 empty empty empty 0 -8 32 8 -262144
+-1 -1 1159 1;
+#N canvas 0 22 450 300 hihat-control 0;
+#X obj 81 177 resources/cross-fade~;
+#X obj 69 206 *~;
+#X obj 156 207 *~;
+#X obj 70 147 *~ 1;
+#X obj 175 105 inlet vol;
+#X obj 93 98 inlet pan;
+#X obj 42 110 r~ hihat;
+#X obj 60 242 outlet~;
+#X obj 141 244 outlet~;
+#X connect 0 0 1 1;
+#X connect 0 1 2 1;
+#X connect 1 0 7 0;
+#X connect 2 0 8 0;
+#X connect 3 0 1 0;
+#X connect 3 0 2 0;
+#X connect 4 0 3 1;
+#X connect 5 0 0 0;
+#X connect 6 0 3 0;
+#X restore 495 217 pd hihat-control;
+#X obj 282 122 vsl 15 24 0 1 0 0 empty empty empty 19 4 0 10 -262144
+-1 -1 500 1;
+#X obj 254 122 knob 24 24 0 127 0 0 empty empty empty 0 -8 32 8 -262144
+-1 -1 1159 1;
+#N canvas 0 22 450 300 clank-control 0;
+#X obj 81 177 resources/cross-fade~;
+#X obj 69 206 *~;
+#X obj 156 207 *~;
+#X obj 70 147 *~ 1;
+#X obj 175 105 inlet vol;
+#X obj 93 98 inlet pan;
+#X obj 42 110 r~ clank;
+#X obj 70 252 outlet~;
+#X obj 151 254 outlet~;
+#X connect 0 0 1 1;
+#X connect 0 1 2 1;
+#X connect 1 0 7 0;
+#X connect 2 0 8 0;
+#X connect 3 0 1 0;
+#X connect 3 0 2 0;
+#X connect 4 0 3 1;
+#X connect 5 0 0 0;
+#X connect 6 0 3 0;
+#X restore 495 241 pd clank-control;
+#X obj 335 122 vsl 15 24 0 1 0 0 empty empty empty 19 4 0 10 -262144
+-1 -1 2000 1;
+#X obj 307 122 knob 24 24 0 127 0 0 empty empty empty 0 -8 32 8 -262144
+-1 -1 1200 1;
+#N canvas 0 22 450 300 buzzer-control 0;
+#X obj 81 177 resources/cross-fade~;
+#X obj 69 206 *~;
+#X obj 156 207 *~;
+#X obj 70 147 *~ 1;
+#X obj 175 105 inlet vol;
+#X obj 93 98 inlet pan;
+#X obj 65 240 outlet~;
+#X obj 146 242 outlet~;
+#X obj 42 110 r~ buzzer;
+#X connect 0 0 1 1;
+#X connect 0 1 2 1;
+#X connect 1 0 6 0;
+#X connect 2 0 7 0;
+#X connect 3 0 1 0;
+#X connect 3 0 2 0;
+#X connect 4 0 3 1;
+#X connect 5 0 0 0;
+#X connect 8 0 3 0;
+#X restore 487 266 pd buzzer-control;
+#X obj 359 100 resources/st-compressor;
+#X obj 97 30 loadbang;
+#X msg 97 53 64;
+#X msg 131 53 0;
+#X obj 104 102 hsl 38 16 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 3100 0;
+#X msg 103 157 0;
+#X obj 100 101 cnv 15 44 18 empty empty Kick 5 10 0 14 -1 -262144 0
+;
+#X obj 155 102 hsl 38 16 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 3300 0;
+#X obj 206 102 hsl 38 16 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 2600 0;
+#X obj 256 102 hsl 38 16 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 3600 0;
+#X obj 310 102 hsl 38 16 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 1300 0;
+#X msg 389 417 0;
+#X msg 156 158 1;
+#X obj 152 101 cnv 15 44 18 empty empty Snare 2 10 0 14 -86277 -262144
+0;
+#X msg 204 165 2;
+#X obj 202 101 cnv 15 44 18 empty empty Hihat 2 10 0 14 -260097 -262144
+0;
+#X obj 253 101 cnv 15 44 18 empty empty Clank 2 10 0 14 -159808 -262144
+0;
+#X msg 253 174 3;
+#X msg 308 187 4;
+#X obj 306 101 cnv 15 44 18 empty empty Buzzer 2 10 0 12 -4034 -262144
+0;
+#X obj 103 267 s instru-number-r;
+#X obj 102 215 t f;
+#X connect 1 0 5 1;
+#X connect 2 0 5 0;
+#X connect 3 0 6 1;
+#X connect 4 0 6 0;
+#X connect 5 0 16 0;
+#X connect 5 1 16 1;
+#X connect 6 0 16 0;
+#X connect 6 1 16 1;
+#X connect 7 0 9 1;
+#X connect 8 0 9 0;
+#X connect 9 0 16 0;
+#X connect 9 1 16 1;
+#X connect 10 0 12 1;
+#X connect 11 0 12 0;
+#X connect 12 0 16 0;
+#X connect 12 1 16 1;
+#X connect 13 0 15 1;
+#X connect 14 0 15 0;
+#X connect 15 0 16 0;
+#X connect 15 1 16 1;
+#X connect 16 0 0 0;
+#X connect 16 1 0 1;
+#X connect 17 0 18 0;
+#X connect 17 0 19 0;
+#X connect 18 0 2 0;
+#X connect 18 0 4 0;
+#X connect 18 0 8 0;
+#X connect 18 0 11 0;
+#X connect 18 0 14 0;
+#X connect 19 0 1 0;
+#X connect 19 0 3 0;
+#X connect 19 0 7 0;
+#X connect 19 0 10 0;
+#X connect 19 0 13 0;
+#X connect 20 0 21 0;
+#X connect 21 0 37 0;
+#X connect 23 0 28 0;
+#X connect 24 0 30 0;
+#X connect 25 0 33 0;
+#X connect 26 0 34 0;
+#X connect 28 0 37 0;
+#X connect 30 0 37 0;
+#X connect 33 0 37 0;
+#X connect 34 0 37 0;
+#X connect 37 0 36 0;
+#X coords 0 -1 1 1 583 50 2 100 100;

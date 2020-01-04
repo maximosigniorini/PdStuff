@@ -1,0 +1,26 @@
+#N canvas 427 192 393 318 10;
+#X obj 69 4 bng 35 250 50 0 empty empty click_me 40 10 0 10 -258079
+-1 -1;
+#X obj 6 225 cnv 15 370 80 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 42 84 i;
+#X obj 42 46 tgl 15 0 empty empty empty 0 -6 0 10 -262144 -1 -1 0 1
+;
+#X obj 71 84 + 1;
+#X text 191 10 open the window;
+#X obj 42 64 metro 60;
+#X text 24 111 CIRCLE;
+#X obj 193 30 ehu/gem/win 450 300;
+#X obj 22 132 ehu/gem/circle 250 100 50;
+#X text 10 236 init arguments are : xloc \, yloc \, width;
+#X text 98 64 < increase width by 1 every 60 ms;
+#X text 10 255 inlets are : 1 render on off \, 2 xloc \, 3 yloc \,
+4 width \, 5 rotation \, 6 red \, 7 green \, 8 blue \, 9 mode (texture
+or plain) \, 10 texture;
+#X connect 0 0 3 0;
+#X connect 0 0 8 0;
+#X connect 2 0 4 0;
+#X connect 3 0 6 0;
+#X connect 4 0 2 1;
+#X connect 4 0 9 3;
+#X connect 6 0 2 0;

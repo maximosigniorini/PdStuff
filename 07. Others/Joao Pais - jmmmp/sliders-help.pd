@@ -1,0 +1,45 @@
+#N struct 1085-data-s float x float y array 1085-array-s 1085-element
+;
+#N struct 1085-element float y;
+#N struct 1088-data-s float x float y array 1088-array-s 1088-element
+;
+#N struct 1088-element float y;
+#N struct 1091-data-s float x float y array 1091-array-s 1091-element
+;
+#N struct 1091-element float y;
+#N canvas 35 130 444 495 10;
+#X text 12 472 Released under the BSD License;
+#X text 11 455 (C) 2009 João Pais - jmmmpais@googlemail.com;
+#X text 316 238 Arguments;
+#X obj 63 203 sliders;
+#X text 19 183 [sliders] - automatically 16 channels \, normally routed
+;
+#X text 19 263 [sliders 16 aaa] - 16 channels \, string aaa;
+#X text 19 343 [sliders 5 bbb] - 5 channels \, string bbb;
+#X text 11 10 [sliders] - GUI for incoming midi data;
+#X text 316 258 - Number of sliders;
+#X text 316 278 - Identity string;
+#X text 11 30 [sliders] creates as many sliders you want (max 511)
+to display incoming midi data.;
+#X text 21 163 Compare these 3 settings with your midi mixer:;
+#X text 12 126 If you don't specify any parameters \, 16 channels are
+created \, with normal routing.;
+#X text 11 56 The identity string reads the routing list defined in
+the file slider-i.txt (leave it somewhere reachable). To define a routing
+table \, just write in sequencial order the midi channels to be displayed
+in the GUI sliders. E.g. "1 2 4 5" displays these channels in the first
+four sliders (all other channels are ignored).;
+#X text 316 318 - slider-i.txt;
+#X text 316 298 Index file;
+#X text 12 422 Related objects: [m-i] [mk];
+#X obj 63 283 sliders 16 aaa;
+#X obj 63 363 sliders 5 bbb;
+#N canvas 504 106 494 344 META 0;
+#X text 12 55 AUTHOR João Pais <jmmmpais@googlemail.com>;
+#X text 12 95 LICENSE BSD;
+#X text 12 75 LIBRARY jmmmp;
+#X text 13 115 WEBSITE http://puredata.info/Members/jmmmp;
+#X text 12 6 DESCRIPTION GUI for incoming midi data;
+#X text 12 36 KEYWORDS midi slider GUI;
+#X text 12 135 VERSION 2009;
+#X restore 382 466 pd META;

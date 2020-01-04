@@ -1,0 +1,31 @@
+#N canvas 344 63 793 412 10;
+#X obj 2 -77 cnv 15 700 50 empty empty &list-dripMIDI 3 12 0 18 -204800
+-1 0;
+#X msg 710 39 500;
+#X msg 666 39 1000;
+#X obj 622 120 bng 15 250 50 0 empty empty fin 17 7 0 10 -262144 -1
+-1;
+#X obj 517 120 print;
+#X text 21 69 Arguments \; 1- nombre : tempo de l'envoi (en ms);
+#X text 348 -50 rythme;
+#X text 5 -50 Enumère les valeurs d'une liste de données MIDI selon
+un;
+#X text 21 -12 Description \; Enumère les valeurs d'une liste de données
+MIDI (hauteur et vélocité) selon un rythme et une pulsation donnée.
+;
+#X msg 443 38 60 100 1 62 90 2 62 0 1 64 127 2;
+#X obj 517 82 &list-dripMIDI 500;
+#X text 21 28 Le rythme est codifié en unités de pulsation : 1 =
+une fois le tempo \, 2 = deux fois le tempo \, etc.;
+#X text 21 110 INLETS \; 1- liste de nombres : données MIDI et durées.
+C'est une liste de triplets : hauteur MIDI (0 à 127) \, vélocité
+MIDI (0 à 127) et durée (unités de pulsation) \; 2- nombre : tempo
+de l'envoi (en ms);
+#X text 21 195 OUTLETS \; 1- liste de nombres : données MIDI et vélocité
+énumérées selon le rythme \; 2-bang : fin d'énumération;
+#X connect 1 0 10 1;
+#X connect 2 0 10 1;
+#X connect 9 0 10 0;
+#X connect 10 0 4 0;
+#X connect 10 1 3 0;
+#X coords 0 412 1 411 65 15 0;

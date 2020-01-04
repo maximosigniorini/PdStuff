@@ -1,0 +1,130 @@
+#N canvas 451 220 702 368 10;
+#X obj 34 172 symbol \$1;
+#X obj 136 230 ftos;
+#X obj 105 164 float \$1;
+#X floatatom 105 193 5 0 0 0 - - -;
+#X symbolatom 35 205 0 0 0 0 - - -;
+#X symbolatom 95 243 10 0 0 0 - - -;
+#X obj 44 126 loadbang;
+#X obj 97 280 s \$1pdp_warp_id;
+#X obj 253 63 inlet;
+#X text 311 63 video;
+#X text 481 63 on/off;
+#X obj 282 285 outlet;
+#X obj 286 115 pdp_spigot;
+#X text 330 282 video;
+#X obj 485 139 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X text 507 137 Mode ( 0=manual \, 1=auto );
+#X floatatom 485 169 5 0 0 0 - - -;
+#X text 532 169 Manual control;
+#X obj 395 200 pdp_warp;
+#X obj 491 109 r \$1epdp_warp_mode;
+#X obj 529 76 r \$1epdp_warp_control;
+#X obj 393 25 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 428 27 r \$1epdp_warp_on;
+#X obj 0 0 cnv 15 150 75 empty empty empty 2 12 0 14 -191407 -66577
+0;
+#X obj 7 5 tgl 15 0 \$1epdp_warp_on \$1epdp_warp_on_init Warp 17 7
+0 10 -260097 -1 -1 0 1;
+#X obj 80 48 nbx 3 14 -1000 1000 0 0 \$1epdp_warp_control \$1epdp_warp_control_init
+Control -65 5 0 10 -262144 -1 -1 122.047 256;
+#X obj 21 26 tgl 15 0 \$1epdp_warp_mode \$1epdp_warp_mode_init Manual/Auto
+17 7 0 10 -262144 -1 -1 0 1;
+#X obj 106 7 cnv 15 20 10 empty \$1pdp_warp_id \$1 5 5 0 10 -260097
+-33289 0;
+#X obj 2 59 bng 15 250 50 0 \$1epdp_warp_midi_on empty midi 17 7 0
+8 -4160 -1 -1;
+#N canvas 12 98 711 619 midi_control 0;
+#X msg 110 152 ef1epdp_warp_on_midi;
+#X msg 271 150 ef1epdp_warp_mode_midi;
+#X text 27 21 MIDI;
+#X obj 44 125 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 167 173 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 294 173 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 219 250 s midi_var_to_add;
+#X msg 110 118 set \$1epdp_warp_on_midi;
+#X obj 62 315 r \$1epdp_warp_on_midi;
+#X obj 43 473 s \$1epdp_warp_on_init;
+#X obj 58 51 r \$1epdp_warp_midi_on;
+#X msg 271 119 set \$1epdp_warp_mode_midi;
+#X obj 223 313 r \$1epdp_warp_mode_midi;
+#X obj 226 473 s \$1epdp_warp_mode_init;
+#X msg 443 148 ef1epdp_warp_control_midi;
+#X obj 466 171 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 443 117 set \$1epdp_warp_control_midi;
+#X obj 414 312 r \$1epdp_warp_control_midi;
+#X obj 417 472 s \$1epdp_warp_control_init;
+#X text 339 250 -->global value of mb-midi_control_pad;
+#X obj 279 48 r \$1pdp_warp_id;
+#X obj 62 380 select 0;
+#X msg 119 431 0;
+#X msg 69 437 1;
+#X obj 49 410 alternate;
+#X floatatom 443 369 5 0 0 0 - - -;
+#X floatatom 469 438 8 0 0 0 - - -;
+#X obj 524 372 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 6200 1;
+#X obj 224 368 select 0;
+#X msg 281 419 0;
+#X msg 231 425 1;
+#X obj 211 398 alternate;
+#X obj 539 409 autoscale 0 250;
+#X connect 0 0 4 0;
+#X connect 0 0 6 0;
+#X connect 1 0 5 0;
+#X connect 1 0 6 0;
+#X connect 3 0 0 0;
+#X connect 4 0 1 0;
+#X connect 5 0 14 0;
+#X connect 7 0 0 0;
+#X connect 8 0 21 0;
+#X connect 10 0 3 0;
+#X connect 11 0 1 0;
+#X connect 12 0 28 0;
+#X connect 14 0 15 0;
+#X connect 14 0 6 0;
+#X connect 16 0 14 0;
+#X connect 17 0 25 0;
+#X connect 20 0 7 0;
+#X connect 20 0 11 0;
+#X connect 20 0 16 0;
+#X connect 21 1 24 0;
+#X connect 22 0 9 0;
+#X connect 23 0 9 0;
+#X connect 24 0 23 0;
+#X connect 24 1 22 0;
+#X connect 25 0 27 0;
+#X connect 26 0 18 0;
+#X connect 27 0 32 0;
+#X connect 28 1 31 0;
+#X connect 29 0 13 0;
+#X connect 30 0 13 0;
+#X connect 31 0 30 0;
+#X connect 31 1 29 0;
+#X connect 32 0 26 0;
+#X restore 182 21 pd midi_control;
+#X connect 0 0 4 0;
+#X connect 1 0 5 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X connect 4 0 5 0;
+#X connect 5 0 7 0;
+#X connect 6 0 2 0;
+#X connect 6 0 0 0;
+#X connect 8 0 12 0;
+#X connect 12 0 11 0;
+#X connect 12 1 18 0;
+#X connect 14 0 18 1;
+#X connect 16 0 18 2;
+#X connect 18 0 11 0;
+#X connect 19 0 14 0;
+#X connect 20 0 16 0;
+#X connect 21 0 12 1;
+#X connect 22 0 21 0;
+#X coords 0 -1 1 1 150 75 1 0 0;

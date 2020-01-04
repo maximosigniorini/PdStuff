@@ -1,0 +1,10 @@
+#N canvas 291 84 287 264 10;
+#X msg 89 155 \$2 \$3 \$1;
+#X obj 89 176 outlet;
+#X obj 89 133 pack 0 \$2 \$3;
+#X obj 89 93 r \$1_fromgui;
+#X obj 89 112 + 100;
+#X connect 0 0 1 0;
+#X connect 2 0 0 0;
+#X connect 3 0 4 0;
+#X connect 4 0 2 0;

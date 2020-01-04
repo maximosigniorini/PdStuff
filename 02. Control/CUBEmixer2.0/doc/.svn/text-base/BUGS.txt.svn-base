@@ -1,0 +1,176 @@
+==============================================================================
+=                                 OUTLINE                                    =
+==============================================================================
+section/subsection:
+  - mit "-" beginnende zeilen sind BUGS/TODO
+  + mit "+" beginnended zeilen beschreiben die lösung des vorangegehenden
+    BUG/TODO-items
+  + mehrere getrennte lösungen erhalten einzelne "+"-punkte
+    
+  - was ist section/subsection?
+  + orientiert sich nach funktionalen einheiten, wie sie 
+    schon die verzeichnisstruktur vorgibt
+  
+  - layout
+  + die zeilenlänge soll 80 zeichen nicht überschreiten
+  + zwischen jedem item (also gruppe von - und dazugehörigen +) ist aus
+    übersichtsgründen ein leerzeichen einzuführen
+
+==============================================================================
+=                                   TODO                                     =
+==============================================================================
+
+pd/DSP:
+
+  - aux-funktioniert nicht (dsp-seiting)
+  + funktioniert
+
+  - SFPLAYER nur dummymäßig implementiert
+  + SFPLAYER implementiert (als extension)
+
+  - der SFPLAYER ist gemutet und kann nicht aufgedreht werden
+
+  - der SFPLAYER16 knackst bei stop
+  + behoben
+
+  - der SFPLAYER16 kann keine pause
+
+  - AUX_SEND kann man vereinfachen, indem man nur von PRE_FADER abzapft und optional
+      mal 1 multipliziert (PRE_FADER) oder mal Fader_Gain multipliziert (POST_FADER)
+      und dann erst auf throw~ AUX_SUM geht.
+
+pd/DSP/ambisonic:
+
+  - Distanzregler wird leiser wenn Entfernung 0..1
+    Bitte irgendwie linearisieren
+
+  - stellt man die ambisonic-gewichte um, wird es laut (0dBmidi <-> 0dBrms)
+  + problem war rms<->dB; fixed
+
+  - ambisonic-orientation funktioniert nicht (nicht implementiert!)
+
+  - early reflections über auxiliary channels + plugin implementieren
+    draft: 5 early reflections (von jeder wand genau eine, 0ter ordnung)
+    laufzeiten, gain und filter der einzelnen quellen werden im kanalzug
+    gerechnet und dann auf den jeweiligen aux-kanal aufaddiert
+
+  - ambisonic gewichtung pro kanal (?)
+    (bei r<1 werden die gewichte ja schon verändert!)
+
+
+pd/GUI:
+
+  - SPLAYER als Eingang zwar im Patch aber keine Bedienung in der 
+    Mastersektion. Eventuell konzept dazu.
+    PLAY, PAUSE, STOP, LOAD, timeline(?)
+  + SFPLAYER (als extension) implementiert
+	
+  - GUI-feedback bei umschalten ambisonic/direct
+  + popup hat durchgeschliffen: "set" verwenden
+
+  - spat-umschaltung wird in [inchan] nicht dargestellt
+  + gop waren zu groß
+
+  - aux-funktioniert nicht 
+  + funktioniert
+
+  - ambisonic/direct werden nicht korrekt initialisiert
+
+  - bus-matrix reagiert auf tastatur-eingabe erst, wenn zuvor mit maus eine 
+    änderung gemacht wurde (tutner, 25.04.06)
+  + [numberbox_matrix] verhält sich immer passiv (ausser bei [bang(), 
+    daher [sendreceive_nofb] verwenden
+
+  - bus zuordnung in channel-detail-view und inchan wird nicht immer korrekt upgedated
+
+  - VU-Bank
+
+  - zoom-funktion für die BUS-Matrix
+
+  - statt edit bangs edit toggles zum auf/zumachen der subfenster
+
+pd/MIDI:
+
+  - MIDIconnect zu einen Behringer funktioniert standardmässig nicht.
+  + settings waren falsch gespeichert; korrigiert (über reset 
+    in [MIDI/aconnector] und anschließendem speichern dieses patches
+
+  - MIDI in/out sollte schaltbar sein (z.b. keine positionsdaten 
+    an midi-out schicken)
+
+  - Konzept für MIDI-anbindung von extensions/plugins
+
+pd/NET:
+  - OSC anbindung (lt. wini existiert irgendwo als studierenden-projekt)
+  + done
+
+  - autoregistrierung abschaffen!
+  + existiert nur noch als zusatz-funktion (z.b. für pattern-matching)
+
+  - OSC-pattern-matching 
+
+pd/plugins:
+
+  - plugin-creator script, das automatisch die plugins einbindet.
+  + importPlugins.sh implementiert.
+  + importPlugins.tcl implementiert (sollte platformunabhängig sein)
+    (allerdings keine tests auf w32 durchgeführt)
+  + in TOOLS/configurator/ ist ein pd-patch der plugins einbaut.
+    (theoretisch platform unabhängig, von externals abhängig)
+
+  - [plugin~] (in pd/DSP/) collidiert mit dem external [plugin~]
+    für VST-plugins
+  + [plugin~] in [CUBEmixer_plugin~] umbenannt
+
+
+  - die DIRECT/INTerruptible logik ist völlig unverständlich! (logik erlaubt doppeldeutigkeiten; namen "direkt" und "int" sind belegt)
+  = evtl. ein msg-plugin, das defaultmäßig die koordinaten durchroutet; auf jedenfall konsistentere namen
+  + auf DSP-seite können nun "alle" parameter überbrückt werden
+
+pd/extensions:
+
+  - tm's superhall einbinden
+  + eingebunden (ist beinahe identisch mit simplerev)
+  + ersetzt durch ARRR
+  + ein zweiter hall mit 6 in und 6 out ist nun auch eingebunden
+
+pd/CUE:
+
+  - Die Matrix Bus zu DAC~ wird nicht in den Settings oder parameter 
+    gespeichert.
+  + fixed saving/restoring mechanism
+
+  - beim Laden der Settings ist die Bus-Zuordnung nur in der Detailansicht 
+    der Channels sichtbar, jedoch nicht oben bei den Channels. Erst beim 
+    Laden der Parameter ist die Bus-Zuordnung auch oben sichtbar.
+    (tutner, 25.04.06)
+
+  - "setting"-Kategorie ist ohne "parameter" sinnlos (uninitialisierte werte)
+    evtl. "save-setting" in eine "save-all" (param+set) kategorie umwandeln
+    und nur einen einzigen "load" button anbieten (nachteil bei reload!)
+  + neue CUE-struktur: nur ein "load" button, bei "save" kann man auswählen (auch filter)
+
+
+hardware/bc{f,r}2000:
+
+  - channel-select-5 gibt controller für channel-select-4 aus! 
+    (13 selectiert 12!!)
+  + am controller geändert (die setting-files im hw-folder sind
+    ebenfalls geändert (aber nicht getestet)
+
+  - Beschriftung der Controller 
+  + beschriftet 
+
+
+system/libraries:
+  - iem_spec2 library fehlt!! (bitte in pure-data CVS einchecken!)
+  + fehlt doch nicht; ist bereits in lib/ eingecheckt (nur makefile hat noch nicht funktioniert)
+
+  - [prvu~] und [rvu~] funktionieren nicht, wenn sie auf amd64 maschinen kompiliert wurden
+  + fixed; problem war ein compiler-flag das nicht von pd übernommen worden ist
+
+system/pd:
+  - pd>=0.40 hat $args grundlegend geändert: $args inder mitte werden nun geparsed und nicht mehr als "bla-$2-blu" sondern als "bla-\$2-blu" abgespeichert
+  . dadurch müssen alle objekte bei denen "$" vorkommt, geändert werden, am besten mit einem script wie diesem:
+     find . -name "*.pd" | while read f; do sed -i -e 's|\([^\\]\)\$|\1\\$|g' $f; done
+  + done

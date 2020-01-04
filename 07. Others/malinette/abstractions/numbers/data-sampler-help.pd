@@ -1,0 +1,42 @@
+#N canvas 1 125 510 535 10;
+#X obj 53 200 random 127;
+#X obj 53 177 metro 200;
+#X obj 81 225 random 127;
+#X obj 53 380 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 87 381 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 53 158 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 53 354 unpack f f s;
+#X obj 53 278 pack f f s;
+#X symbolatom 122 380 10 0 0 0 - - -;
+#X text 74 155 <- test;
+#X obj 110 253 makefilename note_%d;
+#X msg 253 369 speed \$1;
+#X floatatom 253 346 5 0 0 0 - - -;
+#X obj 53 301 data-sampler;
+#X msg 254 284 mode 2;
+#X msg 253 414 loop 0;
+#X text 306 284 0: stop \; 1: play \; 2: rec;
+#X text 315 366 speed of the player;
+#X text 313 410 0 or 1 to disable/enable loop;
+#X text 51 34 data-sampler \; ------------ \; Record and play a flow
+of data (numbers+symbols) into a text file \; Inlets \; \$1 : data
+\; \$2 : commands \;;
+#X connect 0 0 7 0;
+#X connect 1 0 0 0;
+#X connect 1 0 2 0;
+#X connect 2 0 7 1;
+#X connect 2 0 10 0;
+#X connect 5 0 1 0;
+#X connect 6 0 3 0;
+#X connect 6 1 4 0;
+#X connect 6 2 8 0;
+#X connect 7 0 13 0;
+#X connect 10 0 7 2;
+#X connect 11 0 13 1;
+#X connect 12 0 11 0;
+#X connect 13 0 6 0;
+#X connect 14 0 13 1;
+#X connect 15 0 13 1;

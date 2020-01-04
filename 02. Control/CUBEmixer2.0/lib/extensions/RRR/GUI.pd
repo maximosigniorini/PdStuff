@@ -1,0 +1,56 @@
+#N canvas 648 30 376 583 10;
+#X text 109 18 open_close_EDIT;
+#X msg 118 37 1;
+#X obj 11 11 cnv 15 63 198 empty empty RRR 2 10 0 12 -228992 -66577
+0;
+#X obj 19 38 tgl 15 0 \$0_ON_fromgui \$0_ON_togui ON 0 -6 0 8 -233017
+-1 -1 0 1;
+#X obj 45 38 bng 15 250 50 0 \$0sEDIT \$0rEDIT EDIT 0 -6 0 8 -62784
+-1 -1;
+#X obj 114 119 sendreceive /EXT/RRR/PARAM;
+#X obj 121 59 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0 1
+;
+#X obj 11 -17 gui_sr_offset \$0_ON /EXT/RRR/ON 0;
+#X text 133 294 should load send PBANK File;
+#X obj 114 88 abs/room_EDIT+12_earlies 12;
+#X obj 55 68 vfad_scale -1;
+#X obj 13 107 cnv 2 40 2 empty empty empty 20 12 0 14 -1 -66577 0;
+#X obj 19 64 vsl 30 131 0 130 0 0 \$0_rrr_vol_gui \$0_rrr_vol_gui -inf
+1 140 0 8 -233017 -1 -1 0 1;
+#X obj 48 237 route float;
+#X obj 128 444 - 100;
+#X msg 49 505 label \$1;
+#X msg 49 483 symbol -inf;
+#X obj 48 344 max 0;
+#X obj 48 365 select 0 100;
+#X obj 88 423 makefilename %03d;
+#X msg 88 402 0;
+#X obj 128 463 makefilename %+03d;
+#X obj 48 304 t f f;
+#X obj 48 281 fadtodb;
+#X obj 139 386 dbtofad;
+#X obj 48 216 r \$0_rrr_vol_gui;
+#X obj 49 528 s \$0_rrr_vol_gui;
+#X obj 139 365 sendreceive /EXT/RRR/GAIN;
+#X connect 1 0 6 0;
+#X connect 4 0 1 0;
+#X connect 6 0 9 0;
+#X connect 9 0 5 0;
+#X connect 13 0 23 0;
+#X connect 14 0 21 0;
+#X connect 15 0 26 0;
+#X connect 16 0 15 0;
+#X connect 17 0 18 0;
+#X connect 18 0 16 0;
+#X connect 18 1 20 0;
+#X connect 18 2 14 0;
+#X connect 19 0 15 0;
+#X connect 20 0 19 0;
+#X connect 21 0 15 0;
+#X connect 22 0 17 0;
+#X connect 22 1 27 0;
+#X connect 23 0 22 0;
+#X connect 24 0 26 0;
+#X connect 25 0 13 0;
+#X connect 27 0 24 0;
+#X coords 0 -1 1 1 65 200 1 10 10;

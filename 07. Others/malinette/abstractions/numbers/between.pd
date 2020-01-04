@@ -1,0 +1,23 @@
+#N canvas 1 48 638 278 10;
+#X obj 121 61 initbang;
+#X obj 121 94 f \$1;
+#X obj 156 95 f \$2;
+#X obj 58 27 inlet;
+#X obj 97 227 outlet;
+#X text 243 104 This abstraction let pass the number between the 2
+arguments;
+#X text 244 124 ex : between 10 15 will let pass through number between
+10 and 15;
+#X obj 58 121 moses 0;
+#X obj 97 166 moses 1;
+#X obj 268 27 inlet max;
+#X obj 97 27 inlet min;
+#X connect 0 0 1 0;
+#X connect 0 0 2 0;
+#X connect 1 0 7 1;
+#X connect 2 0 8 1;
+#X connect 3 0 7 0;
+#X connect 7 1 8 0;
+#X connect 8 0 4 0;
+#X connect 9 0 8 1;
+#X connect 10 0 7 1;

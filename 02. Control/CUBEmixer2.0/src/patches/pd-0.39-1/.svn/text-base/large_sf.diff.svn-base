@@ -1,0 +1,68 @@
+diff -Naur src.org/configure.in src.largefile/configure.in
+--- src.org/configure.in	2005-08-16 06:03:28.000000000 +0200
++++ src.largefile/configure.in	2005-10-04 15:06:30.275367968 +0200
+@@ -349,5 +349,30 @@
+     MORECFLAGS=$MORECFLAGS"  -g3 -D__COMPAQC__ -arch host"
+ fi
+ 
++## JMZ{
++##  this does not do very much, but i guess it is a good idea to use it...
++AC_SYS_LARGEFILE
++## test, whether we can use _LARGEFILE64_SOURCE to 
++## enable large-file reading via "open64" (and lseek64");
++if test "x$enable_largefile" != "xno"; then
++## the following should run on autoconf>2.54 (which pd is not using)
++dnl  AC_LINK_IFELSE ( [AC_LANG_PROGRAM([[
++dnl                          #define _LARGEFILE64_SOURCE
++dnl                          #include <sys/types.h>
++dnl                          #include <sys/stat.h>
++dnl                          #include <fcntl.h>
++dnl                      ]],[[ open64(0,0); ]])], 
++dnl                   [ MORECFLAGS=$MORECFLAGS" -D_LARGEFILE64_SOURCE" ], )
++## and this is for autoconf<2.50
++AC_TRY_LINK( [
++                                        #define _LARGEFILE64_SOURCE
++                                        #include <sys/types.h>
++                                        #include <sys/stat.h>
++                                        #include <fcntl.h>
++                                       ],[ open64(0,0); ],
++                [ MORECFLAGS=$MORECFLAGS" -D_LARGEFILE64_SOURCE" ], )
++fi
++## }JMZ: end of large-file support section
++
+ AC_OUTPUT(makefile)
+ 
+diff -Naur src.org/d_soundfile.c src.largefile/d_soundfile.c
+--- src.org/d_soundfile.c	2005-09-13 23:23:14.000000000 +0200
++++ src.largefile/d_soundfile.c	2005-10-04 15:06:24.527241816 +0200
+@@ -27,6 +27,11 @@
+ 
+ #define MAXSFCHANS 64
+ 
++#ifdef _LARGEFILE64_SOURCE
++# define open open64
++# define lseek lseek64
++#endif
++
+ /***************** soundfile header structures ************************/
+ 
+ typedef unsigned short uint16;
+
+diff -Naur src.org/s_path.c src.largefile/s_path.c
+--- src.org/s_path.c       2007-01-18 15:45:14.000000000 +0100
++++ src.largefile/s_path.c    2007-01-18 16:03:49.000000000 +0100
+@@ -31,6 +31,13 @@
+ #include <fcntl.h>
+ #include <ctype.h>
+
++#ifdef _LARGEFILE64_SOURCE
++# define open  open64
++# define lseek lseek64
++# define fstat fstat64
++# define stat  stat64
++#endif
++
+ t_namelist *sys_externlist;
+ t_namelist *sys_searchpath;
+ t_namelist *sys_helppath;
+

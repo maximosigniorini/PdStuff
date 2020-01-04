@@ -1,0 +1,9 @@
+#N canvas 652 306 371 150 10;
+#X obj 237 50 inlet;
+#X obj 237 73 expr 60000/$f1;
+#X obj 237 96 outlet;
+#X text 10 36 A very simple BPM converter;
+#X text 15 58 it works both way ! bpm to ms \; and ms to bpm \;;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X coords 0 150 1 149 75 17 0;

@@ -1,0 +1,58 @@
+9
+
+dir
+2173
+https://iem.svn.sourceforge.net/svnroot/iem/spatialization/CUBEmixer/tags/version_2_0/lib/extensions
+https://iem.svn.sourceforge.net/svnroot/iem
+
+
+
+2007-11-20T18:55:42.527308Z
+1939
+zmoelnig
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+499e2955-020e-0410-87df-96eab4b05569
+
+RRR
+dir
+
+TESTTONE
+dir
+
+VUBANK
+dir
+
+OGGCAST
+dir
+
+SFPO
+dir
+
+BIN
+dir
+
+HDSPM
+dir
+
+REV
+dir
+
+SFPLAYER16
+dir
+
+REV2
+dir
+

@@ -1,0 +1,81 @@
+#N canvas 249 53 812 625 10;
+#X declare -path ../in -path ../out -path ../tools -path ../filters
+-path ../lib;
+#X obj -25 187 cnv 1 396 1 empty empty FILTERS 2 -6 1 12 -228856 -191407
+0;
+#N canvas 400 311 645 287 INIT 0;
+#X obj 240 100 bng 10 250 50 0 empty empty SAVE-AS -45 6 0 9 -260097
+-1 -1;
+#X obj 103 200 namecanvas \$0-patch-name;
+#X obj 100 160 s \$0-patch-name;
+#X msg 100 131 menusaveas;
+#X obj 220 130 savepanel;
+#X obj 220 157 s UPDATE_PATCH;
+#X obj 50 33 declare -path ../in -path ../out -path ../tools -path
+../filters -path ../lib;
+#X text 50 4 Always use this subpatch in the presets;
+#X obj 101 101 cnv 8 80 8 empty empty INIT 5 5 0 10 -233017 -66577
+0;
+#X connect 0 0 3 0;
+#X connect 0 0 4 0;
+#X connect 3 0 2 0;
+#X connect 4 0 5 0;
+#X coords 0 -1 1 1 150 10 2 100 100;
+#X restore 625 -2 pd INIT;
+#X obj -25 354 cnv 1 800 1 empty empty OUT 2 -6 1 12 -228856 -191407
+0;
+#X obj -25 63 cnv 1 800 1 empty empty IN 2 -6 1 12 -228856 -191407
+0;
+#X obj -25 187 cnv 1 800 1 empty empty TOOLS 400 -6 1 12 -228856 -191407
+0;
+#X obj 140 214 gamme;
+#X obj 378 464 audio-pitchshift;
+#X obj 346 238 count 8;
+#X obj 376 532 audio-out;
+#X obj 19 79 seq-randomizer 500;
+#X obj 346 216 bang;
+#X floatatom 406 265 5 0 0 0 - - -;
+#X obj 346 261 sel 7;
+#X obj 346 329 physics;
+#X obj 140 464 audio-pitchshift -24;
+#X obj 140 529 audio-out;
+#X obj 346 284 random 500;
+#X obj 346 307 / 500;
+#X obj 346 54 seq-sliders;
+#X msg 304 31 time \$1;
+#X obj 140 193 map 0 1 20 60;
+#X obj 140 294 kicksound;
+#X obj 456 300 audio-delay;
+#X obj 543 428 audio-out;
+#X obj 614 444 audio-freeze;
+#X obj 612 558 audio-out;
+#X obj 613 526 audio-disto;
+#X connect 5 0 21 0;
+#X connect 5 0 21 1;
+#X connect 6 0 8 0;
+#X connect 6 0 8 1;
+#X connect 6 0 22 0;
+#X connect 7 0 11 0;
+#X connect 7 0 12 0;
+#X connect 10 0 7 0;
+#X connect 12 0 16 0;
+#X connect 13 0 6 1;
+#X connect 14 0 15 0;
+#X connect 14 0 15 1;
+#X connect 15 0 24 0;
+#X connect 16 0 17 0;
+#X connect 16 0 19 0;
+#X connect 17 0 13 0;
+#X connect 18 0 10 0;
+#X connect 18 0 20 0;
+#X connect 19 0 18 0;
+#X connect 20 0 5 0;
+#X connect 21 0 6 0;
+#X connect 21 0 14 0;
+#X connect 21 1 14 0;
+#X connect 22 0 23 0;
+#X connect 22 1 23 1;
+#X connect 22 1 24 0;
+#X connect 24 0 26 0;
+#X connect 26 0 25 0;
+#X connect 26 0 25 1;

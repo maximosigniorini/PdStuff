@@ -1,0 +1,503 @@
+#N canvas 205 111 786 641 10;
+#X obj 11 13 cnv 13 1 1 empty \$0-t1 ✓ 1 8 1 4 -1 -1 0;
+#X obj 11 13 cnv 13 13 15 empty \$0-x1 ✘ 1 9 1 14 -1 -258699 0;
+#X obj 43 13 cnv 15 1 1 empty \$0-t2 ✓ 1 8 1 4 -1 -1 0;
+#X obj 43 13 cnv 15 15 15 empty \$0-x2 ✘ 3 9 1 14 -1 -258699 0;
+#X obj 81 13 cnv 15 1 1 empty \$0-t3 ✓ 1 8 1 4 -1 -1 0;
+#X obj 81 13 cnv 15 15 15 empty \$0-x3 ✘ 3 9 1 14 -1 -258699 0;
+#X obj 119 13 cnv 15 1 1 empty \$0-t4 ✓ 1 8 1 4 -1 -1 0;
+#X obj 119 13 cnv 15 15 15 empty \$0-x4 ✘ 3 9 1 14 -1 -258699 0;
+#X obj 157 13 cnv 15 1 1 empty \$0-t5 ✓ 1 8 1 4 -1 -1 0;
+#X obj 157 13 cnv 15 15 15 empty \$0-x5 ✘ 3 9 1 14 -1 -258699 0;
+#X obj 195 13 cnv 15 1 1 empty \$0-t6 ✓ 1 8 1 4 -1 -1 0;
+#X obj 195 13 cnv 15 15 15 empty \$0-x6 ✘ 3 9 1 14 -1 -258699 0;
+#X obj 233 13 cnv 15 1 1 empty \$0-t7 ✓ 1 8 1 4 -1 -1 0;
+#X obj 233 13 cnv 15 15 15 empty \$0-x7 ✘ 3 9 1 14 -1 -258699 0;
+#X obj 271 13 cnv 15 1 1 empty \$0-t8 ✓ 1 8 1 4 -1 -1 0;
+#X obj 271 13 cnv 15 15 15 empty \$0-x8 ✘ 3 9 1 14 -1 -258699 0;
+#X obj 308 13 cnv 15 1 1 empty \$0-t9 ✓ 1 8 1 4 -1 -1 0;
+#X obj 308 13 cnv 15 15 15 empty \$0-x9 ✘ 3 9 1 14 -1 -258699 0;
+#X obj 346 13 cnv 15 1 1 empty \$0-t10 ✓ 1 8 1 4 -1 -1 0;
+#X obj 346 13 cnv 15 15 15 empty \$0-x10 ✘ 3 9 1 14 -1 -258699 0
+;
+#X obj 422 13 cnv 15 1 1 empty \$0-t12 ✓ 1 8 1 4 -1 -1 0;
+#X obj 422 13 cnv 15 15 15 empty \$0-x12 ✘ 3 9 1 14 -1 -258699 0
+;
+#X obj 460 13 cnv 15 1 1 empty \$0-t13 ✓ 1 8 1 4 -1 -1 0;
+#X obj 460 13 cnv 15 15 15 empty \$0-x13 ✘ 3 9 1 14 -1 -258699 0
+;
+#X obj 97 13 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0;
+#X obj 135 13 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 173 13 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 211 13 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 249 13 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 286 13 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 324 13 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 362 13 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 384 13 cnv 15 1 1 empty \$0-t11 ✓ 1 8 1 4 -1 -1 0;
+#X obj 384 13 cnv 15 15 15 empty \$0-x11 ✘ 3 9 1 14 -1 -258699 0
+;
+#X obj 400 13 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 438 13 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 476 13 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 498 13 cnv 10 11 15 empty empty i 7 9 2 14 -1 -228856 0;
+#X obj 25 13 cnv 15 17 15 empty empty empty 4 9 1 11 -1 -204800 0;
+#X obj 59 13 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0;
+#X obj 11 75 cnv 13 1 1 empty \$0-t1 ✓ 1 8 1 4 -1 -1 0;
+#X obj 11 75 cnv 13 13 15 empty \$0-x1 ✘ 1 9 1 14 -1 -258699 0;
+#X obj 43 75 cnv 15 1 1 empty \$0-t2 ✓ 1 8 1 4 -1 -1 0;
+#X obj 43 75 cnv 15 15 15 empty \$0-x2 ✘ 3 9 1 14 -1 -258699 0;
+#X obj 81 75 cnv 15 1 1 empty \$0-t3 ✓ 1 8 1 4 -1 -1 0;
+#X obj 81 75 cnv 15 15 15 empty \$0-x3 ✘ 3 9 1 14 -1 -258699 0;
+#X obj 119 75 cnv 15 1 1 empty \$0-t4 ✓ 1 8 1 4 -1 -1 0;
+#X obj 119 75 cnv 15 15 15 empty \$0-x4 ✘ 3 9 1 14 -1 -258699 0;
+#X obj 157 75 cnv 15 1 1 empty \$0-t5 ✓ 1 8 1 4 -1 -1 0;
+#X obj 157 75 cnv 15 15 15 empty \$0-x5 ✘ 3 9 1 14 -1 -258699 0;
+#X obj 195 75 cnv 15 1 1 empty \$0-t6 ✓ 1 8 1 4 -1 -1 0;
+#X obj 195 75 cnv 15 15 15 empty \$0-x6 ✘ 3 9 1 14 -1 -258699 0;
+#X obj 233 75 cnv 15 1 1 empty \$0-t7 ✓ 1 8 1 4 -1 -1 0;
+#X obj 233 75 cnv 15 15 15 empty \$0-x7 ✘ 3 9 1 14 -1 -258699 0;
+#X obj 271 75 cnv 15 1 1 empty \$0-t8 ✓ 1 8 1 4 -1 -1 0;
+#X obj 271 75 cnv 15 15 15 empty \$0-x8 ✘ 3 9 1 14 -1 -258699 0;
+#X obj 308 75 cnv 15 1 1 empty \$0-t9 ✓ 1 8 1 4 -1 -1 0;
+#X obj 308 75 cnv 15 15 15 empty \$0-x9 ✘ 3 9 1 14 -1 -258699 0;
+#X obj 346 75 cnv 15 1 1 empty \$0-t10 ✓ 1 8 1 4 -1 -1 0;
+#X obj 346 75 cnv 15 15 15 empty \$0-x10 ✘ 3 9 1 14 -1 -258699 0
+;
+#X obj 422 75 cnv 15 1 1 empty \$0-t12 ✓ 1 8 1 4 -1 -1 0;
+#X obj 422 75 cnv 15 15 15 empty \$0-x12 ✘ 3 9 1 14 -1 -258699 0
+;
+#X obj 460 75 cnv 15 1 1 empty \$0-t13 ✓ 1 8 1 4 -1 -1 0;
+#X obj 460 75 cnv 15 15 15 empty \$0-x13 ✘ 3 9 1 14 -1 -258699 0
+;
+#X obj 97 75 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0;
+#X obj 135 75 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 173 75 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 211 75 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 249 75 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 286 75 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 324 75 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 362 75 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 384 75 cnv 15 1 1 empty \$0-t11 ✓ 1 8 1 4 -1 -1 0;
+#X obj 384 75 cnv 15 15 15 empty \$0-x11 ✘ 3 9 1 14 -1 -258699 0
+;
+#X obj 400 75 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 438 75 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 476 75 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0
+;
+#X obj 498 75 cnv 10 11 15 empty empty i 7 9 2 14 -1 -228856 0;
+#X obj 25 75 cnv 15 17 15 empty empty empty 4 9 1 11 -1 -204800 0;
+#X obj 59 75 cnv 15 21 15 empty empty empty 4 9 1 11 -1 -204800 0;
+#X obj 11 31 cnv 15 15 15 empty empty E 4 9 1 11 -1 -204800 0;
+#X obj 29 31 cnv 15 15 15 empty empty A 4 9 1 11 -1 -204800 0;
+#X obj 47 31 cnv 15 15 15 empty empty T 4 9 1 11 -1 -204800 0;
+#X obj 446 31 cnv 15 63 15 empty empty HIGHPASS 4 9 1 11 -1 -204800
+0;
+#X obj 27 31 cnv 1 1 15 empty empty empty 20 12 0 14 -66577 -66577
+0;
+#X obj 45 31 cnv 1 1 15 empty empty empty 20 12 0 14 -66577 -66577
+0;
+#X obj 63 31 cnv 1 1 15 empty empty empty 20 12 0 14 -66577 -66577
+0;
+#X obj 339 31 cnv 15 57 15 empty \$0-uniqueid \$2 1 9 1 11 -1 -128992
+0;
+#X obj 11 29 cnv 1 498 1 empty empty empty 4 9 1 11 -66577 -204800
+0;
+#X obj 11 47 cnv 1 498 1 empty empty empty 4 9 1 11 -66577 -204800
+0;
+#X obj 11 73 cnv 1 498 1 empty empty empty 4 9 1 11 -66577 -204800
+0;
+#X obj 11 49 cnv 11 27 11 empty empty Mix 2 6 1 10 -1 -204800 0;
+#X obj 114 49 cnv 11 33 11 empty empty Cutoff 1 6 1 10 -1 -204800 0
+;
+#X obj 265 49 cnv 11 59 11 empty empty Interpolation 1 6 1 10 -1 -204800
+0;
+#X obj 385 49 cnv 11 36 11 empty empty Bypass 3 6 1 10 -1 -204800 0
+;
+#X obj 11 61 cnv 11 27 11 empty empty (0–1) 2 6 1 10 -1 -128992 0
+;
+#X obj 65 31 cnv 15 15 15 empty \$0-chdisplay \$3 6 9 1 11 -1 -128992
+0;
+#X obj 293 98 inlet~;
+#X obj 304 115 inlet~;
+#X obj 315 132 inlet~;
+#X obj 326 149 inlet~;
+#X obj 337 166 inlet~;
+#X obj 348 183 inlet~;
+#X obj 359 200 inlet~;
+#X obj 370 217 inlet~;
+#X obj 381 234 inlet~;
+#X obj 392 251 inlet~;
+#X obj 403 268 inlet~;
+#X obj 414 285 inlet~;
+#X obj 426 302 inlet~;
+#X obj 293 592 outlet~;
+#X obj 304 575 outlet~;
+#X obj 315 558 outlet~;
+#X obj 326 541 outlet~;
+#X obj 337 524 outlet~;
+#X obj 348 507 outlet~;
+#X obj 359 490 outlet~;
+#X obj 370 473 outlet~;
+#X obj 381 456 outlet~;
+#X obj 392 439 outlet~;
+#X obj 403 422 outlet~;
+#X obj 414 405 outlet~;
+#X obj 426 388 outlet~;
+#X obj 436 336 inlet;
+#X obj 436 353 outlet;
+#X obj 42 49 hsl 61 11 0 1 0 0 EAT_Highpass.Mix.\$2.Send.all EAT_Highpass.Mix.\$2.all
+empty -2 -8 0 10 -204800 -1 -1 6000 1;
+#X obj 39 61 cnv 11 66 11 empty EAT_Highpass.MixNum.\$2.all 1 2 6 1
+10 -1 -128992 0;
+#X obj 151 49 hsl 103 11 0 6000 0 0 EAT_Highpass.Cutoff.\$2.Send.all
+EAT_Highpass.Cutoff.\$2.all empty -2 -8 0 10 -204800 -1 -1 0 1;
+#X obj 328 49 hsl 50 11 0 100 0 0 EAT_Highpass.Interp.\$2.Send.all
+EAT_Highpass.Interp.\$2.all empty -2 -8 0 10 -204800 -1 -1 2450 1;
+#X obj 486 49 bng 23 500 50 0 \$0-help \$0-helpr HELP 1 12 1 9 -1 -204800
+-204800;
+#X obj 426 49 bng 23 500 50 0 \$0-advanced empty ADV 5 12 1 9 -1 -204800
+-204800;
+#X obj 108 49 cnv 1 1 23 empty empty empty 20 12 0 14 -66577 -66577
+0;
+#X obj 110 49 cnv 1 1 23 empty empty empty 20 12 0 14 -162280 -66577
+0;
+#X obj 106 49 cnv 1 1 23 empty empty empty 20 12 0 14 -1 -66577 0;
+#X obj 112 49 cnv 1 1 23 empty empty empty 20 12 0 14 -1 -66577 0;
+#X obj 259 49 cnv 1 1 23 empty empty empty 20 12 0 14 -66577 -66577
+0;
+#X obj 261 49 cnv 1 1 23 empty empty empty 20 12 0 14 -162280 -66577
+0;
+#X obj 257 49 cnv 1 1 23 empty empty empty 20 12 0 14 -1 -66577 0;
+#X obj 263 49 cnv 1 1 23 empty empty empty 20 12 0 14 -1 -66577 0;
+#X obj 385 61 cnv 6 13 11 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 456 49 bng 23 500 50 0 \$0-midi empty MIDI 4 12 1 9 -1 -204800
+-204800;
+#X obj 10 98 r \$0-advanced;
+#X obj 81 31 cnv 15 43 15 empty empty Channel 1 9 1 11 -1 -128992 0
+;
+#X obj 125 31 cnv 15 213 15 empty empty Processing 1 9 1 11 -1 -128992
+0;
+#X obj 10 115 float \$0;
+#N canvas 432 269 466 135 display 0;
+#N canvas 0 22 450 300 Mix 0;
+#X obj 59 178 prepend label;
+#X obj 59 161 list2symbol;
+#X obj 59 127 int;
+#X obj 59 93 * 1000;
+#X obj 59 144 / 1000;
+#X obj 59 110 + 0.4;
+#X obj 59 76 r EAT_Highpass.Mix.\$2.Send.all;
+#X obj 59 195 s EAT_Highpass.MixNum.\$2.all;
+#X connect 0 0 7 0;
+#X connect 1 0 0 0;
+#X connect 2 0 4 0;
+#X connect 3 0 5 0;
+#X connect 4 0 1 0;
+#X connect 5 0 2 0;
+#X connect 6 0 3 0;
+#X restore 35 11 pd Mix;
+#N canvas 0 22 528 110 Channel 0;
+#X obj 14 1 loadbang;
+#X obj 14 35 < 10;
+#X obj 14 52 sel 1;
+#X msg 14 86 label_pos \$1 \$2;
+#X msg 14 69 6 9;
+#X obj 14 103 s \$0-chdisplay;
+#X msg 41 69 2 9;
+#X obj 14 18 float \$3;
+#N canvas 0 22 591 359 error 0;
+#X obj -155 284 s \$0-\$2;
+#X obj -104 177 t b b;
+#X msg -155 218 obj 10 50 cnv 20 20 40 errorbox errorboxr ERROR:_INCORRECT_CREATION_ARGUMENTS
+40 10 3 20 0 13 0;
+#X msg -105 254 obj 30 50 cnv 20 20 40 errorbox2 errorboxr2 ERROR:_SEE_HELP_FOR_DETAILS
+20 30 3 20 0 13 0;
+#X msg 63 184 obj 10 49 cnv 40 470 41 errorbox3 errorboxr3 _ 0 0 3
+1 0 13 0;
+#X obj 264 129 spigot;
+#X obj 297 78 io;
+#X obj 264 163 s \$0-helpr;
+#X msg 264 146 color -1 \$1;
+#X obj 207 78 metro 1000;
+#X obj 236 95 pipe 500;
+#X msg 236 112 17;
+#X msg 207 112 6;
+#X msg 207 61 1;
+#X obj 56 60 print EAT;
+#X msg 56 28 Error! 3rd argument (channel number) must be an integer
+between 1 and 13;
+#X obj -107 3 route 0 1 2 3 4 5 6 7 8 9 10 11 12 13;
+#X obj -59 -22 inlet;
+#X connect 1 0 3 0;
+#X connect 1 0 2 0;
+#X connect 1 1 4 0;
+#X connect 1 1 13 0;
+#X connect 2 0 0 0;
+#X connect 3 0 0 0;
+#X connect 4 0 0 0;
+#X connect 5 0 8 0;
+#X connect 6 0 5 1;
+#X connect 8 0 7 0;
+#X connect 9 0 12 0;
+#X connect 9 0 10 0;
+#X connect 10 0 11 0;
+#X connect 11 0 5 0;
+#X connect 12 0 5 0;
+#X connect 13 0 9 0;
+#X connect 13 0 6 0;
+#X connect 15 0 14 0;
+#X connect 16 14 15 0;
+#X connect 16 14 1 0;
+#X connect 17 0 16 0;
+#X restore 187 86 pd error;
+#X connect 0 0 7 0;
+#X connect 1 0 2 0;
+#X connect 2 0 4 0;
+#X connect 2 1 6 0;
+#X connect 3 0 5 0;
+#X connect 4 0 3 0;
+#X connect 6 0 3 0;
+#X connect 7 0 1 0;
+#X connect 7 0 8 0;
+#X restore 35 31 pd Channel Display;
+#N canvas 0 22 450 300 Cutoff 0;
+#X obj 59 127 prepend label;
+#X obj 59 110 list2symbol;
+#X obj 59 93 int;
+#X obj 59 76 r EAT_Highpass.Cutoff.\$2.Send.all;
+#X obj 59 144 s EAT_Highpass.CutoffNum.\$2.all;
+#X connect 0 0 4 0;
+#X connect 1 0 0 0;
+#X connect 2 0 1 0;
+#X connect 3 0 2 0;
+#X restore 35 51 pd Cutoff;
+#N canvas 0 22 450 300 Interpolation 0;
+#X obj 59 127 prepend label;
+#X obj 59 110 list2symbol;
+#X obj 59 93 int;
+#X obj 59 76 r EAT_Highpass.Interp.\$2.Send.all;
+#X obj 59 144 s EAT_Highpass.InterpNum.\$2.all;
+#X connect 0 0 4 0;
+#X connect 1 0 0 0;
+#X connect 2 0 1 0;
+#X connect 3 0 2 0;
+#X restore 35 71 pd Interpolation Time;
+#N canvas 0 22 613 153 Pole 0;
+#X obj 14 1 loadbang;
+#X obj 14 35 < 10;
+#X obj 14 52 sel 1;
+#X msg 41 69 2 9;
+#X obj 14 103 s \$0-poledisplay;
+#X obj 14 18 float \$1;
+#X msg 14 69 8 9;
+#N canvas 0 22 610 430 error 0;
+#X obj -115 304 s \$0-\$2;
+#X obj -64 197 t b b;
+#X msg -115 238 obj 10 50 cnv 20 20 40 errorbox errorboxr ERROR:_INCORRECT_CREATION_ARGUMENTS
+40 10 3 20 0 13 0;
+#X msg -65 274 obj 30 50 cnv 20 20 40 errorbox2 errorboxr2 ERROR:_SEE_HELP_FOR_DETAILS
+20 30 3 20 0 13 0;
+#X msg 103 204 obj 10 49 cnv 40 470 41 errorbox3 errorboxr3 _ 0 0 3
+1 0 13 0;
+#X obj 304 139 spigot;
+#X obj 337 88 io;
+#X obj 304 173 s \$0-helpr;
+#X msg 304 156 color -1 \$1;
+#X obj 247 88 metro 1000;
+#X obj 276 105 pipe 500;
+#X msg 276 122 17;
+#X msg 247 122 6;
+#X msg 247 71 1;
+#X obj 42 69 print EAT;
+#X msg 42 39 Error! 1st argument (pole) must be an integer between
+1 and 10;
+#X obj -123 22 route 0 1 2 3 4 5 6 7 8 9 10;
+#X obj -110 -14 inlet;
+#X connect 1 0 3 0;
+#X connect 1 0 2 0;
+#X connect 1 1 4 0;
+#X connect 1 1 13 0;
+#X connect 2 0 0 0;
+#X connect 3 0 0 0;
+#X connect 4 0 0 0;
+#X connect 5 0 8 0;
+#X connect 6 0 5 1;
+#X connect 8 0 7 0;
+#X connect 9 0 12 0;
+#X connect 9 0 10 0;
+#X connect 10 0 11 0;
+#X connect 11 0 5 0;
+#X connect 12 0 5 0;
+#X connect 13 0 9 0;
+#X connect 13 0 6 0;
+#X connect 15 0 14 0;
+#X connect 16 11 15 0;
+#X connect 16 11 1 0;
+#X connect 17 0 16 0;
+#X restore 128 38 pd error;
+#X msg 14 86 label_pos \$1 \$2;
+#X connect 0 0 5 0;
+#X connect 1 0 2 0;
+#X connect 2 0 6 0;
+#X connect 2 1 3 0;
+#X connect 3 0 8 0;
+#X connect 5 0 1 0;
+#X connect 5 0 7 0;
+#X connect 6 0 8 0;
+#X connect 8 0 4 0;
+#X restore 35 91 pd Pole Display;
+#X text 155 12 Processes the different control data for palatable representation
+using intuitive units.;
+#X restore 10 225 pd display;
+#N canvas 633 236 427 360 midicc 0;
+#X obj -6 -85 EATi_MIDICCMONO EAT_Highpass Mix \$2 all 0 127 0 1;
+#X obj 135 -85 EATi_MIDICCMONO EAT_Highpass Mix \$2 all 0 127 0 6000
+;
+#X obj 276 -85 EATi_MIDICCMONO EAT_Highpass Interp \$2 all 0 127 0
+100;
+#X obj -6 93 EATi_MIDICCMONO EAT_Highpass Bypass \$2 all 0 1 0 1;
+#X restore 10 205 pd midicc;
+#N canvas 597 157 131 178 \$0_midi 0;
+#X obj 30 -35 cnv 15 25 15 empty empty MIDI 2 9 1 11 -1 -204800 0;
+#X obj 56 -35 cnv 15 68 15 empty empty CONTROL 2 9 1 11 -1 -204800
+0;
+#X obj -1 -38 cnv 1 2 131 empty empty empty 2 8 1 11 -66577 -204800
+0;
+#X obj 2 -38 cnv 1 124 2 empty empty empty 2 8 1 11 -66577 -204800
+0;
+#X obj 125 -38 cnv 2 2 131 empty empty empty 2 8 1 11 -66577 -204800
+0;
+#X obj 2 -35 cnv 15 27 15 empty empty empty 2 9 1 11 -1 -204800 0;
+#X obj 30 -19 cnv 15 94 15 empty empty EAT_Highpass 2 9 1 11 -1 -204800
+0;
+#X obj 2 -19 cnv 15 27 15 empty empty empty 2 9 1 11 -1 -204800 0;
+#X obj 30 -3 cnv 15 94 15 empty empty ID_\$2 2 9 1 11 -1 -204800 0
+;
+#X obj 2 -3 cnv 15 27 15 empty empty empty 2 9 1 11 -1 -204800 0;
+#X obj 30 13 cnv 15 94 15 empty empty All_Channels 2 9 1 11 -1 -204800
+0;
+#X obj 2 13 cnv 15 27 15 empty empty empty 2 9 1 11 -1 -204800 0;
+#X obj 13 110 pddplink eat_transport.pd -text GLOBAL TRANSPORT;
+#X obj 11 123 pddplink eat_transport.pd -text WITH MIDI PRESETS;
+#X obj -1 94 cnv 1 128 2 empty empty empty 2 8 1 11 -66577 -204800
+0;
+#X obj 8 97 pddplink eat_transport.pd -text CLICK HERE TO OPEN;
+#X obj 2 29 EATi_MIDILC EAT_Highpass Mix \$2 all;
+#X obj 2 45 EATi_MIDILC EAT_Highpass Cutoff \$2 all;
+#X obj 2 61 EATi_MIDILC EAT_Highpass Interp \$2 all;
+#X obj 2 77 EATi_MIDILC EAT_Highpass Bypass \$2 all;
+#X restore 10 312 pd \$0_midi;
+#X obj 10 262 float \$0;
+#X obj 10 245 r \$0-midi;
+#X msg 10 279 \; pd-\$1_midi vis 1;
+#X obj 10 349 getdir 1;
+#X obj 10 366 s parentfilepath;
+#X obj 10 332 r getparentfilepath;
+#N canvas 361 173 450 300 help_link 0;
+#X obj 114 88 r \$0-help;
+#X obj 114 105 getdir;
+#X text 123 41 Opens help file.;
+#X msg 114 122 \; pd open EAT_Highpass~-help.pd \$1;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X restore 10 386 pd help_link;
+#X obj 410 61 cnv 6 11 11 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 114 61 cnv 11 33 11 empty empty Freq. 0 6 1 10 -1 -204800 0
+;
+#X obj 381 49 cnv 1 1 23 empty empty empty 20 12 0 14 -66577 -66577
+0;
+#X obj 383 49 cnv 1 1 23 empty empty empty 20 12 0 14 -162280 -66577
+0;
+#X obj 424 49 cnv 1 1 23 empty empty empty 20 12 0 14 -162280 -66577
+0;
+#X obj 422 49 cnv 1 1 23 empty empty empty 20 12 0 14 -1 -66577 0;
+#X obj 452 49 cnv 1 1 23 empty empty empty 20 12 0 14 -66577 -66577
+0;
+#X obj 454 49 cnv 1 1 23 empty empty empty 20 12 0 14 -162280 -66577
+0;
+#X obj 450 49 cnv 1 1 23 empty empty empty 20 12 0 14 -1 -66577 0;
+#X obj 482 49 cnv 1 1 23 empty empty empty 20 12 0 14 -66577 -66577
+0;
+#X obj 484 49 cnv 1 1 23 empty empty empty 20 12 0 14 -162280 -66577
+0;
+#X obj 480 49 cnv 1 1 23 empty empty empty 20 12 0 14 -1 -66577 0;
+#X obj 399 61 tgl 11 0 EAT_Highpass.Bypass.\$2.Send.all EAT_Highpass.Bypass.\$2.all
+empty 17 7 0 10 -204800 -1 -1 0 1;
+#X obj 10 185 EATi_demultiplex_channels \$0 \$3;
+#X obj 148 61 cnv 11 108 11 empty EAT_Highpass.CutoffNum.\$2.all 0
+2 6 1 10 -1 -128992 0;
+#X obj 325 61 cnv 11 55 11 empty EAT_Highpass.InterpNum.\$2.all 50
+2 6 1 10 -1 -128992 0;
+#X obj 265 61 cnv 11 59 11 empty empty Time 1 6 1 10 -1 -204800 0;
+#X obj 397 31 cnv 15 15 15 empty \$0-poledisplay \$1 8 9 1 11 -1 -204800
+0;
+#X obj 413 31 cnv 15 32 15 empty empty -POLE -1 9 1 11 -1 -204800 0
+;
+#X obj 512 32 init 1;
+#X obj 596 32 init 50;
+#X obj 512 10 namecanvas \$0-\$2;
+#X msg 10 132 \; pd-\$1_EAT_Highpass_Advanced vis 1;
+#N canvas 54 405 536 180 \$0_EAT_Highpass_Advanced 0;
+#X obj 13 11 EAT_Highpass-Advanced \$2 \$3 \$1;
+#X restore 10 165 pd \$0_EAT_Highpass_Advanced;
+#X obj 554 32 init 0;
+#X obj 293 319 EATi_dynwrapperfilters~ EATi_Highpass~ \$1 \$2 \$3;
+#X connect 97 0 180 0;
+#X connect 98 0 180 1;
+#X connect 99 0 180 2;
+#X connect 100 0 180 3;
+#X connect 101 0 180 4;
+#X connect 102 0 180 5;
+#X connect 103 0 180 6;
+#X connect 104 0 180 7;
+#X connect 105 0 180 8;
+#X connect 106 0 180 9;
+#X connect 107 0 180 10;
+#X connect 108 0 180 11;
+#X connect 109 0 180 12;
+#X connect 123 0 124 0;
+#X connect 141 0 144 0;
+#X connect 144 0 177 0;
+#X connect 148 0 150 0;
+#X connect 149 0 148 0;
+#X connect 151 0 152 0;
+#X connect 153 0 151 0;
+#X connect 174 0 125 0;
+#X connect 175 0 128 0;
+#X connect 179 0 127 0;
+#X connect 180 0 110 0;
+#X connect 180 1 111 0;
+#X connect 180 2 112 0;
+#X connect 180 3 113 0;
+#X connect 180 4 114 0;
+#X connect 180 5 115 0;
+#X connect 180 6 116 0;
+#X connect 180 7 117 0;
+#X connect 180 8 118 0;
+#X connect 180 9 119 0;
+#X connect 180 10 120 0;
+#X connect 180 11 121 0;
+#X connect 180 12 122 0;
+#X coords 0 -1 1 1 500 83 2 10 10;

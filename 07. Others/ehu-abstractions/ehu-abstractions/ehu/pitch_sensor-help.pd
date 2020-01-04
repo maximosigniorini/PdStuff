@@ -1,0 +1,23 @@
+#N canvas 238 233 632 285 10;
+#X obj 403 26 cnv 15 200 170 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 429 -19 ehu/in~;
+#X obj 440 47 ehu/pitch_sensor;
+#X text 16 125 Outlets: frequency MIDI \, frequency HZ \, attacks \,
+aplitude in DB;
+#X floatatom 430 166 5 0 0 0 - - -;
+#X floatatom 470 167 5 0 0 0 - - -;
+#X floatatom 507 166 5 0 0 0 - - -;
+#X floatatom 545 165 5 0 0 0 - - -;
+#X text 14 89 Inlets : audio \, messages to fiddle~ \, range min \,
+range max \, on/off;
+#X text 15 -24 ehu/pitch_sensor abstraction help;
+#X text 20 27 analyses pitch and amplitude of a signal just wraps fiddle
+;
+#X obj 101 44 fiddle~;
+#X connect 1 0 2 0;
+#X connect 1 1 2 0;
+#X connect 2 0 4 0;
+#X connect 2 1 5 0;
+#X connect 2 2 6 0;
+#X connect 2 3 7 0;

@@ -1,0 +1,148 @@
+/////////////////////////////////////////////////////
+KNOWN BUGS
+/////////////////////////////////////////////////////
+* [pix_snap]: "GEM: Someone sent a bogus pointer to copy2Image"
+* [pix_video] on Xubuntu: error "v4l2: VIDIOC_S_FMT(fmt): Invalid argument"
+* [pix_record]: "[schroenc] Warning: Discarding redundant sequence end code" + "intel_do_flush_locked failed: Invalid argument" + "Erreur de segmentation (core dumped)"
+* [pix_record] on Xubuntu: [mjpeg] Warning: Encoding progressive video as interlaced. Motion JPEG-A is not suitable for progressive video.
+
+/////////////////////////////////////////////////////
+CHANGES / MALINETTE
+/////////////////////////////////////////////////////
+
+
+-----------------------------------------------------
+VERSION 0.89 (2014/11/06)
+-----------------------------------------------------
+* DEBUG : out/synth-wobblebass, gem-master debug [s $0-onoff-in], delete splitfilename in RECORD > S REC_FILE (bug if no extension)
+* DEBUG for Mac OSX : [pix_rgba] inside [video-red-blob] (YUV error) and inside [video-halftone], automatic connection of Arduino when it is not Firmata inside (Bluetooth connection)
+* NEW : website http://malinette.info with a lot of documentation !
+* NEW : support English and French for Helps and Examples
+* NEW : the [abstractions/include] abstraction to hold paths of abstractions
+* NEW : the [docs/abs-template] abstraction to explain how to add abstractions to the Malinette
+* NEW : synth-bassdrum help, between-help, synth-wobblebass-help, audio-ducker
+* UPDATE : Be careful of new folders names. More simple : in, numbers, audio, video, out
+* UPDATE : "_xp" folder to put experimental things : seq-counter2 bug, kinect,  ...
+* UPDATE : other/scripts/make_help.sh to build OVERVIEW.html and menutree.txt (tclplugin) and add some CSS to print the .html
+* UPDATE : mouse without "x-y", 3d-transform-help without colors commands, osc-in-touchosc > osc-in-phone, rec-data > data-sampler, synth-bassdrum
+* UDPATE : logo
+* HARDWARE : wood box update
+
+-----------------------------------------------------
+VERSION 0.88 (2014/06/20)
+-----------------------------------------------------
+* NEW : oscillator, osc-in, audio-pitchdelay
+* NEW : manual in french (http://reso-nance.org/malinette/fr/documentation/)
+* UPDATE : audio-cutoff (numbers limits 0-127 and 0-1)
+* UPDATE : rec-data + help
+* UPDATE : audio-freeze
+* UPDATE : comment “installer osc-p5” + "andOSC" in processing examples
+* UPDATE : video-in argument
+* UPDATE : arduino-master test pin 13, arduino-analog-in and arduino-analog-out colors
+* UPDATE : video-fx corrections (video-colors + video-colors-help + video-multifx-help)
+* DEBUG : audio-sampler, osc-out
+* HARDWARE : box minimalinette + webcam clamps
+
+-----------------------------------------------------
+VERSION 0.87 (2014/02/10)
+-----------------------------------------------------
+* MAIN : resize canvas for Windows users (other/scripts/resize_canvas.sh)
+* MALINETTE.pd : new layout, delete "your folders" + "update" + "about", update folders when you click on menus (examples, projects)
+* FOLDERS : add a projects folder (for user patchs), reorganize examples, new absatractions/_xp for untested abstractions in development
+* FX-VIDEO : add video-colors (car 2 colors = 1 qui ne marche pas)
+* MASTER : debug pmenu : delete "$0-bang" > open twice
+* MASTER : add menu instead of all buttons : delete size arguments replaced by argument (patchs or objects for the hcs/folder_list)
+* HELP : some modifications
+* WEBSITE : clarify the download page (windows XP driver, XQuarks for Mac OSX)
+* 3d-object : delete moonlib/absolutepath ( ... couldn't create on Windows XP, Windows 8) : instead tof/path current
+* copy of vera.tff in abstractions/out/ (text3d: cannot find font-file on Windows 8) and abstractions/in
+* INCLUDE : save as feature ok with [iemguts/receivecanvas 1] - [route savefile]
+* oscilloscope et oscilloscope~ - pas de resize, pas d'affichage du graph en dehors de l'abstraction
+* gem-camera > video-camera
+* MASTER :audio-master, gem-master + gem-options (debug quite video-record), arduino-master (send reset to arduino's objects + TO-ARDUINO, FROM-ARDUINO uppercase messages + debug - arduino: ERROR: unknown pinMode: none)
+* analog-in : ui, bang reset, vu-meter -toggle
+* delete seq-sliders8
+* rec-data > rec-numbers
+* audio-3q, audio-attackdecay, audio-volume harmonized
+* video-crop help
+* midi-hz > converter
+* Processing skectches harmonized + add [osc-out]
+* tclplugin updated
+* multimeter > ohmeter
+
+-----------------------------------------------------
+VERSION 0.86 (2013/10/??)
+-----------------------------------------------------
+* debug most of bugs known on Mac OS X
+* substitute main.pd to MALINETTE.pd
+* add script "./other/scripts/make_helps.pd" to make a single htlm page with all abstractions 
+* update "docs/OVERVIEW.html", the list of abstractions + css
+* debug [audio-sampler] : problem with id-rec initiliazed to 0 instead of 1
+* fill some helps
+* MASTER : debug [arduino-master] >[comport] and Mac OS X. On Linux and MS Windows, the Arduino is connected automatically, on Mac OS X, you need to specify the port number and switch on.
+* MASTER : new features in [gem-master] with "advanced" button: dimensions, offset and record a video (.mov only)
+* MASTER : [audio-master], [line~] instead of [vline~]
+* FILTER : add [notescale], [between] 
+* FX-VIDEO : add [video-stopmotion]
+* OUT : [synth-pluck], [video-record]
+
+
+-----------------------------------------------------
+VERSION 0.85 (2013/06/02)
+-----------------------------------------------------
+* new organisations of folders : examples (instead of presets), abstractions (fx-video, fx-audio), lib
+* new main for all platform (substitue [tof/menubutton] with [tof/pmenu])
+* new GUI button objects for menu in main.pd ([pbutton-menu], [pf])
+* add helps for beginners in the main
+* add helps for abstractions
+* script in ./other/scripts to resize all examples and the main and save patch in ./png (with scrot program in Linux)
+* tcplugins in ./other/tclplugins
+* update processing-pd codes
+* substitute the tmp.mov with a better video (crossplatform)
+* add an icon in ./data
+* update README.txt
+* fix some bugs (seq-counters, media paths, synth-fm argument, audio-out argument, ...)
+* IN : add key-makeymakey
+* MASTER : arduino-master find the last serial port automatically, audio-master with rec file, gem-master label is SCREEN
+* OUT : update arduino-out (remove gif numbers)
+* OUT : add 3d-physics, audio-sampler, synth-bassdrum, synth-vowel
+* TOOLS : add ohmmeter
+* FX-AUDIO : add effects (compressor, 3eq, volume)
+* test media paths in examples
+
+-----------------------------------------------------
+VERSION 0.84 (2012/12/30)
+-----------------------------------------------------
+* ...
+
+-----------------------------------------------------
+VERSION 0.83 (2012/11/04)
+-----------------------------------------------------
+* ...
+
+-----------------------------------------------------
+VERSION 0.82 (2012/10/12)
+-----------------------------------------------------
+* chemins ../data à changer dans tous les patchs
+* vérifier existence médias (violin.aif n'y est plus par exemple)
+* synth-fm arguments, disposition
+* audio-out argument
+* button-folder à tester
+* rec-number.pd a revoir
+
+-----------------------------------------------------
+VERSION 0.81 (2012/10/07)
+-----------------------------------------------------
+* faire le ménage ? : oui (pas balafon.aiff, violin.aif, voice2.wav)
+* Renommer les presets en examples ? : non
+* Gérer les droits des fichiers. Certains non modifiables comme le main et preset-00-new.pd : non
+* faire le ménage ! mettre que ce qui semble intéressant à réutiliser pour la suite : oui
+* fond des presets : oui
+* objets-master : afficher les noms des abstractions ou les renommer : non
+* test l'objet [gamme] , renommer ? non
+* oscilloscope.pd       ajouter la possibilité de visualisation de l'audio
+* synth : meme interface que 3d-object : non
+* objets gem : renommer les objets video 3d en gem ? : non
+* video-multiimage.pd  renommer en gem-multiimage ? : non
+* mettre à jour le README.txt (dates, dépendances, coding rules, etc.)
+* mettre à jour [pd infos] dans le main ou bien lecture d'un fichier texte INFOS.txt : non

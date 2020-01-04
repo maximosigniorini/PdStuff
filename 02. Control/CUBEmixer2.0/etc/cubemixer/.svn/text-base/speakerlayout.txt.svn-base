@@ -1,0 +1,42 @@
+real  1   0.0  0
+real  2 330.0  0
+real  3 300.0  0
+real  4 270.0  0
+real  5 240.0  0
+real  6 210.0  0
+real  7 180.0  0
+real  8 150.0  0
+real  9 120.0  0
+real 10  90.0  0
+real 11  60.0  0
+real 12  30.0  0
+real 13 337.5 30
+real 14 292.5 30
+real 15 247.5 30
+real 16 202.5 30
+real 17 157.5 30
+real 18 112.5 30
+real 19  67.5 30
+real 20  22.5 30
+real 21 315 60
+real 22 225 60
+real 23 135 60
+real 24  45 60
+phantom  1   0 -30   1 0.863
+phantom  2 330 -30   2 0.863
+phantom  3 300 -30   3 0.863
+phantom  4 270 -30   4 0.863
+phantom  5 240 -30   5 0.863
+phantom  6 210 -30   6 0.863
+phantom  7 180 -30   7 0.863
+phantom  8 150 -30   8 0.863
+phantom  9 120 -30   9 0.863
+phantom 10  90 -30  10 0.863
+phantom 11  60 -30  11 0.863
+phantom 12  30 -30  12 0.863
+phantom 13 315 -60
+phantom 14 225 -60
+phantom 15 135 -60
+phantom 16  45 -60
+phantom 17   0 -90
+phantom 18   0  90   21 0.25  22 0.25  23 0.25  24 0.25

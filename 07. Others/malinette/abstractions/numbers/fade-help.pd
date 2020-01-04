@@ -1,0 +1,13 @@
+#N canvas 3 79 542 429 10;
+#X obj 354 90 vsl 15 128 0 127 0 0 empty empty data 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 354 251 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X floatatom 405 202 5 0 0 2 fade_time_(msec) - -;
+#X obj 354 225 fade 1000;
+#X text 43 36 Fade \; ----- \; Make a fade between two values \; The
+fade is linear (line) \; Argument \; \$1:time of fade \; 1st inlet
+:data \; 2nd inlet : fade time \;;
+#X connect 0 0 3 0;
+#X connect 2 0 3 1;
+#X connect 3 0 1 0;

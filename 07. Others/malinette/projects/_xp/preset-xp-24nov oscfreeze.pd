@@ -1,0 +1,70 @@
+#N canvas 258 82 816 670 10;
+#X declare -path ../in -path ../out -path ../tools -path ../filters
+-path ../lib;
+#X obj -25 187 cnv 1 396 1 empty empty FILTERS 2 -6 1 12 -228856 -191407
+0;
+#N canvas 400 311 645 287 INIT 0;
+#X obj 240 100 bng 10 250 50 0 empty empty SAVE-AS -45 6 0 9 -260097
+-1 -1;
+#X obj 103 200 namecanvas \$0-patch-name;
+#X obj 100 160 s \$0-patch-name;
+#X msg 100 131 menusaveas;
+#X obj 220 130 savepanel;
+#X obj 220 157 s UPDATE_PATCH;
+#X obj 50 33 declare -path ../in -path ../out -path ../tools -path
+../filters -path ../lib;
+#X text 50 4 Always use this subpatch in the presets;
+#X obj 101 101 cnv 8 80 8 empty empty INIT 5 5 0 10 -233017 -66577
+0;
+#X connect 0 0 3 0;
+#X connect 0 0 4 0;
+#X connect 3 0 2 0;
+#X connect 4 0 5 0;
+#X coords 0 -1 1 1 150 10 2 100 100;
+#X restore 625 -2 pd INIT;
+#X obj -25 354 cnv 1 800 1 empty empty OUT 2 -6 1 12 -228856 -191407
+0;
+#X obj -25 63 cnv 1 800 1 empty empty IN 2 -6 1 12 -228856 -191407
+0;
+#X obj -25 187 cnv 1 800 1 empty empty TOOLS 400 -6 1 12 -228856 -191407
+0;
+#X obj 297 366 audio-cutoff;
+#X obj 113 253 audio-freeze;
+#X obj 120 199 synth;
+#X obj 124 100 gamme;
+#X obj 97 450 audio-out;
+#X obj 208 453 audio-out;
+#X obj 426 100 gamme;
+#X obj 449 499 audio-out;
+#X msg 412 327 cutoff \$1;
+#X obj 441 443 audio-reverb;
+#X obj 299 583 audio-out;
+#X obj 124 48 seq-randomizer 200 80;
+#X obj 426 48 seq-randomizer 800 40;
+#X obj 301 503 audio-pitchshift -24;
+#X obj 281 48 seq-randomizer 20 4;
+#X floatatom 64 72 5 0 0 0 - - -;
+#X obj 134 370 audio-attackdecay;
+#X obj 63 556 audio-delay 66;
+#X connect 5 0 14 0;
+#X connect 6 0 9 0;
+#X connect 6 0 9 1;
+#X connect 7 0 6 0;
+#X connect 7 0 5 0;
+#X connect 7 0 18 0;
+#X connect 7 0 21 0;
+#X connect 8 0 7 0;
+#X connect 8 0 21 1;
+#X connect 11 0 13 0;
+#X connect 13 0 5 1;
+#X connect 14 0 12 0;
+#X connect 14 1 12 1;
+#X connect 16 0 8 0;
+#X connect 17 0 11 0;
+#X connect 18 0 22 0;
+#X connect 19 0 7 1;
+#X connect 20 0 8 0;
+#X connect 21 0 10 0;
+#X connect 21 0 10 1;
+#X connect 22 0 15 0;
+#X connect 22 1 15 1;

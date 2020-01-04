@@ -1,0 +1,90 @@
+#N canvas 107 114 878 556 10;
+#X obj -39 157 cnv 15 400 60 empty empty empty 20 12 0 14 -162280 -66577
+0;
+#X text 257 196 GEM SEPARATES EACH SIGNAL LINE;
+#X text 257 184 ALWAYS USE THIS TO MAKE SURE;
+#X text 259 171 FROM SAME VIDEO OUTLET;
+#X obj -45 59 cnv 15 330 90 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 16 14 bng 35 250 50 0 empty empty click_me 40 10 0 10 -258079
+-1 -1;
+#X obj 61 276 pix_delay;
+#X obj 120 109 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144
+-1 -1;
+#X text 209 40 inits window;
+#X text 135 107 inits video and effect;
+#X obj 112 259 nbx 5 14 -1e+37 1e+37 0 0 empty empty delay_in_frames
+0 -6 0 10 -262144 -1 -1 20 256;
+#X obj 208 22 ehu/gem/win 800 600;
+#X obj -35 166 separator;
+#X obj -35 186 pix_separator;
+#X obj 64 165 separator;
+#X obj 64 185 pix_separator;
+#X text 245 160 < WHEN TAKING MORE THAN ONE CABLE;
+#X obj -35 96 ehu/gem/cam 0;
+#X obj 200 296 pix_delay;
+#X obj 251 279 nbx 5 14 -1e+37 1e+37 0 0 empty empty delay_in_frames
+0 -6 0 10 -262144 -1 -1 30 256;
+#X obj 160 166 separator;
+#X obj 160 186 pix_separator;
+#X obj 58 432 ehu/gem/texture 400 300 100 75;
+#X obj -41 336 ehu/gem/texture 250 300 100 75;
+#X obj 199 328 ehu/gem/texture 533 300 100 75;
+#X obj -36 271 pix_delay;
+#X obj 15 254 nbx 5 14 -1e+37 1e+37 0 0 empty empty delay_in_frames
+0 -6 0 10 -262144 -1 -1 10 256;
+#X msg 17 226 10;
+#X msg 114 231 20;
+#X msg 253 251 30;
+#X obj 502 284 pix_delay;
+#X obj 553 267 nbx 5 14 -1e+37 1e+37 0 0 empty empty delay_in_frames
+0 -6 0 10 -262144 -1 -1 50 256;
+#X obj 641 304 pix_delay;
+#X obj 692 287 nbx 5 14 -1e+37 1e+37 0 0 empty empty delay_in_frames
+0 -6 0 10 -262144 -1 -1 60 256;
+#X obj 405 279 pix_delay;
+#X obj 456 262 nbx 5 14 -1e+37 1e+37 0 0 empty empty delay_in_frames
+0 -6 0 10 -262144 -1 -1 40 256;
+#X msg 458 234 40;
+#X msg 555 239 50;
+#X msg 694 259 60;
+#X obj 400 344 ehu/gem/texture 250 100 100 75;
+#X obj 496 440 ehu/gem/texture 400 100 100 75;
+#X obj 641 334 ehu/gem/texture 533 100 100 75;
+#X connect 5 0 7 0;
+#X connect 5 0 11 0;
+#X connect 6 0 22 0;
+#X connect 7 0 28 0;
+#X connect 7 0 29 0;
+#X connect 7 0 36 0;
+#X connect 7 0 37 0;
+#X connect 7 0 38 0;
+#X connect 10 0 6 1;
+#X connect 12 0 13 0;
+#X connect 13 0 25 0;
+#X connect 14 0 15 0;
+#X connect 15 0 6 0;
+#X connect 17 0 12 0;
+#X connect 17 0 14 0;
+#X connect 17 0 20 0;
+#X connect 17 0 34 0;
+#X connect 17 0 30 0;
+#X connect 17 0 32 0;
+#X connect 18 0 24 0;
+#X connect 19 0 18 1;
+#X connect 20 0 21 0;
+#X connect 21 0 18 0;
+#X connect 25 0 23 0;
+#X connect 26 0 25 1;
+#X connect 27 0 26 0;
+#X connect 28 0 10 0;
+#X connect 29 0 19 0;
+#X connect 30 0 40 0;
+#X connect 31 0 30 1;
+#X connect 32 0 41 0;
+#X connect 33 0 32 1;
+#X connect 34 0 39 0;
+#X connect 35 0 34 1;
+#X connect 36 0 35 0;
+#X connect 37 0 31 0;
+#X connect 38 0 33 0;

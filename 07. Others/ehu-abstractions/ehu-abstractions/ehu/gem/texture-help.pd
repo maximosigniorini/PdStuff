@@ -1,0 +1,22 @@
+#N canvas 368 116 615 392 10;
+#X declare -lib ggee;
+#X obj 13 199 cnv 15 380 180 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 28 3 bng 35 250 50 0 empty empty click_me 40 10 0 10 -258079
+-1 -1;
+#X text 335 16 static image patch help;
+#X obj 226 181 cnv 15 380 115 empty empty empty 20 12 0 14 -233017
+-66577 0;
+#X text 235 230 inlets are : 1 render on off \, 2 import this file
+\, 3 xloc \, 4 yloc \, 5 width \, 6 height \, 12 video send on off
+\, 13 data receive inlet;
+#X obj 134 28 ehu/gem/win 640 450;
+#X obj 30 134 ehu/gem/picture imagen1.jpg;
+#X text 236 276 ** Note : for transparency use TIFF image with alpha
+chanel;
+#X obj 31 241 ehu/gem/texture 100 100 240 200;
+#X text 235 188 init arguments are : xloc \, yloc \, width \, height
+;
+#X text 281 91 OUTDATED;
+#X connect 1 0 5 0;
+#X connect 6 0 8 0;

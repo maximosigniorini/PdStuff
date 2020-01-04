@@ -1,0 +1,200 @@
+#N canvas 521 202 739 494 10;
+#X obj 35 258 symbol \$1;
+#X obj 137 316 ftos;
+#X obj 106 250 float \$1;
+#X floatatom 106 279 5 0 0 0 - - -;
+#X symbolatom 36 291 0 0 0 0 - - -;
+#X symbolatom 96 329 10 0 0 0 - - -;
+#X obj 45 212 loadbang;
+#X obj 98 366 s \$1pdp_warhol_id;
+#X obj 206 53 inlet;
+#X text 264 53 video;
+#X text 434 53 on/off;
+#X obj 235 275 outlet;
+#X obj 239 105 pdp_spigot;
+#X text 283 272 video;
+#X floatatom 432 99 5 0 0 0 - - -;
+#X obj 321 189 pdp_warhol;
+#X floatatom 466 121 5 0 0 0 - - -;
+#X text 479 99 X Divider;
+#X text 516 120 Y Divider;
+#X obj 482 142 hdl 15 1 0 9 empty empty empty 0 -6 0 8 -262144 -1 -1
+0;
+#X text 604 121 Color to modify;
+#X floatatom 505 164 5 0 0 0 - - -;
+#X floatatom 531 185 5 0 0 0 - - -;
+#X floatatom 557 210 5 0 0 0 - - -;
+#X text 552 164 Y component;
+#X text 580 184 U component;
+#X text 603 209 V component;
+#X floatatom 621 143 5 0 0 0 - - -;
+#X obj 449 242 r \$1epdp_warhol_xdiv;
+#X obj 458 272 r \$1epdp_warhol_ydiv;
+#X obj 460 304 r \$1epdp_warhol_color;
+#X obj 463 340 r \$1epdp_warhol_ycomp;
+#X obj 460 368 r \$1epdp_warhol_ucomp;
+#X obj 458 398 r \$1epdp_warhol_vcomp;
+#X obj 346 21 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 378 20 r \$1epdp_warhol_on;
+#X obj 0 0 cnv 15 150 156 empty empty empty 2 12 0 14 -191407 -66577
+0;
+#X obj 7 5 tgl 15 1 \$1epdp_warhol_on \$1epdp_warhol_on_init Warhol
+17 7 0 10 -260097 -1 -1 1 1;
+#X obj 12 68 hradio 15 1 0 9 \$1epdp_warhol_color \$1epdp_warhol_color_init
+Color_to_modify 0 -8 0 8 -262144 -1 -1 1;
+#X obj 21 35 nbx 4 14 0 100 0 0 \$1epdp_warhol_xdiv \$1epdp_warhol_xdiv_init
+X_divider 0 -8 0 8 -262144 -1 -1 6 256;
+#X obj 83 36 nbx 4 14 0 100 0 0 \$1epdp_warhol_ydiv \$1epdp_warhol_ydiv_init
+Y_divider 0 -8 0 8 -262144 -1 -1 25 256;
+#X obj 99 94 nbx 3 14 0 1e+37 0 0 \$1epdp_warhol_ycomp \$1epdp_warhol_ycomp_init
+Y_Component -70 5 0 8 -262144 -1 -1 0 256;
+#X obj 100 112 nbx 3 14 0 1e+37 0 0 \$1epdp_warhol_ucomp \$1epdp_warhol_ucomp_init
+U_Component -70 5 0 8 -262144 -1 -1 0 256;
+#X obj 101 132 nbx 3 14 0 1e+37 0 0 \$1epdp_warhol_vcomp \$1epdp_warhol_vcomp_init
+V_Component -70 5 0 8 -262144 -1 -1 0 256;
+#X obj 83 4 cnv 15 20 10 empty \$1pdp_warhol_id \$1 5 5 0 10 -260097
+-33289 0;
+#X obj 3 141 bng 15 250 50 0 \$1epdp_warhol_midi_on empty midi 17 7
+0 8 -4160 -1 -1;
+#N canvas -118 623 1710 634 midi_control 0;
+#X msg 89 165 ef1epdp_warhol_on_midi;
+#X msg 250 163 ef1epdp_warhol_color_midi;
+#X text 18 38 MIDI;
+#X obj 23 138 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 146 186 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 273 186 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 198 404 5 0 0 0 - - -;
+#X obj 476 308 s midi_var_to_add;
+#X msg 89 131 set \$1epdp_warhol_on_midi;
+#X obj 41 368 r \$1epdp_warhol_on_midi;
+#X obj 22 526 s \$1epdp_warhol_on_init;
+#X obj 71 59 r \$1epdp_warhol_midi_on;
+#X floatatom 224 473 5 0 0 0 - - -;
+#X obj 550 44 r \$1pdp_warhol_id;
+#X msg 250 132 set \$1epdp_warhol_color_midi;
+#X obj 202 366 r \$1epdp_warhol_color_midi;
+#X obj 205 526 s \$1epdp_warhol_color_init;
+#X obj 222 440 autoscale 0 10;
+#X obj 259 416 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 1300 1;
+#X text 580 313 -->global value of mb-midi_control_pad;
+#X text 512 437 Need to check the correct scale factor for these values.
+;
+#X msg 433 164 ef1epdp_warhol_xdiv_midi;
+#X msg 433 133 set \$1epdp_warhol_xdiv_midi;
+#X msg 612 173 ef1epdp_warhol_ydiv_midi;
+#X msg 614 133 set \$1epdp_warhol_ydiv_midi;
+#X msg 799 162 ef1epdp_warhol_ycomp_midi;
+#X msg 799 131 set \$1epdp_warhol_ycomp_midi;
+#X msg 980 161 ef1epdp_warhol_ucomp_midi;
+#X msg 980 130 set \$1epdp_warhol_ucomp_midi;
+#X msg 1168 162 ef1epdp_warhol_vcomp_midi;
+#X msg 1168 131 set \$1epdp_warhol_vcomp_midi;
+#X obj 456 196 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 624 205 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 812 202 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 988 205 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 430 367 r \$1epdp_warhol_xdiv_midi;
+#X obj 596 367 r \$1epdp_warhol_ydiv_midi;
+#X obj 791 357 r \$1epdp_warhol_color_midi;
+#X obj 966 359 r \$1epdp_warhol_ycomp_midi;
+#X obj 1133 358 r \$1epdp_warhol_ucomp_midi;
+#X obj 1316 362 r \$1epdp_warhol_vcomp_midi;
+#X obj 419 524 s \$1epdp_warhol_xdiv_midi;
+#X obj 585 524 s \$1epdp_warhol_ydiv_midi;
+#X obj 780 514 s \$1epdp_warhol_color_midi;
+#X obj 955 516 s \$1epdp_warhol_ycomp_midi;
+#X obj 1122 515 s \$1epdp_warhol_ucomp_midi;
+#X obj 1305 519 s \$1epdp_warhol_vcomp_midi;
+#X obj 125 415 select 0;
+#X msg 182 466 0;
+#X msg 132 472 1;
+#X obj 112 445 alternate;
+#X connect 0 0 4 0;
+#X connect 0 0 7 0;
+#X connect 1 0 5 0;
+#X connect 1 0 7 0;
+#X connect 3 0 0 0;
+#X connect 5 0 21 0;
+#X connect 8 0 0 0;
+#X connect 9 0 47 0;
+#X connect 11 0 3 0;
+#X connect 12 0 16 0;
+#X connect 13 0 8 0;
+#X connect 13 0 14 0;
+#X connect 13 0 22 0;
+#X connect 13 0 24 0;
+#X connect 13 0 26 0;
+#X connect 13 0 28 0;
+#X connect 13 0 30 0;
+#X connect 14 0 1 0;
+#X connect 15 0 6 0;
+#X connect 15 0 18 0;
+#X connect 17 0 12 0;
+#X connect 18 0 17 0;
+#X connect 21 0 7 0;
+#X connect 21 0 31 0;
+#X connect 22 0 21 0;
+#X connect 23 0 7 0;
+#X connect 23 0 32 0;
+#X connect 24 0 23 0;
+#X connect 25 0 33 0;
+#X connect 25 0 7 0;
+#X connect 26 0 25 0;
+#X connect 27 0 34 0;
+#X connect 27 0 7 0;
+#X connect 28 0 27 0;
+#X connect 29 0 7 0;
+#X connect 30 0 29 0;
+#X connect 31 0 23 0;
+#X connect 32 0 25 0;
+#X connect 33 0 27 0;
+#X connect 34 0 29 0;
+#X connect 35 0 41 0;
+#X connect 36 0 42 0;
+#X connect 37 0 43 0;
+#X connect 38 0 44 0;
+#X connect 39 0 45 0;
+#X connect 40 0 46 0;
+#X connect 47 1 50 0;
+#X connect 48 0 10 0;
+#X connect 49 0 10 0;
+#X connect 50 0 49 0;
+#X connect 50 1 48 0;
+#X restore 174 13 pd midi_control;
+#X connect 0 0 4 0;
+#X connect 1 0 5 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X connect 4 0 5 0;
+#X connect 5 0 7 0;
+#X connect 6 0 2 0;
+#X connect 6 0 0 0;
+#X connect 8 0 12 0;
+#X connect 12 0 11 0;
+#X connect 12 1 15 0;
+#X connect 14 0 15 1;
+#X connect 15 0 11 0;
+#X connect 16 0 15 2;
+#X connect 19 0 15 3;
+#X connect 19 0 27 0;
+#X connect 21 0 15 4;
+#X connect 22 0 15 5;
+#X connect 23 0 15 6;
+#X connect 28 0 14 0;
+#X connect 29 0 16 0;
+#X connect 30 0 19 0;
+#X connect 31 0 21 0;
+#X connect 32 0 22 0;
+#X connect 33 0 23 0;
+#X connect 34 0 12 1;
+#X connect 35 0 34 0;
+#X coords 0 -1 1 1 150 156 1 0 0;

@@ -1,0 +1,72 @@
+#N canvas 0 54 1024 546 10;
+#X obj 103 103 cnv 15 114 96 empty empty empty 20 12 0 14 -3707 -66577
+0;
+#X obj 105 105 cnv 12 110 12 empty empty modQUAD 2 7 1 9 -66577 -3707
+0;
+#X obj 62 221 inlet~;
+#X obj 62 313 *~;
+#X obj 62 335 *~;
+#X obj 303 333 *~;
+#X obj 303 355 *~;
+#X obj 192 411 *~;
+#X obj 192 464 outlet~;
+#X obj 105 122 vsl 15 64 0.1 100 0 0 empty empty empty 0 -9 0 10 -66577
+-4032 -1 0 1;
+#X obj 317 220 osc~;
+#X obj 192 433 *~;
+#X obj 443 417 line~;
+#X msg 443 396 \$1 20;
+#X obj 443 376 / 127;
+#X obj 123 122 vsl 15 64 0.1 1000 0 0 empty empty empty 0 -9 0 10 -66577
+-4032 -1 0 1;
+#X obj 141 122 vsl 15 64 1000 2000 0 0 empty empty empty 0 -9 0 10
+-66577 -4032 -1 0 1;
+#X obj 189 190 cnv 4 24 6 empty empty amp 2 4 1 9 -3707 -1 0;
+#X obj 185 122 vsl 30 64 0 127 0 0 empty empty empty 0 -9 0 10 -66577
+-4032 -1 0 1;
+#X obj 159 122 vsl 15 64 1000 10000 0 0 empty empty empty 0 -9 0 10
+-66577 -4032 -1 0 1;
+#X obj 143 292 *~ 1;
+#X obj 317 292 *~ 1;
+#X obj 223 292 *~ 1;
+#X obj 397 292 *~ 1;
+#X obj 203 220 osc~;
+#X obj 367 220 osc~;
+#X obj 62 357 *~ 2;
+#X obj 303 377 *~ 2;
+#X obj 143 220 osc~;
+#X obj 61 378 clip~ -1 0.5;
+#X obj 222 389 clip~ -0.5 1;
+#X obj 110 191 cnv 8 8 8 empty empty f1 0 5 1 9 -3707 -1 0;
+#X obj 127 191 cnv 8 8 8 empty empty f2 0 5 1 9 -3707 -1 0;
+#X obj 145 191 cnv 8 8 8 empty empty f3 0 5 1 9 -3707 -1 0;
+#X obj 163 191 cnv 8 8 8 empty empty f4 0 5 1 9 -3707 -1 0;
+#X connect 2 0 3 0;
+#X connect 2 0 5 0;
+#X connect 3 0 4 0;
+#X connect 4 0 26 0;
+#X connect 5 0 6 0;
+#X connect 6 0 27 0;
+#X connect 7 0 11 0;
+#X connect 9 0 28 0;
+#X connect 10 0 21 0;
+#X connect 11 0 8 0;
+#X connect 12 0 11 1;
+#X connect 13 0 12 0;
+#X connect 14 0 13 0;
+#X connect 15 0 24 0;
+#X connect 16 0 10 0;
+#X connect 18 0 14 0;
+#X connect 19 0 25 0;
+#X connect 20 0 3 1;
+#X connect 21 0 5 1;
+#X connect 22 0 4 1;
+#X connect 23 0 6 1;
+#X connect 24 0 22 0;
+#X connect 25 0 23 0;
+#X connect 26 0 29 0;
+#X connect 27 0 30 0;
+#X connect 28 0 20 0;
+#X connect 29 0 7 0;
+#X connect 30 0 7 1;
+#X coords 0 -1 1 1 119 102 2 100 100;

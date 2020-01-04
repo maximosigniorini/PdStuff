@@ -1,0 +1,31 @@
+#N canvas 388 36 864 361 10;
+#X obj 2 -328 cnv 15 700 50 empty empty getImageSize 3 12 0 18 -260080
+-1 0;
+#X text 591 -311 @author Pertuit;
+#X obj 463 -254 gemmanager;
+#X obj 664 -266 loadbang;
+#X msg 664 -238 \; oiseau.x 250 \; oiseau.y 200;
+#X obj 463 -218 simpleimage oiseau bird.png;
+#X obj 471 -134 getImageSize oiseau;
+#X floatatom 582 -103 5 0 0 0 - - -;
+#X floatatom 471 -103 5 0 0 0 - - -;
+#X obj 471 -162 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 161 -322 Fonction retournant la taille d'une image chargée
+;
+#X text 22 -196 La fenêtre GEM doit avoir été ouverte une première
+fois pour restituer la taille.;
+#X text 22 -112 INLETS \; 1- bang : déclencheur;
+#X text 22 -153 ARGUMENTS \; 1- symbole : le nom de l'image;
+#X text 591 -299 @version 1;
+#X text 591 -324 @library 2DMovie;
+#X text 22 -68 OUTLETS \; 1- nombre : largeur (pixels) \; 2- nombre
+: hauteur (pixels);
+#X text 22 -244 DESCRIPTION \; Fonction retournant la taille d'une
+image (ou d'un objet graphique 2DMovie) dans la fenêtre de travail.
+;
+#X connect 3 0 4 0;
+#X connect 6 0 8 0;
+#X connect 6 1 7 0;
+#X connect 9 0 6 0;
+#X coords 0 361 1 360 65 15 0;

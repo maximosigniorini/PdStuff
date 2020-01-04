@@ -1,0 +1,28 @@
+#N canvas 1 87 607 347 10;
+#X obj 66 192 video-scratch;
+#X msg 234 228 play \$1;
+#X obj 234 207 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 69 153 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X floatatom 66 171 5 0 0 0 - - -;
+#X obj 66 253 rectangle 4 3;
+#X msg 430 178 create \, 1;
+#X obj 430 259 gemwin;
+#X msg 440 203 0 \, destroy;
+#X text 506 178 <- on;
+#X text 512 204 <- off;
+#X msg 446 234 reset \, dimen 640 480;
+#X text 205 133 Open a file;
+#X msg 209 153 file ../../data/tmp.mov;
+#X text 63 48 video-scratch \; ------------- \; Open a movie file +
+play and scratch it \;;
+#X connect 0 0 5 0;
+#X connect 1 0 0 1;
+#X connect 2 0 1 0;
+#X connect 3 0 4 0;
+#X connect 4 0 0 0;
+#X connect 6 0 7 0;
+#X connect 8 0 7 0;
+#X connect 11 0 7 0;
+#X connect 13 0 0 1;

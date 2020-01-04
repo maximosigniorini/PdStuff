@@ -1,0 +1,22 @@
+ElectroAcousticTools
+
+EAT_Audiofile~
+
+This module is a file playback for sound files of 1-13 channels. The recommended file format for use with EAT is 48KHz 24-bit WAV.
+
+Creation Arguments
+
+EAT_Audiofile~ ID_tag
+
+e.g. EAT_Audiofile~ Oram
+
+Parameter
+
+Open: Open window to select audio file.
+Play: Play/Stop/Resume audio file playback.
+Loop: Loop complete audio file.
+Pause: Pause playback (Click 'Play' to resume playback).
+Vol: Gain control of audio file playback.
+DF: Default gain to 1.
+MIDI: Access MIDI learn and MIDI control on/off for parameter control.
+HELP: Access help files.

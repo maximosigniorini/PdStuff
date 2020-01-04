@@ -1,0 +1,99 @@
+#N canvas 344 75 392 673 10;
+#X obj 217 27 bng 35 250 50 0 empty empty click_me 40 10 0 10 -258079
+-1 -1;
+#X text 281 46 open video window;
+#X obj 43 229 cnv 15 160 60 empty empty empty 20 12 0 14 -24198 -66577
+0;
+#X floatatom 145 233 5 0 99 0 blur - -;
+#X obj 52 267 pix_motionblur;
+#X obj 145 250 / 100;
+#X obj 42 467 cnv 15 160 90 empty empty empty 20 12 0 14 -24198 -66577
+0;
+#X obj 52 536 pix_lumaoffset;
+#X floatatom 92 481 5 0 0 2 offset - -;
+#X floatatom 133 481 5 0 0 2 gap - -;
+#X obj 134 498 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X msg 134 516 smooth \$1;
+#X msg 66 515 fill \$1;
+#X msg 134 516 smooth \$1;
+#X obj 66 497 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0 1
+;
+#X obj 43 163 cnv 15 160 60 empty empty empty 20 12 0 14 -24198 -66577
+0;
+#X floatatom 86 177 5 0 255 2 contrast - -;
+#X floatatom 138 185 5 0 1 2 saturation - -;
+#X obj 52 199 pix_contrast;
+#X obj 44 297 cnv 15 160 80 empty empty empty 20 12 0 14 -24198 -66577
+0;
+#X obj 52 354 pix_gain;
+#X floatatom 74 316 5 0 0 1 common - -;
+#X msg 126 333 1 0.5 0;
+#X msg 126 354 0 0.4 0.8 1;
+#X obj 43 382 cnv 15 160 80 empty empty empty 20 12 0 14 -24198 -66577
+0;
+#X floatatom 121 424 5 0 0 2 interlace - -;
+#X obj 52 442 pix_scanline;
+#X obj 66 386 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0 1
+;
+#X msg 66 405 mode \$1;
+#X msg 215 170 1.2;
+#X msg 215 192 1;
+#X msg 215 300 2.07;
+#X msg 215 397 1;
+#X msg 215 429 5;
+#X msg 215 475 30;
+#X msg 215 495 4;
+#X msg 215 520 1;
+#X obj 215 135 bng 15 250 50 0 empty empty empty 0 -6 0 10 -257985
+-1 -1;
+#X msg 215 236 30;
+#X text 199 117 set all;
+#X obj 217 66 ehu/gem/win 800 600;
+#X obj 52 102 ehu/gem/cam 0;
+#X obj 51 569 ehu/gem/texture 400 300 800 600;
+#X text 20 0 demonstrating some video filters applied to the webcam
+;
+#X connect 0 0 40 0;
+#X connect 3 0 5 0;
+#X connect 4 0 20 0;
+#X connect 5 0 4 1;
+#X connect 7 0 42 0;
+#X connect 8 0 7 1;
+#X connect 9 0 7 2;
+#X connect 10 0 11 0;
+#X connect 10 0 13 0;
+#X connect 11 0 7 0;
+#X connect 12 0 7 0;
+#X connect 13 0 7 0;
+#X connect 14 0 12 0;
+#X connect 16 0 18 1;
+#X connect 17 0 18 2;
+#X connect 18 0 4 0;
+#X connect 20 0 26 0;
+#X connect 21 0 20 1;
+#X connect 22 0 20 2;
+#X connect 23 0 20 2;
+#X connect 25 0 26 1;
+#X connect 26 0 7 0;
+#X connect 27 0 28 0;
+#X connect 28 0 26 0;
+#X connect 29 0 16 0;
+#X connect 30 0 17 0;
+#X connect 31 0 21 0;
+#X connect 32 0 27 0;
+#X connect 33 0 25 0;
+#X connect 34 0 8 0;
+#X connect 35 0 9 0;
+#X connect 36 0 10 0;
+#X connect 37 0 29 0;
+#X connect 37 0 30 0;
+#X connect 37 0 31 0;
+#X connect 37 0 32 0;
+#X connect 37 0 33 0;
+#X connect 37 0 34 0;
+#X connect 37 0 35 0;
+#X connect 37 0 36 0;
+#X connect 37 0 38 0;
+#X connect 38 0 3 0;
+#X connect 41 0 18 0;

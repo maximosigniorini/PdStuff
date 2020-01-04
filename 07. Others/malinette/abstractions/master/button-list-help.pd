@@ -1,0 +1,10 @@
+#N canvas 140 99 543 300 10;
+#X obj 48 78 tof/menubutton 200 25 \$0-s-menu-in \$0-r-menu-in 0 grey90
+black grey95 black -1;
+#X text 43 132 [tof/menubutton 200 25 \$0-s-menu-in \$0-r-menu-in 0
+grey90 black grey95 black -1];
+#X text 47 35 Example of use : list files from the "./in" folder;
+#X obj 49 220 tof/menubutton 200 25 \$0-s-menu-examples \$0-r-menu-examples
+0 grey90 black grey95 black -1;
+#X obj 319 224 button-list examples \$0;
+#X obj 319 84 button-list in \$0;

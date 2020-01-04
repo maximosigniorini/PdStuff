@@ -1,0 +1,8 @@
+custom_size 1920 1080
+custom_offset 100 30
+size 1
+position 0
+fps 0
+fsaa 1
+completed 1
+nb_file 241

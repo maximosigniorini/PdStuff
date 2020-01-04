@@ -1,0 +1,12 @@
+--- g_all_guis.c.org	2005-06-28 11:03:00.825392272 +0200
++++ g_all_guis.c	2005-06-28 11:03:37.272851416 +0200
+@@ -353,8 +353,7 @@
+     snd = iemgui_raute2dollar(s);
+     iemgui->x_snd_unexpanded = snd;
+     iemgui->x_snd = snd = canvas_realizedollar(iemgui->x_glist, snd);
+-        post("send: before %s, after %s", iemgui->x_snd_unexpanded->s_name,
+-            iemgui->x_snd->s_name);
++    //    post("send: before %s, after %s", iemgui->x_snd_unexpanded->s_name, iemgui->x_snd->s_name);
+ 
+     iemgui->x_fsf.x_snd_able = sndable;
+     iemgui_verify_snd_ne_rcv(iemgui);

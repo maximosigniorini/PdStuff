@@ -1,0 +1,19 @@
+--- pd-0.37-4/src/configure.in	2004-04-25 01:36:34.000000000 +0200
++++ pd-0.37-4.patched/src/configure.in	2005-07-18 14:53:33.717417592 +0200
+@@ -164,12 +164,14 @@
+         -I../portaudio/pa_common \
+         -I../portaudio/pablio -I../portaudio/portmidi-macosx \
+ 	-fno-strict-aliasing"
+-    SYSSRC="s_midi_oss.c s_audio_oss.c"
++    SYSSRC="s_audio_oss.c"
+     if test x$alsa == "xyes";
+     then
+-    	SYSSRC=$SYSSRC" s_audio_alsa.c"
++    	SYSSRC=$SYSSRC" s_audio_alsa.c s_midi_alsa.c"
+ 	MORECFLAGS=$MORECFLAGS" -DPA_USE_ALSA -DUSEAPI_ALSA"
+ 	LDFLAGS=$LDFLAGS" -lasound"
++    else
++        SYSSRC=$SYSSRC" s_midi_oss.c"
+     fi
+     if test x$portaudio == "xyes";
+     then

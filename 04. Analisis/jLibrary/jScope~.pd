@@ -1,0 +1,19 @@
+#N canvas 270 134 477 284 10;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array \$0-jScope 441 float 2;
+#X coords 0 1 441 -1 200 140 2 0 0;
+#X restore 252 25 graph;
+#X obj 97 215 metro 100;
+#X obj 97 194 loadbang;
+#X obj 62 139 inlet~;
+#X obj 62 243 tabwrite~ \$0-jScope;
+#X obj 122 139 inlet;
+#X obj 122 161 sig~;
+#X text 9 10 Simple waveform scope \; \; in1 signals \; in2 message
+floats \; \; John Flynn;
+#X connect 1 0 4 0;
+#X connect 2 0 1 0;
+#X connect 3 0 4 0;
+#X connect 5 0 6 0;
+#X connect 6 0 4 0;
+#X coords 0 -1 1 1 204 157 2 250 10;

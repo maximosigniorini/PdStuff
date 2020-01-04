@@ -1,0 +1,29 @@
+#N canvas 0 22 382 148 10;
+#X obj 85 28 inlet;
+#X obj 10 79 spigot;
+#X obj 51 79 spigot;
+#X obj 43 45 >=;
+#X obj 51 96 outlet;
+#X obj 10 28 inlet;
+#X obj 84 62 EATi_flip;
+#N canvas 0 22 450 300 abstraction_ident_messages 0;
+#X obj 51 90 loadbang;
+#X obj 51 150 print EAT;
+#X msg 51 107 ElectroAcousticTools Switch Abstraction. \, Authored
+by #200256594 at University of Leeds UK. \, Report bugs to mc07rvt@leeds.ac.uk.
+;
+#X connect 0 0 2 0;
+#X connect 2 0 1 0;
+#X restore 7 118 pd abstraction_ident_messages;
+#X obj 11 12 cnv 11 49 13 empty empty SWITCH 1 8 1 12 -1 -4032 0;
+#X text 154 56 Outputs bigger input float.;
+#X connect 0 0 3 1;
+#X connect 0 0 2 0;
+#X connect 1 0 4 0;
+#X connect 2 0 4 0;
+#X connect 3 0 1 1;
+#X connect 3 0 6 0;
+#X connect 5 0 3 0;
+#X connect 5 0 1 0;
+#X connect 6 0 2 1;
+#X coords 0 -1 1 1 50 17 2 10 10;

@@ -1,0 +1,197 @@
+#N canvas 255 98 358 257 10;
+#N canvas 180 145 440 339 ARGO 0;
+#X obj 101 101 cnv 20 132 34 empty ColorTime empty 20 12 0 14 -208064
+-1 1.04858e+06;
+#X obj 110 190 outlet~;
+#X obj 183 104 cnv 10 44 10 empty ColorTime Delay 1 5 1 14 -208064
+-1 1.04858e+06;
+#X obj 100 -121 inlet~;
+#X obj 101 131 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 223 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1728 -66577
+0;
+#X obj 103 118 hsl 129 12 0 1 0 0 empty ColorTime Dur 0 7 1 9 -208064
+-1 -1 6500 0;
+#X obj 100 106 nbx 6 12 0 20000 0 1 \$0-A ColorTime ms 53 7 1 9 -208064
+-1 -1 138.466 256;
+#X obj 101 101 cnv 4 10 4 empty empty empty 0 0 0 9 -1 -66577 0;
+#X obj 45 86 ftom;
+#X obj 282 54 mtof;
+#X obj 269 -75 +~;
+#X obj 270 -43 snapshot~;
+#X obj 252 -17 change;
+#X msg 231 29 set \$1;
+#X msg 283 76 set \$1;
+#X obj 281 7 * 126;
+#X obj 47 131 / 126;
+#X obj 269 -100 *~ 1.90476;
+#X obj 355 102 mtof~;
+#X obj 353 55 *~ 126;
+#X obj 172 -81 r \$0-SendClic;
+#X obj 282 30 - 15;
+#X obj 46 109 + 15;
+#X obj 354 77 -~ 15;
+#X obj 355 124 clip~ 0 5000;
+#X obj 270 -124 inlet~;
+#X obj 100 -13 delwrite~ \$0-del1 5000;
+#X obj 109 164 vd~ \$0-del1;
+#X connect 3 0 27 0;
+#X connect 6 0 11 1;
+#X connect 7 0 9 0;
+#X connect 9 0 23 0;
+#X connect 10 0 15 0;
+#X connect 11 0 12 0;
+#X connect 11 0 20 0;
+#X connect 12 0 13 0;
+#X connect 13 0 14 0;
+#X connect 13 0 16 0;
+#X connect 14 0 6 0;
+#X connect 15 0 7 0;
+#X connect 16 0 22 0;
+#X connect 17 0 6 0;
+#X connect 18 0 11 0;
+#X connect 19 0 25 0;
+#X connect 20 0 24 0;
+#X connect 21 0 12 0;
+#X connect 22 0 10 0;
+#X connect 23 0 17 0;
+#X connect 24 0 19 0;
+#X connect 25 0 28 0;
+#X connect 26 0 18 0;
+#X connect 28 0 1 0;
+#X coords 0 -1 1 1 134 36 1 100 100;
+#X restore -34 -9 pd ARGO;
+#X obj 186 5 active;
+#N canvas 424 161 167 191 clic 0;
+#X obj 23 17 MouseState;
+#X obj 23 82 &;
+#X obj 23 100 == 0;
+#X obj 23 136 s \$0-SendClic;
+#X obj 48 51 t b f;
+#X obj 23 118 metro 200;
+#X obj 94 17 inlet;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 5 0;
+#X connect 4 0 1 0;
+#X connect 4 1 1 1;
+#X connect 5 0 3 0;
+#X connect 6 0 4 0;
+#X restore 186 26 pd clic;
+#X obj -81 95 dac~ 1 2;
+#N canvas 608 166 249 182 ARGOnOff 0;
+#X obj 100 100 tgl 18 1 \$0-SendOnOff \$0-ReceiveOnOff On/Off 20 9
+0 12 -4033 -1 -1 1 1;
+#X obj 99 39 loadbang;
+#X msg 99 62 \; pd dsp 1;
+#X obj 100 129 outlet;
+#X connect 0 0 3 0;
+#X connect 1 0 2 0;
+#X coords 0 -1 1 1 65 18 2 100 100;
+#X restore 184 50 pd ARGOnOff;
+#X obj 184 75 switch~;
+#X obj -92 -128 cnv 15 15 15 empty empty ExMM10a_Delay 0 8 1 14 -262144
+-1 0;
+#N canvas 148 112 547 429 ARGO 0;
+#X obj 368 103 cnv 10 20 10 empty empty Play 1 5 1 14 -262144 -1 1.04858e+06
+;
+#X obj 101 131 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 216 399 outlet~;
+#X obj 261 7 openpanel;
+#X msg 212 301 1;
+#X msg 141 275 0;
+#X msg 289 53 set \$1;
+#X msg 242 326 open \$1;
+#X obj 191 233 t b b;
+#X msg 124 394 set 0;
+#X obj 179 138 sel 1 0;
+#X floatatom 230 180 5 0 0 0 - - -;
+#X msg 230 157 set \$1;
+#X obj 204 210 sel 1;
+#X msg 173 334 set 1;
+#X obj 48 5 key;
+#X obj 49 28 select 32;
+#X obj -11 6 loadbang;
+#X obj 243 353 readsf~ 2;
+#X obj 274 272 list2symbol;
+#X obj 242 301 symbol;
+#X obj 262 27 t b s;
+#X text 369 281 avec espace;
+#X text 351 269 -> pour les noms de fichier;
+#X obj 151 101 tgl 12 1 \$0-SendPlay \$0-ReceivePlay Play(Space) 14
+6 1 9 -262144 -1 -1 1 1;
+#X obj 100 114 bng 16 250 50 0 \$0-SendOpen \$0-ReceiveOpen empty 0
+0 1 9 -262144 -1 -1;
+#X obj 311 101 bng 12 250 50 0 \$0-SendStop \$0-ReceiveStop Stop 14
+6 1 9 -262144 -1 -1;
+#X obj 249 101 tgl 12 1 \$0-SendLoop \$0-ReceiveLoop Loop 15 6 1 9
+-262144 -1 -1 1 1;
+#X symbolatom 117 114 46 0 0 0 - - -;
+#X obj 276 401 outlet~;
+#X obj 389 131 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X msg 8 147 set \$1;
+#X obj -7 196 list2symbol;
+#X obj -11 40 t b b;
+#X obj 139 101 bng 12 250 50 0 \$0-A \$0-B empty 14 6 1 9 -262144 -1
+-1;
+#X obj 139 101 bng 12 250 50 0 \$0-A \$0-B empty 14 6 1 9 -262144 -1
+-1;
+#X obj 174 277 delay 5;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X msg -7 172 cym.aiff;
+#X obj 113 5 inlet~;
+#X obj 113 28 threshold~ 0.5 5 0.49 5;
+#X connect 3 0 21 0;
+#X connect 4 0 18 0;
+#X connect 5 0 18 0;
+#X connect 6 0 28 0;
+#X connect 7 0 18 0;
+#X connect 8 0 36 0;
+#X connect 8 1 20 0;
+#X connect 9 0 24 0;
+#X connect 10 0 8 0;
+#X connect 10 1 9 0;
+#X connect 10 1 5 0;
+#X connect 11 0 13 0;
+#X connect 12 0 11 0;
+#X connect 13 0 8 0;
+#X connect 14 0 24 0;
+#X connect 14 0 35 0;
+#X connect 15 0 16 0;
+#X connect 16 0 24 0;
+#X connect 17 0 33 0;
+#X connect 18 0 2 0;
+#X connect 18 1 29 0;
+#X connect 18 2 11 0;
+#X connect 18 2 9 0;
+#X connect 19 0 20 1;
+#X connect 20 0 7 0;
+#X connect 21 0 28 0;
+#X connect 21 1 6 0;
+#X connect 24 0 10 0;
+#X connect 25 0 3 0;
+#X connect 26 0 5 0;
+#X connect 26 0 9 0;
+#X connect 27 0 12 0;
+#X connect 28 0 19 0;
+#X connect 28 0 31 0;
+#X connect 31 0 38 0;
+#X connect 32 0 6 0;
+#X connect 33 0 28 0;
+#X connect 33 1 38 0;
+#X connect 34 0 24 0;
+#X connect 36 0 4 0;
+#X connect 36 0 14 0;
+#X connect 38 0 32 0;
+#X connect 39 0 40 0;
+#X connect 40 0 34 0;
+#X coords 0 -1 1 1 300 36 2 100 100;
+#X restore -79 -103 pd ARGO;
+#X connect 0 0 3 1;
+#X connect 1 0 2 0;
+#X connect 4 0 5 0;
+#X connect 7 0 0 0;
+#X connect 7 0 3 0;

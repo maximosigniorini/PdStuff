@@ -1,0 +1,11 @@
+#!/bin/sh
+
+if [ "x$0" = "xpd38.source" ]
+then
+ echo this script must be sourced as \". $0\"
+ exit -1
+fi
+
+
+export PD=`which pd`
+

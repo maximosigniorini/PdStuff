@@ -1,0 +1,35 @@
+#N canvas 388 36 866 462 10;
+#X obj 2 -293 cnv 15 700 50 empty empty 3DAxes 3 12 0 18 -260080 -1
+0;
+#X text 591 -276 @author Pertuit;
+#X obj 493 -219 gemmanager;
+#X text 591 -264 @version 1;
+#X text 591 -289 @library 2DMovie;
+#X text 22 22 ARGUMENTS \; aucun;
+#X text 22 63 INLETS \; aucun;
+#X text 22 107 OUTLETS \; aucun;
+#X obj 493 -159 3Daxes;
+#X text 161 -287 Affichage d'un système axial en 3D;
+#X text 22 -209 DESCRIPTION \; Affichage d'un système d'axes x y z
+en 3D permettant de faire varier l'angle de vue des éléments graphiques
+avec la souris.;
+#X text 22 -48 Bouton "on" : affiche ou non le système axial \; Bouton
+"lock" : verrouille le système d'axe \; Bouton "init" : repositionne
+le système d'axes selon sa position initiale.;
+#X text 22 -80 Par défaut \, l'axe z est perpendiculaire au plan x
+y de visualisation des images.;
+#X text 22 -152 Bien que les éléments graphiques de la bibliothèque
+2DMovie soient des images planes (affichées par défaut dans le plan
+x y avec z=0) \, il est utile d'observer la scène sous des angles
+différents afin de faciliter le placement des formes standards en
+3D de gem.;
+#X obj 491 -79 simpleImage oiseau bird.png;
+#X obj 671 -221 loadbang;
+#X msg 671 -193 \; oiseau.x 250 \; oiseau.y 200;
+#X floatatom 561 -25 5 0 0 0 - - -;
+#X obj 561 8 s oiseau.depthZ;
+#X text 449 42 Profondeur (selon z) du plan de projection de l'image
+;
+#X connect 15 0 16 0;
+#X connect 17 0 18 0;
+#X coords 0 462 1 461 65 15 0;

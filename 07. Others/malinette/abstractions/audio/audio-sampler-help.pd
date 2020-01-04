@@ -1,0 +1,98 @@
+#N canvas 180 81 766 656 10;
+#X obj 347 446 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 347 464 loop \$1;
+#X msg 347 373 rec-time \$1;
+#X floatatom 347 352 5 0 0 0 - - -;
+#X obj 36 295 env~;
+#X obj 36 318 vsl 15 60 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 28 199 adc~;
+#X obj 48 470 loadbang;
+#X obj 48 493 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X msg 48 512 \; pd dsp \$1;
+#X msg 347 134 save new-file.wav;
+#X msg 347 73 open bell.aiff;
+#X obj 347 398 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 65 317 dac~;
+#X msg 347 416 auto \$1;
+#X obj 65 200 readsf~;
+#X msg 347 237 rec;
+#X msg 348 505 onoff \$1;
+#X msg 347 264 stop;
+#X msg 426 263 mode 0;
+#X text 400 262 =;
+#X text 345 54 Open audio file from disk;
+#X text 343 117 Save current sound into disk;
+#X text 400 236 =;
+#X text 400 209 =;
+#X msg 426 210 mode 1;
+#X msg 426 237 mode 2;
+#X obj 348 488 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 347 210 play;
+#X msg 346 296 speed 0.2;
+#X msg 346 319 speed -1;
+#X msg 347 189 mode \$1;
+#X obj 347 181 hradio 8 1 0 3 empty empty empty 0 -8 0 10 -262144 -1
+-1 0;
+#X obj 65 147 loadbang;
+#X msg 349 535 start 0.1 \, end 0.5 \, speed -1;
+#X msg 349 564 init;
+#X msg 350 617 phase 0;
+#X msg 348 591 phase 0.5;
+#X msg 347 156 resize \, save new.wav;
+#X text 479 157 with resizing;
+#X msg 347 93 open new.wav;
+#X msg 65 171 open ../../data/voice.wav \, 1;
+#X obj 66 235 audio-sampler;
+#X floatatom 189 355 5 0 0 0 position_of_loop - -;
+#X text 38 603 GNU/GPL \; 01/2013 - 06/2014 \; http://jeromeabelnet
+;
+#X text 388 562 start 0 \, end 1 \, speed 1;
+#X obj 66 295 *~ 0.5;
+#X text 427 372 automatic rec and play (use with "auto 1"). In msec.
+;
+#X text 404 415 if 1 : rec during rec-time and playback after.;
+#X obj 192 375 hsl 40 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X text 55 8 audio-sampler \; ------------- \; Play/open and record/save
+audio input or file \; Argument \; \$1 : rec-time (msec);
+#X connect 0 0 1 0;
+#X connect 1 0 42 1;
+#X connect 2 0 42 1;
+#X connect 3 0 2 0;
+#X connect 4 0 5 0;
+#X connect 7 0 8 0;
+#X connect 8 0 9 0;
+#X connect 10 0 42 1;
+#X connect 11 0 42 1;
+#X connect 12 0 14 0;
+#X connect 14 0 42 1;
+#X connect 15 0 42 0;
+#X connect 15 1 41 0;
+#X connect 16 0 42 1;
+#X connect 17 0 42 1;
+#X connect 18 0 42 1;
+#X connect 27 0 17 0;
+#X connect 28 0 42 1;
+#X connect 29 0 42 1;
+#X connect 30 0 42 1;
+#X connect 31 0 42 1;
+#X connect 32 0 31 0;
+#X connect 33 0 41 0;
+#X connect 34 0 42 1;
+#X connect 35 0 42 1;
+#X connect 36 0 42 1;
+#X connect 37 0 42 1;
+#X connect 38 0 42 1;
+#X connect 40 0 42 1;
+#X connect 41 0 15 0;
+#X connect 42 0 46 0;
+#X connect 42 1 43 0;
+#X connect 43 0 49 0;
+#X connect 46 0 13 0;
+#X connect 46 0 13 1;
+#X connect 46 0 4 0;

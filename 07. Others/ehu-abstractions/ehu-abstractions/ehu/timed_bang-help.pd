@@ -1,0 +1,26 @@
+#N canvas 27 240 531 301 10;
+#X obj 219 86 cnv 15 200 170 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 367 224 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 367 148 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 246 96 loadbang;
+#X floatatom 286 226 5 0 0 0 - - -;
+#X obj 246 224 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 13 -27 ehu/timed_bang abstraction help;
+#X obj 246 178 ehu/timed_bang;
+#X msg 246 124 500 1500 3000 1500 800;
+#X text 14 -3 given a list of times (millisecs) it bangs on timeout
+for each of the steps;
+#X text 16 32 Inlets : list \, loop toggle;
+#X text 17 47 Outlets : bang \, current time \, index \, end reached
+;
+#X text 11 75 note that index 0 means started;
+#X connect 2 0 7 1;
+#X connect 3 0 8 0;
+#X connect 7 0 5 0;
+#X connect 7 1 4 0;
+#X connect 7 2 1 0;
+#X connect 8 0 7 0;

@@ -1,0 +1,20 @@
+#N canvas 174 140 471 463 10;
+#X obj 74 123 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 155 128 5 0 0 0 - - -;
+#X floatatom 237 127 5 20 2000 0 - - -;
+#X text 152 109 note (0-127);
+#X text 233 108 speed (20-2000);
+#X obj 74 348 dac~;
+#X msg 339 198 \; pd dsp 1;
+#X obj 339 173 loadbang;
+#X obj 74 154 synth-note;
+#X text 73 47 synth-note \; ---------- \; Play a single synthesis sound
+with an enveloppe \;;
+#X connect 0 0 8 0;
+#X connect 1 0 8 1;
+#X connect 2 0 8 2;
+#X connect 7 0 6 0;
+#X connect 8 0 5 0;
+#X connect 8 1 5 1;
+#X coords 0 0 1 1 170 170 0;

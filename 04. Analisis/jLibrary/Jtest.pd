@@ -1,0 +1,4 @@
+#N canvas 0 23 450 300 10;
+#X obj 160 110 jKeyboard;
+#X obj 159 148 PRINT;
+#X connect 0 0 1 0;

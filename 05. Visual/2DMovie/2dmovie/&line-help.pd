@@ -1,0 +1,76 @@
+#N canvas 277 46 771 510 10;
+#X obj 4 2 cnv 15 700 50 empty empty &line 3 12 0 18 -204800 -1 0;
+#X floatatom 456 207 5 0 0 0 - - -;
+#X obj 436 120 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 468 111 30;
+#X msg 525 110 set 30;
+#X obj 596 198 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 504 206 print;
+#X text 24 429 OUTLETS \; 1- nombre \; 2- bang à la fin de la rampe
+(lancé APRES la dernière valeur);
+#X msg 467 87 10;
+#X msg 612 130 60 200;
+#X msg 524 86 set 10;
+#X text 24 322 INLETS \; 1- bang : déclencheur \; 1- nombre : affectation
+et passation de la valeur min \; 1- set nombre : affectation de la
+valeur min sans passation de valeur \; 1- list nombre nombre : affectation
+de la valeur max et déclenchement de la rampe;
+#X floatatom 456 417 5 0 0 0 - - -;
+#X obj 436 330 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 468 321 30;
+#X msg 525 320 set 30;
+#X obj 595 408 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 504 416 print;
+#X msg 467 297 10;
+#X msg 612 340 60 200;
+#X msg 524 296 set 10;
+#X msg 611 106 40 500;
+#X msg 611 316 40 500;
+#X obj 595 436 print ============;
+#X obj 596 225 print ============;
+#X text 7 30 Rampe avec un profil dynamique;
+#X text 630 386 aller-retour;
+#X text 23 68 Description \; Rampe de chiffres dont la progression
+suit un profil linéaire \, exponentiel ou logarithmique. Ce patch
+complète [line] en contrôlant le profil de la progression et en permettant
+un aller-retour de la rampe. A la différence de [line] \, la rampe
+est ici toujours calculée de la valeur min à la valeur max : elle
+peut se lancer plusieurs fois par un bang sans avoir besoin de réinitialiser
+les valeurs.;
+#X text 24 187 Arguments \; 1- nombre : le chiffre de départ de la
+rampe \; 2- nombre : le chiffre d'arrivée \; 3- nombre : le temps
+global de la progression (en ms) \; 4- nombre : le mode de progression
+(0 \, par défaut : profil linéaire \, 1 : profil exponentiel \, 2
+: profil logarithmique) \; 5 booléen : aller simple (0 \, par défaut)
+ou aller-retour (1);
+#X text 608 165 profil linéaire;
+#X text 630 370 profil exponentiel;
+#X obj 456 164 &line 10 100 200;
+#X obj 456 374 &line 10 100 200 1 1;
+#X connect 2 0 31 0;
+#X connect 3 0 31 0;
+#X connect 4 0 31 0;
+#X connect 5 0 24 0;
+#X connect 8 0 31 0;
+#X connect 9 0 31 0;
+#X connect 10 0 31 0;
+#X connect 13 0 32 0;
+#X connect 14 0 32 0;
+#X connect 15 0 32 0;
+#X connect 16 0 23 0;
+#X connect 18 0 32 0;
+#X connect 19 0 32 0;
+#X connect 20 0 32 0;
+#X connect 21 0 31 0;
+#X connect 22 0 32 0;
+#X connect 31 0 1 0;
+#X connect 31 0 6 0;
+#X connect 31 1 5 0;
+#X connect 32 0 12 0;
+#X connect 32 0 17 0;
+#X connect 32 1 16 0;
+#X coords 0 510 1 509 65 15 0;

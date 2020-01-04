@@ -1,0 +1,23 @@
+#N canvas 1777 131 662 580 10;
+#X obj 122 123 inlet;
+#X obj 197 516 outlet send;
+#X obj 397 516 outlet receive;
+#X text 165 122 <sendhost:sendport>;
+#X obj 410 112 inlet send;
+#X obj 432 439 sprinkler;
+#X obj 367 415 route /NET;
+#X obj 367 395 NET/helper/oscmatcher;
+#X obj 367 371 t a a;
+#X text 118 62 [cubemixer_client <receiveport> <sendhost:sendport>]
+;
+#X obj 197 348 NET/UDP_OSC/autonet \$1 \$2;
+#X obj 197 326 t a;
+#X connect 0 0 10 1;
+#X connect 4 0 11 0;
+#X connect 6 1 5 0;
+#X connect 7 0 6 0;
+#X connect 8 0 7 0;
+#X connect 8 1 2 0;
+#X connect 10 0 1 0;
+#X connect 10 1 8 0;
+#X connect 11 0 10 0;

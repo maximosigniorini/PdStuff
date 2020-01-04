@@ -1,0 +1,13 @@
+#N canvas 969 294 450 300 10;
+#X obj 27 111 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 63 110 5 0 0 0 - - -;
+#X text 183 55 Output a value X ms after being loaded.;
+#X text 188 166 OUTLET;
+#X text 188 183 Init value;
+#X text 185 94 ARGUMENTS;
+#X text 186 112 Init value;
+#X text 188 127 Delay time;
+#X obj 27 56 initz.delay 5 4000;
+#X connect 8 0 1 0;
+#X connect 8 0 0 0;

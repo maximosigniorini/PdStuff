@@ -1,0 +1,18 @@
+#N canvas 451 88 450 300 10;
+#X floatatom 90 221 5 0 0 0 - - -;
+#X obj 90 80 metro 100;
+#X obj 90 114 counter;
+#X obj 90 53 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
+;
+#X floatatom 90 144 5 0 0 0 - - -;
+#X floatatom 235 169 5 0 0 0 - - -;
+#X text 41 12 once a value passes it blocks following values for a
+;
+#X text 39 24 given period of time;
+#X obj 90 173 ehu/timed_spigot 2000;
+#X connect 1 0 2 0;
+#X connect 2 0 4 0;
+#X connect 3 0 1 0;
+#X connect 4 0 8 0;
+#X connect 5 0 8 1;
+#X connect 8 0 0 0;

@@ -1,0 +1,964 @@
+#N canvas 293 31 559 531 10;
+#X obj 2 350 active;
+#N canvas 424 161 167 191 clic 0;
+#X obj 23 17 MouseState;
+#X obj 23 82 &;
+#X obj 23 100 == 0;
+#X obj 23 136 s \$0-SendClic;
+#X obj 48 51 t b f;
+#X obj 23 118 metro 200;
+#X obj 94 17 inlet;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 5 0;
+#X connect 4 0 1 0;
+#X connect 4 1 1 1;
+#X connect 5 0 3 0;
+#X connect 6 0 4 0;
+#X restore 2 371 pd clic;
+#N canvas 608 166 249 182 ARGOnOff 0;
+#X obj 100 100 tgl 18 1 \$0-SendOnOff \$0-ReceiveOnOff On/Off 20 9
+0 12 -4033 -1 -1 1 1;
+#X obj 99 39 loadbang;
+#X msg 99 62 \; pd dsp 1;
+#X obj 100 129 outlet;
+#X connect 0 0 3 0;
+#X connect 1 0 2 0;
+#X coords 0 -1 1 1 65 18 2 100 100;
+#X restore 0 395 pd ARGOnOff;
+#X obj 0 420 switch~;
+#X obj 30 319 dac~ 1 2;
+#X obj -14 -47 cnv 15 15 15 empty empty ExMM10e-Delayx4 0 8 1 14 -262144
+-66577 0;
+#N canvas 347 177 505 320 ARGO 0;
+#X obj 101 101 cnv 12 164 15 empty ColorAmpli empty 20 12 0 14 -261299
+-1 1.04858e+06;
+#X obj 207 104 cnv 10 20 10 empty ColorAmpli Record 1 5 1 14 -261299
+-1 1.04858e+06;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 255 100 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 63 52 inlet~;
+#X obj 275 50 inlet~;
+#X obj 163 292 writesf~ 2;
+#X msg 132 33 color 13 13 13;
+#X msg 136 58 color 12 12 12;
+#X obj 370 24 sel 0 1;
+#X msg 388 187 start;
+#X msg 289 193 stop;
+#X msg 388 114 open \$1;
+#X obj 389 48 savepanel;
+#X obj 388 142 b 1;
+#X obj 388 165 delay 1000;
+#X obj 403 93 print Record;
+#X obj 403 72 unsymbol;
+#X obj 403 210 b 1;
+#X obj 290 295 float;
+#X obj 335 295 + 1;
+#X obj 289 254 metro 1000;
+#X msg 335 275 -1;
+#X obj 344 227 b 1;
+#X obj 115 101 tgl 15 0 \$0-A \$0-B empty 0 0 1 9 -33289 -33289 -33289
+0 1;
+#X obj 130 101 nbx 4 15 0 9999 0 0 \$0-A ColorTime sec 50 7 1 12 -208064
+-1 -1 0 256;
+#X text 17 7 Enregistre un fichier audio wav a 2 canaux (stereo);
+#X text 81 82 Left input;
+#X text 229 81 Right input;
+#X connect 4 0 6 0;
+#X connect 5 0 6 1;
+#X connect 7 0 24 0;
+#X connect 8 0 24 0;
+#X connect 9 0 8 0;
+#X connect 9 0 11 0;
+#X connect 9 1 13 0;
+#X connect 10 0 18 0;
+#X connect 10 0 23 0;
+#X connect 10 0 6 0;
+#X connect 11 0 21 0;
+#X connect 11 0 6 0;
+#X connect 12 0 14 0;
+#X connect 12 0 6 0;
+#X connect 13 0 17 0;
+#X connect 13 0 12 0;
+#X connect 14 0 15 0;
+#X connect 14 0 22 0;
+#X connect 15 0 10 0;
+#X connect 15 0 22 0;
+#X connect 17 0 16 0;
+#X connect 18 0 7 0;
+#X connect 19 0 20 0;
+#X connect 20 0 19 1;
+#X connect 20 0 25 0;
+#X connect 21 0 19 0;
+#X connect 22 0 20 0;
+#X connect 23 0 21 0;
+#X connect 24 0 9 0;
+#X coords 0 -1 1 1 166 17 1 100 100;
+#X restore 131 318 pd ARGO;
+#N canvas 172 173 382 310 ARGO 0;
+#X text 12 234 peakamp~;
+#X text 11 247 cyclone library;
+#X text 12 262 http://suita.chopin.edu.pl/~czaja/miXed/externs/cyclone.html
+;
+#X text 12 275 pas de help \, dans Pd-extended. Voir doc Max/MSP MSP46ReferenceManual.pdf
+;
+#X obj 101 101 cnv 30 32 129 empty empty empty 20 12 0 14 -261299 -66577
+0;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 102 108 vu 8 120 \$0-B empty 0 0 1 9 -262144 -1 1 0;
+#X obj 75 30 env~;
+#X obj 115 4 inlet~;
+#X obj 74 53 - 100;
+#X obj 114 53 env~;
+#X obj 113 76 - 100;
+#X obj 115 31 peakamp~ 1000;
+#X connect 7 0 9 0;
+#X connect 8 0 7 0;
+#X connect 8 0 12 0;
+#X connect 9 0 6 0;
+#X connect 10 0 11 0;
+#X connect 11 0 6 1;
+#X connect 12 0 10 0;
+#X coords 0 -1 1 1 34 131 2 100 100;
+#X restore 86 318 pd ARGO;
+#N canvas 172 173 382 310 ARGO 0;
+#X text 12 234 peakamp~;
+#X text 11 247 cyclone library;
+#X text 12 262 http://suita.chopin.edu.pl/~czaja/miXed/externs/cyclone.html
+;
+#X text 12 275 pas de help \, dans Pd-extended. Voir doc Max/MSP MSP46ReferenceManual.pdf
+;
+#X obj 101 101 cnv 30 32 129 empty empty empty 20 12 0 14 -261299 -66577
+0;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 102 108 vu 8 120 \$0-B empty 0 0 1 9 -262144 -1 1 0;
+#X obj 75 30 env~;
+#X obj 115 4 inlet~;
+#X obj 74 53 - 100;
+#X obj 114 53 env~;
+#X obj 113 76 - 100;
+#X obj 115 31 peakamp~ 1000;
+#X connect 7 0 9 0;
+#X connect 8 0 7 0;
+#X connect 8 0 12 0;
+#X connect 9 0 6 0;
+#X connect 10 0 11 0;
+#X connect 11 0 6 1;
+#X connect 12 0 10 0;
+#X coords 0 -1 1 1 34 131 2 100 100;
+#X restore 97 318 pd ARGO;
+#N canvas 350 62 279 383 ARGO 0;
+#X obj 101 101 cnv 20 104 34 empty ColorAmpli empty 20 12 0 14 -261299
+-1 1.04858e+06;
+#X obj 85 274 outlet~;
+#X obj 134 104 cnv 10 20 10 empty ColorAmpli Ampli 1 5 1 14 -261299
+-1 1.04858e+06;
+#X obj 89 -82 inlet~;
+#X obj 85 245 *~;
+#X obj 103 118 hsl 101 12 0 1.25 0 1 \$0-A ColorAmpli -20dB 0 7 1 9
+-261299 -1 -1 6000 0;
+#X obj 100 161 pow~ 10000;
+#X obj 100 201 /~ 10000;
+#X msg 115 77 label \$1;
+#X obj 114 54 tosymbol;
+#X obj 115 -45 * 80;
+#X obj 115 -23 - 80;
+#X obj 114 19 sprintf %ddB;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 101 131 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X text 123 36 -> -80dB..20dB;
+#X text 120 0 -> -80 .. 20;
+#X text 104 139 -> 0..1.2;
+#X text 109 179 -> 1..100000;
+#X text 104 221 -> 0.0001..10 = -80dB..20dB;
+#X obj 195 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 195 131 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 210 273 outlet~;
+#X obj 214 -83 inlet~;
+#X obj 210 244 *~;
+#X connect 3 0 4 0;
+#X connect 4 0 1 0;
+#X connect 5 0 10 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 7 0 4 1;
+#X connect 7 0 24 1;
+#X connect 8 0 5 0;
+#X connect 9 0 8 0;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 12 0 9 0;
+#X connect 23 0 24 0;
+#X connect 24 0 22 0;
+#X coords 0 -1 1 1 106 36 1 100 100;
+#X restore 201 247 pd ARGO;
+#X text 309 262 <- General level;
+#N canvas 248 130 569 404 ARGO 0;
+#X obj 101 101 cnv 20 132 34 empty ColorTime empty 20 12 0 14 -208064
+-1 1.04858e+06;
+#X obj 86 193 outlet~;
+#X obj 174 104 cnv 10 44 10 empty ColorTime DelayA 1 5 1 14 -208064
+-1 1.04858e+06;
+#X obj 100 -121 inlet~;
+#X obj 101 131 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 223 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1728 -66577
+0;
+#X obj 103 118 hsl 129 12 0 1 0 0 empty ColorTime Dur 0 7 1 9 -208064
+-1 -1 5928 0;
+#X obj 100 106 nbx 6 12 0 20000 0 1 \$0-A ColorTime ms 53 7 1 9 -208064
+-1 -1 100.022 256;
+#X obj 101 101 cnv 4 10 4 empty empty empty 0 0 0 9 -1 -66577 0;
+#X obj 45 86 ftom;
+#X obj 240 52 mtof;
+#X obj 209 -70 +~;
+#X obj 210 -38 snapshot~;
+#X obj 210 -15 change;
+#X msg 191 55 set \$1;
+#X msg 240 75 set \$1;
+#X obj 240 9 * 126;
+#X obj 47 131 / 126;
+#X obj 209 -95 *~ 1.90476;
+#X obj 293 94 mtof~;
+#X obj 292 -39 *~ 126;
+#X obj 112 -76 r \$0-SendClic;
+#X obj 240 30 - 15;
+#X obj 46 109 + 15;
+#X obj 293 -17 -~ 15;
+#X obj 293 116 clip~ 0 5000;
+#X obj 210 -119 inlet~;
+#X obj 27 -20 cnv 15 160 30 empty empty empty 20 12 0 14 -258113 -66577
+0;
+#X obj 39 -13 delwrite~ \$0-delA 5000;
+#X obj 27 157 cnv 15 160 30 empty empty empty 20 12 0 14 -258113 -66577
+0;
+#X obj 64 164 vd~ \$0-delA;
+#X text 196 154 ATTENTION: un MiniModule Delay ne peux pas être dupliquer.
+"warning: xxxx-delx: multiply defined" est alors écrit dans la fenêtre
+Pd. Solution: 4 MiniModules: DelayA \, DelayB \, DelayC \, DelayD sont
+disponibles...;
+#X text 198 214 Warning: : a Delay MiniModule can not be duplicated.
+"warning: xxxx-delx: multiply defined" is written in the Pd window.
+Solution: 4 MiniModules: DelayA \, DelayB \, DelayC \, DelayD are available
+...;
+#X connect 3 0 28 0;
+#X connect 6 0 11 1;
+#X connect 7 0 9 0;
+#X connect 9 0 23 0;
+#X connect 10 0 15 0;
+#X connect 11 0 12 0;
+#X connect 11 0 20 0;
+#X connect 12 0 13 0;
+#X connect 13 0 14 0;
+#X connect 13 0 16 0;
+#X connect 14 0 6 0;
+#X connect 15 0 7 0;
+#X connect 16 0 22 0;
+#X connect 17 0 6 0;
+#X connect 18 0 11 0;
+#X connect 19 0 25 0;
+#X connect 20 0 24 0;
+#X connect 21 0 12 0;
+#X connect 22 0 10 0;
+#X connect 23 0 17 0;
+#X connect 24 0 19 0;
+#X connect 25 0 30 0;
+#X connect 26 0 18 0;
+#X connect 30 0 1 0;
+#X coords 0 -1 1 1 134 36 1 100 100;
+#X restore -9 196 pd ARGO;
+#N canvas 248 130 569 404 ARGO 0;
+#X obj 101 101 cnv 20 132 34 empty ColorTime empty 20 12 0 14 -208064
+-1 1.04858e+06;
+#X obj 86 193 outlet~;
+#X obj 174 104 cnv 10 44 10 empty ColorTime DelayB 1 5 1 14 -208064
+-1 1.04858e+06;
+#X obj 100 -121 inlet~;
+#X obj 101 131 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 223 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1728 -66577
+0;
+#X obj 103 118 hsl 129 12 0 1 0 0 empty ColorTime Dur 0 7 1 9 -208064
+-1 -1 7147 0;
+#X obj 100 106 nbx 6 12 0 20000 0 1 \$0-A ColorTime ms 53 7 1 9 -208064
+-1 -1 200.038 256;
+#X obj 101 101 cnv 4 10 4 empty empty empty 0 0 0 9 -1 -66577 0;
+#X obj 45 86 ftom;
+#X obj 240 52 mtof;
+#X obj 209 -70 +~;
+#X obj 210 -38 snapshot~;
+#X obj 210 -15 change;
+#X msg 191 55 set \$1;
+#X msg 240 75 set \$1;
+#X obj 240 9 * 126;
+#X obj 47 131 / 126;
+#X obj 209 -95 *~ 1.90476;
+#X obj 293 94 mtof~;
+#X obj 292 -39 *~ 126;
+#X obj 112 -76 r \$0-SendClic;
+#X obj 240 30 - 15;
+#X obj 46 109 + 15;
+#X obj 293 -17 -~ 15;
+#X obj 293 116 clip~ 0 5000;
+#X obj 210 -119 inlet~;
+#X obj 27 -20 cnv 15 160 30 empty empty empty 20 12 0 14 -258113 -66577
+0;
+#X obj 27 157 cnv 15 160 30 empty empty empty 20 12 0 14 -258113 -66577
+0;
+#X text 196 154 ATTENTION: un MiniModule Delay ne peux pas être dupliquer.
+"warning: xxxx-delx: multiply defined" est alors écrit dans la fenêtre
+Pd. Solution: 4 MiniModules: DelayA \, DelayB \, DelayC \, DelayD sont
+disponibles...;
+#X text 198 214 Warning: : a Delay MiniModule can not be duplicated.
+"warning: xxxx-delx: multiply defined" is written in the Pd window.
+Solution: 4 MiniModules: DelayA \, DelayB \, DelayC \, DelayD are available
+...;
+#X obj 39 -13 delwrite~ \$0-delB 5000;
+#X obj 64 164 vd~ \$0-delB;
+#X connect 3 0 31 0;
+#X connect 6 0 11 1;
+#X connect 7 0 9 0;
+#X connect 9 0 23 0;
+#X connect 10 0 15 0;
+#X connect 11 0 12 0;
+#X connect 11 0 20 0;
+#X connect 12 0 13 0;
+#X connect 13 0 14 0;
+#X connect 13 0 16 0;
+#X connect 14 0 6 0;
+#X connect 15 0 7 0;
+#X connect 16 0 22 0;
+#X connect 17 0 6 0;
+#X connect 18 0 11 0;
+#X connect 19 0 25 0;
+#X connect 20 0 24 0;
+#X connect 21 0 12 0;
+#X connect 22 0 10 0;
+#X connect 23 0 17 0;
+#X connect 24 0 19 0;
+#X connect 25 0 32 0;
+#X connect 26 0 18 0;
+#X connect 32 0 1 0;
+#X coords 0 -1 1 1 134 36 1 100 100;
+#X restore 127 196 pd ARGO;
+#N canvas 248 130 569 404 ARGO 0;
+#X obj 101 101 cnv 20 132 34 empty ColorTime empty 20 12 0 14 -208064
+-1 1.04858e+06;
+#X obj 86 193 outlet~;
+#X obj 174 104 cnv 10 44 10 empty ColorTime DelayC 1 5 1 14 -208064
+-1 1.04858e+06;
+#X obj 100 -121 inlet~;
+#X obj 101 131 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 223 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1728 -66577
+0;
+#X obj 103 118 hsl 129 12 0 1 0 0 empty ColorTime Dur 0 7 1 9 -208064
+-1 -1 7860 0;
+#X obj 100 106 nbx 6 12 0 20000 0 1 \$0-A ColorTime ms 53 7 1 9 -208064
+-1 -1 300.041 256;
+#X obj 101 101 cnv 4 10 4 empty empty empty 0 0 0 9 -1 -66577 0;
+#X obj 45 86 ftom;
+#X obj 240 52 mtof;
+#X obj 209 -70 +~;
+#X obj 210 -38 snapshot~;
+#X obj 210 -15 change;
+#X msg 191 55 set \$1;
+#X msg 240 75 set \$1;
+#X obj 240 9 * 126;
+#X obj 47 131 / 126;
+#X obj 209 -95 *~ 1.90476;
+#X obj 293 94 mtof~;
+#X obj 292 -39 *~ 126;
+#X obj 112 -76 r \$0-SendClic;
+#X obj 240 30 - 15;
+#X obj 46 109 + 15;
+#X obj 293 -17 -~ 15;
+#X obj 293 116 clip~ 0 5000;
+#X obj 210 -119 inlet~;
+#X obj 27 -20 cnv 15 160 30 empty empty empty 20 12 0 14 -258113 -66577
+0;
+#X obj 27 157 cnv 15 160 30 empty empty empty 20 12 0 14 -258113 -66577
+0;
+#X text 196 154 ATTENTION: un MiniModule Delay ne peux pas être dupliquer.
+"warning: xxxx-delx: multiply defined" est alors écrit dans la fenêtre
+Pd. Solution: 4 MiniModules: DelayA \, DelayB \, DelayC \, DelayD sont
+disponibles...;
+#X text 198 214 Warning: : a Delay MiniModule can not be duplicated.
+"warning: xxxx-delx: multiply defined" is written in the Pd window.
+Solution: 4 MiniModules: DelayA \, DelayB \, DelayC \, DelayD are available
+...;
+#X obj 39 -13 delwrite~ \$0-delC 5000;
+#X obj 64 164 vd~ \$0-delC;
+#X connect 3 0 31 0;
+#X connect 6 0 11 1;
+#X connect 7 0 9 0;
+#X connect 9 0 23 0;
+#X connect 10 0 15 0;
+#X connect 11 0 12 0;
+#X connect 11 0 20 0;
+#X connect 12 0 13 0;
+#X connect 13 0 14 0;
+#X connect 13 0 16 0;
+#X connect 14 0 6 0;
+#X connect 15 0 7 0;
+#X connect 16 0 22 0;
+#X connect 17 0 6 0;
+#X connect 18 0 11 0;
+#X connect 19 0 25 0;
+#X connect 20 0 24 0;
+#X connect 21 0 12 0;
+#X connect 22 0 10 0;
+#X connect 23 0 17 0;
+#X connect 24 0 19 0;
+#X connect 25 0 32 0;
+#X connect 26 0 18 0;
+#X connect 32 0 1 0;
+#X coords 0 -1 1 1 134 36 1 100 100;
+#X restore 263 196 pd ARGO;
+#N canvas 248 130 569 404 ARGO 0;
+#X obj 101 101 cnv 20 132 34 empty ColorTime empty 20 12 0 14 -208064
+-1 1.04858e+06;
+#X obj 86 193 outlet~;
+#X obj 174 104 cnv 10 44 10 empty ColorTime DelayD 1 5 1 14 -208064
+-1 1.04858e+06;
+#X obj 100 -121 inlet~;
+#X obj 101 131 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 223 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1728 -66577
+0;
+#X obj 103 118 hsl 129 12 0 1 0 0 empty ColorTime Dur 0 7 1 9 -208064
+-1 -1 8366 0;
+#X obj 100 106 nbx 6 12 0 20000 0 1 \$0-A ColorTime ms 53 7 1 9 -208064
+-1 -1 400.066 256;
+#X obj 101 101 cnv 4 10 4 empty empty empty 0 0 0 9 -1 -66577 0;
+#X obj 45 86 ftom;
+#X obj 240 52 mtof;
+#X obj 209 -70 +~;
+#X obj 210 -38 snapshot~;
+#X obj 210 -15 change;
+#X msg 191 55 set \$1;
+#X msg 240 75 set \$1;
+#X obj 240 9 * 126;
+#X obj 47 131 / 126;
+#X obj 209 -95 *~ 1.90476;
+#X obj 293 94 mtof~;
+#X obj 292 -39 *~ 126;
+#X obj 112 -76 r \$0-SendClic;
+#X obj 240 30 - 15;
+#X obj 46 109 + 15;
+#X obj 293 -17 -~ 15;
+#X obj 293 116 clip~ 0 5000;
+#X obj 210 -119 inlet~;
+#X obj 27 -20 cnv 15 160 30 empty empty empty 20 12 0 14 -258113 -66577
+0;
+#X obj 27 157 cnv 15 160 30 empty empty empty 20 12 0 14 -258113 -66577
+0;
+#X text 196 154 ATTENTION: un MiniModule Delay ne peux pas être dupliquer.
+"warning: xxxx-delx: multiply defined" est alors écrit dans la fenêtre
+Pd. Solution: 4 MiniModules: DelayA \, DelayB \, DelayC \, DelayD sont
+disponibles...;
+#X text 198 214 Warning: : a Delay MiniModule can not be duplicated.
+"warning: xxxx-delx: multiply defined" is written in the Pd window.
+Solution: 4 MiniModules: DelayA \, DelayB \, DelayC \, DelayD are available
+...;
+#X obj 39 -13 delwrite~ \$0-delD 5000;
+#X obj 64 164 vd~ \$0-delD;
+#X connect 3 0 31 0;
+#X connect 6 0 11 1;
+#X connect 7 0 9 0;
+#X connect 9 0 23 0;
+#X connect 10 0 15 0;
+#X connect 11 0 12 0;
+#X connect 11 0 20 0;
+#X connect 12 0 13 0;
+#X connect 13 0 14 0;
+#X connect 13 0 16 0;
+#X connect 14 0 6 0;
+#X connect 15 0 7 0;
+#X connect 16 0 22 0;
+#X connect 17 0 6 0;
+#X connect 18 0 11 0;
+#X connect 19 0 25 0;
+#X connect 20 0 24 0;
+#X connect 21 0 12 0;
+#X connect 22 0 10 0;
+#X connect 23 0 17 0;
+#X connect 24 0 19 0;
+#X connect 25 0 32 0;
+#X connect 26 0 18 0;
+#X connect 32 0 1 0;
+#X coords 0 -1 1 1 134 36 1 100 100;
+#X restore 399 195 pd ARGO;
+#N canvas 302 22 582 408 ARGO 0;
+#X obj 101 101 cnv 20 244 34 empty ColorTime empty 20 12 0 14 -208064
+-1 1.04858e+06;
+#X obj 356 280 outlet~;
+#X obj 103 118 hsl 241 12 0 1 0 0 \$0-A ColorTime C\$3 0 7 1 9 -208064
+-1 -1 16995 0;
+#X obj 100 106 nbx 7 12 0 20000 0 1 \$0-A ColorTime Hz 60 7 1 9 -208064
+-1 -1 292.829 256;
+#X obj 194 104 cnv 10 65 10 empty ColorTime Oscill 1 5 1 14 -208064
+-1 1.04858e+06;
+#X obj 231 104 cnv 10 10 10 empty ColorTime Tri/Rectangle 1 5 1 14
+-208064 -1 1.04858e+06;
+#X obj 312 31 clip~ 0 20000;
+#X obj 17 130 ftom;
+#X obj 218 50 mtof;
+#X obj 311 -76 +~;
+#X obj 188 -43 snapshot~;
+#X obj 188 -21 change;
+#X obj 217 3 * 240;
+#X obj 218 26 - 108;
+#X obj 312 9 mtof~;
+#X obj 310 -38 *~ 240;
+#X obj 311 -16 -~ 108;
+#X obj 18 153 + 108;
+#X obj 19 175 / 240;
+#X msg 113 5 set \$1;
+#X msg 219 72 set \$1;
+#X obj 188 -76 r \$0-SendClic;
+#N canvas 60 186 518 313 pitch 0;
+#X obj 76 111 mod 12;
+#X obj 76 135 sel 0 1 2 3 4 5 6 7 8 9 10 11;
+#X msg 252 170 A;
+#X msg 279 170 A#;
+#X msg 306 170 B;
+#X msg 225 170 G#;
+#X msg 198 170 G;
+#X msg 171 170 F#;
+#X msg 9 170 C;
+#X msg 36 170 C#;
+#X msg 63 170 D;
+#X msg 90 170 D#;
+#X msg 117 170 E;
+#X msg 144 170 F;
+#X obj 211 9 inlet;
+#X obj 376 115 div 12;
+#X obj 376 137 - 2;
+#X obj 307 238 tosymbol;
+#X obj 210 69 t f f;
+#X obj 307 213 sprintf %s%d;
+#X text 383 170 -> Numero de l'octave;
+#X text 217 30 -> Numero MIDI de la note (69 = A3 = 440Hz);
+#X msg 307 260 label \$1;
+#X obj 307 283 outlet;
+#X connect 0 0 1 0;
+#X connect 1 0 8 0;
+#X connect 1 1 9 0;
+#X connect 1 2 10 0;
+#X connect 1 3 11 0;
+#X connect 1 4 12 0;
+#X connect 1 5 13 0;
+#X connect 1 6 7 0;
+#X connect 1 7 6 0;
+#X connect 1 8 5 0;
+#X connect 1 9 2 0;
+#X connect 1 10 3 0;
+#X connect 1 11 4 0;
+#X connect 2 0 19 0;
+#X connect 3 0 19 0;
+#X connect 4 0 19 0;
+#X connect 5 0 19 0;
+#X connect 6 0 19 0;
+#X connect 7 0 19 0;
+#X connect 8 0 19 0;
+#X connect 9 0 19 0;
+#X connect 10 0 19 0;
+#X connect 11 0 19 0;
+#X connect 12 0 19 0;
+#X connect 13 0 19 0;
+#X connect 14 0 18 0;
+#X connect 15 0 16 0;
+#X connect 16 0 19 1;
+#X connect 17 0 22 0;
+#X connect 18 0 0 0;
+#X connect 18 1 15 0;
+#X connect 19 0 17 0;
+#X connect 22 0 23 0;
+#X restore 114 53 pd pitch;
+#X obj 311 -100 inlet~;
+#X obj 101 131 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1728 -66577
+0;
+#X obj 409 279 outlet~;
+#X obj 335 131 cnv 4 10 4 empty empty empty 0 0 0 9 -1 -66577 0;
+#X obj 352 61 phasor~;
+#X obj 353 87 -~ 0.5;
+#X obj 493 158 -~ 0.5;
+#X obj 513 195 *~;
+#X obj 513 218 +~ 0.125;
+#X obj 463 278 outlet~;
+#X obj 493 136 expr~ $v1 < 0;
+#X obj 355 252 *~ 2;
+#X obj 409 247 *~ -2;
+#X obj 463 242 *~ 2;
+#X obj 513 242 *~ 8;
+#X obj 514 277 outlet~;
+#X obj 254 131 cnv 4 10 4 empty empty empty 0 0 0 9 -1 -66577 0;
+#X obj 180 131 cnv 4 10 4 empty empty empty 0 0 0 9 -1 -66577 0;
+#X text 84 134 Ramp up;
+#X text 158 135 Ramp down;
+#X text 231 136 Rectangle;
+#X text 313 136 Triangle;
+#X connect 2 0 9 1;
+#X connect 3 0 7 0;
+#X connect 6 0 28 0;
+#X connect 7 0 17 0;
+#X connect 8 0 20 0;
+#X connect 9 0 10 0;
+#X connect 9 0 15 0;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 11 0 19 0;
+#X connect 12 0 13 0;
+#X connect 13 0 8 0;
+#X connect 13 0 22 0;
+#X connect 14 0 6 0;
+#X connect 15 0 16 0;
+#X connect 16 0 14 0;
+#X connect 17 0 18 0;
+#X connect 18 0 9 1;
+#X connect 19 0 2 0;
+#X connect 20 0 3 0;
+#X connect 21 0 10 0;
+#X connect 22 0 2 0;
+#X connect 23 0 9 0;
+#X connect 28 0 29 0;
+#X connect 29 0 35 0;
+#X connect 29 0 36 0;
+#X connect 29 0 31 0;
+#X connect 29 0 34 0;
+#X connect 30 0 31 1;
+#X connect 30 0 37 0;
+#X connect 31 0 32 0;
+#X connect 32 0 38 0;
+#X connect 34 0 30 0;
+#X connect 35 0 1 0;
+#X connect 36 0 26 0;
+#X connect 37 0 33 0;
+#X connect 38 0 39 0;
+#X coords 0 -1 1 1 246 36 1 100 100;
+#X restore 128 111 pd ARGO;
+#N canvas 585 156 393 346 ARGO 0;
+#X obj 40 -36 inlet~;
+#X obj 101 101 cnv 12 198 18 empty empty empty 20 12 0 14 -262144 -1
+1.04858e+06;
+#X obj 254 105 cnv 10 44 10 empty empty Scope 1 5 1 14 -262144 -1 1.04858e+06
+;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X msg 186 31 frgb 255 0 0;
+#X text 64 254 Voir examples:cyclone:pink-test.pd;
+#X text 64 265 Voir examples:cyclone:scope-...;
+#X obj 128 103 nbx 4 12 1 2000 0 1 empty ColorTime ms/div 40 7 1 9
+-208064 -1 -1 1 256;
+#X msg -19 30 range -1 1;
+#X obj 101 120 Scope~ 198 129 2 3 176 -1 1 1 0 1 0.1 255 0 0 255 255
+255 0;
+#X text 64 276 Voir MSP46ReferenceManual.pdf;
+#X obj 217 103 tgl 12 1 \$0-A \$0-B Sync 15 6 1 9 -262144 -1 -1 1 1
+;
+#X msg 142 6 delay 0 \, triglevel 0 \, trigger 0;
+#X obj 140 -41 sel 0 1;
+#X msg 183 55 brgb 255 255 255;
+#X msg 62 14 bufsize 176;
+#X obj 94 63 * 2;
+#X msg 159 -19 delay 1 \, triglevel 0.1 \, trigger 1;
+#X obj 41 -8 clip~ -1 1;
+#X connect 0 0 18 0;
+#X connect 4 0 9 0;
+#X connect 7 0 16 0;
+#X connect 8 0 9 0;
+#X connect 11 0 13 0;
+#X connect 12 0 9 0;
+#X connect 13 0 12 0;
+#X connect 13 1 17 0;
+#X connect 14 0 9 0;
+#X connect 15 0 9 0;
+#X connect 16 0 9 0;
+#X connect 17 0 9 0;
+#X connect 18 0 9 0;
+#X coords 0 -1 1 1 200 150 2 100 100;
+#X restore 305 300 pd ARGO;
+#X obj 207 155 hip~ 1000;
+#N canvas 302 22 406 426 ARGO 0;
+#X obj 308 247 osc~;
+#X obj 101 101 cnv 20 244 34 empty ColorTime empty 20 12 0 14 -208064
+-1 1.04858e+06;
+#X obj 279 294 outlet~;
+#X obj 103 118 hsl 241 12 0 1 0 0 \$0-A ColorTime A-6 0 7 1 9 -208064
+-1 -1 6879 0;
+#X obj 100 106 nbx 7 12 0 20000 0 1 \$0-A ColorTime Hz 60 7 1 9 -208064
+-1 -1 0.849104 256;
+#X obj 194 104 cnv 10 65 10 empty ColorTime Oscill 1 5 1 14 -208064
+-1 1.04858e+06;
+#X obj 231 104 cnv 10 10 10 empty ColorTime Sinus 1 5 1 14 -208064
+-1 1.04858e+06;
+#X obj 308 212 clip~ 0 20000;
+#X obj 54 134 ftom;
+#X obj 218 50 mtof;
+#X obj 311 -76 +~;
+#X obj 188 -43 snapshot~;
+#X obj 188 -21 change;
+#X obj 217 3 * 240;
+#X obj 218 26 - 108;
+#X obj 308 190 mtof~;
+#X obj 306 143 *~ 240;
+#X obj 307 165 -~ 108;
+#X obj 55 157 + 108;
+#X obj 56 179 / 240;
+#X msg 113 5 set \$1;
+#X msg 219 72 set \$1;
+#X obj 188 -76 r \$0-SendClic;
+#N canvas 60 186 518 313 pitch 0;
+#X obj 76 111 mod 12;
+#X obj 76 135 sel 0 1 2 3 4 5 6 7 8 9 10 11;
+#X msg 252 170 A;
+#X msg 279 170 A#;
+#X msg 306 170 B;
+#X msg 225 170 G#;
+#X msg 198 170 G;
+#X msg 171 170 F#;
+#X msg 9 170 C;
+#X msg 36 170 C#;
+#X msg 63 170 D;
+#X msg 90 170 D#;
+#X msg 117 170 E;
+#X msg 144 170 F;
+#X obj 211 9 inlet;
+#X obj 376 115 div 12;
+#X obj 376 137 - 2;
+#X obj 307 238 tosymbol;
+#X obj 210 69 t f f;
+#X obj 307 213 sprintf %s%d;
+#X text 383 170 -> Numero de l'octave;
+#X text 217 30 -> Numero MIDI de la note (69 = A3 = 440Hz);
+#X msg 307 260 label \$1;
+#X obj 307 283 outlet;
+#X connect 0 0 1 0;
+#X connect 1 0 8 0;
+#X connect 1 1 9 0;
+#X connect 1 2 10 0;
+#X connect 1 3 11 0;
+#X connect 1 4 12 0;
+#X connect 1 5 13 0;
+#X connect 1 6 7 0;
+#X connect 1 7 6 0;
+#X connect 1 8 5 0;
+#X connect 1 9 2 0;
+#X connect 1 10 3 0;
+#X connect 1 11 4 0;
+#X connect 2 0 19 0;
+#X connect 3 0 19 0;
+#X connect 4 0 19 0;
+#X connect 5 0 19 0;
+#X connect 6 0 19 0;
+#X connect 7 0 19 0;
+#X connect 8 0 19 0;
+#X connect 9 0 19 0;
+#X connect 10 0 19 0;
+#X connect 11 0 19 0;
+#X connect 12 0 19 0;
+#X connect 13 0 19 0;
+#X connect 14 0 18 0;
+#X connect 15 0 16 0;
+#X connect 16 0 19 1;
+#X connect 17 0 22 0;
+#X connect 18 0 0 0;
+#X connect 18 1 15 0;
+#X connect 19 0 17 0;
+#X connect 22 0 23 0;
+#X restore 114 53 pd pitch;
+#X obj 311 -100 inlet~;
+#X obj 101 131 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1728 -66577
+0;
+#X connect 0 0 2 0;
+#X connect 3 0 10 1;
+#X connect 4 0 8 0;
+#X connect 7 0 0 0;
+#X connect 8 0 18 0;
+#X connect 9 0 21 0;
+#X connect 10 0 11 0;
+#X connect 10 0 16 0;
+#X connect 11 0 12 0;
+#X connect 12 0 13 0;
+#X connect 12 0 20 0;
+#X connect 13 0 14 0;
+#X connect 14 0 9 0;
+#X connect 14 0 23 0;
+#X connect 15 0 7 0;
+#X connect 16 0 17 0;
+#X connect 17 0 15 0;
+#X connect 18 0 19 0;
+#X connect 19 0 10 1;
+#X connect 20 0 3 0;
+#X connect 21 0 4 0;
+#X connect 22 0 11 0;
+#X connect 23 0 3 0;
+#X connect 24 0 10 0;
+#X coords 0 -1 1 1 246 36 1 100 100;
+#X restore 127 24 pd ARGO;
+#N canvas 350 62 312 366 ARGO 0;
+#X obj 101 101 cnv 20 104 34 empty ColorAmpli empty 20 12 0 14 -261299
+-1 1.04858e+06;
+#X obj 4 253 outlet~;
+#X obj 134 104 cnv 10 20 10 empty ColorAmpli Ampli 1 5 1 14 -261299
+-1 1.04858e+06;
+#X obj 12 -86 inlet~;
+#X obj 61 -85 inlet~;
+#X obj 6 194 *~;
+#X obj 103 118 hsl 101 12 0 1.25 0 1 \$0-A ColorAmpli -53dB 0 7 1 9
+-261299 -1 -1 2700 0;
+#X msg 144 60 set \$1;
+#X obj 61 -39 +~;
+#X obj 145 2 snapshot~;
+#X obj 144 38 change;
+#X obj 145 -84 r \$0-SendClic;
+#X obj 23 113 pow~ 10000;
+#X obj 22 161 /~ 10000;
+#X msg 213 61 label \$1;
+#X obj 212 38 tosymbol;
+#X obj 213 -61 * 80;
+#X obj 213 -39 - 80;
+#X obj 212 3 sprintf %ddB;
+#X obj 195 101 cnv 4 10 4 empty empty empty 20 12 0 14 -258113 -66577
+0;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 101 131 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X text 221 20 -> -80dB..20dB;
+#X text 218 -16 -> -80 .. 20;
+#X text 31 95 -> 0..1.2;
+#X text 32 143 -> 1..100000;
+#X text 31 177 -> 0.0001..10 = -80dB..20dB;
+#X connect 3 0 5 0;
+#X connect 4 0 8 0;
+#X connect 5 0 1 0;
+#X connect 6 0 16 0;
+#X connect 6 0 8 1;
+#X connect 7 0 6 0;
+#X connect 8 0 9 0;
+#X connect 8 0 12 0;
+#X connect 9 0 10 0;
+#X connect 10 0 7 0;
+#X connect 11 0 9 0;
+#X connect 12 0 13 0;
+#X connect 13 0 5 1;
+#X connect 14 0 6 0;
+#X connect 15 0 14 0;
+#X connect 16 0 17 0;
+#X connect 17 0 18 0;
+#X connect 18 0 15 0;
+#X coords 0 -1 1 1 106 36 1 100 100;
+#X restore 127 67 pd ARGO;
+#N canvas 189 190 372 210 ARGO 0;
+#X obj 101 113 cnv 4 10 4 empty empty empty 0 0 0 9 -1 -66577 0;
+#X obj 100 100 nbx 5 12 0 99999 0 1 \$0-A \$0-B Hz 47 7 1 9 -262144
+-1 -1 7 256;
+#X obj 158 103 cnv 10 20 10 empty empty Alea2 1 5 1 14 -262144 -1 1.04858e+06
+;
+#X obj 101 113 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 52 172 outlet~;
+#X obj 102 125 noisi~;
+#X text 4 3 draws a random number every n samples and interpolates
+between;
+#X text 4 -9 noisi~;
+#X text 5 30 the effect is that you get a bandlimited noise the bandwidth
+of which can be controlled without having to use expensive filters
+;
+#X text 2 73 (library zexy);
+#X connect 1 0 5 0;
+#X connect 5 0 4 0;
+#X coords 0 -1 1 1 95 18 2 100 100;
+#X restore 127 -44 pd ARGO;
+#N canvas 350 62 312 366 ARGO 0;
+#X obj 101 101 cnv 20 104 34 empty ColorAmpli empty 20 12 0 14 -261299
+-1 1.04858e+06;
+#X obj 4 253 outlet~;
+#X obj 134 104 cnv 10 20 10 empty ColorAmpli Ampli 1 5 1 14 -261299
+-1 1.04858e+06;
+#X obj 12 -86 inlet~;
+#X obj 61 -85 inlet~;
+#X obj 6 194 *~;
+#X obj 103 118 hsl 101 12 0 1.25 0 1 \$0-A ColorAmpli -13dB 0 7 1 9
+-261299 -1 -1 6700 0;
+#X msg 144 60 set \$1;
+#X obj 61 -39 +~;
+#X obj 145 2 snapshot~;
+#X obj 144 38 change;
+#X obj 145 -84 r \$0-SendClic;
+#X obj 23 113 pow~ 10000;
+#X obj 22 161 /~ 10000;
+#X msg 213 61 label \$1;
+#X obj 212 38 tosymbol;
+#X obj 213 -61 * 80;
+#X obj 213 -39 - 80;
+#X obj 212 3 sprintf %ddB;
+#X obj 195 101 cnv 4 10 4 empty empty empty 20 12 0 14 -258113 -66577
+0;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 101 131 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X text 221 20 -> -80dB..20dB;
+#X text 218 -16 -> -80 .. 20;
+#X text 31 95 -> 0..1.2;
+#X text 32 143 -> 1..100000;
+#X text 31 177 -> 0.0001..10 = -80dB..20dB;
+#X connect 3 0 5 0;
+#X connect 4 0 8 0;
+#X connect 5 0 1 0;
+#X connect 6 0 16 0;
+#X connect 6 0 8 1;
+#X connect 7 0 6 0;
+#X connect 8 0 9 0;
+#X connect 8 0 12 0;
+#X connect 9 0 10 0;
+#X connect 10 0 7 0;
+#X connect 11 0 9 0;
+#X connect 12 0 13 0;
+#X connect 13 0 5 1;
+#X connect 14 0 6 0;
+#X connect 15 0 14 0;
+#X connect 16 0 17 0;
+#X connect 17 0 18 0;
+#X connect 18 0 15 0;
+#X coords 0 -1 1 1 106 36 1 100 100;
+#X restore 127 -19 pd ARGO;
+#X connect 0 0 1 0;
+#X connect 2 0 3 0;
+#X connect 9 0 6 0;
+#X connect 9 0 7 0;
+#X connect 9 0 4 0;
+#X connect 9 0 16 0;
+#X connect 9 1 6 1;
+#X connect 9 1 8 0;
+#X connect 9 1 4 1;
+#X connect 9 1 16 0;
+#X connect 11 0 9 0;
+#X connect 12 0 9 0;
+#X connect 13 0 9 1;
+#X connect 14 0 9 1;
+#X connect 15 1 17 0;
+#X connect 17 0 9 0;
+#X connect 17 0 11 0;
+#X connect 17 0 12 0;
+#X connect 17 0 13 0;
+#X connect 17 0 14 0;
+#X connect 18 0 19 0;
+#X connect 19 0 15 0;
+#X connect 20 0 21 0;
+#X connect 21 0 18 0;

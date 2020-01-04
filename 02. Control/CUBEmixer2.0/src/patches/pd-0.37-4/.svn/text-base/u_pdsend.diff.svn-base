@@ -1,0 +1,12 @@
+--- pd-0.37-4/src/u_pdsend.c	2003-02-17 22:22:37.000000000 +0100
++++ pd-0.37-4.patched/src/u_pdsend.c	2005-07-18 14:48:21.258918504 +0200
+@@ -103,7 +103,8 @@
+     	/* now loop reading stdin and sending  it to socket */
+     while (1)
+     {
+-    	char buf[BUFSIZE], *bp, nsent, nsend;
++    	char buf[BUFSIZE], *bp;
++	unsigned int nsent, nsend;
+     	if (!fgets(buf, BUFSIZE, stdin))
+ 	    break;
+     	nsend = strlen(buf);

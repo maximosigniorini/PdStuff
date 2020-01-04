@@ -1,0 +1,125 @@
+#N canvas 8 79 846 437 10;
+#X obj 34 172 symbol \$1;
+#X obj 136 230 ftos;
+#X obj 105 164 float \$1;
+#X floatatom 105 193 5 0 0 0 - - -;
+#X symbolatom 35 205 0 0 0 0 - - -;
+#X symbolatom 95 243 10 0 0 0 - - -;
+#X obj 44 126 loadbang;
+#X obj 97 280 s \$1pdp_intrusion_id;
+#X obj 252 38 inlet;
+#X text 310 38 video;
+#X text 480 38 on/off;
+#X obj 281 260 outlet;
+#X obj 285 90 pdp_spigot;
+#X text 329 257 video;
+#X msg 523 184 bang;
+#X obj 567 162 metro 100;
+#X msg 550 129 bang;
+#X msg 596 131 stop;
+#X floatatom 531 221 5 0 0 0 - - -;
+#X text 581 220 Threshold [0 \, 255 ] default 10;
+#X obj 358 217 pdp_intrusion;
+#X text 564 184 Set background to start comparing;
+#X obj 547 85 r \$1epdp_intrusion_start_comparing;
+#X obj 600 109 r \$1epdp_intrusion_stop_comparing;
+#X obj 583 203 r \$1epdp_intrusion_threshold;
+#X obj 547 45 select 0 1;
+#X obj 0 0 cnv 15 150 75 empty empty empty 2 12 0 14 -191407 -66577
+0;
+#X obj 7 5 tgl 15 0 \$1epdp_intrusion_on \$1epdp_intrusion_on_init
+Intrusion 17 7 0 10 -260097 -1 -1 1 1;
+#X obj 15 26 bng 15 250 50 0 \$1epdp_intrusion_start_comparing empty
+Start 17 7 0 10 -4034 -1 -1;
+#X obj 79 27 bng 15 250 50 0 \$1epdp_intrusion_stop_comparing empty
+Stop 17 7 0 8 -258113 -1 -1;
+#X obj 87 44 nbx 5 14 0 250 0 0 \$1epdp_intrusion_threshold \$1epdp_intrusion_threshold_init
+Threshold -60 6 0 8 -262144 -1 -1 250 256;
+#X obj 106 4 cnv 15 20 10 empty \$1pdp_intrusion_id \$1 5 5 0 10 -260097
+-33289 0;
+#X obj 373 25 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 376 4 r \$1epdp_intrusion_on;
+#X obj 1 55 bng 15 250 50 0 \$1epdp_intrusion_midi_on empty midi 17
+7 0 8 -4160 -1 -1;
+#N canvas 279 138 656 655 midi_control 1;
+#X msg -172 172 ef1epdp_intrusion_on_midi;
+#X msg -11 170 ef1epdp_intrusion_threshold_midi;
+#X text -306 101 MIDI;
+#X obj -238 145 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -115 193 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 12 193 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom -223 369 5 0 0 0 - - -;
+#X obj -63 270 s midi_var_to_add;
+#X msg -172 138 set \$1epdp_intrusion_on_midi;
+#X obj -234 338 r \$1epdp_intrusion_on_midi;
+#X obj -253 496 s \$1epdp_intrusion_on_init;
+#X obj -225 30 r \$1epdp_intrusion_midi_on;
+#X floatatom 2 445 5 0 0 0 - - -;
+#X msg -11 139 set \$1epdp_intrusion_threshold_midi;
+#X obj -20 338 r \$1epdp_intrusion_threshold_midi;
+#X obj -17 498 s \$1epdp_intrusion_threshold_init;
+#X obj -162 80 r \$1pdp_intrusion_id;
+#X obj 78 425 autoscale 0 255;
+#X floatatom -77 374 5 0 0 0 - - -;
+#X obj 32 383 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 12600 1;
+#X floatatom 175 400 5 0 0 0 - - -;
+#X text 46 268 -->global value of mb-midi_control_pad;
+#X obj -144 404 select 0;
+#X msg -87 455 0;
+#X msg -137 461 1;
+#X obj -157 434 alternate;
+#X connect 0 0 4 0;
+#X connect 0 0 7 0;
+#X connect 1 0 5 0;
+#X connect 1 0 7 0;
+#X connect 3 0 0 0;
+#X connect 4 0 1 0;
+#X connect 6 0 22 0;
+#X connect 8 0 0 0;
+#X connect 9 0 6 0;
+#X connect 11 0 3 0;
+#X connect 12 0 15 0;
+#X connect 13 0 1 0;
+#X connect 14 0 18 0;
+#X connect 14 0 19 0;
+#X connect 16 0 8 0;
+#X connect 16 0 13 0;
+#X connect 17 0 12 0;
+#X connect 19 0 17 0;
+#X connect 19 0 20 0;
+#X connect 22 1 25 0;
+#X connect 23 0 10 0;
+#X connect 24 0 10 0;
+#X connect 25 0 24 0;
+#X connect 25 1 23 0;
+#X restore 172 6 pd midi_control;
+#X connect 0 0 4 0;
+#X connect 1 0 5 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X connect 4 0 5 0;
+#X connect 5 0 7 0;
+#X connect 6 0 2 0;
+#X connect 6 0 0 0;
+#X connect 8 0 12 0;
+#X connect 12 0 11 0;
+#X connect 12 1 20 0;
+#X connect 14 0 20 1;
+#X connect 15 0 14 0;
+#X connect 16 0 15 0;
+#X connect 17 0 15 0;
+#X connect 18 0 20 2;
+#X connect 20 0 11 0;
+#X connect 22 0 16 0;
+#X connect 23 0 17 0;
+#X connect 24 0 18 0;
+#X connect 25 0 17 0;
+#X connect 25 1 16 0;
+#X connect 32 0 12 1;
+#X connect 33 0 32 0;
+#X coords 0 -1 1 1 150 75 1 0 0;

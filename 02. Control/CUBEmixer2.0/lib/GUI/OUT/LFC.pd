@@ -1,0 +1,78 @@
+#N canvas 934 109 90 234 10;
+#X obj 1 1 cnv 15 63 198 empty empty LFC 3 7 0 14 -233017 -66577 0
+;
+#X obj 2 99 cnv 2 18 2 empty empty empty 20 12 0 14 -33289 -66577 0
+;
+#N canvas 1612 299 615 401 code 0;
+#X obj 67 73 OUT/LFC/helper/sr \$0GUIout_sub1 1;
+#X text 289 117 ??? what is this for ??? (JMZ);
+#X obj 65 273 makefilename pd-%d;
+#X obj 65 248 i \$0;
+#X obj 65 228 r \$0GUIlfc_showsettings;
+#X msg 65 297 \; \$1-lfc.settings vis 1;
+#X obj 276 229 DSPnamesGUI OUT;
+#X obj 294 257 s \$0GUI_1_out_select_togui;
+#X obj 265 291 s \$0GUI_2_out_select_togui;
+#X obj 503 217 loadbang;
+#X msg 514 255 name LFC_1;
+#X msg 495 293 name LFC_2;
+#X obj 79 145 gui_sr_beautify-uglify \$0GUI_1_out_select /OUT/LFC/1/DST
+;
+#X obj 77 176 gui_sr_beautify-uglify \$0GUI_2_out_select /OUT/LFC/2/DST
+;
+#X obj 67 93 OUT/LFC/helper/sr \$0GUIout_sub2 2;
+#X connect 2 0 5 0;
+#X connect 3 0 2 0;
+#X connect 4 0 3 0;
+#X connect 6 0 7 0;
+#X connect 6 0 8 0;
+#X connect 9 0 10 0;
+#X connect 9 0 11 0;
+#X connect 10 0 7 0;
+#X connect 11 0 8 0;
+#X restore 5 207 pd code;
+#X obj 8 54 vsl 15 131 0 130 0 0 \$0GUIout_sub1_gain \$0GUIout_sub1_gain
++00 -5 140 0 8 -245568 -1 -1 0 1;
+#X obj 2 25 nbx 3 14 20 999 1 0 \$0GUIout_sub1_freq_fromgui \$0GUIout_sub1_freq_togui
+empty 0 0 0 8 -187584 -166441 -166441 75 256;
+#X obj 26 61 vfad_scale -1;
+#X obj 44 99 cnv 2 18 2 empty empty empty 20 12 0 14 -33289 -66577
+0;
+#X obj 43 54 vsl 15 131 0 130 0 0 \$0GUIout_sub2_gain \$0GUIout_sub2_gain
++00 -5 140 0 8 -245568 -1 -1 0 1;
+#X obj 32 25 nbx 3 14 20 999 1 0 \$0GUIout_sub2_freq_fromgui \$0GUIout_sub2_freq_togui
+empty 0 0 0 8 -187584 -166441 -166441 75 256;
+#X obj 44 6 bng 15 250 50 0 \$0GUIlfc_showsettings \$0GUIlfc_showsettings
+set -15 10 0 8 -62784 -1 -1;
+#N canvas 1428 705 159 113 \$0-lfc.settings 0;
+#N canvas 0 0 450 300 showit 0;
+#X obj 11 11 cnv 15 118 88 empty empty LFC 0 10 0 14 -195568 -66577
+0;
+#X obj 13 38 popup 115 20 #ffffff LFC_1 OUT 01 OUT 02 OUT 03 OUT 04
+OUT 05 OUT 10 OUT 11 OUT 12 OUT 13 OUT 14 OUT 15 OUT 16 OUT 17 OUT 18
+OUT 19 OUT 20 OUT 21 OUT 22 OUT 23 OUT 24 OUT 25 OUT 26 OUT 27 OUT 28
+OUT 29 OUT 30 OUT 31 OUT 32 OUT 33 OUT 34 OUT 35 OUT 36 OUT 37 OUT 38
+OUT 39 OUT 40 OUT 41 OUT 42 OUT 43 OUT 44 OUT 45 OUT 46 OUT 47 OUT 48
+OUT 49 OUT 50 OUT 51 OUT 52 OUT 53 OUT 54 OUT 55 OUT 56 OUT 57 OUT 58
+OUT 59 list;
+#X obj 13 77 popup 115 20 #ffffff LFC_2 OUT 01 OUT 02 OUT 03 OUT 04
+OUT 05 OUT 10 OUT 11 OUT 12 OUT 13 OUT 14 OUT 15 OUT 16 OUT 17 OUT 18
+OUT 19 OUT 20 OUT 21 OUT 22 OUT 23 OUT 24 OUT 25 OUT 26 OUT 27 OUT 28
+OUT 29 OUT 30 OUT 31 OUT 32 OUT 33 OUT 34 OUT 35 OUT 36 OUT 37 OUT 38
+OUT 39 OUT 40 OUT 41 OUT 42 OUT 43 OUT 44 OUT 45 OUT 46 OUT 47 OUT 48
+OUT 49 OUT 50 OUT 51 OUT 52 OUT 53 OUT 54 OUT 55 OUT 56 OUT 57 OUT 58
+OUT 59 list;
+#X obj 152 17 r \$0GUI_1_out_select_togui;
+#X obj 154 101 s \$0GUI_2_out_select_fromgui;
+#X obj 152 45 s \$0GUI_1_out_select_fromgui;
+#X obj 154 73 r \$0GUI_2_out_select_togui;
+#X text 54 17 DEST LFC 1;
+#X text 53 60 DEST LFC 2;
+#X connect 1 0 5 0;
+#X connect 2 0 4 0;
+#X connect 3 0 1 0;
+#X connect 6 0 2 0;
+#X coords 0 -1 1 1 120 90 1 10 10;
+#X restore 10 6 pd showit;
+#X restore 11 243 pd \$0-lfc.settings;
+#X coords 0 0 1 1 65 200 1 0 0;

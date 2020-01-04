@@ -1,0 +1,92 @@
+#N canvas 151 22 800 687 10;
+#X declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/numbers -path ../../abstractions/video -path
+../../abstractions/audio -path ../../abstractions/master;
+#X obj 7 279 cnv 1 470 1 empty empty FX 2 -6 1 12 -228856 -191407 0
+;
+#X obj 7 467 cnv 1 470 1 empty empty OUT 2 -6 1 12 -228856 -191407
+0;
+#X obj 7 123 cnv 1 470 1 empty empty IN 2 -6 1 12 -228856 -191407 0
+;
+#X obj 488 28 cnv 20 300 90 empty empty DESCRIPTION 10 15 0 16 -233017
+-128992 0;
+#X obj 488 124 cnv 20 300 150 empty empty empty 10 15 0 16 -233017
+-128992 0;
+#X obj 488 279 cnv 20 300 185 empty empty empty 10 15 0 16 -233017
+-128992 0;
+#X obj 488 469 cnv 20 300 180 empty empty empty 10 15 0 16 -233017
+-128992 0;
+#X obj 40 477 synth-drums;
+#X obj 172 564 audio-out;
+#X obj 50 95 tgl 15 0 empty empty on/off 0 -7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 117 95 5 0 0 2 time - -;
+#X msg 50 114 onoff \$1;
+#X msg 117 114 time \$1;
+#X obj 36 131 seq-sliders;
+#X msg 36 51 seq 0.8 0 0.7 0 0 0.3 0 0.4;
+#X msg 185 75 seq 0 0 0 0.3 0.8 0 0 0.3;
+#X msg 262 98 seq 0.8 0.5 0.8 0.5 0.8 0.5 0.8 0.5;
+#X obj 36 14 loadbang;
+#X obj 185 131 seq-sliders;
+#X obj 333 131 seq-sliders;
+#X text 496 52 De sons de percussions sont déclenchés avec;
+#X text 496 67 des régles de probabilités. Des effets;
+#X text 496 82 ajoutent une texture aux séquences.;
+#X text 496 134 < les trois séquenceurs;
+#X text 496 172 < forte probabilité;
+#X text 509 188 moyenne;
+#X text 508 205 faible;
+#X obj 262 392 audio-pitchshift;
+#X obj 323 297 random 50;
+#X obj 261 565 audio-out;
+#X obj 385 297 random 1000;
+#X obj 385 323 fade 100;
+#X obj 323 324 fade 500;
+#X obj 261 346 audio-reverb;
+#X text 495 291 < valeurs aléatoires pour contrôleur le;
+#X text 508 304 pitchshift (changement de hauteur du son);
+#X text 495 351 < reverberation;
+#X text 496 406 < pitchshift;
+#X text 495 491 < générateur de sons de percussions de synthèse
+;
+#X text 495 581 < sorties audio;
+#X obj 40 290 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 84 291 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 129 291 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 738 12 ../../abstractions/include;
+#X connect 7 4 8 0;
+#X connect 7 4 8 1;
+#X connect 7 4 33 0;
+#X connect 9 0 11 0;
+#X connect 10 0 12 0;
+#X connect 11 0 13 0;
+#X connect 11 0 18 0;
+#X connect 11 0 19 0;
+#X connect 12 0 13 0;
+#X connect 12 0 18 0;
+#X connect 12 0 19 0;
+#X connect 13 1 40 0;
+#X connect 14 0 13 0;
+#X connect 15 0 18 0;
+#X connect 16 0 19 0;
+#X connect 17 0 14 0;
+#X connect 17 0 15 0;
+#X connect 17 0 16 0;
+#X connect 18 1 41 0;
+#X connect 18 1 28 0;
+#X connect 19 1 42 0;
+#X connect 19 1 30 0;
+#X connect 27 0 29 0;
+#X connect 27 0 29 1;
+#X connect 28 0 32 0;
+#X connect 30 0 31 0;
+#X connect 31 0 27 2;
+#X connect 32 0 27 1;
+#X connect 33 0 27 0;
+#X connect 40 0 7 0;
+#X connect 41 0 7 1;
+#X connect 42 0 7 2;

@@ -1,0 +1,68 @@
+#N canvas 230 219 813 474 10;
+#X obj 282 119 vsl 15 115 0 175 0 0 \$1slider_s \$1slider_r empty 0
+-8 0 8 -260097 -262144 -1 11400 0;
+#X obj 100 117 hradio 15 1 0 12 \$1hr_0_s \$1hr_0_r empty 2 8 1 10
+-1 -1 -258049 6;
+#X obj 100 132 hradio 15 1 0 12 \$1hr_1_s \$1hr_1_r empty 2 8 1 10
+-1 -1 -262140 0;
+#X obj 100 147 hradio 15 1 0 12 \$1hr_2_s \$1hr_2_r empty 2 8 1 10
+-1 -1 -262140 3;
+#X obj 100 162 hradio 15 1 0 12 \$1hr_3_s \$1hr_3_r empty 2 8 1 10
+-1 -1 -262140 0;
+#X obj 100 177 hradio 15 1 0 12 \$1hr_4_s \$1hr_4_r empty 2 8 1 10
+-1 -1 -128992 0;
+#X obj 100 192 hradio 15 1 0 12 \$1hr_5_s \$1hr_5_r empty 2 8 1 10
+-1 -1 -262140 0;
+#X obj 100 207 hradio 15 1 0 12 \$1hr_6_s \$1hr_6_r empty 2 8 1 10
+-1 -1 -262140 0;
+#X obj 100 222 hradio 15 1 0 12 \$1hr_7_s \$1hr_7_r empty 2 8 1 10
+-1 -1 -262140 0;
+#X obj 100 101 hradio 15 1 0 11 \$1label_radio_s \$1label_radio_r empty
+2 8 0 8 -1 -1 -262144 3;
+#X obj 100 101 cnv 15 197 15 empty \$1hider abstractions 3 9 0 8 -128992
+-262144 0;
+#X floatatom 157 38 5 0 0 0 - - -;
+#X obj 157 64 mtl/gBrowser \$1;
+#X msg 252 23 clear;
+#X text 295 23 Clear the browser;
+#X obj 234 4 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 255 2 slider up;
+#X obj 127 -50 inlet;
+#X obj 329 -52 inlet;
+#X text 583 -34 Numeber/Name of capture passed as argument when mb-pdp_capture_video
+is called-> ex. mb-pdp_capture_video 1-> \$0 is 1;
+#X obj 456 28 symbol \$1;
+#X symbolatom 456 57 0 0 0 0 - - -;
+#X obj 456 -8 bng 15 250 50 0 empty empty click_here_to_see 0 -6 0
+8 -262144 -1 -1;
+#X symbolatom 553 57 0 0 0 0 - - -;
+#X obj 553 28 symbol \$2;
+#X obj 459 -50 loadbang;
+#X obj 457 96 s \$1gbrowser_id;
+#X obj 100 239 cnv 15 198 15 empty empty mb-gBrowser 40 8 0 10 -66577
+-228856 0;
+#X obj 233 240 cnv 15 40 12 empty \$1gBrowser_id \$1 10 8 0 8 -260097
+-33289 0;
+#X obj 224 347 outlet;
+#X obj 372 347 outlet;
+#X obj 280 101 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113
+-1 -1;
+#X obj 263 101 bng 15 250 50 0 empty empty empty 17 7 0 10 -257985
+-1 -1;
+#X connect 0 0 30 0;
+#X connect 11 0 12 0;
+#X connect 12 0 29 0;
+#X connect 13 0 12 1;
+#X connect 15 0 12 1;
+#X connect 17 0 12 0;
+#X connect 18 0 12 1;
+#X connect 20 0 21 0;
+#X connect 21 0 26 0;
+#X connect 22 0 20 0;
+#X connect 22 0 24 0;
+#X connect 24 0 23 0;
+#X connect 25 0 22 0;
+#X connect 31 0 13 0;
+#X connect 32 0 12 1;
+#X coords 0 -1 1 1 198 155 1 100 100;

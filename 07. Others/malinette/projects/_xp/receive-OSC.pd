@@ -1,0 +1,71 @@
+#N canvas 583 79 822 660 10;
+#X declare -path abstractions/in -path abstractions/out -path abstractions/tools
+-path abstractions/filters -path abstractions/master -path examples/basics
+;
+#X declare -lib osc;
+#X obj 7 207 cnv 1 396 1 empty empty FILTERS 2 -6 1 12 -228856 -191407
+0;
+#X obj 7 414 cnv 1 800 1 empty empty OUT 2 -6 1 12 -228856 -191407
+0;
+#X obj 7 35 cnv 1 800 1 empty empty IN 2 -6 1 12 -228856 -191407 0
+;
+#X obj 7 207 cnv 1 800 1 empty empty TOOLS 400 -6 1 12 -228856 -191407
+0;
+#N canvas 388 317 543 287 INIT 0;
+#X text 99 131 Always use this subpatch in the presets;
+#X obj 101 101 cnv 8 38 8 empty empty INIT 5 4 0 10 -233017 -66577
+0;
+#X obj 100 154 declare -path abstractions/in -path abstractions/out
+-path abstractions/tools -path abstractions/filters -path abstractions/master
+-path examples/basics;
+#X coords 0 -1 1 1 40 10 2 100 100;
+#X restore 766 18 pd INIT;
+#X obj 390 118 import osc;
+#X obj 202 392 unpackOSC;
+#X floatatom 424 314 3 0 0 0 - - -;
+#X floatatom 451 314 3 0 0 0 - - -;
+#X floatatom 478 314 3 0 0 0 - - -;
+#X floatatom 505 314 3 0 0 0 - - -;
+#X floatatom 532 314 5 0 0 0 - - -;
+#X obj 424 288 unpack 0 0 0 0 0;
+#X msg 202 100 status;
+#X floatatom 303 235 9 0 0 0 - - -;
+#X obj 484 261 tgl 15 0 empty empty empty 17 7 0 10 -4034 -1 -1 0 1
+;
+#X floatatom 363 261 9 0 0 0 - - -;
+#X text 196 235 bytes received:;
+#X text 211 259 total bytes received:;
+#X text 381 313 from:;
+#X obj 202 479 spigot;
+#X obj 235 453 tgl 15 0 empty empty enable_print: -77 8 0 10 -4034
+-1 -1 1 1;
+#X obj 202 504 print received;
+#X obj 303 202 route received total from multicast;
+#X text 286 137 change port to listen on;
+#X obj 202 420 pipelist;
+#X obj 321 469 routeOSC /user1;
+#X obj 67 278 spigot;
+#X obj 100 252 tgl 15 0 empty empty enable_print: -77 8 0 10 -4034
+-1 -1 1 1;
+#X obj 67 304 print received ---;
+#X obj 202 169 udpreceive 3000;
+#X connect 6 0 25 0;
+#X connect 6 1 25 1;
+#X connect 12 0 7 0;
+#X connect 12 1 8 0;
+#X connect 12 2 9 0;
+#X connect 12 3 10 0;
+#X connect 12 4 11 0;
+#X connect 13 0 30 0;
+#X connect 20 0 22 0;
+#X connect 21 0 20 1;
+#X connect 23 0 14 0;
+#X connect 23 1 16 0;
+#X connect 23 2 12 0;
+#X connect 23 3 15 0;
+#X connect 25 0 20 0;
+#X connect 25 0 26 0;
+#X connect 27 0 29 0;
+#X connect 28 0 27 1;
+#X connect 30 0 6 0;
+#X connect 30 1 23 0;

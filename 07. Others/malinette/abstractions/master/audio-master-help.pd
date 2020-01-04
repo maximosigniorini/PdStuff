@@ -1,0 +1,21 @@
+#N canvas 6 57 711 314 10;
+#X obj 52 133 audio-master;
+#X obj 498 221 throw~ audio-left;
+#X obj 509 198 throw~ audio-right;
+#X obj 496 80 osc~ 440;
+#X obj 497 177 *~;
+#X obj 512 134 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 497 104 *~ 0.2;
+#X text 532 134 test the sound;
+#X text 135 205 <- Rec : choose a file (bang) and start the recording
+(toggle);
+#X text 135 181 <- Synchronize the sliders;
+#X text 136 155 <- Dsp toggle and mute bang;
+#X text 47 39 audio-master \; ------------ \; - stereo output \; -
+dsp and mute \; - synchronize sliders \; - recorder \;;
+#X connect 3 0 6 0;
+#X connect 4 0 1 0;
+#X connect 4 0 2 0;
+#X connect 5 0 4 1;
+#X connect 6 0 4 0;

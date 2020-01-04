@@ -1,0 +1,21 @@
+#N canvas 406 200 517 347 10;
+#X declare -lib ggee;
+#X declare -lib ggee;
+#X obj 10 40 cnv 15 320 130 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 347 87 bng 30 250 50 0 empty empty click_me 0 -6 0 10 -258079
+-1 -1;
+#X text 362 130 open graphics window;
+#X obj 347 148 ehu/gem/win 400 300;
+#X obj 40 250 ehu/gem/texture 200 150 400 300;
+#X obj 76 95 ehu/makeymakey;
+#X text 18 52 this just wraps the GEM mouse and keyboard objects;
+#X text 18 68 listening to the makeymakey events;
+#X text 10 -2 ** the graphics window MUST be selected to detect the
+events **;
+#X obj 40 189 ehu/gem/video videos/whistle.mp4;
+#X connect 1 0 3 0;
+#X connect 1 0 9 1;
+#X connect 5 0 4 2;
+#X connect 5 1 4 3;
+#X connect 9 0 4 0;

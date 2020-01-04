@@ -1,0 +1,11 @@
+#N canvas 0 0 450 300 10;
+#X obj 50 143 transf_fader;
+#X obj 66 87 loadbang;
+#X msg 66 108 pairs 0 0 15 88 63 100 111 112 128 125;
+#X obj 50 49 inlet;
+#X obj 50 174 outlet;
+#X obj 181 151 fadtodb;
+#X connect 0 0 4 0;
+#X connect 1 0 2 0;
+#X connect 2 0 0 0;
+#X connect 3 0 0 0;

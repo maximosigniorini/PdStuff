@@ -1,0 +1,53 @@
+#N canvas 198 48 822 660 10;
+#X declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/tools -path ../../abstractions/filters -path
+../../abstractions/fx-video -path ../../abstractions/fx-audio -path
+../../abstractions/master;
+#X declare -path abstractions/in -path abstractions/out -path abstractions/tools
+-path abstractions/filters -path abstractions/fx-video -path abstractions/fx-audio
+-path abstractions/master;
+#X obj 7 207 cnv 1 396 1 empty empty FILTERS 2 -6 1 12 -228856 -191407
+0;
+#X obj 7 414 cnv 1 800 1 empty empty OUT 2 -6 1 12 -228856 -191407
+0;
+#X obj 7 35 cnv 1 800 1 empty empty IN 2 -6 1 12 -228856 -191407 0
+;
+#X obj 7 207 cnv 1 800 1 empty empty TOOLS 400 -6 1 12 -228856 -191407
+0;
+#N canvas 362 156 563 434 INIT 0;
+#X obj 101 101 cnv 8 48 8 empty empty INCLUDE 2 4 0 10 -233017 -66577
+0;
+#X obj 102 261 declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/tools -path ../../abstractions/filters -path
+../../abstractions/fx-video -path ../../abstractions/fx-audio -path
+../../abstractions/master;
+#X text 100 240 Use for standalone :;
+#X text 100 140 Use with the main.pd :;
+#X text 97 25 Import paths to find abstractions \; Always use it in
+the examples patchs.;
+#X obj 102 162 declare -path abstractions/in -path abstractions/out
+-path abstractions/tools -path abstractions/filters -path abstractions/fx-video
+-path abstractions/fx-audio -path abstractions/master;
+#X coords 0 -1 1 1 50 10 2 100 100;
+#X restore 756 16 pd INIT;
+#X obj 198 94 audio-in;
+#X floatatom 212 126 5 0 0 0 - - -;
+#X obj 197 351 audio-pitchshift;
+#X obj 207 432 audio-out;
+#X obj 346 171 closestnote;
+#X floatatom 256 302 5 0 0 0 - - -;
+#X obj 374 433 audio-sampler;
+#X obj 373 504 audio-out;
+#X obj 256 272 expr $f2 - $f1;
+#X connect 5 0 7 0;
+#X connect 5 1 6 0;
+#X connect 5 1 9 0;
+#X connect 5 1 13 0;
+#X connect 7 0 8 0;
+#X connect 7 0 8 1;
+#X connect 7 0 11 0;
+#X connect 9 0 13 1;
+#X connect 10 0 7 1;
+#X connect 11 0 12 0;
+#X connect 11 0 12 1;
+#X connect 13 0 10 0;

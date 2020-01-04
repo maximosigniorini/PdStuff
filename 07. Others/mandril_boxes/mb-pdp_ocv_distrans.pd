@@ -1,0 +1,166 @@
+#N canvas 793 316 895 490 10;
+#X obj 34 172 symbol \$1;
+#X obj 136 230 ftos;
+#X obj 105 164 float \$1;
+#X floatatom 105 193 5 0 0 0 - - -;
+#X symbolatom 35 205 0 0 0 0 - - -;
+#X symbolatom 95 243 10 0 0 0 - - -;
+#X obj 44 126 loadbang;
+#X obj 97 280 s \$1pdp_ocv_distrans_id;
+#X obj 251 50 inlet;
+#X text 309 50 video;
+#X text 478 32 on/off;
+#X obj 283 461 outlet;
+#X obj 284 102 pdp_spigot;
+#X text 333 454 video;
+#X obj 413 9 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 446 12 r \$1pdp_ocv_distrans_on;
+#X obj 0 0 cnv 15 150 75 empty empty empty 2 12 0 14 -191407 -66577
+0;
+#X obj 6 4 tgl 15 0 \$1pdp_ocv_distrans_on \$1pdp_ocv_distrans_on_init
+distrans 17 7 0 8 -260097 -1 -1 0 1;
+#X obj 125 4 cnv 15 20 10 empty \$1pdp_ocv_distrans_id \$1 5 5 0 10
+-260097 -33289 0;
+#X obj 7 24 bng 15 250 50 0 \$1pdp_ocv_distrans_midi_on empty midi
+17 7 0 8 -4160 -1 -1;
+#N canvas 382 261 1248 564 midi_control 0;
+#X msg 77 175 pdp_ocv_distrans_on_midi;
+#X text 27 19 MIDI;
+#X obj 11 148 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 134 196 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 261 196 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 32 368 5 0 0 0 - - -;
+#X obj 30 413 select 0;
+#X msg 143 472 0;
+#X msg 62 471 1;
+#X obj 414 279 s midi_var_to_add;
+#X msg 77 141 set \$1pdp_ocv_distrans_on_midi;
+#X obj 29 338 r \$1pdp_ocv_distrans_on_midi;
+#X obj 10 496 s \$1pdp_ocv_distrans_on_init;
+#X obj 33 54 r \$1pdp_ocv_distrans_midi_on;
+#X text 531 278 -->global value of mb-midi_control_pad;
+#X obj 446 44 r \$1pdp_ocv_distrans_id;
+#X floatatom 113 384 1 0 0 0 - - -;
+#X obj 85 444 alternate;
+#X floatatom 531 396 5 0 0 0 - - -;
+#X floatatom 557 465 8 0 0 0 - - -;
+#X obj 612 399 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X msg 277 170 pdp_ocv_distrans_set_midi;
+#X msg 490 169 pdp_ocv_distrans_threshold_midi;
+#X obj 626 436 autoscale 0 300;
+#X msg 277 139 set \$1pdp_ocv_distrans_type_midi;
+#X msg 490 138 set \$1pdp_ocv_distrans_edge_midi;
+#X msg 705 134 set \$1pdp_ocv_distrans_voronoi_on_midi;
+#X msg 706 171 pdp_ocv_distrans_voronoi_midi;
+#X obj 578 198 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 531 350 r \$1pdp_ocv_distrans_edge_midi;
+#X obj 489 499 s \$1pdp_ocv_distrans_edge_init;
+#X msg 348 474 0;
+#X floatatom 318 386 1 0 0 0 - - -;
+#X obj 290 446 alternate;
+#X obj 234 340 r \$1pdp_ocv_distrans_voronoi_on_midi;
+#X obj 215 498 s \$1pdp_ocv_distrans_voronoi_on_init;
+#X floatatom 233 381 5 0 0 0 - - -;
+#X obj 231 426 select 0;
+#X msg 265 471 1;
+#X obj 845 347 r \$1pdp_ocv_distrans_type_midi;
+#X connect 0 0 3 0;
+#X connect 0 0 9 0;
+#X connect 2 0 0 0;
+#X connect 3 0 21 0;
+#X connect 4 0 22 0;
+#X connect 5 0 6 0;
+#X connect 6 1 17 0;
+#X connect 7 0 12 0;
+#X connect 8 0 12 0;
+#X connect 10 0 0 0;
+#X connect 11 0 5 0;
+#X connect 11 0 16 0;
+#X connect 13 0 2 0;
+#X connect 15 0 10 0;
+#X connect 15 0 24 0;
+#X connect 15 0 25 0;
+#X connect 15 0 26 0;
+#X connect 17 0 8 0;
+#X connect 17 1 7 0;
+#X connect 18 0 20 0;
+#X connect 19 0 30 0;
+#X connect 20 0 23 0;
+#X connect 21 0 4 0;
+#X connect 21 0 9 0;
+#X connect 22 0 9 0;
+#X connect 22 0 28 0;
+#X connect 23 0 19 0;
+#X connect 24 0 21 0;
+#X connect 25 0 22 0;
+#X connect 26 0 27 0;
+#X connect 27 0 9 0;
+#X connect 28 0 27 0;
+#X connect 29 0 18 0;
+#X connect 31 0 35 0;
+#X connect 33 0 38 0;
+#X connect 33 1 31 0;
+#X connect 34 0 32 0;
+#X connect 34 0 36 0;
+#X connect 36 0 37 0;
+#X connect 37 1 33 0;
+#X connect 38 0 35 0;
+#X restore 172 16 pd midi_control;
+#X obj 115 52 nbx 3 14 -1e+37 1e+37 0 0 empty \$1pdp_ocv_distrans_edge
+empty 0 -8 0 8 -66577 -260097 -260097 0 256;
+#X floatatom 636 284 5 0 0 0 - - -;
+#X obj 333 382 pdp_opencv_distrans;
+#X text 654 255 edge threshold;
+#X msg 448 199 type 3;
+#X msg 416 218 type 5;
+#X msg 374 238 type 0;
+#X msg 613 185 voronoi \$1;
+#X obj 612 159 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 635 157 switch Voronoi diagram mode on/off;
+#X text 489 196 use 3x3 mask;
+#X text 461 218 use 5x5 mask;
+#X text 424 238 use precise distance transform;
+#X obj 636 228 r \$1pdp_ocv_distrans_edge;
+#X obj 377 131 r \$1pdp_ocv_distrans_type;
+#X obj 377 171 select 0 1 2;
+#X obj 91 18 knob 32 32 0 260 0 0 \$1pdp_ocv_distrans_edge \$1pdp_ocv_distrans_edge_init
+edge -7 -8 192 8 -99865 -260097 -1 0 1;
+#X obj 7 42 tgl 15 0 \$1pdp_ocv_distrans_voronoi_on \$1pdp_ocv_distrans_voronoi_on_init
+Voronoi 17 7 0 8 -260097 -1 -1 0 1;
+#X obj 613 100 r \$1pdp_ocv_distrans_voronoi_on;
+#X obj 7 60 hradio 12 1 0 3 \$1pdp_ocv_distrans_type \$1pdp_ocv_distrans_type_init
+type 40 6 0 8 -260097 -1 -1 0;
+#X connect 0 0 4 0;
+#X connect 1 0 5 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X connect 4 0 5 0;
+#X connect 5 0 7 0;
+#X connect 6 0 2 0;
+#X connect 6 0 0 0;
+#X connect 8 0 12 0;
+#X connect 12 0 11 0;
+#X connect 12 1 23 0;
+#X connect 14 0 12 1;
+#X connect 15 0 14 0;
+#X connect 22 0 23 1;
+#X connect 23 0 11 0;
+#X connect 25 0 23 0;
+#X connect 26 0 23 0;
+#X connect 27 0 23 0;
+#X connect 28 0 23 0;
+#X connect 29 0 28 0;
+#X connect 34 0 22 0;
+#X connect 35 0 36 0;
+#X connect 36 0 27 0;
+#X connect 36 1 26 0;
+#X connect 36 2 25 0;
+#X connect 39 0 29 0;
+#X coords 0 -1 1 1 150 75 1 0 0;

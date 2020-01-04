@@ -1,0 +1,805 @@
+state.default {
+	control.1 {
+		comment.access 'read write'
+		comment.type INTEGER
+		comment.count 3
+		comment.range '0 - 65535 (step 1)'
+		iface HWDEP
+		name Mixer
+		value.0 0
+		value.1 0
+		value.2 0
+	}
+	control.2 {
+		comment.access 'read write'
+		comment.type ENUMERATED
+		comment.count 1
+		comment.item.0 AutoSync
+		comment.item.1 'Internal 32.0 kHz'
+		comment.item.2 'Internal 44.1 kHz'
+		comment.item.3 'Internal 48.0 kHz'
+		comment.item.4 'Internal 64.0 kHz'
+		comment.item.5 'Internal 88.2 kHz'
+		comment.item.6 'Internal 96.0 kHz'
+		comment.item.7 'Internal 128.0 kHz'
+		comment.item.8 'Internal 176.4 kHz'
+		comment.item.9 'Internal 192.0 kHz'
+		iface MIXER
+		name 'Sample Clock Source'
+		value AutoSync
+	}
+	control.3 {
+		comment.access read
+		comment.type ENUMERATED
+		comment.count 1
+		comment.item.0 Master
+		comment.item.1 Slave
+		iface MIXER
+		name 'System Clock Mode'
+		value Slave
+	}
+	control.4 {
+		comment.access 'read write'
+		comment.type ENUMERATED
+		comment.count 1
+		comment.item.0 Word
+		comment.item.1 MADI
+		iface MIXER
+		name 'Preferred Sync Reference'
+		value MADI
+	}
+	control.5 {
+		comment.access read
+		comment.type ENUMERATED
+		comment.count 1
+		comment.item.0 WordClock
+		comment.item.1 MADI
+		comment.item.2 None
+		iface MIXER
+		name 'AutoSync Reference'
+		value MADI
+	}
+	control.6 {
+		comment.access read
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 0'
+		iface MIXER
+		name 'System Sample Rate'
+		value 44100
+	}
+	control.7 {
+		comment.access read
+		comment.type ENUMERATED
+		comment.count 1
+		comment.item.0 '32000'
+		comment.item.1 '44100'
+		comment.item.2 '48000'
+		comment.item.3 '64000'
+		comment.item.4 '88200'
+		comment.item.5 '96000'
+		comment.item.6 '128000'
+		comment.item.7 '176400'
+		comment.item.8 '192000'
+		comment.item.9 None
+		iface MIXER
+		name 'External Rate'
+		value '44100'
+	}
+	control.8 {
+		comment.access read
+		comment.type ENUMERATED
+		comment.count 1
+		comment.item.0 'No Lock'
+		comment.item.1 Lock
+		comment.item.2 Sync
+		iface MIXER
+		name 'Word Clock Lock Status'
+		value Sync
+	}
+	control.9 {
+		comment.access read
+		comment.type ENUMERATED
+		comment.count 1
+		comment.item.0 'No Lock'
+		comment.item.1 Lock
+		comment.item.2 Sync
+		iface MIXER
+		name 'MADI Sync Lock Status'
+		value Sync
+	}
+	control.10 {
+		comment.access 'read write'
+		comment.type BOOLEAN
+		comment.count 1
+		iface MIXER
+		name 'Line Out'
+		value true
+	}
+	control.11 {
+		comment.access 'read write'
+		comment.type BOOLEAN
+		comment.count 1
+		iface MIXER
+		name 'TX 64 channels mode'
+		value true
+	}
+	control.12 {
+		comment.access 'read write'
+		comment.type BOOLEAN
+		comment.count 1
+		iface MIXER
+		name 'Clear Track Marker'
+		value false
+	}
+	control.13 {
+		comment.access 'read write'
+		comment.type BOOLEAN
+		comment.count 1
+		iface MIXER
+		name 'Safe Mode'
+		value true
+	}
+	control.14 {
+		comment.access 'read write'
+		comment.type ENUMERATED
+		comment.count 1
+		comment.item.0 optical
+		comment.item.1 coaxial
+		iface MIXER
+		name 'Input Select'
+		value coaxial
+	}
+	control.15 {
+		comment.access 'read write'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 1
+		value 32768
+	}
+	control.16 {
+		comment.access 'read write'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 2
+		value 32768
+	}
+	control.17 {
+		comment.access 'read write'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 3
+		value 32768
+	}
+	control.18 {
+		comment.access 'read write'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 4
+		value 32768
+	}
+	control.19 {
+		comment.access 'read write'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 5
+		value 32768
+	}
+	control.20 {
+		comment.access 'read write'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 6
+		value 32768
+	}
+	control.21 {
+		comment.access 'read write'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 7
+		value 32768
+	}
+	control.22 {
+		comment.access 'read write'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 8
+		value 32768
+	}
+	control.23 {
+		comment.access 'read write'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 9
+		value 32768
+	}
+	control.24 {
+		comment.access 'read write'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 10
+		value 32768
+	}
+	control.25 {
+		comment.access 'read write'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 11
+		value 32768
+	}
+	control.26 {
+		comment.access 'read write'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 12
+		value 32768
+	}
+	control.27 {
+		comment.access 'read write'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 13
+		value 32768
+	}
+	control.28 {
+		comment.access 'read write'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 14
+		value 32768
+	}
+	control.29 {
+		comment.access 'read write'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 15
+		value 32768
+	}
+	control.30 {
+		comment.access 'read write'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 16
+		value 32768
+	}
+	control.31 {
+		comment.access 'read write'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 17
+		value 32768
+	}
+	control.32 {
+		comment.access 'read write'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 18
+		value 32768
+	}
+	control.33 {
+		comment.access 'read write'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 19
+		value 32768
+	}
+	control.34 {
+		comment.access 'read write'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 20
+		value 32768
+	}
+	control.35 {
+		comment.access 'read write'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 21
+		value 32768
+	}
+	control.36 {
+		comment.access 'read write'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 22
+		value 32768
+	}
+	control.37 {
+		comment.access 'read write'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 23
+		value 32768
+	}
+	control.38 {
+		comment.access 'read write'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 24
+		value 32768
+	}
+	control.39 {
+		comment.access 'read write'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 25
+		value 32768
+	}
+	control.40 {
+		comment.access 'read write'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 26
+		value 32768
+	}
+	control.41 {
+		comment.access 'read write'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 27
+		value 32768
+	}
+	control.42 {
+		comment.access 'read write'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 28
+		value 32768
+	}
+	control.43 {
+		comment.access 'read write'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 29
+		value 32768
+	}
+	control.44 {
+		comment.access 'read write'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 30
+		value 32768
+	}
+	control.45 {
+		comment.access 'read write'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 31
+		value 32768
+	}
+	control.46 {
+		comment.access 'read write'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 32
+		value 32768
+	}
+	control.47 {
+		comment.access 'read write volatile'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 33
+		value 32768
+	}
+	control.48 {
+		comment.access 'read write volatile'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 34
+		value 32768
+	}
+	control.49 {
+		comment.access 'read write volatile'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 35
+		value 32768
+	}
+	control.50 {
+		comment.access 'read write volatile'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 36
+		value 32768
+	}
+	control.51 {
+		comment.access 'read write volatile'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 37
+		value 32768
+	}
+	control.52 {
+		comment.access 'read write volatile'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 38
+		value 32768
+	}
+	control.53 {
+		comment.access 'read write volatile'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 39
+		value 32768
+	}
+	control.54 {
+		comment.access 'read write volatile'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 40
+		value 32768
+	}
+	control.55 {
+		comment.access 'read write volatile'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 41
+		value 32768
+	}
+	control.56 {
+		comment.access 'read write volatile'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 42
+		value 32768
+	}
+	control.57 {
+		comment.access 'read write volatile'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 43
+		value 32768
+	}
+	control.58 {
+		comment.access 'read write volatile'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 44
+		value 32768
+	}
+	control.59 {
+		comment.access 'read write volatile'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 45
+		value 32768
+	}
+	control.60 {
+		comment.access 'read write volatile'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 46
+		value 32768
+	}
+	control.61 {
+		comment.access 'read write volatile'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 47
+		value 32768
+	}
+	control.62 {
+		comment.access 'read write volatile'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 48
+		value 32768
+	}
+	control.63 {
+		comment.access 'read write volatile'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 49
+		value 32768
+	}
+	control.64 {
+		comment.access 'read write volatile'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 50
+		value 32768
+	}
+	control.65 {
+		comment.access 'read write volatile'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 51
+		value 32768
+	}
+	control.66 {
+		comment.access 'read write volatile'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 52
+		value 32768
+	}
+	control.67 {
+		comment.access 'read write volatile'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 53
+		value 32768
+	}
+	control.68 {
+		comment.access 'read write volatile'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 54
+		value 32768
+	}
+	control.69 {
+		comment.access 'read write volatile'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 55
+		value 32768
+	}
+	control.70 {
+		comment.access 'read write volatile'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 56
+		value 32768
+	}
+	control.71 {
+		comment.access 'read write volatile'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 57
+		value 32768
+	}
+	control.72 {
+		comment.access 'read write volatile'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 58
+		value 32768
+	}
+	control.73 {
+		comment.access 'read write volatile'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 59
+		value 32768
+	}
+	control.74 {
+		comment.access 'read write volatile'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 60
+		value 32768
+	}
+	control.75 {
+		comment.access 'read write volatile'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 61
+		value 32768
+	}
+	control.76 {
+		comment.access 'read write volatile'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 62
+		value 32768
+	}
+	control.77 {
+		comment.access 'read write volatile'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 63
+		value 32768
+	}
+	control.78 {
+		comment.access 'read write volatile'
+		comment.type INTEGER
+		comment.count 1
+		comment.range '0 - 65536 (step 1)'
+		iface MIXER
+		name Chn
+		index 64
+		value 32768
+	}
+}
+state.BCF2000 {
+	control {
+	}
+}
+state.BCF2000_1 {
+	control {
+	}
+}
+state.BCF2000_2 {
+	control {
+	}
+}

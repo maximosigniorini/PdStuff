@@ -1,0 +1,49 @@
+#N canvas 155 0 800 684 10;
+#X obj 179 380 f;
+#X obj 102 120 vsl 15 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 219 380 f;
+#X obj 121 120 vsl 15 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 259 380 f;
+#X obj 139 120 vsl 15 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 299 380 f;
+#X obj 159 120 vsl 15 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 202 427 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 179 192 select 0 1 2 3;
+#X text 306 157 autre solution :;
+#X obj 176 57 metro 200;
+#X obj 176 35 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 204 125 f;
+#X obj 267 115 + 1;
+#X obj 267 145 % 4;
+#X obj 225 23 inlet;
+#X obj 277 524 outlet;
+#X text 425 244 clic droit \; propriétés \; Tracer \;;
+#X obj 169 122 vsl 15 30 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X connect 0 0 8 0;
+#X connect 1 0 0 1;
+#X connect 2 0 8 0;
+#X connect 3 0 2 1;
+#X connect 4 0 8 0;
+#X connect 5 0 4 1;
+#X connect 6 0 8 0;
+#X connect 7 0 6 1;
+#X connect 8 0 17 0;
+#X connect 9 0 0 0;
+#X connect 9 1 2 0;
+#X connect 9 2 4 0;
+#X connect 9 3 6 0;
+#X connect 11 0 13 0;
+#X connect 12 0 11 0;
+#X connect 13 0 14 0;
+#X connect 13 0 9 0;
+#X connect 14 0 15 0;
+#X connect 15 0 13 1;
+#X connect 16 0 12 0;
+#X coords 0 -1 1 1 85 60 1 100 100;

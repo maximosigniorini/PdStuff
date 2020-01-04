@@ -1,0 +1,35 @@
+die meisten controller bilden 8er gruppen
+werden mehr als 8 controller gebraucht (z.b. 16 in-channels) wird der MIDI-kanal erhöht:
+z.b.:
+	1_IN_FADER_GAIN: 105, ch 1
+	2_IN_FADER_GAIN: 106, ch 1
+	9_IN_FADER_GAIN: 105, ch 2
+
+$1_IN_FADER_GAIN: 105-112
+IN_SOLO		: 65-72
+$1_IN_ON	: 73-80
+IN_SELECT	: 33-40
+$1_IN_LFC_GAIN	: 1-8
+$1_IN_AMBI_AZM	: 97-104
+$1_IN_AMBI_ELV	: 89-96
+$1_IN_AMBI_RAD	: 81-88
+
+$1_OUT_BUS_GAIN : 113-120
+OUT_AMBI_GAIN	: 121
+$1_OUT_LFC_GAIN	: 122-123
+OUT_MASTER_GAIN	: 124
+
+EXT_REV_MASTER_VOL: 125
+EXT_RRR_MASTER_VOL: 126
+
+die BC{F,r}2000 sind eigens für den CUBE-mixer umprogrammiert
+(standard-programm all_controller; fader allerdings auf ctl 105-112)
+(für OUT-section ganz andere werte)
+
+
+Preset-1:	inchannels 1-8
+Preset-2:	inchannels 9-16
+Preset-3:	inchannels 17-24
+Preset-4:	inchannels 25-32
+Preset-5:	BUS-OUT
+Preset-6:	MASTER-OUT

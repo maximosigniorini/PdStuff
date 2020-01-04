@@ -1,0 +1,57 @@
+#N canvas 99 13 739 835 10;
+#X obj 101 261 inlet;
+#X obj 131 700 outlet;
+#X obj 131 593 t a b;
+#X msg 200 385 0;
+#X msg 169 386 1;
+#X obj 169 405 f;
+#X obj 126 494 iem_s \$1;
+#X obj 131 566 iem_r \$1;
+#X msg 296 314 set \$1;
+#X obj 296 269 symbol;
+#X text 101 241 message in;
+#X text 129 722 message out;
+#X text 294 223 <symbol> send/receive-name in;
+#X text 126 14 convert a "message in" to a "send message" and;
+#X text 136 27 a "receives message" to a "message out" with equal;
+#X text 151 40 send- receive- names and suppress the feedback-loop
+;
+#X text 206 554 1.arg: <symbol> send- / receive- name;
+#X text 376 740 published under the Gnu GPL;
+#X text 16 12 [sendreceive];
+#X text 46 175 when a "bang" is received at the global-receiver [sendreceive_getName]
+\, the current s/r-name is sent to [sendreceive_setName];
+#X obj 296 239 inlet name;
+#X text 336 674 (c) IOhannes m zmoelnig & Thomas Musil \, IEM 2005-2006
+;
+#X obj 126 425 spigot 1;
+#X obj 101 303 t b a;
+#X obj 126 448 t a a;
+#X obj 231 510 s GLOBAL_NETSEND;
+#X text 109 70 this version differs from the [sendreceive_nofb] in
+that it DOES NEED an external feedback to work correctly;
+#X obj 421 314 sr_registername \$1;
+#X obj 296 292 t s s s;
+#X msg 346 464 list \$1;
+#X obj 231 487 list prepend \$1;
+#X connect 0 0 23 0;
+#X connect 2 0 1 0;
+#X connect 2 1 3 0;
+#X connect 3 0 5 0;
+#X connect 4 0 5 0;
+#X connect 5 0 22 1;
+#X connect 7 0 2 0;
+#X connect 8 0 6 1;
+#X connect 8 0 7 0;
+#X connect 9 0 28 0;
+#X connect 20 0 9 0;
+#X connect 22 0 24 0;
+#X connect 23 0 4 0;
+#X connect 23 1 22 0;
+#X connect 24 0 6 0;
+#X connect 24 1 30 0;
+#X connect 28 0 8 0;
+#X connect 28 1 29 0;
+#X connect 28 2 27 0;
+#X connect 29 0 30 1;
+#X connect 30 0 25 0;

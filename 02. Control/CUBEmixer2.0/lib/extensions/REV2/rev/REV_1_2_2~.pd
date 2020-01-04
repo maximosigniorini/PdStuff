@@ -1,0 +1,27 @@
+#N canvas 1439 274 637 419 10;
+#X obj 32 48 inlet~;
+#X obj 94 260 outlet~;
+#X obj 30 261 outlet~;
+#X text 69 281 front;
+#X obj 32 120 hp1~ 7;
+#X obj 224 260 outlet~;
+#X obj 158 261 outlet~;
+#X text 197 280 front;
+#X text 67 293 early;
+#X text 196 292 reverb;
+#X text 31 336 1.arg: <float> reverb-order (6 \, 8 \, 12 \, 20 \, 24)
+;
+#X text 31 362 3.arg: <float/sym> performance of feedback-delays;
+#X text 381 362 (0 \, stat \, dyn) default: 0 = stat;
+#X text 31 349 2.arg: <float/sym> performance of feedback-matrix;
+#X text 381 349 (0 \, ++ \, +++ \, ++++) default: 0 = ++;
+#X obj 31 195 \$1reverb_1_2_2~ \$2 \$3 ___________;
+#X obj 246 141 inlet;
+#X text 33 11 musil \, IEM;
+#X connect 0 0 4 0;
+#X connect 4 0 15 0;
+#X connect 15 0 2 0;
+#X connect 15 1 1 0;
+#X connect 15 2 6 0;
+#X connect 15 3 5 0;
+#X connect 16 0 15 1;

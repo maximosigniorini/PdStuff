@@ -1,0 +1,163 @@
+#N canvas 497 22 474 197 10;
+#X obj 14 117 bng 26 500 50 0 \$0-midi empty empty 17 7 0 10 -1 -204800
+-1;
+#X obj 12 131 cnv 1 1 1 empty empty MIDI 7 0 1 9 -262144 -204800 0
+;
+#X obj 11 117 cnv 2 2 26 empty empty empty 20 12 0 14 -1 -66577 0;
+#X obj 14 25 hsl 27 11 0 1 0 0 EAT_Highpass.Mix.\$1.Send.\$3 EAT_Highpass.Mix.\$1.\$3
+empty -2 -8 0 10 -204800 -1 -1 2600 1;
+#X obj 11 37 cnv 11 32 11 empty EAT_Highpass.MixNum.\$1.\$3 1 2 6 1
+10 -1 -128992 0;
+#X obj 11 11 cnv 11 32 11 empty empty \$3 14 6 1 10 -1 -204800 0;
+#X obj 11 23 cnv 1 32 1 empty empty empty 4 9 1 11 -66577 -204800 0
+;
+#X obj 11 49 cnv 1 32 1 empty empty empty 4 9 1 11 -66577 -204800 0
+;
+#X obj 11 115 cnv 1 32 1 empty empty empty 4 9 1 11 -66577 -204800
+0;
+#X obj 11 103 cnv 10 11 11 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 33 103 cnv 10 10 11 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 41 117 cnv 2 2 26 empty empty empty 20 12 0 14 -1 -66577 0;
+#X obj 14 51 hsl 27 11 0 6000 0 0 EAT_Highpass.Cutoff.\$1.Send.\$3
+EAT_Highpass.Cutoff.\$1.\$3 empty -2 -8 0 10 -204800 -1 -1 0 1;
+#X obj 11 63 cnv 11 32 11 empty EAT_Highpass.CutoffNum.\$1.\$3 0 2
+6 1 10 -1 -128992 0;
+#X obj 11 75 cnv 1 32 1 empty empty empty 4 9 1 11 -66577 -204800 0
+;
+#X obj 14 77 hsl 27 11 0 100 0 0 EAT_Highpass.Interp.\$1.Send.\$3 EAT_Highpass.Interp.\$1.\$3
+empty -2 -8 0 10 -204800 -1 -1 0 1;
+#X obj 11 89 cnv 11 32 11 empty EAT_Highpass.InterpNum.\$1.\$3 0 2
+6 1 10 -1 -128992 0;
+#X obj 11 101 cnv 1 32 1 empty empty empty 4 9 1 11 -66577 -204800
+0;
+#N canvas 516 121 450 300 display 0;
+#N canvas 0 22 450 300 Mix 0;
+#X obj 59 178 prepend label;
+#X obj 59 161 list2symbol;
+#X obj 59 127 int;
+#X obj 59 93 * 1000;
+#X obj 59 144 / 1000;
+#X obj 59 110 + 0.4;
+#X obj 59 76 r EAT_Highpass.Mix.\$1.Send.\$3;
+#X obj 59 195 s EAT_Highpass.MixNum.\$1.\$3;
+#X connect 0 0 7 0;
+#X connect 1 0 0 0;
+#X connect 2 0 4 0;
+#X connect 3 0 5 0;
+#X connect 4 0 1 0;
+#X connect 5 0 2 0;
+#X connect 6 0 3 0;
+#X restore 45 21 pd Mix;
+#N canvas 0 22 124 147 Channel 0;
+#X obj 14 1 loadbang;
+#X obj 14 35 < 10;
+#X obj 14 52 sel 1;
+#X msg 14 86 label_pos \$1 \$2;
+#X msg 14 69 6 9;
+#X obj 14 103 s \$0-chdisplay;
+#X msg 41 69 2 9;
+#X obj 14 18 float \$3;
+#X connect 0 0 7 0;
+#X connect 1 0 2 0;
+#X connect 2 0 4 0;
+#X connect 2 1 6 0;
+#X connect 3 0 5 0;
+#X connect 4 0 3 0;
+#X connect 6 0 3 0;
+#X connect 7 0 1 0;
+#X restore 45 41 pd Channel Display;
+#N canvas 0 22 450 300 Cutoff 0;
+#X obj 59 127 prepend label;
+#X obj 59 110 list2symbol;
+#X obj 59 93 int;
+#X obj 59 76 r EAT_Highpass.Cutoff.\$1.Send.\$3;
+#X obj 59 144 s EAT_Highpass.CutoffNum.\$1.\$3;
+#X connect 0 0 4 0;
+#X connect 1 0 0 0;
+#X connect 2 0 1 0;
+#X connect 3 0 2 0;
+#X restore 45 61 pd Cutoff;
+#N canvas 0 22 450 300 Interpolation 0;
+#X obj 59 127 prepend label;
+#X obj 59 110 list2symbol;
+#X obj 59 93 int;
+#X obj 59 76 r EAT_Highpass.Interp.\$1.Send.\$3;
+#X obj 59 144 s EAT_Highpass.InterpNum.\$1.\$3;
+#X connect 0 0 4 0;
+#X connect 1 0 0 0;
+#X connect 2 0 1 0;
+#X connect 3 0 2 0;
+#X restore 45 81 pd Interpolation Time;
+#X restore 50 10 pd display;
+#N canvas 625 56 428 360 midicc 0;
+#X obj 2 2 EATi_MIDICCMONO EAT_Highpass Mix \$1 \$2 0 127 0 1;
+#X obj 143 2 EATi_MIDICCMONO EAT_Highpass Cutoff \$1 \$2 0 127 0 6000
+;
+#X obj 284 2 EATi_MIDICCMONO EAT_Highpass Interp \$1 \$2 0 127 0 100
+;
+#X obj 2 180 EATi_MIDICCMONO EAT_Highpass Bypass \$1 \$2 0 1 0 1;
+#X restore 50 29 pd midicc;
+#N canvas 339 521 200 146 midiall 0;
+#X obj 2 -2 r EAT_Highpass.Mix.\$1.Send.all;
+#X obj 2 15 s EAT_Highpass.Mix.\$1.\$3;
+#X obj 2 34 r EAT_Highpass.Cutoff.\$1.Send.all;
+#X obj 2 51 s EAT_Highpass.Cutoff.\$1.\$3;
+#X obj 2 70 r EAT_Highpass.Interp.\$1.Send.all;
+#X obj 2 87 s EAT_Highpass.Interp.\$1.\$3;
+#X obj 2 106 r EAT_Highpass.Bypass.\$1.Send.all;
+#X obj 2 123 s EAT_Highpass.Bypass.\$1.\$3;
+#X connect 0 0 1 0;
+#X connect 2 0 3 0;
+#X connect 4 0 5 0;
+#X connect 6 0 7 0;
+#X restore 50 48 pd midiall;
+#N canvas 603 89 131 180 \$0_midi 0;
+#X obj 27 -35 cnv 15 25 15 empty empty MIDI 2 9 1 11 -1 -204800 0;
+#X obj 53 -35 cnv 15 68 15 empty empty CONTROL 2 9 1 11 -1 -204800
+0;
+#X obj -4 -38 cnv 1 2 131 empty empty empty 2 8 1 11 -66577 -204800
+0;
+#X obj -4 94 cnv 1 128 2 empty empty empty 2 8 1 11 -66577 -204800
+0;
+#X obj -1 -38 cnv 1 124 2 empty empty empty 2 8 1 11 -66577 -204800
+0;
+#X obj 122 -38 cnv 2 2 131 empty empty empty 2 8 1 11 -66577 -204800
+0;
+#X obj -1 -35 cnv 15 27 15 empty empty empty 2 9 1 11 -1 -204800 0
+;
+#X obj 27 -19 cnv 15 94 15 empty empty EAT_Highpass 2 9 1 11 -1 -204800
+0;
+#X obj -1 -19 cnv 15 27 15 empty empty empty 2 9 1 11 -1 -204800 0
+;
+#X obj 27 -3 cnv 15 94 15 empty empty ID_\$1 2 9 1 11 -1 -204800 0
+;
+#X obj -1 -3 cnv 15 27 15 empty empty empty 2 9 1 11 -1 -204800 0;
+#X obj 27 13 cnv 15 94 15 empty empty Channel_\$3 2 9 1 11 -1 -204800
+0;
+#X obj -1 13 cnv 15 27 15 empty empty empty 2 9 1 11 -1 -204800 0;
+#X obj 9 111 pddplink eat_transport.pd -text GLOBAL TRANSPORT;
+#X obj 7 124 pddplink eat_transport.pd -text WITH MIDI PRESETS;
+#X obj 4 98 pddplink eat_transport.pd -text CLICK HERE TO OPEN;
+#X obj -1 29 EATi_MIDILC EAT_Highpass Mix \$1 \$2;
+#X obj -1 45 EATi_MIDILC EAT_Highpass Cutoff \$1 \$2;
+#X obj -1 61 EATi_MIDILC EAT_Highpass Interp \$1 \$2;
+#X obj -1 77 EATi_MIDILC EAT_Highpass Bypass \$1 \$2;
+#X restore 50 133 pd \$0_midi;
+#X obj 50 84 float \$0;
+#X obj 50 67 r \$0-midi;
+#X msg 50 101 \; pd-\$1_midi vis 1;
+#N canvas 353 260 427 200 presets 0;
+#X obj 2 -6 EATi_PRESET EAT_Highpass Mix \$1 \$2;
+#X obj 143 -6 EATi_PRESET EAT_Highpass Cutoff \$1 \$2;
+#X obj 284 -6 EATi_PRESET EAT_Highpass Interp \$1 \$2;
+#X obj 2 92 EATi_PRESET EAT_Highpass Bypass \$1 \$2;
+#X restore 50 152 pd presets;
+#X obj 22 103 tgl 11 0 EAT_Highpass.Bypass.\$1.Send.\$3 EAT_Highpass.Bypass.\$1.\$3
+empty 17 7 0 10 -204800 -1 -1 0 1;
+#X text 127 39 Individual Highpass channel GUI;
+#X text 129 61 Nested in Highpass Advanced GUI;
+#X connect 22 0 24 0;
+#X connect 23 0 22 0;
+#X coords 0 -1 1 1 34 134 2 10 10;

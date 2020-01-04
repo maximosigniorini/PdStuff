@@ -1,0 +1,53 @@
+#N canvas 398 35 788 378 10;
+#X obj 2 -131 cnv 15 700 50 empty empty &split 3 12 0 18 -204800 -1
+0;
+#X text 21 88 OUTLETS \; 1- nombre;
+#X text 5 -104 Borne un nombre entre deux valeurs.;
+#X text 21 -66 Description \; Complète la fonction split (qui empêche
+de dépasser des valeurs min et max) en garantissant qu'en cas de dépassement
+\, les bornes sont bien atteintes.;
+#X floatatom 393 -25 5 0 0 0 - - -;
+#X obj 393 58 print;
+#X obj 435 39 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 520 -28 5 0 0 0 - - -;
+#X obj 520 55 print;
+#X obj 573 40 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 632 -26 5 0 0 0 - - -;
+#X obj 687 51 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 632 59 print;
+#X obj 520 10 split 50 100;
+#X obj 632 12 clip 50 100;
+#X text 21 -3 Arguments \; 1 et 2- nombres : valeurs des bornes min
+et max;
+#X text 21 48 INLETS \; 1- nombre : valeur à borner;
+#X obj 393 9 &split 50 100;
+#X obj 540 150 split 0 1;
+#X obj 528 118 hsl 128 15 0 1 0 0 empty empty 0-à-1 5 8 0 10 -262144
+-1 -1 0 1;
+#X floatatom 540 183 5 0 0 0 - - -;
+#X floatatom 620 183 5 0 0 0 - - -;
+#X floatatom 454 183 5 0 0 0 - - -;
+#X text 21 131 Remarque : ces modules ne fonctionnent que si min <
+max.;
+#X obj 454 150 &split 0 1;
+#X obj 620 150 split3 0 1.01;
+#X text 493 -58 à comparer avec [split] \, [split3] et [clip] :;
+#X connect 4 0 17 0;
+#X connect 7 0 13 0;
+#X connect 10 0 14 0;
+#X connect 13 0 8 0;
+#X connect 13 0 9 0;
+#X connect 14 0 11 0;
+#X connect 14 0 12 0;
+#X connect 17 0 6 0;
+#X connect 17 0 5 0;
+#X connect 18 0 20 0;
+#X connect 19 0 18 0;
+#X connect 19 0 24 0;
+#X connect 19 0 25 0;
+#X connect 24 0 22 0;
+#X connect 25 0 21 0;
+#X coords 0 378 1 377 65 15 0;

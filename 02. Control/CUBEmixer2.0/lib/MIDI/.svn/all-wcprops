@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/MIDI
+END
+aconnect_mapper.pd
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/MIDI/aconnect_mapper.pd
+END
+inchannel.pd
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/MIDI/inchannel.pd
+END
+test.pd
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/MIDI/test.pd
+END
+test16+8bus.pd
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/MIDI/test16+8bus.pd
+END
+start.sh
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/MIDI/start.sh
+END
+aconnector.pd
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/MIDI/aconnector.pd
+END

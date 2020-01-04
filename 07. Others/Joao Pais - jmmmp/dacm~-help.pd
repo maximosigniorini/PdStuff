@@ -1,0 +1,26 @@
+#N canvas 71 205 407 315 10;
+#X text 12 287 Released under the BSD License;
+#X text 12 237 Related objects: [maat~] [mat~] [dacm~];
+#X text 11 8 [dacm~] - Mono dac~ for lazy people;
+#X text 220 115 Inlets;
+#X text 220 135 - Audio signal;
+#X text 220 165 Arguments;
+#X text 220 185 - Number of channels;
+#X text 11 40 Connects the audio input to how many dac channels you
+specify \, making a mono output.;
+#X obj 76 156 dacm~ 4;
+#X text 11 70 In case you don't give any arguments \, it assumes that
+you work with 2 channels. So \, [dacm~] == [dacm~ 2].;
+#X text 12 267 (C) 2009 João Pais - jmmmpais@googlemail.com;
+#X text 28 131 look inside to make sure;
+#N canvas 504 106 494 344 META 0;
+#X text 12 55 AUTHOR João Pais <jmmmpais@googlemail.com>;
+#X text 12 95 LICENSE BSD;
+#X text 12 75 LIBRARY jmmmp;
+#X text 13 115 WEBSITE http://puredata.info/Members/jmmmp;
+#X text 12 135 VERSION 2009;
+#X text 12 5 DESCRIPTION Mono dac~ for lazy people;
+#X text 12 35 KEYWORDS dac~ dynamic;
+#X text 12 165 INLET_0 - Audio signal;
+#X restore 352 286 pd META;
+#X coords 0 0 1 1 31 130 0;

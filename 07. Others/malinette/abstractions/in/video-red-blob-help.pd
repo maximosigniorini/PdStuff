@@ -1,0 +1,37 @@
+#N canvas 148 130 655 445 10;
+#X obj 156 284 vsl 15 50 0 1 0 0 empty empty X 5 30 0 10 -262144 -1
+-128992 1497 1;
+#X obj 210 283 vsl 15 50 0 1 0 0 empty empty Y 5 30 0 10 -262144 -1
+-128992 1220 1;
+#X floatatom 156 339 5 0 0 0 - - -;
+#X floatatom 210 339 5 0 0 0 - - -;
+#X obj 15 336 pix_texture;
+#X obj 15 360 rectangle 4 3;
+#X obj 102 196 video-in;
+#X msg 426 111 create \, 1;
+#X obj 426 165 gemwin;
+#X obj 426 31 loadbang;
+#X msg 436 136 0 \, destroy;
+#X text 502 111 <- on;
+#X text 506 137 <- off;
+#X obj 426 53 t b b;
+#X msg 453 81 reset \, dimen 640 480;
+#X obj 102 237 video-red-blob;
+#X text 13 382 View result in the gem window : press debug !;
+#X text 60 22 video-red-blob \; -------------- \; Track a red color
+area (blob) \; Move a red object in front of the camera \; \; Outlets
+\; 1: gemList \; 2: X (0-1 float) \; 3: Y (0-1 float) \;;
+#X text 221 249 < debug to see the blob;
+#X connect 0 0 2 0;
+#X connect 1 0 3 0;
+#X connect 4 0 5 0;
+#X connect 6 0 15 0;
+#X connect 6 0 4 0;
+#X connect 7 0 8 0;
+#X connect 9 0 13 0;
+#X connect 10 0 8 0;
+#X connect 13 0 7 0;
+#X connect 13 1 14 0;
+#X connect 14 0 8 0;
+#X connect 15 1 0 0;
+#X connect 15 2 1 0;

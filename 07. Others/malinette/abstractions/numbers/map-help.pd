@@ -1,0 +1,27 @@
+#N canvas 141 89 653 298 10;
+#X text 270 262 maps a number between the boundaries [a|b];
+#X text 269 251 MAPPING A NUMBER;
+#X text 269 274 (c) 2003 by Georg Holzmann <grh@gmx.at>;
+#X obj 96 66 loadbang;
+#X floatatom 96 261 5 0 0 0 - - -;
+#X text 35 174 before;
+#X text 60 260 after;
+#X text 217 194 << in this example : a generated number between -50
+and 50 is mapped between 0 and 1 \;;
+#X floatatom 96 168 5 0 0 0 - - -;
+#X obj 96 194 map 0 9 100 200;
+#X obj 96 138 random 10;
+#X obj 96 88 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
+;
+#X obj 96 108 metro 1000;
+#X text 266 16 map \; ----- \; Map a number between the boundaries
+(rule of three) \; Argument & inlets \; \$1: input min value \; \$2:
+input max value \; \$3: output min value \; \$4: output max value \;
+\; \$5: transfer function: quart for quartic \, exp (exponential) \,
+none (linear = default);
+#X connect 3 0 11 0;
+#X connect 8 0 9 0;
+#X connect 9 0 4 0;
+#X connect 10 0 8 0;
+#X connect 11 0 12 0;
+#X connect 12 0 10 0;

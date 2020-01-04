@@ -1,0 +1,69 @@
+#N canvas 0 22 835 494 10;
+#X obj 369 329 *;
+#X obj 389 359 *;
+#X obj 459 329 *;
+#X obj 479 359 *;
+#X obj 369 399 -;
+#X obj 459 399 +;
+#X obj 369 184 f \$1;
+#X obj 399 184 f \$2;
+#X obj 429 184 f \$3;
+#X obj 459 184 f \$4;
+#X text 394 330 ac;
+#X text 413 359 bd;
+#X text 490 330 ad;
+#X text 505 359 bc;
+#X obj 284 137 t b b b b;
+#X obj 295 18 inlet;
+#X obj 334 29 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 355 122 float straight to hot inlet, f 14;
+#X obj 295 91 route bang float list;
+#X obj 476 121 unpack f f f f;
+#X text 570 115 list to hot inlets too, f 12;
+#X floatatom 363 34 5 0 0 0 - - -, f 5;
+#X msg 402 45 list 1 2 3 4;
+#X obj 535 18 inlet;
+#X obj 575 18 inlet;
+#X obj 615 18 inlet;
+#X obj 369 452 outlet;
+#X obj 459 452 outlet;
+#X text 655 13 b \, c \, d inlets connected to [f ] hot but are cold
+, f 25;
+#X text 5 5 Multiply two complex numbers \; \; a+jb * c+jd \; =ac +
+jad + jbc + j^2(bd) \; =ac + jad + jbc - bd \; =ac - bd + j(ad + bc)
+\; \; \$1 a \; \$2 b \; \$3 c \; \$4 d \; \; in1 a \, list 'a b c d'
+or bang to output \; in2 b \; in3 c \; in4 d \; \; out1 real part of
+result \; out2 imag part of result \; \; John Flynn;
+#X connect 0 0 4 0;
+#X connect 1 0 4 1;
+#X connect 2 0 5 0;
+#X connect 3 0 5 1;
+#X connect 4 0 26 0;
+#X connect 5 0 27 0;
+#X connect 6 0 0 0;
+#X connect 6 0 2 0;
+#X connect 7 0 1 0;
+#X connect 7 0 3 0;
+#X connect 8 0 0 1;
+#X connect 8 0 3 1;
+#X connect 9 0 1 1;
+#X connect 9 0 2 1;
+#X connect 14 0 6 0;
+#X connect 14 1 7 0;
+#X connect 14 2 8 0;
+#X connect 14 3 9 0;
+#X connect 15 0 18 0;
+#X connect 16 0 18 0;
+#X connect 18 0 14 0;
+#X connect 18 1 6 0;
+#X connect 18 2 19 0;
+#X connect 19 0 6 0;
+#X connect 19 1 7 0;
+#X connect 19 2 8 0;
+#X connect 19 3 9 0;
+#X connect 21 0 18 0;
+#X connect 22 0 18 0;
+#X connect 23 0 7 0;
+#X connect 24 0 8 0;
+#X connect 25 0 9 0;

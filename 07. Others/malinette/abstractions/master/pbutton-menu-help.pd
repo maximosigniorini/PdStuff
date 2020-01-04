@@ -1,0 +1,25 @@
+#N canvas 1 115 697 411 10;
+#X symbolatom 51 344 20 0 0 0 - - -;
+#X symbolatom 180 344 20 0 0 0 - - -;
+#X obj 180 320 r MENU-IN;
+#X text 317 131 colors : orange \, grey \, white \, black \, blue \,
+green;
+#X symbolatom 55 178 20 0 0 0 - - -;
+#X text 316 30 pbutton-menu \; ----------- \; List files from a folder
+and fill a buttton with them \; Arguments \; \$1: folder (symbol) \;
+\$2: color (symbol) \; \$3: size (int) \;;
+#X text 51 29 [pbutton-menu ../../examples/basics orange];
+#X text 50 131 [pbutton-menu ../out blue];
+#X obj 51 319 r MENU-BASICS;
+#X obj 54 58 pbutton-menu ../../examples/basics orange;
+#X text 316 199 pbutton-menu-2 \; -------------- \; It is the same
+abstraction with a size of 97 pixels \, to avoid the message "Save
+changes ?";
+#X text 48 230 [pbutton-menu ../in grey 60];
+#X text 313 263 [putton-menu-2 ../in];
+#X obj 317 285 pbutton-menu-2 ../in;
+#X obj 55 158 pbutton-menu ../out blue;
+#X obj 53 254 pbutton-menu ../in grey 60;
+#X connect 2 0 1 0;
+#X connect 8 0 0 0;
+#X connect 14 0 4 0;

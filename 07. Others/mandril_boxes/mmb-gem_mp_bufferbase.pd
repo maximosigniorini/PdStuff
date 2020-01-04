@@ -1,0 +1,127 @@
+#N canvas 849 425 785 287 10;
+#X obj 0 0 cnv 15 200 195 empty empty mgem_mp_base 0 8 0 9 -99865 -228856
+0;
+#X obj 177 2 cnv 15 20 15 empty \$1mmpbase_id \$1 6 8 0 9 -260097 -33289
+0;
+#X obj 95 4 tgl 15 0 \$1mmpbase_win_on empty Configure 17 7 0 8 -260097
+-1 -228856 1 1;
+#X obj 256 172 symbol \$1;
+#X symbolatom 259 198 0 0 0 0 - - -;
+#X obj 255 153 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X symbolatom 333 195 0 0 0 0 - - -;
+#X obj 327 170 symbol \$2;
+#X obj 255 127 loadbang;
+#X obj 516 51 f \$0;
+#X symbolatom 523 92 0 0 0 0 - - -;
+#X msg 516 142 \; \$1 vis \$2;
+#X obj 516 113 pack symbol float;
+#X obj 516 27 t b f;
+#X obj 258 228 s \$1mmpbase_id;
+#N canvas 507 450 350 474 \$1-mmpbase_win 0;
+#X obj 59 -7 inlet;
+#X obj 211 338 outlet;
+#X obj 167 340 outlet;
+#X obj 255 339 outlet;
+#X obj 300 339 outlet;
+#X obj 3 -105 mb-gem_mp_bufferbase \$1;
+#X connect 0 0 5 0;
+#X connect 5 0 2 0;
+#X connect 5 1 1 0;
+#X connect 5 2 3 0;
+#X connect 5 3 4 0;
+#X restore 252 43 pd \$1-mmpbase_win;
+#X obj 516 70 makesymbol pd-\$1-mmpbase_win;
+#X obj 253 6 inlet;
+#X obj 253 88 outlet;
+#X obj 300 88 outlet;
+#X obj 344 88 outlet;
+#X obj 391 88 outlet;
+#X obj 3 20 tgl 14 0 \$1mpbase_on_init empty on 17 7 0 8 -4034 -1 -228856
+0 1;
+#X obj 40 21 bng 14 250 50 0 \$1mpbase_full_reload_init empty reload
+17 7 0 8 -260097 -1 -228856;
+#X obj 100 22 tgl 12 0 \$1mpbase_bypass_init empty bypass 17 7 0 8
+-257985 -1 -228856 0 1;
+#X obj 516 7 r \$1mmpbase_win_on;
+#X obj 1 39 cnv 15 198 15 empty empty BUFFER_BASE 2 8 0 10 -4160 -228856
+0;
+#X obj 0 55 cnv 15 200 120 empty empty empty 1 8 0 9 -128992 -228856
+0;
+#X obj 93 39 hradio 15 1 0 7 empty \$0file_target empty 0 8 0 8 -1
+-1 -228856 0;
+#X obj 41 91 vradio 12 1 0 4 \$1mpbase_npoints_y_init3 empty empty
+0 -8 0 10 -260097 -1 -1 0;
+#X obj 19 91 vradio 12 1 0 4 \$1mpbase_npoints_x_init3 empty empty
+0 -8 0 10 -260097 -1 -1 0;
+#X text 53 87 2;
+#X text 53 98 3;
+#X text 53 110 4;
+#X text 53 123 5;
+#X obj 39 140 nbx 2 12 0 50 0 0 empty \$1mpbase_npoints_y_init empty
+0 -6 0 8 -33289 -260097 -228856 2 256;
+#X obj 14 140 nbx 2 12 0 50 0 0 empty \$1mpbase_npoints_x_init empty
+0 -6 0 8 -33289 -260097 -228856 2 256;
+#X text 0 135 X;
+#X text 6 87 2;
+#X text 6 98 3;
+#X text 6 110 4;
+#X text 6 123 5;
+#X obj 6 57 tgl 14 0 \$1mpbase_curve_cpoints_on_init \$1mpbase_curve_cpoints_on_init2
+control 17 7 0 8 -4034 -1 -228856 1 1;
+#X obj 6 73 bng 14 250 50 0 \$1mpbase_curve_reset_init \$1mpbase_curve_reset_init2
+reset 17 7 0 8 -257985 -1 -1;
+#X obj 73 73 bng 14 250 50 0 \$1mpbase_draw_cpoints_init \$1mpbase_draw_cpoints_init2
+cpoints 17 7 0 8 -257985 -1 -1;
+#X obj 73 58 bng 14 250 50 0 \$1mpbase_curve_reset2_init \$1mpbase_curve_reset2_init2
+new 17 7 0 8 -257985 -1 -1;
+#X text 64 136 Y;
+#X obj 83 107 vradio 14 1 0 3 \$1mpbase_screen_size_init \$1mpbase_screen_size_init2
+Screen 0 -6 0 8 -260097 -1 -228856 0;
+#X text 101 105 1:1;
+#X text 101 119 4:3;
+#X text 99 134 16:9;
+#X obj 133 66 vradio 14 1 0 2 \$1mpbase_curve_control_mode_init \$1mpbase_curve_control_mode_init2
+View_mode 0 -6 0 8 -260097 -1 -228856 0;
+#X text 149 78 Control;
+#X text 148 65 Normal;
+#X obj 140 110 vradio 14 1 0 3 \$1mpbase_curve_draw_type_init \$1mpbase_curve_draw_type_init2
+Draw 0 -6 0 8 -260097 -1 -228856 1;
+#X text 157 108 Points;
+#X text 157 121 Lines;
+#X text 158 137 Fill;
+#X obj 41 157 tgl 12 0 \$1mpbase_cpcolor_r_init empty empty -14 7 0
+8 -258113 -1 -228856 0 1;
+#X obj 52 157 tgl 12 0 \$1mpbase_cpcolor_g_init empty empty -14 7 0
+8 -4034 -1 -228856 0 1;
+#X obj 64 157 tgl 12 0 \$1mpbase_cpcolor_b_init empty color 15 7 0
+8 -4160 -1 -228856 0 1;
+#X obj 112 156 tgl 14 0 \$1mpbase_axis_on_init empty axis 17 7 0 8
+-260097 -1 -228856 0 1;
+#X obj 0 179 cnv 8 20 15 empty empty txt 0 8 0 7 -258113 -228856 0
+;
+#X obj 59 179 cnv 8 24 15 empty empty frbf 0 8 0 7 -258113 -228856
+0;
+#X obj 116 179 cnv 8 20 15 empty empty pos 0 8 0 7 -258113 -228856
+0;
+#X obj 170 179 cnv 8 30 15 empty empty clear 0 8 0 7 -258113 -228856
+0;
+#X connect 3 0 4 0;
+#X connect 4 0 14 0;
+#X connect 5 0 3 0;
+#X connect 5 0 7 0;
+#X connect 7 0 6 0;
+#X connect 8 0 5 0;
+#X connect 9 0 16 0;
+#X connect 12 0 11 0;
+#X connect 13 0 9 0;
+#X connect 13 1 12 1;
+#X connect 15 0 18 0;
+#X connect 15 1 19 0;
+#X connect 15 2 20 0;
+#X connect 15 3 21 0;
+#X connect 16 0 10 0;
+#X connect 16 0 12 0;
+#X connect 17 0 15 0;
+#X connect 25 0 13 0;
+#X coords 0 -1 1 1 200 195 1 0 0;

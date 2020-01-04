@@ -1,0 +1,41 @@
+#N canvas 314 108 561 567 10;
+#X obj 56 419 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 5900 1;
+#X obj 82 487 osc~;
+#X obj 82 445 mtof;
+#X obj 82 467 sig~;
+#X obj 81 508 *~ 0.1;
+#X obj 81 530 dac~;
+#X msg 304 200 \; pd dsp 1;
+#X msg 304 235 \; pd dsp 0;
+#X floatatom 103 283 5 0 0 1 presets - -;
+#X msg 216 342 0 2 3 5 7 8 12;
+#X floatatom 151 311 5 0 0 1 rootnote - -;
+#X obj 56 258 + 50;
+#X floatatom 16 275 5 0 0 0 - - -;
+#X floatatom 17 419 5 0 0 0 - - -;
+#X text 277 7 // from pdtml [closestNote];
+#X text 215 360 http://fr.wikipedia.org/wiki/Liste_des_gammes_et_modes
+;
+#X text 214 324 scale;
+#X obj 56 359 notescale 5 10;
+#X obj 56 188 seq-counter 200 1 24;
+#X text 55 5 note-scale \; ---------- \; This object convert to melodic
+closest note of the scale mapping into musical scale \; Arguments \;
+1: preset \; 2: fondamentale \; Inlets \; 1: data \; 2: preset(musical
+scale) selection \; 3: root note (default is C = 0 ) \; 4: set your
+own musical scale \;;
+#X connect 0 0 2 0;
+#X connect 1 0 4 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X connect 4 0 5 0;
+#X connect 4 0 5 1;
+#X connect 8 0 17 1;
+#X connect 9 0 17 3;
+#X connect 10 0 17 2;
+#X connect 11 0 12 0;
+#X connect 11 0 17 0;
+#X connect 17 0 0 0;
+#X connect 17 0 13 0;
+#X connect 18 0 11 0;

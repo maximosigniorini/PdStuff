@@ -1,0 +1,337 @@
+#N canvas 245 182 645 667 10;
+#X obj 0 0 cnv 15 320 150 empty empty GEM_PIX_Capture_video 10 8 0
+10 -99865 -262144 0;
+#X obj 5 21 cnv 15 100 60 empty empty Device 2 6 0 10 -128992 -228856
+0;
+#X obj 109 85 cnv 15 100 40 empty empty Norm 2 6 0 10 -128992 -228856
+0;
+#X obj 109 41 cnv 15 100 40 empty empty Colorspace 2 6 0 10 -128992
+-228856 0;
+#X obj 215 40 cnv 15 100 85 empty empty Dimensions 2 6 0 10 -128992
+-228856 0;
+#X obj 217 57 vradio 15 1 0 2 \$1vgempix_dim \$1vgempix_dim_init empty
+0 -8 0 10 -260097 -1 -1 0;
+#X text 233 54 320x240;
+#X text 234 70 640x480;
+#X obj 113 21 bng 15 250 50 0 \$1vgempix_defaults empty Load_Defaults
+17 7 0 8 -257985 -1 -228856;
+#X obj 92 418 outlet;
+#X obj 3 129 cnv 15 65 20 empty empty GEM_OUT 0 10 0 9 -221249 -262144
+0;
+#X obj 9 50 hradio 15 1 0 4 \$1vgempix_device \$1vgempix_device_init
+empty 0 -8 0 10 -260097 -1 -1 0;
+#X obj 114 101 hradio 15 1 0 2 \$1vgempix_norm \$1vgempix_norm_init
+empty 0 -8 0 10 -260097 -1 -1 0;
+#X obj 5 85 cnv 15 100 40 empty empty Driver 2 6 0 10 -128992 -228856
+0;
+#X obj 7 101 hradio 15 1 0 3 \$1vgempix_driver \$1vgempix_driver_init
+empty 0 -8 0 10 -260097 -1 -1 1;
+#X obj 214 21 bng 15 250 50 0 empty empty Change_Defaults 17 7 0 7
+-228856 -1 -228856;
+#X obj 130 131 tgl 15 0 \$1vgempix_monitor_out_on empty Monitor_led
+17 7 0 8 -228856 -1 -228856 0 1;
+#X obj 67 130 bng 15 250 50 0 empty \$1vgempix_monitor_out empty 17
+7 0 10 -128992 -258113 -1;
+#X obj 278 2 cnv 15 40 15 empty \$1vgempix_id \$1 10 10 0 10 -260097
+-33289 0;
+#X obj 160 388 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 156 360 spigot;
+#X obj 19 420 cnv 15 65 20 empty empty GEM_OUT 0 10 0 9 -221249 -262144
+0;
+#X obj 190 330 r \$1vgempix_monitor_out_on;
+#X obj 180 389 s \$1vgempix_monitor_out;
+#N canvas 816 581 886 302 gempix_default_settings 0;
+#X obj 22 22 loadbang;
+#X text 516 136 Driver;
+#X text 180 135 Device;
+#X obj 464 82 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 482 136 1;
+#X msg 669 129 0;
+#X text 700 131 Input;
+#X msg 144 134 0;
+#X text 180 244 Numeber/Name of capture passed as argument when mb-pdp_capture_video
+is called-> ex. mb-pdp_capture_video 1-> \$0 is 1;
+#X obj 53 306 symbol \$1;
+#X symbolatom 53 335 0 0 0 0 - - -;
+#X obj 53 270 bng 15 250 50 0 empty empty click_here_to_see 0 -6 0
+8 -262144 -1 -1;
+#X symbolatom 150 335 0 0 0 0 - - -;
+#X obj 150 306 symbol \$2;
+#X obj 247 333 s \$1vgempix_id;
+#X obj 106 24 r \$1vgempix_defaults;
+#X obj 144 180 s \$1vgempix_device_init;
+#X msg 279 128 0;
+#X text 319 131 type;
+#X obj 482 172 s \$1vgempix_driver_init;
+#X obj 669 169 s \$1vgempix_colorspace_init;
+#X msg 836 134 0;
+#X obj 748 213 s \$1vgempix_dim_init;
+#X obj 528 239 s \$1vgempix_on;
+#X msg 524 210 0;
+#X obj 234 158 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 296 178 s \$1vgempix_device_type_init;
+#X connect 0 0 3 0;
+#X connect 0 0 11 0;
+#X connect 3 0 7 0;
+#X connect 3 0 4 0;
+#X connect 3 0 5 0;
+#X connect 3 0 17 0;
+#X connect 3 0 21 0;
+#X connect 3 0 24 0;
+#X connect 4 0 19 0;
+#X connect 5 0 20 0;
+#X connect 7 0 16 0;
+#X connect 9 0 10 0;
+#X connect 10 0 14 0;
+#X connect 11 0 9 0;
+#X connect 11 0 13 0;
+#X connect 13 0 12 0;
+#X connect 15 0 3 0;
+#X connect 17 0 25 0;
+#X connect 17 0 26 0;
+#X connect 21 0 22 0;
+#X connect 24 0 23 0;
+#X connect 25 0 7 0;
+#X restore 211 204 pd gempix_default_settings;
+#X obj 9 35 tgl 15 0 \$1vgempix_device_type \$1vgempix_device_type_init
+vid/frwre 17 7 0 8 -260097 -1 -1 0 1;
+#X obj 188 2 tgl 15 0 \$1vgempix_on \$1vgempix_on_init Capture 17 7
+0 8 -4034 -1 -228856 0 1;
+#X obj 220 88 hsl 50 15 0 1080 0 0 \$1vgempix_dimx_init empty X 3 8
+0 8 -66577 -260097 -260097 0 1;
+#X obj 272 88 nbx 4 15 0 1080 0 0 \$1vgempix_dimx \$1vgempix_dimx_init
+empty 8 -6 0 8 -33289 -260097 -260097 320 256;
+#X obj 220 104 hsl 50 15 0 1080 0 0 \$1vgempix_dimy_init empty Y 3
+8 0 8 -66577 -260097 -260097 0 1;
+#X obj 273 104 nbx 4 15 0 1080 0 0 \$1vgempix_dimy \$1vgempix_dimy_init
+empty 8 -6 0 8 -33289 -260097 -260097 240 256;
+#X obj 36 206 inlet;
+#X text 80 203 gemhead;
+#X obj 145 101 hradio 15 1 0 3 empty \$0norm_lab PAL 2 8 0 8 -1 -1
+-228856 0;
+#X obj 9 65 hradio 15 1 0 5 empty \$0device_lab video 2 8 0 8 -1 -1
+-228856 0;
+#X obj 52 101 hradio 15 1 0 3 empty \$0driver_lab v4l2 2 8 0 8 -1 -1
+-228856 0;
+#X obj 159 60 hradio 15 1 0 3 empty \$0cspace_lab RGB 2 8 0 8 -1 -1
+-228856 0;
+#X obj 115 60 hradio 15 1 0 3 \$1vgempix_colorspace \$1vgempix_colorspace_init
+empty 0 -8 0 10 -260097 -1 -1 0;
+#X obj 36 322 r \$1vgempix_video_in;
+#X obj 36 341 pix_video;
+#N canvas 191 203 1211 827 gempix_capture_core 0;
+#X obj 284 29 r \$1vgempix_device;
+#X msg 471 351 device /dev/video0;
+#X msg 396 115 set device /dev/dv1394/\$1;
+#X obj 423 17 r \$1vgempix_device_type;
+#X obj 346 74 gate 2;
+#X obj 415 44 + 1;
+#X obj 454 202 s \$1vgempix_device2;
+#X msg 308 161 set /dev/video\$1;
+#X msg 469 160 set /dev/dv1394/\$1;
+#X msg 243 117 set device /dev/video\$1;
+#X obj 775 23 r \$1vgempix_driver;
+#X obj 778 74 select 0 1 2;
+#X obj 919 175 s \$1vgempix_driver2;
+#X msg 856 111 set v4l;
+#X msg 898 132 set v4l2;
+#X obj 779 221 r \$1vgempix_colorspace;
+#X obj 779 257 select 0 1 2;
+#X floatatom 43 366 5 0 0 0 - - -;
+#X floatatom 78 367 5 0 0 0 - - -;
+#X obj 93 388 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 41 388 pack 0 0;
+#X obj 68 320 r \$1vgempix_dimx;
+#X obj 99 345 r \$1vgempix_dimy;
+#X msg 57 443 dimen 320 0;
+#X msg 41 407 set dimen \$1 \$2;
+#X obj 21 151 r \$1vgempix_dim;
+#X obj 20 193 select 0 1;
+#X msg 16 246 320;
+#X msg 45 247 240;
+#X msg 82 246 640;
+#X obj 21 290 s \$1vgempix_dimx_init;
+#X obj 102 270 s \$1vgempix_dimy_init;
+#X msg 111 247 480;
+#X obj 787 446 select 0 1 2;
+#X obj 787 410 r \$1vgempix_norm;
+#X msg 784 500 mode PAL;
+#X msg 793 525 mode NTSC;
+#X msg 322 353 device /dev/videoooff;
+#X msg 624 339 driver v4l2;
+#X msg 762 117 set driver v4l;
+#X msg 785 141 set driver v4l2;
+#X msg 828 168 set driver dv;
+#X obj 383 284 r \$1vgempix_on;
+#X obj 387 310 select 0 1;
+#X obj 49 28 inlet;
+#X obj 263 289 spigot;
+#X text 98 31 gem;
+#X msg 805 364 colorspace Grey;
+#X msg 785 336 colorspace YUV;
+#X msg 776 311 colorspace RGBA;
+#X msg 955 144 set dv;
+#X msg 991 244 set RGB;
+#X msg 1003 276 set YUV;
+#X msg 1011 303 set Grey;
+#X obj 1010 342 s \$1vgempix_colorspace2;
+#X msg 875 508 set PAL;
+#X msg 887 540 set NTSC;
+#X obj 894 606 s \$1vgempix_norm2;
+#N canvas 4 54 680 242 capture_labels 0;
+#X msg 499 106 label \$1;
+#X obj 499 79 l2s;
+#X obj 561 33 delay 1;
+#X obj 544 36 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 498 56 PAL;
+#X obj 497 -6 r \$1vgempix_norm2;
+#X obj 499 134 s \$0norm_lab;
+#X msg 335 106 label \$1;
+#X obj 335 79 l2s;
+#X obj 397 33 delay 1;
+#X obj 380 36 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 334 56 RGB;
+#X obj 335 134 s \$0cspace_lab;
+#X obj 333 -6 r \$1vgempix_colorspace2;
+#X obj 51 144 s \$0device_lab;
+#X obj 49 4 r \$1vgempix_device2;
+#X msg 51 116 label \$1;
+#X obj 51 89 l2s;
+#X obj 113 43 delay 1;
+#X obj 96 46 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 50 66 /dev/video0;
+#X msg 192 107 label \$1;
+#X obj 192 80 l2s;
+#X obj 254 34 delay 1;
+#X obj 237 37 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 191 57 v4l2;
+#X obj 190 -5 r \$1vgempix_driver2;
+#X obj 192 135 s \$0driver_lab;
+#X connect 0 0 6 0;
+#X connect 1 0 0 0;
+#X connect 2 0 4 0;
+#X connect 3 0 2 0;
+#X connect 4 0 1 0;
+#X connect 5 0 4 0;
+#X connect 5 0 3 0;
+#X connect 7 0 12 0;
+#X connect 8 0 7 0;
+#X connect 9 0 11 0;
+#X connect 10 0 9 0;
+#X connect 11 0 8 0;
+#X connect 13 0 11 0;
+#X connect 13 0 10 0;
+#X connect 15 0 20 0;
+#X connect 15 0 19 0;
+#X connect 16 0 14 0;
+#X connect 17 0 16 0;
+#X connect 18 0 20 0;
+#X connect 19 0 18 0;
+#X connect 20 0 17 0;
+#X connect 21 0 27 0;
+#X connect 22 0 21 0;
+#X connect 23 0 25 0;
+#X connect 24 0 23 0;
+#X connect 25 0 22 0;
+#X connect 26 0 25 0;
+#X connect 26 0 24 0;
+#X restore 139 50 pd capture_labels;
+#X obj 57 516 s \$1vgempix_video_in;
+#X obj 263 407 s \$1vgempix_video_in;
+#X obj 321 383 s \$1vgempix_video_in;
+#X obj 600 380 s \$1vgempix_video_in;
+#X obj 716 633 s \$1vgempix_video_in;
+#X connect 0 0 4 1;
+#X connect 1 0 61 0;
+#X connect 2 0 1 0;
+#X connect 3 0 5 0;
+#X connect 4 0 9 0;
+#X connect 4 0 7 0;
+#X connect 4 1 2 0;
+#X connect 4 1 8 0;
+#X connect 5 0 4 0;
+#X connect 7 0 6 0;
+#X connect 8 0 6 0;
+#X connect 9 0 1 0;
+#X connect 10 0 11 0;
+#X connect 11 0 39 0;
+#X connect 11 0 13 0;
+#X connect 11 1 40 0;
+#X connect 11 1 14 0;
+#X connect 11 2 41 0;
+#X connect 11 2 50 0;
+#X connect 13 0 12 0;
+#X connect 14 0 12 0;
+#X connect 15 0 16 0;
+#X connect 16 0 49 0;
+#X connect 16 0 51 0;
+#X connect 16 1 48 0;
+#X connect 16 1 52 0;
+#X connect 16 2 47 0;
+#X connect 16 2 53 0;
+#X connect 17 0 20 0;
+#X connect 18 0 19 0;
+#X connect 18 0 20 1;
+#X connect 19 0 20 0;
+#X connect 20 0 24 0;
+#X connect 21 0 17 0;
+#X connect 22 0 18 0;
+#X connect 23 0 59 0;
+#X connect 24 0 23 0;
+#X connect 25 0 26 0;
+#X connect 26 0 27 0;
+#X connect 26 0 28 0;
+#X connect 26 1 29 0;
+#X connect 26 1 32 0;
+#X connect 27 0 30 0;
+#X connect 28 0 31 0;
+#X connect 29 0 30 0;
+#X connect 32 0 31 0;
+#X connect 33 0 35 0;
+#X connect 33 0 55 0;
+#X connect 33 1 36 0;
+#X connect 33 1 56 0;
+#X connect 34 0 33 0;
+#X connect 35 0 63 0;
+#X connect 36 0 63 0;
+#X connect 37 0 61 0;
+#X connect 38 0 62 0;
+#X connect 39 0 38 0;
+#X connect 40 0 38 0;
+#X connect 41 0 38 0;
+#X connect 42 0 43 0;
+#X connect 42 0 45 1;
+#X connect 43 0 37 0;
+#X connect 43 1 38 0;
+#X connect 43 1 1 0;
+#X connect 44 0 45 0;
+#X connect 45 0 60 0;
+#X connect 47 0 63 0;
+#X connect 48 0 63 0;
+#X connect 49 0 63 0;
+#X connect 50 0 12 0;
+#X connect 51 0 54 0;
+#X connect 52 0 54 0;
+#X connect 53 0 54 0;
+#X connect 55 0 57 0;
+#X connect 56 0 57 0;
+#X restore 38 291 pd gempix_capture_core;
+#X obj 36 237 s \$1vgempix_gemhead;
+#X obj 39 269 r \$1vgempix_gemhead;
+#X connect 19 0 23 0;
+#X connect 20 0 19 0;
+#X connect 22 0 20 1;
+#X connect 31 0 41 0;
+#X connect 38 0 39 0;
+#X connect 39 0 20 0;
+#X connect 39 0 9 0;
+#X connect 42 0 40 0;
+#X coords 0 -1 1 1 320 150 1 0 0;

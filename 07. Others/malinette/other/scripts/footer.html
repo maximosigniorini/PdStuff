@@ -1,0 +1,41 @@
+ </ul>
+
+</div><!--#int_column_data ends-->
+
+<footer>
+	<a href="http://malinette.info" target="_blank">La malinette</a> by <a href="http://reso-nance.org/" target="_blank">Reso-nance numerique</a>
+</footer>
+
+</body>
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script>
+$(document).ready(function(){
+	var column_width = 350;
+	writeGridContent();
+	$(window).resize(function() {
+  		writeGridContent();
+	});
+
+function writeGridContent(){
+		var column_content = "";
+		var width_offset = 20; //the body padding left and right
+		var allowableColumns =  Math.floor(($(window).width() - width_offset)/column_width);
+		
+		for(var i = 0 ; i < allowableColumns ; i++){
+			 column_content += '<div class="one_col" >'
+			 //loop through the content
+		 	$('#int_column_data li.bloc').each(function(index) {
+				if( index % allowableColumns == i ){ 
+					//column_content += i+"--"+allowableColumns+'--'+$(window).width();//debug
+					column_content +=  $(this).html()  ;
+				}
+			});
+			column_content += '</div>';
+		}
+		//$('#grid').css('width',column_width*allowableColumns);//center content
+		$('#grid').html(column_content);
+      }
+});
+</script>
+</html>

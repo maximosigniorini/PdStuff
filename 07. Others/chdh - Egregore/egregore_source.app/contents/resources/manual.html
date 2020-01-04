@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<title>Egregore source - documentation</title>  
+	<link rel="stylesheet" type="text/css" href="./src/doc/doc.css">  	  
+  </head>
+  <body>
+  
+  
+<h1>EGREGORE SOURCE - USER MANUAL</h1>
+ * authors: chdh<br>
+ * last version: <a href="http://www.chdh.net/egregore_source_manual.htm">www.chdh.net/egregore_source_manual.htm</a><br>
+ * date: 2015-06-23<br>
+ * version: 2.0<br>
+
+<p>This document present <b>egregore source</b>, an adaptation of the software used by chdh for the performance egregore in 2011-2013. It is based on five different audiovisual instruments made of chaotic and physical modeling algorithms that you can directly control. They have been remotely controlled live by chdh the 27th may 2015.</p>
+		<h2>TABLE OF CONTENTS</h2>
+		<a href="#1.intro">1.INTRODUCTION</a><br>	
+		<a href="#2.install">2.INSTALLATION & RUN</a><br>
+		<a href="#3.interface">3.INTERFACE</a><br>
+		<a href="#4.live">4.LIVE PERFORMANCE</a><br>
+		<a href="#5.presentation">5.ARCHITECTURE</a><br>
+		<a href="#6.info">6.INFORMATIONS FOR PURE DATA USERS</a><br>
+		<a href="#7.trouble">7.TROUBLESHOOTING</a><br>
+		<a href="#8.links">8.LINKS</a><br>
+		<hr>
+		
+		
+		<h2>1. INTRODUCTION</h2>
+		<h3>ÉGRÉGORE</h3>
+		<p>Egrégore is originally an audiovisual performance realized in 2011 that exploits group movement phenomenas. Complex and expressive behaviors are generated and controlled by a computer and transcribed in sound and image. A crowd of particles deploys itself, reorganizes, blends into living structures more or less coherent, evolving from a chaotic movement towards a cohesive group.
+		</p>
+
+		<h3>SOURCE</h3>
+		<p>Egregore - source is an edition that aims to archive and document the performance: all the elements in égrégore - optimized for a standard personal computer - are supplied: the instrument created for the performance, the software that enabled the creation of the performance and a document of usage, all under a free license and with source code. A digital version is freely downloadable on the P2P networks and a usb key with all this data will as well be available.</p>
+
+		<h3>DISTRIBUTED PERFORMANCE</h3>
+		<p>These instruments have been remotely controlled by chdh for a one time only performance the 27th May 2015. The distribution of the code allowed to use this "physical" dispersion as a new performance vector. The different personal computers used to decode the contents of the key, geographically distributed around the world, united to each other by internet constitute the "stage" where took place this last representation of égrégore. The software allows anyone to replay this performance.</p>
+
+<hr>
+<h2 id="2.install">2.INSTALLATION & RUN</h2>		
+<h3>HARDWARE REQUIREMENTS</h3>
+This patch should run on any computer with average performance since 2011.<br>
+* <b>CPU</b> : a minimum of 2 core is mandatory. Intel core 2 duo 2GHz is a minimum<br>
+* <b>Graphic card</b> : Intel HD 4000 works. Most ATI or NVIDIA GPU since 2010 should work.<br><br>
+
+  
+<h3>INSTALLATION</h3>
+
+<b><span>Installation prerequisites: </span></b><br> 
+The software needed depends of your operating system and its version.<br>
+* <b>Linux</b> : Pure Data version >= 0.43 and Gem version >= 0.93.3 have to be installed on your computer. <br>
+&nbsp;&nbsp;If you are on a Debian based system (Ubuntu, Mint, ...), you can run "sudo apt-get install puredata". <br>
+&nbsp;&nbsp;Otherwise the easiest way to get both is to download Pd-extended, see: <a href="http://puredata.info/downloads/pd-extended">http://puredata.info/downloads/pd-extended</a><br>
+* <b>OSX from 10.5 to 10.8</b> : Nothing have to be installed.<br>
+* <b>OSX 10.9-10.10</b> : You may need to install <a href="https://xquartz.macosforge.org/landing/">Xquartz</a>. Launch the software and follow the indications.<br>
+* <b>Windows XP / Vista / seven / 8 </b>: Nothing have to be installed.<br><br>
+   
+<b><span>Egregore - source installation: </span></b><br>   
+* From the usb key, you don't need to install the software, go directly to the run section.<br>
+* From a download on Internet, you can find  the last version at : <a href="http://www.chdh.net/egregore_source.php">http://www.chdh.net/egregore_source.php</a>.<br>
+&nbsp;&nbsp;Then uncompress the file and move the directory where you want on your computer (Windows user: don't use the "Program Files folder).
+
+<h3>RUN</h3>
+* <b>Linux</b> : Quit all applications producing sound (Firefox, VLC, ...). Go in A.Egregore_software directory and double-click on egregore_source.sh. If that doesn't work, you can:<br>
+&nbsp;&nbsp;- change your preferences (see <a href="http://askubuntu.com/questions/286621/how-do-i-run-executable-scripts-in-nautilus">here</a>)<br>
+&nbsp;&nbsp;- or open a terminal, drag and drop the file inside it, and press enter.<br>
+* <b>OSX</b> : Go in A.Egregore_software directory and double-click on egregore_source.app<br>
+* <b>Windows</b> : Go in A.Egregore_software directory and double-click on egregore_source.bat<br>
+
+
+<hr>
+<h2 id="3.interface">3.INTERFACE</h2>
+<p align="center"><img src="src/doc/interface.png" width="75%"></p>
+
+<h3>VIDEO CONFIGURATION</h3>
+<table width="100%">
+<tr><td width="32%">
+<img src="src/doc/config.png" width="100%">
+</td><td width="3%"></td>
+<td width="65%">You can adjust the video settings by clicking on the [video] button. This section allows the control of the rendering window size and position amongst some others parameters:<br><br>
+* <b>size</b> : size of the rendering window in pixels.<br>
+* <b>position</b> : position of the rendering window. Use mobile if you don't need fullscreen. If you want to display the rendering on another screen, be careful of the position of the second screen compared to the principal. For example if your main screen is 1280x720 pixels and your second screen is 1920x1080 pixels positioned on the left, you should use an offset of -1920px and a size of 1920x1080 to have fullscreen on the left screen.<br> 
+* <b>fps</b> : frame per second of the rendering. If your computer is not powerful enough, you can decrease it.<br>
+* <b>antialiasing</b> : antialiasing increase image quality but increase computation time.<br>
+* <b>apply</b> : apply the selected settings now.<br>
+* <b>save</b> : save the settings. They will be used at next launch.<br>
+<br>If you want to reset the settings, see <a href="#7.trouble">troubleshooting</a>.
+</td>
+</tr>
+</table>
+
+<h3>SOUND CONFIGURATION</h3>
+You may need to configure your sound output. To do that click on the "media->audio settings" menu and choose your sound output. See <a href="http://msp.ucsd.edu/Pd_documentation/x3.htm#s1.0">Pd documentation</a> for more informations.
+
+<h3>MIDI CONFIGURATION</h3>
+To configure your midi interface, click on the "media->MIDI settings" menu and choose your midi input. See <a href="http://msp.ucsd.edu/Pd_documentation/x3.htm#s1.0">Pd documentation</a> for more informations.<br><br>
+You can assign your midi faders to any parameter:<br>
+* click on the [midi] button<br>
+* check the "midi learn" toggle<br>
+* move a parameter with the mouse<br>
+* move a fader on your midi device<br>
+* You can repeat the "move a parameter with mouse, move a fader" sequence to assign other parameters<br>
+* uncheck the "midi learn" toggle<br>
+If needed you can reset your settings by clicking the "reset midi assignations" button<br>
+
+<h3>CONTROLLING THE INSTRUMENTS</h3>
+The software is divided in five instruments: mouches, morphing, chaos, emergence and fluid. You can control each one of these instruments separately: 
+<table width="100%">
+<tr><td width="23%">
+<img src="src/doc/chaos.png" width="100%">
+</td><td width="3%"></td>
+<td width="74%">
+* <b>on/off</b> : turn on/off this instrument. Turn off unused instrument to save CPU. <br>
+* <b>presets</b> : click to recall some predefined preset. The first preset set the instrument in a state where it did not produce movement.<br>
+* <b>xx dB</b> : output sound level of this instrument.<br>
+* <b>volume</b> : adjust the visual and sound volume of this instrument.<br>
+* <b>faders</b> : controls of the instrument. Each one of this parameter modify the state of the algorithm and thus the sound and video generated. Move these faders to play with the instrument.
+</td>
+</tr></table>
+
+
+<h3>INSTRUMENTS DESCRIPTION</h3>
+<b>Mouches</b><br>
+Mouches (flies in french) is a simple mix of noise and random movements. Every particle movement is random and independent. The sound is based on noise generators. The control are divided in two groups of flies.<br>
+* <b>random group n</b> : amplitude of random<br>
+* <b>low pass group n</b> : property of the random generator<br>
+* <b>high pass group n</b> : property of the random generator<br>
+* <b>scattering</b> : visual dispersion<br><br>
+
+<b>Emergence</b><br>
+In emergence, every particle is connected to all the others. The modification of the link between them creates emerging complex structures. Sound synthesis is based on the speed and displacement of particules.<br>
+* <b>pentagon, explosion, ...., unstable</b> : different kind of connection between particules <br>
+* <b>native velocity</b> : increase the base speed of particles<br>
+* <b>sound synthesis</b> : mix between three sound synthesis engine<br><br>
+
+<b>Chaos</b><br>
+Chaos is based on the Peter de Jong strange attractors family. The input of this attractor is a mix of different simple sound synthesizers. A few iterations of the attractors are computed for each of this sound samples, resulting in tables that are directly seen as sound and particule positions.<br>
+* <b>bass, medium, ..., sawtooth</b> : sound at the entrance of the attractor<br>
+* <b>wave shaper</b> : effect on the input sound<br>
+* <b>phase variation</b> : movement variation velocity<br><br>
+ 
+<b>Morphing</b><br>
+Morphing is defined by a set of 377 mobile particles attached to different shape composed by 377 points: circle, square, .... The user can modify the rigidity between the mobile particle and each one of these shapes, resulting in mixed and unstable forms. The particule positions tables are directly read as sounds.<br>
+* <b>sinus, square, ... grid</b> : attraction to each shape<br>
+* <b>random</b> : add a random position<br>
+* <b>damping</b> : modification of the "resistance" of the environment<br><br>
+
+<b>Fluide</b><br>
+Fluide is more an effect than a proper instrument. It takes as an input the position of the particules of the other instrument and "throw" them like bowls in a 3d topology. The sound is based on the particules displacments.<br>
+* <b>input attraction</b> : influence of the other instruments particules position<br>
+* <b>damping</b> : resistance of the environment<br>
+* <b>image n attraction</b> : influence of the 3d topology<br>
+* <b>sound synthesis</b> : mix between three sound synthesis engine<br>
+
+
+<h3>MONITORING</h3>
+On the top right, you have info about the state of your computer:<br>
+<img src="src/doc/monitor.png" width="27%"><br>
+* <b>-10dB</b> : master volume. Increase or decrease as needed.<br>
+* <b>render</b> : turn off the rendering if needed (sound + video).<br>
+* <b>fps</b> : frame per second. It should stay at 50, otherwise try to reduce the value in [config]. Use 40 or 30 for example.<br>
+* <b>cpu</b> : percent of usage of the two cpus. It should not go beyond 90% or you risk to have audio drop-out (clicks).<br>
+
+
+<h3>OTHER BUTTONS</h3>
+* <b>User Preset</b> : Here you can store and recall the state of all the instruments. When a preset is empty, it is displayed dark.<br>
+* <b>Live</b> : Informations and control about the live performance. cf. <a href="#4.live">live</a><br>
+* <b>Engine</b> : Here you can see the Pure Data patch running egregore_source. cf. <a href="#4.info">pd users</a><br>
+
+
+<hr>
+<h2 id="4.live">4.LIVE PERFORMANCE</h2>
+These instruments have been remotely controlled by chdh for a one time only performance the 27th may 2015. Around 120 computers from 23 countries were connected in real time. The performance control data are now included in the software. <br><br>
+
+Click on the [live] button bottom right of the interface to open the replay GUI. Click [play] to read the control data. You can navigate in the performance using the horizontal slider. Unclick the [play] button to pause the playback and manipulates the instruments.
+		
+<h2 id="5.presentation">5.ARCHITECTURE</h2>
+<h3>DESCRIPTION</h3>
+In egregore source, there is 377 particules. Each particule is controlled by the five instruments, the resulting movement is the sum of the displacements generated by all the instruments. These instruments are mostly based on physical modeling and chaotic equations algorithms, resulting in expressive and pseudo naturals behaviors. The instruments play on the relationship between the particules: some of them used totally independent generators for each element, and some connect all the particules together.<br><br>
+
+The rendering window shows only the particules movement: for each particule, a curve is drawn between its actual position and its three precedent position, resulting in a big curve when the particule is moving fast and nothing if the particule is static.<br><br>
+
+Each instrument has a specific sound synthesis engine. Each synthesizer is designed to represent at best the movement of the particules.<br>
+
+<h3>ALGORITHM MAP</h3>
+<a href="src/doc/egregore_source_schema.jpg"><img width="100%" src="src/doc/egregore_source_schema.jpg"></a>
+
+
+<hr>
+<h2 id="6.info">6.INFORMATIONS FOR PURE DATA USERS</h2>
+You can use any part of this instrument for yourself. The application is build in Pd 0.46.2. To open the engine layer, click on the [engine] button. Here you can edit, copy and paste in other Pd patchs.
+<br><br>
+There should be no conflict with existing pd installation. Startup script should start pd with it's own preference file, and do not overwrite preferences.
+  <br><br>
+The main patch is composed of several parts:<br>
+ * instruments : create sound and movements for 377 particules.<br>
+ * bus : add the sound and position generated by all instruments.<br>
+ * local server : manage the control parameters.<br>
+ * interface : display the interface and send data to the local server.<br>
+ * render : displays the particules displacements.<br>
+ * internet reception : manage the data from Internet for live performance.<br>
+ <br>
+
+
+
+
+<hr>
+<h2 id="7.trouble">7.TROUBLESHOOTING</h2>
+
+* If you have problem with your video settings and can't launch the application anymore, you can delete the config.txt file in the src folder. A new one with basic value will be generated. <br>
+* There is a known problem in some version of Gem/Ubuntu where the window can't recreate itself. This doesn't allow you to easily modify the video settings. To do that, choose your settings, click save and relaunch the software.<br>
+* If you have another Linux distribution than Ubuntu, you may need to recompile the sources. To do that do<br>
+  <pre>  $  cd $PATH/egregore_source_X.X/src/lib
+  $  make</pre>
+* If the main window is displayed twice on osx 10.6+, you my need to protect the application saved state. To do that, open a terminal and type: <br>
+<pre> defaults write org.puredata NSQuitAlwaysKeepsWindows -int 0
+ defaults write org.puredata.pd.wish NSQuitAlwaysKeepsWindows -int 0</pre>
+
+<hr>    
+<h2 id="8.links">8.LINKS</h2>
+Visit the chdh website to have news and infos<br>
+  <a href="http://www.chdh.net">http://www.chdh.net</a><br>
+<br>
+</div>
+	  
+  </body>
+</html>

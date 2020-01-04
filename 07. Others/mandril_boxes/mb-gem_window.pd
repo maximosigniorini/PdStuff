@@ -1,0 +1,806 @@
+#N canvas 753 512 769 291 10;
+#X obj 0 0 cnv 15 370 260 empty empty GEM_window 120 12 0 14 -99865
+-262144 0;
+#X obj 260 24 tgl 15 0 \$1gemwin_create \$1gemwin_create_init Create/Destroy
+16 8 0 8 -260097 -1 -228856 0 1;
+#X obj 4 217 cnv 15 100 35 empty empty Offset 1 8 0 10 -128992 -228856
+0;
+#X obj 4 110 cnv 15 100 104 empty empty Dimensions 2 12 0 12 -128992
+-228856 0;
+#X obj 7 132 vradio 14 1 0 4 \$1gemwin_dim \$1gemwin_dim_init empty
+0 -8 0 10 -260097 -66577 -1 2;
+#X text 24 130 320x240;
+#X text 23 145 640x480;
+#X obj 262 79 bng 15 250 50 0 \$1gemwin_defaults \$1gemwin_defaults_init
+Load_Defaults 17 7 0 8 -228856 -1 -228856;
+#X obj 261 43 bng 15 250 50 0 \$1gemwin_apply_settings empty Apply_settings
+17 7 0 8 -260097 -228856 -228856;
+#X obj 16 232 nbx 3 15 0 3000 0 0 \$1gemwin_offsetx \$1gemwin_offsetx_init
+X -7 7 0 8 -66577 -260097 -228856 1096 256;
+#X obj 66 232 nbx 3 15 0 1080 0 0 \$1gemwin_offsety \$1gemwin_offsety_init
+Y -7 7 0 8 -66577 -260097 -228856 0 256;
+#X obj 12 196 nbx 4 14 0 1080 0 0 \$1gemwin_dimx_act \$1gemwin_dimx
+X -8 8 0 8 -66577 -260097 -228856 800 256;
+#X obj 60 197 nbx 4 14 0 1080 0 0 \$1gemwin_dimy_act \$1gemwin_dimy
+Y -8 8 0 8 -66577 -260097 -228856 600 256;
+#X obj 71 134 tgl 14 0 \$1gemwin_fullscreen \$1gemwin_fullscreen_init
+FS 17 7 0 8 -260097 -1 -1 0 1;
+#X obj 254 1 cnv 15 40 20 empty \$1gemwin_id \$1 10 10 0 14 -260097
+-33289 0;
+#N canvas 635 208 915 795 gemwin_default_settings 0;
+#X obj 42 42 loadbang;
+#X obj 205 95 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 70 325 symbol \$1;
+#X symbolatom 70 354 0 0 0 0 - - -;
+#X obj 76 238 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X symbolatom 167 354 0 0 0 0 - - -;
+#X obj 167 325 symbol \$2;
+#X obj 126 44 r \$1gemwin_defaults;
+#X obj 6 325 float \$1;
+#X floatatom 10 357 5 0 0 0 - - -;
+#X text 75 148 create;
+#X msg 43 147 0;
+#X obj 12 207 s \$1gemwin_create_init;
+#X obj 70 400 s \$1gemwin_id;
+#X obj 306 92 s \$1gemwin_apply_settings;
+#X msg 203 153 1;
+#X obj 207 204 s \$1gemwin_border_init;
+#X text 241 151 border;
+#X msg 366 152 100;
+#X msg 445 150 100;
+#X obj 367 204 s \$1gemwin_offsetx_init;
+#X obj 447 183 s \$1gemwin_offsety_init;
+#X text 640 142 Dimensions;
+#X msg 611 142 1;
+#X obj 612 189 s \$1gemwin_dim_init;
+#X text 779 148 cursor;
+#X msg 745 149 0;
+#X obj 745 189 s \$1gemwin_cursor_init;
+#X obj 253 318 s \$1gemwin_title_init;
+#X obj 415 319 s \$1gemwin_render_on_init;
+#X msg 414 285 0;
+#X msg 578 284 20;
+#X obj 579 318 s \$1gemwin_framerate_init;
+#X msg 756 281 0;
+#X obj 757 315 s \$1gemwin_buffer_init;
+#X msg 248 278 aaaaaaa;
+#X obj 247 405 s \$1gemwin_resetview_init;
+#X obj 286 465 r \$1gemwin_resetview;
+#X msg 285 518 0;
+#X msg 319 521 0;
+#X obj 283 555 s \$1gemwin_movex_init;
+#X obj 309 584 s \$1gemwin_movey_init;
+#X obj 349 613 s \$1gemwin_movez_init;
+#X msg 354 524 4;
+#X obj 365 489 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 475 520 0;
+#X obj 487 558 s \$1gemwin_turnlr_init;
+#X obj 491 589 s \$1gemwin_turnud_init;
+#X obj 659 465 r \$1gemwin_resetstereo;
+#X obj 682 501 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 670 538 0;
+#X msg 716 540 -15;
+#X msg 757 541 0;
+#X obj 666 573 s \$1gemwin_stereo_init;
+#X obj 712 595 s \$1gemwin_stereosep_init;
+#X obj 727 616 s \$1gemwin_stereofoc_init;
+#X obj 38 532 s \$1gemwin_lightxz_init;
+#X obj 37 560 s \$1gemwin_light_on_init;
+#X obj 37 585 s \$1gemwin_lightyz_init;
+#X obj 35 608 s \$1gemwin_light_debug_init;
+#X msg 37 491 0;
+#X obj 101 477 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -18 439 r \$1gemwin_resetlight;
+#X obj 41 723 s \$1gemwin_light_R_init;
+#X obj 42 747 s \$1gemwin_light_G_init;
+#X obj 42 770 s \$1gemwin_light_B_init;
+#X msg 41 694 1;
+#X obj 69 92 s \$1gemwin_reset;
+#X obj 5 15 s \$1gemwin_defaults_init;
+#X obj -4 58 delay 10;
+#X connect 0 0 1 0;
+#X connect 0 0 4 0;
+#X connect 0 0 61 0;
+#X connect 0 0 69 0;
+#X connect 1 0 11 0;
+#X connect 1 0 14 0;
+#X connect 1 0 15 0;
+#X connect 1 0 18 0;
+#X connect 1 0 19 0;
+#X connect 1 0 23 0;
+#X connect 1 0 26 0;
+#X connect 1 0 30 0;
+#X connect 1 0 31 0;
+#X connect 1 0 33 0;
+#X connect 1 0 35 0;
+#X connect 1 0 36 0;
+#X connect 1 0 44 0;
+#X connect 1 0 49 0;
+#X connect 1 0 50 0;
+#X connect 1 0 67 0;
+#X connect 2 0 3 0;
+#X connect 3 0 13 0;
+#X connect 4 0 2 0;
+#X connect 4 0 6 0;
+#X connect 4 0 8 0;
+#X connect 6 0 5 0;
+#X connect 7 0 1 0;
+#X connect 8 0 9 0;
+#X connect 11 0 12 0;
+#X connect 15 0 16 0;
+#X connect 18 0 20 0;
+#X connect 19 0 21 0;
+#X connect 23 0 24 0;
+#X connect 26 0 27 0;
+#X connect 30 0 29 0;
+#X connect 31 0 32 0;
+#X connect 33 0 34 0;
+#X connect 35 0 28 0;
+#X connect 37 0 44 0;
+#X connect 38 0 40 0;
+#X connect 39 0 41 0;
+#X connect 43 0 42 0;
+#X connect 44 0 43 0;
+#X connect 44 0 39 0;
+#X connect 44 0 38 0;
+#X connect 44 0 45 0;
+#X connect 45 0 46 0;
+#X connect 45 0 47 0;
+#X connect 48 0 49 0;
+#X connect 49 0 51 0;
+#X connect 49 0 52 0;
+#X connect 50 0 53 0;
+#X connect 51 0 54 0;
+#X connect 52 0 55 0;
+#X connect 60 0 56 0;
+#X connect 60 0 57 0;
+#X connect 60 0 58 0;
+#X connect 60 0 59 0;
+#X connect 61 0 60 0;
+#X connect 61 0 66 0;
+#X connect 62 0 61 0;
+#X connect 66 0 63 0;
+#X connect 66 0 64 0;
+#X connect 66 0 65 0;
+#X connect 69 0 68 0;
+#X restore 592 50 pd gemwin_default_settings;
+#N canvas 61 115 1611 976 gemwin_core 0;
+#X obj 424 906 gemwin;
+#X msg 211 191 destroy;
+#X msg 290 191 create;
+#X msg 472 173 border \$1;
+#X obj 471 155 tgl 15 1 empty empty empty 0 -6 0 10 -262144 -1 -1 1
+1;
+#X msg 884 217 dimen 320 240;
+#X msg 883 241 dimen 200 200;
+#X msg 640 217 offset 10 10;
+#X msg 655 241 offset 300 300;
+#X obj 1081 146 tgl 15 0 empty empty empty 0 -6 0 10 -262144 -1 -1
+0 1;
+#X msg 1082 164 fullscreen \$1;
+#X msg 359 172 reset;
+#X msg 1221 168 cursor \$1;
+#X obj 1221 149 tgl 15 0 empty empty empty 0 -6 0 10 -262144 -1 -1
+0 1;
+#X obj 212 115 r \$1gemwin_create;
+#X obj 212 155 select 0 1;
+#X obj 339 116 r \$1gemwin_reset;
+#X obj 462 117 r \$1gemwin_border;
+#X obj 587 117 r \$1gemwin_offsetx;
+#X obj 709 116 r \$1gemwin_offsety;
+#X obj 608 170 pack 0 0;
+#X obj 667 170 t b f;
+#X floatatom 608 151 5 0 0 0 - - -;
+#X floatatom 667 150 5 0 0 0 - - -;
+#X msg 608 191 offset \$1 \$2;
+#X msg 1224 406 320;
+#X msg 1251 410 240;
+#X msg 1290 410 640;
+#X msg 1329 412 480;
+#X obj 1307 305 r \$1gemwin_dim;
+#X obj 1290 488 s \$1gemwin_dimx_act;
+#X obj 1395 487 s \$1gemwin_dimy_act;
+#X floatatom 977 649 5 0 0 0 - - -;
+#X floatatom 1094 649 5 0 0 0 - - -;
+#X floatatom 993 717 5 0 0 0 - - -;
+#X obj 994 682 swap;
+#X floatatom 1099 708 5 0 0 0 - - -;
+#X obj 1097 676 swap;
+#X obj 1211 607 r \$1gemwin_apply_settings;
+#X obj 951 612 r \$1gemwin_dimx_act;
+#X obj 1079 608 r \$1gemwin_dimy_act;
+#X obj 1098 745 s \$1gemwin_dimy;
+#X obj 968 749 s \$1gemwin_dimx;
+#X obj 842 167 pack 0 0;
+#X obj 901 167 t b f;
+#X floatatom 842 148 5 0 0 0 - - -;
+#X floatatom 901 147 5 0 0 0 - - -;
+#X msg 842 188 dimen \$1 \$2;
+#X obj 842 114 r \$1gemwin_dimx;
+#X obj 950 116 r \$1gemwin_dimy;
+#X msg 1337 169 title \$1;
+#X obj 1078 117 r \$1gemwin_fullscreen;
+#X obj 1222 117 r \$1gemwin_cursor;
+#X obj 1337 118 r \$1gemwin_title;
+#X obj 6 112 r \$1gemwin_render_on;
+#X obj 88 228 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 32 475 frame \$1;
+#X obj 13 432 r \$1gemwin_framerate;
+#X msg 16 611 buffer 1;
+#X msg 45 640 buffer 2;
+#X obj 12 549 r \$1gemwin_buffer;
+#X obj 16 580 select 0 1;
+#X text 78 612 single;
+#X text 102 646 double;
+#X msg 80 764 print;
+#X obj 17 724 r \$1gemwin_print_info;
+#X obj 64 826 r \$1gemwin_viewmessage;
+#X obj 43 865 r \$1gemwin_stereomessage;
+#X obj 58 917 r \$1gemwin_lightmessage;
+#X msg 113 189 0;
+#X obj 144 162 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 399 69 inlet;
+#X msg 1443 418 1024;
+#X msg 1482 420 768;
+#X obj 1315 345 select 0 1 2 3;
+#X msg 1370 414 800;
+#X msg 1409 416 600;
+#X obj 670 782 tgl 15 0 empty empty empty 0 -6 0 10 -262144 -1 -1 0
+1;
+#X msg 670 801 topmost \$1;
+#X obj 669 755 r \$1gemwin_topmost;
+#X obj 422 941 outlet;
+#X connect 0 0 80 0;
+#X connect 1 0 0 0;
+#X connect 2 0 0 0;
+#X connect 3 0 0 0;
+#X connect 4 0 3 0;
+#X connect 9 0 10 0;
+#X connect 10 0 0 0;
+#X connect 11 0 0 0;
+#X connect 12 0 0 0;
+#X connect 13 0 12 0;
+#X connect 14 0 15 0;
+#X connect 14 0 70 0;
+#X connect 15 0 1 0;
+#X connect 15 1 2 0;
+#X connect 16 0 11 0;
+#X connect 17 0 4 0;
+#X connect 18 0 22 0;
+#X connect 19 0 23 0;
+#X connect 20 0 24 0;
+#X connect 21 0 20 0;
+#X connect 21 1 20 1;
+#X connect 22 0 20 0;
+#X connect 23 0 21 0;
+#X connect 24 0 0 0;
+#X connect 25 0 30 0;
+#X connect 26 0 31 0;
+#X connect 27 0 30 0;
+#X connect 28 0 31 0;
+#X connect 29 0 74 0;
+#X connect 32 0 35 1;
+#X connect 33 0 37 1;
+#X connect 34 0 42 0;
+#X connect 35 0 34 0;
+#X connect 36 0 41 0;
+#X connect 37 0 36 0;
+#X connect 38 0 37 0;
+#X connect 38 0 35 0;
+#X connect 39 0 32 0;
+#X connect 40 0 33 0;
+#X connect 43 0 47 0;
+#X connect 44 0 43 0;
+#X connect 44 1 43 1;
+#X connect 45 0 43 0;
+#X connect 46 0 44 0;
+#X connect 47 0 0 0;
+#X connect 48 0 45 0;
+#X connect 49 0 46 0;
+#X connect 50 0 0 0;
+#X connect 51 0 9 0;
+#X connect 52 0 13 0;
+#X connect 53 0 50 0;
+#X connect 54 0 55 0;
+#X connect 55 0 0 0;
+#X connect 56 0 0 0;
+#X connect 57 0 56 0;
+#X connect 59 0 0 0;
+#X connect 60 0 61 0;
+#X connect 61 0 58 0;
+#X connect 61 1 59 0;
+#X connect 64 0 0 0;
+#X connect 65 0 64 0;
+#X connect 66 0 0 0;
+#X connect 67 0 0 0;
+#X connect 68 0 0 0;
+#X connect 69 0 55 0;
+#X connect 70 0 69 0;
+#X connect 71 0 0 0;
+#X connect 72 0 30 0;
+#X connect 73 0 31 0;
+#X connect 74 0 25 0;
+#X connect 74 0 26 0;
+#X connect 74 1 27 0;
+#X connect 74 1 28 0;
+#X connect 74 2 75 0;
+#X connect 74 2 76 0;
+#X connect 74 3 72 0;
+#X connect 74 3 73 0;
+#X connect 75 0 30 0;
+#X connect 76 0 31 0;
+#X connect 77 0 78 0;
+#X connect 78 0 0 0;
+#X connect 79 0 77 0;
+#X restore 530 79 pd gemwin_core;
+#X obj 262 61 bng 15 250 50 0 \$1gemwin_reset empty Reset 17 7 0 8
+-257985 -1 -228856;
+#X obj 4 27 cnv 15 100 80 \$1gemwin_framerate \$1gemwin_framerate_init
+empty 2 12 0 14 -128992 -66577 0;
+#X obj 5 5 tgl 15 0 \$1gemwin_render_on \$1gemwin_render_on_init ON/OFF_Render
+16 8 0 8 -4034 -1 -228856 0 1;
+#X obj 7 33 nbx 3 14 1 1e+37 0 0 \$1gemwin_framerate \$1gemwin_framerate_init
+Framerate 40 6 0 8 -66577 -260097 -228856 20 256;
+#X obj 7 66 tgl 15 0 \$1gemwin_border \$1gemwin_border_init Border
+17 7 0 8 -260097 -66577 -228856 1 1;
+#X obj 8 85 tgl 15 0 \$1gemwin_cursor \$1gemwin_cursor_init Cursor
+17 7 0 8 -260097 -1 -228856 0 1;
+#X obj 7 49 hradio 15 1 0 2 \$1gemwin_buffer \$1gemwin_buffer_init
+S/D_Buffer 30 6 0 8 -260097 -66577 -228856 0;
+#X obj 262 96 bng 15 250 50 0 \$1gemwin_print_info empty Print_info
+17 7 0 8 -228856 -1 -228856;
+#N canvas 621 356 1137 543 gemwin_view 0;
+#X floatatom 296 60 0 0 0 0 - - -;
+#X obj -12 359 s \$1gemwin_viewmessage;
+#X obj 183 18 r \$1gemwin_movez;
+#X floatatom 69 51 0 0 0 0 - - -;
+#X obj 64 16 r \$1gemwin_movey;
+#X floatatom -84 44 0 0 0 0 - - -;
+#X obj -64 14 r \$1gemwin_movex;
+#X obj 143 123 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 36 134 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg -17 255 view 0 0 3.99992 0 0;
+#X obj -190 88 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 187 59 0 0 0 0 - - -;
+#X msg -232 96 set;
+#X msg 87 170 add2 \$1;
+#X msg 201 163 add2 \$1;
+#X obj -176 52 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -288 60 delay 20;
+#X obj -290 79 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg -141 162 set view \$1;
+#X obj 373 123 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 202 133 float;
+#X obj 74 137 float;
+#X obj -100 129 float;
+#X obj 298 15 r \$1gemwin_turnlr;
+#X msg 300 160 add2 \$1;
+#X obj 301 130 float;
+#X obj 266 127 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 426 159 add2 \$1;
+#X obj 427 129 float;
+#X floatatom 422 66 0 0 0 0 - - -;
+#X obj 424 21 r \$1gemwin_turnud;
+#X obj 427 199 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X connect 0 0 25 1;
+#X connect 2 0 11 0;
+#X connect 2 0 15 0;
+#X connect 3 0 21 1;
+#X connect 4 0 3 0;
+#X connect 4 0 15 0;
+#X connect 5 0 22 1;
+#X connect 6 0 5 0;
+#X connect 6 0 15 0;
+#X connect 7 0 20 0;
+#X connect 8 0 21 0;
+#X connect 9 0 1 0;
+#X connect 10 0 22 0;
+#X connect 11 0 20 1;
+#X connect 12 0 9 0;
+#X connect 12 0 10 0;
+#X connect 13 0 9 0;
+#X connect 13 0 7 0;
+#X connect 14 0 9 0;
+#X connect 14 0 26 0;
+#X connect 15 0 16 0;
+#X connect 15 0 12 0;
+#X connect 16 0 17 0;
+#X connect 18 0 9 0;
+#X connect 18 0 8 0;
+#X connect 19 0 28 0;
+#X connect 20 0 14 0;
+#X connect 21 0 13 0;
+#X connect 22 0 18 0;
+#X connect 23 0 0 0;
+#X connect 23 0 15 0;
+#X connect 24 0 9 0;
+#X connect 24 0 19 0;
+#X connect 25 0 24 0;
+#X connect 26 0 25 0;
+#X connect 27 0 9 0;
+#X connect 27 0 31 0;
+#X connect 28 0 27 0;
+#X connect 29 0 28 1;
+#X connect 30 0 29 0;
+#X connect 30 0 15 0;
+#X connect 31 0 9 0;
+#X restore 541 117 pd gemwin_view;
+#N canvas 85 247 1198 784 gemwin_light 0;
+#X text 539 173 lighting 1/0 : turn lighting on/off;
+#X text 612 227 ambient R G B : the ambient lighting color;
+#X text 618 281 specular R G B : the specular lighting color;
+#X text 546 318 shininess num : the shininess value;
+#X text 581 124 color R G B : the background color of the window;
+#X text 481 367 fogmode 0/1/2/3 : set the fog mode (OFF/LINEAR/EXP/EXP^2)
+;
+#X text 647 488 fogcolor R G B : the color of the fog;
+#X text 568 408 fog num : the fog density;
+#X text 342 13 messages to the [gemwin] regarding lighting effects
+;
+#X obj 175 73 tgl 15 1 empty empty empty 0 -6 0 10 -262144 -1 -1 0
+1;
+#X text 442 41 All of these messages must be sent to [gemwin] before
+the window is created in order to take effect.;
+#X msg 179 129 lighting \$1;
+#N canvas 893 158 562 454 color 0;
+#X obj 103 100 hsl 128 15 0 1 0 1 empty empty R 12 8 1 12 -261689 -1
+-1 8900 1;
+#X obj 236 100 hsl 128 15 0 1 0 1 empty empty G 12 8 1 12 -225271 -1
+-1 4800 1;
+#X obj 370 100 hsl 128 15 0 1 0 1 empty empty B 12 8 1 12 -228992 -1
+-1 2400 1;
+#X obj 64 379 outlet;
+#X obj 64 251 pack float float float;
+#X obj 96 194 trigger bang 0;
+#X obj 196 194 trigger bang 0;
+#X obj 64 280 trigger bang anything;
+#X obj 187 303 list;
+#X msg 187 323 set color \$1 \$2 \$3;
+#X connect 0 0 4 0;
+#X connect 1 0 5 0;
+#X connect 2 0 6 0;
+#X connect 4 0 7 0;
+#X connect 5 0 4 0;
+#X connect 5 1 4 1;
+#X connect 6 0 4 0;
+#X connect 6 1 4 2;
+#X connect 7 0 3 0;
+#X connect 7 1 8 0;
+#X connect 8 0 9 0;
+#X connect 9 0 3 0;
+#X coords 0 -1 1 1 400 13 1 100 100;
+#X restore 364 101 pd color sliders;
+#X msg 364 123 color 0.700787 0.377953 0.188976;
+#N canvas 889 134 566 458 color 0;
+#X obj 103 100 hsl 128 15 0 1 0 1 empty empty R 12 8 1 12 -261689 -1
+-1 6900 1;
+#X obj 236 100 hsl 128 15 0 1 0 1 empty empty G 12 8 1 12 -225271 -1
+-1 12700 1;
+#X obj 370 100 hsl 128 15 0 1 0 1 empty empty B 12 8 1 12 -228992 -1
+-1 7100 1;
+#X obj 64 379 outlet;
+#X obj 64 251 pack float float float;
+#X obj 96 194 trigger bang 0;
+#X obj 196 194 trigger bang 0;
+#X obj 64 280 trigger bang anything;
+#X obj 187 303 list;
+#X msg 187 323 set ambient \$1 \$2 \$3;
+#X connect 0 0 4 0;
+#X connect 1 0 5 0;
+#X connect 2 0 6 0;
+#X connect 4 0 7 0;
+#X connect 5 0 4 0;
+#X connect 5 1 4 1;
+#X connect 6 0 4 0;
+#X connect 6 1 4 2;
+#X connect 7 0 3 0;
+#X connect 7 1 8 0;
+#X connect 8 0 9 0;
+#X connect 9 0 3 0;
+#X coords 0 -1 1 1 400 13 1 100 100;
+#X restore 384 206 pd color sliders;
+#X msg 384 228 ambient 0.543307 1 0.559055;
+#N canvas 889 134 566 458 color 0;
+#X obj 103 100 hsl 128 15 0 1 0 1 empty empty R 12 8 1 12 -261689 -1
+-1 6900 1;
+#X obj 236 100 hsl 128 15 0 1 0 1 empty empty G 12 8 1 12 -225271 -1
+-1 5500 1;
+#X obj 370 100 hsl 128 15 0 1 0 1 empty empty B 12 8 1 12 -228992 -1
+-1 5700 1;
+#X obj 64 379 outlet;
+#X obj 64 251 pack float float float;
+#X obj 96 194 trigger bang 0;
+#X obj 196 194 trigger bang 0;
+#X obj 64 280 trigger bang anything;
+#X obj 187 303 list;
+#X msg 187 322 set specular \$1 \$2 \$3;
+#X connect 0 0 4 0;
+#X connect 1 0 5 0;
+#X connect 2 0 6 0;
+#X connect 4 0 7 0;
+#X connect 5 0 4 0;
+#X connect 5 1 4 1;
+#X connect 6 0 4 0;
+#X connect 6 1 4 2;
+#X connect 7 0 3 0;
+#X connect 7 1 8 0;
+#X connect 8 0 9 0;
+#X connect 9 0 3 0;
+#X coords 0 -1 1 1 400 13 1 100 100;
+#X restore 391 260 pd color sliders;
+#X msg 391 282 specular 0.543307 0.433071 0.448819;
+#N canvas 889 134 570 462 color 0;
+#X obj 103 100 hsl 128 15 0 1 0 1 empty empty R 12 8 1 12 -261689 -1
+-1 0 1;
+#X obj 236 100 hsl 128 15 0 1 0 1 empty empty G 12 8 1 12 -225271 -1
+-1 2400 1;
+#X obj 370 100 hsl 128 15 0 1 0 1 empty empty B 12 8 1 12 -228992 -1
+-1 2500 1;
+#X obj 64 379 outlet;
+#X obj 64 251 pack float float float;
+#X obj 96 194 trigger bang 0;
+#X obj 196 194 trigger bang 0;
+#X obj 64 280 trigger bang anything;
+#X obj 187 303 list;
+#X msg 187 322 set fogcolor \$1 \$2 \$3;
+#X connect 0 0 4 0;
+#X connect 1 0 5 0;
+#X connect 2 0 6 0;
+#X connect 4 0 7 0;
+#X connect 5 0 4 0;
+#X connect 5 1 4 1;
+#X connect 6 0 4 0;
+#X connect 6 1 4 2;
+#X connect 7 0 3 0;
+#X connect 7 1 8 0;
+#X connect 8 0 9 0;
+#X connect 9 0 3 0;
+#X coords 0 -1 1 1 400 13 1 100 100;
+#X restore 403 467 pd color sliders;
+#X msg 403 489 fogcolor 0 0.188976 0.19685;
+#X msg 408 379 fogmode 3;
+#N canvas 889 134 348 479 fog 0;
+#X obj 84 239 outlet;
+#X obj 100 101 hradio 15 1 1 4 empty empty empty 0 -6 0 10 -262144
+-1 -1 3;
+#X msg 207 182 set fogmode \$1;
+#X obj 84 140 trigger bang float;
+#X connect 1 0 3 0;
+#X connect 2 0 0 0;
+#X connect 3 0 0 0;
+#X connect 3 1 2 0;
+#X coords 0 -1 1 1 60 13 1 100 100;
+#X restore 408 357 pd fog;
+#X msg 399 329 shininess 0.283465;
+#N canvas 889 134 356 487 fog 0;
+#X obj 84 239 outlet;
+#X obj 84 140 trigger bang float;
+#X msg 207 182 set shininess \$1;
+#X obj 103 101 hsl 128 15 0 1 0 1 empty empty empty -2 -6 0 10 -262144
+-1 -1 3600 1;
+#X connect 1 0 0 0;
+#X connect 1 1 2 0;
+#X connect 2 0 0 0;
+#X connect 3 0 1 0;
+#X coords 0 -1 1 1 133 13 1 100 100;
+#X restore 399 307 pd fog;
+#X msg 409 429 fog 0.125984;
+#N canvas 889 134 364 495 fog 0;
+#X obj 84 239 outlet;
+#X obj 84 140 trigger bang float;
+#X obj 103 101 hsl 128 15 0 1 0 1 empty empty empty -2 -6 0 10 -262144
+-1 -1 1600 1;
+#X msg 207 182 set fog \$1;
+#X connect 1 0 0 0;
+#X connect 1 1 3 0;
+#X connect 2 0 1 0;
+#X connect 3 0 0 0;
+#X coords 0 -1 1 1 133 13 1 100 100;
+#X restore 409 407 pd fog;
+#X obj 55 606 s \$1gemwin_lightmessage;
+#X obj 157 16 r \$1gemwin_light_on;
+#X obj -396 159 gemhead;
+#X msg -228 312 1 1 1;
+#X obj -499 136 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X msg -499 165 debug \$1;
+#X floatatom -281 163 5 0 0 0 - - -;
+#X msg -229 289 1 1 0;
+#X obj -314 359 world_light;
+#X floatatom -328 159 5 0 0 0 - - -;
+#X obj -499 104 r \$1gemwin_light_debug;
+#X floatatom -238 164 5 0 0 0 - - -;
+#X obj -358 212 rotateXYZ 0 -120 0;
+#X obj -310 35 r \$1gemwin_lightxz;
+#X obj -361 65 r \$1gemwin_lightyz;
+#X obj -129 160 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -112 180 float;
+#X obj -85 201 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -69 233 float;
+#X obj -25 242 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -19 284 float;
+#X msg -164 224 set;
+#X obj -171 142 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg -139 368 1 1 1;
+#X msg -102 283 add2 \$1;
+#X msg -64 324 add2 \$1;
+#X obj -123 94 r \$1gemwin_light_R;
+#X obj -68 123 r \$1gemwin_light_G;
+#X obj -10 155 r \$1gemwin_light_B;
+#X floatatom -114 127 5 0 0 0 - - -;
+#X floatatom -51 163 5 0 0 0 - - -;
+#X floatatom 0 213 5 0 0 0 - - -;
+#X obj -155 191 delay 10;
+#X msg -130 254 add2 \$1;
+#X obj -77 217 delay 10;
+#X obj -21 261 delay 10;
+#X obj -38 359 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X connect 9 0 11 0;
+#X connect 11 0 26 0;
+#X connect 12 0 13 0;
+#X connect 13 0 26 0;
+#X connect 14 0 15 0;
+#X connect 15 0 26 0;
+#X connect 16 0 17 0;
+#X connect 17 0 26 0;
+#X connect 18 0 19 0;
+#X connect 19 0 26 0;
+#X connect 20 0 26 0;
+#X connect 21 0 20 0;
+#X connect 22 0 26 0;
+#X connect 23 0 22 0;
+#X connect 24 0 26 0;
+#X connect 25 0 24 0;
+#X connect 27 0 9 0;
+#X connect 28 0 38 0;
+#X connect 29 0 34 1;
+#X connect 30 0 31 0;
+#X connect 31 0 34 0;
+#X connect 32 0 38 2;
+#X connect 33 0 34 1;
+#X connect 35 0 38 1;
+#X connect 36 0 30 0;
+#X connect 37 0 38 3;
+#X connect 38 0 34 0;
+#X connect 39 0 32 0;
+#X connect 40 0 35 0;
+#X connect 41 0 42 0;
+#X connect 42 0 59 0;
+#X connect 43 0 60 0;
+#X connect 44 0 50 0;
+#X connect 45 0 61 0;
+#X connect 46 0 51 0;
+#X connect 47 0 49 0;
+#X connect 48 0 47 0;
+#X connect 48 0 58 0;
+#X connect 49 0 34 1;
+#X connect 50 0 45 0;
+#X connect 50 0 49 0;
+#X connect 51 0 49 0;
+#X connect 51 0 62 0;
+#X connect 52 0 55 0;
+#X connect 52 0 48 0;
+#X connect 53 0 56 0;
+#X connect 53 0 48 0;
+#X connect 54 0 57 0;
+#X connect 54 0 48 0;
+#X connect 55 0 42 1;
+#X connect 56 0 44 1;
+#X connect 57 0 46 1;
+#X connect 58 0 41 0;
+#X connect 59 0 43 0;
+#X connect 59 0 49 0;
+#X connect 60 0 44 0;
+#X connect 61 0 46 0;
+#X connect 62 0 49 0;
+#X restore 542 200 pd gemwin_light;
+#N canvas 713 191 952 732 gemwin_stereo 0;
+#X msg 231 140 stereoSep \$1;
+#X msg 389 124 stereoFoc \$1;
+#X floatatom 231 102 0 0 0 0 - - -;
+#X floatatom 389 95 0 0 0 0 - - -;
+#X text 43 515 The default stereoSep is -15;
+#X text 43 535 The model may appear inside out depending on what viewing
+method you use.;
+#X text 43 570 If it does \, change the stereoSep to 15;
+#X text 52 622 NOTE: you need special hardware to use "crystal eyes
+stereo";
+#X obj 121 369 s \$1gemwin_stereomessage;
+#X obj 50 73 r \$1gemwin_stereo;
+#X msg 47 114 stereo \$1;
+#X obj 232 69 r \$1gemwin_stereosep;
+#X obj 390 59 r \$1gemwin_stereofoc;
+#X msg 520 128 stereoLine \$1;
+#X obj 525 60 r \$1gemwin_stereoline;
+#X connect 0 0 8 0;
+#X connect 1 0 8 0;
+#X connect 2 0 0 0;
+#X connect 3 0 1 0;
+#X connect 9 0 10 0;
+#X connect 10 0 8 0;
+#X connect 11 0 2 0;
+#X connect 12 0 3 0;
+#X connect 13 0 8 0;
+#X connect 14 0 13 0;
+#X restore 528 162 pd gemwin_stereo;
+#X obj 110 132 cnv 15 140 120 empty empty CameraView 2 12 0 11 -128992
+-228856 0;
+#X obj 115 190 hsl 128 15 0 21 0 0 \$1gemwin_movez \$1gemwin_movez_init
+Z -2 8 0 8 -66577 -260097 -260097 2419 1;
+#X obj 115 173 hsl 128 15 -8 8 0 0 \$1gemwin_movey \$1gemwin_movey_init
+Y -2 8 0 8 -66577 -260097 -260097 6350 1;
+#X obj 115 156 hsl 128 15 -8 8 0 0 \$1gemwin_movex \$1gemwin_movex_init
+X -2 6 0 8 -66577 -260097 -260097 6350 1;
+#X obj 205 137 bng 15 250 50 1 \$1gemwin_resetview empty reset 17 7
+0 8 -257985 -1 -228856;
+#X obj 115 212 hsl 128 15 -100 100 0 0 \$1gemwin_turnlr \$1gemwin_turnlr_init
+Turn_Left/Right -2 6 0 8 -66577 -260097 -260097 6350 1;
+#X obj 115 230 hsl 128 15 -100 100 0 0 \$1gemwin_turnud \$1gemwin_turnud_init
+Turn_Up/Down -2 6 0 8 -66577 -260097 -260097 6350 1;
+#X obj 255 117 cnv 15 110 135 empty empty Stereo 2 12 0 12 -128992
+-228856 0;
+#X obj 258 151 vradio 15 1 0 4 \$1gemwin_stereo \$1gemwin_stereo_init
+empty 0 -8 0 10 -260097 -1 -1 0;
+#X text 279 164 2 images;
+#X text 279 149 no stereo;
+#X text 279 181 red/green;
+#X text 279 196 crystaleyes(*);
+#X obj 260 215 hsl 100 15 -2000 2000 0 0 \$1gemwin_stereosep \$1gemwin_stereosep_init
+stereosep 0 6 0 8 -66577 -260097 -260097 4913 1;
+#X obj 260 232 hsl 100 15 -20 20 0 0 \$1gemwin_stereofoc \$1gemwin_stereofoc_init
+stereofoc 0 6 0 8 -66577 -260097 -260097 4950 1;
+#X obj 319 121 bng 15 250 50 1 \$1gemwin_resetstereo empty reset 17
+7 0 8 -257985 -1 -228856;
+#X obj 110 28 cnv 15 140 100 empty empty Light 2 12 0 12 -128992 -228856
+0;
+#X obj 260 137 tgl 12 0 \$1gemwin_stereoline \$1gemwin_stereoline_init
+StereoLine 17 7 0 10 -260097 -1 -228856 0 1;
+#X obj 114 55 tgl 15 0 \$1gemwin_light_on \$1gemwin_light_on_init ON/OFF
+17 7 0 8 -260097 -1 -262144 0 1;
+#X obj 114 72 tgl 15 0 \$1gemwin_light_debug \$1gemwin_light_debug_init
+Debug 17 7 0 8 -260097 -1 -228856 0 1;
+#X obj 118 89 hsl 128 15 -360 360 0 0 \$1gemwin_lightxz \$1gemwin_lightxz_init
+Pos_XZ -2 6 0 8 -66577 -260097 -260097 6350 1;
+#X obj 118 107 hsl 128 15 -360 360 0 0 \$1gemwin_lightyz \$1gemwin_lightyz_init
+Pos_YZ -2 6 0 8 -66577 -260097 -260097 6350 1;
+#X obj 168 33 bng 15 250 50 1 \$1gemwin_resetlight empty reset 17 7
+0 8 -257985 -1 -228856;
+#X obj 182 70 tgl 15 0 \$1gemwin_light_R \$1gemwin_light_R_init R 4
+7 0 10 -258113 -1 -1 1 1;
+#X obj 199 70 tgl 15 0 \$1gemwin_light_G \$1gemwin_light_G_init G 4
+7 0 10 -4034 -1 -1 1 1;
+#X obj 217 70 tgl 15 0 \$1gemwin_light_B \$1gemwin_light_B_init B 4
+7 0 10 -4160 -1 -1 1 1;
+#X text 189 50 Color;
+#X obj 530 22 r \$1gemwin_extern_input;
+#X text 23 172 1024x768;
+#X text 23 158 800x600;
+#X obj 301 5 tgl 15 0 \$1gemwin_topmost \$1gemwin_topmost_init on_top
+16 8 0 8 -260097 -1 -228856 0 1;
+#X obj 487 115 outlet;
+#X obj 380 24 s \$1gemwin_extern_input;
+#X obj 380 2 inlet;
+#X connect 16 0 59 0;
+#X connect 55 0 16 0;
+#X connect 61 0 60 0;
+#X coords 0 -1 1 1 370 260 1 0 0;

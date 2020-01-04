@@ -1,0 +1,123 @@
+#N canvas 490 184 1135 637 10;
+#X msg 157 -270 set;
+#X msg 196 -203 add2 \$1;
+#X msg 195 -147 l e   h a r n a i s   à   s o n   c o u r s i e r .
+;
+#X msg 268 -129 symbol;
+#X obj 196 -114 l2s;
+#X obj 196 -182 t a b;
+#X obj 340 -229 list-extend;
+#X obj 253 -318 f 1;
+#X obj 284 -318 + 1;
+#X obj 252 -366 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 340 -198 prepent set;
+#X floatatom 253 -295 5 0 0 0 - - -;
+#X obj 339 -347 prepent set;
+#X obj 299 -364 f 0;
+#X obj 339 -411 tosymbol;
+#X obj 340 -171 t a b;
+#X msg 299 -210 set;
+#X obj 339 -434 inlet;
+#X obj 158 -316 inlet;
+#X obj 196 -91 outlet;
+#X obj 532 -147 loadbang;
+#X obj 483 -164 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 253 -341 metro \$1;
+#X obj 331 -130 list length;
+#X floatatom 331 -108 5 0 0 0 - - -;
+#X obj 331 -88 outlet;
+#X obj 200 -251 t b b;
+#X obj 384 -289 f;
+#X obj 359 -323 + 0;
+#X obj 253 -271 t b f;
+#X obj 340 -256 sfruit/list-extract 1 1;
+#X obj 339 -371 symbol2list;
+#X obj 402 -416 loadbang;
+#X msg 402 -396 symbol;
+#X obj 339 -390 list;
+#X obj 258 -172 delay 10;
+#X msg 666 -335 J e   g u e t t e   l e   p a s s a g e   d e s   w
+a g o n s   d u   m a t i n   d a n s   l e   m ê m e   s e n t i m
+e n t   q u e   j e   f a i s   l e   l e v e r   d u   s o l e i l
+  \,   à   p e i n e   p l u s   r é g u l i e r .   L e u r   t r
+a i n   d e   n u a g e s   q u i   s ' é t i r e   l o i n   d e r
+r i è r e   e t   s ' é l è v e   d e   p l u s   e n   p l u s   h
+a u t   \,   a l l a n t   a u   c i e l   t a n d i s   q u e   l
+e s   w a g o n s   v o n t   à   B o s t o n   \,   d é r o b e  
+l e   s o l e i l   u n e   m i n u t e   e t   p l o n g e   d a n
+s   l ' o m b r e   m o n   c h a m p   l o i n t a i n   \,   t r
+a i n   c é l e s t e   a u p r è s   d u q u e l   l e   t o u t  
+p e t i t   t r a i n   d e   w a g o n s   q u i   e m b r a s s e
+  l a   t e r r e   n ' e s t   q u e   l e   b a r b i l l o n   d
+u   h a r p o n .   L e   p a l e f r e n i e r   d u   c h e v a l
+  d e   f e r   é t a i t   l e v é   d e   b o n n e   h e u r e  
+e n   c e   m a t i n   d ' h i v e r   à   l a   l u e u r   d e s
+  é t o i l e s   p a r m i   l e s   m o n t a g n e s   \,   p o
+u r   d o n n e r   l e   f o u r r a g e   e t   m e t t r e   l e
+  h a r n a i s   à   s o n   c o u r s i e r .;
+#X obj 312 -256 - 0;
+#X obj 666 -52 list length;
+#X floatatom 666 -29 5 0 0 0 - - -;
+#X obj 651 -4 >;
+#X floatatom 649 22 5 0 0 0 - - -;
+#X obj 631 108 outlet;
+#X obj 649 45 change;
+#X obj 631 86 spigot;
+#X connect 0 0 5 0;
+#X connect 1 0 5 0;
+#X connect 2 0 4 0;
+#X connect 2 0 23 0;
+#X connect 3 0 4 1;
+#X connect 4 0 19 0;
+#X connect 5 0 2 0;
+#X connect 5 1 35 0;
+#X connect 6 0 10 0;
+#X connect 7 0 8 0;
+#X connect 7 0 11 0;
+#X connect 7 0 28 0;
+#X connect 8 0 7 1;
+#X connect 9 0 13 0;
+#X connect 9 0 16 0;
+#X connect 9 0 6 1;
+#X connect 9 0 22 0;
+#X connect 10 0 15 0;
+#X connect 11 0 29 0;
+#X connect 11 0 40 0;
+#X connect 12 0 36 0;
+#X connect 13 0 7 1;
+#X connect 14 0 34 0;
+#X connect 15 0 2 0;
+#X connect 15 1 35 0;
+#X connect 16 0 5 0;
+#X connect 17 0 14 0;
+#X connect 18 0 0 0;
+#X connect 18 0 26 0;
+#X connect 20 0 3 0;
+#X connect 21 0 3 0;
+#X connect 22 0 7 0;
+#X connect 23 0 24 0;
+#X connect 24 0 25 0;
+#X connect 26 0 27 0;
+#X connect 26 1 6 1;
+#X connect 28 0 27 1;
+#X connect 29 0 36 0;
+#X connect 29 1 37 0;
+#X connect 30 0 6 0;
+#X connect 31 0 12 0;
+#X connect 31 0 9 0;
+#X connect 32 0 33 0;
+#X connect 33 0 31 1;
+#X connect 34 0 31 0;
+#X connect 35 0 2 0;
+#X connect 36 0 30 0;
+#X connect 36 0 38 0;
+#X connect 37 0 30 1;
+#X connect 38 0 39 0;
+#X connect 39 0 40 1;
+#X connect 40 0 41 0;
+#X connect 41 0 43 0;
+#X connect 43 0 44 1;
+#X connect 43 0 44 0;
+#X connect 44 0 42 0;

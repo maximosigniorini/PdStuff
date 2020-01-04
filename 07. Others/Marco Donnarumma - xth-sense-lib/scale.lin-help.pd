@@ -1,0 +1,22 @@
+#N canvas 598 211 597 435 10;
+#X floatatom 37 62 5 0 400 0 - - -;
+#X floatatom 37 132 5 0 0 0 - - -;
+#X obj 37 101 scale.lin 127 0 400;
+#X text 196 147 ARGUMENT;
+#X text 198 247 INLET;
+#X text 197 313 OUTLETS;
+#X text 198 264 Stream of values;
+#X text 198 329 Scaled stream of values;
+#X text 200 51 Scale a stream of values according to the defined arguments.
+;
+#X text 201 68 Can also reverse a stream.;
+#X text 197 163 Range top value;
+#X text 197 180 Range bottom value;
+#X text 196 197 Input top value;
+#X floatatom 37 192 5 0 127 0 - - -;
+#X floatatom 37 262 5 0 0 0 - - -;
+#X obj 37 231 scale.lin 0 200 127;
+#X connect 0 0 2 0;
+#X connect 2 0 1 0;
+#X connect 13 0 15 0;
+#X connect 15 0 14 0;

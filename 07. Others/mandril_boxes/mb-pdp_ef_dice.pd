@@ -1,0 +1,103 @@
+#N canvas 603 95 638 353 10;
+#X obj 34 172 symbol \$1;
+#X obj 136 230 ftos;
+#X obj 105 164 float \$1;
+#X floatatom 105 193 5 0 0 0 - - -;
+#X symbolatom 35 205 0 0 0 0 - - -;
+#X symbolatom 95 243 10 0 0 0 - - -;
+#X obj 44 126 loadbang;
+#X obj 97 280 s \$1epdp_dice_id;
+#X obj 223 50 inlet;
+#X text 281 50 video;
+#X text 451 50 on/off;
+#X obj 252 272 outlet;
+#X obj 256 102 pdp_spigot;
+#X text 300 269 video;
+#X obj 313 191 pdp_dice;
+#X floatatom 368 162 5 0 0 0 - - -;
+#X text 334 134 Dice size;
+#X obj 438 136 r \$1epdp_dice_size;
+#X obj 0 1 cnv 15 150 75 empty empty empty 2 12 0 14 -191407 -66577
+0;
+#X obj 7 6 tgl 15 0 \$1epdp_dice_on \$1epdp_dice_on_init Dice 17 7
+0 10 -260097 -1 -1 0 1;
+#X obj 62 35 nbx 3 14 0 10 0 0 \$1epdp_dice_size \$1epdp_dice_size_init
+Size -35 5 0 10 -262144 -1 -1 1.32283 256;
+#X obj 111 7 cnv 15 20 10 empty \$1pdp_dice_id \$1 5 5 0 10 -260097
+-33289 0;
+#X obj 343 69 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 348 42 r \$1epdp_dice_on;
+#X obj 1 59 bng 15 250 50 0 \$1epdp_dice_midi_on empty midi 17 7 0
+8 -4160 -1 -1;
+#N canvas 1104 341 684 669 midi_control 0;
+#X msg 213 169 ef1epdp_dice_on_midi;
+#X msg 374 167 ef1epdp_dice_size_midi;
+#X text 169 22 MIDI;
+#X obj 147 142 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 270 190 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 397 190 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 322 267 s midi_var_to_add;
+#X msg 213 135 set \$1epdp_dice_on_midi;
+#X obj 165 332 r \$1epdp_dice_on_midi;
+#X obj 146 490 s \$1epdp_dice_on_init;
+#X obj 326 330 r \$1epdp_dice_size_midi;
+#X obj 140 49 r \$1epdp_dice_midi_on;
+#X obj 329 490 s \$1epdp_dice_size_init;
+#X msg 374 136 set \$1epdp_dice_size_midi;
+#X text 429 267 -->global value of mb-midi_control_pad;
+#X obj 223 77 r \$1epdp_dice_id;
+#X floatatom 151 357 5 0 0 0 - - -;
+#X obj 149 402 select 0;
+#X msg 206 453 0;
+#X msg 156 459 1;
+#X obj 136 432 alternate;
+#X floatatom 404 389 5 0 0 0 - - -;
+#X floatatom 430 458 8 0 0 0 - - -;
+#X obj 485 392 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 2800 1;
+#X obj 500 429 autoscale 0 6;
+#X connect 0 0 4 0;
+#X connect 0 0 6 0;
+#X connect 1 0 5 0;
+#X connect 1 0 6 0;
+#X connect 3 0 0 0;
+#X connect 4 0 1 0;
+#X connect 7 0 0 0;
+#X connect 8 0 16 0;
+#X connect 10 0 21 0;
+#X connect 11 0 3 0;
+#X connect 13 0 1 0;
+#X connect 15 0 7 0;
+#X connect 15 0 13 0;
+#X connect 16 0 17 0;
+#X connect 17 1 20 0;
+#X connect 18 0 9 0;
+#X connect 19 0 9 0;
+#X connect 20 0 19 0;
+#X connect 20 1 18 0;
+#X connect 21 0 23 0;
+#X connect 22 0 12 0;
+#X connect 23 0 24 0;
+#X connect 24 0 22 0;
+#X restore 207 11 pd midi_control;
+#X connect 0 0 4 0;
+#X connect 1 0 5 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X connect 4 0 5 0;
+#X connect 5 0 7 0;
+#X connect 6 0 2 0;
+#X connect 6 0 0 0;
+#X connect 8 0 12 0;
+#X connect 12 0 11 0;
+#X connect 12 1 14 0;
+#X connect 14 0 11 0;
+#X connect 15 0 14 1;
+#X connect 17 0 15 0;
+#X connect 22 0 12 1;
+#X connect 23 0 22 0;
+#X coords 0 -1 1 1 150 75 1 0 0;

@@ -1,0 +1,65 @@
+#N canvas 208 177 717 355 10;
+#X declare -lib ggee;
+#X declare -lib ggee;
+#X obj 26 144 cnv 15 330 80 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 163 13 ehu/gem/win 600 400;
+#X obj 49 252 ehu/gem/texture 300 200 600 400;
+#X obj 49 119 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 83 120 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 153 121 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 222 123 5 0 0 0 - - -;
+#X floatatom 257 123 5 0 0 0 - - -;
+#X floatatom 292 123 5 0 0 0 - - -;
+#X text 360 186 inlets are : 1 render on off \, 2 play/pause \, 3 path
+of file to import \, 4 toogle loop \, 5 fps \, 6 gotoframe \, 7 loop
+start frame \, 8 loop end frame;
+#X floatatom 187 123 5 0 0 0 - - -;
+#X text 360 235 outlets are : 1 video texture data \, 2 video length
+\, 3 width \, 4 height \, 5 current frame \, 6 bangs on last frame
+\, 7 left sound channel \, 8 right sound channel;
+#X obj 258 289 ehu/out~;
+#X floatatom 83 227 5 0 0 0 - - -;
+#X floatatom 118 227 5 0 0 0 - - -;
+#X floatatom 153 227 5 0 0 0 - - -;
+#X floatatom 187 227 5 0 0 0 - - -;
+#X obj 222 228 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 88 49 ehu/dsp;
+#X obj 36 6 bng 35 250 50 0 empty empty empty 17 7 0 10 -258113 -1
+-1;
+#X text 349 31 reads a video file and provides control over several
+parameters;
+#X text 349 10 ehu/video help file;
+#X text 362 160 init arguments are : path to video file \, video FPS
+rate (defaults to 30) \, video length (in frames);
+#X obj 49 155 ehu/gem/video ../../videos/whistle.mp4 30;
+#X msg 118 94 ../../videos/whistle.mp4;
+#X text 345 65 ** for the sound to work extract the audio channel from
+the video into a wav file and place it next to the video file \, name
+it as the video but with .wav extension;
+#X text 346 115 ** it is a good idea to pass the FPS value as second
+argument as sometimes the system cannot guess it;
+#X connect 3 0 23 0;
+#X connect 4 0 23 1;
+#X connect 5 0 23 3;
+#X connect 6 0 23 5;
+#X connect 7 0 23 6;
+#X connect 8 0 23 7;
+#X connect 10 0 23 4;
+#X connect 19 0 1 0;
+#X connect 19 0 18 0;
+#X connect 19 0 3 0;
+#X connect 19 0 4 0;
+#X connect 23 0 2 0;
+#X connect 23 1 13 0;
+#X connect 23 2 14 0;
+#X connect 23 3 15 0;
+#X connect 23 4 16 0;
+#X connect 23 5 17 0;
+#X connect 23 6 12 0;
+#X connect 23 7 12 1;
+#X connect 24 0 23 2;

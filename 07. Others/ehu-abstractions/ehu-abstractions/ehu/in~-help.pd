@@ -1,0 +1,13 @@
+#N canvas 49 221 450 300 10;
+#X obj 218 72 cnv 15 200 120 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 231 233 ehu/out~;
+#X floatatom 242 99 5 0 0 0 - - -;
+#X text 17 10 ehu/in~ abstraction help;
+#X obj 240 126 ehu/in~;
+#X text 18 78 Inlets : 1 amplitude \, 2 on/off;
+#X text 17 101 Outlets : audio left \, right;
+#X text 13 41 takes sound from sound in device (wraps adc~);
+#X connect 2 0 4 0;
+#X connect 4 0 1 0;
+#X connect 4 0 1 1;

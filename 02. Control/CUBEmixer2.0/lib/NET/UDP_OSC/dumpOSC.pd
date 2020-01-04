@@ -1,0 +1,10 @@
+#N canvas 270 165 638 309 10;
+#X obj 141 79 udpreceive \$1;
+#X obj 141 117 unpackOSC;
+#X obj 141 180 outlet;
+#X text 55 17 this is a compatibility patch for [OSCx/dumpOSC] \, based
+on the modular "net" and "osc" objects;
+#X obj 141 160 list trim;
+#X connect 0 0 1 0;
+#X connect 1 0 4 0;
+#X connect 4 0 2 0;

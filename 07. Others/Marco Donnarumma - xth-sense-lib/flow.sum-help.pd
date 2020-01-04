@@ -1,0 +1,12 @@
+#N canvas 860 287 450 300 10;
+#X obj 42 113 flow.sum;
+#X text 167 61 Just a handy wrap for [sum] in zexy library.;
+#X text 168 80 Adds elements of a list.;
+#X text 173 127 INLET;
+#X text 176 144 list;
+#X text 176 191 OUTLET;
+#X text 177 207 Sum of the elements;
+#X msg 42 66 4 6 20 4388 28;
+#X floatatom 42 147 5 0 0 0 - - -;
+#X connect 0 0 8 0;
+#X connect 7 0 0 0;

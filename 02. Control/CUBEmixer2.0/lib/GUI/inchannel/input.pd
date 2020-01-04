@@ -1,0 +1,65 @@
+#N canvas 0 0 1207 324 10;
+#X obj 103 114 popup 115 20 #ffffff INPUT ADC 01 ADC 02 ADC 03 ADC 04
+ADC 05 ADC 06 ADC 07 ADC 08 ADC 09 ADC 10 ADC 11 ADC 12 ADC 13 ADC 14
+ADC 15 ADC 16 ADC 17 ADC 18 ADC 19 ADC 20 ADC 21 ADC 22 ADC 23 ADC 24
+ADC 25 ADC 26 ADC 27 ADC 28 ADC 29 ADC 30 ADC 31 ADC 32 ADC 33 ADC 34
+ADC 35 ADC 36 ADC 37 ADC 38 ADC 39 ADC 40 ADC 41 ADC 42 ADC 43 ADC 44
+ADC 45 ADC 46 ADC 47 ADC 48 ADC 49 ADC 50 ADC 51 ADC 52 ADC 53 ADC 54
+ADC 55 ADC 56 ADC 57 ADC 58 ADC 59 ADC 60 ADC 61 ADC 62 ADC 63 ADC 64
+AUX 01 AUX 02 AUX 03 AUX 04 AUX 05 AUX 06 AUX 07 AUX 08 PLAY 16:01
+PLAY 16:02 PLAY 16:03 PLAY 16:04 PLAY 16:05 PLAY 16:06 PLAY 16:07 PLAY 16:08
+PLAY 16:09 PLAY 16:10 PLAY 16:11 PLAY 16:12 PLAY 16:13 PLAY 16:14 PLAY 16:15
+PLAY 16:16 TESTTONE none;
+#X obj 100 100 cnv 15 120 90 empty empty empty 20 12 0 14 -195568 -66577
+0;
+#X obj 141 140 nbx 3 14 -100 50 0 0 \$1GUI_input_ingain_fromgui \$1GUI_input_ingain_togui
+gain -30 7 0 8 -228992 -1 -1 0 256;
+#X obj 182 139 tgl 15 0 \$1GUI_input_invert_fromgui \$1GUI_input_invert_togui
+inv 17 7 0 8 -262144 -1 -1 0 1;
+#X obj 108 161 nbx 3 14 0 999 0 0 \$1GUI_input_delay_fromgui \$1GUI_input_delay_togui
+delay[ms] 40 7 0 8 -262144 -1 -1 0 256;
+#X obj 245 135 r \$1GUI_input_select_togui;
+#X obj 245 163 s \$1GUI_input_select_fromgui;
+#X obj 844 43 loadbang;
+#N canvas 158 393 659 375 input-select 0;
+#X obj 325 119 inlet ID#;
+#X obj 125 120 r \$1GUI_input_select_fromgui;
+#X obj 125 141 unpack 0 s;
+#X obj 190 160 uglifysymbol;
+#X msg 325 158 /IN/\$1/SRC;
+#X obj 190 204 beautifysymbol;
+#X obj 190 249 s \$1GUI_input_select_togui;
+#X obj 190 182 sendreceive_nofb /IN/0/SRC;
+#X text 257 217 just in case \, an "unselectable" input is selcted
+from outside!;
+#X msg 190 225 name \$1;
+#X connect 0 0 4 0;
+#X connect 1 0 2 0;
+#X connect 2 1 3 0;
+#X connect 3 0 7 0;
+#X connect 4 0 7 1;
+#X connect 5 0 9 0;
+#X connect 7 0 5 0;
+#X connect 9 0 6 0;
+#X restore 518 184 pd input-select;
+#X obj 480 77 t f f f f;
+#X obj 698 97 s \$1GUI_input_select_togui;
+#X obj 698 56 DSPnamesGUI IN;
+#X obj 538 149 gui_sr_clip \$1GUI_input_delay /IN/%d/ADJ/DEL 0 1000
+;
+#X obj 499 233 gui_sr_offset \$1GUI_input_invert /IN/%d/ADJ/INV 1;
+#X obj 480 254 gui_sr_offset \$1GUI_input_ingain /IN/%d/ADJ/GAIN 100
+;
+#X msg 844 60 options none \, name INPUT;
+#X obj 480 59 r \$1GUI_inchannel_selected;
+#X connect 0 0 6 0;
+#X connect 5 0 0 0;
+#X connect 7 0 15 0;
+#X connect 9 0 14 0;
+#X connect 9 1 13 0;
+#X connect 9 2 8 0;
+#X connect 9 3 12 0;
+#X connect 11 0 10 0;
+#X connect 15 0 10 0;
+#X connect 16 0 9 0;
+#X coords 0 -1 1 1 120 90 2 100 100;

@@ -1,0 +1,523 @@
+#N canvas 398 195 558 239 10;
+#N canvas 434 234 375 186 ARGO 0;
+#X obj 83 128 outlet~;
+#X obj 57 100 tanh~;
+#X obj 86 70 inlet~;
+#X text 10 18 cyclone library;
+#X text 8 30 calculate hyperbolic tangent function;
+#X text 8 43 http://suita.chopin.edu.pl/~czaja/miXed/externs/cyclone.html
+;
+#X obj 101 101 cnv 12 93 15 empty ColorAmpli empty 20 12 0 14 -261299
+-1 1.04858e+06;
+#X obj 127 105 cnv 10 20 10 empty ColorAmpli Tanh 1 5 1 14 -261299
+-1 1.04858e+06;
+#X obj 101 112 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X text 6 147 pas de help \, dans Pd. Voir doc Max/MSP MSP46ReferenceManual.pdf
+;
+#X text 9 5 tanh~;
+#X connect 1 0 0 0;
+#X connect 2 0 1 0;
+#X coords 0 -1 1 1 95 17 2 100 100;
+#X restore 17 26 pd ARGO;
+#N canvas 424 262 225 235 ARGO 0;
+#X obj 101 101 cnv 12 66 15 empty ColorAmpli empty 20 12 0 14 -261299
+-1 1.04858e+06;
+#X obj 157 103 cnv 8 8 10 empty ColorAmpli > 1 5 1 14 -261299 -1 1.04858e+06
+;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 101 112 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 48 66 inlet~;
+#X obj 113 102 nbx 5 12 -1 1 0 1 \$0-A ColorAmpli empty 0 0 1 9 -261299
+-1 -1 0.1 256;
+#X obj 49 195 outlet~;
+#X obj 49 163 expr~ 2 * ($v1 > $v2) -1;
+#X connect 4 0 7 0;
+#X connect 5 0 7 1;
+#X connect 7 0 6 0;
+#X coords 0 -1 1 1 68 17 1 100 100;
+#X restore 17 50 pd ARGO;
+#N canvas 240 127 443 197 ARGO 0;
+#X obj 101 101 cnv 12 92 15 empty ColorAmpli empty 20 12 0 14 -261299
+-1 1.04858e+06;
+#X obj 145 104 cnv 8 8 10 empty ColorAmpli Quanta 1 5 1 14 -261299
+-1 1.04858e+06;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 101 112 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 84 66 inlet~;
+#X obj 113 102 nbx 3 12 0 999 0 1 \$0-A ColorAmpli empty 0 0 1 9 -261299
+-1 -1 240 256;
+#X obj 83 168 outlet~;
+#X text 202 60 Quanta;
+#X text 256 61 Echelle;
+#X text 313 61 Notes dans l'octave;
+#X text 212 73 120;
+#X text 212 85 180;
+#X text 212 97 240;
+#X text 212 109 360;
+#X text 212 121 480;
+#X text 256 85 2/3 ton;
+#X text 256 97 1/2 ton;
+#X text 256 109 1/3 ton;
+#X text 256 121 1/4 ton;
+#X text 270 73 1 ton;
+#X text 370 73 6;
+#X text 370 85 9;
+#X text 363 97 12;
+#X text 363 109 18;
+#X text 363 121 24;
+#X obj 83 135 quantize~ 16;
+#X text 80 -1 - "quantize a signal with a variable step-number";
+#X text 211 140 0 = Off;
+#X text 80 16 - Avec 240 \, Quanta sort des 1/2 tons tempérés (pour
+le contrôle de la fréquence d'un oscillateur ou d'un filtre par exemple):
+;
+#X text 210 166 quantize~ (library zexy);
+#X connect 4 0 25 0;
+#X connect 5 0 25 0;
+#X connect 25 0 6 0;
+#X coords 0 -1 1 1 94 17 1 100 100;
+#X restore 17 98 pd ARGO;
+#N canvas 450 146 372 392 ARGO 0;
+#X obj 101 101 cnv 12 113 15 empty ColorAmpli empty 20 12 0 14 -261299
+-1 1.04858e+06;
+#X obj 151 106 cnv 8 8 10 empty ColorAmpli Overdrive 1 5 1 14 -261299
+-1 1.04858e+06;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 101 112 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 84 66 inlet~;
+#X obj 113 102 nbx 4 12 0 99 0 1 \$0-A ColorAmpli empty 0 0 1 9 -261299
+-1 -1 1 256;
+#X obj 84 234 outlet~;
+#X obj 85 210 overdrive~;
+#X text 8 -13 overdrive~ (library cyclone);
+#X text 8 4 Simulate an analog amplifier being overdriven by applying
+a non-linear transfer function to the incoming signal.;
+#X obj 10 257 comment 300 11 helvetica ? 0 0 0 0 If the "drive" is
+1 \, the signal is unchanged. Increasing the "drive" increases the
+amount of distortion. If the "drive" is less than 1 \, then it causes
+a different kind of distortion. If the "drive" is less than 0 \, VERY
+LOUD distortion can result \, so be careful!;
+#X obj 10 315 comment 300 11 helvetica ? 0 0 0 0 overdrive~ simulates
+the distortion caused when an analog amplifier is fed a signal that
+is too high for the inputs. This is generally known as "overdriving"
+the amplifier \, and it causes a characteristic distortion that is
+often used to generate a "fat" sound.;
+#X obj 113 185 clip 0 99;
+#X obj 189 66 inlet~;
+#X obj 234 98 snapshot~;
+#X obj 234 123 change;
+#X obj 234 67 r \$0-SendClic;
+#X obj 204 101 cnv 4 10 4 empty empty empty 20 12 0 14 -258113 -66577
+0;
+#X obj 113 160 +;
+#X obj 113 133 t b f;
+#X msg 21 101 set \$1;
+#X connect 4 0 7 0;
+#X connect 5 0 19 0;
+#X connect 7 0 6 0;
+#X connect 12 0 7 0;
+#X connect 13 0 14 0;
+#X connect 14 0 15 0;
+#X connect 15 0 18 0;
+#X connect 16 0 14 0;
+#X connect 18 0 12 0;
+#X connect 18 0 20 0;
+#X connect 19 0 18 0;
+#X connect 19 1 18 1;
+#X connect 20 0 5 0;
+#X coords 0 -1 1 1 115 17 1 100 100;
+#X restore 17 74 pd ARGO;
+#N canvas 284 45 455 506 ARGO 0;
+#X obj 101 101 cnv 20 130 66 empty ColorForm empty 20 12 0 14 -188398
+-1 1.04858e+06;
+#X obj 162 104 cnv 10 40 10 empty ColorForm Freeverb 1 5 1 14 -188398
+-1 1.04858e+06;
+#X obj 101 163 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 221 163 cnv 4 10 4 empty empty empty 0 0 0 9 -1 -66577 0;
+#X obj 87 74 inlet~;
+#X obj 211 74 inlet~;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 89 296 outlet~;
+#X obj 188 295 outlet~;
+#X obj 221 101 cnv 4 10 4 empty empty empty 0 0 0 9 -1 -66577 0;
+#X obj 103 126 hsl 127 12 0 1 0 1 \$0-A ColorForm Brill 0 7 1 9 -188398
+-1 -1 6300 0;
+#X obj 103 114 hsl 127 12 0 1 0 1 \$0-A ColorForm Size 0 7 1 9 -188398
+-1 -1 6300 0;
+#X obj 103 150 hsl 127 12 0 1 0 1 \$0-A ColorAmpli Dir 0 7 1 9 -261299
+-1 -1 6300 0;
+#X obj 103 138 hsl 127 12 0 1 0 1 \$0-A ColorAmpli Stereo 0 7 1 9 -261299
+-1 -1 6300 0;
+#X obj 89 264 freeverb~;
+#X msg -119 216 roomsize \$1;
+#X msg -40 216 damping \$1;
+#X msg 32 216 width \$1;
+#X msg 94 216 wet \$1;
+#X msg 142 215 dry \$1;
+#X obj 141 175 - 1;
+#X obj 141 195 * -1;
+#X obj -120 175 * 1.1;
+#X obj -40 174 * -2.3;
+#X obj -40 195 + 2.3;
+#X obj -115 317 cnv 15 440 180 empty empty empty 20 12 0 14 -228856
+-66577 0;
+#X text -112 317 Citation;
+#X text -105 407 "freeverb~ is a simple implementation of the standard
+Schroeder/Moorer reverb model. It uses 8 comb filters in parallel on
+both channels. It then feeds the result of the reverb through 4 allpass
+filters in series on both channels. These "smooth" the sound. The filters
+on the right channel are slightly detuned compared to the left channel
+in order to create a stereo effect.";
+#X text -106 330 freeverb~ version 1.2 - reverb external for Pure Data
+and Max/MSP written by Olaf Matthes <olaf.matthes@gmx.de> - based on
+Freeverb \, the free \, studio-quality reverb SOURCE CODE in the public
+domain. Written by Jezar at Dreampoint - http://www.dreampoint.co.uk
+This software is published under GPL terms \, see file LICENSE.;
+#X connect 4 0 14 0;
+#X connect 5 0 14 1;
+#X connect 10 0 23 0;
+#X connect 11 0 22 0;
+#X connect 12 0 20 0;
+#X connect 12 0 18 0;
+#X connect 13 0 17 0;
+#X connect 14 0 7 0;
+#X connect 14 1 8 0;
+#X connect 15 0 14 0;
+#X connect 16 0 14 0;
+#X connect 17 0 14 0;
+#X connect 18 0 14 0;
+#X connect 19 0 14 0;
+#X connect 20 0 21 0;
+#X connect 21 0 19 0;
+#X connect 22 0 15 0;
+#X connect 23 0 24 0;
+#X connect 24 0 16 0;
+#X coords 0 -1 1 1 132 68 1 100 100;
+#X restore 16 123 pd ARGO;
+#X obj 162 56 cnv 15 380 60 empty empty empty 20 12 0 14 -258113 -66577
+0;
+#X obj 162 116 cnv 15 380 60 empty empty empty 20 12 0 14 -258113 -66577
+0;
+#X text 168 118 Warning: : a Delay MiniModule can not be duplicated.
+"warning: xxxx-delx: multiply defined" is written in the Pd window.
+Solution: 4 MiniModules: DelayA \, DelayB \, DelayC \, DelayD are available
+...;
+#N canvas 585 141 569 404 ARGO 0;
+#X obj 101 101 cnv 20 132 34 empty ColorTime empty 20 12 0 14 -208064
+-1 1.04858e+06;
+#X obj 86 193 outlet~;
+#X obj 174 104 cnv 10 44 10 empty ColorTime DelayD 1 5 1 14 -208064
+-1 1.04858e+06;
+#X obj 100 -121 inlet~;
+#X obj 101 131 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 223 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1728 -66577
+0;
+#X obj 103 118 hsl 129 12 0 1 0 0 empty ColorTime Dur 0 7 1 9 -208064
+-1 -1 5521 0;
+#X obj 100 106 nbx 6 12 0 20000 0 1 \$0-A ColorTime ms 53 7 1 9 -208064
+-1 -1 399.94 256;
+#X obj 101 101 cnv 4 10 4 empty empty empty 0 0 0 9 -1 -66577 0;
+#X obj 45 86 ftom;
+#X obj 240 52 mtof;
+#X obj 209 -70 +~;
+#X obj 210 -38 snapshot~;
+#X obj 210 -15 change;
+#X msg 191 55 set \$1;
+#X msg 240 75 set \$1;
+#X obj 240 9 * 126;
+#X obj 47 131 / 126;
+#X obj 209 -95 *~ 1.90476;
+#X obj 293 94 mtof~;
+#X obj 292 -39 *~ 126;
+#X obj 112 -76 r \$0-SendClic;
+#X obj 210 -119 inlet~;
+#X obj 27 -20 cnv 15 160 30 empty empty empty 20 12 0 14 -258113 -66577
+0;
+#X obj 27 157 cnv 15 160 30 empty empty empty 20 12 0 14 -258113 -66577
+0;
+#X text 196 154 ATTENTION: un MiniModule Delay ne peux pas être dupliquer.
+"warning: xxxx-delx: multiply defined" est alors écrit dans la fenêtre
+Pd. Solution: 4 MiniModules: DelayA \, DelayB \, DelayC \, DelayD sont
+disponibles...;
+#X text 198 214 Warning: : a Delay MiniModule can not be duplicated.
+"warning: xxxx-delx: multiply defined" is written in the Pd window.
+Solution: 4 MiniModules: DelayA \, DelayB \, DelayC \, DelayD are available
+...;
+#X obj 64 164 vd~ \$0-delD;
+#X text 171 79 16 3 2009;
+#X text 316 45 Delay max -> 20000ms;
+#X obj 39 -13 delwrite~ \$0-delD 20000;
+#X obj 293 116 clip~ 0 20000;
+#X obj 292 -18 +~ 13;
+#X obj 240 30 + 13;
+#X obj 46 109 - 13;
+#X connect 3 0 30 0;
+#X connect 6 0 11 1;
+#X connect 7 0 9 0;
+#X connect 9 0 34 0;
+#X connect 10 0 15 0;
+#X connect 11 0 12 0;
+#X connect 11 0 20 0;
+#X connect 12 0 13 0;
+#X connect 13 0 14 0;
+#X connect 13 0 16 0;
+#X connect 14 0 6 0;
+#X connect 15 0 7 0;
+#X connect 16 0 33 0;
+#X connect 17 0 6 0;
+#X connect 18 0 11 0;
+#X connect 19 0 31 0;
+#X connect 20 0 32 0;
+#X connect 21 0 12 0;
+#X connect 22 0 18 0;
+#X connect 27 0 1 0;
+#X connect 31 0 27 0;
+#X connect 32 0 19 0;
+#X connect 33 0 10 0;
+#X connect 34 0 17 0;
+#X coords 0 -1 1 1 134 36 1 100 100;
+#X restore 408 185 pd ARGO;
+#X text 169 60 ATTENTION: un MiniModule Delay ne peux pas être dupliqué.
+"warning: xxxx-delx: multiply defined" est alors écrit dans la fenêtre
+Pd. Solution: 4 MiniModules: DelayA \, DelayB \, DelayC \, DelayD sont
+disponibles...;
+#N canvas 81 138 569 404 ARGO 0;
+#X obj 101 101 cnv 20 132 34 empty ColorTime empty 20 12 0 14 -208064
+-1 1.04858e+06;
+#X obj 86 193 outlet~;
+#X obj 174 104 cnv 10 44 10 empty ColorTime DelayA 1 5 1 14 -208064
+-1 1.04858e+06;
+#X obj 100 -121 inlet~;
+#X obj 101 131 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 223 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1728 -66577
+0;
+#X obj 103 118 hsl 129 12 0 1 0 0 empty ColorTime Dur 0 7 1 9 -208064
+-1 -1 3083 0;
+#X obj 100 106 nbx 6 12 0 20000 0 1 \$0-A ColorTime ms 53 7 1 9 -208064
+-1 -1 99.9903 256;
+#X obj 101 101 cnv 4 10 4 empty empty empty 0 0 0 9 -1 -66577 0;
+#X obj 45 86 ftom;
+#X obj 240 52 mtof;
+#X obj 209 -70 +~;
+#X obj 210 -38 snapshot~;
+#X obj 210 -15 change;
+#X msg 191 55 set \$1;
+#X msg 240 75 set \$1;
+#X obj 240 9 * 126;
+#X obj 47 131 / 126;
+#X obj 209 -95 *~ 1.90476;
+#X obj 293 94 mtof~;
+#X obj 292 -39 *~ 126;
+#X obj 112 -76 r \$0-SendClic;
+#X obj 210 -119 inlet~;
+#X obj 27 -20 cnv 15 160 30 empty empty empty 20 12 0 14 -258113 -66577
+0;
+#X obj 27 157 cnv 15 160 30 empty empty empty 20 12 0 14 -258113 -66577
+0;
+#X obj 64 164 vd~ \$0-delA;
+#X text 196 154 ATTENTION: un MiniModule Delay ne peux pas être dupliquer.
+"warning: xxxx-delx: multiply defined" est alors écrit dans la fenêtre
+Pd. Solution: 4 MiniModules: DelayA \, DelayB \, DelayC \, DelayD sont
+disponibles...;
+#X text 198 214 Warning: : a Delay MiniModule can not be duplicated.
+"warning: xxxx-delx: multiply defined" is written in the Pd window.
+Solution: 4 MiniModules: DelayA \, DelayB \, DelayC \, DelayD are available
+...;
+#X obj 39 -13 delwrite~ \$0-delA 20000;
+#X obj 293 116 clip~ 0 20000;
+#X obj 293 -17 +~ 13;
+#X obj 240 30 + 13;
+#X obj 46 109 - 13;
+#X text 171 79 16 3 2009;
+#X text 316 45 Delay max -> 20000ms;
+#X connect 3 0 28 0;
+#X connect 6 0 11 1;
+#X connect 7 0 9 0;
+#X connect 9 0 32 0;
+#X connect 10 0 15 0;
+#X connect 11 0 12 0;
+#X connect 11 0 20 0;
+#X connect 12 0 13 0;
+#X connect 13 0 14 0;
+#X connect 13 0 16 0;
+#X connect 14 0 6 0;
+#X connect 15 0 7 0;
+#X connect 16 0 31 0;
+#X connect 17 0 6 0;
+#X connect 18 0 11 0;
+#X connect 19 0 29 0;
+#X connect 20 0 30 0;
+#X connect 21 0 12 0;
+#X connect 22 0 18 0;
+#X connect 25 0 1 0;
+#X connect 29 0 25 0;
+#X connect 30 0 19 0;
+#X connect 31 0 10 0;
+#X connect 32 0 17 0;
+#X coords 0 -1 1 1 134 36 1 100 100;
+#X restore 163 13 pd ARGO;
+#N canvas 248 130 569 404 ARGO 0;
+#X obj 101 101 cnv 20 132 34 empty ColorTime empty 20 12 0 14 -208064
+-1 1.04858e+06;
+#X obj 86 193 outlet~;
+#X obj 174 104 cnv 10 44 10 empty ColorTime DelayB 1 5 1 14 -208064
+-1 1.04858e+06;
+#X obj 100 -121 inlet~;
+#X obj 101 131 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 223 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1728 -66577
+0;
+#X obj 103 118 hsl 129 12 0 1 0 0 empty ColorTime Dur 0 7 1 9 -208064
+-1 -1 4302 0;
+#X obj 100 106 nbx 6 12 0 20000 0 1 \$0-A ColorTime ms 53 7 1 9 -208064
+-1 -1 199.975 256;
+#X obj 101 101 cnv 4 10 4 empty empty empty 0 0 0 9 -1 -66577 0;
+#X obj 45 86 ftom;
+#X obj 240 52 mtof;
+#X obj 209 -70 +~;
+#X obj 210 -38 snapshot~;
+#X obj 210 -15 change;
+#X msg 191 55 set \$1;
+#X msg 240 75 set \$1;
+#X obj 240 9 * 126;
+#X obj 47 131 / 126;
+#X obj 209 -95 *~ 1.90476;
+#X obj 293 94 mtof~;
+#X obj 292 -39 *~ 126;
+#X obj 112 -76 r \$0-SendClic;
+#X obj 210 -119 inlet~;
+#X obj 27 -20 cnv 15 160 30 empty empty empty 20 12 0 14 -258113 -66577
+0;
+#X obj 27 157 cnv 15 160 30 empty empty empty 20 12 0 14 -258113 -66577
+0;
+#X text 196 154 ATTENTION: un MiniModule Delay ne peux pas être dupliquer.
+"warning: xxxx-delx: multiply defined" est alors écrit dans la fenêtre
+Pd. Solution: 4 MiniModules: DelayA \, DelayB \, DelayC \, DelayD sont
+disponibles...;
+#X text 198 214 Warning: : a Delay MiniModule can not be duplicated.
+"warning: xxxx-delx: multiply defined" is written in the Pd window.
+Solution: 4 MiniModules: DelayA \, DelayB \, DelayC \, DelayD are available
+...;
+#X obj 64 164 vd~ \$0-delB;
+#X obj 40 -13 delwrite~ \$0-delB 20000;
+#X obj 293 116 clip~ 0 20000;
+#X obj 293 -17 +~ 13;
+#X obj 240 30 + 13;
+#X obj 46 109 - 13;
+#X text 171 79 16 3 2009;
+#X text 316 45 Delay max -> 20000ms;
+#X connect 3 0 28 0;
+#X connect 6 0 11 1;
+#X connect 7 0 9 0;
+#X connect 9 0 32 0;
+#X connect 10 0 15 0;
+#X connect 11 0 12 0;
+#X connect 11 0 20 0;
+#X connect 12 0 13 0;
+#X connect 13 0 14 0;
+#X connect 13 0 16 0;
+#X connect 14 0 6 0;
+#X connect 15 0 7 0;
+#X connect 16 0 31 0;
+#X connect 17 0 6 0;
+#X connect 18 0 11 0;
+#X connect 19 0 29 0;
+#X connect 20 0 30 0;
+#X connect 21 0 12 0;
+#X connect 22 0 18 0;
+#X connect 27 0 1 0;
+#X connect 29 0 27 0;
+#X connect 30 0 19 0;
+#X connect 31 0 10 0;
+#X connect 32 0 17 0;
+#X coords 0 -1 1 1 134 36 1 100 100;
+#X restore 407 13 pd ARGO;
+#N canvas 250 169 569 404 ARGO 0;
+#X obj 101 101 cnv 20 132 34 empty ColorTime empty 20 12 0 14 -208064
+-1 1.04858e+06;
+#X obj 86 193 outlet~;
+#X obj 174 104 cnv 10 44 10 empty ColorTime DelayC 1 5 1 14 -208064
+-1 1.04858e+06;
+#X obj 100 -121 inlet~;
+#X obj 101 131 cnv 4 10 4 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 223 101 cnv 4 10 4 empty empty empty 20 12 0 14 -1728 -66577
+0;
+#X obj 103 118 hsl 129 12 0 1 0 0 empty ColorTime Dur 0 7 1 9 -208064
+-1 -1 5015 0;
+#X obj 100 106 nbx 6 12 0 20000 0 1 \$0-A ColorTime ms 53 7 1 9 -208064
+-1 -1 299.946 256;
+#X obj 101 101 cnv 4 10 4 empty empty empty 0 0 0 9 -1 -66577 0;
+#X obj 45 86 ftom;
+#X obj 240 52 mtof;
+#X obj 209 -70 +~;
+#X obj 210 -38 snapshot~;
+#X obj 210 -15 change;
+#X msg 191 55 set \$1;
+#X msg 240 75 set \$1;
+#X obj 240 9 * 126;
+#X obj 47 131 / 126;
+#X obj 209 -95 *~ 1.90476;
+#X obj 293 94 mtof~;
+#X obj 292 -39 *~ 126;
+#X obj 112 -76 r \$0-SendClic;
+#X obj 210 -119 inlet~;
+#X obj 27 -20 cnv 15 160 30 empty empty empty 20 12 0 14 -258113 -66577
+0;
+#X obj 27 157 cnv 15 160 30 empty empty empty 20 12 0 14 -258113 -66577
+0;
+#X text 196 154 ATTENTION: un MiniModule Delay ne peux pas être dupliquer.
+"warning: xxxx-delx: multiply defined" est alors écrit dans la fenêtre
+Pd. Solution: 4 MiniModules: DelayA \, DelayB \, DelayC \, DelayD sont
+disponibles...;
+#X text 198 214 Warning: : a Delay MiniModule can not be duplicated.
+"warning: xxxx-delx: multiply defined" is written in the Pd window.
+Solution: 4 MiniModules: DelayA \, DelayB \, DelayC \, DelayD are available
+...;
+#X obj 64 164 vd~ \$0-delC;
+#X obj 39 -13 delwrite~ \$0-delC 20000;
+#X obj 293 116 clip~ 0 20000;
+#X obj 293 -17 +~ 13;
+#X obj 46 109 - 13;
+#X obj 240 30 + 13;
+#X text 171 79 16 3 2009;
+#X text 316 45 Delay max -> 20000ms;
+#X connect 3 0 28 0;
+#X connect 6 0 11 1;
+#X connect 7 0 9 0;
+#X connect 9 0 31 0;
+#X connect 10 0 15 0;
+#X connect 11 0 12 0;
+#X connect 11 0 20 0;
+#X connect 12 0 13 0;
+#X connect 13 0 14 0;
+#X connect 13 0 16 0;
+#X connect 14 0 6 0;
+#X connect 15 0 7 0;
+#X connect 16 0 32 0;
+#X connect 17 0 6 0;
+#X connect 18 0 11 0;
+#X connect 19 0 29 0;
+#X connect 20 0 30 0;
+#X connect 21 0 12 0;
+#X connect 22 0 18 0;
+#X connect 27 0 1 0;
+#X connect 29 0 27 0;
+#X connect 30 0 19 0;
+#X connect 31 0 17 0;
+#X connect 32 0 10 0;
+#X coords 0 -1 1 1 134 36 1 100 100;
+#X restore 162 184 pd ARGO;

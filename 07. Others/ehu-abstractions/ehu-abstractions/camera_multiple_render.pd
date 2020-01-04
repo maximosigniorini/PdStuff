@@ -1,0 +1,13 @@
+#N canvas 439 53 506 294 10;
+#X obj 325 31 tgl 25 0 empty empty empty 17 7 0 10 -258113 -1 -1 1
+1;
+#X obj 66 33 ehu/gem/cam 0;
+#X text 69 2 Multiple render images of one camera;
+#X obj 327 61 ehu/gem/win 440 730;
+#X obj 20 200 ehu/gem/texture 220 615 300 200;
+#X obj 64 109 ehu/gem/texture 220 140 300 200;
+#X obj 269 167 ehu/gem/texture 220 380 300 200;
+#X connect 0 0 3 0;
+#X connect 1 0 4 0;
+#X connect 1 0 5 0;
+#X connect 1 0 6 0;

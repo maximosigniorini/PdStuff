@@ -1,0 +1,15 @@
+#N canvas 460 129 402 253 10;
+#X msg 159 37 a e i o u;
+#X symbolatom 51 147 10 0 0 0 - - -;
+#X floatatom 166 144 5 0 0 0 - - -;
+#X text 164 162 num of times it looped;
+#X text 46 165 current symbol;
+#X text 164 19 first pass a list of symbols;
+#X text 46 74 then bang to output;
+#X obj 51 90 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 51 115 ehu/loop_list;
+#X connect 0 0 8 1;
+#X connect 7 0 8 0;
+#X connect 8 0 1 0;
+#X connect 8 1 2 0;

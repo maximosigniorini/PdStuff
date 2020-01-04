@@ -1,0 +1,229 @@
+#N canvas 456 26 380 495 10;
+#N canvas 608 166 249 182 ARGOnOff 0;
+#X obj 100 100 tgl 18 1 \$0-SendOnOff \$0-ReceiveOnOff On/Off 20 9
+0 12 -4033 -1 -1 0 1;
+#X obj 99 39 loadbang;
+#X msg 99 62 \; pd dsp 1;
+#X obj 100 129 outlet;
+#X connect 0 0 3 0;
+#X connect 1 0 2 0;
+#X coords 0 -1 1 1 65 18 2 100 100;
+#X restore 207 0 pd ARGOnOff;
+#X obj 207 25 switch~;
+#X obj -3 -80 cnv 15 15 15 empty empty ExMM51a-PDP-Video-v4l.pd 0 8
+1 14 -262144 -1 0;
+#X text 23 -51 en USB \, Firewire..;
+#X text 11 -64 1 Connecter une camera a l'ordinateur;
+#X text 11 -34 2 Lancer Pd-0.40.3-extended;
+#X text 11 -17 3 Ouvrir ce patch;
+#X text 11 -1 4 On -------------------------->;
+#X text 11 208 7 Clic PDPWindow Off;
+#X text 11 224 8 Clic Capture Off;
+#X text 5 255 10 Fermer ce patch;
+#X text 21 304 - Fermer le patch;
+#X text 21 318 - Quitter PureData;
+#X text 21 333 - Relancer PureData;
+#X text 21 347 - Reouvrir ce patch;
+#X text 11 82 5 Clic Capture On ---->;
+#X text 11 135 6 Clic PDPWindow On -->;
+#X text 56 156 ... attendre;
+#X text 6 275 ATTENTION si l'image n'apparait pas:;
+#X text 11 240 9 Clic Off de ce patch;
+#N canvas 413 140 400 248 ARGO 0;
+#X obj 101 101 cnv 10 81 41 \$0-A \$0-B empty 20 12 0 14 -128992 -1
+1.04858e+06;
+#X obj 101 104 cnv 10 20 10 empty ColorGEM PDP-Control 1 5 1 14 -128992
+-1 1.04858e+06;
+#X obj 207 161 cnv 15 60 30 empty empty empty 20 12 0 14 -24198 -66577
+0;
+#N canvas 590 196 410 312 Help 0;
+#X obj 6 322 cnv 15 400 230 empty empty empty 20 12 0 14 -224896 -66577
+0;
+#X obj 6 7 cnv 15 400 310 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X text 9 6 Citation;
+#X text 15 23 pdp_glx ouputs video in a window using the openGL extension
+on an X11 window system. if a pdp message is received and a window
+is not open \, one is created automaticly.;
+#X restore 214 168 pd Help;
+#X obj 20 20 cnv 15 340 30 empty empty empty 20 12 0 14 -258113 -66577
+0;
+#X text 24 26 Ne fonctionne pas sous Windows;
+#X obj 122 120 tgl 12 1 \$0-A \$0-B Thread 15 7 1 9 -262144 -1 -1 0
+1;
+#X obj 122 182 pdp_control;
+#X msg 122 155 thread \$1;
+#X text 186 97 17 2 2009;
+#X text 187 117 switch thread processing on or of;
+#X text 42 220 pdp_control: fine tune the pdp system. (threads & memory).
+;
+#X connect 6 0 8 0;
+#X connect 8 0 7 0;
+#X coords 0 -1 1 1 83 43 1 100 100;
+#X restore 257 -59 pd ARGO;
+#N canvas 311 65 541 395 ARGO 0;
+#X obj 101 101 cnv 10 180 53 \$0-A \$0-B empty 20 12 0 14 -128992 -1
+1.04858e+06;
+#X obj 181 104 cnv 10 20 10 empty ColorPDP PDP-Video-v4l 1 5 1 14 -128992
+-1 1.04858e+06;
+#X obj 181 137 tgl 12 1 \$0-A \$0-B Capture 15 7 1 9 -262144 -1 -1
+0 1;
+#X obj 287 121 cnv 15 60 30 empty empty empty 20 12 0 14 -24198 -66577
+0;
+#N canvas 540 89 413 384 Help 0;
+#X obj 6 63 cnv 15 400 310 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X text 9 62 Citation;
+#X text 26 19 Philips SPC900NC;
+#X text 20 79 pdp_v4l grabs video from the video4linux device. it sends
+out the most recently grabbed frame whenever a bang message is received
+\, and will then discard that frame (it will be sent out on time at
+most). the output framerate is limited by the device only.;
+#X text 20 146 (to make sure you receive every frame with little jitter
+\, poll pdp_v4l with a high rate metronome);
+#X text 9 4 Fonctionne sous Linux avec webcam USB;
+#X restore 294 128 pd Help;
+#X obj 138 11 r \$0-SendOnOff;
+#X obj 138 34 t f f;
+#X obj 191 36 cnv 15 340 30 empty empty empty 20 12 0 14 -258113 -66577
+0;
+#X msg 172 264 stop;
+#X msg 153 291 close;
+#X obj 172 216 sel 0;
+#X msg 131 78 0;
+#X obj 153 241 t b b b;
+#X obj 101 150 cnv 4 10 4 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 93 371 outlet;
+#X obj 172 193 int;
+#X obj 138 57 sel 0 1;
+#X obj 182 160 change;
+#X obj 196 290 metro 70;
+#X text 194 41 Ne fonctionne pas sous Windows \, MacOSX;
+#X obj 182 119 nbx 3 12 0 10 0 1 \$0-A ColorPDP Device 32 7 1 9 -262144
+-1 -1 0 256;
+#X obj 269 244 tosymbol;
+#X obj 268 221 sprintf /dev/video%d;
+#X msg 270 290 open /dev/video0;
+#X obj 271 366 print;
+#X msg 269 265 set open \$1;
+#X obj 214 241 t b b b;
+#X text 291 101 17 2 2009;
+#X text 97 157 PDP;
+#X obj 197 330 pdp_v4l;
+#X obj 236 138 cnv 10 20 10 empty ColorGEM (Linux) 1 5 1 14 -128992
+-1 1.04858e+06;
+#X connect 2 0 17 0;
+#X connect 5 0 6 0;
+#X connect 6 0 16 0;
+#X connect 8 0 18 0;
+#X connect 9 0 29 0;
+#X connect 10 0 12 0;
+#X connect 10 1 26 0;
+#X connect 11 0 2 0;
+#X connect 12 0 9 0;
+#X connect 12 1 8 0;
+#X connect 15 0 10 0;
+#X connect 16 0 11 0;
+#X connect 16 1 15 0;
+#X connect 17 0 15 0;
+#X connect 18 0 29 0;
+#X connect 20 0 22 0;
+#X connect 21 0 25 0;
+#X connect 22 0 21 0;
+#X connect 23 0 24 0;
+#X connect 23 0 29 0;
+#X connect 25 0 23 0;
+#X connect 26 0 18 0;
+#X connect 26 1 23 0;
+#X connect 29 0 14 0;
+#X coords 0 -1 1 1 182 55 1 100 100;
+#X restore 156 49 pd ARGO;
+#N canvas 320 164 399 343 ARGO 0;
+#X obj 101 101 cnv 10 150 41 \$0-A \$0-B empty 20 12 0 14 -128992 -1
+1.04858e+06;
+#X obj 170 104 cnv 10 20 10 empty ColorGEM PDP-Out-glx 1 5 1 14 -128992
+-1 1.04858e+06;
+#X obj 139 55 key;
+#X obj 276 129 cnv 15 60 30 empty empty empty 20 12 0 14 -24198 -66577
+0;
+#N canvas 583 196 410 312 Help 0;
+#X obj 6 7 cnv 15 400 160 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X text 27 6 Citation;
+#X text 15 23 pdp_glx ouputs video in a window using the openGL extension
+on an X11 window system. if a pdp message is received and a window
+is not open \, one is created automaticly.;
+#X text 5 175 Fonctionne sous MacOSX + PD 0.41.4-extended;
+#X text 5 188 Fonctionne sous Linux Ubuntu 8.04 + PD 0.41.4-extended
+;
+#X restore 283 136 pd Help;
+#X obj 20 20 cnv 15 340 30 empty empty empty 20 12 0 14 -258113 -66577
+0;
+#X text 24 26 Ne fonctionne pas sous Windows;
+#X obj 91 316 pdp_glx;
+#X msg 217 286 fullscreen;
+#X msg 14 285 interpol \$1;
+#X msg 139 286 dim 400 300;
+#X obj 101 130 tgl 12 1 \$0-A \$0-B (F)ullScreen 15 7 1 9 -262144 -1
+-1 0 1;
+#X obj 167 262 sel 0;
+#X obj 140 76 select 32 70 102;
+#X obj 101 118 tgl 12 1 \$0-A \$0-B Interpol 15 7 1 9 -262144 -1 -1
+0 1;
+#X msg 342 286 create;
+#X msg 288 285 destroy;
+#X obj 101 106 tgl 12 1 \$0-A \$0-B PDPWindow 15 7 1 9 -262144 -1 -1
+0 1;
+#X obj 167 239 int;
+#X obj 175 205 t b b;
+#X obj 101 101 cnv 4 10 4 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 91 78 inlet;
+#X obj 91 285 spigot;
+#X msg 203 234 0;
+#X obj 222 205 t b b b;
+#X msg 237 234 1;
+#X obj 187 155 int;
+#X obj 13 54 r \$0-SendOnOff;
+#X obj 187 178 sel 0 1;
+#X obj 13 100 sel 0 1;
+#X text 255 96 17 2 2009;
+#X connect 2 0 13 0;
+#X connect 8 0 7 0;
+#X connect 9 0 7 0;
+#X connect 10 0 7 0;
+#X connect 11 0 18 0;
+#X connect 12 0 10 0;
+#X connect 12 1 8 0;
+#X connect 13 1 11 0;
+#X connect 13 2 11 0;
+#X connect 14 0 9 0;
+#X connect 15 0 7 0;
+#X connect 16 0 7 0;
+#X connect 17 0 26 0;
+#X connect 18 0 12 0;
+#X connect 19 0 16 0;
+#X connect 19 1 23 0;
+#X connect 21 0 22 0;
+#X connect 22 0 7 0;
+#X connect 23 0 22 1;
+#X connect 24 0 25 0;
+#X connect 24 1 18 0;
+#X connect 24 2 15 0;
+#X connect 25 0 22 1;
+#X connect 26 0 28 0;
+#X connect 27 0 29 0;
+#X connect 28 0 19 0;
+#X connect 28 1 24 0;
+#X connect 29 0 19 0;
+#X connect 29 1 26 0;
+#X coords 0 -1 1 1 152 43 1 100 100;
+#X restore 155 133 pd ARGO;
+#X text 20 181 - Sous Linux une fenêtre pdp s'ouvre...;
+#X text 26 19 Philips SPC900NC;
+#X text 12 370 OUI fonctionne sous Linux Ubuntu 8.0.4 + Philips SPC900NC
+;
+#X text 6 289 (message pdp_ ??);
+#X connect 0 0 1 0;
+#X connect 21 0 22 0;

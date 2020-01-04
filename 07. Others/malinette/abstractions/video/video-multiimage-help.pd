@@ -1,0 +1,26 @@
+#N canvas 133 80 618 416 10;
+#X obj 76 239 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144 -1
+-1 0;
+#X msg 397 279 create \, 1;
+#X obj 397 360 gemwin;
+#X msg 407 304 0 \, destroy;
+#X text 473 279 <- on;
+#X text 479 305 <- off;
+#X msg 413 335 reset \, dimen 640 480;
+#X obj 76 277 video-multiimage;
+#X msg 239 234 open ../../data/images/train/d*.jpg 10;
+#X obj 76 347 rectangle 4 3;
+#X obj 76 322 pix_texture;
+#X text 70 44 video-multiimage \; ---------------- \; Load several
+pictures from a folder \; Pictures must be like that : path/filename*.jpeg
+numberofpics-1 \; and might start by filename0.jpg \; \; 1st inlet
+: numero d'image \; 2nd inlet : chemin (ex:open ../../data/images/d/d*.jpeg
+10 );
+#X text 236 216 > Open folder/pattern numberofimages;
+#X connect 0 0 7 0;
+#X connect 1 0 2 0;
+#X connect 3 0 2 0;
+#X connect 6 0 2 0;
+#X connect 7 0 10 0;
+#X connect 8 0 7 1;
+#X connect 10 0 9 0;

@@ -1,0 +1,240 @@
+#N canvas 0 0 849 401 10;
+#X obj 100 100 cnv 15 161 169 empty empty EQ 20 12 0 14 -233017 -66577
+0;
+#X obj 224 112 tgl 25 0 \$1GUI_input_EQ_fromgui \$1GUI_input_EQ_togui
+empty 0 -6 0 8 -262144 -1 -1 0 1;
+#X obj 143 140 cnv 15 33 114 empty \$1GUIinchannel_EQ_gain_cnv gain
+6 4 0 8 -212212 -166441 0;
+#X obj 177 140 cnv 15 40 114 empty \$1GUIinchannel_EQ_freq_cnv freq
+10 4 0 8 -195568 -166441 0;
+#X obj 145 167 nbx 3 14 -100 20 0 0 \$1GUI_input_EQ_hi_gain_fromgui
+\$1GUI_input_EQ_hi_gain_togui empty 0 -6 0 8 -228992 -166441 -166441
+0 256;
+#X obj 145 184 nbx 3 14 -100 20 0 0 \$1GUI_input_EQ_mid1_gain_fromgui
+\$1GUI_input_EQ_mid1_gain_togui empty 0 -6 0 8 -228992 -166441 -166441
+0 256;
+#X obj 145 201 nbx 3 14 -100 20 0 0 \$1GUI_input_EQ_mid2_gain_fromgui
+\$1GUI_input_EQ_mid2_gain_togui empty 0 -6 0 8 -228992 -166441 -166441
+0 256;
+#X obj 145 218 nbx 3 14 -100 20 0 0 \$1GUI_input_EQ_lo_gain_fromgui
+\$1GUI_input_EQ_lo_gain_togui empty 0 -6 0 8 -228992 -166441 -166441
+0 256;
+#X obj 178 150 nbx 4 14 20 9999 1 0 \$1GUI_input_EQ_hicut_f_fromgui
+\$1GUI_input_EQ_hicut_f_togui HiCut -70 7 0 8 -187584 -166441 -166441
+8000 256;
+#X obj 178 167 nbx 4 14 20 9999 1 0 \$1GUI_input_EQ_hi_f_fromgui \$1GUI_input_EQ_hi_f_togui
+High -70 7 0 8 -187584 -166441 -166441 4000 256;
+#X obj 178 184 nbx 4 14 20 9999 1 0 \$1GUI_input_EQ_mid1_f_fromgui
+\$1GUI_input_EQ_mid1_f_togui Mid1 -70 7 0 8 -187584 -166441 -166441
+1200 256;
+#X obj 178 201 nbx 4 14 20 9999 1 0 \$1GUI_input_EQ_mid2_f_fromgui
+\$1GUI_input_EQ_mid2_f_togui Mid2 -70 7 0 8 -187584 -166441 -166441
+440 256;
+#X obj 178 218 nbx 4 14 20 9999 1 0 \$1GUI_input_EQ_lo_f_fromgui \$1GUI_input_EQ_lo_f_togui
+Low -70 7 0 8 -187584 -166441 -166441 100 256;
+#X obj 178 235 nbx 4 14 20 9999 1 0 \$1GUI_input_EQ_locut_f_fromgui
+\$1GUI_input_EQ_locut_f_togui LoCut -70 7 0 8 -187584 -166441 -166441
+75 256;
+#X obj 217 172 cnv 15 34 50 empty \$1GUIinchannel_EQ_q_cnv q 10 4 0
+8 -212212 -166441 0;
+#X obj 218 184 nbx 3 14 0.1 10 1 0 \$1GUI_input_EQ_mid1_q_fromgui \$1GUI_input_EQ_mid1_q_togui
+empty 0 -6 0 8 -162485 -166441 -166441 1 256;
+#X obj 218 201 nbx 3 14 0.1 10 1 0 \$1GUI_input_EQ_mid2_q_fromgui \$1GUI_input_EQ_mid2_q_togui
+empty 0 -6 0 8 -162485 -166441 -166441 1 256;
+#X obj 226 150 tgl 14 0 \$1GUI_input_EQ_hicut_fromgui \$1GUI_input_EQ_hicut_togui
+empty 0 -6 0 8 -262144 -166441 -166441 0 1;
+#X obj 226 235 tgl 14 0 \$1GUI_input_EQ_locut_fromgui \$1GUI_input_EQ_locut_togui
+empty 0 -6 0 8 -262144 -166441 -166441 0 1;
+#N canvas 0 0 913 540 mid1 0;
+#X obj 75 47 inlet;
+#X obj 75 102 gui_sr \$1GUI_input_EQ_mid1_f /IN/%d/EQ/MID1/FREQ;
+#X obj 97 122 gui_sr_offset \$1GUI_input_EQ_mid1_gain /IN/%d/EQ/MID1/GAIN
+100;
+#X obj 75 76 t f f f;
+#X obj 119 156 gui_sr \$1GUI_input_EQ_mid1_q /IN/%d/EQ/MID1/Q;
+#X obj 56 217 Rgui_Stogui_offset \$1GUI_input_EQ_mid1_gain 100;
+#X connect 0 0 3 0;
+#X connect 3 0 1 0;
+#X connect 3 1 2 0;
+#X connect 3 2 4 0;
+#X restore 393 259 pd mid1;
+#N canvas 0 0 913 540 mid2 0;
+#X obj 115 47 inlet;
+#X obj 81 77 t f f f;
+#X obj 75 102 gui_sr \$1GUI_input_EQ_mid2_f /IN/%d/EQ/MID2/FREQ;
+#X obj 97 122 gui_sr_offset \$1GUI_input_EQ_mid2_gain /IN/%d/EQ/MID2/GAIN
+100;
+#X obj 119 156 gui_sr \$1GUI_input_EQ_mid2_q /IN/%d/EQ/MID2/Q;
+#X obj 56 217 Rgui_Stogui_offset \$1GUI_input_EQ_mid2_gain 100;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 1 1 3 0;
+#X connect 1 2 4 0;
+#X restore 394 282 pd mid2;
+#N canvas 106 347 746 299 hi 0;
+#X obj 39 35 inlet;
+#X obj 39 57 t f f;
+#X obj 39 103 gui_sr_offset \$1GUI_input_EQ_hi_gain /IN/%d/EQ/HIGH/GAIN
+100;
+#X obj 38 133 Rgui_Stogui_offset \$1GUI_input_EQ_hi_gain 100;
+#X obj 39 83 gui_sr \$1GUI_input_EQ_hi_f /IN/%d/EQ/HIGH/TRANS_FREQ
+;
+#X connect 0 0 1 0;
+#X connect 1 0 4 0;
+#X connect 1 1 2 0;
+#X restore 393 229 pd hi;
+#N canvas 289 191 666 302 lo 0;
+#X obj 115 47 inlet;
+#X obj 39 57 t f f;
+#X obj 39 83 gui_sr \$1GUI_input_EQ_lo_f /IN/%d/EQ/LOW/TRANS_FREQ;
+#X obj 39 103 gui_sr_offset \$1GUI_input_EQ_lo_gain /IN/%d/EQ/LOW/GAIN
+100;
+#X obj 56 217 Rgui_Stogui_offset \$1GUI_input_EQ_lo_gain 100;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 1 1 3 0;
+#X restore 395 315 pd lo;
+#N canvas 85 458 666 302 hicut 0;
+#X obj 115 27 inlet;
+#X obj 115 56 t f f;
+#X obj 115 82 gui_sr_offset \$1GUI_input_EQ_hicut_f /IN/%d/EQ/HIGHCUT/FREQ
+;
+#X obj 115 102 gui_sr_offset \$1GUI_input_EQ_hicut /IN/%d/EQ/HIGHCUT/ON
+;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 1 1 3 0;
+#X restore 394 205 pd hicut;
+#N canvas 289 191 666 302 locut 0;
+#X obj 115 47 inlet;
+#X obj 115 86 t f f;
+#X obj 115 112 gui_sr \$1GUI_input_EQ_locut_f /IN/%d/EQ/LOWCUT/FREQ
+;
+#X obj 115 132 gui_sr \$1GUI_input_EQ_locut /IN/%d/EQ/LOWCUT/ON;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 1 1 3 0;
+#X restore 396 347 pd locut;
+#X obj 362 146 t f f f f f f;
+#X obj 362 80 t f f;
+#X obj 503 191 r \$1GUI_input_EQ_togui;
+#X obj 503 213 route set;
+#X obj 503 236 f;
+#N canvas 153 57 873 457 disable 0;
+#X obj 182 26 inlet;
+#X obj 101 209 s \$1GUI_input_EQ_hicut_f_togui;
+#X obj 506 155 s \$1GUI_input_EQ_hicut_togui;
+#X obj 101 229 s \$1GUI_input_EQ_hi_f_togui;
+#X obj 311 229 s \$1GUI_input_EQ_hi_gain_togui;
+#X obj 101 249 s \$1GUI_input_EQ_mid1_f_togui;
+#X obj 311 249 s \$1GUI_input_EQ_mid1_gain_togui;
+#X obj 541 249 s \$1GUI_input_EQ_mid1_q_togui;
+#X obj 101 269 s \$1GUI_input_EQ_mid2_f_togui;
+#X obj 311 269 s \$1GUI_input_EQ_mid2_gain_togui;
+#X obj 541 269 s \$1GUI_input_EQ_mid2_q_togui;
+#X obj 311 289 s \$1GUI_input_EQ_lo_gain_togui;
+#X obj 101 289 s \$1GUI_input_EQ_lo_f_togui;
+#X obj 101 309 s \$1GUI_input_EQ_locut_f_togui;
+#X obj 506 135 s \$1GUI_input_EQ_locut_togui;
+#X obj 182 54 select 0 1;
+#X msg 182 74 31;
+#X msg 214 74 -1;
+#X obj 107 187 t a a a a a a;
+#X obj 327 197 t a a a a;
+#X obj 589 225 t a a;
+#X obj 506 106 t a a;
+#X text 315 360 bg label;
+#X obj 337 319 t f f f;
+#X obj 599 418 s \$1GUIinchannel_EQ_q_cnv;
+#X obj 179 431 s \$1GUIinchannel_EQ_freq_cnv;
+#X obj 390 393 s \$1GUIinchannel_EQ_gain_cnv;
+#X obj 390 352 pack 0 0;
+#X msg 390 372 color \$2 \$1;
+#X obj 459 24 loadbang;
+#X obj 179 390 pack 0 0;
+#X msg 179 410 color \$2 \$1;
+#X msg 521 24 bang;
+#X msg 87 167 color \$2 \$1 \$1;
+#X obj 87 147 pack 0 0;
+#X msg 333 177 color \$2 \$1 \$1;
+#X obj 333 157 pack 0 0;
+#X msg 592 205 color \$2 \$1 \$1;
+#X obj 592 185 pack 0 0;
+#X msg 506 81 color \$2 \$1 \$1;
+#X obj 181 96 t f f f f f;
+#X obj 506 61 pack 0 0;
+#X obj 332 52 unpack;
+#X obj 389 50 unpack;
+#X obj 599 376 pack 0 0;
+#X msg 599 396 color \$2 \$1;
+#X obj 438 50 unpack;
+#X obj 333 24 colorschemes/eq;
+#X connect 0 0 15 0;
+#X connect 15 0 16 0;
+#X connect 15 1 17 0;
+#X connect 16 0 40 0;
+#X connect 17 0 40 0;
+#X connect 18 0 1 0;
+#X connect 18 1 3 0;
+#X connect 18 2 5 0;
+#X connect 18 3 8 0;
+#X connect 18 4 12 0;
+#X connect 18 5 13 0;
+#X connect 19 0 4 0;
+#X connect 19 1 6 0;
+#X connect 19 2 9 0;
+#X connect 19 3 11 0;
+#X connect 20 0 7 0;
+#X connect 20 1 10 0;
+#X connect 21 0 14 0;
+#X connect 21 1 2 0;
+#X connect 23 0 30 0;
+#X connect 23 1 27 0;
+#X connect 23 2 44 0;
+#X connect 27 0 28 0;
+#X connect 28 0 26 0;
+#X connect 29 0 47 0;
+#X connect 30 0 31 0;
+#X connect 31 0 25 0;
+#X connect 32 0 47 0;
+#X connect 33 0 18 0;
+#X connect 34 0 33 0;
+#X connect 35 0 19 0;
+#X connect 36 0 35 0;
+#X connect 37 0 20 0;
+#X connect 38 0 37 0;
+#X connect 39 0 21 0;
+#X connect 40 0 34 0;
+#X connect 40 1 36 0;
+#X connect 40 2 38 0;
+#X connect 40 3 41 0;
+#X connect 40 4 23 0;
+#X connect 41 0 39 0;
+#X connect 42 0 34 1;
+#X connect 42 1 30 1;
+#X connect 43 0 36 1;
+#X connect 43 1 27 1;
+#X connect 44 0 45 0;
+#X connect 45 0 24 0;
+#X connect 46 0 38 1;
+#X connect 46 1 44 1;
+#X connect 47 0 42 0;
+#X connect 47 1 43 0;
+#X connect 47 2 46 0;
+#X restore 503 256 pd disable;
+#X obj 392 106 gui_sr \$1GUI_input_EQ /IN/%d/EQ/ON;
+#X obj 362 63 r \$1GUI_inchannel_selected;
+#X connect 25 0 23 0;
+#X connect 25 1 21 0;
+#X connect 25 2 19 0;
+#X connect 25 3 20 0;
+#X connect 25 4 22 0;
+#X connect 25 5 24 0;
+#X connect 26 0 25 0;
+#X connect 26 1 31 0;
+#X connect 27 0 28 0;
+#X connect 28 0 29 0;
+#X connect 28 1 29 0;
+#X connect 29 0 30 0;
+#X connect 32 0 26 0;
+#X coords 0 -1 1 1 161 169 1 100 100;

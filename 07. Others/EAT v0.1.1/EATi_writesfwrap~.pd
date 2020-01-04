@@ -1,0 +1,17 @@
+#N canvas 365 292 1066 582 10;
+#X obj 9 19 namecanvas \$2.writesf;
+#X obj 46 59 inlet~;
+#X obj 118 59 inlet~;
+#X obj 190 59 inlet~;
+#X obj 262 59 inlet~;
+#X obj 334 59 inlet~;
+#X obj 406 59 inlet~;
+#X obj 478 59 inlet~;
+#X obj 550 59 inlet~;
+#X obj 622 59 inlet~;
+#X obj 694 59 inlet~;
+#X obj 772 59 inlet~;
+#X obj 850 59 inlet~;
+#X obj 928 59 inlet~;
+#X obj 35 108 inlet;
+#X obj 561 184 writesf~ \$1;

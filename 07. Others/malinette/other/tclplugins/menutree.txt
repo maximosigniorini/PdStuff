@@ -1,0 +1,102 @@
+{malinette 
+
+{ in 
+ {
+arduino-analog-in
+arduino-digital-in
+audio-in
+key-char
+key-makeymakey
+key-num
+mouse
+video-in
+video-motion-blob
+video-red-blob
+}}
+
+{ out 
+ {
+3d-object
+3d-text
+arduino-out
+audio-out
+midi-out
+osc-out
+video-record
+video-screen
+}}
+
+{ video 
+ {
+3d-transform
+video-camera
+video-colors
+video-crop
+video-halftone
+video-kaleidoscope
+video-lumaoffset
+video-mix
+video-multifx
+video-multiimage
+video-scratch
+video-stopmotion
+}}
+
+{ audio 
+ {
+audio-3eq
+audio-attackdecay
+audio-comp
+audio-cutoff
+audio-decimate
+audio-delay
+audio-disto
+audio-ducker
+audio-freeze
+audio-pitchdelay
+audio-pitchshift
+audio-reverb
+audio-sampler
+audio-sampler-transpose
+audio-scratch
+audio-volume
+oscilloscope~
+synth-bassdrum
+synth-drums
+synth-fm
+synth
+synth-moog
+synth-note
+synth-pluck
+synth-vowel
+synth-wobblebass
+}}
+
+{ numbers 
+ {
+autoscale
+bang-start
+between
+bpm-ms
+data-sampler
+fade
+inverse
+map
+mapcurve
+midi-hz
+midi-sampler
+multimeter
+notescale
+oscillator
+oscilloscope
+physics
+seq-counter
+seq-randomizer
+seq-sliders
+seq-sliders16
+seq-taptempo
+seq-toggles
+spigot-toggle
+}}
+
+}

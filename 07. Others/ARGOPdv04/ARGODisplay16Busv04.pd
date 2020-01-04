@@ -1,0 +1,199 @@
+#N canvas 761 176 154 214 10;
+#X obj 79 193 nbx 8 11 -1e+08 1e+08 0 0 \$0 \$0-ReceiveARGOBus1 ARGOBus1
+-70 6 1 9 -262144 -1 -1 0 256;
+#X obj 79 182 nbx 8 11 -1e+08 1e+08 0 0 \$0 \$0-ReceiveARGOBus2 ARGOBus2
+-70 6 1 9 -262144 -1 -1 0 256;
+#X obj 79 171 nbx 8 11 -1e+08 1e+08 0 0 \$0 \$0-ReceiveARGOBus3 ARGOBus3
+-70 6 1 9 -262144 -1 -1 0 256;
+#X obj 79 160 nbx 8 11 -1e+08 1e+08 0 0 \$0 \$0-ReceiveARGOBus4 ARGOBus4
+-70 6 1 9 -262144 -1 -1 0 256;
+#X obj 79 149 nbx 8 11 -1e+08 1e+08 0 0 \$0 \$0-ReceiveARGOBus5 ARGOBus5
+-70 6 1 9 -262144 -1 -1 0 256;
+#X obj 79 138 nbx 8 11 -1e+08 1e+08 0 0 \$0 \$0-ReceiveARGOBus6 ARGOBus6
+-70 6 1 9 -262144 -1 -1 0.261212 256;
+#X obj 79 127 nbx 8 11 -1e+08 1e+08 0 0 \$0 \$0-ReceiveARGOBus7 ARGOBus7
+-70 6 1 9 -262144 -1 -1 -0.105985 256;
+#X obj 79 116 nbx 8 11 -1e+08 1e+08 0 0 \$0 \$0-ReceiveARGOBus8 ARGOBus8
+-70 6 1 9 -262144 -1 -1 0 256;
+#X obj 79 105 nbx 8 11 -1e+08 1e+08 0 0 \$0 \$0-ReceiveARGOBus9 ARGOBus9
+-70 6 1 9 -262144 -1 -1 0 256;
+#X obj 79 94 nbx 8 11 -1e+08 1e+08 0 0 \$0 \$0-ReceiveARGOBus10 ARGOBus10
+-70 6 1 9 -262144 -1 -1 0 256;
+#X obj 79 83 nbx 8 11 -1e+08 1e+08 0 0 \$0 \$0-ReceiveARGOBus11 ARGOBus11
+-70 6 1 9 -262144 -1 -1 0 256;
+#X obj 79 72 nbx 8 11 -1e+08 1e+08 0 0 \$0 \$0-ReceiveARGOBus12 ARGOBus12
+-70 6 1 9 -262144 -1 -1 0 256;
+#X obj 79 61 nbx 8 11 -1e+08 1e+08 0 0 \$0 \$0-ReceiveARGOBus13 ARGOBus13
+-70 6 1 9 -262144 -1 -1 0 256;
+#X obj 79 50 nbx 8 11 -1e+08 1e+08 0 0 \$0 \$0-ReceiveARGOBus14 ARGOBus14
+-70 6 1 9 -262144 -1 -1 0 256;
+#X obj 79 39 nbx 8 11 -1e+08 1e+08 0 0 \$0 \$0-ReceiveARGOBus15 ARGOBus15
+-70 6 1 9 -262144 -1 -1 0 256;
+#X obj 79 28 nbx 8 11 -1e+08 1e+08 0 0 \$0 \$0-ReceiveARGOBus16 ARGOBus16
+-70 6 1 9 -262144 -1 -1 0 256;
+#X obj 2 4 tgl 18 1 \$0-SendOnOff \$0-ReceiveOnOff empty 0 0 0 9 -4033
+-1 -1 1 1;
+#N canvas 696 247 422 194 Help-------- 0;
+#X obj 7 62 cnv 15 400 54 empty empty empty 20 12 0 14 -224896 -66577
+0;
+#X text 9 61 Construit sous/Build under;
+#X text 9 73 Pd 0.38.4-extended;
+#X obj 8 119 cnv 15 400 30 empty empty empty 20 12 0 14 -259090 -66577
+0;
+#X text 9 86 Voir/Look at:;
+#X text 9 99 http://sourceforge.net/projects/pure-data/;
+#X text 15 120 - Un module "ARGOGeneral" (et un seul) doit etre ouvert
+avant l'ouverture de ce module.;
+#N canvas 331 315 786 336 /SUBPATCH/ 0;
+#X obj 11 30 loadbang;
+#X obj -82 85 snapshot~;
+#X obj -82 107 change;
+#X obj -82 7 r~ ARGOBus1;
+#X obj -82 131 s \$0-ReceiveARGOBus1;
+#X obj 10 54 metro 300;
+#X obj 0 85 snapshot~;
+#X obj 0 107 change;
+#X obj 0 7 r~ ARGOBus2;
+#X obj 0 149 s \$0-ReceiveARGOBus2;
+#X obj 82 85 snapshot~;
+#X obj 82 107 change;
+#X obj 164 85 snapshot~;
+#X obj 164 107 change;
+#X obj 82 7 r~ ARGOBus3;
+#X obj 164 7 r~ ARGOBus4;
+#X obj 82 131 s \$0-ReceiveARGOBus3;
+#X obj 164 149 s \$0-ReceiveARGOBus4;
+#X obj 247 85 snapshot~;
+#X obj 247 107 change;
+#X obj 329 85 snapshot~;
+#X obj 329 107 change;
+#X obj 411 85 snapshot~;
+#X obj 411 107 change;
+#X obj 493 85 snapshot~;
+#X obj 493 107 change;
+#X obj 247 7 r~ ARGOBus5;
+#X obj 329 7 r~ ARGOBus6;
+#X obj 411 7 r~ ARGOBus7;
+#X obj 493 7 r~ ARGOBus8;
+#X obj 247 131 s \$0-ReceiveARGOBus5;
+#X obj 329 149 s \$0-ReceiveARGOBus6;
+#X obj 411 131 s \$0-ReceiveARGOBus7;
+#X obj 493 149 s \$0-ReceiveARGOBus8;
+#X obj -82 249 snapshot~;
+#X obj -82 271 change;
+#X obj 0 249 snapshot~;
+#X obj 0 271 change;
+#X obj 88 249 snapshot~;
+#X obj 88 271 change;
+#X obj 177 249 snapshot~;
+#X obj 177 271 change;
+#X obj 266 249 snapshot~;
+#X obj 266 271 change;
+#X obj 355 249 snapshot~;
+#X obj 355 271 change;
+#X obj 444 249 snapshot~;
+#X obj 444 271 change;
+#X obj 533 249 snapshot~;
+#X obj 533 271 change;
+#X obj -82 171 r~ ARGOBus9;
+#X obj -82 295 s \$0-ReceiveARGOBus9;
+#X obj 0 171 r~ ARGOBus10;
+#X obj 0 313 s \$0-ReceiveARGOBus10;
+#X obj 88 171 r~ ARGOBus11;
+#X obj 88 295 s \$0-ReceiveARGOBus11;
+#X obj 177 171 r~ ARGOBus12;
+#X obj 178 313 s \$0-ReceiveARGOBus12;
+#X obj 266 171 r~ ARGOBus13;
+#X obj 266 295 s \$0-ReceiveARGOBus13;
+#X obj 355 171 r~ ARGOBus14;
+#X obj 357 313 s \$0-ReceiveARGOBus14;
+#X obj 444 171 r~ ARGOBus15;
+#X obj 444 295 s \$0-ReceiveARGOBus15;
+#X obj 533 171 r~ ARGOBus16;
+#X obj 533 313 s \$0-ReceiveARGOBus16;
+#X obj 636 288 switch~;
+#X obj 594 7 r \$0-SendOnOff;
+#X obj 635 107 pipe 500;
+#X connect 0 0 5 0;
+#X connect 1 0 2 0;
+#X connect 2 0 4 0;
+#X connect 3 0 1 0;
+#X connect 5 0 1 0;
+#X connect 5 0 6 0;
+#X connect 5 0 10 0;
+#X connect 5 0 12 0;
+#X connect 5 0 18 0;
+#X connect 5 0 20 0;
+#X connect 5 0 22 0;
+#X connect 5 0 24 0;
+#X connect 5 0 34 0;
+#X connect 5 0 36 0;
+#X connect 5 0 38 0;
+#X connect 5 0 40 0;
+#X connect 5 0 42 0;
+#X connect 5 0 44 0;
+#X connect 5 0 46 0;
+#X connect 5 0 48 0;
+#X connect 6 0 7 0;
+#X connect 7 0 9 0;
+#X connect 8 0 6 0;
+#X connect 10 0 11 0;
+#X connect 11 0 16 0;
+#X connect 12 0 13 0;
+#X connect 13 0 17 0;
+#X connect 14 0 10 0;
+#X connect 15 0 12 0;
+#X connect 18 0 19 0;
+#X connect 19 0 30 0;
+#X connect 20 0 21 0;
+#X connect 21 0 31 0;
+#X connect 22 0 23 0;
+#X connect 23 0 32 0;
+#X connect 24 0 25 0;
+#X connect 25 0 33 0;
+#X connect 26 0 18 0;
+#X connect 27 0 20 0;
+#X connect 28 0 22 0;
+#X connect 29 0 24 0;
+#X connect 34 0 35 0;
+#X connect 35 0 51 0;
+#X connect 36 0 37 0;
+#X connect 37 0 53 0;
+#X connect 38 0 39 0;
+#X connect 39 0 55 0;
+#X connect 40 0 41 0;
+#X connect 41 0 57 0;
+#X connect 42 0 43 0;
+#X connect 43 0 59 0;
+#X connect 44 0 45 0;
+#X connect 45 0 61 0;
+#X connect 46 0 47 0;
+#X connect 47 0 63 0;
+#X connect 48 0 49 0;
+#X connect 49 0 65 0;
+#X connect 50 0 34 0;
+#X connect 52 0 36 0;
+#X connect 54 0 38 0;
+#X connect 56 0 40 0;
+#X connect 58 0 42 0;
+#X connect 60 0 44 0;
+#X connect 62 0 46 0;
+#X connect 64 0 48 0;
+#X connect 67 0 68 0;
+#X connect 68 0 66 0;
+#X restore 276 28 pd;
+#X obj 8 9 cnv 10 240 50 empty empty http://perso.orange.fr/Paresys/ARGOPd/
+5 44 1 9 -4033 -1 1.04858e+06;
+#X obj 199 17 cnv 10 10 10 empty empty Aide/Help 0 5 1 9 -4033 -1 1.04858e+06
+;
+#X obj 8 10 cnv 20 20 20 \$0-Help empty ARGODisplay16Bus 5 12 1 18
+-4033 -1 1.04858e+06;
+#X obj 12 33 cnv 10 10 10 empty empty Gerard 0 5 1 9 -4033 -1 1.04858e+06
+;
+#X obj 52 33 cnv 10 10 10 empty empty Paresys 0 5 1 9 -4033 -1 1.04858e+06
+;
+#X text 10 165 - Affiche les 16 ARGOBus;
+#X text 302 28 <- Clic;
+#X restore 23 5 pd Help--------;
+#X obj 21 4 cnv 18 125 18 empty empty Display16Bus 1 9 1 14 -4033 -1
+1.04858e+06;

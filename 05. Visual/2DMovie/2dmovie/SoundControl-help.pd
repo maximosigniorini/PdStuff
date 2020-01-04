@@ -1,0 +1,71 @@
+#N canvas 160 64 898 619 10;
+#X obj 2 -175 cnv 15 700 50 empty empty SoundControl 3 12 0 18 -260080
+-1 0;
+#X text 591 -158 @author Pertuit;
+#X text 22 -91 DESCRIPTION;
+#X text 22 101 ARGUMENTS;
+#X text 21 53 Le son chargé doit être placé dans un dossier "sound"
+situé dans le dossier de l'application.;
+#X text 23 383 OUTLETS \; 1- bang : fin de lecture;
+#X text 591 -146 @version 1;
+#X text 591 -171 @library 2DMovie;
+#X text 151 -169 Patch de lecture contrôlée d'un fichier son.;
+#X obj 529 182 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 483 59 tgl 15 0 empty empty on/off 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 457 60 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 580 45 5 0 0 0 - - -;
+#X msg 538 14 0;
+#X obj 634 60 hsl 128 15 0 1 0 0 empty empty volume -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 685 97 hsl 128 15 0 1 0 0 empty empty balance -2 -8 0 10 -262144
+-1 -1 0 1;
+#X text 524 -21 démarrage (en nombre de secondes);
+#X obj 735 137 hsl 128 15 0 1 0 0 empty empty réverbération -2 -8
+0 10 -262144 -1 -1 0 1;
+#X floatatom 682 118 5 0 0 0 - - -;
+#X floatatom 732 158 5 0 0 0 - - -;
+#X floatatom 631 81 5 0 0 0 - - -;
+#X msg 579 14 1;
+#X text 21 -7 Le contrôle s'effectue sur le positionnement de la tête
+de lecture au démarrage du son \, sur le volume \, sur le panoramique
+(balance droite/gauche) et sur un filtre de réverbération.;
+#X text 21 -70 Patch de lecture contrôlée d'un fichier son de format
+WAVE ou AIFF. Ce patch est conçu pour la lecture de fichiers de grande
+taille (fond sonore \, par exemple). Pour des sons courts et événementiels
+\, utiliser plutôt [SoundPlayer].;
+#X obj 529 232 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 22 238 INLETS \; 1- bang : déclencheur de la lecture \; 1-
+booléen : lance (1) ou arrête (0) la lecture \; 2- nombre : position
+de la tête de lecture du son à son lancement \, en nombre de secondes
+(par défaut \, 0 = au début du son) \; 3- nombre : volume entre 0
+et 1 (par défaut \, 1) \; 4- nombre : balance droite/gauche entre
+0 et 1 (par défaut \, 0.5 = équilibre) \; 5- nombre : réverbération
+entre 0 et 1 (par défaut \, 0).;
+#X text 22 121 1- symbole : le nom du fichier son se trouvant dans
+le dossier "sound" \; 2- nombre : volume entre 0 et 1 (par défaut
+\, 1) \; 3- nombre : balance droite/gauche entre 0 et 1 (par défaut
+\, 0.5 = équilibre) \; 4- nombre : réverbération entre 0 et 1 (par
+défaut \, 0).;
+#X msg 621 14 1.5;
+#X obj 529 151 soundControl bell.aiff;
+#X obj 529 262 soundControl gluon.wav 0.5 0.5 1;
+#X text 22 210 Par ex: [soundcontrol son.wav 1 0.5 0];
+#X connect 10 0 28 0;
+#X connect 11 0 28 0;
+#X connect 12 0 28 1;
+#X connect 13 0 12 0;
+#X connect 14 0 20 0;
+#X connect 14 0 28 2;
+#X connect 15 0 18 0;
+#X connect 15 0 28 3;
+#X connect 17 0 19 0;
+#X connect 17 0 28 4;
+#X connect 21 0 12 0;
+#X connect 24 0 29 0;
+#X connect 27 0 12 0;
+#X connect 28 0 9 0;
+#X coords 0 619 1 618 65 15 0;

@@ -1,0 +1,65 @@
+#N canvas 252 25 932 696 10;
+#X declare -path ../in -path ../out -path ../tools -path ../filters
+;
+#X obj -5 32 cnv 5 800 5 empty empty INPUT 2 15 1 15 -260097 -191407
+0;
+#N canvas 549 129 450 300 INIT 0;
+#X obj 43 106 declare -path ../in -path ../out -path ../tools -path
+../filters;
+#X obj 431 193 initbang;
+#X obj 279 818 gemwin;
+#X obj 277 352 cnv 15 66 60 empty empty empty 20 12 0 14 -262144 -66577
+0;
+#X obj 281 365 vradio 10 1 0 3 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X obj 279 603 sel 0 1 2;
+#X obj 281 398 tgl 10 0 empty empty light 12 6 0 8 -262130 -1 -1 0
+1;
+#X msg 760 621 lighting \$1;
+#X text 292 362 320x240;
+#X text 292 372 640x480;
+#X obj 742 361 gemhead;
+#X obj 742 383 world_light;
+#X msg 719 682 destroy;
+#X msg 279 660 reset \, dimen 320 240 \, FSAA 8 \, lighting 1 \, create
+\, 1;
+#X msg 296 682 reset \, dimen 640 480 \, FSAA 8 \, lighting 1 \, create
+\, 1;
+#X obj 279 550 t f b;
+#X msg 186 368 1;
+#X obj 945 615 gemkeyboard;
+#X obj 945 646 sel 9;
+#X text 986 647 touche esc;
+#X text 279 351 Gem;
+#X text 292 382 fs/todo;
+#X msg 311 717 reset \, dimen 800 600 \, offset 1280 0 \, border 0
+\, FSAA 8 \, lighting 1 \, create \, 1;
+#X msg 425 425 reset \, dimen 320 240 \, offset 252 780 \, border 0
+\, FSAA 8 \, lighting 1 \, create \, 1;
+#X obj 506 193 loadbang;
+#X obj 429 243 delay 1000;
+#X connect 1 0 25 0;
+#X connect 4 0 15 0;
+#X connect 5 0 13 0;
+#X connect 5 1 14 0;
+#X connect 5 2 22 0;
+#X connect 6 0 7 0;
+#X connect 7 0 2 0;
+#X connect 10 0 11 0;
+#X connect 12 0 2 0;
+#X connect 13 0 2 0;
+#X connect 14 0 2 0;
+#X connect 15 0 5 0;
+#X connect 15 1 12 0;
+#X connect 16 0 6 0;
+#X connect 17 0 18 0;
+#X connect 18 0 12 0;
+#X connect 22 0 2 0;
+#X connect 23 0 2 0;
+#X connect 24 0 25 0;
+#X connect 25 0 23 0;
+#X restore 749 12 pd INIT;
+#X obj -5 211 cnv 5 800 5 empty empty FILTERS 2 15 1 15 -260097 -191407
+0;
+#X obj -5 458 cnv 5 800 5 empty empty OUT 2 15 1 15 -260097 -191407
+0;

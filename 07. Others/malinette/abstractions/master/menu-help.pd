@@ -1,0 +1,21 @@
+#N canvas 1 118 697 411 10;
+#X symbolatom 51 344 20 0 0 0 - - -;
+#X symbolatom 180 344 20 0 0 0 - - -;
+#X obj 180 320 r MENU-IN;
+#X symbolatom 55 178 20 0 0 0 - - -;
+#X text 51 29 [menu ../../examples/basics orange];
+#X text 50 131 [menu ../out blue];
+#X obj 51 319 r MENU-BASICS;
+#X text 320 145 colors : orange \, grey \, white \, black \, blue \,
+green \, red;
+#X text 48 230 [menu ../in grey some_inputs];
+#X obj 54 58 menu ../../examples/basics orange;
+#X obj 56 259 menu ../in grey SOME_INPUTS;
+#X obj 55 158 menu ../out blue;
+#X text 319 22 menu \; ----------- \; List files from a folder and
+fill a buttton with them \; Arguments \; \$1: folder (symbol) \; \$2:
+color (symbol) \; \$3: label (symbol) \; \$4: patch (1) or objects
+(0=by default);
+#X connect 2 0 1 0;
+#X connect 6 0 0 0;
+#X connect 11 0 3 0;

@@ -1,0 +1,68 @@
+HOW-TO get the programming of the BC[FR] from PC to the device??
+
+a short report by IOhannes m zmölnig, iem, 2006
+
+
+
+2 solutions come to my mind how to program the BC[FR]:
+
+
+1. using BCEdit
+===============
+Programming the BC[FR]2000 with the BCEdit can be a real pain:
+Usually you will get a "a Timeout Error while sending '$rev F1' 
+in the application."
+
+The good thing (when it works!) is, that you can dump the whole
+device at once.
+
+I think i remember that i once managed to dump the config-files
+from the PC to the BC[FR]; alas!, i cannot remember how i did it...
+(once i remember, i'll put it in here)
+
+and i found this in the net:
+http://www.synthforum.nl/forums/showthread.php?s=d2c1ff84d22f2bf03df963d5b4a73cf4&postid=514420#post514420
+if i only could speak dutch... but i thik the solution was to use
+an older java-version (not verified)
+
+
+2. using sysex dumps
+====================
+As an alternative you can always dump the configuration via sysex.
+Unfortunately you can only dump 1 preset at a time, so if your 
+setting has a lot of presets, this will considerably slow you down.
+
+Anyhow, this is how to do it:
+A0. copy the setting-file into "~/BCEdit/Devices" (if you don't the BCEdit
+won't find it)
+A1. Open BCEdit, select both on the left (hw) side and on the right (pc) side
+the correct (and matching) device you want to program.
+A2. Select the 'Device' (what a stupid name) you want to load on the right
+(pc) side and 'Load' it into memory.
+A3. Select the 'Preset' (middle field) you want to save
+A4. Click on 'Export SysEx': an ugly file-dialog will pop-up
+A5. browse to the directory of your liking and enter a Filename
+in the very last field of the dialog (it says something about "filtername")
+A6. CLICK on 'OK' to save the file. (just hitting return will NOT WORK)
+A7. repeat from A3 till you have saved all presets you want to.
+...(ok this was the first part, now lets dump it to the BC[FR]
+B1. on the command-line run the command 
+   "amidi -l" 
+to list all available MIDI-devices and locate the BC[FR] you want to program.
+(lets assume that you found it with the device-name "hw:3,0,0")
+B2. on the BC[FR] select the preset to be set.
+B3. now run the command 
+   "amidi -p hw:<ID> -s <filename.syx>"
+<filname.syx> is the filename of the sysex-dump
+<ID> is the primary (numeric) ID of the device-name (so if the device-name
+was "hw:3,0,0" then the <ID> is "3")
+B4. you should see the 7seg-display on the BC[RF] dance around for a short
+time (while the data is transmitted)
+B5. now press the STORE-button on the BC[RF] 2 (two!) times (if you don't
+do so, the dumped preset will be lost the next time you change the preset)
+B6. repeat from B2 until all presets have been dumped and stored.
+
+that's it! easy, isn't it??
+
+
+

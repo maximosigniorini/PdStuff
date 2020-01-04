@@ -1,0 +1,65 @@
+#N canvas 151 22 800 687 10;
+#X declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/numbers -path ../../abstractions/video -path
+../../abstractions/audio -path ../../abstractions/master;
+#X obj 7 279 cnv 1 470 1 empty empty FX 2 -6 1 12 -228856 -191407 0
+;
+#X obj 7 431 cnv 1 470 1 empty empty OUT 2 -6 1 12 -228856 -191407
+0;
+#X obj 7 123 cnv 1 470 1 empty empty IN 2 -6 1 12 -228856 -191407 0
+;
+#X obj 488 28 cnv 20 300 90 empty empty DESCRIPTION 10 15 0 16 -233017
+-128992 0;
+#X obj 488 124 cnv 20 300 150 empty empty empty 10 15 0 16 -233017
+-128992 0;
+#X obj 488 279 cnv 20 300 150 empty empty empty 10 15 0 16 -233017
+-128992 0;
+#X obj 488 434 cnv 20 300 230 empty empty empty 10 15 0 16 -233017
+-128992 0;
+#X obj 95 152 video-in;
+#X obj 95 286 vsl 15 45 0 1 0 0 empty empty X 5 30 0 10 -262144 -1
+-128992 0 1;
+#X floatatom 95 337 5 0 0 0 - - -;
+#X floatatom 238 476 5 0 0 0 - - -;
+#X obj 96 560 audio-out;
+#X obj 95 186 video-motion-blob;
+#X floatatom 95 479 5 0 0 0 - - -;
+#X obj 241 255 hsl 45 15 0 1 0 0 empty empty Y 15 8 0 10 -262144 -1
+-128992 0 1;
+#X obj 95 381 notescale 3;
+#N canvas 841 124 450 300 OPEN_GEM 0;
+#X obj 214 87 loadbang;
+#X obj 214 108 delay 300;
+#X msg 214 128 \; GEM-MASTER on;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X restore 488 7 pd OPEN_GEM;
+#X obj 95 504 synth;
+#X obj 95 356 map 0 1 40 80;
+#X text 247 453 volume;
+#X text 99 453 pitch;
+#X text 496 52 Analysis of the video camera output to grab;
+#X text 496 67 X and Y coordinates of a zone in movement (blob);
+#X text 496 82 These data are used to change the pitch of a;
+#X text 496 96 sound synthesis.;
+#X text 496 159 < video camera;
+#X text 496 209 < tracking a movement;
+#X text 495 248 < Y positions to control the volume;
+#X text 495 318 < X positions to control the pitch;
+#X text 496 356 < conversion in MIDI notes (0-127);
+#X text 496 389 < conversion in musical scale (blues);
+#X text 495 519 < sound synthesis;
+#X text 494 587 < audio ouput;
+#X obj 738 11 ../../abstractions/include;
+#X connect 7 0 12 0;
+#X connect 8 0 9 0;
+#X connect 9 0 18 0;
+#X connect 10 0 17 2;
+#X connect 12 0 8 0;
+#X connect 12 1 14 0;
+#X connect 13 0 17 0;
+#X connect 14 0 10 0;
+#X connect 15 0 13 0;
+#X connect 17 0 11 0;
+#X connect 17 0 11 1;
+#X connect 18 0 15 0;

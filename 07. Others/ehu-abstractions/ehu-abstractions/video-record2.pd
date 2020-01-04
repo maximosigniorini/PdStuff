@@ -1,0 +1,92 @@
+#N canvas 96 183 903 484 10;
+#X obj 26 116 cnv 15 330 80 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 163 13 ehu/gem/win 600 400;
+#X obj 49 94 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 83 95 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 153 96 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 222 98 5 0 0 0 - - -, f 5;
+#X floatatom 257 98 5 0 0 0 - - -, f 5;
+#X floatatom 292 98 5 0 0 0 - - -, f 5;
+#X floatatom 187 98 5 0 0 0 - - -, f 5;
+#X obj 292 207 ehu/out~;
+#X floatatom 89 183 5 0 0 0 - - -, f 5;
+#X floatatom 130 183 5 0 0 0 - - -, f 5;
+#X floatatom 170 183 5 0 0 0 - - -, f 5;
+#X floatatom 211 183 5 0 0 0 - - -, f 5;
+#X obj 251 182 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 88 49 ehu/dsp;
+#X obj 36 6 bng 35 250 50 0 empty empty empty 17 7 0 10 -258113 -1
+-1;
+#X obj 112 457 pix_record;
+#X obj 131 426 cnv 15 145 25 empty empty empty 20 12 0 14 -225271 -66577
+0;
+#X msg 141 430 bang;
+#X msg 213 430 auto \$1;
+#X obj 194 431 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X obj 121 354 cnv 15 155 65 empty empty empty 20 12 0 14 -225271 -66577
+0;
+#X obj 124 325 bng 15 250 50 0 empty empty file 0 -6 0 8 -258699 -1
+-1;
+#N canvas 0 50 450 300 savepanel 0;
+#X obj 114 62 inlet;
+#X obj 114 254 outlet;
+#X obj 114 199 t b a;
+#X obj 114 125 savepanel;
+#X msg 114 162 set file \$1;
+#X connect 0 0 3 0;
+#X connect 2 0 1 0;
+#X connect 2 1 1 0;
+#X connect 3 0 4 0;
+#X connect 4 0 2 0;
+#X restore 124 355 pd savepanel;
+#X msg 151 398 record \$1;
+#X obj 151 325 tgl 15 0 empty empty record 0 -6 0 8 -262144 -1 -1 0
+1;
+#X obj 124 398 t a;
+#X floatatom 200 460 5 0 0 0 - - -, f 5;
+#X text 173 325 <<<<<<<<<<<<<<<<<<<<<<<<<<;
+#X obj 506 139 ehu/gem/texture 220 125 400 300;
+#X obj 506 84 ehu/gem/picture picts/imagen1.jpg;
+#X msg 118 76 videos/whistle.mp4;
+#X obj 48 130 ehu/gem/video videos/whistle.mp4 30;
+#X obj 49 207 ehu/gem/texture 300 200 300 400;
+#X msg 124 375 file /home/r2d2/Mahaigaina/test.avi;
+#X connect 2 0 33 0;
+#X connect 3 0 33 1;
+#X connect 4 0 33 3;
+#X connect 5 0 33 5;
+#X connect 6 0 33 6;
+#X connect 7 0 33 7;
+#X connect 8 0 33 4;
+#X connect 16 0 1 0;
+#X connect 16 0 15 0;
+#X connect 16 0 2 0;
+#X connect 16 0 3 0;
+#X connect 17 1 28 0;
+#X connect 19 0 17 0;
+#X connect 20 0 17 0;
+#X connect 21 0 20 0;
+#X connect 23 0 24 0;
+#X connect 24 0 35 0;
+#X connect 25 0 27 0;
+#X connect 26 0 25 0;
+#X connect 27 0 17 0;
+#X connect 31 0 30 0;
+#X connect 31 0 17 0;
+#X connect 32 0 33 2;
+#X connect 33 0 17 0;
+#X connect 33 0 34 0;
+#X connect 33 1 10 0;
+#X connect 33 2 11 0;
+#X connect 33 3 12 0;
+#X connect 33 4 13 0;
+#X connect 33 5 14 0;
+#X connect 33 6 9 0;
+#X connect 33 7 9 1;
+#X connect 35 0 27 0;

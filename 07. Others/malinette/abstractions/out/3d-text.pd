@@ -1,0 +1,53 @@
+#N canvas 269 320 716 415 10;
+#X obj 315 91 inlet;
+#X obj 117 126 hradio 10 1 0 2 empty empty 3d 22 6 0 10 -262144 -1
+-1 0;
+#X text 101 124 2d;
+#X obj 37 123 + 1;
+#X obj 37 146 gate 2;
+#X msg 187 176 font \$1;
+#X obj 187 157 openpanel;
+#X obj 187 126 bng 10 250 50 0 empty empty o_font 3 5 0 8 -262144 -1
+-1;
+#X obj 153 126 nbx 3 10 -1e+37 1e+37 0 0 empty \$0-size size 0 -5 0
+9 -262144 -1 -1 20 256;
+#X obj 315 154 s \$0-size;
+#X obj 90 299 text2d;
+#X obj 73 357 text3d;
+#X obj 221 21 inlet text;
+#X obj 70 9 inlet gemlist;
+#X obj 327 19 initbang;
+#X obj 477 184 l2s;
+#X obj 315 120 route size mode font text;
+#X msg 478 210 text \$1;
+#X obj 402 184 symbol;
+#X msg 397 208 font \$1;
+#X msg 223 45 text \$1;
+#X msg 328 40 mode 1 \, size 20 \, text malinette \, font ../../data/handy00.ttf
+;
+#X connect 0 0 16 0;
+#X connect 1 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 10 0;
+#X connect 4 1 11 0;
+#X connect 5 0 16 0;
+#X connect 6 0 5 0;
+#X connect 7 0 6 0;
+#X connect 8 0 10 1;
+#X connect 8 0 11 1;
+#X connect 12 0 20 0;
+#X connect 13 0 4 1;
+#X connect 14 0 21 0;
+#X connect 15 0 17 0;
+#X connect 16 0 9 0;
+#X connect 16 1 1 0;
+#X connect 16 2 18 0;
+#X connect 16 3 15 0;
+#X connect 17 0 10 0;
+#X connect 17 0 11 0;
+#X connect 18 0 19 0;
+#X connect 19 0 10 0;
+#X connect 19 0 11 0;
+#X connect 20 0 16 0;
+#X connect 21 0 16 0;
+#X coords 0 -1 1 1 120 40 1 100 100;

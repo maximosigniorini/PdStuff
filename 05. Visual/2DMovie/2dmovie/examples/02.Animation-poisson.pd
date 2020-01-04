@@ -1,0 +1,172 @@
+#N canvas 328 22 871 633 10;
+#X declare -lib 2DMovie;
+#X obj 94 357 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 94 328 r etoile.mouseOver;
+#X obj 129 387 s etoile.play;
+#X obj 51 414 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 80 57 gemManager;
+#X obj 81 165 movieclip poisson poisson*.png;
+#X obj 51 442 soundplayer croa.wav;
+#X obj 337 69 loadbang;
+#X msg 337 107 \; poisson.x 70 \; poisson.y 100 \; etoile.x 90 \; etoile.y
+230 \; etoile.play 0 \; etoile.mouseMode 1 \; anemone.x 410 \; anemone.y
+310 \; anemone.mouseMode 1;
+#X obj 345 351 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 345 322 r anemone.mouseClic;
+#X obj 345 476 s poisson.alpha;
+#X obj 345 449 line;
+#X msg 416 410 1 1000;
+#X obj 345 376 select 1;
+#X obj 51 386 select 1;
+#X floatatom 582 285 5 0 0 0 - - -;
+#X obj 582 159 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 702 385 select 1;
+#X obj 766 337 select 1;
+#X obj 557 368 s poisson.x;
+#X obj 727 462 s poisson.reverse;
+#X msg 702 415 1;
+#X msg 766 417 0;
+#X obj 582 193 metro 83;
+#X obj 766 307 < 50;
+#X obj 647 335 > 580;
+#X msg 723 219 -6;
+#X msg 670 194 6;
+#X obj 81 138 SimpleImage fond fondMarin.jpg 1;
+#X obj 81 193 movieclip etoile etoile*.png;
+#X obj 81 223 Simplebutton anemone anemone.png;
+#X text 313 514 Clic sur l'anémone : disparition du poisson;
+#X text 8 299 Survol de l'étoile : animation de l'étoile + son;
+#X text 544 408 Déplacement du poisson;
+#X obj 582 132 loadbang;
+#X msg 345 410 1 \, 0 1000;
+#X obj 582 251 &counter 6 50;
+#X text 328 41 Initialisation;
+#X obj 112 550 cnv 15 400 50 empty empty empty 20 12 0 14 -261682 -66577
+0;
+#X text 127 553 Le poisson se déplace dans la scène. Le survol de
+l'étoile avec la souris anime l'étoile. Un clic sur l'anémone fait
+disparaître le poisson.;
+#X obj 551 63 import 2DMovie;
+#N canvas 325 96 955 437 variantes-du-deplacement 0;
+#X obj 376 300 s poisson.x;
+#X obj 360 77 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 362 110 t b b;
+#X obj 518 338 s poisson.reverse;
+#X msg 481 298 1;
+#X msg 560 298 0;
+#X msg 444 100 stop;
+#X msg 527 153 50 4000;
+#X floatatom 720 265 5 0 0 0 - - -;
+#X obj 720 108 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 720 305 s poisson.x;
+#X obj 813 296 s poisson.reverse;
+#X obj 720 172 metro 83;
+#X obj 813 191 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 720 133 t f b;
+#X obj 813 261 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 349 146 580 4000;
+#X obj 720 218 &loop 50 580 6 2;
+#X floatatom 62 159 5 0 0 0 - - -;
+#X obj 157 308 select 1;
+#X obj 104 266 |;
+#X obj 62 192 t f f f;
+#X obj 174 171 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 62 61 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 62 95 metro 83;
+#X obj 62 345 s poisson.x;
+#X obj 81 235 > 580;
+#X obj 122 235 < 50;
+#X obj 188 231 s poisson.reverse;
+#X obj 188 208 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 376 260 5 0 0 0 - - -;
+#X obj 62 129 &counter 6 50;
+#X obj 376 229 change;
+#X text 110 11 Plusieurs variantes de programmation pour l'animation
+du poisson;
+#X obj 376 204 line;
+#X obj 466 268 select 580;
+#X obj 578 259 select 50;
+#X msg 443 138 set 50;
+#X connect 1 0 2 0;
+#X connect 2 0 16 0;
+#X connect 2 1 37 0;
+#X connect 4 0 3 0;
+#X connect 5 0 3 0;
+#X connect 6 0 34 0;
+#X connect 7 0 34 0;
+#X connect 8 0 10 0;
+#X connect 9 0 14 0;
+#X connect 12 0 17 0;
+#X connect 13 0 17 4;
+#X connect 14 0 12 0;
+#X connect 14 1 13 0;
+#X connect 15 0 11 0;
+#X connect 16 0 34 0;
+#X connect 17 0 8 0;
+#X connect 17 1 15 0;
+#X connect 18 0 21 0;
+#X connect 19 0 22 0;
+#X connect 20 0 19 0;
+#X connect 21 0 25 0;
+#X connect 21 1 26 0;
+#X connect 21 2 27 0;
+#X connect 22 0 29 0;
+#X connect 22 0 31 1;
+#X connect 23 0 24 0;
+#X connect 24 0 31 0;
+#X connect 26 0 20 0;
+#X connect 27 0 20 1;
+#X connect 29 0 28 0;
+#X connect 30 0 0 0;
+#X connect 31 0 18 0;
+#X connect 32 0 35 0;
+#X connect 32 0 36 0;
+#X connect 32 0 30 0;
+#X connect 34 0 32 0;
+#X connect 35 0 4 0;
+#X connect 35 0 7 0;
+#X connect 36 0 5 0;
+#X connect 36 0 16 0;
+#X connect 37 0 34 0;
+#X restore 601 567 pd variantes-du-deplacement;
+#X connect 0 0 2 0;
+#X connect 0 0 15 0;
+#X connect 1 0 0 0;
+#X connect 3 0 6 0;
+#X connect 7 0 8 0;
+#X connect 9 0 14 0;
+#X connect 10 0 9 0;
+#X connect 12 0 11 0;
+#X connect 13 0 12 0;
+#X connect 14 0 36 0;
+#X connect 14 1 13 0;
+#X connect 15 0 3 0;
+#X connect 16 0 20 0;
+#X connect 16 0 25 0;
+#X connect 16 0 26 0;
+#X connect 17 0 24 0;
+#X connect 18 0 27 0;
+#X connect 18 0 22 0;
+#X connect 19 0 28 0;
+#X connect 19 0 23 0;
+#X connect 22 0 21 0;
+#X connect 23 0 21 0;
+#X connect 24 0 37 0;
+#X connect 25 0 19 0;
+#X connect 26 0 18 0;
+#X connect 27 0 37 1;
+#X connect 28 0 37 1;
+#X connect 35 0 17 0;
+#X connect 36 0 12 0;
+#X connect 37 0 16 0;

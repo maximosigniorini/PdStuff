@@ -1,0 +1,271 @@
+#N canvas 99 79 800 668 10;
+#X declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/tools -path ../../abstractions/filters -path
+../../abstractions/fx-video -path ../../abstractions/fx-audio -path
+../../abstractions/master;
+#X declare -path abstractions/in -path abstractions/out -path abstractions/tools
+-path abstractions/filters -path abstractions/fx-video -path abstractions/fx-audio
+-path abstractions/master;
+#X obj 7 279 cnv 1 470 1 empty empty FX 2 -6 1 12 -228856 -191407 0
+;
+#X obj 7 431 cnv 1 470 1 empty empty OUT 2 -6 1 12 -228856 -191407
+0;
+#X obj 7 123 cnv 1 470 1 empty empty IN 2 -6 1 12 -228856 -191407 0
+;
+#X obj 245 145 mouse;
+#X obj 162 514 audio-out;
+#X text 256 445 volume;
+#X floatatom 193 170 5 0 0 0 - - -;
+#X obj 162 343 notescale;
+#X obj 162 465 synth 2;
+#X text 251 157 x;
+#X text 291 157 y;
+#X text 195 446 waveform;
+#X text 326 158 clic;
+#X obj 488 124 cnv 20 300 150 empty empty empty 10 15 0 16 -233017
+-128992 0;
+#X text 114 445 pitch;
+#N canvas 466 138 801 468 INIT 0;
+#X obj 101 101 cnv 8 48 8 empty empty INCLUDE 2 4 0 10 -233017 -66577
+0;
+#X obj 102 261 declare -path ../../abstractions/in -path ../../abstractions/out
+-path ../../abstractions/tools -path ../../abstractions/filters -path
+../../abstractions/fx-video -path ../../abstractions/fx-audio -path
+../../abstractions/master;
+#X text 100 240 Use for standalone :;
+#X text 100 140 Use with the main.pd :;
+#X text 97 25 Import paths to find abstractions \; Always use it in
+the examples patchs.;
+#X obj 102 162 declare -path abstractions/in -path abstractions/out
+-path abstractions/tools -path abstractions/filters -path abstractions/fx-video
+-path abstractions/fx-audio -path abstractions/master;
+#X obj 565 311 savepanel;
+#X obj 565 146 route savetofile;
+#X obj 565 166 unpack s s;
+#X obj 565 125 iemguts/receivecanvas 1;
+#X text 562 96 Get new saved file;
+#X text 562 289 Or inside this abstraction ?;
+#X obj 565 209 s CURRENT-FILE;
+#X obj 622 189 s CURRENT-FOLDER;
+#X connect 7 0 8 0;
+#X connect 8 0 12 0;
+#X connect 8 1 13 0;
+#X connect 9 0 7 0;
+#X coords 0 -1 1 1 50 10 2 100 100;
+#X restore 634 10 pd INIT;
+#X obj 21 397 s note;
+#X obj 25 50 seq-sliders;
+#X obj 162 308 map 0 1 30 80;
+#X obj 373 351 notescale;
+#X obj 378 415 s note1;
+#X obj 338 495 line;
+#X obj 404 575 s velo1;
+#X floatatom 330 369 5 0 0 0 - - -;
+#X floatatom 297 538 5 0 0 0 - - -;
+#X obj 246 413 t b b;
+#X floatatom 300 257 5 0 0 0 - - -;
+#X obj 266 191 vradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X obj 373 316 map 0 1 30 50;
+#X msg 329 440 0.5 \, 0 \$1;
+#X obj 439 504 resample 50;
+#X obj 372 46 seq-sliders;
+#N canvas 569 184 455 352 ARDUINO 0;
+#X msg 27 239 devices;
+#X msg 113 212 print \$1 \, 10;
+#X obj 113 191 l2s;
+#N canvas 570 470 366 232 print 0;
+#X obj 73 120 list;
+#X obj 124 103 list prepend;
+#X obj 193 82 t l;
+#X obj 73 63 sel 13 10;
+#X obj 73 142 moocow/bytes2any;
+#X obj 72 161 print ARDUINO;
+#X obj 73 31 inlet;
+#X connect 0 0 4 0;
+#X connect 1 0 2 0;
+#X connect 1 0 0 1;
+#X connect 2 0 1 1;
+#X connect 3 0 1 1;
+#X connect 3 0 0 0;
+#X connect 3 2 1 0;
+#X connect 4 0 5 0;
+#X connect 6 0 3 0;
+#X restore 113 293 pd print;
+#X msg 309 212 close;
+#X obj 108 145 r \$0-ard;
+#X obj 113 273 spigot;
+#X obj 158 274 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 113 237 comport 0 115200;
+#X obj 263 188 sel 1 0;
+#X msg 261 210 open 0;
+#X obj 169 103 tgl 13 0 empty empty empty 17 7 0 10 -257985 -1 -1 0
+1;
+#X obj 110 168 spigot;
+#X obj 176 185 print;
+#X msg 63 273 open 1;
+#X obj 133 61 inlet;
+#X connect 0 0 8 0;
+#X connect 1 0 8 0;
+#X connect 2 0 1 0;
+#X connect 4 0 8 0;
+#X connect 5 0 12 0;
+#X connect 6 0 3 0;
+#X connect 7 0 6 1;
+#X connect 8 0 6 0;
+#X connect 9 0 10 0;
+#X connect 9 1 4 0;
+#X connect 10 0 8 0;
+#X connect 11 0 9 0;
+#X connect 11 0 12 1;
+#X connect 12 0 2 0;
+#X connect 14 0 8 0;
+#X connect 15 0 12 0;
+#X coords 0 -1 1 1 85 18 1 100 100;
+#X restore 568 592 pd ARDUINO;
+#N canvas 213 156 1044 450 KL-PH 0;
+#X msg 102 235 kl1_tone \$1;
+#X obj 102 139 vsl 15 30 0 1000 0 0 \$0-kl-tone-1 \$0-kl-tone-1-in
+Hz 1 -9 0 8 -24198 -1 -1 506 1;
+#X obj 175 114 bng 10 250 50 0 \$0-reset empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 711 245 0;
+#X msg 577 328 kl1_stop bang \, kl2_stop bang;
+#X obj 577 241 r \$0-reset;
+#X obj 102 275 spigot;
+#X obj 27 258 r \$0-onoff;
+#X msg 179 235 kl1_pwm \$1;
+#X obj 117 139 vsl 15 30 0 1 0 0 \$0-kl-pwm-1 \$0-kl-pwm-1-in Pwm -1
+-9 0 8 -24198 -1 -1 1055 1;
+#X obj 179 275 spigot;
+#X obj 102 115 cnv 8 30 8 empty empty 1 12 4 0 8 -204786 -66577 0;
+#X obj 135 139 vsl 15 30 0 1000 0 0 \$0-kl-tone-2 \$0-kl-tone-2-in
+Hz 1 -9 0 8 -24198 -1 -1 142 1;
+#X obj 252 275 spigot;
+#X obj 150 139 vsl 15 30 0 1 0 0 \$0-kl-pwm-2 \$0-kl-pwm-2-in Pwm -1
+-9 0 8 -24198 -1 -1 0 1;
+#X obj 329 275 spigot;
+#X obj 135 115 cnv 8 30 8 empty empty 2 12 4 0 8 -204786 -66577 0;
+#X msg 252 235 kl2_tone \$1;
+#X msg 329 235 kl2_pwm \$1;
+#X obj 187 114 tgl 10 0 \$0-onoff \$0-onoff-in empty 17 7 0 10 -257985
+-1 -1 0 1;
+#X obj 168 139 vsl 15 30 0 1 0 0 \$0-ph-pwm-1 \$0-ph-pwm-1-in 1 5 -9
+0 8 -257985 -1 -1 0 1;
+#X obj 398 274 spigot;
+#X obj 481 273 spigot;
+#X obj 183 139 vsl 15 30 0 1 0 0 \$0-ph-pwm-2 \$0-ph-pwm-2-in 2 5 -9
+0 8 -257985 -1 -1 0 1;
+#X msg 403 234 ph1_pwm \$1;
+#X msg 481 233 ph2_pwm \$1;
+#X obj 246 348 outlet;
+#X obj 100 21 inlet;
+#X obj 141 21 inlet;
+#X obj 185 20 inlet;
+#X obj 226 20 inlet;
+#X obj 614 281 s \$0-kl-tone-1-in;
+#X obj 614 300 s \$0-kl-tone-2-in;
+#X obj 706 282 s \$0-kl-pwm-1-in;
+#X obj 706 301 s \$0-kl-pwm-2-in;
+#X obj 797 283 s \$0-ph-pwm-1-in;
+#X obj 797 302 s \$0-ph-pwm-2-in;
+#X obj 336 18 inlet;
+#X obj 67 49 s \$0-kl-tone-1-in;
+#X obj 159 77 s \$0-kl-tone-2-in;
+#X obj 107 64 s \$0-kl-pwm-1-in;
+#X obj 251 94 s \$0-kl-pwm-2-in;
+#X obj 352 47 s \$0-ph-pwm-1-in;
+#X obj 437 50 s \$0-ph-pwm-2-in;
+#X obj 381 19 inlet;
+#X obj 179 211 * 100;
+#X obj 329 210 * 100;
+#X obj 403 209 * 100;
+#X obj 481 208 * 100;
+#X obj 329 139 init 1;
+#X connect 0 0 6 0;
+#X connect 1 0 0 0;
+#X connect 3 0 31 0;
+#X connect 3 0 32 0;
+#X connect 3 0 33 0;
+#X connect 3 0 34 0;
+#X connect 3 0 35 0;
+#X connect 3 0 36 0;
+#X connect 4 0 26 0;
+#X connect 5 0 3 0;
+#X connect 5 0 4 0;
+#X connect 6 0 26 0;
+#X connect 7 0 6 1;
+#X connect 7 0 10 1;
+#X connect 7 0 13 1;
+#X connect 7 0 15 1;
+#X connect 7 0 21 1;
+#X connect 7 0 22 1;
+#X connect 8 0 10 0;
+#X connect 9 0 45 0;
+#X connect 10 0 26 0;
+#X connect 12 0 17 0;
+#X connect 13 0 26 0;
+#X connect 14 0 46 0;
+#X connect 15 0 26 0;
+#X connect 17 0 13 0;
+#X connect 18 0 15 0;
+#X connect 20 0 47 0;
+#X connect 21 0 26 0;
+#X connect 22 0 26 0;
+#X connect 23 0 48 0;
+#X connect 24 0 21 0;
+#X connect 25 0 22 0;
+#X connect 27 0 38 0;
+#X connect 28 0 40 0;
+#X connect 29 0 39 0;
+#X connect 30 0 41 0;
+#X connect 37 0 42 0;
+#X connect 44 0 43 0;
+#X connect 45 0 8 0;
+#X connect 46 0 18 0;
+#X connect 47 0 24 0;
+#X connect 48 0 25 0;
+#X connect 49 0 19 0;
+#X coords 0 -1 1 1 100 75 1 100 100;
+#X restore 569 507 pd KL-PH;
+#X msg 606 421 410;
+#X obj 573 460 mtof;
+#X obj 559 311 r note;
+#X obj 625 463 mtof;
+#X obj 654 290 r note1;
+#X obj 671 415 r velo1;
+#X obj 574 351 resample 20;
+#X obj 660 347 resample 20;
+#X floatatom 703 315 5 0 0 0 - - -;
+#X floatatom 607 313 5 0 0 0 - - -;
+#X connect 3 0 6 0;
+#X connect 7 0 8 0;
+#X connect 7 0 16 0;
+#X connect 7 0 25 0;
+#X connect 8 0 4 0;
+#X connect 8 0 4 1;
+#X connect 17 0 18 0;
+#X connect 18 0 7 0;
+#X connect 19 0 20 0;
+#X connect 21 0 24 0;
+#X connect 21 0 22 0;
+#X connect 23 0 29 0;
+#X connect 25 1 23 0;
+#X connect 26 0 7 1;
+#X connect 27 0 7 1;
+#X connect 27 0 19 1;
+#X connect 28 0 19 0;
+#X connect 29 0 21 0;
+#X connect 31 0 28 0;
+#X connect 33 0 32 0;
+#X connect 35 0 33 0;
+#X connect 35 0 33 2;
+#X connect 36 0 40 0;
+#X connect 36 0 35 0;
+#X connect 37 0 33 2;
+#X connect 38 0 41 0;
+#X connect 38 0 37 0;
+#X connect 39 0 33 1;
+#X connect 42 0 41 1;
+#X connect 43 0 40 1;

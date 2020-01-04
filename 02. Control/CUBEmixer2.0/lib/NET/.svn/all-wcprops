@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/NET
+END
+DSPnet.pd
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/NET/DSPnet.pd
+END
+sendOSC.pd
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/NET/sendOSC.pd
+END
+autonet.pd
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/NET/autonet.pd
+END
+cubemixer_client.pd
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/NET/cubemixer_client.pd
+END
+start.sh
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/NET/start.sh
+END
+cubemixer_server.pd
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/NET/cubemixer_server.pd
+END
+dumpOSC.pd
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/NET/dumpOSC.pd
+END
+GUInet.pd
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/NET/GUInet.pd
+END

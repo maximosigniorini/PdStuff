@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP
+END
+test_DSP+NET+MIDI+CUE.pd
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/test_DSP+NET+MIDI+CUE.pd
+END
+DSP+NET+MIDI+CUE.pd
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/DSP+NET+MIDI+CUE.pd
+END
+extensions.pd
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/extensions.pd
+END
+LS_test24.pd
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/LS_test24.pd
+END
+start.sh
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/start.sh
+END
+startALSA.sh
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/startALSA.sh
+END
+test_DSP+NET+MIDI.pd
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/test_DSP+NET+MIDI.pd
+END
+test_DSP.pd
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/test_DSP.pd
+END
+test_DSP+NET.pd
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/test_DSP+NET.pd
+END
+READ_ME.txt
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/READ_ME.txt
+END
+startOSS.sh
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/iem/!svn/ver/2165/spatialization/CUBEmixer/tags/version_2_0/lib/DSP/startOSS.sh
+END

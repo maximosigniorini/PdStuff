@@ -1,0 +1,75 @@
+#N canvas 212 283 1144 417 10;
+#X obj 533 79 f;
+#X floatatom 357 55 5 0 0 0 - - -, f 5;
+#X floatatom 357 99 5 0 0 0 - - -, f 5;
+#X obj 360 37 hsl 128 15 0 99 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X floatatom 989 36 5 0 0 0 - - -, f 5;
+#X floatatom 657 55 5 0 0 0 - - -, f 5;
+#X floatatom 786 213 20 0 0 0 - - -, f 20;
+#X obj 660 37 hsl 128 15 0 99 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 833 124 pow 2;
+#X obj 988 124 pow 2;
+#X floatatom 787 196 20 0 0 0 - - -, f 20;
+#X obj 988 55 t b f;
+#X obj 825 322 -;
+#X obj 825 344 abs;
+#X obj 858 371 hsl 128 15 0 1 0 0 empty empty error_0-1 -2 -8 0 10
+-262144 -1 -1 0 1;
+#X text 355 12 verify linear [0:99];
+#X text 1026 35 change exponent;
+#X text 655 12 verify pow ^2 [0:99] and show error below;
+#X floatatom 716 372 20 0 0 0 - - -, f 20;
+#X text 913 204 should match or be close;
+#X floatatom 357 276 5 0 0 0 - - -, f 5;
+#X obj 360 258 hsl 128 15 0 6.29 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X floatatom 357 323 5 0 0 0 - - -, f 5;
+#X obj 400 279 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 516 301 expr pow(sin($f1) \, 2);
+#X text 356 205 complicated expr [0:2pi] open jTabLookup to see function
+shape, f 24;
+#X text 417 280 if change objects \, bang to refill table;
+#X text 5 4 Fill a table with values processed by cross-connected object(s).
+\; \; Lookup table by index via tabread4 4 point interpolation \; \;
+Useful for computationally expensive objects like [pow] \, [exp] etc.
+\, where a close approximation will suffice. Or for a complicated chain
+of objects \, or an intricate [expr]. (Because lookup table is calculated
+over a specified range \, this is only useful in situations where a
+finite range is acceptable.) \; \; \$1 lower lookup bound (float) \;
+\$2 upper lookup bound (float!=\$1) \; \$1 lookup table size \; \;
+in1 lookup index (\$1:\$2) or bang to (re)fill table \; in2 from output
+of processing object(s) \; \; out1 tabread4 lookup values \; out2 to
+input of processing object(s) \; \; John Flynn, f 52;
+#X obj 357 301 jTabLookup 0 6.29 1000;
+#X obj 357 78 jTabLookup 0 99 100;
+#X obj 657 123 jTabLookup 0 99 100;
+#X connect 0 0 29 1;
+#X connect 1 0 29 0;
+#X connect 3 0 1 0;
+#X connect 4 0 11 0;
+#X connect 5 0 9 0;
+#X connect 5 0 30 0;
+#X connect 7 0 5 0;
+#X connect 8 0 30 1;
+#X connect 9 0 10 0;
+#X connect 9 0 12 1;
+#X connect 11 0 30 0;
+#X connect 11 1 8 1;
+#X connect 11 1 9 1;
+#X connect 12 0 13 0;
+#X connect 13 0 14 0;
+#X connect 13 0 18 0;
+#X connect 20 0 28 0;
+#X connect 21 0 20 0;
+#X connect 23 0 28 0;
+#X connect 24 0 28 1;
+#X connect 28 0 22 0;
+#X connect 28 1 24 0;
+#X connect 29 0 2 0;
+#X connect 29 1 0 0;
+#X connect 30 0 6 0;
+#X connect 30 0 12 0;
+#X connect 30 1 8 0;

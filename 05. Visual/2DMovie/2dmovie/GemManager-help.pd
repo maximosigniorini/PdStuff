@@ -1,0 +1,147 @@
+#N canvas 414 153 732 613 10;
+#X obj 2 -256 cnv 15 700 50 empty empty GemManager 3 12 0 18 -260080
+-1 0;
+#X text 591 -239 @author Pertuit;
+#X text 22 -189 DESCRIPTION;
+#X text 22 171 INLETS \; aucun;
+#X text 22 211 OUTLETS \; aucun;
+#X obj 500 -95 gemmanager;
+#X text 141 -250 Patch pour la gestion de l'affichage GEM.;
+#X text 22 131 ARGUMENTS \; aucun;
+#X text 591 -227 @version 1;
+#X text 21 96 On quitte la fenêtre en cliquant sur la touche "q".
+;
+#X text 21 -55 Deux tailles de fenêtre sont possibles :;
+#X text 21 57 On bascule d'une taille réduite au mode plein écran
+en cliquant sur la touche "f".;
+#X text 22 -103 L'espace est configuré avec une origine située dans
+le coin supérieur gauche de la fenêtre. L'unité en x (position horizontale)
+et y (position verticale) est le pixel.;
+#X text 591 -252 @library 2DMovie;
+#X text 21 -164 Le patch GemManager ouvre une fenêtre GEM et envoie
+les informations de la fenêtre aux autres patches de la bibliothèque
+2DMovie (pour le dimensionnement des objets graphiques).;
+#X text 21 6 2- le mode plein écran qui transforme \, de façon homothétique
+\, les positions et les dimensions de la fenêtre de travail pour les
+adapter au plein écran.;
+#N canvas 816 45 431 204 adaptation-selon-le-système 0;
+#X text 23 25 ADAPTATION NECESSAIRE SELON LE SYSTEME;
+#X text 23 49 * Le paramétrage des touches est fait pour Mac et PC.
+Pour Linux \, il est à adapter.;
+#X text 23 82 * Nous avons constaté que le fullscreen standard ne
+fonctionnait pas toujours très bien (sur Mac) selon les ordinateurs
+\, c'est pourquoi nous avons opté pour une taille saisie en dur dans
+le patch. Cette taille est à modifier si besoin.;
+#X restore 471 129 pd adaptation-selon-le-système;
+#X text 21 -38 1- une fenêtre de travail de taille réduite (par défaut
+: 640 x 400). La programmation et le placement des objets graphiques
+se font par rapport à cette fenêtre.;
+#N canvas 772 50 452 543 espace-gem-et-espace-2DMovie 0;
+#X text 23 25 ESPACE GEM ET ESPACE 2DMOVIE;
+#X text 23 49 * A la différence de l'espace GEM \, qui est un espace
+de représentation en 3D \, les objets graphiques de la bibliothèque
+2DMovie sont plans. Ils sont placés \, par défaut \, sur le plan
+xy (z=0) de GEM. On peut modifier la position en z du plan d'affichage
+à l'aide du paramètres "depthZ" de chaque objet.;
+#X text 23 139 * Dans l'espace plan 2DMovie \, les éléments graphiques
+sont positionnés par rapport à la fenêtre de travail (Working Window).
+En passant en plein écran \, la vue est transposée (les objets sont
+redimensionnés et repositionnés selon la taille de l'écran) \, mais
+les valeurs des variables en pixels sont inchangées. Le principe étant
+de réaliser une animation selon les données de la fenêtre de travail
+\, sans se préoccuper du plein écran : le mode plein écran réalise
+automatiquement les transpositions de positions et de taille. C'est
+pourquoi on utilise le module [WWMouse] qui donne la position de la
+souris dans la fenêtre de travail \, au lieu du classique [gemmouse]
+\, qui donnerait la position réelle.;
+#X text 25 320 * Lorsque des chaines graphiques 3D de GEM sont associées
+aux objets graphiques 2DMovie \, il est nécessaire d'utiliser des
+modules de conversion si l'on veut maîtriser leur position en mode
+plein écran. Ces modules diffèrent selon le mode d'affichage de GEM
+(perspective ou mode orthographique). Voir à ce sujet les exemples
+des modules : [pixelWW-2-ortho] \, [pixelWW-2-persp] \, [ortho-2-pixelWW]
+et [persp-2-pixelWW].;
+#X restore 471 69 pd espace-gem-et-espace-2DMovie;
+#X text 21 252 On utilise des liaisons sans fil pour changer les paramètres
+de la fenêtre. Une actualisation de la fenêtre (ouverture ou agrandissement)
+est nécessaire pour que les valeurs des variables de fenêtre soient
+prises en compte.;
+#N canvas 335 397 1080 600 variables-et-fonctions 0;
+#X text 59 13 VARIABLES;
+#X obj 58 232 s color;
+#X msg 113 201 1 1 1;
+#X msg 58 201 1 1 0;
+#X text 146 233 color - Couleur RVB du fond d'écran (valeurs de 0
+à 1).;
+#X obj 58 503 s cursor;
+#X obj 58 475 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 146 485 cursor - Apparition ou disparition du curseur (0 ou
+1). Une fois masqué \, on peut remplacer le curseur par une image
+[SimpleImage].;
+#X obj 58 367 s antialias;
+#X msg 58 337 0;
+#X msg 93 337 4;
+#X text 146 358 antialias - anticrénelage pour le lissage des polices
+(0 à 8).;
+#X obj 58 270 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 58 298 s lighting;
+#X text 146 300 lighting - Rendu de l'éclairage (0 \, par défaut
+\, ou 1).;
+#X obj 58 437 s dips;
+#X text 146 431 dips - nombre d'images affichées par seconde (30 par
+défaut).;
+#X msg 94 406 30;
+#X msg 58 406 10;
+#X obj 60 80 s size;
+#X msg 127 49 640 400;
+#X msg 60 49 800 500;
+#X text 147 74 size - Modification de la taille de la fenêtre de travail
+(par défaut : 640 x 400).;
+#X text 568 13 FONCTIONS;
+#X floatatom 568 88 5 0 0 0 - - -;
+#X floatatom 608 88 5 0 0 0 - - -;
+#X obj 649 90 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 568 126 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 568 182 5 0 0 0 - - -;
+#X floatatom 619 182 5 0 0 0 - - -;
+#X obj 568 54 WWMouse;
+#X obj 568 153 WWSize;
+#X text 696 156 WWSize - Retourne la valeur de la taille de la fenêtre
+de travail du gemManager.;
+#X text 691 45 WWMouse - Retourne la position de la souris et le clic
+dans la fenêtre de travail (Working Window) du GemManager. Le plein
+écran n'étant qu'une vue homothétique des éléments graphiques
+de la fenêtre de travail \, même en plein écran \, la largeur et
+la hauteur maximum correspondent aux valeurs de la fenêtre de travail.
+;
+#X obj 60 155 s fullScreen;
+#X msg 60 124 auto;
+#X text 176 129 fullScreen - Modification de la taille du plein écran.
+On utilise généralement la valeur standard ("auto" \, par défaut)
+\, mais il peut être utile de changer cette valeur dans le cadre d'installations
+à plusieurs écrans.;
+#X msg 107 124 1280 800;
+#X connect 2 0 1 0;
+#X connect 3 0 1 0;
+#X connect 6 0 5 0;
+#X connect 9 0 8 0;
+#X connect 10 0 8 0;
+#X connect 12 0 13 0;
+#X connect 17 0 15 0;
+#X connect 18 0 15 0;
+#X connect 20 0 19 0;
+#X connect 21 0 19 0;
+#X connect 27 0 31 0;
+#X connect 30 0 24 0;
+#X connect 30 1 25 0;
+#X connect 30 2 26 0;
+#X connect 31 0 28 0;
+#X connect 31 1 29 0;
+#X connect 35 0 34 0;
+#X connect 37 0 34 0;
+#X restore 471 9 pd variables-et-fonctions;
+#X coords 0 613 1 612 65 15 0;

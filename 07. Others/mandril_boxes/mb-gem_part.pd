@@ -1,0 +1,588 @@
+#N canvas 412 583 622 240 10;
+#X obj 369 6 inlet;
+#X text 409 4 gemhead;
+#N canvas 161 158 723 983 mbpart_core 0;
+#X obj 22 16 inlet;
+#X text 62 15 gemhead;
+#X msg 133 50 speed \$1;
+#X obj 90 76 part_head \$2;
+#X obj 90 155 part_color;
+#X obj 90 218 part_size 1;
+#X obj 133 19 r \$1mbpart_speed;
+#X obj 153 184 r \$1mbpart_size;
+#X obj 90 327 part_velocity;
+#X obj 116 261 r \$1mbpart_domain;
+#X msg 188 314 0 0.199596 0 0.199596 0 0 0;
+#X obj 90 402 part_source 20;
+#X obj 126 580 part_gravity 0 -0.01 0;
+#X obj 107 663 part_killold 30;
+#X floatatom 521 535 0 0 0 0 - - -;
+#X obj 344 554 part_orbitpoint 0 1 0 0.08;
+#X obj 106 802 part_draw;
+#X msg 3 719 draw line;
+#X msg -25 745 draw point;
+#X obj 403 853 part_render;
+#X obj 104 826 outlet;
+#X obj 401 879 outlet;
+#X symbolatom 162 291 10 0 0 0 - - -;
+#X obj 122 288 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 227 291 r \$1mbpart_dom_args;
+#X obj 277 316 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 187 241 s \$1mbpart_domain_label;
+#X msg 188 221 label \$1;
+#X obj 116 103 r \$1mbpart_color1;
+#X obj 231 105 r \$1mbpart_color2;
+#X msg 231 128 0 0 0 0 0 0 0;
+#X obj 320 130 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 117 127 0 0 0;
+#X obj 206 129 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 117 358 r \$1mbpart_numpartfr;
+#X msg 143 551 0 -0.010101 0;
+#X obj 222 547 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 145 525 r \$1mbpart_gravity_val;
+#X obj 243 658 r \$1mbpart_timelive;
+#X obj 210 659 int;
+#X msg 383 519 0 1 0;
+#X obj 402 499 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 386 466 r \$1mbpart_orbit_val;
+#X obj 517 509 r \$1mbpart_orb_grav;
+#X obj 269 390 r \$1mbpart_sel_out;
+#X obj 99 460 demux nothing gravity orbit;
+#X obj -26 661 r \$1mbpart_sel_draw;
+#X obj -25 688 select 0 1;
+#X msg 12 798 draw \$1;
+#X obj -37 836 r \$1mbpart_draw_size;
+#X connect 0 0 3 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 8 0;
+#X connect 6 0 2 0;
+#X connect 7 0 5 1;
+#X connect 8 0 11 0;
+#X connect 9 0 22 0;
+#X connect 9 0 23 0;
+#X connect 10 0 8 2;
+#X connect 11 0 45 0;
+#X connect 12 0 13 0;
+#X connect 13 0 16 0;
+#X connect 13 0 19 0;
+#X connect 14 0 15 2;
+#X connect 15 0 13 0;
+#X connect 16 0 20 0;
+#X connect 17 0 16 0;
+#X connect 18 0 16 0;
+#X connect 19 0 21 0;
+#X connect 22 0 8 1;
+#X connect 22 0 27 0;
+#X connect 23 0 22 0;
+#X connect 24 0 10 0;
+#X connect 24 0 25 0;
+#X connect 25 0 10 0;
+#X connect 27 0 26 0;
+#X connect 28 0 32 0;
+#X connect 28 0 33 0;
+#X connect 29 0 30 0;
+#X connect 29 0 31 0;
+#X connect 30 0 4 2;
+#X connect 31 0 30 0;
+#X connect 32 0 4 1;
+#X connect 33 0 32 0;
+#X connect 34 0 11 1;
+#X connect 35 0 12 1;
+#X connect 36 0 35 0;
+#X connect 37 0 36 0;
+#X connect 37 0 35 0;
+#X connect 38 0 39 0;
+#X connect 39 0 13 1;
+#X connect 40 0 15 1;
+#X connect 41 0 40 0;
+#X connect 42 0 41 0;
+#X connect 42 0 40 0;
+#X connect 43 0 15 2;
+#X connect 44 0 45 1;
+#X connect 45 0 13 0;
+#X connect 45 1 12 0;
+#X connect 45 2 15 0;
+#X connect 46 0 47 0;
+#X connect 47 0 18 0;
+#X connect 47 1 17 0;
+#X connect 48 0 16 0;
+#X connect 49 0 48 0;
+#X restore 369 89 pd mbpart_core;
+#X obj 369 142 outlet;
+#X text 407 143 gemhead;
+#X obj 471 144 outlet;
+#X text 509 145 part_render;
+#N canvas 479 217 1064 680 more_values 0;
+#X text 600 328 <arguments>: up to 9 floats \, defining the specified
+domain (like "x y z" for "point" \, "x1 y1 z1 x2 y2 z2" for "line"
+\, "x y z r" for "sphere" \, ...). The meaning of the arguments depends
+-of course- on the domain.;
+#N canvas 16 120 515 448 set_domain 0;
+#X obj 92 72 select 0 1 2 3 4 5 6 7 8 9 10;
+#X msg 176 233 set sphere;
+#X msg 92 100 set point;
+#X msg 107 126 set line;
+#X msg 121 152 set triangle;
+#X msg 139 181 set plane;
+#X msg 159 208 set box;
+#X msg 198 255 set cylinder;
+#X msg 226 278 set cone;
+#X msg 247 308 set blob;
+#X msg 270 332 set disc;
+#X msg 299 362 set rectangle;
+#X obj 97 19 inlet;
+#X obj 151 406 outlet;
+#X connect 0 0 2 0;
+#X connect 0 1 3 0;
+#X connect 0 2 4 0;
+#X connect 0 3 5 0;
+#X connect 0 4 6 0;
+#X connect 0 5 1 0;
+#X connect 0 6 7 0;
+#X connect 0 7 8 0;
+#X connect 0 8 9 0;
+#X connect 0 9 10 0;
+#X connect 0 10 11 0;
+#X connect 1 0 13 0;
+#X connect 2 0 13 0;
+#X connect 3 0 13 0;
+#X connect 4 0 13 0;
+#X connect 5 0 13 0;
+#X connect 6 0 13 0;
+#X connect 7 0 13 0;
+#X connect 8 0 13 0;
+#X connect 9 0 13 0;
+#X connect 10 0 13 0;
+#X connect 11 0 13 0;
+#X connect 12 0 0 0;
+#X restore 73 98 pd set_domain;
+#X obj 78 38 r \$1mbpart_domain_ini;
+#X obj 73 69 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144 -1
+-1 5;
+#X obj 70 131 s \$1mbpart_domain;
+#X obj 218 38 r \$1mbpart_dom_x1_ini;
+#X obj 366 38 r \$1mbpart_dom_y1_ini;
+#X obj 508 37 r \$1mbpart_dom_z1_ini;
+#X obj 676 33 r \$1mbpart_dom_arg1_ini;
+#X floatatom 232 64 5 0 0 0 - - -;
+#X floatatom 676 56 5 0 0 0 - - -;
+#X obj 675 73 t b f;
+#X floatatom 513 61 5 0 0 0 - - -;
+#X obj 512 78 t b f;
+#X floatatom 369 58 5 0 0 0 - - -;
+#X obj 368 75 t b f;
+#X obj 560 300 s \$1mbpart_dom_args;
+#X msg 579 261 0 0.199596 0 0.199596 0 0 0;
+#X floatatom 728 82 5 0 0 0 - - -;
+#X obj 727 99 t b f;
+#X obj 728 59 r \$1mbpart_dom_arg2_ini;
+#X floatatom 775 110 5 0 0 0 - - -;
+#X obj 774 127 t b f;
+#X obj 775 87 r \$1mbpart_dom_arg3_ini;
+#X floatatom 823 135 5 0 0 0 - - -;
+#X obj 822 152 t b f;
+#X obj 823 112 r \$1mbpart_dom_arg4_ini;
+#X obj 572 198 pack f f f f f f f;
+#X msg 573 223 set \$1 \$2 \$3 \$4 \$5 \$6 \$7;
+#X obj 83 622 s \$1mbpart_color1;
+#X obj 79 435 r \$1mbpart_color_r;
+#X obj 83 556 pack f f f;
+#X msg 83 583 set \$1 \$2 \$3;
+#X obj 92 459 r \$1mbpart_color_g;
+#X obj 138 486 r \$1mbpart_color_b;
+#X floatatom 92 487 5 0 0 0 - - -;
+#X obj 91 504 t b f;
+#X floatatom 138 509 5 0 0 0 - - -;
+#X obj 137 526 t b f;
+#X msg 100 602 0 0 0;
+#X obj 261 559 pack f f f;
+#X msg 261 586 set \$1 \$2 \$3;
+#X floatatom 270 490 5 0 0 0 - - -;
+#X obj 269 507 t b f;
+#X floatatom 316 512 5 0 0 0 - - -;
+#X obj 315 529 t b f;
+#X msg 278 605 0 0 0 0 0 0 0;
+#X obj 257 438 r \$1mbpart_color_r2;
+#X obj 270 462 r \$1mbpart_color_g2;
+#X obj 316 489 r \$1mbpart_color_b2;
+#X obj 261 625 s \$1mbpart_color2;
+#X obj 470 566 pack f f f;
+#X msg 470 593 set \$1 \$2 \$3;
+#X floatatom 479 497 5 0 0 0 - - -;
+#X obj 478 514 t b f;
+#X floatatom 525 519 5 0 0 0 - - -;
+#X obj 524 536 t b f;
+#X msg 487 612 0 -0.010101 0;
+#X obj 466 445 r \$1mbpart_grav_x;
+#X obj 479 469 r \$1mbpart_grav_y;
+#X obj 525 496 r \$1mbpart_grav_z;
+#X obj 470 632 s \$1mbpart_gravity_val;
+#X obj 61 224 r \$1mbpart_numpartfr_ini2;
+#X obj 63 251 int;
+#X obj 63 282 s \$1mbpart_numpartfr_ini;
+#X obj 660 562 pack f f f;
+#X msg 660 589 set \$1 \$2 \$3;
+#X floatatom 669 493 5 0 0 0 - - -;
+#X obj 668 510 t b f;
+#X floatatom 715 515 5 0 0 0 - - -;
+#X obj 714 532 t b f;
+#X msg 677 608 0 1 0;
+#X obj 656 441 r \$1mbpart_orb_x;
+#X obj 669 465 r \$1mbpart_orb_y;
+#X obj 715 492 r \$1mbpart_orb_z;
+#X obj 660 628 s \$1mbpart_orbit_val;
+#X connect 1 0 4 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X connect 5 0 9 0;
+#X connect 6 0 14 0;
+#X connect 7 0 12 0;
+#X connect 8 0 10 0;
+#X connect 9 0 27 0;
+#X connect 10 0 11 0;
+#X connect 11 0 27 0;
+#X connect 11 1 27 3;
+#X connect 12 0 13 0;
+#X connect 13 0 27 0;
+#X connect 13 1 27 2;
+#X connect 14 0 15 0;
+#X connect 15 0 27 0;
+#X connect 15 1 27 1;
+#X connect 18 0 19 0;
+#X connect 19 0 27 0;
+#X connect 19 1 27 4;
+#X connect 20 0 18 0;
+#X connect 21 0 22 0;
+#X connect 22 0 27 0;
+#X connect 22 1 27 5;
+#X connect 23 0 21 0;
+#X connect 24 0 25 0;
+#X connect 25 0 27 0;
+#X connect 25 1 27 6;
+#X connect 26 0 24 0;
+#X connect 27 0 28 0;
+#X connect 28 0 16 0;
+#X connect 28 0 17 0;
+#X connect 30 0 31 0;
+#X connect 31 0 32 0;
+#X connect 32 0 29 0;
+#X connect 32 0 39 0;
+#X connect 33 0 35 0;
+#X connect 34 0 37 0;
+#X connect 35 0 36 0;
+#X connect 36 0 31 0;
+#X connect 36 1 31 1;
+#X connect 37 0 38 0;
+#X connect 38 0 31 0;
+#X connect 38 1 31 2;
+#X connect 40 0 41 0;
+#X connect 41 0 46 0;
+#X connect 41 0 50 0;
+#X connect 42 0 43 0;
+#X connect 43 0 40 0;
+#X connect 43 1 40 1;
+#X connect 44 0 45 0;
+#X connect 45 0 40 0;
+#X connect 45 1 40 2;
+#X connect 47 0 40 0;
+#X connect 48 0 42 0;
+#X connect 49 0 44 0;
+#X connect 51 0 52 0;
+#X connect 52 0 57 0;
+#X connect 52 0 61 0;
+#X connect 53 0 54 0;
+#X connect 54 0 51 0;
+#X connect 54 1 51 1;
+#X connect 55 0 56 0;
+#X connect 56 0 51 0;
+#X connect 56 1 51 2;
+#X connect 58 0 51 0;
+#X connect 59 0 53 0;
+#X connect 60 0 55 0;
+#X connect 62 0 63 0;
+#X connect 63 0 64 0;
+#X connect 65 0 66 0;
+#X connect 66 0 71 0;
+#X connect 66 0 75 0;
+#X connect 67 0 68 0;
+#X connect 68 0 65 0;
+#X connect 68 1 65 1;
+#X connect 69 0 70 0;
+#X connect 70 0 65 0;
+#X connect 70 1 65 2;
+#X connect 72 0 65 0;
+#X connect 73 0 67 0;
+#X connect 74 0 69 0;
+#X restore 486 66 pd more_values;
+#N canvas 898 382 852 517 default_values 0;
+#X symbolatom 60 106 10 0 0 0 - - -;
+#X obj 61 50 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 61 70 id;
+#X obj 67 86 symbol \$1;
+#X obj 58 25 loadbang;
+#X obj 149 88 float;
+#X floatatom 149 116 5 0 0 0 - - -;
+#X text 142 66 num_of_part;
+#X obj 60 140 s \$1mbpart_id;
+#X obj 149 143 s \$1mbpart_num_of_part;
+#X msg 293 104 5;
+#X obj 60 184 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 60 212 0;
+#X msg 208 210 0.2;
+#X msg 349 214 0;
+#X msg 499 208 0.2;
+#X obj 60 240 s \$1mbpart_dom_x1_ini3;
+#X obj 208 240 s \$1mbpart_dom_y1_ini3;
+#X obj 350 239 s \$1mbpart_dom_z1_ini3;
+#X obj 499 239 s \$1mbpart_dom_arg1_ini3;
+#X msg 658 153 0;
+#X obj 674 179 s \$1mbpart_dom_arg2_ini3;
+#X obj 674 208 s \$1mbpart_dom_arg3_ini3;
+#X obj 673 232 s \$1mbpart_dom_arg4_ini3;
+#X obj 666 126 r \$1mbpart_args_reset;
+#X obj 123 171 r \$1mbpart_args_defaults;
+#X obj 293 144 s \$1mbpart_domain_ini2;
+#X msg 445 104 1;
+#X obj 445 144 s \$1mbpart_grav_on_init;
+#X obj 109 370 s \$1mbpart_grav_z_init2;
+#X obj 76 344 s \$1mbpart_grav_y_init2;
+#X obj 62 320 s \$1mbpart_grav_x_init2;
+#X msg 66 291 0;
+#X msg 117 295 -0.01;
+#X obj 227 272 r \$1mbpart_grav_reset;
+#X msg 170 289 0;
+#X obj 233 306 r \$1mbpart_grav_defaults;
+#X obj 68 468 s \$1mbpart_orb_x_init2;
+#X obj 82 492 s \$1mbpart_orb_y_init2;
+#X obj 115 518 s \$1mbpart_orb_z_init2;
+#X msg 66 431 0;
+#X msg 103 434 1;
+#X obj 263 518 s \$1mbpart_orb_grav_init2;
+#X obj 79 410 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 284 395 r \$1mbpart_orb_reset;
+#X obj 124 394 r \$1mbpart_orb_defaults;
+#X msg 280 426 0;
+#X msg 199 433 0.08;
+#X obj 493 97 s \$1mbpart_speed_ini2;
+#X msg 493 57 20;
+#X obj 533 73 s \$1mbpart_size_ini2;
+#X msg 533 33 1;
+#X msg 579 9 30;
+#X obj 579 49 s \$1mbpart_timelive_ini2;
+#X msg 636 -1 20;
+#X obj 631 26 s \$1mbpart_numpartfr_ini3;
+#X msg 459 316 1;
+#X obj 459 356 s \$1mbpart_sel_draw_init;
+#X obj 466 391 s \$1mbpart_draw_size_init2;
+#X obj 123 27 r \$1mbpart_full_reload;
+#X connect 1 0 3 0;
+#X connect 1 0 5 0;
+#X connect 1 0 10 0;
+#X connect 1 0 11 0;
+#X connect 1 0 27 0;
+#X connect 1 0 49 0;
+#X connect 1 0 51 0;
+#X connect 1 0 52 0;
+#X connect 1 0 54 0;
+#X connect 3 0 0 0;
+#X connect 3 0 8 0;
+#X connect 4 0 1 0;
+#X connect 5 0 6 0;
+#X connect 6 0 9 0;
+#X connect 10 0 26 0;
+#X connect 11 0 12 0;
+#X connect 11 0 13 0;
+#X connect 11 0 14 0;
+#X connect 11 0 15 0;
+#X connect 11 0 32 0;
+#X connect 11 0 33 0;
+#X connect 11 0 43 0;
+#X connect 12 0 16 0;
+#X connect 13 0 17 0;
+#X connect 14 0 18 0;
+#X connect 15 0 19 0;
+#X connect 20 0 21 0;
+#X connect 20 0 22 0;
+#X connect 20 0 23 0;
+#X connect 20 0 18 0;
+#X connect 20 0 17 0;
+#X connect 20 0 16 0;
+#X connect 20 0 19 0;
+#X connect 24 0 20 0;
+#X connect 25 0 11 0;
+#X connect 27 0 28 0;
+#X connect 32 0 31 0;
+#X connect 32 0 29 0;
+#X connect 33 0 30 0;
+#X connect 34 0 35 0;
+#X connect 35 0 31 0;
+#X connect 35 0 30 0;
+#X connect 35 0 29 0;
+#X connect 36 0 33 0;
+#X connect 36 0 32 0;
+#X connect 40 0 37 0;
+#X connect 40 0 39 0;
+#X connect 41 0 38 0;
+#X connect 43 0 41 0;
+#X connect 43 0 40 0;
+#X connect 43 0 47 0;
+#X connect 44 0 46 0;
+#X connect 45 0 43 0;
+#X connect 46 0 37 0;
+#X connect 46 0 38 0;
+#X connect 46 0 39 0;
+#X connect 46 0 42 0;
+#X connect 47 0 42 0;
+#X connect 49 0 48 0;
+#X connect 51 0 50 0;
+#X connect 52 0 53 0;
+#X connect 54 0 55 0;
+#X connect 56 0 57 0;
+#X connect 59 0 1 0;
+#X restore 485 104 pd default_values;
+#X obj 0 0 cnv 15 310 215 empty empty mb-gem_part 40 8 0 10 -99865
+-228856 0;
+#X obj 134 1 cnv 15 25 15 empty \$1mbpart_id \$1 6 8 0 9 -260097 -33289
+0;
+#X obj 2 199 cnv 8 25 15 empty empty gem 0 8 0 8 -258113 -228856 0
+;
+#X obj 0 0 cnv 8 20 15 empty empty gem 0 8 0 8 -4034 -1 0;
+#X obj 274 199 cnv 8 35 15 empty empty render 0 8 0 8 -258113 -228856
+0;
+#X obj 7 69 cnv 15 145 125 empty empty Domain 1 8 0 9 -128992 -228856
+0;
+#X obj 9 88 hradio 12 1 0 10 \$1mbpart_domain_ini \$1mbpart_domain_ini2
+domain 2 6 0 8 -260097 -1 -1 5;
+#X obj 11 19 hsl 100 14 0 1 0 0 \$1mbpart_speed_ini \$1mbpart_speed_ini2
+speed 2 6 0 8 -33289 -260097 -260097 9900 1;
+#X obj 112 19 nbx 3 14 0 1 0 0 \$1mbpart_speed \$1mbpart_speed_ini
+empty 0 -8 0 8 -33289 -260097 -260097 1 256;
+#X obj 15 117 hsl 100 12 -4 4 0 0 \$1mbpart_dom_y1_ini2 \$1mbpart_dom_y1_ini3
+y1 2 6 0 8 -33289 -260097 -260097 5197 1;
+#X obj 117 117 nbx 3 12 -4 4 0 0 \$1mbpart_dom_y1_ini \$1mbpart_dom_y1_ini2
+empty 0 -8 0 8 -33289 -260097 -260097 0.199596 256;
+#X obj 15 129 hsl 100 12 -4 4 0 0 \$1mbpart_dom_z1_ini2 \$1mbpart_dom_z1_ini3
+z1 2 6 0 8 -33289 -260097 -260097 4950 1;
+#X obj 117 129 nbx 3 12 -4 4 0 0 \$1mbpart_dom_z1_ini \$1mbpart_dom_z1_ini2
+empty 0 -8 0 8 -33289 -260097 -260097 0 256;
+#X obj 15 144 hsl 100 12 -4 4 0 0 \$1mbpart_dom_arg1_ini2 \$1mbpart_dom_arg1_ini3
+arg1 2 6 0 8 -33289 -260097 -260097 5197 1;
+#X obj 117 144 nbx 3 12 -4 4 0 0 \$1mbpart_dom_arg1_ini \$1mbpart_dom_arg1_ini2
+empty 0 -8 0 8 -33289 -260097 -260097 0.199596 256;
+#X obj 15 156 hsl 100 12 -4 4 0 0 \$1mbpart_dom_arg2_ini2 \$1mbpart_dom_arg2_ini3
+arg2 2 6 0 8 -33289 -260097 -260097 0 1;
+#X obj 117 156 nbx 3 12 -4 4 0 0 \$1mbpart_dom_arg2_ini \$1mbpart_dom_arg2_ini2
+empty 0 -8 0 8 -33289 -260097 -260097 0 256;
+#X obj 15 168 hsl 100 12 -4 4 0 0 \$1mbpart_dom_arg3_ini2 \$1mbpart_dom_arg3_ini3
+arg3 2 6 0 8 -33289 -260097 -260097 0 1;
+#X obj 117 168 nbx 3 12 -4 4 0 0 \$1mbpart_dom_arg3_ini \$1mbpart_dom_arg3_ini2
+empty 0 -8 0 8 -33289 -260097 -260097 0 256;
+#X obj 15 180 hsl 100 12 -4 4 0 0 \$1mbpart_dom_arg4_ini2 \$1mbpart_dom_arg4_ini3
+arg4 2 6 0 8 -33289 -260097 -260097 0 1;
+#X obj 117 180 nbx 3 12 -4 4 0 0 \$1mbpart_dom_arg4_ini \$1mbpart_dom_arg4_ini2
+empty 0 -8 0 8 -33289 -260097 -260097 0 256;
+#X obj 132 89 bng 12 250 50 0 \$1mbpart_args_reset empty empty 17 7
+0 8 -257985 -1 -1;
+#X obj 132 73 bng 12 250 50 0 \$1mbpart_args_defaults empty empty 17
+7 0 8 -260097 -1 -1;
+#X obj 54 74 hradio 12 1 0 6 empty \$1mbpart_domain_label sphere 0
+6 0 8 -1 -1 -262144 0;
+#X obj 26 52 tgl 12 0 \$1mbpart_color_r \$1mbpart_color_r_ini c1 -12
+7 0 8 -258113 -1 -228856 0 1;
+#X obj 37 52 tgl 12 0 \$1mbpart_color_g \$1mbpart_color_g_ini empty
+17 7 0 8 -4034 -1 -1 0 1;
+#X obj 49 52 tgl 12 0 \$1mbpart_color_b \$1mbpart_color_b_ini empty
+-24 22 0 8 -4160 -1 -228856 0 1;
+#X obj 85 52 tgl 12 0 \$1mbpart_color_r2 \$1mbpart_color_r2_ini c2
+-14 7 0 8 -258113 -1 -228856 0 1;
+#X obj 96 52 tgl 12 0 \$1mbpart_color_g2 \$1mbpart_color_g2_ini empty
+17 7 0 8 -4034 -1 -1 0 1;
+#X obj 108 52 tgl 12 0 \$1mbpart_color_b2 \$1mbpart_color_b2_ini empty
+-24 22 0 8 -4160 -1 -228856 0 1;
+#X obj 11 36 hsl 100 14 0 4 0 0 \$1mbpart_size_ini \$1mbpart_size_ini2
+size 2 6 0 8 -33289 -260097 -260097 2475 1;
+#X obj 112 36 nbx 3 14 0 4 0 0 \$1mbpart_size \$1mbpart_size_ini empty
+0 -8 0 8 -33289 -260097 -260097 1 256;
+#X obj 269 18 nbx 3 14 0 20 0 0 \$1mbpart_numpartfr \$1mbpart_numpartfr_ini
+empty 0 -8 0 8 -33289 -260097 -260097 20 256;
+#X obj 167 18 hsl 100 14 0 20 0 0 \$1mbpart_numpartfr_ini2 \$1mbpart_numpartfr_ini3
+num_part/frame 2 6 0 8 -33289 -260097 -260097 9900 1;
+#X obj 159 68 cnv 15 145 60 empty empty Gravity 1 8 0 9 -128992 -228856
+0;
+#X obj 15 105 hsl 100 12 -4 4 0 0 \$1mbpart_dom_x1_ini2 \$1mbpart_dom_x1_ini3
+x1 2 6 0 8 -33289 -260097 -260097 4950 1;
+#X obj 117 105 nbx 3 12 -4 4 0 0 \$1mbpart_dom_x1_ini \$1mbpart_dom_x1_ini2
+empty 0 -8 0 8 -33289 -260097 -260097 0 256;
+#X obj 164 86 hsl 100 12 -1 1 0 0 \$1mbpart_grav_x_init \$1mbpart_grav_x_init2
+x 2 6 0 8 -33289 -260097 -260097 4950 1;
+#X obj 266 86 nbx 4 12 -1 1 0 0 \$1mbpart_grav_x \$1mbpart_grav_x_init
+empty 0 -8 0 8 -33289 -260097 -260097 0 256;
+#X obj 164 98 hsl 100 12 -1 1 0 0 \$1mbpart_grav_y_init \$1mbpart_grav_y_init2
+y 2 6 0 8 -33289 -260097 -260097 4900 1;
+#X obj 266 98 nbx 4 12 -1 1 0 0 \$1mbpart_grav_y \$1mbpart_grav_y_init
+empty 0 -8 0 8 -33289 -260097 -260097 -0.010101 256;
+#X obj 164 110 hsl 100 12 -1 1 0 0 \$1mbpart_grav_z_init \$1mbpart_grav_z_init2
+z 2 6 0 8 -33289 -260097 -260097 4950 1;
+#X obj 266 110 nbx 4 12 -1 1 0 0 \$1mbpart_grav_z \$1mbpart_grav_z_init
+empty 0 -8 0 8 -33289 -260097 -260097 0 256;
+#X obj 250 71 bng 12 250 50 0 \$1mbpart_grav_reset empty empty 17 7
+0 8 -257985 -1 -1;
+#X obj 233 71 bng 12 250 50 0 \$1mbpart_grav_defaults empty empty 17
+7 0 8 -260097 -1 -1;
+#X obj 269 35 nbx 3 14 0 30 0 0 \$1mbpart_timelive \$1mbpart_timelive_ini
+empty 0 -8 0 8 -33289 -260097 -260097 30 256;
+#X obj 167 35 hsl 100 14 0 60 0 0 \$1mbpart_timelive_ini \$1mbpart_timelive_ini2
+time_of_live 2 6 0 8 -33289 -260097 -260097 4950 1;
+#X obj 159 125 cnv 15 145 70 empty empty orbit 1 8 0 9 -128992 -228856
+0;
+#X obj 164 155 hsl 100 12 -4 4 0 0 \$1mbpart_orb_x_init \$1mbpart_orb_x_init2
+orb_x 2 6 0 8 -33289 -260097 -260097 4950 1;
+#X obj 266 155 nbx 4 12 -4 4 0 0 \$1mbpart_orb_x \$1mbpart_orb_x_init
+empty 0 -8 0 8 -33289 -260097 -260097 0 256;
+#X obj 164 167 hsl 100 12 -1 1 0 0 \$1mbpart_orb_y_init \$1mbpart_orb_y_init2
+orb_y 2 6 0 8 -33289 -260097 -260097 9900 1;
+#X obj 266 167 nbx 4 12 -1 1 0 0 \$1mbpart_orb_y \$1mbpart_orb_y_init
+empty 0 -8 0 8 -33289 -260097 -260097 1 256;
+#X obj 164 179 hsl 100 12 -1 1 0 0 \$1mbpart_orb_z_init \$1mbpart_orb_z_init2
+orb_z 2 6 0 8 -33289 -260097 -260097 4950 1;
+#X obj 266 179 nbx 4 12 -1 1 0 0 \$1mbpart_orb_z \$1mbpart_orb_z_init
+empty 0 -8 0 8 -33289 -260097 -260097 0 256;
+#X obj 250 128 bng 12 250 50 0 \$1mbpart_orb_reset empty empty 17 7
+0 8 -257985 -1 -1;
+#X obj 233 128 bng 12 250 50 0 \$1mbpart_orb_defaults empty empty 17
+7 0 8 -260097 -1 -1;
+#X obj 164 142 hsl 100 12 -1 1 0 0 \$1mbpart_orb_grav_init \$1mbpart_orb_grav_init2
+gravity 2 6 0 8 -33289 -260097 -260097 5346 1;
+#X obj 266 142 nbx 4 12 -1 1 0 0 \$1mbpart_orb_grav \$1mbpart_orb_grav_init
+empty 0 -8 0 8 -33289 -260097 -260097 0.08 256;
+#X obj 165 54 hradio 12 1 0 3 \$1mbpart_sel_out \$1mbpart_sel_out_init
+0/gravity/orbit 40 6 0 8 -260097 -1 -228856 0;
+#X obj 94 200 hradio 12 1 0 2 \$1mbpart_sel_draw \$1mbpart_sel_draw_init
+point/line 30 6 0 8 -260097 -1 -228856 0;
+#X obj 178 2 tgl 14 0 \$1mbpart_on \$1mbpart_on_ini empty 17 7 0 10
+-4034 -1 -1 0 1;
+#X obj 369 47 spigot;
+#X obj 402 26 r \$1mbpart_on;
+#X obj 32 200 hsl 27 12 0 13 0 0 \$1mbpart_draw_size_init \$1mbpart_draw_size_init2
+size 2 6 0 8 -33289 -260097 -260097 0 1;
+#X obj 61 200 nbx 3 12 0 13 0 0 \$1mbpart_draw_size \$1mbpart_draw_size_init
+empty 0 -8 0 8 -33289 -260097 -260097 0 256;
+#X obj 201 2 bng 14 250 50 0 \$1mbpart_full_reload \$1mbpart_full_reload_ini
+reload 17 7 0 8 -260097 -1 -228856;
+#X connect 0 0 70 0;
+#X connect 2 0 3 0;
+#X connect 2 1 5 0;
+#X connect 70 0 2 0;
+#X connect 71 0 70 1;
+#X coords 0 -1 1 1 310 215 2 0 0;

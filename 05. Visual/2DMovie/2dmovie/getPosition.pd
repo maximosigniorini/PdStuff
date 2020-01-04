@@ -1,0 +1,15 @@
+#N canvas 761 345 442 259 10;
+#X obj 54 -308 inlet bang;
+#X obj 54 -252 s \$1.get-imagePosition;
+#X obj 49 -200 r \$1.x;
+#X obj 160 -200 r \$1.y;
+#X obj 49 -155 outlet x;
+#X obj 160 -156 outlet y;
+#X text 36 -351 Retourne la position d'une image chargée par les patches
+de la bibliothèque "2DMovie";
+#X obj 54 -280 bang;
+#X connect 0 0 7 0;
+#X connect 2 0 4 0;
+#X connect 3 0 5 0;
+#X connect 7 0 1 0;
+#X coords 0 259 1 258 65 15 0;

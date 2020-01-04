@@ -1,0 +1,54 @@
+#N canvas 357 0 960 478 10;
+#X obj 361 139 inlet;
+#X msg 361 214 set \$1;
+#X obj 361 169 symbol;
+#X text 159 412 (c) IOhannes m zmoelnig \, IEM 2005;
+#X text 201 430 published under the Gnu GPL;
+#X text 105 34 like a normal [receive] \, but the receivename can be
+queried via a "bang" to sendreceive_getName \; the current receivename
+will be sent to "sendreceive_setName";
+#X text 359 123 <symbol> receive-name in;
+#X obj 361 281 iem_r \$1;
+#X obj 361 388 outlet;
+#X text 136 334 1.arg: <symbol> receive- name;
+#X obj 457 349 any;
+#X msg 457 321 bang;
+#X obj 457 375 route bang;
+#X obj 457 300 bang;
+#X obj 522 396 pp \$1;
+#X text 16 12 [receive_setting];
+#X text 104 90 via a "bang" to "CUE_SETTINGS_GET" the current value
+(if any) is sent to "CUE_SETTINGS_SET" with the (current) receivename
+prepended.;
+#X obj 734 160 $n;
+#X obj 734 139 loadbang;
+#X obj 734 204 route \$1;
+#X obj 734 227 route bang;
+#X obj 734 183 route list;
+#X text 730 118 default value;
+#X obj 457 279 r /CUE/SETTINGS/GET;
+#X obj 522 417 s /CUE/SETTINGS/SET;
+#X obj 421 214 sr_registername \$1;
+#X obj 361 368 receive_alt \$1;
+#X obj 361 192 t s s s s;
+#X connect 0 0 2 0;
+#X connect 1 0 7 0;
+#X connect 2 0 27 0;
+#X connect 7 0 10 1;
+#X connect 7 0 26 0;
+#X connect 10 0 12 0;
+#X connect 11 0 10 0;
+#X connect 12 1 14 0;
+#X connect 13 0 11 0;
+#X connect 14 0 24 0;
+#X connect 17 0 21 0;
+#X connect 18 0 17 0;
+#X connect 19 0 20 0;
+#X connect 20 1 10 1;
+#X connect 21 0 19 0;
+#X connect 23 0 13 0;
+#X connect 26 0 8 0;
+#X connect 27 0 1 0;
+#X connect 27 1 14 1;
+#X connect 27 2 25 0;
+#X connect 27 3 26 1;

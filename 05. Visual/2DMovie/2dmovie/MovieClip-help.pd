@@ -1,0 +1,222 @@
+#N canvas 98 134 1094 553 10;
+#X obj 2 -136 cnv 15 700 50 empty empty MovieClip 3 12 0 18 -260080
+-1 0;
+#X text 591 -119 @author Pertuit;
+#X text 22 -52 DESCRIPTION;
+#X text 21 65 Elles doivent toutes porter le même nom et être numérotées
+en commençant par zéro. Ex : image0.png \, image1.png \, image2.png
+\, etc.;
+#X text 21 163 ARGUMENTS;
+#X text 22 266 INLETS \; aucun;
+#X text 22 310 OUTLETS \; aucun;
+#X text 21 114 Le point d'ancrage des images du clip est au centre
+des images.;
+#X obj 522 216 r frog.currentFrame;
+#X obj 464 310 s frog.sequence;
+#X obj 464 123 r frog.mouseClic;
+#X obj 682 -40 loadbang;
+#X text 23 231 Par ex: [movieclip personnage image*.png];
+#X obj 463 -44 gemmanager;
+#X obj 464 148 select 1;
+#X text 21 -31 Le patch MovieClip construit une chaîne de rendu graphique
+GEM contenant des images Bitmap (pix_multiimage) lues en boucle selon
+une séquence définie.;
+#X msg 464 174 16 17 18 19 20 21 22 23 24 23 22 23 24 23 22 23 24 25
+25 26;
+#X obj 522 242 select 26;
+#N canvas 78 112 1104 748 variables-et-fonctions 0;
+#X floatatom 67 314 5 0 0 0 - - -;
+#X floatatom 67 201 5 0 0 0 - - -;
+#X obj 64 93 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X floatatom 584 347 5 0 0 0 - - -;
+#X floatatom 133 201 5 0 0 0 - - -;
+#X floatatom 67 258 5 0 0 0 - - -;
+#X obj 584 85 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 582 28 1;
+#X msg 613 28 0;
+#X msg 583 142 2;
+#X msg 627 142 5;
+#X msg 599 296 0 1 2 3 4 5 6;
+#X floatatom 676 142 5 0 100 0 - - -;
+#X msg 152 476 1 1 1;
+#X msg 66 149 1;
+#X msg 127 148 0;
+#X msg 97 148 0.5;
+#X msg 68 477 0.8 0.2 0.2;
+#X floatatom 583 246 5 0 0 0 - - -;
+#X obj 66 368 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 583 636 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 584 690 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 587 410 5 0 0 0 - - -;
+#X floatatom 67 422 5 0 0 0 - - -;
+#X text 174 277 scaleX - Echelle horizontale de l'image. La valeur
+1 correspond à la taille initiale de l'image.;
+#X text 174 172 alpha - Transparence de l'image (0 à 1).;
+#X text 175 333 scaleY - Echelle verticale de l'image. La valeur 1
+correspond à la taille initiale de l'image.;
+#X text 185 437 rotation - Rotation de l'image par rapport au centre.
+L'angle de rotation est en degré.;
+#X text 190 112 visible - Variable de visibilité de l'image : visible
+(1) ou invisible (0).;
+#X text 708 45 play - Lancement de l'animation du clip (1) ou arrêt
+du clip (0).;
+#X text 711 97 loop - Type de lecture du clip : en boucle (1 \, valeur
+par défaut) ou une seule fois (0).;
+#X text 730 201 currentFrame - Retourne la position de la tête de
+lecture dans le clip (numéro d'indice de l'image dans la séquence).
+Pour affecter une position à la tête de lecture \, on utilisera la
+variable "goto".;
+#X text 729 264 sequence - Liste de chiffres indiquant l'ordre de lecture
+des images (la première est numérotée 0). Par défaut \, la lecture
+est séquentielle (0 1 2 3 4...). En introduisant une séquence différente
+\, on permet les répétitions d'images et un ordre libre. On utilisera
+notamment les séquences pour traiter différents états animés d'un
+personnage (ex: un personnage au repos \, qui court \, qui saute \,
+etc.).;
+#X text 712 367 ips - Nombre d'images par seconde pour le défilement
+des images. Par défaut \, il est de 12 ips (∼83 ms).;
+#X obj 64 116 s frog.visible;
+#X obj 66 171 s frog.alpha;
+#X obj 67 226 s frog.x;
+#X obj 133 226 s frog.y;
+#X obj 67 283 s frog.scaleX;
+#X obj 67 338 s frog.scaleY;
+#X obj 66 391 s frog.reverse;
+#X obj 67 446 s frog.rotation;
+#X obj 68 503 s frog.color;
+#X obj 582 51 s frog.play;
+#X obj 584 108 s frog.loop;
+#X obj 583 168 s frog.goto;
+#X obj 583 214 r frog.currentFrame;
+#X obj 586 317 s frog.sequence;
+#X obj 584 376 s frog.ips;
+#X obj 587 439 s frog.layer;
+#X obj 587 568 s frog.mouseMode;
+#X obj 583 607 r frog.mouseOver;
+#X obj 584 660 r frog.mouseClic;
+#X msg 579 275 15 16 17 17 17 17 17 18;
+#X text 183 378 reverse - Inverse le sens de l'image : normal (0 \,
+valeur par défaut) ou retourné (1). L'image retournée est une inversion
+gauche/droite.;
+#X text 723 138 goto - Accès direct à une image. Si l'animation est
+lancée \, il s'agit du numéro de l'indice de l'image dans la séquence.
+Si l'animation est arrêtée \, toutes les images sont accessibles.
+;
+#X text 62 6 VARIABLES;
+#X text 62 546 FONCTIONS;
+#X floatatom 158 696 5 0 0 0 - - -;
+#X floatatom 65 696 5 0 0 0 - - -;
+#X obj 65 650 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 66 575 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 66 622 5 0 0 0 - - -;
+#X floatatom 165 622 5 0 0 0 - - -;
+#X obj 66 598 getImageSize frog;
+#X obj 65 672 getPosition frog;
+#X text 714 546 mouseMode - Activation de la souris : non actif (0
+\, par défaut) \, souris active (1) ou souris active avec drag&drop
+du clip (2).;
+#X msg 587 541 0;
+#X msg 617 541 1;
+#X msg 647 541 2;
+#X text 713 401 layer - Numéro de la couche d'affichage dans la chaîne
+d'affichage gem. Par défaut \, les MovieClip sont placés sur la couche
+60 de façon à apparaître devant les images utilisées comme fond
+d'écran (couche 50). On peut jouer sur cette variable pour passer
+devant ou derrière des images.;
+#X text 714 597 mouseOver - teste le survol du clip par la souris :
+1 (sur le clip) ou 0 (en dehors du clip). Il faut que "mouseMode" soit
+à 1 ou 2 (souris active).;
+#X text 714 648 mouseClic - teste le clic sur le clip : 1 (clic sur
+le clip) ou 0 (en dehors). Il faut que "mouseMode" soit à 1 ou 2 (souris
+active).;
+#X text 187 498 color - Réglage des couleurs appliquées à l'image
+: liste des 3 couleurs RVB (0 à 1).;
+#X text 201 665 getPosition - Retourne la valeur de la position en
+x et y de l'image dans la fenêtre de travail.;
+#X text 204 591 getImageSize - Retourne la valeur de la taille de l'image
+(en pixels) dans la fenêtre de travail.;
+#X floatatom 587 475 5 0 0 0 - - -;
+#X text 714 476 depthZ - Profondeur selon z du plan de projection de
+l'image. Par défaut \, le plan de projection est le plan XY pour z=0.
+Cette variable est utile pour le positionnement des images planes 2DMovie
+par rapport aux formes 3D gem.;
+#X obj 587 504 s frog.depthZ;
+#X text 199 216 x \, y - Position de l'image sur l'axe horizontal ou
+vertical (en pixels).;
+#X obj 64 63 s frog.load;
+#X msg 114 36 frog*.png;
+#X msg 64 36 clear;
+#X text 190 56 load - Vide ou charge les images du clip. Le message
+"clear" libère la mémoire allouée.;
+#X connect 0 0 39 0;
+#X connect 1 0 36 0;
+#X connect 2 0 34 0;
+#X connect 3 0 48 0;
+#X connect 4 0 37 0;
+#X connect 5 0 38 0;
+#X connect 6 0 44 0;
+#X connect 7 0 43 0;
+#X connect 8 0 43 0;
+#X connect 9 0 45 0;
+#X connect 10 0 45 0;
+#X connect 11 0 47 0;
+#X connect 12 0 45 0;
+#X connect 13 0 42 0;
+#X connect 14 0 35 0;
+#X connect 15 0 35 0;
+#X connect 16 0 35 0;
+#X connect 17 0 42 0;
+#X connect 19 0 40 0;
+#X connect 22 0 49 0;
+#X connect 23 0 41 0;
+#X connect 46 0 18 0;
+#X connect 51 0 20 0;
+#X connect 52 0 21 0;
+#X connect 53 0 47 0;
+#X connect 60 0 65 0;
+#X connect 61 0 64 0;
+#X connect 64 0 62 0;
+#X connect 64 1 63 0;
+#X connect 65 0 59 0;
+#X connect 65 1 58 0;
+#X connect 67 0 50 0;
+#X connect 68 0 50 0;
+#X connect 69 0 50 0;
+#X connect 76 0 78 0;
+#X connect 81 0 80 0;
+#X connect 82 0 80 0;
+#X restore 26 382 pd variables-et-fonctions;
+#X text 473 337 (un clic sur la grenouille change la séquence);
+#X text 22 184 1- symbole : le nom de la variable MovieClip \; 2- symbole
+: le nom des fichiers d'images se trouvant dans le dossier "data" en
+utilisant le caractère "*".;
+#X text 591 -107 @version 1;
+#X text 23 352 On utilise des liaisons sans fil pour communiquer.;
+#X text 21 15 Les images chargées doivent être de type TIFF \, PNG
+ou JPG et placées dans un dossier "data" situé dans le dossier de
+l'application.;
+#X text 141 -130 Patch pour l'animation d'images dans un clip (tableau
+d'images).;
+#X text 591 -132 @library 2DMovie;
+#X msg 682 7 \; frog.x 250 \; frog.y 200 \; frog.mouseMode 1 \; frog.sequence
+0 2 3 4 5 6 7 8 9 10 11 12 13 14 15 14 15 14 15 14 15;
+#X obj 682 -17 delay 100;
+#X obj 463 25 movieclip frog frog*.png;
+#X msg 522 268 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 14 15 14 15 14
+15;
+#X connect 8 0 17 0;
+#X connect 10 0 14 0;
+#X connect 11 0 27 0;
+#X connect 14 0 16 0;
+#X connect 16 0 9 0;
+#X connect 17 0 29 0;
+#X connect 27 0 26 0;
+#X connect 29 0 9 0;
+#X coords 0 553 1 552 65 15 0;

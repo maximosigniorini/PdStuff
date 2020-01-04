@@ -1,0 +1,12 @@
+#N canvas 1 49 450 300 10;
+#X obj 284 34 phasor~ 300;
+#X obj 305 201 ehu/out~;
+#X obj 22 21 ehu/dsp;
+#X obj 306 88 ehu/phaser~;
+#X text 30 85 phaser~;
+#X text 28 115 inlets: speed \, depth \, feedback \, reset;
+#X text 9 243 GuitarExtended \, Pierre Massat \, 2012;
+#X text 12 223 adapted from;
+#X connect 0 0 3 0;
+#X connect 3 0 1 0;
+#X connect 3 0 1 1;
