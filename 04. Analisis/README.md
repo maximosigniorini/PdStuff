@@ -6,4 +6,4 @@
 * **jLibrary:** FFT, convolution and general Pure Data library
 * **karmaSoundAnalyser:** A real-time music analysis patch retrieving humanly sensitive information from a live audio stream by using various methods
 * **martha:** Object to use in companion of pd's sigmund
-* **pitchEnv:** lets you scale the amplitude of individual harmonics in a pitched tone with a harmonic spectrum
+* **pitchEnv:** Lets you scale the amplitude of individual harmonics in a pitched tone with a harmonic spectrum
