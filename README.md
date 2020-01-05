@@ -40,5 +40,5 @@ Patches from:
 
 
 **To Do**
-* Add glossary to each category
 * Make separate folder for pd-extended only
+* Add txt with externals I use
