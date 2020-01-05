@@ -1,0 +1,3 @@
+* **Hernan Kerlleñevich - ol.puredata:** Collection of objects for gui creation
+* **Pierre Guillot:** Collection of GUI objects
+* **PdEnhanced_Beta_0.1:** Collection of GUI objects by Pierre Guillot
