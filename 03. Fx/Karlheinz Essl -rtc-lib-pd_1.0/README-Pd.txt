@@ -5,9 +5,36 @@ RTC-lib
 Real Time Composition Library for Pure Data
 ===========================================
 
-This file contains some notes specific to the Pd-version of the RTC-lib. For a
-general overview of the scope of the RTC-library please refer to the file
-README-MAX.txt. 
+Abstract 
+========
+
+This software library - a collection of patches and externals for Pure Data  -
+offers the possibility to experiment with a number of compositional techniques,
+such as serial procedures, permutations and controlled randomness. Most of
+these objects are geared towards straightforward processing of data. By using
+these specialized objects together in a patch, programming becomes much more
+clear and easy. Many functions that are often useful in algorithmic composition
+are provided with this library - therefore the composer could concentrate
+rather on the composition than the programming aspects.
+
+Originally, the Real Time Composition Library (RTC-lib) was developed during my
+extensive work on Lexikon-Sonate (1992 ff.), an interactive realtime
+composition for computer-controlled piano which I started at IRCAM, Paris in
+1992.
+
+Regardless the fact that it was conceived for a specific project it became more
+and more obvious that its functionalities are open and generic enough to be
+used by other composers in different compositional contexts. Based on paradigms
+which have been extracted from serial thinking (cf. Gottfried Michael Koenig
+and Karlheinz Stockhausen) and its further development until nowadays it does
+not force towards a certain aesthetic, but provides a programming environment
+for testing and developing compositional strategies.
+
+The Real Time Composition Library comes with a Hypertext-like on-line help
+which allows to have a perfect overview on the library objects and their
+multiple relationships.  Thanks to Richard Dudas (Cycling74), Peter Elsea
+(University of California, Santa Cruz), Serge Lemouton (IRCAM, Paris) and jasch
+who have ported the RTC-lib's externals to OSX.
 
 Contents
 ========
