@@ -26,6 +26,7 @@ Patches from:
 * Guitar Extended
 * Roman Haefeli
 * Hernan Kerlleñevich
+* Derek Kwan
 * Eric Lyon
 * Mike Moser-Booth
 * Joao Pais
