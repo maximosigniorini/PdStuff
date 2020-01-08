@@ -9,4 +9,5 @@
 * **Pd-voice-changer:** Collection of patches aimed at vocal processing
 * **convolve:** Convolutional fx
 * **streamStretch:** Paulstrecht style fx
+* **Derek Kwan - stut:** Jonny Greenwod style stutter
 * **Tom Erbe - pitch:** Tom Erbe's pitch shifted reverb implementation
