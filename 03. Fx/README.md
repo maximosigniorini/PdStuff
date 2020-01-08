@@ -10,4 +10,5 @@
 * **convolve:** Convolutional fx
 * **streamStretch:** Paulstrecht style fx
 * **Derek Kwan - stut:** Jonny Greenwod style stutter
+* **Stut2:** Variation of stut by me
 * **Tom Erbe - pitch:** Tom Erbe's pitch shifted reverb implementation
