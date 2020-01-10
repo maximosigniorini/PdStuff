@@ -12,3 +12,4 @@
 * **Derek Kwan - stut:** Jonny Greenwod style stutter
 * **Stut2:** Variation of stut by me
 * **Tom Erbe - pitch:** Tom Erbe's pitch shifted reverb implementation
+* **William Huston - monsterdistortion:** Distortion and bitcrush with two lowpass filters stereo in and out
