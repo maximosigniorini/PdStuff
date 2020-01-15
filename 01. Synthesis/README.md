@@ -10,3 +10,4 @@
 * **Tom Betts - Pulse grain generator:** Pulse grain Generator
 * **efficient-drum:** Collection of drum synthesis
 * **Derek Holzer - Benjolin:** Pd version of standalone synthesizer designed by Rob Hordijk
+* **Derek Holzer - particlechamber:** 32 voice granular synth
