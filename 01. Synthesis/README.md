@@ -9,3 +9,4 @@
 * **Roman Haefeli - bloscabs:** Band-limited oscillators with no aliasing
 * **Tom Betts - Pulse grain generator:** Pulse grain Generator
 * **efficient-drum:** Collection of drum synthesis
+* **Derek Holzer - Benjolin:** Pd version of standalone synthesizer designed by Rob Hordijk
