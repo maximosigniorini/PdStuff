@@ -8,6 +8,7 @@ Patches from:
 * Bapch
 * Frank Barkhnect
 * Tom Betts
+* Alan Black, Keven Lenzo
 * C. Bocci and G. Sancristoforo
 * Martin Brinkmann
 * Paulo Casases

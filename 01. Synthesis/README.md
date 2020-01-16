@@ -11,3 +11,4 @@
 * **efficient-drum:** Collection of drum synthesis
 * **Derek Holzer - Benjolin:** Pd version of standalone synthesizer designed by Rob Hordijk
 * **Derek Holzer - particlechamber:** 32 voice granular synth
+* **Alan Black, Keven Lenzo - pdflite:** speech synthesis
