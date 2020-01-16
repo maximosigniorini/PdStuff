@@ -14,3 +14,4 @@
 * **Tom Erbe - pitch:** Tom Erbe's pitch shifted reverb implementation
 * **William Huston - monsterdistortion:** Distortion and bitcrush with two lowpass filters stereo in and out
 * **Hardoff - grannie-basher:** Granular pitch shifting delay
+* **rainmaker:** Port of intellijel's rainmaker eurorack module
