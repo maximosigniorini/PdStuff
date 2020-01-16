@@ -25,6 +25,7 @@ Patches from:
 * Pierre Guillot
 * Guitar Extended
 * Roman Haefeli
+* Hardoff
 * Derek Holzer
 * William Huston
 * Hernan Kerlleñevich
