@@ -1,0 +1,36 @@
+#N canvas 30 40 988 674 10;
+#X obj 50 38 wmfileloadA;
+#X obj 51 118 wmfileloadB;
+#X obj 52 199 wmfileloadC;
+#X obj 57 311 wmfileloadD;
+#X obj 60 421 wmfileloadE;
+#X obj 61 530 wmfileloadF;
+#X symbolatom 832 651 10 0 0 0 - filename -;
+#X obj 16 39 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 19 120 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 21 202 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 25 314 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 25 421 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 29 532 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 21 7 loadbang;
+#X text 352 11 128 file selector - 384?;
+#X obj 88 8 inlet;
+#X connect 7 0 0 0;
+#X connect 7 0 8 0;
+#X connect 8 0 1 0;
+#X connect 8 0 9 0;
+#X connect 9 0 2 0;
+#X connect 9 0 10 0;
+#X connect 10 0 3 0;
+#X connect 10 0 11 0;
+#X connect 11 0 4 0;
+#X connect 11 0 12 0;
+#X connect 12 0 5 0;
+#X connect 13 0 7 0;
+#X connect 15 0 7 0;

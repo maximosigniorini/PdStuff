@@ -11,6 +11,7 @@
 * **Mike Moser-Booth (mmb)**
 * **PROCESOvZero4**
 * **Tom Erbe - Sound Design Toolkit**
+* **Tom Erbe - WilliamsMixPD201607:** Adaaptation of John Cage's William Mix
 * **Yann Seznec - Everything you love demo**
 * **chdh - Egregore**
 * **ehu-abstractions**
@@ -20,3 +21,4 @@
 * **pdmtl**
 * **upp**
 * **message variables**
+* **In PD:** Adaptation of Terry Riley's In C 

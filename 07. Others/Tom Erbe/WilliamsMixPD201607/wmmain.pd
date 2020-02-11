@@ -1,0 +1,20 @@
+#N canvas 153 115 489 441 10;
+#X obj 18 244 wmoutput;
+#X obj 18 76 wmplay;
+#X obj 16 8 cnv 15 400 60 empty empty wm2016-erbe 20 42 0 34 -229356
+-66577 0;
+#X obj 354 186 wmfiles;
+#X obj 353 209 wmfileopen;
+#X obj 354 163 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 411 94 0 IM;
+#X text 406 106 70.25 M;
+#X text 399 117 142.05 IM;
+#X text 399 129 187.06 M;
+#X text 399 140 208.73 IM;
+#X text 400 153 229.08 M;
+#X obj 139 449 bng 25 250 50 0 recordstart empty recordstart 17 7 0
+10 -262144 -1 -1;
+#X obj 238 450 bng 25 250 50 0 recordstop empty recordstop 17 7 0 10
+-262144 -1 -1;
+#X connect 5 0 3 0;

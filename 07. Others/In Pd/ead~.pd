@@ -1,0 +1,28 @@
+#N canvas 566 23 635 473 10;
+#X obj 180 180 outlet~;
+#X obj 102 104 cnv 5 1 1 empty empty ead~ 0 4 0 10 -262144 -66577 0
+;
+#X obj 180 161 line~;
+#X obj 180 104 pipe;
+#X obj 216 66 inlet;
+#X obj 252 66 inlet;
+#X obj 288 66 inlet;
+#X obj 180 66 inlet;
+#X obj 180 85 t b b;
+#X obj 180 142 pack;
+#X obj 210 142 pack;
+#X msg 210 123 1;
+#X msg 180 123 0;
+#X connect 2 0 0 0;
+#X connect 3 0 12 0;
+#X connect 4 0 10 1;
+#X connect 5 0 3 1;
+#X connect 6 0 9 1;
+#X connect 7 0 8 0;
+#X connect 8 0 3 0;
+#X connect 8 1 11 0;
+#X connect 9 0 2 0;
+#X connect 10 0 2 0;
+#X connect 11 0 10 0;
+#X connect 12 0 9 0;
+#X coords 0 -1 1 1 28 17 2 100 100;
