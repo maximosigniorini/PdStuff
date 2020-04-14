@@ -41,6 +41,7 @@ Patches from:
 * Yann Seznec
 * Maximo Skp
 * Eli Smith
+* TheTechnobear
 * Katja Vetter
 
 

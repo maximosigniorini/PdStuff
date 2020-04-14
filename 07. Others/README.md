@@ -22,3 +22,4 @@
 * **upp**
 * **message variables**
 * **In PD:** Adaptation of Terry Riley's In C 
+* **Mutable Instruments:** Port of MI eurorack modules 
