@@ -12,3 +12,4 @@
 * **Derek Holzer - Benjolin:** Pd version of standalone synthesizer designed by Rob Hordijk
 * **Derek Holzer - particlechamber:** 32 voice granular synth
 * **Alan Black, Keven Lenzo - pdflite:** speech synthesis
+* **Jakob Skouborg - Granular21:** Granular synth inspired by tasty chips gr-1 grain sampler

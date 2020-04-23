@@ -40,6 +40,7 @@ Patches from:
 * Really Useful Plugins
 * Yann Seznec
 * Maximo Skp
+* Jakob Skouborg
 * Eli Smith
 * TheTechnobear
 * Katja Vetter

@@ -1,2 +1,67 @@
-#N canvas 1206 711 450 300 10;
-#X obj 246 90 grids;
+#N canvas 307 77 450 300 10;
+#X obj 16 180 grids, f 31;
+#X obj 16 221 print x1;
+#X obj 76 221 print x2;
+#X obj 133 221 print x3;
+#X obj 191 221 print x4;
+#X obj 247 221 print x5;
+#X obj 305 221 print x6;
+#X obj 16 272 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 56 272 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 86 272 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 126 272 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 150 272 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 190 272 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 12 11 Inlets: 1 Kick Density;
+#X text 60 21 2 Snare Density;
+#X text 60 41 4 Map x;
+#X text 60 51 5 Map y;
+#X text 60 31 3 Hihat Density;
+#X text 60 61 6 Randomness;
+#X text 60 71 7 Kick euclidian lenght;
+#X text 60 81 8 Snare euclidian lenght;
+#X text 60 91 9 Hihat euclidian lenght;
+#X text 222 11 Outlets: 1 Kick Gate;
+#X text 276 21 2 Snare Gate;
+#X text 276 31 3 Hihat Gate;
+#X text 276 41 4 Kick Accent Gate;
+#X text 276 51 5 Snare Accent Gate;
+#X text 276 61 6 Hihat Accent Gate;
+#X floatatom 16 130 5 0 0 0 - - -;
+#X floatatom 56 130 5 0 0 0 - - -;
+#X floatatom 96 130 5 0 0 0 - - -;
+#X floatatom 136 130 5 0 0 0 - - -;
+#X floatatom 176 130 5 0 0 0 - - -;
+#X floatatom 216 130 5 0 0 0 - - -;
+#X floatatom 256 130 5 0 0 0 - - -;
+#X floatatom 296 130 5 0 0 0 - - -;
+#X floatatom 336 130 5 0 0 0 - - -;
+#X floatatom 376 130 5 0 0 0 - - -;
+#X connect 0 0 1 0;
+#X connect 0 0 7 0;
+#X connect 0 1 2 0;
+#X connect 0 1 8 0;
+#X connect 0 2 3 0;
+#X connect 0 2 9 0;
+#X connect 0 3 4 0;
+#X connect 0 3 10 0;
+#X connect 0 4 5 0;
+#X connect 0 4 11 0;
+#X connect 0 5 6 0;
+#X connect 0 5 12 0;
+#X connect 28 0 0 0;
+#X connect 29 0 0 1;
+#X connect 30 0 0 2;
+#X connect 31 0 0 3;
+#X connect 32 0 0 4;
+#X connect 33 0 0 5;
+#X connect 34 0 0 6;
+#X connect 35 0 0 7;
+#X connect 36 0 0 8;
+#X connect 37 0 0 9;

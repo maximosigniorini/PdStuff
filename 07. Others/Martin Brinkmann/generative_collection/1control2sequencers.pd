@@ -1,4 +1,4 @@
-#N canvas 65 161 1650 823 10;
+#N canvas 0 23 1280 690 10;
 #N canvas 34 77 1364 893 cartseq16 0;
 #X text -47 -67 trigger;
 #X obj 101 116 nbx 3 14 0 127 0 1 empty empty empty 0 -8 0 10 -262144
@@ -473,7 +473,7 @@ a 4x4 matrix \, and trigger outputs this value;
 #X restore 896 518 pd on_skp;
 #X obj 45 14 inlet;
 #X text 87 12 start/sync;
-#X floatatom 588 101 5 0 0 0 - - -, f 5;
+#X floatatom 588 101 5 0 0 0 - - -;
 #X obj 183 11 inlet;
 #X text 222 11 bpm;
 #X obj 120 134 tgl 15 1 empty empty empty 17 7 0 10 -228856 -1 -1 1
@@ -1328,7 +1328,7 @@ a 4x4 matrix \, and trigger outputs this value;
 #X obj 375 100 nbx 2 14 2 32 0 1 empty empty l -5 7 0 10 -262144 -1
 -1 32 256;
 #X obj 103 170 hsl 315 8 0 1 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 11775 1;
+-1 -1 19625 1;
 #X obj 95 499 random 1000;
 #X obj 27 570 select 0;
 #X obj 95 519 / 10;
@@ -2086,7 +2086,7 @@ method described in stutters post at pdpatchrepo;
 -1 -1 16 256;
 #X obj 119 220 /;
 #X obj 104 120 hsl 120 8 0 1 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 8925 1;
+-1 -1 2975 1;
 #X obj 11 68 int;
 #X obj 41 71 + 1;
 #X obj 44 97 mod;
@@ -2482,7 +2482,7 @@ from the original 'grids'!;
 #X obj 235 0 loadbang;
 #X obj 250 42 delay 2;
 #X obj 109 150 hsl 224 8 0 32 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 8362 1;
+-1 -1 13937 1;
 #X obj 68 570 / 2;
 #X obj 67 591 int;
 #X obj 19 627 * 2;
@@ -2830,7 +2830,7 @@ only 8 bits length...);
 #X text 155 581 1d cellular automaton;
 #X msg 315 603 0 1 1 0 1 1 1 0;
 #X text 310 624 presets:30 \, 110 \, 90 \, 184;
-#X text 439 472 mono-minimalpattern with slight variations;
+#X text 417 462 mono-minimalpattern with slight variations;
 #N canvas 656 121 1011 709 monominimalrnd3 0;
 #X obj 191 287 / 100;
 #X obj 162 114 nbx 3 14 1 99 0 1 empty empty empty 0 -8 0 10 -262144
@@ -2911,8 +2911,8 @@ only 8 bits length...);
 #X connect 29 0 27 0;
 #X connect 30 0 2 0;
 #X coords 0 -1 1 1 120 40 1 100 100;
-#X restore 441 488 pd monominimalrnd3;
-#X text 566 495 randomize \, length \, threshold (density) \, sync
+#X restore 419 478 pd monominimalrnd3;
+#X text 544 485 randomize \, length \, threshold (density) \, sync
 ;
 #X text 59 21 mono- and polyphonic sequencers;
 #X text 320 495 length \, seed;
@@ -3186,7 +3186,7 @@ button;
 #N canvas 396 307 756 533 sq8 0;
 #X obj 139 102 nbx 3 14 0 127 0 1 empty empty empty 0 -8 0 10 -262144
 -1 -262144 0 256;
-#X obj 176 102 nbx 3 14 0 127 0 1 empty empty empty 0 -8 0 10 -262144
+#X obj 176 102 nbx 3 14 0 127 0 1 empty empty empty 0 -8 0 10 -233017
 -1 -262144 0 256;
 #X obj 213 102 nbx 3 14 0 127 0 1 empty empty empty 0 -8 0 10 -262144
 -1 -262144 0 256;
@@ -3194,7 +3194,7 @@ button;
 -1 -262144 0 256;
 #X obj 287 102 nbx 3 14 0 127 0 1 empty empty empty 0 -8 0 10 -262144
 -1 -262144 0 256;
-#X obj 324 102 nbx 3 14 0 127 0 1 empty empty empty 0 -8 0 10 -233017
+#X obj 324 102 nbx 3 14 0 127 0 1 empty empty empty 0 -8 0 10 -262144
 -1 -262144 0 256;
 #X obj 361 102 nbx 3 14 0 127 0 1 empty empty empty 0 -8 0 10 -262144
 -1 -262144 0 256;
@@ -3384,10 +3384,10 @@ button;
 #X coords 0 -1 1 1 460 18 1 100 100;
 #X restore 574 149 pd sq8;
 #X text 578 130 simple 8 step sequencer;
-#X floatatom 479 619 5 0 0 0 - - -, f 5;
+#X floatatom 479 619 5 0 0 0 - - -;
 #X text 476 635 current nr;
-#X floatatom 1248 620 5 0 0 0 - - -, f 5;
-#X floatatom 864 619 5 0 0 0 - - -, f 5;
+#X floatatom 1248 620 5 0 0 0 - - -;
+#X floatatom 864 619 5 0 0 0 - - -;
 #X text 867 635 next nr;
 #N canvas 160 77 1701 999 scene_sq1b 0;
 #X obj 201 -107 route 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15;
@@ -3457,8 +3457,8 @@ button;
 #X msg -108 -400 14;
 #X msg -79 -400 15;
 #X obj 13 -536 int;
-#X floatatom 633 2 5 1 16 0 - - -, f 5;
-#X floatatom 728 2 5 0 128 0 - - -, f 5;
+#X floatatom 633 2 5 1 16 0 - - -;
+#X floatatom 728 2 5 0 128 0 - - -;
 #X msg 687 -35 set \$1;
 #X msg 595 -45 set \$1;
 #X text 602 0 nr;
@@ -3496,7 +3496,7 @@ button;
 -1 -1 48 256;
 #X text 510 0 len;
 #X obj 4 31 hsl 762 8 0 127 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 6591 1;
+-1 -1 20972 1;
 #X obj 811 -329 + 1;
 #X obj 715 3 bng 10 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
@@ -3677,7 +3677,7 @@ time 1..128 (for example 1/16 steps);
 #X obj 1126 -303 t f f;
 #X text 1072 -286 next nr greater or less;
 #X obj 708 -600 t b f b;
-#X floatatom 1233 -148 5 0 0 0 - - -, f 5;
+#X floatatom 1233 -148 5 0 0 0 - - -;
 #X text 1010 -592 find scene nr at next pos;
 #X obj 498 -659 int;
 #X obj 528 -656 + 1;
@@ -3927,7 +3927,7 @@ time 1..128 (for example 1/16 steps);
 ;
 #N canvas 515 204 1010 863 sparse_cycles 0;
 #X obj 105 156 hsl 384 8 0 1 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 19150 1;
+-1 -1 0 1;
 #X obj 102 119 vsl 10 32 0 127 0 1 empty empty empty 0 -9 0 10 -233017
 -1 -1 1700 0;
 #X obj 365 -241 inlet;
@@ -5065,7 +5065,7 @@ probability \, invert;
 #X connect 73 0 48 0;
 #X coords 0 -1 1 1 440 65 1 100 100;
 #X restore 586 677 pd sparse_cycles;
-#X floatatom 582 757 5 0 0 0 - - -, f 5;
+#X floatatom 582 757 5 0 0 0 - - -;
 #X text 596 658 up to 5 values positioned on a loop;
 #X text 1029 671 sync \, select value \, position beats \, position
 percent \, active \, loop length, f 74;
@@ -8563,7 +8563,7 @@ position;
 #X obj 386 102 nbx 3 13 2 16 0 1 empty empty empty 0 -8 0 10 -262144
 -1 -1 16 256;
 #X obj 104 439 hsl 320 8 0 15 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 23393 1;
+-1 -1 6380 1;
 #X obj 789 991 * 16;
 #X obj 746 1109 + 1;
 #X obj 717 1109 int;
@@ -9095,7 +9095,7 @@ position;
 #X obj 1148 178 == 9;
 #X obj 1259 178 == 10;
 #X obj 1364 180 == 11;
-#X floatatom 187 278 5 0 0 0 - - -, f 5;
+#X floatatom 187 278 5 0 0 0 - - -;
 #X connect 0 0 9 0;
 #X connect 1 0 19 0;
 #X connect 2 0 20 0;
@@ -9200,7 +9200,7 @@ position;
 -1 -1 0 256;
 #X obj 186 101 cnv 15 45 15 empty empty empty 20 12 0 14 -262144 -66577
 0;
-#X symbolatom 188 102 7 0 0 0 - - -, f 7;
+#X symbolatom 188 102 7 0 0 0 - - -;
 #N canvas 633 161 1005 915 scalename 0;
 #X obj 336 17 inlet;
 #X obj 256 878 outlet;
