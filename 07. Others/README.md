@@ -23,3 +23,5 @@
 * **message variables**
 * **In PD:** Adaptation of Terry Riley's In C 
 * **Mutable Instruments:** Port of MI eurorack modules 
+* **Mike Moreno - Idioteque:** Port of Radiohead's Idioteque 
+* **Mike Moreno - Lira-8:** Port of Soma Electronic's Organic Synthesizer
