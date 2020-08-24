@@ -5,6 +5,7 @@ Collection of Pure Data patches collected from all over the internet
 
 Patches from: 
 * Acreil
+* Henri Augusto
 * Bapch
 * Frank Barkhnect
 * Tom Betts
