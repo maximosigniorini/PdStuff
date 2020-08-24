@@ -1,0 +1,15 @@
+#N struct 6833-point float x float y float rgb;
+#N canvas 539 154 513 478 10;
+#X msg 75 308 color \$1;
+#X obj 75 331 tgl 40 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 75 133 colorPicker;
+#X obj 271 315 easyflow/printHere -s;
+#X text 384 319 RGB;
+#X text 73 29 [colorPicker] lets you to easily change object colors
+withouth entering, f 46;
+#X text 74 68 properties -> compose color -> okay -> apply;
+#X obj 368 431 guilla-info;
+#X connect 0 0 1 0;
+#X connect 2 0 0 0;
+#X connect 2 1 3 0;

@@ -1,0 +1,691 @@
+#N canvas 320 120 1339 631 10;
+#X obj 50 75 hsl 128 15 0 127 0 0 \$0-choosed1 \$0-choice1  major
+35 7 0 10 -262144 -262144 -1 0 1;
+#X obj 50 90 hsl 128 15 0 127 0 0 \$0-choosed2 \$0-choice2  minor
+35 7 0 10 -262144 -262144 -1 0 1;
+#X obj 50 105 hsl 128 15 0 127 0 0 \$0-choosed3 \$0-choice3  augmented
+35 7 0 10 -262144 -262144 -1 0 1;
+#X obj 50 120 hsl 128 15 0 127 0 0 \$0-choosed4 \$0-choice4  diminished
+35 7 0 10 -262144 -262144 -1 0 1;
+#X obj 50 135 hsl 128 15 0 127 0 0 \$0-choosed5 \$0-choice5  major7
+35 7 0 10 -262144 -262144 -1 0 1;
+#N canvas 0 50 570 356 initialization 0;
+#X obj 67 9 loadbang;
+#X obj 67 51 trigger bang bang bang bang bang bang bang bang;
+#X obj 67 295 v \$0-startIndex;
+#X obj 67 31 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 160 222 s \$0-mainBar;
+#X msg 160 200 label click to select;
+#X obj 330 300 cnv 10 11 17 empty \$0-color C 2 9 0 14 -237854 -262144
+0;
+#X obj 342 300 s \$0-closeGOP;
+#X obj 342 263 del 1000;
+#X msg 67 73 0;
+#X obj 55 295 cnv 10 11 17 empty \$0-color empty 2 9 0 14 -260353 -262144
+0;
+#X obj 393 108 s \$0-sliderRec;
+#X msg 393 84 set 100;
+#X obj 101 162 cnv 10 11 17 empty empty empty 2 9 0 14 -104467 -262144
+0;
+#X obj 113 162 s \$0-initOptions;
+#X obj 334 153 cnv 10 11 17 empty empty empty 2 9 0 14 -188825 -262144
+0;
+#X obj 346 153 v \$0-isOpen;
+#X msg 346 126 0;
+#X text 410 260 prevents bug?;
+#X connect 0 0 3 0;
+#X connect 1 0 9 0;
+#X connect 1 1 14 0;
+#X connect 1 2 5 0;
+#X connect 1 6 17 0;
+#X connect 1 7 12 0;
+#X connect 3 0 1 0;
+#X connect 5 0 4 0;
+#X connect 8 0 7 0;
+#X connect 9 0 2 0;
+#X connect 12 0 11 0;
+#X connect 17 0 16 0;
+#X restore 78 18 pd initialization;
+#X obj 50 60 hsl 128 15 0 127 0 0 \$0-mainBarBang \$0-mainBar click to select
+15 7 0 10 -262144 -262144 -1 0 1;
+#X obj 482 17 r \$0-mainBarBang;
+#X obj 180 60 tgl 15 0 \$0-openClose \$0-openCloseSet ▼ 3 7 0 15
+-1 -262144 -262144 0 1;
+#X obj 227 57 r \$0-openClose;
+#X floatatom 227 81 5 0 0 0 - - -, f 5;
+#X obj 227 100 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 227 120 t b b;
+#X msg 259 144 set 0;
+#X obj 259 166 s \$0-openCloseSet;
+#X obj 130 537 outlet;
+#X obj 784 18 namecanvas \$0-dropdownMenu;
+#X obj 216 270 cnv 10 11 17 empty \$0-color O 2 9 0 14 -237854 -262144
+0;
+#X obj 248 240 cnv 10 11 17 empty \$0-color C 2 9 0 14 -237854 -262144
+0;
+#X obj 227 270 s \$0-openGOP;
+#X obj 260 240 s \$0-closeGOP;
+#X obj 69 452 easyflow/labelcnv out;
+#X obj 98 452 r \$0-outlet1;
+#X obj 57 346 cnv 10 11 17 empty \$0-color M 2 9 0 14 -237854 -262144
+0;
+#X obj 69 346 r \$0-mapParent;
+#X obj 69 368 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 69 390 map 0 \, map 1;
+#X obj 69 412 s \$1;
+#X obj 180 135 tgl 15 0 \$0-listDown \$0-listDownSet ▼ 3 7 0 15 -262144
+-1 -1 0 1;
+#X obj 180 75 tgl 15 0 \$0-listUp \$0-listUpSet ▲ 3 7 0 15 -262144
+-1 -1 0 1;
+#X obj 817 218 r \$0-listUp;
+#X obj 817 242 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 817 262 t b b;
+#X msg 849 286 set 0;
+#X obj 849 308 s \$0-listUpSet;
+#X obj 1017 242 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1017 262 t b b;
+#X msg 1049 286 set 0;
+#X obj 1017 218 r \$0-listDown;
+#X obj 1049 308 s \$0-listDownSet;
+#X obj 863 374 v \$0-startIndex;
+#X obj 863 449 v \$0-startIndex;
+#X obj 1063 374 v \$0-startIndex;
+#X obj 1063 449 v \$0-startIndex;
+#N canvas 0 50 837 564 OPTIONS 0;
+#X obj 189 39 cnv 10 11 17 empty \$0-color empty 2 9 0 14 -5679 -262144
+0;
+#X obj 201 39 r \$0-options;
+#X obj 176 235 list;
+#X obj 42 42 cnv 10 11 17 empty \$0-color empty 2 9 0 14 -14399 -262144
+0;
+#X obj 54 64 trigger bang a;
+#X obj 54 42 r \$0-getOptions;
+#X obj 339 185 symbol;
+#X symbolatom 339 210 35 0 0 0 - - -, f 35;
+#X obj 176 357 send;
+#X floatatom 324 151 5 0 0 0 - - -, f 5;
+#X obj 324 83 list length;
+#X floatatom 324 105 5 0 0 0 - - -, f 5;
+#X obj 324 129 v \$0-nOfOptions;
+#X obj 313 129 cnv 10 10 17 empty \$0-color empty 20 12 0 14 -148276
+-260353 0;
+#X obj 201 61 trigger anything a;
+#X obj 161 361 cnv 10 10 17 empty \$0-cnv ▲ 1 5 0 18 -262144 -1 0
+;
+#X obj 148 359 cnv 11 12 17 empty empty c 2 9 0 14 -262144 -1 0;
+#X obj 138 359 cnv 11 12 17 empty empty u 2 9 0 14 -262144 -1 0;
+#X connect 1 0 14 0;
+#X connect 2 0 8 0;
+#X connect 4 0 2 0;
+#X connect 4 1 6 0;
+#X connect 5 0 4 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 1;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 12 0 9 0;
+#X connect 14 0 2 1;
+#X connect 14 1 10 0;
+#X restore 520 166 pd OPTIONS;
+#X obj 506 164 cnv 10 11 17 empty \$0-color ● 2 9 0 14 -262144 -5679
+0;
+#X obj 494 164 cnv 10 11 17 empty \$0-color ● 2 9 0 14 -262144 -14399
+0;
+#N canvas 1094 89 628 712 updateLabels 0;
+#X obj 110 60 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 110 82 5;
+#X obj 110 114 easyflow/for;
+#X floatatom 191 138 5 0 0 0 - - -, f 5;
+#X symbolatom 363 470 25 0 0 0 - - -, f 25;
+#X obj 363 393 list append \$0;
+#X obj 314 215 v \$0-startIndex;
+#X floatatom 314 237 5 0 0 0 - - -, f 5;
+#X obj 191 265 +;
+#X obj 191 193 trigger float bang;
+#X obj 314 256 t f f;
+#X msg 363 415 symbol \$2-choice\$1;
+#X obj 340 655 send;
+#X obj 191 157 trigger float float;
+#X floatatom 191 309 5 0 0 0 - - -, f 5;
+#X obj 179 433 cnv 10 11 17 empty \$0-color empty 2 9 0 14 -14399 -262144
+0;
+#X obj 191 433 s \$0-getOptions;
+#X obj 191 380 list append \$0;
+#X msg 191 404 \$2-\$1;
+#N canvas 0 50 450 300 getElem 0;
+#X obj 80 30 inlet;
+#X text 123 29 HotInlet;
+#X obj 201 28 inlet;
+#X obj 124 136 outlet;
+#X floatatom 201 50 5 0 0 0 - - -, f 5;
+#X obj 124 109 list split 1;
+#X obj 201 71 - 1;
+#X obj 80 72 list split 0;
+#X connect 0 0 7 0;
+#X connect 2 0 4 0;
+#X connect 4 0 6 0;
+#X connect 5 0 3 0;
+#X connect 6 0 7 1;
+#X connect 7 1 5 0;
+#X restore 192 553 pd getElem;
+#X obj 191 328 trigger bang float;
+#X obj 110 36 r \$0-updateLabels;
+#X obj 98 36 cnv 10 11 17 empty \$0-color empty 2 9 0 14 -242040 -262144
+0;
+#X obj 192 493 r \$0-updateLabelsGetOptions;
+#X msg 191 353 updateLabelsGetOptions;
+#X msg 192 587 label  \$1;
+#X obj 302 215 cnv 10 11 17 empty \$0-color empty 2 9 0 14 -260353
+-262144 0;
+#X obj 192 525 trigger anything bang;
+#X msg 340 588 label;
+#X text 23 605 there is a " " char;
+#X text 24 624 to let numeric labels;
+#X obj 176 354 cnv 10 10 17 empty \$0-cnv ▲ 1 5 0 18 -262144 -1 0
+;
+#X obj 180 493 cnv 11 12 17 empty empty u 2 9 0 14 -1 -262144 0;
+#X obj 163 352 cnv 11 12 17 empty empty u 2 9 0 14 -262144 -1 0;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 1 3 0;
+#X connect 3 0 13 0;
+#X connect 4 0 12 1;
+#X connect 5 0 11 0;
+#X connect 6 0 7 0;
+#X connect 7 0 10 0;
+#X connect 8 0 14 0;
+#X connect 9 0 8 0;
+#X connect 9 1 6 0;
+#X connect 10 0 8 1;
+#X connect 11 0 4 0;
+#X connect 13 0 9 0;
+#X connect 13 1 5 0;
+#X connect 14 0 20 0;
+#X connect 17 0 18 0;
+#X connect 18 0 16 0;
+#X connect 19 0 25 0;
+#X connect 20 0 24 0;
+#X connect 20 1 19 1;
+#X connect 21 0 0 0;
+#X connect 23 0 27 0;
+#X connect 24 0 17 0;
+#X connect 25 0 12 0;
+#X connect 27 0 19 0;
+#X connect 27 1 28 0;
+#X connect 28 0 12 0;
+#X restore 519 193 pd updateLabels;
+#X obj 805 512 cnv 10 11 17 empty \$0-color empty 2 9 0 14 -242040
+-262144 0;
+#X obj 817 512 s \$0-updateLabels;
+#X obj 1005 515 cnv 10 11 17 empty \$0-color empty 2 9 0 14 -242040
+-262144 0;
+#X obj 1017 515 s \$0-updateLabels;
+#X obj 863 396 - 1;
+#X obj 1063 396 + 1;
+#N canvas 0 50 353 309 checkIndex 0;
+#X obj 33 25 inlet;
+#X obj 33 69 outlet;
+#X obj 33 47 clip 0 5;
+#X connect 0 0 2 0;
+#X connect 2 0 1 0;
+#X restore 863 421 pd checkIndex;
+#X obj 481 164 cnv 10 11 17 empty \$0-color ● 2 9 0 14 -262144 -213434
+0;
+#N canvas 0 50 524 376 checkIndex 0;
+#X obj 51 26 inlet;
+#X obj 174 85 v \$0-nOfOptions;
+#X floatatom 174 107 5 0 0 0 - - -, f 5;
+#X obj 51 58 trigger float bang;
+#X obj 51 250 outlet;
+#X obj 51 208 clip 0 666;
+#X floatatom 174 148 5 0 0 0 - - -, f 5;
+#X obj 174 126 - 5;
+#X obj 163 85 cnv 10 10 17 empty \$0-color empty 20 12 0 14 -148276
+-260353 0;
+#X obj 174 167 clip 0 666;
+#X connect 0 0 3 0;
+#X connect 1 0 2 0;
+#X connect 2 0 7 0;
+#X connect 3 0 5 0;
+#X connect 3 1 1 0;
+#X connect 5 0 4 0;
+#X connect 6 0 9 0;
+#X connect 7 0 6 0;
+#X connect 9 0 5 2;
+#X restore 1063 421 pd checkIndex;
+#X obj 471 43 cnv 10 11 17 empty \$0-color O 2 9 0 14 -237854 -262144
+0;
+#X obj 482 43 s \$0-openGOP;
+#N canvas 970 169 608 658 choice 0;
+#X obj 124 35 r \$0-choosed2;
+#X obj 234 35 r \$0-choosed3;
+#X obj 124 57 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 234 57 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 344 57 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 454 57 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 344 35 r \$0-choosed4;
+#X obj 454 35 r \$0-choosed5;
+#X obj 14 57 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 14 35 r \$0-choosed1;
+#X obj 66 363 cnv 10 11 17 empty empty empty 2 9 0 14 -14399 -262144
+0;
+#X obj 78 363 s \$0-getOptions;
+#X obj 78 310 list append \$0;
+#X msg 78 334 \$2-\$1;
+#X msg 14 77 1;
+#X msg 124 77 2;
+#X msg 234 77 3;
+#X msg 344 77 4;
+#X msg 454 77 5;
+#X obj 134 582 s \$0-outlet1;
+#X obj 78 252 trigger bang float;
+#N canvas 0 50 450 300 getElem 0;
+#X obj 80 30 inlet;
+#X text 123 29 HotInlet;
+#X obj 201 28 inlet;
+#X obj 120 136 outlet;
+#X floatatom 201 50 5 0 0 0 - - -, f 5;
+#X obj 120 109 list split 1;
+#X obj 201 71 - 1;
+#X obj 80 72 list split 0;
+#X connect 0 0 7 0;
+#X connect 2 0 4 0;
+#X connect 4 0 6 0;
+#X connect 5 0 3 0;
+#X connect 6 0 7 1;
+#X connect 7 1 5 0;
+#X restore 134 473 pd getElem;
+#X obj 134 443 r \$0-getOutput;
+#X msg 78 283 getOutput;
+#X obj 324 315 v \$0-startIndex;
+#X floatatom 324 337 5 0 0 0 - - -, f 5;
+#X obj 201 365 +;
+#X obj 201 293 trigger float bang;
+#X obj 134 495 t a a;
+#X obj 166 547 s \$0-mainBar;
+#X floatatom 201 315 5 0 0 0 - - -, f 5;
+#X text 245 524 there is a " " char to let numeric labels;
+#X msg 166 525 label  \$1;
+#X obj 312 315 cnv 10 11 17 empty empty empty 2 9 0 14 -260353 -262144
+0;
+#X obj 105 582 cnv 11 28 17 empty empty out 2 9 0 14 -1 -262144 0;
+#X msg 277 396 add2 \$1;
+#X msg 277 418 augmented;
+#X obj 61 285 cnv 10 10 17 empty \$0-cnv ▲ 1 5 0 18 -262144 -1 0
+;
+#X obj 122 443 cnv 11 12 17 empty empty c 2 9 0 14 -1 -262144 0;
+#X obj 48 283 cnv 11 12 17 empty empty c 2 9 0 14 -262144 -1 0;
+#X connect 0 0 2 0;
+#X connect 1 0 3 0;
+#X connect 2 0 15 0;
+#X connect 3 0 16 0;
+#X connect 4 0 17 0;
+#X connect 5 0 18 0;
+#X connect 6 0 4 0;
+#X connect 7 0 5 0;
+#X connect 8 0 14 0;
+#X connect 9 0 8 0;
+#X connect 12 0 13 0;
+#X connect 13 0 11 0;
+#X connect 14 0 20 0;
+#X connect 15 0 20 0;
+#X connect 16 0 20 0;
+#X connect 17 0 20 0;
+#X connect 18 0 20 0;
+#X connect 20 0 23 0;
+#X connect 20 1 27 0;
+#X connect 21 0 28 0;
+#X connect 21 0 35 0;
+#X connect 22 0 21 0;
+#X connect 23 0 12 0;
+#X connect 24 0 25 0;
+#X connect 25 0 26 1;
+#X connect 26 0 21 1;
+#X connect 27 0 30 0;
+#X connect 27 1 24 0;
+#X connect 28 0 19 0;
+#X connect 28 1 32 0;
+#X connect 30 0 26 0;
+#X connect 32 0 29 0;
+#X connect 35 0 36 0;
+#X restore 284 17 pd choice;
+#N canvas 865 79 532 357 clearLabels 0;
+#X obj 60 80 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 60 102 5;
+#X floatatom 141 158 5 0 0 0 - - -, f 5;
+#X symbolatom 264 283 25 0 0 0 - - -, f 25;
+#X obj 264 206 list append \$0;
+#X msg 264 228 symbol \$2-choice\$1;
+#X obj 141 285 send;
+#X obj 60 59 inlet;
+#X msg 141 245 label;
+#X obj 141 177 trigger bang float;
+#X obj 60 134 easyflow/for;
+#X connect 0 0 1 0;
+#X connect 1 0 10 0;
+#X connect 2 0 9 0;
+#X connect 3 0 6 1;
+#X connect 4 0 5 0;
+#X connect 5 0 3 0;
+#X connect 7 0 0 0;
+#X connect 8 0 6 0;
+#X connect 9 0 8 0;
+#X connect 9 1 4 0;
+#X connect 10 1 2 0;
+#X restore 939 165 pd clearLabels;
+#X obj 939 91 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 1052 166 cnv 10 11 17 empty \$0-color C 2 9 0 14 -237854 -262144
+0;
+#X obj 1064 166 s \$0-closeGOP;
+#X obj 1173 166 s \$0-mainBar;
+#X msg 1173 139 label click to select;
+#X obj 98 474 t b a;
+#X obj 86 505 cnv 10 11 17 empty \$0-color C 2 9 0 14 -237854 -262144
+0;
+#X obj 98 505 s \$0-closeGOP;
+#X obj 475 189 cnv 10 11 17 empty \$0-color ● 2 9 0 14 -262144 -213434
+0;
+#X obj 499 189 cnv 10 11 17 empty \$0-color ● 2 9 0 14 -262144 -260353
+0;
+#X obj 487 189 cnv 10 11 17 empty \$0-color ● 2 9 0 14 -262144 -14399
+0;
+#X obj 180 93 vsl 15 40 0 100 0 0 \$0-sliderSend \$0-sliderRec empty
+0 -9 0 10 -262144 -1 -1 3900 0;
+#N canvas 740 219 958 498 slider 0;
+#X obj 78 24 r \$0-sliderSend;
+#X floatatom 78 69 5 0 0 0 - - -, f 5;
+#X obj 78 88 * -1;
+#X obj 78 110 + 100;
+#X floatatom 78 132 5 0 0 0 - - -, f 5;
+#X obj 243 115 v \$0-nOfOptions;
+#X obj 232 115 cnv 10 10 17 empty \$0-color empty 20 12 0 14 -148276
+-260353 0;
+#X obj 243 137 - 5;
+#X obj 78 201 easyflow/map 0 100 0 666;
+#X obj 243 159 clip 0 666;
+#X floatatom 243 181 5 0 0 0 - - -, f 5;
+#X obj 66 336 cnv 10 11 17 empty \$0-color empty 2 9 0 14 -242040 -262144
+0;
+#X obj 78 336 s \$0-updateLabels;
+#X obj 201 305 v \$0-startIndex;
+#X obj 189 305 cnv 10 11 17 empty \$0-color empty 2 9 0 14 -260353
+-262144 0;
+#X floatatom 78 223 5 0 0 0 - - -, f 5;
+#X obj 78 46 trigger float bang;
+#X obj 78 242 easyflow/nearest;
+#X floatatom 78 264 5 0 0 0 - - -, f 5;
+#X obj 78 283 trigger bang float;
+#X obj 490 101 v \$0-startIndex;
+#X obj 478 101 cnv 10 11 17 empty \$0-color empty 2 9 0 14 -260353
+-262144 0;
+#X obj 490 78 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 613 150 v \$0-nOfOptions;
+#X obj 602 150 cnv 10 10 17 empty \$0-color empty 20 12 0 14 -148276
+-260353 0;
+#X obj 613 172 - 5;
+#X obj 613 194 clip 0 666;
+#X floatatom 613 216 5 0 0 0 - - -, f 5;
+#X obj 490 123 trigger float bang;
+#X floatatom 490 277 5 0 0 0 - - -, f 5;
+#X msg 490 296 set \$1;
+#X obj 490 318 s \$0-sliderRec;
+#X obj 490 255 easyflow/map 0 666 100 0;
+#X obj 490 37 r \$0-updateSlider;
+#X obj 478 37 cnv 10 11 17 empty \$0-color empty 2 9 0 14 -52379 -262144
+0;
+#X connect 0 0 16 0;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 8 0;
+#X connect 5 0 7 0;
+#X connect 7 0 9 0;
+#X connect 8 0 15 0;
+#X connect 9 0 10 0;
+#X connect 10 0 8 4;
+#X connect 15 0 17 0;
+#X connect 16 0 1 0;
+#X connect 16 1 5 0;
+#X connect 17 0 18 0;
+#X connect 18 0 19 0;
+#X connect 19 0 12 0;
+#X connect 19 1 13 0;
+#X connect 20 0 28 0;
+#X connect 22 0 20 0;
+#X connect 23 0 25 0;
+#X connect 25 0 26 0;
+#X connect 26 0 27 0;
+#X connect 27 0 32 2;
+#X connect 28 0 32 0;
+#X connect 28 1 23 0;
+#X connect 29 0 30 0;
+#X connect 30 0 31 0;
+#X connect 32 0 29 0;
+#X connect 33 0 22 0;
+#X restore 405 17 pd slider;
+#X obj 851 374 cnv 10 11 17 empty \$0-color empty 2 9 0 14 -260353
+-262144 0;
+#X obj 851 449 cnv 10 11 17 empty \$0-color empty 2 9 0 14 -260353
+-262144 0;
+#X obj 1051 374 cnv 10 11 17 empty \$0-color empty 2 9 0 14 -260353
+-262144 0;
+#X obj 1051 449 cnv 10 11 17 empty \$0-color empty 2 9 0 14 -260353
+-262144 0;
+#X obj 469 164 cnv 10 11 17 empty \$0-color ● 2 9 0 14 -262144 -148276
+0;
+#X obj 63 17 cnv 10 11 17 empty \$0-color ● 2 9 0 14 -262144 -5679
+0;
+#X obj 52 17 cnv 10 11 17 empty \$0-color ● 2 9 0 14 -262144 -213434
+0;
+#X obj 40 17 cnv 10 11 17 empty \$0-color ● 2 9 0 14 -262144 -260353
+0;
+#X obj 268 16 cnv 10 11 17 empty \$0-color ● 2 9 0 14 -262144 -260353
+0;
+#X obj 256 16 cnv 10 11 17 empty \$0-color ● 2 9 0 14 -262144 -14399
+0;
+#X obj 1050 420 cnv 10 11 17 empty \$0-color ● 2 9 0 14 -262144 -148276
+0;
+#X obj 392 16 cnv 10 11 17 empty \$0-color ● 2 9 0 14 -262144 -148276
+0;
+#X obj 380 16 cnv 10 11 17 empty \$0-color ● 2 9 0 14 -262144 -260353
+0;
+#X obj 821 58 cnv 11 380 17 empty \$0-canvas do not save with labels and expanded GOP
+2 9 0 14 -1 -262144 0;
+#X obj 369 16 cnv 10 11 17 empty \$0-color ● 2 9 0 14 -262144 -213434
+0;
+#X obj 840 477 s \$0-updateSlider;
+#X obj 1040 480 s \$0-updateSlider;
+#X obj 828 477 cnv 10 11 17 empty \$0-color empty 2 9 0 14 -52379 -262144
+0;
+#X obj 357 16 cnv 10 11 17 empty \$0-color ● 2 9 0 14 -262144 -52379
+0;
+#X obj 1028 480 cnv 10 11 17 empty \$0-color empty 2 9 0 14 -52379
+-262144 0;
+#X obj 118 537 cnv 11 12 17 empty empty 1 2 9 0 14 -1 -262144 0;
+#X obj 50 172 cnv 11 12 17 empty empty 1 2 9 0 14 -1 -262144 0;
+#X obj 62 172 inlet;
+#X obj 62 194 route options;
+#N canvas 954 219 559 403 initOptions 0;
+#X obj 264 230 cnv 10 11 17 empty \$0-color empty 2 9 0 14 -5679 -262144
+0;
+#X obj 62 73 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 276 230 s \$0-options;
+#X obj 50 340 cnv 10 11 17 empty \$0-color empty 2 9 0 14 -242040 -262144
+0;
+#X obj 62 340 s \$0-updateLabels;
+#X obj 62 103 list 666 \$2;
+#X obj 62 175 easyflow/symbolSplit /;
+#X msg 62 125 symbol \$2;
+#X obj 50 27 cnv 10 11 17 empty empty empty 2 9 0 14 -104467 -262144
+0;
+#X obj 62 27 r \$0-initOptions;
+#X obj 62 49 route bang symbol;
+#X obj 178 76 easyflow/symbolize;
+#X obj 204 258 v \$0-startIndex;
+#X obj 192 258 cnv 10 11 17 empty \$0-color empty 2 9 0 14 -260353
+-262144 0;
+#X msg 204 235 0;
+#X obj 133 314 s \$0-sliderRec;
+#X msg 133 290 set 100;
+#X obj 62 202 trigger bang bang bang anything;
+#X connect 1 0 5 0;
+#X connect 5 0 7 0;
+#X connect 6 0 17 0;
+#X connect 7 0 6 0;
+#X connect 9 0 10 0;
+#X connect 10 0 1 0;
+#X connect 10 1 6 0;
+#X connect 10 2 11 0;
+#X connect 11 0 6 0;
+#X connect 14 0 12 0;
+#X connect 16 0 15 0;
+#X connect 17 0 4 0;
+#X connect 17 1 16 0;
+#X connect 17 2 14 0;
+#X connect 17 3 2 0;
+#X restore 657 17 pd initOptions;
+#X obj 642 16 cnv 10 11 17 empty \$0-color ● 2 9 0 14 -262144 -5679
+0;
+#X obj 631 16 cnv 10 11 17 empty \$0-color ● 2 9 0 14 -262144 -213434
+0;
+#X obj 619 16 cnv 10 11 17 empty \$0-color ● 2 9 0 14 -262144 -104467
+0;
+#X obj 50 226 cnv 10 11 17 empty empty empty 2 9 0 14 -104467 -262144
+0;
+#X obj 62 226 s \$0-initOptions;
+#N canvas 634 227 552 473 openCloseDropDownMenu 0;
+#X obj 86 405 s \$0-dropdownMenu;
+#X obj 127 300 cnv 10 11 17 empty \$0-color M 2 9 0 14 -237854 -262144
+0;
+#X obj 139 300 s \$0-mapParent;
+#X obj 54 241 t b b;
+#X obj 247 241 t b b;
+#X msg 86 337 coords 0 1 1 -1 149 90 2 47.1961 60;
+#X msg 279 365 coords 0 1 1 -1 149 15 2 47.1961 60;
+#X obj 54 31 inlet;
+#X obj 247 36 inlet;
+#X obj 130 128 cnv 10 11 17 empty empty empty 2 9 0 14 -188825 -262144
+0;
+#X obj 142 128 v \$0-isOpen;
+#X msg 142 94 1;
+#X obj 119 200 s \$0-openCloseSet;
+#X msg 98 162 label ▲;
+#X msg 257 162 label ▼;
+#X obj 54 63 trigger b b b;
+#X obj 247 63 trigger b b b;
+#X msg 335 84 0;
+#X connect 3 0 2 0;
+#X connect 3 1 5 0;
+#X connect 4 0 2 0;
+#X connect 4 1 6 0;
+#X connect 5 0 0 0;
+#X connect 6 0 0 0;
+#X connect 7 0 15 0;
+#X connect 8 0 16 0;
+#X connect 11 0 10 0;
+#X connect 13 0 12 0;
+#X connect 14 0 12 0;
+#X connect 15 0 3 0;
+#X connect 15 1 13 0;
+#X connect 15 2 11 0;
+#X connect 16 0 4 0;
+#X connect 16 1 14 0;
+#X connect 16 2 17 0;
+#X connect 17 0 10 0;
+#X restore 291 503 pd openCloseDropDownMenu;
+#X obj 456 453 r \$0-closeGOP;
+#X obj 280 453 cnv 10 11 17 empty \$0-color O 2 9 0 14 -237854 -262144
+0;
+#X obj 291 475 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 444 453 cnv 10 11 17 empty \$0-color C 2 9 0 14 -237854 -262144
+0;
+#X obj 291 453 r \$0-openGOP;
+#X obj 456 475 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1017 344 t b b b;
+#X obj 817 344 t b b b;
+#X obj 29 17 cnv 10 11 17 empty empty ● 2 9 0 14 -262144 -237854
+0;
+#X obj 215 189 cnv 10 11 17 empty empty empty 2 9 0 14 -188825 -262144
+0;
+#X obj 227 189 v \$0-isOpen;
+#X obj 227 211 select 0 1;
+#X obj 608 16 cnv 10 11 17 empty \$0-color ● 2 9 0 14 -262144 -260353
+0;
+#X text 768 91 click before saving ->;
+#X obj 451 168 cnv 10 10 17 empty \$0-cnv ▲ 1 5 0 18 -262144 -1 0
+;
+#X obj 438 166 cnv 11 12 17 empty empty c 2 9 0 14 -262144 -1 0;
+#X obj 428 166 cnv 11 12 17 empty empty u 2 9 0 14 -262144 -1 0;
+#X obj 461 194 cnv 10 10 17 empty \$0-cnv ▲ 1 5 0 18 -262144 -1 0
+;
+#X obj 447 192 cnv 11 12 17 empty empty u 2 9 0 14 -262144 -1 0;
+#X obj 242 19 cnv 10 10 17 empty \$0-cnv ▲ 1 5 0 18 -262144 -1 0
+;
+#X obj 229 17 cnv 11 12 17 empty empty c 2 9 0 14 -262144 -1 0;
+#X obj 1132 590 guilla-info;
+#X connect 7 0 58 0;
+#X connect 9 0 10 0;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 12 0 115 0;
+#X connect 12 1 13 0;
+#X connect 13 0 14 0;
+#X connect 22 0 66 0;
+#X connect 24 0 25 0;
+#X connect 25 0 26 0;
+#X connect 26 0 27 0;
+#X connect 30 0 31 0;
+#X connect 31 0 32 0;
+#X connect 32 0 112 0;
+#X connect 32 1 33 0;
+#X connect 33 0 34 0;
+#X connect 35 0 36 0;
+#X connect 36 0 111 0;
+#X connect 36 1 37 0;
+#X connect 37 0 39 0;
+#X connect 38 0 35 0;
+#X connect 40 0 52 0;
+#X connect 42 0 53 0;
+#X connect 52 0 54 0;
+#X connect 53 0 56 0;
+#X connect 54 0 41 0;
+#X connect 56 0 43 0;
+#X connect 61 0 60 0;
+#X connect 61 0 63 0;
+#X connect 61 0 65 0;
+#X connect 65 0 64 0;
+#X connect 66 0 68 0;
+#X connect 66 1 15 0;
+#X connect 96 0 97 0;
+#X connect 97 0 103 0;
+#X connect 105 0 110 0;
+#X connect 107 0 104 0;
+#X connect 109 0 107 0;
+#X connect 110 0 104 1;
+#X connect 111 0 51 0;
+#X connect 111 1 90 0;
+#X connect 111 2 42 0;
+#X connect 112 0 49 0;
+#X connect 112 1 89 0;
+#X connect 112 2 40 0;
+#X connect 115 0 116 0;
+#X connect 116 0 19 0;
+#X connect 116 1 20 0;
+#X coords 0 1 1 -1 149 15 2 47 60;

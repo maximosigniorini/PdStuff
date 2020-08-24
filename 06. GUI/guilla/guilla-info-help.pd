@@ -1,0 +1,12 @@
+#N struct 10298-point float x float y float rgb;
+#N struct 38329-point float xPos float yPos float rgb;
+#N struct 38331-point float xPos float yPos float rgb;
+#N canvas 546 191 513 191 10;
+#X obj 31 66 colorPicker-help;
+#X obj 32 18 cnv 11 350 20 empty empty Guilla: gui objects made only with vanilla
+2 9 0 14 -45981 -262144 0;
+#X text 160 65 <- vanilla in-patch color picker;
+#X obj 31 96 dropdownMenu-help;
+#X text 160 95 <- vanilla dropdown menu;
+#X obj 31 126 pdPad-help;
+#X text 160 125 <- drag your mouse to get (x \, y) pairs;

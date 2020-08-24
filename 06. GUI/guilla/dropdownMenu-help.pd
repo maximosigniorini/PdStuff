@@ -1,0 +1,17 @@
+#N canvas 494 130 653 605 10;
+#X obj 64 52 namecanvas \$0-dropHelp;
+#X symbolatom 74 277 10 0 0 0 - - -, f 10;
+#X text 63 115 [dropdownMenu \$0-dropHelp major/minor/augmented/diminished/
+major7/minor7/4sus/dim7/halfdim];
+#X text 67 320 [dropdownMenu \$0-dropHelp 100/150/200/250];
+#X obj 74 163 dropdownMenu \$0-dropHelp major/minor/augmented/diminished/major7/minor7/4sus/dim7/halfdim
+;
+#X symbolatom 74 499 10 0 0 0 - - -, f 10;
+#X text 159 498 currently numbers are converted to symbols;
+#X text 241 36 you need to pass that name as an argument so [dropdownMenu]
+can tell its parent to update the drawing area., f 40;
+#X obj 74 359 dropdownMenu \$0-dropHelp 100/150/200/250;
+#X obj 482 566 guilla-info;
+#X connect 4 0 1 0;
+#X connect 8 0 5 0;
+#X coords 0 605 1 604 150 92 0;
