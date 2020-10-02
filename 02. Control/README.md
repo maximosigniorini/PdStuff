@@ -8,3 +8,4 @@
 * **line3:** Different curve than the normal line
 * **tabletool:** Tools for retreiving data out of tables
 * **Eli Smith - turing machine example:** Implementation of the turing machine algorithm
+* **Via - Kaoss-seq:** Korg Kaospad style sequencer
