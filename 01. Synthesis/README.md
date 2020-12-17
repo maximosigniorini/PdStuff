@@ -13,3 +13,4 @@
 * **Derek Holzer - particlechamber:** 32 voice granular synth
 * **Alan Black, Keven Lenzo - pdflite:** speech synthesis
 * **Jakob Skouborg - Granular21:** Granular synth inspired by tasty chips gr-1 grain sampler
+* **Subharmonicon:** Clone of Moog's Subharmonicon synthesizer
