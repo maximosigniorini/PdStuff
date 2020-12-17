@@ -33,6 +33,7 @@ Patches from:
 * Hernan Kerlleñevich
 * Derek Kwan
 * Eric Lyon
+* Nick Marcoux
 * Mike Moreno
 * Mike Moser-Booth
 * Joao Pais
